@@ -7,6 +7,17 @@ variables:
 include:
   - https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
 
+# START TODO: move back to master once semgrep merges
+# Only run for gitlab-org branches, as downstream needs exec permissions
+.if-gitlab-org-branch: &if-gitlab-org-branch
+  if: '$CI_PROJECT_NAMESPACE == "gitlab-org/security-products/analyzers"'
+
+.downstream_rules: &downstream_rules
+  - if: $DOWNSTREAM_DISABLED
+    when: never
+  - <<: *if-gitlab-org-branch
+  - when: never
+
 test-custom-ca-bundle:
   rules: *downstream_rules
   stage: test
@@ -16,5 +27,6 @@ test-custom-ca-bundle:
     SECURE_LOG_LEVEL: debug
   trigger:
     project: "gitlab-org/security-products/tests/custom-ca"
-    branch: semgrep # TODO move back to master once semgrep merges
+    branch: semgrep
     strategy: depend
+# END TODO
