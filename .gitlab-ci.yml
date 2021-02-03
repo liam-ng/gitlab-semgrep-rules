@@ -1,0 +1,20 @@
+variables:
+  REPORT_FILENAME: gl-sast-report.json
+  MAJOR: 0
+  MAX_IMAGE_SIZE_BYTE: 98000000
+  SAST_DEFAULT_ANALYZERS: "gosec"
+
+include:
+  - https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+
+test-custom-ca-bundle:
+  rules: *downstream_rules
+  stage: test
+  variables:
+    BASE_IMAGE: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA
+    TARGET: $CI_PROJECT_NAME
+    SECURE_LOG_LEVEL: debug
+  trigger:
+    project: "gitlab-org/security-products/tests/custom-ca"
+    branch: semgrep # TODO move back to master once semgrep merges
+    strategy: depend

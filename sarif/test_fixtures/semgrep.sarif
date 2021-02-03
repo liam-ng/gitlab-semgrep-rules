@@ -1,0 +1,121 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "semgrep",
+          "semanticVersion": "0.39.1",
+          "rules": [
+            {
+              "id": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+              "name": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+              "shortDescription": {
+                "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
+              },
+              "fullDescription": {
+                "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-295: Improper Certificate Validation",
+                  "OWASP-A3: Sensitive Data Exposure"
+                ]
+              }
+            },
+            {
+              "id": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+              "name": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+              "shortDescription": {
+                "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
+              },
+              "fullDescription": {
+                "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-327: Use of a Broken or Risky Cryptographic Algorithm",
+                  "OWASP-A3: Sensitive Data Exposure"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+          "message": {
+            "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/tmp/app/app/app.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 141,
+                  "startColumn": 25,
+                  "endLine": 141,
+                  "endColumn": 46
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+          "message": {
+            "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/tmp/app/tests/e2e_zap.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 9,
+                  "endLine": 18,
+                  "endColumn": 69
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+          "message": {
+            "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/tmp/app/tests/e2e_zap.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 19,
+                  "endLine": 29,
+                  "endColumn": 83
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
