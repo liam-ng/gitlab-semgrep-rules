@@ -69,7 +69,7 @@ type result struct {
 	} `json:"locations"`
 }
 
-var tagIDRegex = regexp.MustCompile(`(CWE)-([^:]+): (.+)`)
+var tagIDRegex = regexp.MustCompile(`([^-]+)-([^:]+): (.+)`)
 
 // TransformToGLSASTReport will take in a sarif file and output a GitLab SAST Report
 // TODO https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317855 document level
@@ -177,6 +177,12 @@ func identifiers(r rule) []issue.Identifier {
 			case "CWE":
 				ids = append(ids, issue.Identifier{
 					Type:  issue.IdentifierTypeCWE,
+					Name:  matches[2],
+					Value: matches[3],
+				})
+			default:
+				ids = append(ids, issue.Identifier{
+					Type:  issue.IdentifierType(strings.ToLower(matches[1])),
 					Name:  matches[2],
 					Value: matches[3],
 				})

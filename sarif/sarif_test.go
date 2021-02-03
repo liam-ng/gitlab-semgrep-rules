@@ -45,6 +45,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 						Name:  "327",
 						Value: "Use of a Broken or Risky Cryptographic Algorithm",
 					},
+					{
+						Type:  "owasp",
+						Name:  "A3",
+						Value: "Sensitive Data Exposure",
+					},
 				},
 			},
 			{
@@ -68,6 +73,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 						Name:  "295",
 						Value: "Improper Certificate Validation",
 					},
+					{
+						Type:  "owasp",
+						Name:  "A3",
+						Value: "Sensitive Data Exposure",
+					},
 				},
 			},
 			{
@@ -90,6 +100,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 						Type:  issue.IdentifierTypeCWE,
 						Name:  "295",
 						Value: "Improper Certificate Validation",
+					},
+					{
+						Type:  "owasp",
+						Name:  "A3",
+						Value: "Sensitive Data Exposure",
 					},
 				},
 			},
