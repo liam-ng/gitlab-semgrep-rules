@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/issue"
-	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/ruleset"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v2"
+	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
 
@@ -17,31 +17,31 @@ func TestTransformToGLSASTReport(t *testing.T) {
 	}
 
 	scanner := metadata.IssueScanner
-	want := &issue.Report{
-		Version:         issue.CurrentVersion(),
+	want := &report.Report{
+		Version:         report.CurrentVersion(),
 		Analyzer:        "semgrep",
 		Config:          ruleset.Config{Path: ruleset.PathSAST},
-		DependencyFiles: []issue.DependencyFile{},
-		Remediations:    []issue.Remediation{},
-		Vulnerabilities: []issue.Issue{
+		DependencyFiles: []report.DependencyFile{},
+		Remediations:    []report.Remediation{},
+		Vulnerabilities: []report.Vulnerability{
 			{
-				Category: issue.CategorySast,
+				Category: report.CategorySast,
 				Message:  "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-				Severity: issue.SeverityLevelMedium,
+				Severity: report.SeverityLevelMedium,
 				Scanner:  scanner,
-				Location: issue.Location{
+				Location: report.Location{
 					File:      "app/app.py",
 					LineStart: 141,
 					LineEnd:   141,
 				},
-				Identifiers: []issue.Identifier{
+				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
 						Name:  "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
 						Value: "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
 					},
 					{
-						Type:  issue.IdentifierTypeCWE,
+						Type:  report.IdentifierTypeCWE,
 						Name:  "327",
 						Value: "Use of a Broken or Risky Cryptographic Algorithm",
 					},
@@ -53,23 +53,23 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: issue.CategorySast,
+				Category: report.CategorySast,
 				Message:  "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-				Severity: issue.SeverityLevelCritical,
+				Severity: report.SeverityLevelCritical,
 				Scanner:  scanner,
-				Location: issue.Location{
+				Location: report.Location{
 					File:      "tests/e2e_zap.py",
 					LineStart: 17,
 					LineEnd:   18,
 				},
-				Identifiers: []issue.Identifier{
+				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
 						Name:  "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
 						Value: "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
 					},
 					{
-						Type:  issue.IdentifierTypeCWE,
+						Type:  report.IdentifierTypeCWE,
 						Name:  "295",
 						Value: "Improper Certificate Validation",
 					},
@@ -81,23 +81,23 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: issue.CategorySast,
+				Category: report.CategorySast,
 				Message:  "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-				Severity: issue.SeverityLevelCritical,
+				Severity: report.SeverityLevelCritical,
 				Scanner:  scanner,
-				Location: issue.Location{
+				Location: report.Location{
 					File:      "tests/e2e_zap.py",
 					LineStart: 28,
 					LineEnd:   29,
 				},
-				Identifiers: []issue.Identifier{
+				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
 						Name:  "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
 						Value: "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
 					},
 					{
-						Type:  issue.IdentifierTypeCWE,
+						Type:  report.IdentifierTypeCWE,
 						Name:  "295",
 						Value: "Improper Certificate Validation",
 					},

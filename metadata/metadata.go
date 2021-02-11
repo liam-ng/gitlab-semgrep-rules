@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/issue"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v2"
 )
 
 const (
@@ -27,7 +27,7 @@ const (
 	scannerName = "Semgrep"
 
 	// Type returns the type of the scan
-	Type issue.Category = issue.CategorySast
+	Type report.Category = report.CategorySast
 )
 
 var (
@@ -39,17 +39,17 @@ var (
 	ScannerVersion = os.Getenv("SCANNER_VERSION")
 
 	// IssueScanner describes the scanner used to find a vulnerability
-	IssueScanner = issue.Scanner{
+	IssueScanner = report.Scanner{
 		ID:   scannerID,
 		Name: scannerName,
 	}
 
 	// ReportScanner returns identifying information about a security scanner
-	ReportScanner = issue.ScannerDetails{
+	ReportScanner = report.ScannerDetails{
 		ID:      scannerID,
 		Name:    scannerName,
 		Version: ScannerVersion,
-		Vendor: issue.Vendor{
+		Vendor: report.Vendor{
 			Name: scannerVendor,
 		},
 		URL: scannerURL,

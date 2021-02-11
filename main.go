@@ -6,7 +6,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/command"
+	"gitlab.com/gitlab-org/security-products/analyzers/command"
 	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/logutil"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/plugin"

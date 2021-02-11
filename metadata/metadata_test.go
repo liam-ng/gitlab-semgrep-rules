@@ -4,15 +4,15 @@ import (
 	"reflect"
 	"testing"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/issue"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v2"
 )
 
 func TestReportScanner(t *testing.T) {
-	want := issue.ScannerDetails{
+	want := report.ScannerDetails{
 		ID:      "semgrep",
 		Name:    "Semgrep",
 		Version: ScannerVersion,
-		Vendor: issue.Vendor{
+		Vendor: report.Vendor{
 			Name: "GitLab",
 		},
 		URL: "https://github.com/returntocorp/semgrep",
