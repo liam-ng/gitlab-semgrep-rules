@@ -8,8 +8,8 @@ import (
 	"regexp"
 	"strings"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/issue"
-	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/ruleset"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v2"
+	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
 
@@ -76,7 +76,7 @@ var tagIDRegex = regexp.MustCompile(`([^-]+)-([^:]+): (.+)`)
 // property (write tests for this)
 // TODO no level prop is equal to level warning
 // TODO all returns
-func TransformToGLSASTReport(reader io.Reader, prependPath string) (*issue.Report, error) {
+func TransformToGLSASTReport(reader io.Reader, prependPath string) (*report.Report, error) {
 	s := sarif{}
 	err := json.Unmarshal(readerToBytes(reader), &s)
 	if err != nil {
@@ -88,15 +88,15 @@ func TransformToGLSASTReport(reader io.Reader, prependPath string) (*issue.Repor
 	}
 
 	// TODO support multiple runs
-	issues, err := transformRun(s.Runs[0], prependPath)
+	vulns, err := transformRun(s.Runs[0], prependPath)
 	if err != nil {
 		return nil, err
 	}
 
-	report := issue.NewReport()
+	report := report.NewReport()
 	report.Analyzer = metadata.AnalyzerID
 	report.Config.Path = ruleset.PathSAST
-	report.Vulnerabilities = issues
+	report.Vulnerabilities = vulns
 	return &report, nil
 }
 
@@ -107,15 +107,15 @@ func readerToBytes(reader io.Reader) []byte {
 }
 
 func countResults(runs []run) int {
-	issuesLength := 0
+	vulnsLength := 0
 	for _, r := range runs {
-		issuesLength += len(r.Results)
+		vulnsLength += len(r.Results)
 	}
-	return issuesLength
+	return vulnsLength
 }
 
 // TODO support multiple locations
-func transformRun(r run, prependPath string) ([]issue.Issue, error) {
+func transformRun(r run, prependPath string) ([]report.Vulnerability, error) {
 	if r.Tool.Driver.Name != "semgrep" {
 		return nil, fmt.Errorf("Driver is %s, but we only support semgrep", r.Tool.Driver.Name)
 	}
@@ -125,15 +125,15 @@ func transformRun(r run, prependPath string) ([]issue.Issue, error) {
 		ruleMap[rule.ID] = rule
 	}
 
-	issues := make([]issue.Issue, len(r.Results))
+	vulns := make([]report.Vulnerability, len(r.Results))
 	for i, result := range r.Results {
 		rule := ruleMap[result.RuleID]
-		issues[i] = issue.Issue{
-			Category: issue.CategorySast,
+		vulns[i] = report.Vulnerability{
+			Category: report.CategorySast,
 			Message:  result.Message.Text,
 			Severity: severity(rule),
 			Scanner:  metadata.IssueScanner,
-			Location: issue.Location{
+			Location: report.Location{
 				File:      strings.TrimPrefix(result.Locations[0].PhysicalLocation.ArtifactLocation.URI, prependPath),
 				LineStart: result.Locations[0].PhysicalLocation.Region.StartLine,
 				LineEnd:   result.Locations[0].PhysicalLocation.Region.EndLine,
@@ -141,27 +141,27 @@ func transformRun(r run, prependPath string) ([]issue.Issue, error) {
 			Identifiers: identifiers(rule),
 		}
 	}
-	return issues, nil
+	return vulns, nil
 }
 
 // See: https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317855
-func severity(r rule) issue.SeverityLevel {
+func severity(r rule) report.SeverityLevel {
 	switch r.DefaultConfiguration.Level {
 	case "error":
-		return issue.SeverityLevelCritical
+		return report.SeverityLevelCritical
 	case "warning":
-		return issue.SeverityLevelMedium
+		return report.SeverityLevelMedium
 	case "note":
-		return issue.SeverityLevelInfo
+		return report.SeverityLevelInfo
 	case "none":
-		return issue.SeverityLevelUnknown
+		return report.SeverityLevelUnknown
 	default:
-		return issue.SeverityLevelMedium
+		return report.SeverityLevelMedium
 	}
 }
 
-func identifiers(r rule) []issue.Identifier {
-	ids := []issue.Identifier{
+func identifiers(r rule) []report.Identifier {
+	ids := []report.Identifier{
 		{
 			Type:  "semgrep_id",
 			Name:  r.ID,
@@ -175,14 +175,14 @@ func identifiers(r rule) []issue.Identifier {
 		if matches != nil {
 			switch matches[1] {
 			case "CWE":
-				ids = append(ids, issue.Identifier{
-					Type:  issue.IdentifierTypeCWE,
+				ids = append(ids, report.Identifier{
+					Type:  report.IdentifierTypeCWE,
 					Name:  matches[2],
 					Value: matches[3],
 				})
 			default:
-				ids = append(ids, issue.Identifier{
-					Type:  issue.IdentifierType(strings.ToLower(matches[1])),
+				ids = append(ids, report.Identifier{
+					Type:  report.IdentifierType(strings.ToLower(matches[1])),
 					Name:  matches[2],
 					Value: matches[3],
 				})
