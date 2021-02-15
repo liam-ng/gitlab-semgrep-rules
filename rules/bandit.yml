@@ -537,7 +537,7 @@ rules:
     owasp: 'A3: Sensitive Data Exposure'
   languages: [python]
   severity: ERROR
-# source (modified): bandit-ruleset
+# source (modified): https://semgrep.dev/c/p/bandit
 # python.lang.security.audit.eval-detected.eval-detected
 - id: bandit.B307
   patterns:
@@ -552,7 +552,7 @@ rules:
     owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
-# source (modified): bandit-ruleset
+# source (modified): https://semgrep.dev/c/p/bandit
 # python.lang.security.audit.eval-detected.eval-detected
 - id: bandit.B307
   patterns:
