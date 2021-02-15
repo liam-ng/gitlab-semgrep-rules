@@ -7,7 +7,7 @@ rules:
     Use of assert detected. The enclosed code will be removed when
     compiling to optimised byte code.
   metadata:
-    cwe: "CWE-754: Improper Check for Unusual or Exceptional Conditions"
+    cwe: 'CWE-754: Improper Check for Unusual or Exceptional Conditions'
   severity: INFO
   languages: [python]
 - id: bandit.B102
@@ -17,8 +17,8 @@ rules:
   message: | 
     The use of `exec` is risky.
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command\
-      \ ('OS Command Injection')"
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
 # https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/insecure-file-permissions.yaml
@@ -33,6 +33,7 @@ rules:
   message: 'Chmod setting a permissive mask on file.'
   metadata:
     cwe: 'CWE-732: Incorrect Permission Assignment for Critical Resource'
+    owasp: 'A6: Security Misconfiguration'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/network/bind.yaml
@@ -59,6 +60,7 @@ rules:
     configuration file.
   metadata:
     cwe: 'CWE-200: Exposure of Sensitive Information to an Unauthorized Actor'
+    owasp: 'A6: Security Misconfiguration'
   severity: INFO
   languages: [python]
 - id: bandit.B105
@@ -72,7 +74,8 @@ rules:
   message: | 
     Possible hardcoded password
   metadata:
-    cwe: "CWE-259: Use of Hard-coded Password"
+    cwe: 'CWE-259: Use of Hard-coded Password'
+    owasp: 'A3: Broken Authentication and Session Management'
   severity: INFO
   languages: [python]
 - id: bandit.B106
@@ -84,7 +87,8 @@ rules:
   message: | 
     Possible hardcoded password
   metadata:
-    cwe: "CWE-259: Use of Hard-coded Password"
+    cwe: 'CWE-259: Use of Hard-coded Password'
+    owasp: 'A3: Broken Authentication and Session Management'
   severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/hardcoded-password-default-argument.yaml
@@ -98,7 +102,8 @@ rules:
     Hardcoded password is used as a default argument to '$FUNC'. This could be dangerous if
     a real password is not supplied.
   metadata:
-    cwe: "CWE-259: Use of Hard-coded Password"
+    cwe: 'CWE-259: Use of Hard-coded Password'
+    owasp: 'A3: Broken Authentication and Session Management'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/best-practice/hardcoded-tmp-path.yaml
@@ -108,7 +113,7 @@ rules:
   message: |
     Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.
   metadata:
-    cwe: "CWE-377: Insecure Temporary File"
+    cwe: 'CWE-377: Insecure Temporary File'
   severity: WARNING
   languages: [python]
 - id: bandit.B108-2
@@ -117,7 +122,7 @@ rules:
   message: | 
     Probable insecure usage of temp file/directory.   
   metadata:
-    cwe: "CWE-377: Insecure Temporary File"
+    cwe: 'CWE-377: Insecure Temporary File'
   severity: WARNING
   languages: [python]
 - id: bandit.B110
@@ -130,7 +135,7 @@ rules:
   message: | 
     Try, Except, Pass
   metadata:
-    cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
+    cwe: 'CWE-703: Improper Check or Handling of Exceptional Conditions'
   severity: INFO
   languages: [python]
 - id: bandit.B112
@@ -143,7 +148,7 @@ rules:
   message: | 
     Try, Except, Continue
   metadata:
-    cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
+    cwe: 'CWE-703: Improper Check or Handling of Exceptional Conditions'
   severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/flask/security/audit/debug-enabled.yaml
@@ -160,6 +165,7 @@ rules:
     variables or setting 'debug' using system environment variables.
   metadata:
     cwe: 'CWE-489: Active Debug Code'
+    owasp: 'A6: Security Misconfiguration'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/deserialization/pickle.yaml
@@ -175,6 +181,7 @@ rules:
     serialization format.
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
   severity: WARNING
   languages: [python]
 # avoid-cPickle
@@ -187,6 +194,7 @@ rules:
     serialization format.
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
   severity: WARNING
   languages: [python]
 # avoid-dill
@@ -200,6 +208,7 @@ rules:
     serialization format.
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
   languages: [python]
   severity: WARNING
 # avoid-shelve
@@ -213,6 +222,7 @@ rules:
     serialization format.
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/marshal.yaml
@@ -229,6 +239,7 @@ rules:
     See more details: https://docs.python.org/3/library/marshal.html?highlight=security
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/insecure-hash-algorithms.yaml
@@ -241,6 +252,7 @@ rules:
     signature. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-sha1
@@ -252,6 +264,7 @@ rules:
     signature. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-hash-algorithm.yaml
@@ -266,6 +279,7 @@ rules:
     has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-md4
@@ -279,6 +293,7 @@ rules:
     has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-md5
@@ -293,6 +308,7 @@ rules:
     signature. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-sha1
@@ -307,6 +323,7 @@ rules:
     signature. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/cryptography/security/insecure-hash-algorithms.yaml
@@ -319,6 +336,7 @@ rules:
     signature. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 - id: bandit.B303-8
@@ -329,6 +347,7 @@ rules:
     signature. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-hash-algorithm.yaml
@@ -343,6 +362,7 @@ rules:
     has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-md4
@@ -356,6 +376,7 @@ rules:
     has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-md5
@@ -370,6 +391,7 @@ rules:
     signature. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-sha1
@@ -384,6 +406,7 @@ rules:
     signature. Use SHA256 or SHA3 instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-cipher-algorithm.yaml
@@ -397,6 +420,7 @@ rules:
     Detected RC2 cipher algorithm which is considered insecure. The algorithm has known vulnerabilities and is difficult to use securely. Use AES instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-rc4
@@ -410,6 +434,7 @@ rules:
     known vulnerabilities. Use AES instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-blowfish
@@ -423,6 +448,7 @@ rules:
     known vulnerabilities. Use AES instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-des
@@ -436,6 +462,7 @@ rules:
     considered weak and has been deprecated. Use AES instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-xor
@@ -449,6 +476,7 @@ rules:
     is not cryptographically secure and can be reversed easily. Use AES instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-rc4
@@ -459,6 +487,7 @@ rules:
     known vulnerabilities. Use AES instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-blowfish
@@ -469,6 +498,7 @@ rules:
     known vulnerabilities. Use AES instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-idea
@@ -479,6 +509,7 @@ rules:
     considered weak and has been deprecated. Use AES instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/cryptography/security/insecure-cipher-mode-ecb.yaml
@@ -490,6 +521,7 @@ rules:
     potentially leak information about the plaintext. Use CBC mode instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/correctness/tempfile/mktemp.yaml
@@ -502,9 +534,11 @@ rules:
     it, someone else may have beaten you to the punch.
   metadata:
     cwe: 'CWE-377: Insecure Temporary File'
+    owasp: 'A3: Sensitive Data Exposure'
   languages: [python]
   severity: ERROR
-# source (modified): python.lang.security.audit.eval-detected.eval-detected
+# source (modified): bandit-ruleset
+# python.lang.security.audit.eval-detected.eval-detected
 - id: bandit.B307
   patterns:
   - pattern: eval(...)
@@ -514,11 +548,12 @@ rules:
     may be a code injection vulnerability. Ensure evaluated content is not definable
     by external sources. Consider using safer ast.literal_eval.
   metadata:
-    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code\
-      \ ('Eval Injection')"
+    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
+    owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
-# source (modified): python.lang.security.audit.eval-detected.eval-detected
+# source (modified): bandit-ruleset
+# python.lang.security.audit.eval-detected.eval-detected
 - id: bandit.B307
   patterns:
   - pattern: eval(...)
@@ -528,8 +563,8 @@ rules:
     may be a code injection vulnerability. Ensure evaluated content is not definable
     by external sources. Consider using safer ast.literal_eval.
   metadata:
-    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code\
-      \ ('Eval Injection')"
+    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
+    owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/avoid-mark-safe.yaml
@@ -545,6 +580,7 @@ rules:
     for rendering instead.
   metadata:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    owasp: 'A7: Cross-Site Scripting (XSS)'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/httpsconnection-detected.yaml
@@ -563,6 +599,7 @@ rules:
     for more information.
   metadata:
     cwe: 'CWE-295: Improper Certificate Validation'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/dynamic-urllib-use-detected.yaml
@@ -603,6 +640,7 @@ rules:
     using the 'requests' library instead.
   metadata:
     cwe: 'CWE-939: Improper Authorization in Handler for Custom URL Scheme'
+    owasp: 'A5: Broken Access Control'
   severity: WARNING
   languages: [python]
 - id: bandit.B310-2
@@ -625,6 +663,7 @@ rules:
     using the 'requests' library instead.
   metadata:
     cwe: 'CWE-939: Improper Authorization in Handler for Custom URL Scheme'
+    owasp: 'A5: Broken Access Control'
   severity: WARNING
   languages: [python]
 - id: bandit.B311
@@ -639,6 +678,7 @@ rules:
     Standard pseudo-random generators are not suitable for security/cryptographic purposes.
   metadata:
     cwe: 'CWE-330: Use of Insufficiently Random Values'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/telnetlib.yaml
@@ -649,6 +689,7 @@ rules:
     Telnet does not encrypt communications. Use SSH instead.
   metadata:
     cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/use-defused-xml.yaml
@@ -685,6 +726,7 @@ rules:
   - pattern: lxml.etree.check_docinfo(...)
   metadata:
     cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
+    owasp: 'A4: XML External Entities (XXE)'
   message: |
     Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
     attacks. The Python documentation recommends the 'defusedxml' library instead. Use 'defusedxml'.
@@ -705,6 +747,7 @@ rules:
   message: Insecure XML parsing functionality, prefer 'defusedxml'
   metadata:
     cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
+    owasp: 'A4: XML External Entities (XXE)'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/ftplib.yaml
@@ -716,6 +759,7 @@ rules:
     data being exposed. Ensure use of FTP here does not expose sensitive data.
   metadata:
     cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/unverified-ssl-context.yaml
@@ -727,6 +771,7 @@ rules:
     SSL certificates. Use 'ssl.create_default_context()' instead.
   metadata:
     cwe: 'CWE-295: Improper Certificate Validation'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: ERROR
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/insecure-hash-function.yaml
@@ -746,6 +791,7 @@ rules:
     Consider using 'SHA256' or a similar function instead.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (modified): https://semgrep.dev/c/p/bandit
@@ -756,7 +802,7 @@ rules:
   - pattern: os.tmpnam(...)
   message: The Python 'os' tempnam|tmpnam functions are vulnerable to symlink attacks
   metadata:
-    cwe: "CWE-377: Insecure Temporary File"
+    cwe: 'CWE-377: Insecure Temporary File'
   severity: WARNING
   languages: [python]
 - id: bandit.B401
@@ -766,6 +812,7 @@ rules:
     Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.
   metadata:
     cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: ERROR
   languages: [python]
 - id: bandit.B402
@@ -778,6 +825,7 @@ rules:
     functions are being called. FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol
   metadata:
     cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: ERROR
   languages: [python]
 - id: bandit.B403
@@ -789,6 +837,7 @@ rules:
     Consider possible security implications associated with pickle module.
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/correctness/unchecked-returns.yaml
@@ -799,7 +848,8 @@ rules:
   message: |
     Consider possible security implications associated with subprocess module.
   metadata:
-    cwe: 'CWE-78: Improper Neutralization of Special Elements used in an OS Command (''OS Command Injection'')'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A8: Insecure Deserialization'
   languages: [python]
   severity: WARNING
 - id: bandit.B411
@@ -809,6 +859,7 @@ rules:
     Consider possible security implications associated with xmlrpclib module.
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
   severity: ERROR
   languages: [python]
 - id: bandit.B412
@@ -819,6 +870,7 @@ rules:
     Consider possible security implications associated with httpoxy module.
   metadata:
     cwe: 'CWE-284: Improper Access Control'
+    owasp: 'A5: Broken Access Control'
   severity: ERROR
   languages: [python]
 - id: bandit.B413
@@ -836,6 +888,7 @@ rules:
     Consider possible security implications associated with pycrypto module.
   metadata:
     cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/requests/security/disabled-cert-validation.yaml
@@ -857,6 +910,7 @@ rules:
     certification validation.
   metadata:
     cwe: 'CWE-295: Improper Certificate Validation'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/weak-ssl-version.yaml
@@ -879,6 +933,7 @@ rules:
     Use 'ssl.PROTOCOL_TLSv1_2' or higher.
   metadata:
     cwe: 'CWE-326: Inadequate Encryption Strength'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 - id: bandit.B504
@@ -888,6 +943,7 @@ rules:
     ssl.wrap_socket call with no SSL/TLS protocol version specified, the default SSLv23 could be insecure, possible security issue.
   metadata:
     cwe: 'CWE-326: Inadequate Encryption Strength'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: INFO
   languages: [python]
 # source (modified/combined): https://github.com/returntocorp/semgrep-rules/tree/develop/python/cryptography/security/insufficient*-size/insufficient*-size.yaml
@@ -920,6 +976,7 @@ rules:
     a key size of 2048 or higher.
   metadata:
     cwe: 'CWE-326: Inadequate Encryption Strength'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 - id: bandit.B505-2
@@ -930,6 +987,7 @@ rules:
     a key size of 224 or higher. For example, use 'ec.SECP256R1'.
   metadata:
     cwe: 'CWE-326: Inadequate Encryption Strength'
+    owasp: 'A3: Sensitive Data Exposure'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/deserialization/avoid-pyyaml-load.yaml
@@ -947,6 +1005,7 @@ rules:
     code. Use `safe_load()` instead.
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/paramiko-implicit-trust-host-key.yaml
@@ -967,6 +1026,7 @@ rules:
     instead.
   metadata:
     cwe: 'CWE-322: Key Exchange without Entity Authentication'
+    owasp: 'A5: Broken Access Control'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/paramiko/paramiko-exec-command.yaml
@@ -982,6 +1042,7 @@ rules:
     SSL certificates. Use 'ssl.create_default_context()' instead.
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/subprocess-shell-true.yaml
@@ -1006,6 +1067,7 @@ rules:
     makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A1: Injection'
   severity: ERROR
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/dangerous-system-call.yaml
@@ -1028,6 +1090,7 @@ rules:
     subprocess call - check for execution of untrusted input
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
 - id: bandit.B604
@@ -1038,6 +1101,7 @@ rules:
     subprocess call - check for execution of untrusted input
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A1: Injection'
   severity: INFO
   languages: [python]
 - id: bandit.B605
@@ -1060,6 +1124,7 @@ rules:
     future, consider rewriting without shell
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A1: Injection'
   severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/dangerous-spawn-process.yaml
@@ -1096,6 +1161,7 @@ rules:
     execute commands. Ensure no external data reaches here.
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
 - id: bandit.B607
@@ -1120,6 +1186,7 @@ rules:
     Starting a process with a partial executable path
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+    owasp: 'A1: Injection'
   severity: INFO
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/formatted-sql-query.yaml
@@ -1147,6 +1214,7 @@ rules:
     Detected possible formatted SQL query. Use parameterized queries instead.
   metadata:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/system-wildcard-detected.yaml
@@ -1170,6 +1238,7 @@ rules:
     for more information.
   metadata:
     cwe: 'CWE-155: Improper Neutralization of Wildcards or Matching Symbols'
+    owasp: 'A1: Injection'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/query-set-extra.yaml
@@ -1183,6 +1252,7 @@ rules:
   message: This is a last resort. You should be careful when using QuerySet.extra due to SQLi https://docs.djangoproject.com/en/3.0/ref/models/querysets/#django.db.models.query.QuerySet.extra
   metadata:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    owasp: 'A1: Injection'
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/raw-query.yaml
@@ -1195,6 +1265,7 @@ rules:
   message: You should be very careful whenever you write raw SQL. Consider using Django ORM before raw SQL. See https://docs.djangoproject.com/en/3.0/topics/db/sql/#passing-parameters-into-raw
   metadata:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+    owasp: 'A1: Injection'
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/jinja2/security/audit/autoescape-disabled.yaml
@@ -1212,6 +1283,7 @@ rules:
     automatic escaping for certain file extensions.
   metadata:
     cwe: 'CWE-116: Improper Encoding or Escaping of Output'
+    owasp: 'A7: Cross-Site Scripting (XSS)'
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/mako-templates-detected.yaml
@@ -1226,6 +1298,7 @@ rules:
     a system such as Jinja2 which enables global escaping.
   metadata:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    owasp: 'A7: Cross-Site Scripting (XSS)'
   severity: INFO
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/avoid-mark-safe.yaml
@@ -1245,6 +1318,7 @@ rules:
     for rendering instead.
   metadata:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    owasp: 'A7: Cross-Site Scripting (XSS)'
   severity: WARNING
   languages: [python]
 
