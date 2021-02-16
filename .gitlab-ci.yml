@@ -1,8 +1,54 @@
 variables:
   REPORT_FILENAME: gl-sast-report.json
   MAJOR: 0
-  MAX_IMAGE_SIZE_BYTE: 98000000
+  MAX_IMAGE_SIZE_MB: 125
   SAST_DEFAULT_ANALYZERS: "gosec"
 
 include:
   - https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+
+.qa-downstream-sast:
+  variables:
+    DS_DEFAULT_ANALYZERS: ""
+    SAST_DEFAULT_ANALYZERS: "semgrep"
+    SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
+
+python-pip-flask-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/python-pip-flask
+
+python-pip-flask-custom-rulesets-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask-custom-rulesets/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/python-pip-flask
+    branch: custom-rulesets-FREEZE
+
+python-pip-multi-project-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-multi-project/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/python-pip
+    # branch: multi-project-FREEZE
+    branch: semgrep-multi-project # TODO switch to ^^^ once branch mergeds
+
+python-pip-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/python-pip
+    branch: semgrep # TODO remove once branch is merged
+
+python-pipenv-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pipenv/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/python-pipenv
+    branch: semgrep # TODO remove once branch is merged

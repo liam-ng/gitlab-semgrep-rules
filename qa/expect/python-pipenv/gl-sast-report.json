@@ -1,0 +1,50 @@
+{
+  "version": "3.0.0",
+  "vulnerabilities": [
+    {
+      "id": "653ad7bc296cd7e6142352fceefe6fbd2cf72ef751b64534da250d7415afb4f7",
+      "category": "sast",
+      "message": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/test_simple.py",
+        "start_line": 7,
+        "end_line": 7
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.bandit.B101",
+          "value": "rules.bandit.B101"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-754",
+          "value": "754",
+          "url": "https://cwe.mitre.org/data/definitions/754.html"
+        }
+      ]
+    }
+  ],
+  "remediations": [],
+  "scan": {
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "0.39.1"
+    },
+    "type": "sast",
+    "start_time": "2021-02-13T03:19:59",
+    "end_time": "2021-02-13T03:20:07",
+    "status": "success"
+  }
+}

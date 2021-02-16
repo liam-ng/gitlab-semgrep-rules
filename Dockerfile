@@ -19,7 +19,7 @@ RUN addgroup -g 1000 semgrep && \
     chown root:semgrep /ca-cert-additional-gitlab-bundle.pem && \
     chmod g+w /ca-cert-additional-gitlab-bundle.pem
 
-FROM returntocorp/semgrep:$SCANNER_VERSION
+FROM python:3.9-alpine
 
 ARG SCANNER_VERSION
 ENV SCANNER_VERSION ${SCANNER_VERSION}
@@ -27,6 +27,8 @@ ENV SCANNER_VERSION ${SCANNER_VERSION}
 COPY --from=build /analyzer /analyzer
 COPY --from=build /ca-cert-additional-gitlab-bundle.pem /etc/ssl/certs/ca-cert-additional-gitlab-bundle.pem
 COPY rules /rules
+
+RUN pip install semgrep==$SCANNER_VERSION
 
 ENTRYPOINT []
 CMD ["/analyzer", "run"]
