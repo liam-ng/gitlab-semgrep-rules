@@ -6,7 +6,10 @@ import (
 	"fmt"
 	"io"
 	"regexp"
+	"strconv"
 	"strings"
+
+	log "github.com/sirupsen/logrus"
 
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v2"
 	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
@@ -69,16 +72,20 @@ type result struct {
 	} `json:"locations"`
 }
 
+const vulnerabilityMessageMaxLength = 400
+
 var tagIDRegex = regexp.MustCompile(`([^-]+)-([^:]+): (.+)`)
 
 // TransformToGLSASTReport will take in a sarif file and output a GitLab SAST Report
-// TODO https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317855 document level
-// property (write tests for this)
-// TODO no level prop is equal to level warning
-// TODO all returns
-func TransformToGLSASTReport(reader io.Reader, prependPath string) (*report.Report, error) {
+func TransformToGLSASTReport(reader io.Reader, rootPath string) (*report.Report, error) {
 	s := sarif{}
-	err := json.Unmarshal(readerToBytes(reader), &s)
+
+	jsonBytes, err := readerToBytes(reader)
+	if err != nil {
+		return nil, err
+	}
+
+	err = json.Unmarshal(jsonBytes, &s)
 	if err != nil {
 		return nil, err
 	}
@@ -87,35 +94,36 @@ func TransformToGLSASTReport(reader io.Reader, prependPath string) (*report.Repo
 		return nil, fmt.Errorf("version for SARIF is %s, but we only support 2.1.0", s.Version)
 	}
 
-	// TODO support multiple runs
-	vulns, err := transformRun(s.Runs[0], prependPath)
-	if err != nil {
-		return nil, err
+	var allVulns []report.Vulnerability
+
+	// It is generally expected to only have a single run, but best to parse all as it is a collection.
+	for _, run := range s.Runs {
+		vulns, err := transformRun(run, rootPath)
+		if err != nil {
+			return nil, err
+		}
+
+		allVulns = append(allVulns, vulns...)
 	}
 
 	report := report.NewReport()
 	report.Analyzer = metadata.AnalyzerID
 	report.Config.Path = ruleset.PathSAST
-	report.Vulnerabilities = vulns
+	report.Vulnerabilities = allVulns
 	return &report, nil
 }
 
-func readerToBytes(reader io.Reader) []byte {
+func readerToBytes(reader io.Reader) ([]byte, error) {
 	buf := new(bytes.Buffer)
-	buf.ReadFrom(reader)
-	return buf.Bytes()
-}
-
-func countResults(runs []run) int {
-	vulnsLength := 0
-	for _, r := range runs {
-		vulnsLength += len(r.Results)
+	_, err := buf.ReadFrom(reader)
+	if err != nil {
+		return nil, err
 	}
-	return vulnsLength
+
+	return buf.Bytes(), nil
 }
 
-// TODO support multiple locations
-func transformRun(r run, prependPath string) ([]report.Vulnerability, error) {
+func transformRun(r run, rootPath string) ([]report.Vulnerability, error) {
 	if r.Tool.Driver.Name != "semgrep" {
 		return nil, fmt.Errorf("Driver is %s, but we only support semgrep", r.Tool.Driver.Name)
 	}
@@ -125,26 +133,45 @@ func transformRun(r run, prependPath string) ([]report.Vulnerability, error) {
 		ruleMap[rule.ID] = rule
 	}
 
-	vulns := make([]report.Vulnerability, len(r.Results))
-	for i, result := range r.Results {
-		rule := ruleMap[result.RuleID]
-		vulns[i] = report.Vulnerability{
-			Category: report.CategorySast,
-			Message:  result.Message.Text,
-			Severity: severity(rule),
-			Scanner:  metadata.IssueScanner,
-			Location: report.Location{
-				File:      strings.TrimPrefix(result.Locations[0].PhysicalLocation.ArtifactLocation.URI, prependPath),
-				LineStart: result.Locations[0].PhysicalLocation.Region.StartLine,
-				LineEnd:   result.Locations[0].PhysicalLocation.Region.EndLine,
-			},
-			Identifiers: identifiers(rule),
+	var vulns []report.Vulnerability
+	for _, result := range r.Results {
+		for _, location := range result.Locations {
+			rule := ruleMap[result.RuleID]
+
+			var message string
+			if len(result.Message.Text) > vulnerabilityMessageMaxLength {
+				message = result.Message.Text[:vulnerabilityMessageMaxLength]
+			} else {
+				message = result.Message.Text
+			}
+
+			lineEnd := location.PhysicalLocation.Region.EndLine
+			if lineEnd == 0 {
+				// https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317692 states that
+				// EndLine defaults to StartLine
+				lineEnd = location.PhysicalLocation.Region.StartLine
+			}
+
+			vulns = append(vulns, report.Vulnerability{
+				Category: report.CategorySast,
+				Message:  message,
+				Severity: severity(rule),
+				Scanner:  metadata.IssueScanner,
+				Location: report.Location{
+					File:      removeRootPath(location.PhysicalLocation.ArtifactLocation.URI, rootPath),
+					LineStart: location.PhysicalLocation.Region.StartLine,
+					LineEnd:   lineEnd,
+				},
+				Identifiers: identifiers(rule),
+			})
 		}
 	}
 	return vulns, nil
 }
 
-// See: https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317855
+// See: https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/sarif-v2.1.0-os.html#_Toc34317855 for more
+// information about the level property. The docs say that when level is not defined, then the value is equal
+// to warning.
 func severity(r rule) report.SeverityLevel {
 	switch r.DefaultConfiguration.Level {
 	case "error":
@@ -173,22 +200,29 @@ func identifiers(r rule) []report.Identifier {
 		matches := tagIDRegex.FindStringSubmatch(tag)
 
 		if matches != nil {
-			switch matches[1] {
-			case "CWE":
-				ids = append(ids, report.Identifier{
-					Type:  report.IdentifierTypeCWE,
-					Name:  matches[2],
-					Value: matches[3],
-				})
+			switch strings.ToLower(matches[1]) {
+			case "cwe":
+				cweID, err := strconv.Atoi(matches[2])
+				if err != nil {
+					log.Errorf("Failure to parse CWE ID: %v\n", err)
+					continue
+				}
+
+				ids = append(ids, report.CWEIdentifier(cweID))
 			default:
 				ids = append(ids, report.Identifier{
 					Type:  report.IdentifierType(strings.ToLower(matches[1])),
-					Name:  matches[2],
-					Value: matches[3],
+					Name:  matches[3],
+					Value: matches[2],
 				})
 			}
 		}
 	}
 
 	return ids
+}
+
+func removeRootPath(path, rootPath string) string {
+	prefix := strings.TrimSuffix(rootPath, "/") + "/"
+	return strings.TrimPrefix(path, prefix)
 }
