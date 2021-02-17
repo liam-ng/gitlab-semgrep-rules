@@ -2,7 +2,7 @@
   "version": "3.0.0",
   "vulnerabilities": [
     {
-      "id": "653ad7bc296cd7e6142352fceefe6fbd2cf72ef751b64534da250d7415afb4f7",
+      "id": "7ce9f45b4de6056af7e36a4c1a84c4faad6ce9fe4dfb8e6b134e4c493861f131",
       "category": "sast",
       "message": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
       "cve": "",
@@ -27,6 +27,11 @@
           "name": "CWE-754",
           "value": "754",
           "url": "https://cwe.mitre.org/data/definitions/754.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B101",
+          "value": "B101"
         }
       ]
     }
@@ -43,8 +48,8 @@
       "version": "0.39.1"
     },
     "type": "sast",
-    "start_time": "2021-02-13T03:16:27",
-    "end_time": "2021-02-13T03:16:35",
+    "start_time": "2021-02-22T13:28:33",
+    "end_time": "2021-02-22T13:28:42",
     "status": "success"
   }
 }

@@ -9,8 +9,8 @@
           "semanticVersion": "0.39.1",
           "rules": [
             {
-              "id": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
-              "name": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+              "id": "rules.bandit.B323",
+              "name": "rules.bandit.B323",
               "shortDescription": {
                 "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
               },
@@ -29,8 +29,28 @@
               }
             },
             {
-              "id": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
-              "name": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+              "id": "rules.bandit.B502.B503",
+              "name": "rules.bandit.B502.B503",
+              "shortDescription": {
+                "text": "An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions\nare considered weak encryption and are deprecated.\nUse 'ssl.PROTOCOL_TLSv1_2' or higher.\n"
+              },
+              "fullDescription": {
+                "text": "An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions\nare considered weak encryption and are deprecated.\nUse 'ssl.PROTOCOL_TLSv1_2' or higher.\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-326: Inadequate Encryption Strength",
+                  "OWASP-A3: Sensitive Data Exposure"
+                ]
+              }
+            }, 
+            {
+              "id": "rules.bandit.B303-1",
+              "name": "rules.bandit.B303-1",
               "shortDescription": {
                 "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
               },
@@ -50,7 +70,7 @@
       },
       "results": [
         {
-          "ruleId": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+          "ruleId": "rules.bandit.B303-1",
           "message": {
             "text": "Very Long Message: Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
           },
@@ -71,7 +91,29 @@
           ]
         },
         {
-          "ruleId": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+          "ruleId": "rules.bandit.B502.B503",
+          "message": {
+            "text": "An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions\nare considered weak encryption and are deprecated.\nUse 'ssl.PROTOCOL_TLSv1_2' or higher.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/tmp/app/tests/e2e_zap.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 9,
+                  "endLine": 18,
+                  "endColumn": 69
+                }
+              }
+            }
+          ]
+        }, 
+        {
+          "ruleId": "rules.bandit.B323",
           "message": {
             "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
           },
@@ -93,7 +135,7 @@
           ]
         },
         {
-          "ruleId": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+          "ruleId": "rules.bandit.B323",
           "message": {
             "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
           },
@@ -123,8 +165,8 @@
           "semanticVersion": "0.39.1",
           "rules": [
             {
-              "id": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
-              "name": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+              "id": "rules.bandit.B323",
+              "name": "rules.bandit.B323",
               "shortDescription": {
                 "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
               },
@@ -143,8 +185,8 @@
               }
             },
             {
-              "id": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
-              "name": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+              "id": "rules.bandit.B303-1",
+              "name": "rules.bandit.B303-1",
               "shortDescription": {
                 "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
               },
@@ -164,7 +206,7 @@
       },
       "results": [
         {
-          "ruleId": "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+          "ruleId": "rules.bandit.B303-1",
           "message": {
             "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
           },
@@ -186,7 +228,7 @@
           ]
         },
         {
-          "ruleId": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+          "ruleId": "rules.bandit.B323",
           "message": {
             "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
           },
@@ -208,7 +250,7 @@
           ]
         },
         {
-          "ruleId": "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+          "ruleId": "rules.bandit.B323",
           "message": {
             "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
           },

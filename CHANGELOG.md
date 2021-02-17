@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v0.5.0
+- Add bandit identifier to `Report.Vulnerabilities` (!10)
+
 ## v0.4.0
 - Fix paths in report to be relative to project root (!6)
 - Update Dockerfile to give us control over base image (!6)
