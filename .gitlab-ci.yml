@@ -34,8 +34,7 @@ python-pip-multi-project-qa:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-multi-project/gl-sast-report.json"
   trigger:
     project: gitlab-org/security-products/tests/python-pip
-    # branch: multi-project-FREEZE
-    branch: semgrep-multi-project # TODO switch to ^^^ once branch mergeds
+    branch: multi-project-FREEZE
 
 python-pip-qa:
   extends: .qa-downstream-sast
@@ -43,7 +42,6 @@ python-pip-qa:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip/gl-sast-report.json"
   trigger:
     project: gitlab-org/security-products/tests/python-pip
-    branch: semgrep # TODO remove once branch is merged
 
 python-pipenv-qa:
   extends: .qa-downstream-sast
@@ -51,4 +49,3 @@ python-pipenv-qa:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pipenv/gl-sast-report.json"
   trigger:
     project: gitlab-org/security-products/tests/python-pipenv
-    branch: semgrep # TODO remove once branch is merged
