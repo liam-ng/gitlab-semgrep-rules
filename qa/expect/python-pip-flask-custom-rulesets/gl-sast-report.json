@@ -2,7 +2,7 @@
   "version": "3.0.0",
   "vulnerabilities": [
     {
-      "id": "b0ae8a403a2e8f444ebbdfba78783b0198986adef95d3c2095c0af4cbac56209",
+      "id": "95a0b41e8e7464e49a8df9a57f229303816d4a6fdaf217f5606301f5407d18ab",
       "category": "sast",
       "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
       "cve": "",
@@ -32,11 +32,16 @@
           "type": "owasp",
           "name": "Sensitive Data Exposure",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
         }
       ]
     },
     {
-      "id": "8af214d398165a08edd8dc5edd1633060c14edd371d3cc2808e1d40e4bdf7e94",
+      "id": "78dba218dcd625341fcec3551b6aa486d3230ac37681d3206efcfb0d06b246e0",
       "category": "sast",
       "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
       "cve": "",
@@ -66,11 +71,16 @@
           "type": "owasp",
           "name": "Sensitive Data Exposure",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
         }
       ]
     },
     {
-      "id": "5b159a2ce729ec62184d611071367c60319d62df23833fc89172c63c4249b919",
+      "id": "7f1515752135e39b04c7674aec75a3b05b12ee858f77d468c45c48f9ea8074c7",
       "category": "sast",
       "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
       "cve": "",
@@ -100,11 +110,16 @@
           "type": "owasp",
           "name": "Sensitive Data Exposure",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
         }
       ]
     },
     {
-      "id": "c682ab06a7f7cd01a05b5051cd31e557066a6c9d45d4a6f360226ac09f91738f",
+      "id": "c3135a7832e8b7563a74fbb96ba7e5c3a96d74ad803c2227b11a33669688e9ca",
       "category": "sast",
       "message": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
       "cve": "",
@@ -134,11 +149,16 @@
           "type": "owasp",
           "name": "Insecure Deserialization",
           "value": "A8"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B506",
+          "value": "B506"
         }
       ]
     },
     {
-      "id": "ec3898c3e00d28a9947a77a82a10c98186c5729bb3820138404cbbc3e2cd995f",
+      "id": "450d05ee7784841e2fae401f007d6f63485052f6567e523df293bb46f4e3a005",
       "category": "sast",
       "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
       "cve": "",
@@ -168,11 +188,16 @@
           "type": "owasp",
           "name": "Sensitive Data Exposure",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
         }
       ]
     },
     {
-      "id": "d4087814b16b232d51584cff234bfca297501b7be2b02b8a3625bd03b619e4ca",
+      "id": "3e61d29d40bb7a066c446b3b1fac205659fce489bcaa027f6104df5c03a6e493",
       "category": "sast",
       "message": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
       "cve": "",
@@ -202,11 +227,16 @@
           "type": "owasp",
           "name": "Injection",
           "value": "A1"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B608",
+          "value": "B608"
         }
       ]
     },
     {
-      "id": "05f01a5b9f588e68236656949da8cae3289f71b2578a0b9083ca7696a8926f01",
+      "id": "0c799ca2bb2a202b3b71dc8f580081de018dded3b1e8557950627bb4e854542e",
       "category": "sast",
       "message": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "",
@@ -236,11 +266,16 @@
           "type": "owasp",
           "name": "Sensitive Data Exposure",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B303",
+          "value": "B303"
         }
       ]
     },
     {
-      "id": "37504995e83bc26f265a4487d3d1273c3407faedf911ca54fa0608960ffe9acb",
+      "id": "62c8bfe991fb2b82e15fb57851355025e67cdce88147ed301653badf84f2214b",
       "category": "sast",
       "message": "Possible hardcoded password\n",
       "cve": "",
@@ -270,11 +305,16 @@
           "type": "owasp",
           "name": "Broken Authentication and Session Management",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
         }
       ]
     },
     {
-      "id": "bd02fcfcd61159e2da78c2e4f846dbc877dc18b494b0cb2e35685ce6148634c5",
+      "id": "1f29824a2040c57c58071b3522fc3c8a4c3e95d288163bb0386584a064c637db",
       "category": "sast",
       "message": "Possible hardcoded password\n",
       "cve": "",
@@ -304,11 +344,16 @@
           "type": "owasp",
           "name": "Broken Authentication and Session Management",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
         }
       ]
     },
     {
-      "id": "98e69e10b1226dccbe09c0eca6e5cf9d714c99eeca32fe99ea2f1c04a9a7f2c3",
+      "id": "9d1b6921ae5678bfbfa8cc4c543e92a9e55c04ff32670273c738480303e39fe7",
       "category": "sast",
       "message": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
       "cve": "",
@@ -338,11 +383,16 @@
           "type": "owasp",
           "name": "Sensitive Data Exposure",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B311",
+          "value": "B311"
         }
       ]
     },
     {
-      "id": "9e4f7be239c04b6b4df4b3c7eb61b5e75139d97887f6fbb29d5ee761f41c562f",
+      "id": "271e1a8c7e113ca99f2a100a49993869ec62020987f0f2aa70c053e9b4402a69",
       "category": "sast",
       "message": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
       "cve": "",
@@ -372,6 +422,11 @@
           "type": "owasp",
           "name": "Sensitive Data Exposure",
           "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B311",
+          "value": "B311"
         }
       ]
     }
@@ -388,8 +443,8 @@
       "version": "0.39.1"
     },
     "type": "sast",
-    "start_time": "2021-02-16T10:29:40",
-    "end_time": "2021-02-16T10:29:49",
+    "start_time": "2021-02-22T13:35:08",
+    "end_time": "2021-02-22T13:35:17",
     "status": "success"
   }
 }

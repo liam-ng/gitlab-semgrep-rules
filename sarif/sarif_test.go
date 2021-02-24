@@ -40,14 +40,43 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
-						Value: "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+						Name:  "rules.bandit.B303-1",
+						Value: "rules.bandit.B303-1",
 					},
 					{
 						Type:  "cwe",
 						Name:  "CWE-327",
 						Value: "327",
 						URL:   "https://cwe.mitre.org/data/definitions/327.html",
+					},
+					{
+						Type:  "owasp",
+						Name:  "Sensitive Data Exposure",
+						Value: "A3",
+					},
+				},
+			},
+			{
+				Category: report.CategorySast,
+				Message:  "An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions\nare considered weak encryption and are deprecated.\nUse 'ssl.PROTOCOL_TLSv1_2' or higher.\n",
+				Severity: report.SeverityLevelCritical,
+				Scanner:  scanner,
+				Location: report.Location{
+					File:      "tests/e2e_zap.py",
+					LineStart: 17,
+					LineEnd:   18,
+				},
+				Identifiers: []report.Identifier{
+					{
+						Type:  "semgrep_id",
+						Name:  "rules.bandit.B502.B503",
+						Value: "rules.bandit.B502.B503",
+					},
+					{
+						Type:  "cwe",
+						Name:  "CWE-326",
+						Value: "326",
+						URL:   "https://cwe.mitre.org/data/definitions/326.html",
 					},
 					{
 						Type:  "owasp",
@@ -69,8 +98,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
-						Value: "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+						Name:  "rules.bandit.B323",
+						Value: "rules.bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -98,8 +127,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
-						Value: "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+						Name:  "rules.bandit.B323",
+						Value: "rules.bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -127,8 +156,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
-						Value: "rules.python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-md5",
+						Name:  "rules.bandit.B303-1",
+						Value: "rules.bandit.B303-1",
 					},
 					{
 						Type:  "cwe",
@@ -156,8 +185,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
-						Value: "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+						Name:  "rules.bandit.B323",
+						Value: "rules.bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -185,8 +214,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
-						Value: "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+						Name:  "rules.bandit.B323",
+						Value: "rules.bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -214,8 +243,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
-						Value: "rules.python.requests.security.disabled-cert-validation.disabled-cert-validation",
+						Name:  "rules.bandit.B323",
+						Value: "rules.bandit.B323",
 					},
 					{
 						Type:  "cwe",
