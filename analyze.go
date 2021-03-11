@@ -14,9 +14,11 @@ func analyzeFlags() []cli.Flag {
 	return []cli.Flag{}
 }
 
-// The nosec comments below are safe as the caller of this function is part of the trusted common framework.
-// We trust that the projectPath variable is safe to pass to a command as well as use to create a path to open
-// for the io.ReadCloser that needs to be returned.
+// The nosec comments below are ignoring two false positive vulnerabilities. They are false positive as this
+// program is built inside an environment (i.e. docker image) that we have full control over as well as the
+// fact that we control the `projectPath` var passed into the function and accept the open file as an output.
+// In other words, this function is internal to the complete program we're building and not exposed to any
+// third party.
 func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 	configPath := path.Join("/", "rules")
 	outputPath := path.Join(projectPath, "semgrep.sarif")
