@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v0.6.0
+- Add eslint and react rule-sets (!12)
+
 ## v0.5.0
 - Add bandit identifier to `Report.Vulnerabilities` (!10)
 
