@@ -9,7 +9,9 @@ import (
 
 // Match checks if the file extension is .py
 func Match(path string, info os.FileInfo) (bool, error) {
-	if filepath.Ext(info.Name()) == ".py" {
+	ext := filepath.Ext(info.Name())
+	if ext == ".py" || ext == ".js" || ext == ".ts" ||
+		ext == ".jsx" || ext == ".tsx" {
 		return true, nil
 	}
 	return false, nil

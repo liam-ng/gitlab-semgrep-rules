@@ -2,45 +2,6 @@
   "version": "3.0.0",
   "vulnerabilities": [
     {
-      "id": "95a0b41e8e7464e49a8df9a57f229303816d4a6fdaf217f5606301f5407d18ab",
-      "category": "sast",
-      "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 28,
-        "end_line": 29
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.bandit.B501",
-          "value": "rules.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
       "id": "78dba218dcd625341fcec3551b6aa486d3230ac37681d3206efcfb0d06b246e0",
       "category": "sast",
       "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
@@ -80,7 +41,7 @@
       ]
     },
     {
-      "id": "7f1515752135e39b04c7674aec75a3b05b12ee858f77d468c45c48f9ea8074c7",
+      "id": "95a0b41e8e7464e49a8df9a57f229303816d4a6fdaf217f5606301f5407d18ab",
       "category": "sast",
       "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
       "cve": "",
@@ -91,8 +52,47 @@
       },
       "location": {
         "file": "tests/e2e_zap.py",
-        "start_line": 44,
-        "end_line": 45
+        "start_line": 28,
+        "end_line": 29
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.bandit.B501",
+          "value": "rules.bandit.B501"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-295",
+          "value": "295",
+          "url": "https://cwe.mitre.org/data/definitions/295.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
+        }
+      ]
+    },
+    {
+      "id": "450d05ee7784841e2fae401f007d6f63485052f6567e523df293bb46f4e3a005",
+      "category": "sast",
+      "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+      "cve": "",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 17,
+        "end_line": 18
       },
       "identifiers": [
         {
@@ -158,7 +158,7 @@
       ]
     },
     {
-      "id": "450d05ee7784841e2fae401f007d6f63485052f6567e523df293bb46f4e3a005",
+      "id": "7f1515752135e39b04c7674aec75a3b05b12ee858f77d468c45c48f9ea8074c7",
       "category": "sast",
       "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
       "cve": "",
@@ -169,8 +169,8 @@
       },
       "location": {
         "file": "tests/e2e_zap.py",
-        "start_line": 17,
-        "end_line": 18
+        "start_line": 44,
+        "end_line": 45
       },
       "identifiers": [
         {
@@ -275,9 +275,111 @@
       ]
     },
     {
-      "id": "62c8bfe991fb2b82e15fb57851355025e67cdce88147ed301653badf84f2214b",
+      "id": "1e14da63a3aafe1a20e963d6b535b091abfb28ec07b312bcc942460dedcc2341",
       "category": "sast",
-      "message": "Possible hardcoded password\n",
+      "message": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/loader.js",
+        "start_line": 24,
+        "end_line": 24
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.detect-eval-with-expression",
+          "value": "rules.detect-eval-with-expression"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-95",
+          "value": "95",
+          "url": "https://cwe.mitre.org/data/definitions/95.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Injection",
+          "value": "A1"
+        }
+      ]
+    },
+    {
+      "id": "bddf5d6d9e4b1925e05c4a4906e5fa49c7c181e400d9eda190424e7e4fd092b8",
+      "category": "sast",
+      "message": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/loader.js",
+        "start_line": 41,
+        "end_line": 41
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.detect-eval-with-expression",
+          "value": "rules.detect-eval-with-expression"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-95",
+          "value": "95",
+          "url": "https://cwe.mitre.org/data/definitions/95.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Injection",
+          "value": "A1"
+        }
+      ]
+    },
+    {
+      "id": "0a03ae11a0e93313313c0af650b3d43bf6219b0e1c9c99f6560b67e2492ffbcf",
+      "category": "sast",
+      "message": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/loader.js",
+        "start_line": 26,
+        "end_line": 26
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.detect-eval-with-expression",
+          "value": "rules.detect-eval-with-expression"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-95",
+          "value": "95",
+          "url": "https://cwe.mitre.org/data/definitions/95.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Injection",
+          "value": "A1"
+        }
+      ]
+    },
+    {
+      "id": "9d1b6921ae5678bfbfa8cc4c543e92a9e55c04ff32670273c738480303e39fe7",
+      "category": "sast",
+      "message": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
       "cve": "",
       "severity": "Info",
       "scanner": {
@@ -286,30 +388,30 @@
       },
       "location": {
         "file": "app/app.py",
-        "start_line": 28,
-        "end_line": 28
+        "start_line": 295,
+        "end_line": 295
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "rules.bandit.B311",
+          "value": "rules.bandit.B311"
         },
         {
           "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "Sensitive Data Exposure",
           "value": "A3"
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
+          "name": "Bandit Test ID B311",
+          "value": "B311"
         }
       ]
     },
@@ -353,9 +455,9 @@
       ]
     },
     {
-      "id": "9d1b6921ae5678bfbfa8cc4c543e92a9e55c04ff32670273c738480303e39fe7",
+      "id": "62c8bfe991fb2b82e15fb57851355025e67cdce88147ed301653badf84f2214b",
       "category": "sast",
-      "message": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
+      "message": "Possible hardcoded password\n",
       "cve": "",
       "severity": "Info",
       "scanner": {
@@ -364,30 +466,30 @@
       },
       "location": {
         "file": "app/app.py",
-        "start_line": 295,
-        "end_line": 295
+        "start_line": 28,
+        "end_line": 28
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B311",
-          "value": "rules.bandit.B311"
+          "name": "rules.bandit.B105",
+          "value": "rules.bandit.B105"
         },
         {
           "type": "cwe",
-          "name": "CWE-330",
-          "value": "330",
-          "url": "https://cwe.mitre.org/data/definitions/330.html"
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "Broken Authentication and Session Management",
           "value": "A3"
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B311",
-          "value": "B311"
+          "name": "Bandit Test ID B105",
+          "value": "B105"
         }
       ]
     },
@@ -443,8 +545,8 @@
       "version": "0.39.1"
     },
     "type": "sast",
-    "start_time": "2021-02-22T13:35:08",
-    "end_time": "2021-02-22T13:35:17",
+    "start_time": "2021-03-02T22:07:00",
+    "end_time": "2021-03-02T22:07:24",
     "status": "success"
   }
 }
