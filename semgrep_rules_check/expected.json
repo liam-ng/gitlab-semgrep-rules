@@ -1,0 +1,49 @@
+{
+    "results": [
+        {
+            "check_id": "detect-non-literal-regexp",
+            "path": "eslint_rules/positives.js",
+            "start": {
+                "line": 3,
+                "col": 8
+            },
+            "end": {
+                "line": 3,
+                "col": 27
+            },
+            "extra": {
+                "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+                "metavars": {},
+                "metadata": {
+                    "cwe": "CWE-185: Incorrect Regular Expression"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  r2 = new RegExp(someVar)"
+            }
+        },
+        {
+            "check_id": "detect-non-literal-regexp",
+            "path": "eslint_rules/positives.js",
+            "start": {
+                "line": 4,
+                "col": 8
+            },
+            "end": {
+                "line": 4,
+                "col": 39
+            },
+            "extra": {
+                "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+                "metavars": {},
+                "metadata": {
+                    "cwe": "CWE-185: Incorrect Regular Expression"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  r3 = new RegExp('a' + someVar + 'b')"
+            }
+        }
+    ],
+    "errors": []
+}

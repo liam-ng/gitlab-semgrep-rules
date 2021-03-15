@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v0.6.1
+- Add detect-non-literal-regexp semgrep rule (!16)
+- Setup test framework for semgrep rules (!16)
+
 ## v0.6.0
 - Add eslint and react rule-sets (!12)
 
