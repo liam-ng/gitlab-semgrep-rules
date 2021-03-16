@@ -2059,6 +2059,300 @@
             }
         },
         {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.js",
+            "start": {
+                "line": 14,
+                "col": 11
+            },
+            "end": {
+                "line": 14,
+                "col": 23
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[someVar]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.js",
+            "start": {
+                "line": 15,
+                "col": 11
+            },
+            "end": {
+                "line": 15,
+                "col": 28
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[someObjVar.s]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.js",
+            "start": {
+                "line": 16,
+                "col": 11
+            },
+            "end": {
+                "line": 16,
+                "col": 31
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[someObjVar['s']]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.js",
+            "start": {
+                "line": 17,
+                "col": 11
+            },
+            "end": {
+                "line": 17,
+                "col": 29
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[someArrVar[0]]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.js",
+            "start": {
+                "line": 6,
+                "col": 11
+            },
+            "end": {
+                "line": 6,
+                "col": 24
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[three[0]]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.js",
+            "start": {
+                "line": 7,
+                "col": 11
+            },
+            "end": {
+                "line": 7,
+                "col": 21
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[six.s]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.js",
+            "start": {
+                "line": 8,
+                "col": 11
+            },
+            "end": {
+                "line": 8,
+                "col": 24
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[six['s']]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "line": 14,
+                "col": 11
+            },
+            "end": {
+                "line": 14,
+                "col": 23
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[someVar]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "line": 15,
+                "col": 11
+            },
+            "end": {
+                "line": 15,
+                "col": 28
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[someObjVar.s]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "line": 16,
+                "col": 11
+            },
+            "end": {
+                "line": 16,
+                "col": 31
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[someObjVar['s']]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "line": 17,
+                "col": 11
+            },
+            "end": {
+                "line": 17,
+                "col": 29
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[someArrVar[0]]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "line": 6,
+                "col": 11
+            },
+            "end": {
+                "line": 6,
+                "col": 24
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[three[0]]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "line": 7,
+                "col": 11
+            },
+            "end": {
+                "line": 7,
+                "col": 21
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[six.s]"
+            }
+        },
+        {
+            "check_id": "detect-object-injection",
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "line": 8,
+                "col": 11
+            },
+            "end": {
+                "line": 8,
+                "col": 24
+            },
+            "extra": {
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING",
+                "is_ignored": false,
+                "lines": "  value = obj[six['s']]"
+            }
+        },
+        {
             "check_id": "detect-non-literal-regexp",
             "path": "eslint_rules/positives.js",
             "start": {
