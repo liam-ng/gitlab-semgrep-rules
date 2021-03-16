@@ -11,6 +11,9 @@ semgrep-rules-test:
   stage: test
   image: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA # TMP_IMAGE
   script: cd semgrep_rules_check && ./run_check.sh
+  artifacts:
+    paths:
+      - semgrep_rules_check/received.json
 
 .qa-downstream-sast:
   variables:

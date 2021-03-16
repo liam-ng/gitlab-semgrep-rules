@@ -1,6 +1,7 @@
 Semgrep analyzer changelog
 
 ## v0.6.1
+- Add react-dangerouslysetinnerhtml semgrep rule (!16)
 - Add detect-non-literal-regexp semgrep rule (!16)
 - Setup test framework for semgrep rules (!16)
 
