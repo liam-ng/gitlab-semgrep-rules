@@ -197,9 +197,9 @@
       ]
     },
     {
-      "id": "45773f6dbbe53d1a56cbb4f6d2497a5668113bf166602fc0bb500e3509b18f16",
+      "id": "197adbf97ea81a72244e3b58bf185276ee841f541bb21cb18090691920cfcaff",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -208,49 +208,20 @@
       },
       "location": {
         "file": "app/static/loader.js",
-        "start_line": 139,
-        "end_line": 139
+        "start_line": 155,
+        "end_line": 155
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.detect-non-literal-regexp",
-          "value": "rules.detect-non-literal-regexp"
+          "name": "rules.detect-non-literal-fs-filename",
+          "value": "rules.detect-non-literal-fs-filename"
         },
         {
           "type": "cwe",
-          "name": "CWE-185",
-          "value": "185",
-          "url": "https://cwe.mitre.org/data/definitions/185.html"
-        }
-      ]
-    },
-    {
-      "id": "be9a73cc1ab1f006ceede42eaf8fe7ab4200a837abbc83a0c966928ef923ad08",
-      "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/static/loader.js",
-        "start_line": 87,
-        "end_line": 87
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.detect-non-literal-regexp",
-          "value": "rules.detect-non-literal-regexp"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-185",
-          "value": "185",
-          "url": "https://cwe.mitre.org/data/definitions/185.html"
+          "name": "CWE-22",
+          "value": "22",
+          "url": "https://cwe.mitre.org/data/definitions/22.html"
         }
       ]
     },
@@ -268,6 +239,35 @@
         "file": "app/static/loader.js",
         "start_line": 88,
         "end_line": 88
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.detect-non-literal-regexp",
+          "value": "rules.detect-non-literal-regexp"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
+        }
+      ]
+    },
+    {
+      "id": "45773f6dbbe53d1a56cbb4f6d2497a5668113bf166602fc0bb500e3509b18f16",
+      "category": "sast",
+      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/loader.js",
+        "start_line": 139,
+        "end_line": 139
       },
       "identifiers": [
         {
@@ -323,9 +323,9 @@
       ]
     },
     {
-      "id": "1c9310a9fafa6efd372941862ec3e2ffa5c8af372b6f27d4d8b79a906226b413",
+      "id": "3e4b540ae8e3e9a4d9d9d0493299d4ab754c3a8775f4dcec8cfff7956e1f2b41",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -334,20 +334,20 @@
       },
       "location": {
         "file": "app/static/loader.js",
-        "start_line": 88,
-        "end_line": 88
+        "start_line": 119,
+        "end_line": 119
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.detect-non-literal-regexp",
-          "value": "rules.detect-non-literal-regexp"
+          "name": "rules.detect-non-literal-fs-filename",
+          "value": "rules.detect-non-literal-fs-filename"
         },
         {
           "type": "cwe",
-          "name": "CWE-185",
-          "value": "185",
-          "url": "https://cwe.mitre.org/data/definitions/185.html"
+          "name": "CWE-22",
+          "value": "22",
+          "url": "https://cwe.mitre.org/data/definitions/22.html"
         }
       ]
     },
@@ -725,6 +725,64 @@
       ]
     },
     {
+      "id": "be9a73cc1ab1f006ceede42eaf8fe7ab4200a837abbc83a0c966928ef923ad08",
+      "category": "sast",
+      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/loader.js",
+        "start_line": 87,
+        "end_line": 87
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.detect-non-literal-regexp",
+          "value": "rules.detect-non-literal-regexp"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
+        }
+      ]
+    },
+    {
+      "id": "1c9310a9fafa6efd372941862ec3e2ffa5c8af372b6f27d4d8b79a906226b413",
+      "category": "sast",
+      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/loader.js",
+        "start_line": 88,
+        "end_line": 88
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.detect-non-literal-regexp",
+          "value": "rules.detect-non-literal-regexp"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
+        }
+      ]
+    },
+    {
       "id": "271e1a8c7e113ca99f2a100a49993869ec62020987f0f2aa70c053e9b4402a69",
       "category": "sast",
       "message": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
@@ -893,8 +951,8 @@
       "version": "0.39.1"
     },
     "type": "sast",
-    "start_time": "2021-03-16T00:43:11",
-    "end_time": "2021-03-16T00:43:35",
+    "start_time": "2021-03-16T05:02:40",
+    "end_time": "2021-03-16T05:03:07",
     "status": "success"
   }
 }
