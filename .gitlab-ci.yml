@@ -13,7 +13,7 @@ semgrep-rules-test:
   script: cd semgrep_rules_check && ./run_check.sh
   artifacts:
     paths:
-      - semgrep_rules_check/received.json
+      - ./semgrep_rules_check/received.json
 
 .qa-downstream-sast:
   variables:
