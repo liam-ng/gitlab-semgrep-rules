@@ -48,8 +48,8 @@
       "version": "0.39.1"
     },
     "type": "sast",
-    "start_time": "2021-02-22T13:31:41",
-    "end_time": "2021-02-22T13:31:50",
+    "start_time": "2021-03-16T00:43:49",
+    "end_time": "2021-03-16T00:43:58",
     "status": "success"
   }
 }

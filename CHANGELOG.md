@@ -1,5 +1,11 @@
 Semgrep analyzer changelog
 
+## v0.6.1
+- Add react-dangerouslysetinnerhtml semgrep rule (!16)
+- Add detect-non-literal-regexp semgrep rule (!16)
+- Add detect-non-literal-fs-filename (!16)
+- Add detect-object-injection (!16)
+
 ## v0.6.0
 - Add eslint and react rule-sets (!12)
 

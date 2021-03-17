@@ -1,11 +1,19 @@
 variables:
   REPORT_FILENAME: gl-sast-report.json
   MAJOR: 0
-  MAX_IMAGE_SIZE_MB: 125
+  MAX_IMAGE_SIZE_MB: 126
   SAST_DEFAULT_ANALYZERS: "gosec"
 
 include:
   - https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+
+semgrep-rules-test:
+  stage: test
+  image: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA # TMP_IMAGE
+  script: cd semgrep_rules_check && ./run_check.sh
+  artifacts:
+    paths:
+      - ./semgrep_rules_check/received.json
 
 .qa-downstream-sast:
   variables:
