@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v0.7.0
+- Update report dependency in order to use the report schema version 14.0.0 (!17)
+
 ## v0.6.1
 - Add react-dangerouslysetinnerhtml semgrep rule (!16)
 - Add detect-non-literal-regexp semgrep rule (!16)
