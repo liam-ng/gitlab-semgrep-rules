@@ -25,6 +25,8 @@ github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeV
 github.com/sirupsen/logrus v1.6.0/go.mod h1:7uNnSEd1DgxDLC74fIahvMZmmYsHGZGEOFrfsX/uA88=
 github.com/sirupsen/logrus v1.7.0 h1:ShrD1U9pZB12TX0cVy0DtePoCH97K8EtX+mg7ZARUtM=
 github.com/sirupsen/logrus v1.7.0/go.mod h1:yWOB1SBYBC5VeMP7gHvWumXLIWorT60ONWic61uBYv0=
+github.com/sirupsen/logrus v1.8.1 h1:dJKuHgqk1NNQlqoA6BTlM1Wf9DOH3NBjQyu0h9+AZZE=
+github.com/sirupsen/logrus v1.8.1/go.mod h1:yWOB1SBYBC5VeMP7gHvWumXLIWorT60ONWic61uBYv0=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.6.1 h1:hDPOHmpOpP40lSULcqw7IrRb/u7w6RpDC9399XyoNd0=
@@ -35,8 +37,12 @@ gitlab.com/gitlab-org/security-products/analyzers/command v1.1.0 h1:rlcpCkQFIGSw
 gitlab.com/gitlab-org/security-products/analyzers/command v1.1.0/go.mod h1:gZHhSaXqNjHz6HjBc7yISP6CiKpJWSGM7pT2KftSpFI=
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.22.1 h1:QrUbgEu56HNpwsa2AwRAz+z1CJhvHAJCrr9rjMfiyJI=
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.22.1/go.mod h1:+Ey1+fecsSv8Ayuj0d6dKf0h1uWEVOyd5yj4AntXl9s=
+gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.23.0 h1:xc4SO77umXCzmW7hQaD9NrVfs5iesloiLj03oN+rBuc=
+gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.23.0/go.mod h1:BZo42CWaLEcDHtf3keuLcwnWrVa4UxQeHG5KPFdml6o=
 gitlab.com/gitlab-org/security-products/analyzers/report/v2 v2.0.0 h1:FvOOOhqSf/8MzZk7Gsb8ZRAK0x+VYieejyPkjDH0zwI=
 gitlab.com/gitlab-org/security-products/analyzers/report/v2 v2.0.0/go.mod h1:bcOQpfXCJkXBMpRpMO/dHiGOABlskg5C2gqGjcCvNdA=
+gitlab.com/gitlab-org/security-products/analyzers/report/v2 v2.1.0 h1:J+URpilmkD/CoOdJ5tBvRRTB9iBruMyy4aP3ZL51Occ=
+gitlab.com/gitlab-org/security-products/analyzers/report/v2 v2.1.0/go.mod h1:bcOQpfXCJkXBMpRpMO/dHiGOABlskg5C2gqGjcCvNdA=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.0.0 h1:IMkx99kHby0P4ALeVOgCaWEccx/wF/CYvqOAmhG6dJU=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.0.0/go.mod h1:z7wAlQqgacceK7owA4BJbVr0SOm5gA+ICeTqCqN5uzA=
 golang.org/x/sys v0.0.0-20190422165155-953cdadca894/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
