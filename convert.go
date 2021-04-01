@@ -31,22 +31,23 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	return addAnalyzerIdentifiers(sastReport)
 }
 
+// addAnalyzerIdentifiers iterates through report vulnerability identifiers. Each identifier is then use to
+// determine how the semgrep rule maps to a corresponding analyzer like bandit, or eslint.
 func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 	for index, vul := range sastReport.Vulnerabilities {
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
-		banditIdentifiers := banditIdentifiersFor(ruleID)
-		if len(banditIdentifiers) > 0 {
-			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, banditIdentifiers...)
+		ids := ruleToIDs(ruleID)
+		if len(ids) > 0 {
+			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, ids...)
 		}
-
 	}
 	return sastReport, nil
 }
 
 //  banditIdentifiersFor will take in ruleID as string and output a slice of identifiers
 //  Examples of ruleID: rules.bandit.B303-1, rules.bandit.B502.B503
-func banditIdentifiersFor(ruleID string) []report.Identifier {
+func ruleToIDs(ruleID string) []report.Identifier {
 	matches := strings.Split(ruleID, ".")
 	var ids []report.Identifier
 
@@ -60,6 +61,10 @@ func banditIdentifiersFor(ruleID string) []report.Identifier {
 		}
 	}
 
+	if matches[1] == "eslint" && len(matches) == 3 {
+		ids = append(ids, generateEslintID(matches[2]))
+	}
+
 	return ids
 }
 
@@ -71,5 +76,13 @@ func generateBanditID(id string) report.Identifier {
 		Type:  "bandit_test_id",
 		Name:  "Bandit Test ID " + value,
 		Value: value,
+	}
+}
+
+func generateEslintID(id string) report.Identifier {
+	return report.Identifier{
+		Type:  "eslint_rule_id",
+		Name:  "ESLint rule ID security/" + id,
+		Value: "security/" + id,
 	}
 }
