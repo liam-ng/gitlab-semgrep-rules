@@ -1,5 +1,5 @@
 rules:
-- id: detect-no-csrf-before-method-override
+- id: eslint.detect-no-csrf-before-method-override
   metadata:
     cwe: 'CWE-352: Cross-Site Request Forgery (CSRF)'
     source-rule-url: https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-no-csrf-before-method-override.js
@@ -17,7 +17,7 @@ rules:
   - javascript
   - typescript
 
-- id: detect-eval-with-expression
+- id: eslint.detect-eval-with-expression
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
     owasp: 'A1: Injection'
@@ -32,7 +32,7 @@ rules:
   - javascript
   - typescript
 
-- id: detect-child-process
+- id: eslint.detect-child-process
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
     owasp: 'A1: Injection'
@@ -48,7 +48,7 @@ rules:
   - javascript
   - typescript
 
-- id: detect-pseudoRandomBytes
+- id: eslint.detect-pseudoRandomBytes
   metadata:
     cwe: 'CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)'
     source-rule-url: https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-pseudoRandomBytes.js
@@ -60,7 +60,7 @@ rules:
   - javascript
   - typescript
 
-- id: detect-disable-mustache-escape
+- id: eslint.detect-disable-mustache-escape
   metadata:
     cwe: 'CWE-79: Improper Neutralization of Input During Web Page Generation (XSS)'
     owasp: 'A7: Cross-Site Scripting XSS'
@@ -74,7 +74,7 @@ rules:
   - javascript
   - typescript
 
-- id: detect-non-literal-require
+- id: eslint.detect-non-literal-require
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
     owasp: 'A1: Injection'
@@ -90,7 +90,7 @@ rules:
   - javascript
   - typescript
 
-- id: detect-buffer-noassert
+- id: eslint.detect-buffer-noassert
   metadata:
     cwe: 'CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer'
     source-rule-url: https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-buffer-noassert.js
@@ -131,7 +131,7 @@ rules:
   - javascript
   - typescript
 
-- id: node_timing_attack
+- id: eslint.detect-possible-timing-attacks
   patterns:
   - pattern-not: if ($Z == null) { ... };
   - pattern-not: if ($Z === null) { ... };
@@ -623,7 +623,7 @@ rules:
   metadata:
     cwe: 'CWE-208: Observable Timing Discrepancy'
 
-- id: detect-non-literal-regexp
+- id: eslint.detect-non-literal-regexp
   patterns:
     - pattern: |
         new RegExp(...)
@@ -638,7 +638,7 @@ rules:
   metadata:
     cwe: 'CWE-185: Incorrect Regular Expression'
 
-- id: detect-non-literal-fs-filename
+- id: eslint.detect-non-literal-fs-filename
   patterns:
   - pattern-not: $MOD.appendFile("...", ...)
   - pattern-not: $MOD.appendFileSync("...", ...)
@@ -748,7 +748,7 @@ rules:
   metadata:
     cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
 
-- id: detect-object-injection
+- id: eslint.detect-object-injection
   patterns:
     - pattern: $O[$ARG]
     - pattern-not: $O["..."]

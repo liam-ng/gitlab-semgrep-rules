@@ -1,5 +1,5 @@
 rules:
-- id: react-missing-noopener
+- id: eslint.react-missing-noopener
   pattern-either:
   - patterns:
     - pattern: |
@@ -53,7 +53,7 @@ rules:
   - javascript
   severity: WARNING
 
-- id: react-dangerouslysetinnerhtml
+- id: eslint.react-dangerouslysetinnerhtml
   pattern-either:
   - pattern: |
       <$X dangerouslySetInnerHTML=... />

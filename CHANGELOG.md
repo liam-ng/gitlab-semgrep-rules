@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v0.8.0
+- Add eslint identifiers and update identifier helpers in convert.go (!19)
+
 ## v0.7.0
 - Update report dependency in order to use the report schema version 14.0.0 (!17)
 

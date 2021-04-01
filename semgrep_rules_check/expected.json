@@ -1,7 +1,7 @@
 {
     "results": [
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 10,
@@ -22,7 +22,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 11,
@@ -43,7 +43,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 12,
@@ -64,7 +64,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 13,
@@ -85,7 +85,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 14,
@@ -106,7 +106,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 15,
@@ -127,7 +127,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 16,
@@ -148,7 +148,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 17,
@@ -169,7 +169,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 18,
@@ -190,7 +190,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 19,
@@ -211,7 +211,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 20,
@@ -232,7 +232,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 21,
@@ -253,7 +253,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 22,
@@ -274,7 +274,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 23,
@@ -295,7 +295,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 24,
@@ -316,7 +316,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 25,
@@ -337,7 +337,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 26,
@@ -358,7 +358,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 27,
@@ -379,7 +379,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 28,
@@ -400,7 +400,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 29,
@@ -421,7 +421,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 2,
@@ -442,7 +442,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 30,
@@ -463,7 +463,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 31,
@@ -484,7 +484,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 32,
@@ -505,7 +505,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 33,
@@ -526,7 +526,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 34,
@@ -547,7 +547,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 35,
@@ -568,7 +568,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 36,
@@ -589,7 +589,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 37,
@@ -610,7 +610,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 38,
@@ -631,7 +631,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 39,
@@ -652,7 +652,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 3,
@@ -673,7 +673,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 40,
@@ -694,7 +694,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 41,
@@ -715,7 +715,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 42,
@@ -736,7 +736,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 43,
@@ -757,7 +757,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 44,
@@ -778,7 +778,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 45,
@@ -799,7 +799,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 46,
@@ -820,7 +820,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 47,
@@ -841,7 +841,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 48,
@@ -862,7 +862,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 49,
@@ -883,7 +883,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 4,
@@ -904,7 +904,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 50,
@@ -925,7 +925,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 5,
@@ -946,7 +946,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 6,
@@ -967,7 +967,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 7,
@@ -988,7 +988,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 8,
@@ -1009,7 +1009,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "line": 9,
@@ -1030,7 +1030,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 10,
@@ -1051,7 +1051,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 11,
@@ -1072,7 +1072,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 12,
@@ -1093,7 +1093,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 13,
@@ -1114,7 +1114,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 14,
@@ -1135,7 +1135,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 15,
@@ -1156,7 +1156,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 16,
@@ -1177,7 +1177,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 17,
@@ -1198,7 +1198,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 18,
@@ -1219,7 +1219,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 19,
@@ -1240,7 +1240,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 20,
@@ -1261,7 +1261,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 21,
@@ -1282,7 +1282,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 22,
@@ -1303,7 +1303,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 23,
@@ -1324,7 +1324,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 24,
@@ -1345,7 +1345,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 25,
@@ -1366,7 +1366,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 26,
@@ -1387,7 +1387,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 27,
@@ -1408,7 +1408,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 28,
@@ -1429,7 +1429,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 29,
@@ -1450,7 +1450,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 2,
@@ -1471,7 +1471,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 30,
@@ -1492,7 +1492,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 31,
@@ -1513,7 +1513,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 32,
@@ -1534,7 +1534,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 33,
@@ -1555,7 +1555,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 34,
@@ -1576,7 +1576,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 35,
@@ -1597,7 +1597,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 36,
@@ -1618,7 +1618,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 37,
@@ -1639,7 +1639,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 38,
@@ -1660,7 +1660,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 39,
@@ -1681,7 +1681,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 3,
@@ -1702,7 +1702,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 40,
@@ -1723,7 +1723,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 41,
@@ -1744,7 +1744,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 42,
@@ -1765,7 +1765,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 43,
@@ -1786,7 +1786,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 44,
@@ -1807,7 +1807,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 45,
@@ -1828,7 +1828,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 46,
@@ -1849,7 +1849,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 47,
@@ -1870,7 +1870,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 48,
@@ -1891,7 +1891,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 49,
@@ -1912,7 +1912,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 4,
@@ -1933,7 +1933,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 50,
@@ -1954,7 +1954,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 5,
@@ -1975,7 +1975,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 6,
@@ -1996,7 +1996,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 7,
@@ -2017,7 +2017,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 8,
@@ -2038,7 +2038,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename",
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "line": 9,
@@ -2059,7 +2059,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "line": 14,
@@ -2080,7 +2080,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "line": 15,
@@ -2101,7 +2101,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "line": 16,
@@ -2122,7 +2122,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "line": 17,
@@ -2143,7 +2143,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "line": 6,
@@ -2164,7 +2164,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "line": 7,
@@ -2185,7 +2185,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "line": 8,
@@ -2206,7 +2206,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "line": 14,
@@ -2227,7 +2227,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "line": 15,
@@ -2248,7 +2248,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "line": 16,
@@ -2269,7 +2269,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "line": 17,
@@ -2290,7 +2290,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "line": 6,
@@ -2311,7 +2311,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "line": 7,
@@ -2332,7 +2332,7 @@
             }
         },
         {
-            "check_id": "detect-object-injection",
+            "check_id": "eslint.detect-object-injection",
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "line": 8,
@@ -2353,7 +2353,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-regexp",
+            "check_id": "eslint.detect-non-literal-regexp",
             "path": "eslint_rules/positives.js",
             "start": {
                 "line": 3,
@@ -2374,7 +2374,7 @@
             }
         },
         {
-            "check_id": "detect-non-literal-regexp",
+            "check_id": "eslint.detect-non-literal-regexp",
             "path": "eslint_rules/positives.js",
             "start": {
                 "line": 4,
@@ -2395,7 +2395,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.js",
             "start": {
                 "line": 1,
@@ -2420,7 +2420,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.js",
             "start": {
                 "line": 3,
@@ -2445,7 +2445,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.js",
             "start": {
                 "line": 5,
@@ -2470,7 +2470,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.js",
             "start": {
                 "line": 7,
@@ -2495,7 +2495,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.jsx",
             "start": {
                 "line": 10,
@@ -2520,7 +2520,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.jsx",
             "start": {
                 "line": 12,
@@ -2545,7 +2545,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.jsx",
             "start": {
                 "line": 2,
@@ -2570,7 +2570,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.jsx",
             "start": {
                 "line": 6,
@@ -2595,7 +2595,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.ts",
             "start": {
                 "line": 1,
@@ -2620,7 +2620,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.ts",
             "start": {
                 "line": 3,
@@ -2645,7 +2645,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.ts",
             "start": {
                 "line": 5,
@@ -2670,7 +2670,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.ts",
             "start": {
                 "line": 7,
@@ -2695,7 +2695,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.tsx",
             "start": {
                 "line": 10,
@@ -2720,7 +2720,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.tsx",
             "start": {
                 "line": 12,
@@ -2745,7 +2745,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.tsx",
             "start": {
                 "line": 2,
@@ -2770,7 +2770,7 @@
             }
         },
         {
-            "check_id": "react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "path": "react_rules/positives.tsx",
             "start": {
                 "line": 6,
