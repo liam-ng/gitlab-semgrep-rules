@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v0.9.0
+- Update Dockerfile to support OpenShift (!23)
+
 ## v0.8.0
 - Add eslint identifiers and update identifier helpers in convert.go (!19)
 

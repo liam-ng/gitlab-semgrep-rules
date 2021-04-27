@@ -27,6 +27,8 @@ ENV SCANNER_VERSION ${SCANNER_VERSION}
 COPY --from=build /analyzer /analyzer
 COPY --from=build /ca-cert-additional-gitlab-bundle.pem /etc/ssl/certs/ca-cert-additional-gitlab-bundle.pem
 COPY rules /rules
+RUN mkdir /.cache && \
+    chmod -R g+rw /.cache
 
 RUN pip install semgrep==$SCANNER_VERSION
 
