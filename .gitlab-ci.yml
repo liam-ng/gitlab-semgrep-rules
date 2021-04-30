@@ -21,20 +21,21 @@ semgrep-rules-test:
     SAST_DEFAULT_ANALYZERS: "semgrep"
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
 
-python-pip-flask-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip-flask
+# TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/328251
+# python-pip-flask-qa:
+#   extends: .qa-downstream-sast
+#   variables:
+#     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask/gl-sast-report.json"
+#   trigger:
+#     project: gitlab-org/security-products/tests/python-pip-flask
 
-python-pip-flask-custom-rulesets-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask-custom-rulesets/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip-flask
-    branch: custom-rulesets-FREEZE
+# python-pip-flask-custom-rulesets-qa:
+#   extends: .qa-downstream-sast
+#   variables:
+#     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask-custom-rulesets/gl-sast-report.json"
+#   trigger:
+#     project: gitlab-org/security-products/tests/python-pip-flask
+#     branch: custom-rulesets-FREEZE
 
 python-pip-multi-project-qa:
   extends: .qa-downstream-sast
