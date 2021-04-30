@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v0.10.1
+- No change patch to allow release pipelines to pass (!26)
+
 ## v0.10.0
 - Add Description field to vulnerabilities (!24)
 
