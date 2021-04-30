@@ -2,418 +2,10 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "450d05ee7784841e2fae401f007d6f63485052f6567e523df293bb46f4e3a005",
+      "id": "9c05564db9de58e427c76e5efc9dd361b576c7514639922712495f56a19958af",
       "category": "sast",
-      "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 17,
-        "end_line": 18
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.bandit.B501",
-          "value": "rules.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
-      "id": "c3135a7832e8b7563a74fbb96ba7e5c3a96d74ad803c2227b11a33669688e9ca",
-      "category": "sast",
-      "message": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 329,
-        "end_line": 329
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.bandit.B506",
-          "value": "rules.bandit.B506"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-502",
-          "value": "502",
-          "url": "https://cwe.mitre.org/data/definitions/502.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Insecure Deserialization",
-          "value": "A8"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B506",
-          "value": "B506"
-        }
-      ]
-    },
-    {
-      "id": "7f1515752135e39b04c7674aec75a3b05b12ee858f77d468c45c48f9ea8074c7",
-      "category": "sast",
-      "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 44,
-        "end_line": 45
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.bandit.B501",
-          "value": "rules.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
-      "id": "78dba218dcd625341fcec3551b6aa486d3230ac37681d3206efcfb0d06b246e0",
-      "category": "sast",
-      "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 36,
-        "end_line": 37
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.bandit.B501",
-          "value": "rules.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
-      "id": "95a0b41e8e7464e49a8df9a57f229303816d4a6fdaf217f5606301f5407d18ab",
-      "category": "sast",
-      "message": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 28,
-        "end_line": 29
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.bandit.B501",
-          "value": "rules.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
-      "id": "ea76bad847e70a63f515dbffedb614bc717ca256c3852f3b454d7d5d73f6ab46",
-      "category": "sast",
-      "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/static/loader.js",
-        "start_line": 155,
-        "end_line": 155
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-fs-filename",
-          "value": "rules.eslint.detect-non-literal-fs-filename"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-22",
-          "value": "22",
-          "url": "https://cwe.mitre.org/data/definitions/22.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-fs-filename",
-          "value": "security/detect-non-literal-fs-filename"
-        }
-      ]
-    },
-    {
-      "id": "9e70cf0934a678ccb1e19e9ac60bbb6aea2dea8e40a585bdf29fcbee64939008",
-      "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/static/loader.js",
-        "start_line": 88,
-        "end_line": 88
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-185",
-          "value": "185",
-          "url": "https://cwe.mitre.org/data/definitions/185.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-regexp",
-          "value": "security/detect-non-literal-regexp"
-        }
-      ]
-    },
-    {
-      "id": "e35c8ac271f3dc67d7635395f71690ae4b56bec879e5953de9a2d597a9e63e47",
-      "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/static/loader.js",
-        "start_line": 139,
-        "end_line": 139
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-185",
-          "value": "185",
-          "url": "https://cwe.mitre.org/data/definitions/185.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-regexp",
-          "value": "security/detect-non-literal-regexp"
-        }
-      ]
-    },
-    {
-      "id": "0c799ca2bb2a202b3b71dc8f580081de018dded3b1e8557950627bb4e854542e",
-      "category": "sast",
-      "message": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 141,
-        "end_line": 141
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-327",
-          "value": "327",
-          "url": "https://cwe.mitre.org/data/definitions/327.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B303",
-          "value": "B303"
-        }
-      ]
-    },
-    {
-      "id": "5043024f6c05b34f7ab70d0b9a010480167ce490a936c4f793b206654ea5b93f",
-      "category": "sast",
-      "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/static/loader.js",
-        "start_line": 119,
-        "end_line": 119
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-fs-filename",
-          "value": "rules.eslint.detect-non-literal-fs-filename"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-22",
-          "value": "22",
-          "url": "https://cwe.mitre.org/data/definitions/22.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-fs-filename",
-          "value": "security/detect-non-literal-fs-filename"
-        }
-      ]
-    },
-    {
-      "id": "3e61d29d40bb7a066c446b3b1fac205659fce489bcaa027f6104df5c03a6e493",
-      "category": "sast",
-      "message": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 265,
-        "end_line": 265
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "rules.bandit.B608",
-          "value": "rules.bandit.B608"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-89",
-          "value": "89",
-          "url": "https://cwe.mitre.org/data/definitions/89.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Injection",
-          "value": "A1"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B608",
-          "value": "B608"
-        }
-      ]
-    },
-    {
-      "id": "f2cae5259dd8b984d9605b3457a835bb9aa58ffb6cd539686d5324a8a86f0598",
-      "category": "sast",
-      "message": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -450,9 +42,10 @@
       ]
     },
     {
-      "id": "e15cfc5c1679227d99fb737969bd2072b1b3cd0b8ba8c67610005b004cd2f546",
+      "id": "48fd39201de717540541a88ff92949959b44ce1fa487511a5988b555af55a8a0",
       "category": "sast",
-      "message": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -489,9 +82,10 @@
       ]
     },
     {
-      "id": "8ddb095dd9d39dacae8e073425b589fb633e3f28ceab1908d3965c75e6fa99fc",
+      "id": "55148a7c87c4ce47abcb1e1532ab2cf2f17ca094fa21710c3689f913f12dec5b",
       "category": "sast",
-      "message": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -528,9 +122,10 @@
       ]
     },
     {
-      "id": "352694d146b635039c8d53527257aeac8ddd6ba26651034c65fdab9b0c4d0fe8",
+      "id": "291fe9ad4b72803a3144533a52d5eff554e5535bb8bb8b5fb6b7f4e6966e0c8d",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -562,9 +157,10 @@
       ]
     },
     {
-      "id": "352694d146b635039c8d53527257aeac8ddd6ba26651034c65fdab9b0c4d0fe8",
+      "id": "291fe9ad4b72803a3144533a52d5eff554e5535bb8bb8b5fb6b7f4e6966e0c8d",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -596,9 +192,10 @@
       ]
     },
     {
-      "id": "a83e0e8bcbc780ce6c31754f46227c629d174d645383f8322b46da2cc835c2d9",
+      "id": "49f4264d15877e344441ca0749067b41d8e1473f09cd0d13d2c1f48a50e835b9",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -630,9 +227,10 @@
       ]
     },
     {
-      "id": "8546011fba96295eaf862a4ae6955ecf9bdb32ece78dbbda1e8acdf1b4d84850",
+      "id": "ad64101470581b4da7d1fe62b3ff0e97cac8f5920dfd053013738c483081c3c3",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -664,9 +262,10 @@
       ]
     },
     {
-      "id": "8546011fba96295eaf862a4ae6955ecf9bdb32ece78dbbda1e8acdf1b4d84850",
+      "id": "ad64101470581b4da7d1fe62b3ff0e97cac8f5920dfd053013738c483081c3c3",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -698,9 +297,10 @@
       ]
     },
     {
-      "id": "8546011fba96295eaf862a4ae6955ecf9bdb32ece78dbbda1e8acdf1b4d84850",
+      "id": "ad64101470581b4da7d1fe62b3ff0e97cac8f5920dfd053013738c483081c3c3",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -732,9 +332,10 @@
       ]
     },
     {
-      "id": "8546011fba96295eaf862a4ae6955ecf9bdb32ece78dbbda1e8acdf1b4d84850",
+      "id": "ad64101470581b4da7d1fe62b3ff0e97cac8f5920dfd053013738c483081c3c3",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -766,9 +367,10 @@
       ]
     },
     {
-      "id": "5e2875aaa8601f997c1c1c7ad4f4db3d34db3f8b14aab2465be71c4bd8362171",
+      "id": "f6f55af713a8d73d2073bbaacddb66a4dccc48791adc6e25b08c2f8237a8b2e2",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -800,9 +402,10 @@
       ]
     },
     {
-      "id": "5e2875aaa8601f997c1c1c7ad4f4db3d34db3f8b14aab2465be71c4bd8362171",
+      "id": "f6f55af713a8d73d2073bbaacddb66a4dccc48791adc6e25b08c2f8237a8b2e2",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -834,9 +437,10 @@
       ]
     },
     {
-      "id": "9e70cf0934a678ccb1e19e9ac60bbb6aea2dea8e40a585bdf29fcbee64939008",
+      "id": "ef0b9023785db1511f8ad528a1031d4768063ecd210b0a1fd5d8136eda18e3b4",
       "category": "sast",
-      "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -868,158 +472,182 @@
       ]
     },
     {
-      "id": "271e1a8c7e113ca99f2a100a49993869ec62020987f0f2aa70c053e9b4402a69",
+      "id": "ef0b9023785db1511f8ad528a1031d4768063ecd210b0a1fd5d8136eda18e3b4",
       "category": "sast",
-      "message": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "app/app.py",
-        "start_line": 319,
-        "end_line": 319
+        "file": "app/static/loader.js",
+        "start_line": 88,
+        "end_line": 88
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B311",
-          "value": "rules.bandit.B311"
+          "name": "rules.eslint.detect-non-literal-regexp",
+          "value": "rules.eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
-          "name": "CWE-330",
-          "value": "330",
-          "url": "https://cwe.mitre.org/data/definitions/330.html"
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
         },
         {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B311",
-          "value": "B311"
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-non-literal-regexp",
+          "value": "security/detect-non-literal-regexp"
         }
       ]
     },
     {
-      "id": "9d1b6921ae5678bfbfa8cc4c543e92a9e55c04ff32670273c738480303e39fe7",
+      "id": "ded12e23c35a0f8a4fc7f8e711873191ec14b477a62f1389f6f97685555f1869",
       "category": "sast",
-      "message": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
       "cve": "",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "app/app.py",
-        "start_line": 295,
-        "end_line": 295
+        "file": "app/static/loader.js",
+        "start_line": 139,
+        "end_line": 139
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B311",
-          "value": "rules.bandit.B311"
+          "name": "rules.eslint.detect-non-literal-regexp",
+          "value": "rules.eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
-          "name": "CWE-330",
-          "value": "330",
-          "url": "https://cwe.mitre.org/data/definitions/330.html"
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
         },
         {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B311",
-          "value": "B311"
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-non-literal-regexp",
+          "value": "security/detect-non-literal-regexp"
         }
       ]
     },
     {
-      "id": "1f29824a2040c57c58071b3522fc3c8a4c3e95d288163bb0386584a064c637db",
+      "id": "41e3ce5da24a7326dde9064b1da8661c02f1b8c123edceb560416434f426702d",
       "category": "sast",
-      "message": "Possible hardcoded password\n",
+      "message": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+      "description": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
       "cve": "",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "app/app.py",
-        "start_line": 63,
-        "end_line": 63
+        "file": "app/static/loader.js",
+        "start_line": 119,
+        "end_line": 119
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "rules.eslint.detect-non-literal-fs-filename",
+          "value": "rules.eslint.detect-non-literal-fs-filename"
         },
         {
           "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
+          "name": "CWE-22",
+          "value": "22",
+          "url": "https://cwe.mitre.org/data/definitions/22.html"
         },
         {
-          "type": "owasp",
-          "name": "Broken Authentication and Session Management",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+          "value": "security/detect-non-literal-fs-filename"
         }
       ]
     },
     {
-      "id": "62c8bfe991fb2b82e15fb57851355025e67cdce88147ed301653badf84f2214b",
+      "id": "53b8fe3c2c9800811e1c334c2003913f653d5384bfbd68be2aca0b080e3d6f98",
       "category": "sast",
-      "message": "Possible hardcoded password\n",
+      "message": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
+      "description": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
       "cve": "",
-      "severity": "Info",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/loader.js",
+        "start_line": 155,
+        "end_line": 155
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "rules.eslint.detect-non-literal-fs-filename",
+          "value": "rules.eslint.detect-non-literal-fs-filename"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-22",
+          "value": "22",
+          "url": "https://cwe.mitre.org/data/definitions/22.html"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+          "value": "security/detect-non-literal-fs-filename"
+        }
+      ]
+    },
+    {
+      "id": "87b89ac34cbcd79ee6af9c81acbbd794808ffb3c182b412665500e1a0dda827b",
+      "category": "sast",
+      "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+      "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
+      "cve": "",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
         "file": "app/app.py",
-        "start_line": 28,
-        "end_line": 28
+        "start_line": 265,
+        "end_line": 265
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "rules.bandit.B608",
+          "value": "rules.bandit.B608"
         },
         {
           "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
+          "name": "CWE-89",
+          "value": "89",
+          "url": "https://cwe.mitre.org/data/definitions/89.html"
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
-          "value": "A3"
+          "name": "Injection",
+          "value": "A1"
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
+          "name": "Bandit Test ID B608",
+          "value": "B608"
         }
       ]
     }
@@ -1036,8 +664,8 @@
       "version": "0.39.1"
     },
     "type": "sast",
-    "start_time": "2021-04-08T23:59:44",
-    "end_time": "2021-04-09T00:00:38",
+    "start_time": "2021-04-29T17:39:17",
+    "end_time": "2021-04-29T17:40:31",
     "status": "success"
   }
 }

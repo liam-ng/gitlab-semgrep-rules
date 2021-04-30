@@ -138,11 +138,11 @@ func transformRun(r run, rootPath string) ([]report.Vulnerability, error) {
 		for _, location := range result.Locations {
 			rule := ruleMap[result.RuleID]
 
-			var message string
+			var description string
 			if len(result.Message.Text) > vulnerabilityMessageMaxLength {
-				message = result.Message.Text[:vulnerabilityMessageMaxLength]
+				description = result.Message.Text[:vulnerabilityMessageMaxLength]
 			} else {
-				message = result.Message.Text
+				description = result.Message.Text
 			}
 
 			lineEnd := location.PhysicalLocation.Region.EndLine
@@ -153,10 +153,11 @@ func transformRun(r run, rootPath string) ([]report.Vulnerability, error) {
 			}
 
 			vulns = append(vulns, report.Vulnerability{
-				Category: report.CategorySast,
-				Message:  message,
-				Severity: severity(rule),
-				Scanner:  metadata.IssueScanner,
+				Description: description,
+				Category:    report.CategorySast,
+				Message:     message(rule),
+				Severity:    severity(rule),
+				Scanner:     metadata.IssueScanner,
 				Location: report.Location{
 					File:      removeRootPath(location.PhysicalLocation.ArtifactLocation.URI, rootPath),
 					LineStart: location.PhysicalLocation.Region.StartLine,
@@ -185,6 +186,18 @@ func severity(r rule) report.SeverityLevel {
 	default:
 		return report.SeverityLevelMedium
 	}
+}
+
+func message(r rule) string {
+	for _, tag := range r.Properties.Tags {
+		splits := strings.Split(tag, ":")
+		if strings.HasPrefix(splits[0], "CWE") {
+			return strings.TrimLeft(splits[1], " ")
+		}
+	}
+
+	// default to full text description
+	return r.FullDescription.Text
 }
 
 func identifiers(r rule) []report.Identifier {

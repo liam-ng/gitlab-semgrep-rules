@@ -28,10 +28,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 		Remediations:    []report.Remediation{},
 		Vulnerabilities: []report.Vulnerability{
 			{
-				Category: report.CategorySast,
-				Message:  truncatedMessage,
-				Severity: report.SeverityLevelMedium,
-				Scanner:  scanner,
+				Category:    report.CategorySast,
+				Description: truncatedMessage,
+				Message:     "Use of a Broken or Risky Cryptographic Algorithm",
+				Severity:    report.SeverityLevelMedium,
+				Scanner:     scanner,
 				Location: report.Location{
 					File:      "app/app.py",
 					LineStart: 141,
@@ -57,10 +58,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: report.CategorySast,
-				Message:  "An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions\nare considered weak encryption and are deprecated.\nUse 'ssl.PROTOCOL_TLSv1_2' or higher.\n",
-				Severity: report.SeverityLevelCritical,
-				Scanner:  scanner,
+				Category:    report.CategorySast,
+				Description: "An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions\nare considered weak encryption and are deprecated.\nUse 'ssl.PROTOCOL_TLSv1_2' or higher.\n",
+				Message:     "Inadequate Encryption Strength",
+				Severity:    report.SeverityLevelCritical,
+				Scanner:     scanner,
 				Location: report.Location{
 					File:      "tests/e2e_zap.py",
 					LineStart: 17,
@@ -86,10 +88,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: report.CategorySast,
-				Message:  "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-				Severity: report.SeverityLevelCritical,
-				Scanner:  scanner,
+				Category:    report.CategorySast,
+				Description: "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+				Message:     "Improper Certificate Validation",
+				Severity:    report.SeverityLevelCritical,
+				Scanner:     scanner,
 				Location: report.Location{
 					File:      "tests/e2e_zap.py",
 					LineStart: 17,
@@ -115,10 +118,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: report.CategorySast,
-				Message:  "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-				Severity: report.SeverityLevelCritical,
-				Scanner:  scanner,
+				Category:    report.CategorySast,
+				Description: "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+				Message:     "Improper Certificate Validation",
+				Severity:    report.SeverityLevelCritical,
+				Scanner:     scanner,
 				Location: report.Location{
 					File:      "tests/e2e_zap.py",
 					LineStart: 28,
@@ -144,10 +148,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: report.CategorySast,
-				Message:  "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-				Severity: report.SeverityLevelMedium,
-				Scanner:  scanner,
+				Category:    report.CategorySast,
+				Description: "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+				Message:     "Use of a Broken or Risky Cryptographic Algorithm",
+				Severity:    report.SeverityLevelMedium,
+				Scanner:     scanner,
 				Location: report.Location{
 					File:      "app/app.py",
 					LineStart: 141,
@@ -173,10 +178,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: report.CategorySast,
-				Message:  "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-				Severity: report.SeverityLevelCritical,
-				Scanner:  scanner,
+				Category:    report.CategorySast,
+				Description: "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+				Message:     "Improper Certificate Validation",
+				Severity:    report.SeverityLevelCritical,
+				Scanner:     scanner,
 				Location: report.Location{
 					File:      "tests/e2e_zap.py",
 					LineStart: 17,
@@ -202,10 +208,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: report.CategorySast,
-				Message:  "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-				Severity: report.SeverityLevelCritical,
-				Scanner:  scanner,
+				Category:    report.CategorySast,
+				Description: "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+				Message:     "Improper Certificate Validation",
+				Severity:    report.SeverityLevelCritical,
+				Scanner:     scanner,
 				Location: report.Location{
 					File:      "tests/e2e_zap.py",
 					LineStart: 28,
@@ -231,10 +238,11 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				},
 			},
 			{
-				Category: report.CategorySast,
-				Message:  "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-				Severity: report.SeverityLevelCritical,
-				Scanner:  scanner,
+				Category:    report.CategorySast,
+				Description: "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+				Message:     "Improper Certificate Validation",
+				Severity:    report.SeverityLevelCritical,
+				Scanner:     scanner,
 				Location: report.Location{
 					File:      "tests/e2e_zap.py",
 					LineStart: 28,
