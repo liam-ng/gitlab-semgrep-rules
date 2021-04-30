@@ -2,9 +2,10 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "7ce9f45b4de6056af7e36a4c1a84c4faad6ce9fe4dfb8e6b134e4c493861f131",
+      "id": "bc71cd43fc55258533d3a11e038d1e179f677d2560da3f7db2ab2d94773a8dec",
       "category": "sast",
-      "message": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
+      "message": "Improper Check for Unusual or Exceptional Conditions",
+      "description": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
       "cve": "",
       "severity": "Info",
       "scanner": {
@@ -48,8 +49,8 @@
       "version": "0.39.1"
     },
     "type": "sast",
-    "start_time": "2021-03-16T00:43:49",
-    "end_time": "2021-03-16T00:43:58",
+    "start_time": "2021-04-29T15:11:46",
+    "end_time": "2021-04-29T15:11:57",
     "status": "success"
   }
 }

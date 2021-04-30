@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v0.10.0
+- Add Description field to vulnerabilities (!24)
+
 ## v0.9.0
 - Update Dockerfile to support OpenShift (!23)
 
