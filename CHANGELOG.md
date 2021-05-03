@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v2.0.0
+- Bump to version 2 so we can support semgrep in the GitLab config UI while we're waiting to remove
+  `SAST_ANALYZER_IMAGE_TAG`
+
 ## v0.10.1
 - No change patch to allow release pipelines to pass (!26)
 
