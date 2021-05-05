@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.1.0
+- Add `strict`, `no-git-ignore`, and `--no-rewrite-rules` to semgrep flags (!27)
+
 ## v2.0.0
 - Bump to version 2 so we can support semgrep in the GitLab config UI while we're waiting to remove
   `SAST_ANALYZER_IMAGE_TAG`

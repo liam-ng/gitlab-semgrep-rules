@@ -41,8 +41,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.bandit.B303-1",
-						Value: "rules.bandit.B303-1",
+						Name:  "bandit.B303-1",
+						Value: "bandit.B303-1",
 					},
 					{
 						Type:  "cwe",
@@ -71,8 +71,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.bandit.B502.B503",
-						Value: "rules.bandit.B502.B503",
+						Name:  "bandit.B502.B503",
+						Value: "bandit.B502.B503",
 					},
 					{
 						Type:  "cwe",
@@ -101,8 +101,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.bandit.B323",
-						Value: "rules.bandit.B323",
+						Name:  "bandit.B323",
+						Value: "bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -131,8 +131,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.bandit.B323",
-						Value: "rules.bandit.B323",
+						Name:  "bandit.B323",
+						Value: "bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -161,8 +161,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.bandit.B303-1",
-						Value: "rules.bandit.B303-1",
+						Name:  "bandit.B303-1",
+						Value: "bandit.B303-1",
 					},
 					{
 						Type:  "cwe",
@@ -191,8 +191,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.bandit.B323",
-						Value: "rules.bandit.B323",
+						Name:  "bandit.B323",
+						Value: "bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -221,8 +221,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.bandit.B323",
-						Value: "rules.bandit.B323",
+						Name:  "bandit.B323",
+						Value: "bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -251,8 +251,8 @@ func TestTransformToGLSASTReport(t *testing.T) {
 				Identifiers: []report.Identifier{
 					{
 						Type:  "semgrep_id",
-						Name:  "rules.bandit.B323",
-						Value: "rules.bandit.B323",
+						Name:  "bandit.B323",
+						Value: "bandit.B323",
 					},
 					{
 						Type:  "cwe",

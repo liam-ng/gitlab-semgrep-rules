@@ -46,23 +46,23 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 }
 
 //  banditIdentifiersFor will take in ruleID as string and output a slice of identifiers
-//  Examples of ruleID: rules.bandit.B303-1, rules.bandit.B502.B503
+//  Examples of ruleID: bandit.B303-1, bandit.B502.B503
 func ruleToIDs(ruleID string) []report.Identifier {
 	matches := strings.Split(ruleID, ".")
 	var ids []report.Identifier
 
-	if len(matches) < 3 {
+	if len(matches) < 2 {
 		return []report.Identifier{}
 	}
 
-	if matches[1] == "bandit" {
-		for i := 2; i < len(matches); i++ {
+	if matches[0] == "bandit" {
+		for i := 1; i < len(matches); i++ {
 			ids = append(ids, generateBanditID(matches[i]))
 		}
 	}
 
-	if matches[1] == "eslint" && len(matches) == 3 {
-		ids = append(ids, generateEslintID(matches[2]))
+	if matches[0] == "eslint" && len(matches) == 2 {
+		ids = append(ids, generateEslintID(matches[1]))
 	}
 
 	return ids

@@ -50,7 +50,7 @@ func TestBanditIdentifiersFor(t *testing.T) {
 		},
 	}
 
-	got := ruleToIDs("rules.bandit.B502.B503")
+	got := ruleToIDs("bandit.B502.B503")
 
 	if !reflect.DeepEqual(want, got) {
 		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)

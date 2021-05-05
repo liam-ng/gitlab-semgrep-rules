@@ -23,7 +23,7 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 	configPath := path.Join("/", "rules")
 	outputPath := path.Join(projectPath, "semgrep.sarif")
 
-	cmd := exec.Command("semgrep", "-f", configPath, "-o", outputPath, "--sarif", projectPath) // #nosec G204
+	cmd := exec.Command("semgrep", "-f", configPath, "-o", outputPath, "--sarif", projectPath, "--no-rewrite-rule-ids", "--strict", "--no-git-ignore") // #nosec G204
 
 	cmd.Dir = projectPath
 	cmd.Env = os.Environ()
