@@ -20,8 +20,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B101",
-          "value": "rules.bandit.B101"
+          "name": "bandit.B101",
+          "value": "bandit.B101"
         },
         {
           "type": "cwe",

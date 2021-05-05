@@ -9,8 +9,8 @@
           "semanticVersion": "0.39.1",
           "rules": [
             {
-              "id": "rules.bandit.B323",
-              "name": "rules.bandit.B323",
+              "id": "bandit.B323",
+              "name": "bandit.B323",
               "shortDescription": {
                 "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
               },
@@ -29,8 +29,8 @@
               }
             },
             {
-              "id": "rules.bandit.B502.B503",
-              "name": "rules.bandit.B502.B503",
+              "id": "bandit.B502.B503",
+              "name": "bandit.B502.B503",
               "shortDescription": {
                 "text": "An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions\nare considered weak encryption and are deprecated.\nUse 'ssl.PROTOCOL_TLSv1_2' or higher.\n"
               },
@@ -49,8 +49,8 @@
               }
             }, 
             {
-              "id": "rules.bandit.B303-1",
-              "name": "rules.bandit.B303-1",
+              "id": "bandit.B303-1",
+              "name": "bandit.B303-1",
               "shortDescription": {
                 "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
               },
@@ -70,7 +70,7 @@
       },
       "results": [
         {
-          "ruleId": "rules.bandit.B303-1",
+          "ruleId": "bandit.B303-1",
           "message": {
             "text": "Very Long Message: Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
           },
@@ -91,7 +91,7 @@
           ]
         },
         {
-          "ruleId": "rules.bandit.B502.B503",
+          "ruleId": "bandit.B502.B503",
           "message": {
             "text": "An insecure SSL version was detected. TLS versions 1.0, 1.1, and all SSL versions\nare considered weak encryption and are deprecated.\nUse 'ssl.PROTOCOL_TLSv1_2' or higher.\n"
           },
@@ -113,7 +113,7 @@
           ]
         }, 
         {
-          "ruleId": "rules.bandit.B323",
+          "ruleId": "bandit.B323",
           "message": {
             "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
           },
@@ -135,7 +135,7 @@
           ]
         },
         {
-          "ruleId": "rules.bandit.B323",
+          "ruleId": "bandit.B323",
           "message": {
             "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
           },
@@ -165,8 +165,8 @@
           "semanticVersion": "0.39.1",
           "rules": [
             {
-              "id": "rules.bandit.B323",
-              "name": "rules.bandit.B323",
+              "id": "bandit.B323",
+              "name": "bandit.B323",
               "shortDescription": {
                 "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
               },
@@ -185,8 +185,8 @@
               }
             },
             {
-              "id": "rules.bandit.B303-1",
-              "name": "rules.bandit.B303-1",
+              "id": "bandit.B303-1",
+              "name": "bandit.B303-1",
               "shortDescription": {
                 "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
               },
@@ -206,7 +206,7 @@
       },
       "results": [
         {
-          "ruleId": "rules.bandit.B303-1",
+          "ruleId": "bandit.B303-1",
           "message": {
             "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n"
           },
@@ -228,7 +228,7 @@
           ]
         },
         {
-          "ruleId": "rules.bandit.B323",
+          "ruleId": "bandit.B323",
           "message": {
             "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
           },
@@ -250,7 +250,7 @@
           ]
         },
         {
-          "ruleId": "rules.bandit.B323",
+          "ruleId": "bandit.B323",
           "message": {
             "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
           },

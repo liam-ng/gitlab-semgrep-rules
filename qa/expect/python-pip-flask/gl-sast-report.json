@@ -20,8 +20,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-eval-with-expression",
-          "value": "rules.eslint.detect-eval-with-expression"
+          "name": "eslint.detect-eval-with-expression",
+          "value": "eslint.detect-eval-with-expression"
         },
         {
           "type": "cwe",
@@ -60,8 +60,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-eval-with-expression",
-          "value": "rules.eslint.detect-eval-with-expression"
+          "name": "eslint.detect-eval-with-expression",
+          "value": "eslint.detect-eval-with-expression"
         },
         {
           "type": "cwe",
@@ -100,8 +100,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-eval-with-expression",
-          "value": "rules.eslint.detect-eval-with-expression"
+          "name": "eslint.detect-eval-with-expression",
+          "value": "eslint.detect-eval-with-expression"
         },
         {
           "type": "cwe",
@@ -140,8 +140,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -175,8 +175,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -210,8 +210,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -245,8 +245,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -280,8 +280,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -315,8 +315,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -350,8 +350,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -385,8 +385,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -420,8 +420,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -455,8 +455,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -490,8 +490,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -525,8 +525,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-regexp",
-          "value": "rules.eslint.detect-non-literal-regexp"
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -560,8 +560,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-fs-filename",
-          "value": "rules.eslint.detect-non-literal-fs-filename"
+          "name": "eslint.detect-non-literal-fs-filename",
+          "value": "eslint.detect-non-literal-fs-filename"
         },
         {
           "type": "cwe",
@@ -595,8 +595,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.eslint.detect-non-literal-fs-filename",
-          "value": "rules.eslint.detect-non-literal-fs-filename"
+          "name": "eslint.detect-non-literal-fs-filename",
+          "value": "eslint.detect-non-literal-fs-filename"
         },
         {
           "type": "cwe",
@@ -630,8 +630,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B608",
-          "value": "rules.bandit.B608"
+          "name": "bandit.B608",
+          "value": "bandit.B608"
         },
         {
           "type": "cwe",

@@ -20,8 +20,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B403",
-          "value": "rules.bandit.B403"
+          "name": "bandit.B403",
+          "value": "bandit.B403"
         },
         {
           "type": "cwe",
@@ -60,8 +60,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B602",
-          "value": "rules.bandit.B602"
+          "name": "bandit.B602",
+          "value": "bandit.B602"
         },
         {
           "type": "cwe",
@@ -100,8 +100,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B403",
-          "value": "rules.bandit.B403"
+          "name": "bandit.B403",
+          "value": "bandit.B403"
         },
         {
           "type": "cwe",
@@ -140,8 +140,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B403",
-          "value": "rules.bandit.B403"
+          "name": "bandit.B403",
+          "value": "bandit.B403"
         },
         {
           "type": "cwe",
@@ -180,8 +180,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B403",
-          "value": "rules.bandit.B403"
+          "name": "bandit.B403",
+          "value": "bandit.B403"
         },
         {
           "type": "cwe",
@@ -220,8 +220,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B602",
-          "value": "rules.bandit.B602"
+          "name": "bandit.B602",
+          "value": "bandit.B602"
         },
         {
           "type": "cwe",
@@ -260,8 +260,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B403",
-          "value": "rules.bandit.B403"
+          "name": "bandit.B403",
+          "value": "bandit.B403"
         },
         {
           "type": "cwe",
@@ -300,8 +300,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B403",
-          "value": "rules.bandit.B403"
+          "name": "bandit.B403",
+          "value": "bandit.B403"
         },
         {
           "type": "cwe",
@@ -340,8 +340,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B404",
-          "value": "rules.bandit.B404"
+          "name": "bandit.B404",
+          "value": "bandit.B404"
         },
         {
           "type": "cwe",
@@ -380,8 +380,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B404",
-          "value": "rules.bandit.B404"
+          "name": "bandit.B404",
+          "value": "bandit.B404"
         },
         {
           "type": "cwe",
@@ -420,8 +420,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B404",
-          "value": "rules.bandit.B404"
+          "name": "bandit.B404",
+          "value": "bandit.B404"
         },
         {
           "type": "cwe",
@@ -460,8 +460,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B107",
-          "value": "rules.bandit.B107"
+          "name": "bandit.B107",
+          "value": "bandit.B107"
         },
         {
           "type": "cwe",
@@ -500,8 +500,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B107",
-          "value": "rules.bandit.B107"
+          "name": "bandit.B107",
+          "value": "bandit.B107"
         },
         {
           "type": "cwe",
@@ -540,8 +540,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B107",
-          "value": "rules.bandit.B107"
+          "name": "bandit.B107",
+          "value": "bandit.B107"
         },
         {
           "type": "cwe",
@@ -580,8 +580,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B107",
-          "value": "rules.bandit.B107"
+          "name": "bandit.B107",
+          "value": "bandit.B107"
         },
         {
           "type": "cwe",
@@ -620,8 +620,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B108-1",
-          "value": "rules.bandit.B108-1"
+          "name": "bandit.B108-1",
+          "value": "bandit.B108-1"
         },
         {
           "type": "cwe",
@@ -655,8 +655,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B404",
-          "value": "rules.bandit.B404"
+          "name": "bandit.B404",
+          "value": "bandit.B404"
         },
         {
           "type": "cwe",
@@ -695,8 +695,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B108-2",
-          "value": "rules.bandit.B108-2"
+          "name": "bandit.B108-2",
+          "value": "bandit.B108-2"
         },
         {
           "type": "cwe",
@@ -730,8 +730,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B108-2",
-          "value": "rules.bandit.B108-2"
+          "name": "bandit.B108-2",
+          "value": "bandit.B108-2"
         },
         {
           "type": "cwe",
@@ -765,8 +765,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B108-2",
-          "value": "rules.bandit.B108-2"
+          "name": "bandit.B108-2",
+          "value": "bandit.B108-2"
         },
         {
           "type": "cwe",
@@ -800,8 +800,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B108-2",
-          "value": "rules.bandit.B108-2"
+          "name": "bandit.B108-2",
+          "value": "bandit.B108-2"
         },
         {
           "type": "cwe",
@@ -835,8 +835,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B301-1",
-          "value": "rules.bandit.B301-1"
+          "name": "bandit.B301-1",
+          "value": "bandit.B301-1"
         },
         {
           "type": "cwe",
@@ -875,8 +875,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B404",
-          "value": "rules.bandit.B404"
+          "name": "bandit.B404",
+          "value": "bandit.B404"
         },
         {
           "type": "cwe",
@@ -915,8 +915,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
+          "name": "bandit.B303-1",
+          "value": "bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -955,8 +955,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
+          "name": "bandit.B303-1",
+          "value": "bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -995,8 +995,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
+          "name": "bandit.B303-1",
+          "value": "bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1035,8 +1035,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
+          "name": "bandit.B303-1",
+          "value": "bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1075,8 +1075,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
+          "name": "bandit.B303-1",
+          "value": "bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1115,8 +1115,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
+          "name": "bandit.B303-1",
+          "value": "bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1155,8 +1155,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
+          "name": "bandit.B303-1",
+          "value": "bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1195,8 +1195,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B303-1",
-          "value": "rules.bandit.B303-1"
+          "name": "bandit.B303-1",
+          "value": "bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1235,8 +1235,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B404",
-          "value": "rules.bandit.B404"
+          "name": "bandit.B404",
+          "value": "bandit.B404"
         },
         {
           "type": "cwe",
@@ -1275,8 +1275,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B108-1",
-          "value": "rules.bandit.B108-1"
+          "name": "bandit.B108-1",
+          "value": "bandit.B108-1"
         },
         {
           "type": "cwe",
@@ -1310,8 +1310,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B301-1",
-          "value": "rules.bandit.B301-1"
+          "name": "bandit.B301-1",
+          "value": "bandit.B301-1"
         },
         {
           "type": "cwe",
@@ -1350,8 +1350,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B106",
-          "value": "rules.bandit.B106"
+          "name": "bandit.B106",
+          "value": "bandit.B106"
         },
         {
           "type": "cwe",
@@ -1390,8 +1390,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B106",
-          "value": "rules.bandit.B106"
+          "name": "bandit.B106",
+          "value": "bandit.B106"
         },
         {
           "type": "cwe",
@@ -1430,8 +1430,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "bandit.B105",
+          "value": "bandit.B105"
         },
         {
           "type": "cwe",
@@ -1470,8 +1470,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "bandit.B105",
+          "value": "bandit.B105"
         },
         {
           "type": "cwe",
@@ -1510,8 +1510,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "bandit.B105",
+          "value": "bandit.B105"
         },
         {
           "type": "cwe",
@@ -1550,8 +1550,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "bandit.B105",
+          "value": "bandit.B105"
         },
         {
           "type": "cwe",
@@ -1590,8 +1590,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "bandit.B105",
+          "value": "bandit.B105"
         },
         {
           "type": "cwe",
@@ -1630,8 +1630,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "bandit.B105",
+          "value": "bandit.B105"
         },
         {
           "type": "cwe",
@@ -1670,8 +1670,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "bandit.B105",
+          "value": "bandit.B105"
         },
         {
           "type": "cwe",
@@ -1710,8 +1710,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B105",
-          "value": "rules.bandit.B105"
+          "name": "bandit.B105",
+          "value": "bandit.B105"
         },
         {
           "type": "cwe",
@@ -1750,8 +1750,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "rules.bandit.B101",
-          "value": "rules.bandit.B101"
+          "name": "bandit.B101",
+          "value": "bandit.B101"
         },
         {
           "type": "cwe",
