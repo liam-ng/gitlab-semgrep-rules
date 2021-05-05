@@ -1,11 +1,14 @@
 Semgrep analyzer changelog
 
+## v2.1.1
+- Fix major version in .gitlab-ci.yml so that the major docker release tag is 2 (!28)
+
 ## v2.1.0
 - Add `strict`, `no-git-ignore`, and `--no-rewrite-rules` to semgrep flags (!27)
 
 ## v2.0.0
 - Bump to version 2 so we can support semgrep in the GitLab config UI while we're waiting to remove
-  `SAST_ANALYZER_IMAGE_TAG`
+  `SAST_ANALYZER_IMAGE_TAG` (!22)
 
 ## v0.10.1
 - No change patch to allow release pipelines to pass (!26)
