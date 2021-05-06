@@ -2,47 +2,7 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "6fa2181dd7e7e09705bae1c9182e90a018932527a9586879755772d1aa0d6f07",
-      "category": "sast",
-      "message": "Deserialization of Untrusted Data",
-      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 329,
-        "end_line": 329
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B506",
-          "value": "bandit.B506"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-502",
-          "value": "502",
-          "url": "https://cwe.mitre.org/data/definitions/502.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Insecure Deserialization",
-          "value": "A8"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B506",
-          "value": "B506"
-        }
-      ]
-    },
-    {
-      "id": "8ad9c94f58b5772a8d8465a56a15c01024c7ab9be38630f015fc6b266dff3dde",
+      "id": "4310c956bd32eee6ad51e670bfceef2c100131c199d672a957cc836f0c996c7d",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -53,7 +13,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "app/static/main.js",
+        "file": "src/jsx/main.jsx",
         "start_line": 10,
         "end_line": 10
       },
@@ -82,7 +42,7 @@
       ]
     },
     {
-      "id": "31fa720626b7d0177b615bde5c0c7febf160e4a8956eb59a4d281ea8e772453c",
+      "id": "19ac04ca380ac73c983fbceca07de71a62ec5966e065b64fadaf27bfe12274f9",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -93,7 +53,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "app/static/main.js",
+        "file": "src/jsx/main.jsx",
         "start_line": 14,
         "end_line": 14
       },
@@ -117,7 +77,7 @@
       ]
     },
     {
-      "id": "0d6b28747e5b267946a57e712ae2e317ba86988706f5006ffc25d492cb4d758b",
+      "id": "ecbfbc8da9b60f9325f20e7fbdfe3bf4ecd56b0d5e053f39546b8f47a78aac8a",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -128,7 +88,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "app/static/main.js",
+        "file": "src/jsx/main.jsx",
         "start_line": 25,
         "end_line": 25
       },
@@ -150,46 +110,6 @@
           "value": "security/detect-object-injection"
         }
       ]
-    },
-    {
-      "id": "2c4efce9f31385707082dbf13961ee052089a980796ea4c0522248eae861101f",
-      "category": "sast",
-      "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
-      "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 265,
-        "end_line": 265
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B608",
-          "value": "bandit.B608"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-89",
-          "value": "89",
-          "url": "https://cwe.mitre.org/data/definitions/89.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Injection",
-          "value": "A1"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B608",
-          "value": "B608"
-        }
-      ]
     }
   ],
   "remediations": [],
@@ -204,8 +124,8 @@
       "version": "0.39.1"
     },
     "type": "sast",
-    "start_time": "2021-05-06T22:56:06",
-    "end_time": "2021-05-06T22:56:20",
+    "start_time": "2021-05-06T21:49:57",
+    "end_time": "2021-05-06T21:50:01",
     "status": "success"
   }
 }
