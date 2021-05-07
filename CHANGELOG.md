@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.2.0
+- Support semgrep rule override via the custom ruleset passthrough property (!30)
+
 ## v2.1.1
 - Fix major version in .gitlab-ci.yml so that the major docker release tag is 2 (!28)
 
