@@ -36,6 +36,22 @@ python-pip-flask-custom-rulesets-qa:
     project: gitlab-org/security-products/tests/python-pip-flask
     branch: custom-rulesets-FREEZE
 
+python-pip-flask-custom-rulesets-with-passthrough-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask-custom-rulesets-with-passthrough/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/python-pip-flask
+    branch: custom-rulesets-with-passthrough-FREEZE
+
+python-pip-flask-custom-rulesets-with-raw-passthrough-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask-custom-rulesets-with-passthrough/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/python-pip-flask
+    branch: custom-rulesets-with-raw-passthrough-FREEZE
+
 python-pip-multi-project-qa:
   extends: .qa-downstream-sast
   variables:
