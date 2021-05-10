@@ -42,6 +42,46 @@
       ]
     },
     {
+      "id": "2c4efce9f31385707082dbf13961ee052089a980796ea4c0522248eae861101f",
+      "category": "sast",
+      "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+      "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/app.py",
+        "start_line": 265,
+        "end_line": 265
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B608",
+          "value": "bandit.B608"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-89",
+          "value": "89",
+          "url": "https://cwe.mitre.org/data/definitions/89.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Injection",
+          "value": "A1"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B608",
+          "value": "B608"
+        }
+      ]
+    },
+    {
       "id": "8ad9c94f58b5772a8d8465a56a15c01024c7ab9be38630f015fc6b266dff3dde",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
@@ -82,7 +122,7 @@
       ]
     },
     {
-      "id": "31fa720626b7d0177b615bde5c0c7febf160e4a8956eb59a4d281ea8e772453c",
+      "id": "a2caf7a4a9d21a45e55fcbb07bae21013200cf81e3b155db55d51703aa044299",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -94,8 +134,8 @@
       },
       "location": {
         "file": "app/static/main.js",
-        "start_line": 14,
-        "end_line": 14
+        "start_line": 15,
+        "end_line": 15
       },
       "identifiers": [
         {
@@ -117,7 +157,7 @@
       ]
     },
     {
-      "id": "0d6b28747e5b267946a57e712ae2e317ba86988706f5006ffc25d492cb4d758b",
+      "id": "750b8ac96be44407aa1c4162690ca32a90058da472106810a469b89a5ec39329",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -129,8 +169,8 @@
       },
       "location": {
         "file": "app/static/main.js",
-        "start_line": 25,
-        "end_line": 25
+        "start_line": 27,
+        "end_line": 27
       },
       "identifiers": [
         {
@@ -150,46 +190,6 @@
           "value": "security/detect-object-injection"
         }
       ]
-    },
-    {
-      "id": "2c4efce9f31385707082dbf13961ee052089a980796ea4c0522248eae861101f",
-      "category": "sast",
-      "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
-      "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 265,
-        "end_line": 265
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B608",
-          "value": "bandit.B608"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-89",
-          "value": "89",
-          "url": "https://cwe.mitre.org/data/definitions/89.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Injection",
-          "value": "A1"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B608",
-          "value": "B608"
-        }
-      ]
     }
   ],
   "remediations": [],
@@ -201,11 +201,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.39.1"
+      "version": "0.51.0"
     },
     "type": "sast",
-    "start_time": "2021-05-06T22:56:06",
-    "end_time": "2021-05-06T22:56:20",
+    "start_time": "2021-05-14T05:37:55",
+    "end_time": "2021-05-14T05:38:09",
     "status": "success"
   }
 }
