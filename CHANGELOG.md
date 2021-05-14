@@ -1,5 +1,27 @@
 Semgrep analyzer changelog
 
+## v2.3.0
+- Speed up eslint.detect-object-injection (!32 @r2c_nathan @mschwager)
+- Upgrade semgrep to 0.50.1 (!32)
+    + JS/TS: Infer global constants even if the const qualifier is missing (#2978)
+    + Support for matching multiple arguments with a metavariable (#3009) This is done with a 'spread metavariable' operator that looks like $...ARGS. This used to be available only for JS/TS and is now available for the other languages (Python, Java, Go, C, Ruby, PHP, and OCaml).
+    + JS/TS: Support '...' inside JSX text to match any text, as in <a href="foo">...</a> (#2963)
+    + JS/TS: Support metavariables for JSX attribute values, as in <a href=$X>some text</a> (#2964)
+    + Python: correctly parsing fstring with multiple colons
+    + Remove jsx and tsx from languages, just use javascript or typescript (#3000)
+    + Capturing functions when used as both expressions and statements in JS (#1007)
+    + Ability to match lambdas or functions in Javascript with ellipsis after the function keyword, (e.g., function ...(...) { ... })
+    + support for utf-8 code with non-ascii chars (#2944)
+    + JSX/TSX: fixed the range of matched JSX elements (#2685)
+    + Javascript: allow ellipsis in arrow body (#2802)
+    + Official Python 3.9 support
+    + Added basic typed metavariables for javascript and typescript (#2588)
+    + ability to process a whole rule in semgrep-core; this will allow whole-rule optimisations and avoid some fork and communication with the semgrep Python wrapper
+    + Caching improvements for semgrep-core
+    + Matching performance improvements
+    + Typescript grammar upgraded
+    + Import statements for CommonJS Typescript modules now supported. (#2234)
+
 ## v2.2.0
 - Support semgrep rule override via the custom ruleset passthrough property (!30)
 

@@ -2499,11 +2499,11 @@
             "path": "react_rules/positives.jsx",
             "start": {
                 "line": 10,
-                "col": 4
+                "col": 3
             },
             "end": {
                 "line": 10,
-                "col": 51
+                "col": 55
             },
             "extra": {
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2524,11 +2524,11 @@
             "path": "react_rules/positives.jsx",
             "start": {
                 "line": 12,
-                "col": 4
+                "col": 3
             },
             "end": {
                 "line": 12,
-                "col": 53
+                "col": 57
             },
             "extra": {
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2549,11 +2549,11 @@
             "path": "react_rules/positives.jsx",
             "start": {
                 "line": 2,
-                "col": 4
+                "col": 3
             },
             "end": {
-                "line": 2,
-                "col": 67
+                "line": 4,
+                "col": 9
             },
             "extra": {
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2566,7 +2566,7 @@
                 },
                 "severity": "WARNING",
                 "is_ignored": false,
-                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>"
+                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </div>"
             }
         },
         {
@@ -2574,11 +2574,11 @@
             "path": "react_rules/positives.jsx",
             "start": {
                 "line": 6,
-                "col": 4
+                "col": 3
             },
             "end": {
-                "line": 6,
-                "col": 69
+                "line": 8,
+                "col": 11
             },
             "extra": {
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2591,7 +2591,7 @@
                 },
                 "severity": "WARNING",
                 "is_ignored": false,
-                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>"
+                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </Hello>"
             }
         },
         {
@@ -2699,11 +2699,11 @@
             "path": "react_rules/positives.tsx",
             "start": {
                 "line": 10,
-                "col": 4
+                "col": 3
             },
             "end": {
                 "line": 10,
-                "col": 51
+                "col": 55
             },
             "extra": {
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2724,11 +2724,11 @@
             "path": "react_rules/positives.tsx",
             "start": {
                 "line": 12,
-                "col": 4
+                "col": 3
             },
             "end": {
                 "line": 12,
-                "col": 53
+                "col": 57
             },
             "extra": {
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2749,11 +2749,11 @@
             "path": "react_rules/positives.tsx",
             "start": {
                 "line": 2,
-                "col": 4
+                "col": 3
             },
             "end": {
-                "line": 2,
-                "col": 67
+                "line": 4,
+                "col": 9
             },
             "extra": {
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2766,7 +2766,7 @@
                 },
                 "severity": "WARNING",
                 "is_ignored": false,
-                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>"
+                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </div>"
             }
         },
         {
@@ -2774,11 +2774,11 @@
             "path": "react_rules/positives.tsx",
             "start": {
                 "line": 6,
-                "col": 4
+                "col": 3
             },
             "end": {
-                "line": 6,
-                "col": 69
+                "line": 8,
+                "col": 11
             },
             "extra": {
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2791,7 +2791,7 @@
                 },
                 "severity": "WARNING",
                 "is_ignored": false,
-                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>"
+                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </Hello>"
             }
         }
     ],

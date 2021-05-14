@@ -2,7 +2,7 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "4310c956bd32eee6ad51e670bfceef2c100131c199d672a957cc836f0c996c7d",
+      "id": "3189c88bf9c9c1045ea4be135470bb37f1656693da5112f98f77072aa2f1df0a",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "id": "19ac04ca380ac73c983fbceca07de71a62ec5966e065b64fadaf27bfe12274f9",
+      "id": "49d175cf8cfd179205f84068c5f263aa834e813be573fb1454f46fe566e54c0b",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -54,8 +54,8 @@
       },
       "location": {
         "file": "src/jsx/main.jsx",
-        "start_line": 14,
-        "end_line": 14
+        "start_line": 16,
+        "end_line": 16
       },
       "identifiers": [
         {
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "id": "ecbfbc8da9b60f9325f20e7fbdfe3bf4ecd56b0d5e053f39546b8f47a78aac8a",
+      "id": "195af5f015b1d5ecd2489656be22046e11cc873f8218e9e0e99c4f3042ba9c66",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -89,8 +89,43 @@
       },
       "location": {
         "file": "src/jsx/main.jsx",
-        "start_line": 25,
-        "end_line": 25
+        "start_line": 28,
+        "end_line": 28
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.detect-object-injection",
+          "value": "eslint.detect-object-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-94",
+          "value": "94",
+          "url": "https://cwe.mitre.org/data/definitions/94.html"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-object-injection",
+          "value": "security/detect-object-injection"
+        }
+      ]
+    },
+    {
+      "id": "195af5f015b1d5ecd2489656be22046e11cc873f8218e9e0e99c4f3042ba9c66",
+      "category": "sast",
+      "message": "Improper Control of Generation of Code ('Code Injection')",
+      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/jsx/main.jsx",
+        "start_line": 28,
+        "end_line": 28
       },
       "identifiers": [
         {
@@ -121,11 +156,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.39.1"
+      "version": "0.51.0"
     },
     "type": "sast",
-    "start_time": "2021-05-06T21:49:57",
-    "end_time": "2021-05-06T21:50:01",
+    "start_time": "2021-05-13T21:01:08",
+    "end_time": "2021-05-13T21:01:12",
     "status": "success"
   }
 }
