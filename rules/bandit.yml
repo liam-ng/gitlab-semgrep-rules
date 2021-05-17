@@ -1307,7 +1307,6 @@ rules:
   patterns:
   - pattern-either:
     - pattern: django.utils.safestring.SafeText(...)
-    - pattern: django.utils.safestring.SafeText(...)
     - pattern: django.utils.safestring.SafeUnicode(...)
     - pattern: django.utils.safestring.SafeString(...)
     - pattern: django.utils.safestring.SafeBytes(...)
