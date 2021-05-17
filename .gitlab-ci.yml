@@ -15,6 +15,12 @@ semgrep-rules-test:
     paths:
       - ./semgrep_rules_check/received.json
 
+semgrep-meta-rules:
+  stage: test
+  image: returntocorp/semgrep-agent:v1
+  script: semgrep-agent --config r/meta
+  allow_failure: true
+
 .qa-downstream-sast:
   variables:
     DS_DEFAULT_ANALYZERS: ""
