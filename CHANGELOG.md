@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.3.1
+- Fix: Enable bandit rules B301-2/B307 (!34 @underyx)
+
 ## v2.3.0
 - Speed up eslint.detect-object-injection (!32 @r2c_nathan @mschwager)
 - Upgrade semgrep to 0.50.1 (!32)
