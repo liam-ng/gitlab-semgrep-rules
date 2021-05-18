@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.4.0
+- Enable semgrep telemetry (!37)
+
 ## v2.3.1
 - Fix: Enable bandit rules B301-2/B307 (!34 @underyx)
 
