@@ -16,7 +16,14 @@ import (
 )
 
 func analyzeFlags() []cli.Flag {
-	return []cli.Flag{}
+	return []cli.Flag{
+		&cli.BoolFlag{
+			Name:    "semgrep-send-metrics",
+			Usage:   "send anonymized scan metrics to r2c",
+			EnvVars: []string{"SAST_SEMGREP_METRICS"},
+			Value:   true,
+		},
+	}
 }
 
 // The nosec comments below are ignoring two false positive vulnerabilities. They are false positive as this
@@ -50,7 +57,12 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 		return nil, err
 	}
 
-	cmd := exec.Command("semgrep", "-f", configPath, "-o", outputPath, "--sarif", projectPath, "--no-rewrite-rule-ids", "--strict", "--no-git-ignore") // #nosec G204
+	args := []string{"-f", configPath, "-o", outputPath, "--sarif", projectPath, "--no-rewrite-rule-ids", "--strict", "--no-git-ignore"}
+	if c.Bool("semgrep-send-metrics") {
+		args = append(args, "--enable-metrics")
+	}
+
+	cmd := exec.Command("semgrep", args...) // #nosec G204
 	log.Debug(cmd.String())
 
 	cmd.Dir = projectPath
