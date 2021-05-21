@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.4.1
+- Upgrade the `command` package to `v1.1.1` to enable better log messages (!39)
+
 ## v2.4.0
 - Enable semgrep telemetry (!37)
 
