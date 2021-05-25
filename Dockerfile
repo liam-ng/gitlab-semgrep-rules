@@ -30,7 +30,8 @@ COPY rules /rules
 RUN mkdir /.cache && \
     chmod -R g+rw /.cache
 
-RUN pip install semgrep==$SCANNER_VERSION
+RUN apk add --no-cache git && \
+    pip install semgrep==$SCANNER_VERSION
 
 ENTRYPOINT []
 CMD ["/analyzer", "run"]
