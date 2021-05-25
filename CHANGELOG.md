@@ -1,7 +1,7 @@
 Semgrep analyzer changelog
 
 ## v2.4.2
-- Add `git` to docker image for Semgrep internals to use (!40)
+- Add `git` to docker image for Semgrep internals to use (!40 @chmccreery)
 
 ## v2.4.1
 - Upgrade the `command` package to `v1.1.1` to enable better log messages (!39)
