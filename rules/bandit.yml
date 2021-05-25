@@ -40,7 +40,6 @@ rules:
 # avoid-bind-to-all-interfaces
 - id: bandit.B104
   patterns:
-  - pattern-either:
     - pattern: |
         $S = socket.socket(...)
         ...
@@ -94,8 +93,7 @@ rules:
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/hardcoded-password-default-argument.yaml
 # hardcoded-password-default-argument
 - id: bandit.B107
-  patterns:
-  - pattern: |
+  pattern: |
       def $FUNC(..., password="...", ...):
         ...
   message: |
@@ -117,8 +115,7 @@ rules:
   severity: WARNING
   languages: [python]
 - id: bandit.B108-2
-  patterns:
-    - pattern: open("=~/^\/(dev|var).*/", ...)
+  pattern: open("=~/^\/(dev|var).*/", ...)
   message: | 
     Probable insecure usage of temp file/directory.   
   metadata:
@@ -126,8 +123,7 @@ rules:
   severity: WARNING
   languages: [python]
 - id: bandit.B110
-  patterns:
-    - pattern: |
+  pattern: |
         try:
           ...
         except $X:
@@ -139,8 +135,7 @@ rules:
   severity: INFO
   languages: [python]
 - id: bandit.B112
-  patterns:
-    - pattern: |
+  pattern: |
         try:
           ...
         except $X:
@@ -199,8 +194,7 @@ rules:
   languages: [python]
 # avoid-dill
 - id: bandit.B301-3
-  pattern-either:
-  - pattern: dill.$FUNC(...)
+  pattern: dill.$FUNC(...)
   message: |
     Avoid using `dill`, which uses `pickle`, which is known to lead to code execution vulnerabilities.
     When unpickling, the serialized data could be manipulated to run arbitrary code.
@@ -213,8 +207,7 @@ rules:
   severity: WARNING
 # avoid-shelve
 - id: bandit.B301-4
-  pattern-either:
-  - pattern: shelve.$FUNC(...)
+  pattern: shelve.$FUNC(...)
   message: |
     Avoid using `shelve`, which uses `pickle`, which is known to lead to code execution vulnerabilities.
     When unpickling, the serialized data could be manipulated to run arbitrary code.
@@ -270,8 +263,7 @@ rules:
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-hash-algorithm.yaml
 # insecure-hash-algorithm-md2
 - id: bandit.B303-3
-  patterns:
-  - pattern-either:
+  pattern-either:
     - pattern: Crypto.Hash.MD2.new(...)
     - pattern: Cryptodome.Hash.MD2.new (...)
   message: |
@@ -285,7 +277,6 @@ rules:
 # insecure-hash-algorithm-md4
 - id: bandit.B303-4
   patterns:
-  - pattern-either:
     - pattern: Crypto.Hash.MD4.new(...)
     - pattern: Cryptodome.Hash.MD4.new (...)
   message: |
@@ -299,7 +290,6 @@ rules:
 # insecure-hash-algorithm-md5
 - id: bandit.B303-5
   patterns:
-  - pattern-either:
     - pattern: Crypto.Hash.MD5.new(...)
     - pattern: Cryptodome.Hash.MD5.new (...)
   message: |
@@ -314,7 +304,6 @@ rules:
 # insecure-hash-algorithm-sha1
 - id: bandit.B303-6
   patterns:
-  - pattern-either:
     - pattern: Crypto.Hash.SHA.new(...)
     - pattern: Cryptodome.Hash.SHA.new (...)
   message: |
@@ -354,7 +343,6 @@ rules:
 # insecure-hash-algorithm-md2
 - id: bandit.B304-1
   patterns:
-  - pattern-either:
     - pattern: Crypto.Hash.MD2.new(...)
     - pattern: Cryptodome.Hash.MD2.new (...)
   message: |
@@ -368,7 +356,6 @@ rules:
 # insecure-hash-algorithm-md4
 - id: bandit.B304-2
   patterns:
-  - pattern-either:
     - pattern: Crypto.Hash.MD4.new(...)
     - pattern: Cryptodome.Hash.MD4.new (...)
   message: |
@@ -382,7 +369,6 @@ rules:
 # insecure-hash-algorithm-md5
 - id: bandit.B304-3
   patterns:
-  - pattern-either:
     - pattern: Crypto.Hash.MD5.new(...)
     - pattern: Cryptodome.Hash.MD5.new (...)
   message: |
@@ -397,7 +383,6 @@ rules:
 # insecure-hash-algorithm-sha1
 - id: bandit.B304-4
   patterns:
-  - pattern-either:
     - pattern: Crypto.Hash.SHA.new(...)
     - pattern: Cryptodome.Hash.SHA.new (...)
   message: |
@@ -413,7 +398,6 @@ rules:
 # insecure-cipher-algorithm-rc2
 - id: bandit.B304-5
   patterns:
-  - pattern-either:
     - pattern: Cryptodome.Cipher.ARC2.new(...)
     - pattern: Crypto.Cipher.ARC2.new
   message: |
@@ -426,7 +410,6 @@ rules:
 # insecure-cipher-algorithm-rc4
 - id: bandit.B304-6
   patterns:
-  - pattern-either:
     - pattern: Cryptodome.Cipher.ARC4.new(...)
     - pattern: Crypto.Cipher.ARC4.new(...)
   message: |
@@ -454,7 +437,6 @@ rules:
 # insecure-cipher-algorithm-des
 - id: bandit.B304-8
   patterns:
-  - pattern-either:
     - pattern: Cryptodome.Cipher.DES.new(...)
     - pattern: Crypto.Cipher.DES.new(...)
   message: |
@@ -468,7 +450,6 @@ rules:
 # insecure-cipher-algorithm-xor
 - id: bandit.B304-9
   patterns:
-  - pattern-either:
     - pattern: Cryptodome.Cipher.XOR.new(...)
     - pattern: Crypto.Cipher.XOR.new(...)
   message: |
@@ -595,14 +576,12 @@ rules:
   - pattern-not: urllib.request.$W("...")
   - pattern-not: $OPENER.$W("...")
   - pattern-either:
-    - patterns:
-      - pattern-either:
+    - pattern-either:
         - pattern: urllib.urlopen(...)
         - pattern: urllib.request.urlopen(...)
         - pattern: urllib.urlretrieve(...)
         - pattern: urllib.request.urlretrieve(...)
-    - patterns:
-      - pattern-either:
+    - pattern-either
         - pattern-inside: |
             $OPENER = urllib.URLopener(...)
             ...
@@ -763,7 +742,6 @@ rules:
 # insecure-hash-function
 - id: bandit.B324
   patterns:
-  - pattern-either:
     - pattern: hashlib.new("=~/[M|m][D|d][4|5]/", ...)
     - pattern: hashlib.new(..., name="=~/[M|m][D|d][4|5]/", ...)
     - pattern: hashlib.new('sha1')
@@ -802,7 +780,6 @@ rules:
   languages: [python]
 - id: bandit.B402
   patterns:
-    - pattern-either:
       - pattern: import ftplib
       - pattern: from ftplib import FTP
       - pattern: ftplib.FTP(...)
@@ -815,7 +792,6 @@ rules:
   languages: [python]
 - id: bandit.B403
   patterns:
-    - pattern-either:
       - pattern: import pickle
       - pattern: import cPickle
   message: |
@@ -880,7 +856,6 @@ rules:
 # disabled-cert-validation
 - id: bandit.B501
   patterns:
-  - pattern-either:
     - pattern: requests.put(..., verify=False, ...)
     - pattern: requests.patch(..., verify=False, ...)
     - pattern: requests.delete(..., verify=False, ...)
@@ -902,7 +877,6 @@ rules:
 # weak-ssl-version
 - id: bandit.B502.B503
   patterns:
-  - pattern-either:
     - pattern: ssl.PROTOCOL_SSLv2
     - pattern: ssl.PROTOCOL_SSLv3
     - pattern: ssl.PROTOCOL_TLSv1
@@ -934,7 +908,6 @@ rules:
 # source (modified/combined): https://github.com/returntocorp/semgrep-rules/tree/develop/python/cryptography/security/insufficient*-size/insufficient*-size.yaml
 - id: bandit.B505-1
   patterns:
-  - pattern-either:
     - pattern: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key(..., key_size=$SIZE, ...)
     - pattern: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key($EXP, $SIZE, ...)
     - pattern: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key($SIZE, ...)
@@ -1040,7 +1013,6 @@ rules:
   - pattern-not: subprocess.$FUNC(..., shell=[])
   - pattern-not: subprocess.$FUNC(..., shell={})
   - pattern-not: subprocess.$FUNC(..., shell=None)
-  - pattern-either:
     - pattern: subprocess.$FUNC(..., shell=True, ...)
     - pattern: subprocess.$FUNC(..., shell='True', ...)
     - pattern: subprocess.$FUNC(..., shell='False', ...)
@@ -1059,7 +1031,6 @@ rules:
 # dangerous-system-call
 - id: bandit.B603
   patterns:
-    - pattern-either:
       - pattern: subprocess.$FUNC([...])
       - pattern: subprocess.$FUNC([...], shell=False)
       - pattern: subprocess.$FUNC(..., shell=False)
@@ -1091,7 +1062,6 @@ rules:
   languages: [python]
 - id: bandit.B605
   patterns:
-    - pattern-either: 
       - pattern: os.system(...)
       - pattern: os.popen(...)
       - pattern: os.popen2(...)
@@ -1119,7 +1089,6 @@ rules:
   - pattern-either:
     - patterns:
       - pattern-not: os.$W("...", ...)
-      - pattern-either:
         - pattern: os.execl(...)
         - pattern: os.execle(...)
         - pattern: os.execlp(...)
@@ -1131,7 +1100,6 @@ rules:
         - pattern: os.startfile(...)
     - patterns:
       - pattern-not: os.$W($MODE, "...", ...)
-      - pattern-either:
         - pattern: os.spawnl(...)
         - pattern: os.spawnle(...)
         - pattern: os.spawnlp(...)
@@ -1183,8 +1151,7 @@ rules:
     - pattern: $DB.execute("...".format(...))
     - pattern: $DB.execute(f"...")
     - pattern: $DB.execute("..." + $V + "...")
-    - patterns:
-      - pattern-either:
+    - pattern-either
         - pattern-inside: |
             $SQL = "..." % ...
             ...
