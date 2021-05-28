@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.5.0
+- SAST_EXCLUDED_PATHS is passed to semgrep to exclude as semgrep runs (!47)
+
 ## v2.4.2
 - Add `git` to docker image for Semgrep internals to use (!40 @chmccreery)
 
