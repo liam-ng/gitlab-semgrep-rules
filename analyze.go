@@ -8,6 +8,7 @@ import (
 	"os/exec"
 	"path"
 	"path/filepath"
+	"strings"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
@@ -15,13 +16,23 @@ import (
 	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 )
 
+const (
+	flagSASTExcludedPaths  = "sast-excluded-paths"
+	flagSASTSemgrepMetrics = "semgrep-send-metrics"
+)
+
 func analyzeFlags() []cli.Flag {
 	return []cli.Flag{
 		&cli.BoolFlag{
-			Name:    "semgrep-send-metrics",
+			Name:    flagSASTSemgrepMetrics,
 			Usage:   "send anonymized scan metrics to r2c",
 			EnvVars: []string{"SAST_SEMGREP_METRICS"},
 			Value:   true,
+		},
+		&cli.StringFlag{
+			Name:    flagSASTExcludedPaths,
+			Usage:   "See https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters",
+			EnvVars: []string{"SAST_EXCLUDED_PATHS"},
 		},
 	}
 }
@@ -57,10 +68,13 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 		return nil, err
 	}
 
-	args := []string{"-f", configPath, "-o", outputPath, "--sarif", projectPath, "--no-rewrite-rule-ids", "--strict", "--no-git-ignore"}
-	if c.Bool("semgrep-send-metrics") {
-		args = append(args, "--enable-metrics")
-	}
+	args := buildArgs(
+		configPath,
+		outputPath,
+		projectPath,
+		c.String(flagSASTExcludedPaths),
+		c.Bool(flagSASTSemgrepMetrics),
+	)
 
 	cmd := exec.Command("semgrep", args...) // #nosec G204
 	log.Debug(cmd.String())
@@ -72,6 +86,34 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 	log.Debugf("%s\n%s", cmd.String(), output)
 
 	return os.Open(outputPath) // #nosec G304
+}
+
+func buildArgs(configPath, outputPath, projectPath, excludedPaths string, enableMetrics bool) []string {
+	var args []string
+
+	args = []string{
+		"-f", configPath,
+		"-o", outputPath,
+		"--sarif",
+		"--no-rewrite-rule-ids",
+		"--strict",
+		"--no-git-ignore",
+	}
+
+	if excludedPaths != "" {
+		excludes := strings.Split(excludedPaths, ",")
+		for _, exclude := range excludes {
+			args = append(args, "--exclude", exclude)
+		}
+	}
+
+	if enableMetrics {
+		args = append(args, "--enable-metrics")
+	}
+
+	args = append(args, projectPath)
+
+	return args
 }
 
 func getConfigPath(projectPath string, rulesetConfig *ruleset.Config) (string, error) {
