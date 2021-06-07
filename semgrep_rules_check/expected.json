@@ -1,2411 +1,2434 @@
 {
+    "errors": [],
     "results": [
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 30,
+                "line": 10
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.exists(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 10,
-                "col": 3
-            },
-            "end": {
-                "line": 10,
-                "col": 30
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.exists(argOne, callback)"
+                "col": 3,
+                "line": 10
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 34,
+                "line": 11
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.existsSync(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 11,
-                "col": 3
-            },
-            "end": {
-                "line": 11,
-                "col": 34
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.existsSync(argOne, callback)"
+                "col": 3,
+                "line": 11
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 36,
+                "line": 12
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lchmod(argOne, mode, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 12,
-                "col": 3
-            },
-            "end": {
-                "line": 12,
-                "col": 36
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lchmod(argOne, mode, callback)"
+                "col": 3,
+                "line": 12
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 30,
+                "line": 13
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lchmodSync(argOne, mode)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 13,
-                "col": 3
-            },
-            "end": {
-                "line": 13,
-                "col": 30
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lchmodSync(argOne, mode)"
+                "col": 3,
+                "line": 13
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 40,
+                "line": 14
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lchown(argOne, uid, gid, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 14,
-                "col": 3
-            },
-            "end": {
-                "line": 14,
-                "col": 40
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lchown(argOne, uid, gid, callback)"
+                "col": 3,
+                "line": 14
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 34,
+                "line": 15
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lchownSync(argOne, uid, gid)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 15,
-                "col": 3
-            },
-            "end": {
-                "line": 15,
-                "col": 34
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lchownSync(argOne, uid, gid)"
+                "col": 3,
+                "line": 15
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 36,
+                "line": 16
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.link(argOne, argTwo, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 16,
-                "col": 3
-            },
-            "end": {
-                "line": 16,
-                "col": 36
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.link(argOne, argTwo, callback)"
+                "col": 3,
+                "line": 16
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 30,
+                "line": 17
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.linkSync(argOne, argTwo)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 17,
-                "col": 3
-            },
-            "end": {
-                "line": 17,
-                "col": 30
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.linkSync(argOne, argTwo)"
+                "col": 3,
+                "line": 17
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 29,
+                "line": 18
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lstat(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 18,
-                "col": 3
-            },
-            "end": {
-                "line": 18,
-                "col": 29
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lstat(argOne, callback)"
+                "col": 3,
+                "line": 18
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 23,
+                "line": 19
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lstatSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 19,
-                "col": 3
-            },
-            "end": {
-                "line": 19,
-                "col": 23
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lstatSync(argOne)"
+                "col": 3,
+                "line": 19
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 29,
+                "line": 20
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.mkdir(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 20,
-                "col": 3
-            },
-            "end": {
-                "line": 20,
-                "col": 29
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.mkdir(argOne, callback)"
+                "col": 3,
+                "line": 20
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 23,
+                "line": 21
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.mkdirSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 21,
-                "col": 3
-            },
-            "end": {
-                "line": 21,
-                "col": 23
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.mkdirSync(argOne)"
+                "col": 3,
+                "line": 21
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 28,
+                "line": 22
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.open(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 22,
-                "col": 3
-            },
-            "end": {
-                "line": 22,
-                "col": 28
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.open(argOne, callback)"
+                "col": 3,
+                "line": 22
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 22,
+                "line": 23
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.openSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 23,
-                "col": 3
-            },
-            "end": {
-                "line": 23,
-                "col": 22
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.openSync(argOne)"
+                "col": 3,
+                "line": 23
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 31,
+                "line": 24
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readdir(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 24,
-                "col": 3
-            },
-            "end": {
-                "line": 24,
-                "col": 31
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readdir(argOne, callback)"
+                "col": 3,
+                "line": 24
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 25,
+                "line": 25
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readdirSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 25,
-                "col": 3
-            },
-            "end": {
-                "line": 25,
-                "col": 25
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readdirSync(argOne)"
+                "col": 3,
+                "line": 25
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 32,
+                "line": 26
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readFile(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 26,
-                "col": 3
-            },
-            "end": {
-                "line": 26,
-                "col": 32
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readFile(argOne, callback)"
+                "col": 3,
+                "line": 26
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 26,
+                "line": 27
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readFileSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 27,
-                "col": 3
-            },
-            "end": {
-                "line": 27,
-                "col": 26
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readFileSync(argOne)"
+                "col": 3,
+                "line": 27
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 32,
+                "line": 28
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readlink(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 28,
-                "col": 3
-            },
-            "end": {
-                "line": 28,
-                "col": 32
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readlink(argOne, callback)"
+                "col": 3,
+                "line": 28
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 26,
+                "line": 29
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readlinkSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 29,
-                "col": 3
-            },
-            "end": {
-                "line": 29,
-                "col": 26
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readlinkSync(argOne)"
+                "col": 3,
+                "line": 29
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 40,
+                "line": 2
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.appendFile(argOne, data, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 2,
-                "col": 3
-            },
-            "end": {
-                "line": 2,
-                "col": 40
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.appendFile(argOne, data, callback)"
+                "col": 3,
+                "line": 2
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 32,
+                "line": 30
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.realpath(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 30,
-                "col": 3
-            },
-            "end": {
-                "line": 30,
-                "col": 32
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.realpath(argOne, callback)"
+                "col": 3,
+                "line": 30
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 26,
+                "line": 31
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.realpathSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 31,
-                "col": 3
-            },
-            "end": {
-                "line": 31,
-                "col": 26
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.realpathSync(argOne)"
+                "col": 3,
+                "line": 31
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 38,
+                "line": 32
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.rename(argOne, argTwo, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 32,
-                "col": 3
-            },
-            "end": {
-                "line": 32,
-                "col": 38
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.rename(argOne, argTwo, callback)"
+                "col": 3,
+                "line": 32
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 32,
+                "line": 33
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.renameSync(argOne, argTwo)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 33,
-                "col": 3
-            },
-            "end": {
-                "line": 33,
-                "col": 32
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.renameSync(argOne, argTwo)"
+                "col": 3,
+                "line": 33
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 29,
+                "line": 34
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.rmdir(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 34,
-                "col": 3
-            },
-            "end": {
-                "line": 34,
-                "col": 29
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.rmdir(argOne, callback)"
+                "col": 3,
+                "line": 34
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 23,
+                "line": 35
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.rmdirSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 35,
-                "col": 3
-            },
-            "end": {
-                "line": 35,
-                "col": 23
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.rmdirSync(argOne)"
+                "col": 3,
+                "line": 35
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 28,
+                "line": 36
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.stat(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 36,
-                "col": 3
-            },
-            "end": {
-                "line": 36,
-                "col": 28
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.stat(argOne, callback)"
+                "col": 3,
+                "line": 36
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 22,
+                "line": 37
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.statSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 37,
-                "col": 3
-            },
-            "end": {
-                "line": 37,
-                "col": 22
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.statSync(argOne)"
+                "col": 3,
+                "line": 37
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 39,
+                "line": 38
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.symlink(argOne, argTwo, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 38,
-                "col": 3
-            },
-            "end": {
-                "line": 38,
-                "col": 39
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.symlink(argOne, argTwo, callback)"
+                "col": 3,
+                "line": 38
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 33,
+                "line": 39
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.symlinkSync(argOne, argTwo)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 39,
-                "col": 3
-            },
-            "end": {
-                "line": 39,
-                "col": 33
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.symlinkSync(argOne, argTwo)"
+                "col": 3,
+                "line": 39
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 34,
+                "line": 3
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.appendFileSync(argOne, data)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 3,
-                "col": 3
-            },
-            "end": {
-                "line": 3,
-                "col": 34
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.appendFileSync(argOne, data)"
+                "col": 3,
+                "line": 3
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 32,
+                "line": 40
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.truncate(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 40,
-                "col": 3
-            },
-            "end": {
-                "line": 40,
-                "col": 32
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.truncate(argOne, callback)"
+                "col": 3,
+                "line": 40
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 26,
+                "line": 41
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.truncateSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 41,
-                "col": 3
-            },
-            "end": {
-                "line": 41,
-                "col": 26
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.truncateSync(argOne)"
+                "col": 3,
+                "line": 41
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 30,
+                "line": 42
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.unlink(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 42,
-                "col": 3
-            },
-            "end": {
-                "line": 42,
-                "col": 30
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.unlink(argOne, callback)"
+                "col": 3,
+                "line": 42
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 24,
+                "line": 43
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.unlinkSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 43,
-                "col": 3
-            },
-            "end": {
-                "line": 43,
-                "col": 24
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.unlinkSync(argOne)"
+                "col": 3,
+                "line": 43
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 25,
+                "line": 44
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.unwatchFile(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 44,
-                "col": 3
-            },
-            "end": {
-                "line": 44,
-                "col": 25
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.unwatchFile(argOne)"
+                "col": 3,
+                "line": 44
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 30,
+                "line": 45
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.utimes(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 45,
-                "col": 3
-            },
-            "end": {
-                "line": 45,
-                "col": 30
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.utimes(argOne, callback)"
+                "col": 3,
+                "line": 45
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 24,
+                "line": 46
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.utimesSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 46,
-                "col": 3
-            },
-            "end": {
-                "line": 46,
-                "col": 24
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.utimesSync(argOne)"
+                "col": 3,
+                "line": 46
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 19,
+                "line": 47
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.watch(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 47,
-                "col": 3
-            },
-            "end": {
-                "line": 47,
-                "col": 19
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.watch(argOne)"
+                "col": 3,
+                "line": 47
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 33,
+                "line": 48
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.watchFile(argOne, listener)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 48,
-                "col": 3
-            },
-            "end": {
-                "line": 48,
-                "col": 33
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.watchFile(argOne, listener)"
+                "col": 3,
+                "line": 48
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 33,
+                "line": 49
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.writeFile(argOne, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 49,
-                "col": 3
-            },
-            "end": {
-                "line": 49,
-                "col": 33
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.writeFile(argOne, callback)"
+                "col": 3,
+                "line": 49
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 35,
+                "line": 4
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.chmod(argOne, mode, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 4,
-                "col": 3
-            },
-            "end": {
-                "line": 4,
-                "col": 35
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.chmod(argOne, mode, callback)"
+                "col": 3,
+                "line": 4
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 27,
+                "line": 50
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.writeFileSync(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 50,
-                "col": 3
-            },
-            "end": {
-                "line": 50,
-                "col": 27
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.writeFileSync(argOne)"
+                "col": 3,
+                "line": 50
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 29,
+                "line": 5
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.chmodSync(argOne, mode)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 5,
-                "col": 3
-            },
-            "end": {
-                "line": 5,
-                "col": 29
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.chmodSync(argOne, mode)"
+                "col": 3,
+                "line": 5
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 39,
+                "line": 6
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.chown(argOne, uid, gid, callback)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 6,
-                "col": 3
-            },
-            "end": {
-                "line": 6,
-                "col": 39
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.chown(argOne, uid, gid, callback)"
+                "col": 3,
+                "line": 6
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 33,
+                "line": 7
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.chownSync(argOne, uid, gid)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 7,
-                "col": 3
-            },
-            "end": {
-                "line": 7,
-                "col": 33
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.chownSync(argOne, uid, gid)"
+                "col": 3,
+                "line": 7
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 30,
+                "line": 8
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.createReadStream(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 8,
-                "col": 3
-            },
-            "end": {
-                "line": 8,
-                "col": 30
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.createReadStream(argOne)"
+                "col": 3,
+                "line": 8
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
+            "end": {
+                "col": 31,
+                "line": 9
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  fs.createWriteStream(argOne)",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "metadata": {
+                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
-                "line": 9,
-                "col": 3
-            },
-            "end": {
-                "line": 9,
-                "col": 31
-            },
-            "extra": {
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
-                "metadata": {
-                    "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.createWriteStream(argOne)"
+                "col": 3,
+                "line": 9
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 10,
-                "col": 3
-            },
             "end": {
-                "line": 10,
-                "col": 30
+                "col": 30,
+                "line": 10
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.exists(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.exists(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 10
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 11,
-                "col": 3
-            },
             "end": {
-                "line": 11,
-                "col": 34
+                "col": 34,
+                "line": 11
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.existsSync(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.existsSync(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 11
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 12,
-                "col": 3
-            },
             "end": {
-                "line": 12,
-                "col": 36
+                "col": 36,
+                "line": 12
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lchmod(argOne, mode, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lchmod(argOne, mode, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 12
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 13,
-                "col": 3
-            },
             "end": {
-                "line": 13,
-                "col": 30
+                "col": 30,
+                "line": 13
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lchmodSync(argOne, mode)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lchmodSync(argOne, mode)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 13
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 14,
-                "col": 3
-            },
             "end": {
-                "line": 14,
-                "col": 40
+                "col": 40,
+                "line": 14
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lchown(argOne, uid, gid, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lchown(argOne, uid, gid, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 14
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 15,
-                "col": 3
-            },
             "end": {
-                "line": 15,
-                "col": 34
+                "col": 34,
+                "line": 15
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lchownSync(argOne, uid, gid)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lchownSync(argOne, uid, gid)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 15
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 16,
-                "col": 3
-            },
             "end": {
-                "line": 16,
-                "col": 36
+                "col": 36,
+                "line": 16
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.link(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.link(argOne, argTwo, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 16
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 17,
-                "col": 3
-            },
             "end": {
-                "line": 17,
-                "col": 30
+                "col": 30,
+                "line": 17
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.linkSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.linkSync(argOne, argTwo)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 17
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 18,
-                "col": 3
-            },
             "end": {
-                "line": 18,
-                "col": 29
+                "col": 29,
+                "line": 18
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lstat(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lstat(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 18
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 19,
-                "col": 3
-            },
             "end": {
-                "line": 19,
-                "col": 23
+                "col": 23,
+                "line": 19
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.lstatSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.lstatSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 19
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 20,
-                "col": 3
-            },
             "end": {
-                "line": 20,
-                "col": 29
+                "col": 29,
+                "line": 20
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.mkdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.mkdir(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 20
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 21,
-                "col": 3
-            },
             "end": {
-                "line": 21,
-                "col": 23
+                "col": 23,
+                "line": 21
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.mkdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.mkdirSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 21
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 22,
-                "col": 3
-            },
             "end": {
-                "line": 22,
-                "col": 28
+                "col": 28,
+                "line": 22
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.open(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.open(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 22
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 23,
-                "col": 3
-            },
             "end": {
-                "line": 23,
-                "col": 22
+                "col": 22,
+                "line": 23
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.openSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.openSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 23
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 24,
-                "col": 3
-            },
             "end": {
-                "line": 24,
-                "col": 31
+                "col": 31,
+                "line": 24
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readdir(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 24
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 25,
-                "col": 3
-            },
             "end": {
-                "line": 25,
-                "col": 25
+                "col": 25,
+                "line": 25
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readdirSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 25
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 26,
-                "col": 3
-            },
             "end": {
-                "line": 26,
-                "col": 32
+                "col": 32,
+                "line": 26
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readFile(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readFile(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 26
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 27,
-                "col": 3
-            },
             "end": {
-                "line": 27,
-                "col": 26
+                "col": 26,
+                "line": 27
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readFileSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readFileSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 27
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 28,
-                "col": 3
-            },
             "end": {
-                "line": 28,
-                "col": 32
+                "col": 32,
+                "line": 28
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readlink(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readlink(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 28
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 29,
-                "col": 3
-            },
             "end": {
-                "line": 29,
-                "col": 26
+                "col": 26,
+                "line": 29
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.readlinkSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.readlinkSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 29
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 2,
-                "col": 3
-            },
             "end": {
-                "line": 2,
-                "col": 40
+                "col": 40,
+                "line": 2
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.appendFile(argOne, data, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.appendFile(argOne, data, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 2
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 30,
-                "col": 3
-            },
             "end": {
-                "line": 30,
-                "col": 32
+                "col": 32,
+                "line": 30
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.realpath(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.realpath(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 30
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 31,
-                "col": 3
-            },
             "end": {
-                "line": 31,
-                "col": 26
+                "col": 26,
+                "line": 31
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.realpathSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.realpathSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 31
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 32,
-                "col": 3
-            },
             "end": {
-                "line": 32,
-                "col": 38
+                "col": 38,
+                "line": 32
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.rename(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.rename(argOne, argTwo, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 32
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 33,
-                "col": 3
-            },
             "end": {
-                "line": 33,
-                "col": 32
+                "col": 32,
+                "line": 33
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.renameSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.renameSync(argOne, argTwo)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 33
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 34,
-                "col": 3
-            },
             "end": {
-                "line": 34,
-                "col": 29
+                "col": 29,
+                "line": 34
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.rmdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.rmdir(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 34
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 35,
-                "col": 3
-            },
             "end": {
-                "line": 35,
-                "col": 23
+                "col": 23,
+                "line": 35
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.rmdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.rmdirSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 35
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 36,
-                "col": 3
-            },
             "end": {
-                "line": 36,
-                "col": 28
+                "col": 28,
+                "line": 36
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.stat(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.stat(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 36
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 37,
-                "col": 3
-            },
             "end": {
-                "line": 37,
-                "col": 22
+                "col": 22,
+                "line": 37
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.statSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.statSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 37
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 38,
-                "col": 3
-            },
             "end": {
-                "line": 38,
-                "col": 39
+                "col": 39,
+                "line": 38
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.symlink(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.symlink(argOne, argTwo, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 38
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 39,
-                "col": 3
-            },
             "end": {
-                "line": 39,
-                "col": 33
+                "col": 33,
+                "line": 39
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.symlinkSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.symlinkSync(argOne, argTwo)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 39
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 3,
-                "col": 3
-            },
             "end": {
-                "line": 3,
-                "col": 34
+                "col": 34,
+                "line": 3
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.appendFileSync(argOne, data)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.appendFileSync(argOne, data)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 3
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 40,
-                "col": 3
-            },
             "end": {
-                "line": 40,
-                "col": 32
+                "col": 32,
+                "line": 40
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.truncate(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.truncate(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 40
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 41,
-                "col": 3
-            },
             "end": {
-                "line": 41,
-                "col": 26
+                "col": 26,
+                "line": 41
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.truncateSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.truncateSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 41
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 42,
-                "col": 3
-            },
             "end": {
-                "line": 42,
-                "col": 30
+                "col": 30,
+                "line": 42
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.unlink(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.unlink(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 42
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 43,
-                "col": 3
-            },
             "end": {
-                "line": 43,
-                "col": 24
+                "col": 24,
+                "line": 43
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.unlinkSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.unlinkSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 43
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 44,
-                "col": 3
-            },
             "end": {
-                "line": 44,
-                "col": 25
+                "col": 25,
+                "line": 44
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.unwatchFile(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.unwatchFile(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 44
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 45,
-                "col": 3
-            },
             "end": {
-                "line": 45,
-                "col": 30
+                "col": 30,
+                "line": 45
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.utimes(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.utimes(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 45
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 46,
-                "col": 3
-            },
             "end": {
-                "line": 46,
-                "col": 24
+                "col": 24,
+                "line": 46
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.utimesSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.utimesSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 46
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 47,
-                "col": 3
-            },
             "end": {
-                "line": 47,
-                "col": 19
+                "col": 19,
+                "line": 47
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.watch(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.watch(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 47
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 48,
-                "col": 3
-            },
             "end": {
-                "line": 48,
-                "col": 33
+                "col": 33,
+                "line": 48
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.watchFile(argOne, listener)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.watchFile(argOne, listener)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 48
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 49,
-                "col": 3
-            },
             "end": {
-                "line": 49,
-                "col": 33
+                "col": 33,
+                "line": 49
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.writeFile(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.writeFile(argOne, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 49
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 4,
-                "col": 3
-            },
             "end": {
-                "line": 4,
-                "col": 35
+                "col": 35,
+                "line": 4
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.chmod(argOne, mode, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.chmod(argOne, mode, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 4
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 50,
-                "col": 3
-            },
             "end": {
-                "line": 50,
-                "col": 27
+                "col": 27,
+                "line": 50
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.writeFileSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.writeFileSync(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 50
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 5,
-                "col": 3
-            },
             "end": {
-                "line": 5,
-                "col": 29
+                "col": 29,
+                "line": 5
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.chmodSync(argOne, mode)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.chmodSync(argOne, mode)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 5
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 6,
-                "col": 3
-            },
             "end": {
-                "line": 6,
-                "col": 39
+                "col": 39,
+                "line": 6
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.chown(argOne, uid, gid, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.chown(argOne, uid, gid, callback)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 6
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 7,
-                "col": 3
-            },
             "end": {
-                "line": 7,
-                "col": 33
+                "col": 33,
+                "line": 7
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.chownSync(argOne, uid, gid)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.chownSync(argOne, uid, gid)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 7
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 8,
-                "col": 3
-            },
             "end": {
-                "line": 8,
-                "col": 30
+                "col": 30,
+                "line": 8
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.createReadStream(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.createReadStream(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 8
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
-            "path": "eslint_rules/fs_funcs_positives.ts",
-            "start": {
-                "line": 9,
-                "col": 3
-            },
             "end": {
-                "line": 9,
-                "col": 31
+                "col": 31,
+                "line": 9
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  fs.createWriteStream(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  fs.createWriteStream(argOne)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/fs_funcs_positives.ts",
+            "start": {
+                "col": 3,
+                "line": 9
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
+            "end": {
+                "col": 23,
+                "line": 14
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[someVar]",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "line": 14,
-                "col": 11
-            },
-            "end": {
-                "line": 14,
-                "col": 23
-            },
-            "extra": {
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-                "metadata": {
-                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[someVar]"
+                "col": 11,
+                "line": 14
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
+            "end": {
+                "col": 28,
+                "line": 15
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[someObjVar.s]",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "line": 15,
-                "col": 11
-            },
-            "end": {
-                "line": 15,
-                "col": 28
-            },
-            "extra": {
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-                "metadata": {
-                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[someObjVar.s]"
+                "col": 11,
+                "line": 15
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
+            "end": {
+                "col": 31,
+                "line": 16
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[someObjVar['s']]",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "line": 16,
-                "col": 11
-            },
-            "end": {
-                "line": 16,
-                "col": 31
-            },
-            "extra": {
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-                "metadata": {
-                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[someObjVar['s']]"
+                "col": 11,
+                "line": 16
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
+            "end": {
+                "col": 29,
+                "line": 17
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[someArrVar[0]]",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "line": 17,
-                "col": 11
-            },
-            "end": {
-                "line": 17,
-                "col": 29
-            },
-            "extra": {
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-                "metadata": {
-                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[someArrVar[0]]"
+                "col": 11,
+                "line": 17
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
+            "end": {
+                "col": 24,
+                "line": 6
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[three[0]]",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "line": 6,
-                "col": 11
-            },
-            "end": {
-                "line": 6,
-                "col": 24
-            },
-            "extra": {
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-                "metadata": {
-                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[three[0]]"
+                "col": 11,
+                "line": 6
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
+            "end": {
+                "col": 21,
+                "line": 7
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[six.s]",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "line": 7,
-                "col": 11
-            },
-            "end": {
-                "line": 7,
-                "col": 21
-            },
-            "extra": {
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-                "metadata": {
-                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[six.s]"
+                "col": 11,
+                "line": 7
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
+            "end": {
+                "col": 24,
+                "line": 8
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[six['s']]",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "metadata": {
+                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+                },
+                "severity": "WARNING"
+            },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "line": 8,
-                "col": 11
-            },
-            "end": {
-                "line": 8,
-                "col": 24
-            },
-            "extra": {
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-                "metadata": {
-                    "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[six['s']]"
+                "col": 11,
+                "line": 8
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
-            "path": "eslint_rules/object_injection_positives.ts",
-            "start": {
-                "line": 14,
-                "col": 11
-            },
             "end": {
-                "line": 14,
-                "col": 23
+                "col": 23,
+                "line": 14
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[someVar]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[someVar]"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "col": 11,
+                "line": 14
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
-            "path": "eslint_rules/object_injection_positives.ts",
-            "start": {
-                "line": 15,
-                "col": 11
-            },
             "end": {
-                "line": 15,
-                "col": 28
+                "col": 28,
+                "line": 15
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[someObjVar.s]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[someObjVar.s]"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "col": 11,
+                "line": 15
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
-            "path": "eslint_rules/object_injection_positives.ts",
-            "start": {
-                "line": 16,
-                "col": 11
-            },
             "end": {
-                "line": 16,
-                "col": 31
+                "col": 31,
+                "line": 16
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[someObjVar['s']]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[someObjVar['s']]"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "col": 11,
+                "line": 16
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
-            "path": "eslint_rules/object_injection_positives.ts",
-            "start": {
-                "line": 17,
-                "col": 11
-            },
             "end": {
-                "line": 17,
-                "col": 29
+                "col": 29,
+                "line": 17
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[someArrVar[0]]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[someArrVar[0]]"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "col": 11,
+                "line": 17
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
-            "path": "eslint_rules/object_injection_positives.ts",
-            "start": {
-                "line": 6,
-                "col": 11
-            },
             "end": {
-                "line": 6,
-                "col": 24
+                "col": 24,
+                "line": 6
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[three[0]]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[three[0]]"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "col": 11,
+                "line": 6
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
-            "path": "eslint_rules/object_injection_positives.ts",
-            "start": {
-                "line": 7,
-                "col": 11
-            },
             "end": {
-                "line": 7,
-                "col": 21
+                "col": 21,
+                "line": 7
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[six.s]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[six.s]"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "col": 11,
+                "line": 7
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
-            "path": "eslint_rules/object_injection_positives.ts",
-            "start": {
-                "line": 8,
-                "col": 11
-            },
             "end": {
-                "line": 8,
-                "col": 24
+                "col": 24,
+                "line": 8
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  value = obj[six['s']]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  value = obj[six['s']]"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/object_injection_positives.ts",
+            "start": {
+                "col": 11,
+                "line": 8
             }
         },
         {
             "check_id": "eslint.detect-non-literal-regexp",
-            "path": "eslint_rules/positives.js",
-            "start": {
-                "line": 3,
-                "col": 8
-            },
             "end": {
-                "line": 3,
-                "col": 27
+                "col": 27,
+                "line": 3
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  r2 = new RegExp(someVar)",
                 "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
                 "metadata": {
                     "cwe": "CWE-185: Incorrect Regular Expression"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  r2 = new RegExp(someVar)"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/positives.js",
+            "start": {
+                "col": 8,
+                "line": 3
             }
         },
         {
             "check_id": "eslint.detect-non-literal-regexp",
-            "path": "eslint_rules/positives.js",
-            "start": {
-                "line": 4,
-                "col": 8
-            },
             "end": {
-                "line": 4,
-                "col": 39
+                "col": 39,
+                "line": 4
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  r3 = new RegExp('a' + someVar + 'b')",
                 "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
                 "metadata": {
                     "cwe": "CWE-185: Incorrect Regular Expression"
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  r3 = new RegExp('a' + someVar + 'b')"
+                "severity": "WARNING"
+            },
+            "path": "eslint_rules/positives.js",
+            "start": {
+                "col": 8,
+                "line": 4
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "end": {
+                "col": 75,
+                "line": 1
+            },
+            "extra": {
+                "is_ignored": false,
+                "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");",
+                "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
+                "metadata": {
+                    "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                    "owasp": "A7: Cross-site Scripting (XSS)",
+                    "references": [
+                        "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
+                    ]
+                },
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.js",
             "start": {
-                "line": 1,
-                "col": 28
-            },
+                "col": 28,
+                "line": 1
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 1,
-                "col": 75
+                "col": 77,
+                "line": 3
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2414,23 +2437,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.js",
             "start": {
-                "line": 3,
-                "col": 30
-            },
+                "col": 30,
+                "line": 3
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 3,
-                "col": 77
+                "col": 75,
+                "line": 5
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2439,23 +2462,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.js",
             "start": {
-                "line": 5,
-                "col": 28
-            },
+                "col": 28,
+                "line": 5
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 5,
-                "col": 75
+                "col": 77,
+                "line": 7
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2464,23 +2487,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.js",
             "start": {
-                "line": 7,
-                "col": 30
-            },
+                "col": 30,
+                "line": 7
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 7,
-                "col": 77
+                "col": 55,
+                "line": 10
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }} />",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2489,23 +2512,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.jsx",
             "start": {
-                "line": 10,
-                "col": 3
-            },
+                "col": 3,
+                "line": 10
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 10,
-                "col": 55
+                "col": 57,
+                "line": 12
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }} />",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2514,23 +2537,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }} />"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.jsx",
             "start": {
-                "line": 12,
-                "col": 3
-            },
+                "col": 3,
+                "line": 12
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 12,
-                "col": 57
+                "col": 9,
+                "line": 4
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </div>",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2539,23 +2562,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }} />"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.jsx",
             "start": {
-                "line": 2,
-                "col": 3
-            },
+                "col": 3,
+                "line": 2
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 4,
-                "col": 9
+                "col": 11,
+                "line": 8
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </Hello>",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2564,23 +2587,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </div>"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.jsx",
             "start": {
-                "line": 6,
-                "col": 3
-            },
+                "col": 3,
+                "line": 6
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 8,
-                "col": 11
+                "col": 75,
+                "line": 1
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2589,23 +2612,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </Hello>"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.ts",
             "start": {
-                "line": 1,
-                "col": 28
-            },
+                "col": 28,
+                "line": 1
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 1,
-                "col": 75
+                "col": 77,
+                "line": 3
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2614,23 +2637,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.ts",
             "start": {
-                "line": 3,
-                "col": 30
-            },
+                "col": 30,
+                "line": 3
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 3,
-                "col": 77
+                "col": 75,
+                "line": 5
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2639,23 +2662,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.ts",
             "start": {
-                "line": 5,
-                "col": 28
-            },
+                "col": 28,
+                "line": 5
+            }
+        },
+        {
+            "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
-                "line": 5,
-                "col": 75
+                "col": 77,
+                "line": 7
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2664,48 +2687,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });"
-            }
-        },
-        {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+                "severity": "WARNING"
+            },
             "path": "react_rules/positives.ts",
             "start": {
-                "line": 7,
-                "col": 30
-            },
-            "end": {
-                "line": 7,
-                "col": 77
-            },
-            "extra": {
-                "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
-                "metadata": {
-                    "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-                    "owasp": "A7: Cross-site Scripting (XSS)",
-                    "references": [
-                        "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
-                    ]
-                },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });"
+                "col": 30,
+                "line": 7
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
-            "path": "react_rules/positives.tsx",
-            "start": {
-                "line": 10,
-                "col": 3
-            },
             "end": {
-                "line": 10,
-                "col": 55
+                "col": 55,
+                "line": 10
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }} />",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2714,23 +2712,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }} />"
+                "severity": "WARNING"
+            },
+            "path": "react_rules/positives.tsx",
+            "start": {
+                "col": 3,
+                "line": 10
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
-            "path": "react_rules/positives.tsx",
-            "start": {
-                "line": 12,
-                "col": 3
-            },
             "end": {
-                "line": 12,
-                "col": 57
+                "col": 57,
+                "line": 12
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }} />",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2739,23 +2737,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }} />"
+                "severity": "WARNING"
+            },
+            "path": "react_rules/positives.tsx",
+            "start": {
+                "col": 3,
+                "line": 12
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
-            "path": "react_rules/positives.tsx",
-            "start": {
-                "line": 2,
-                "col": 3
-            },
             "end": {
-                "line": 4,
-                "col": 9
+                "col": 9,
+                "line": 4
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </div>",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2764,23 +2762,23 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </div>"
+                "severity": "WARNING"
+            },
+            "path": "react_rules/positives.tsx",
+            "start": {
+                "col": 3,
+                "line": 2
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
-            "path": "react_rules/positives.tsx",
-            "start": {
-                "line": 6,
-                "col": 3
-            },
             "end": {
-                "line": 8,
-                "col": 11
+                "col": 11,
+                "line": 8
             },
             "extra": {
+                "is_ignored": false,
+                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </Hello>",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
                 "metadata": {
                     "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
@@ -2789,11 +2787,13 @@
                         "https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml"
                     ]
                 },
-                "severity": "WARNING",
-                "is_ignored": false,
-                "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </Hello>"
+                "severity": "WARNING"
+            },
+            "path": "react_rules/positives.tsx",
+            "start": {
+                "col": 3,
+                "line": 6
             }
         }
-    ],
-    "errors": []
+    ]
 }

@@ -1,5 +1,12 @@
 Semgrep analyzer changelog
 
+## v2.6.0
+- Update Semgrep to [0.54.0](https://github.com/returntocorp/semgrep/releases/tag/v0.54.0) (!48 @mschwager)
+  + Changed JSON and SARIF outputs sort keys for predictable results
+  + Moved some debug logging to verbose logging
+  + Added Per rule parse times and per rule-file parse and match times added to opt-in metrics
+  + Some fixes and additions described in https://github.com/returntocorp/semgrep/releases/tag/v0.54.0
+
 ## v2.5.1
 - Set SEMGREP_USER_AGENT_APPEND to GitLab SAST (!49 @brendongo)
 

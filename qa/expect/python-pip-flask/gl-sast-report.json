@@ -561,7 +561,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.51.0"
+      "version": "0.54.0"
     },
     "type": "sast",
     "start_time": "2021-05-14T05:43:30",

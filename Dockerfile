@@ -1,4 +1,4 @@
-ARG SCANNER_VERSION=0.51.0
+ARG SCANNER_VERSION=0.54.0
 
 FROM golang:1.15-alpine AS build
 
