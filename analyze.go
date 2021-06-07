@@ -81,6 +81,7 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 
 	cmd.Dir = projectPath
 	cmd.Env = os.Environ()
+	cmd.Env = append(cmd.Env, "SEMGREP_USER_AGENT_APPEND=(GitLab SAST)")
 
 	output, _ := cmd.CombinedOutput()
 	log.Debugf("%s\n%s", cmd.String(), output)

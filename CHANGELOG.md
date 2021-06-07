@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.5.1
+- Set SEMGREP_USER_AGENT_APPEND to GitLab SAST (!49 @brendongo)
+
 ## v2.5.0
 - SAST_EXCLUDED_PATHS is passed to semgrep to exclude as semgrep runs (!47)
 
