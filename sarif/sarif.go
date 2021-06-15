@@ -49,6 +49,7 @@ type rule struct {
 		Precision string   `json:"precision"`
 		Tags      []string `json:"tags"`
 	} `json:"properties"`
+	HelpURI			 string `json:"helpUri"`
 }
 
 type result struct {
@@ -206,6 +207,7 @@ func identifiers(r rule) []report.Identifier {
 			Type:  "semgrep_id",
 			Name:  r.ID,
 			Value: r.ID,
+			URL: r.HelpURI,
 		},
 	}
 
