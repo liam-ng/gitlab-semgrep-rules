@@ -11,6 +11,7 @@
             {
               "id": "bandit.B323",
               "name": "bandit.B323",
+              "helpUri": "https://foo.com/bar/bandit.B323",
               "shortDescription": {
                 "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
               },
@@ -47,7 +48,7 @@
                   "OWASP-A3: Sensitive Data Exposure"
                 ]
               }
-            }, 
+            },
             {
               "id": "bandit.B303-1",
               "name": "bandit.B303-1",
@@ -111,7 +112,7 @@
               }
             }
           ]
-        }, 
+        },
         {
           "ruleId": "bandit.B323",
           "message": {
@@ -167,6 +168,7 @@
             {
               "id": "bandit.B323",
               "name": "bandit.B323",
+              "helpUri": "https://foo.com/bar/bandit.B323",
               "shortDescription": {
                 "text": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n"
               },

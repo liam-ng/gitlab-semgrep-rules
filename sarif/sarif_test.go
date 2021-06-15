@@ -103,6 +103,7 @@ func TestTransformToGLSASTReport(t *testing.T) {
 						Type:  "semgrep_id",
 						Name:  "bandit.B323",
 						Value: "bandit.B323",
+						URL:   "https://foo.com/bar/bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -133,6 +134,7 @@ func TestTransformToGLSASTReport(t *testing.T) {
 						Type:  "semgrep_id",
 						Name:  "bandit.B323",
 						Value: "bandit.B323",
+						URL:   "https://foo.com/bar/bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -193,6 +195,7 @@ func TestTransformToGLSASTReport(t *testing.T) {
 						Type:  "semgrep_id",
 						Name:  "bandit.B323",
 						Value: "bandit.B323",
+						URL:   "https://foo.com/bar/bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -223,6 +226,7 @@ func TestTransformToGLSASTReport(t *testing.T) {
 						Type:  "semgrep_id",
 						Name:  "bandit.B323",
 						Value: "bandit.B323",
+						URL:   "https://foo.com/bar/bandit.B323",
 					},
 					{
 						Type:  "cwe",
@@ -253,6 +257,7 @@ func TestTransformToGLSASTReport(t *testing.T) {
 						Type:  "semgrep_id",
 						Name:  "bandit.B323",
 						Value: "bandit.B323",
+						URL:   "https://foo.com/bar/bandit.B323",
 					},
 					{
 						Type:  "cwe",

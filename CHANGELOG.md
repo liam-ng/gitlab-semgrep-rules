@@ -1,5 +1,14 @@
 Semgrep analyzer changelog
 
+## v2.7.0
+- Update semgrep to [0.55.1](https://github.com/returntocorp/semgrep/releases/tag/v0.55.1) (!53 @brendongo)
+  + Add helpUri to sarif output if rule source metadata is defined
+  + Fixed wrong line numbers for multi line generic mode
+  + Support ellisis in try-except in Python
+  + Run with optimizations on by default
+  + Other fixes and additions described in https://github.com/returntocorp/semgrep/releases/tag/v0.55.1
+- Use helpUri field in sarif output to attach URL to rule primary identifier
+
 ## v2.6.0
 - Update Semgrep to [0.54.0](https://github.com/returntocorp/semgrep/releases/tag/v0.54.0) (!48 @mschwager)
   + Changed JSON and SARIF outputs sort keys for predictable results
