@@ -2,7 +2,7 @@ variables:
   REPORT_FILENAME: gl-sast-report.json
   MAJOR: 2
   MAX_IMAGE_SIZE_MB: 200
-  SAST_DEFAULT_ANALYZERS: "gosec"
+  SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
 
 include:
   - https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
@@ -24,7 +24,7 @@ semgrep-meta-rules:
 .qa-downstream-sast:
   variables:
     DS_DEFAULT_ANALYZERS: ""
-    SAST_DEFAULT_ANALYZERS: "semgrep"
+    SAST_EXCLUDED_ANALYZERS: "bandit,eslint"
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
 
 python-pip-flask-qa:
