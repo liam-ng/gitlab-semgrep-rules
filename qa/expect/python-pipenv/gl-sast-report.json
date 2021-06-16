@@ -2,7 +2,7 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "bc71cd43fc55258533d3a11e038d1e179f677d2560da3f7db2ab2d94773a8dec",
+      "id": "eaa8ff398919ac1aed8d0d48a227c8674a457f2ae5d69e396f7950c684577b8b",
       "category": "sast",
       "message": "Improper Check for Unusual or Exceptional Conditions",
       "description": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
@@ -34,7 +34,23 @@
           "name": "Bandit Test ID B101",
           "value": "B101"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "tests/test_simple.py",
+            "line_start": 7,
+            "line_end": 7,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "tests/test_simple.py|test_success[0]:1"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "remediations": [],
@@ -46,7 +62,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.39.1"
+      "version": "0.55.1"
     },
     "type": "sast",
     "start_time": "2021-04-29T15:11:46",

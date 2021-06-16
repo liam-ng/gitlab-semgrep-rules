@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.8.0
+- Add [tracking calculator](https://gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator) to semgrep (!56)
+
 ## v2.7.0
 - Update semgrep to [0.55.1](https://github.com/returntocorp/semgrep/releases/tag/v0.55.1) (!53 @brendongo)
   + Add helpUri to sarif output if rule source metadata is defined

@@ -1,4 +1,7 @@
 ARG SCANNER_VERSION=0.55.1
+ARG TRACKING_CALCULATOR_VERSION=2.0.3
+
+FROM registry.gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
 FROM golang:1.15-alpine AS build
 
@@ -10,7 +13,7 @@ COPY . .
 # variable to the most recent version from the CHANGELOG.md file
 RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') && \
         PATH_TO_MODULE=`go list -m` && \
-        go build -ldflags="-X '$PATH_TO_MODULE/metadata.AnalyzerVersion=$CHANGELOG_VERSION'" -o /analyzer
+        go build -ldflags="-X '$PATH_TO_MODULE/metadata.AnalyzerVersion=$CHANGELOG_VERSION'" -o /analyzer-semgrep
 
 # Allow the semgrep user to add custom ca certificates to the system.
 RUN addgroup -g 1000 semgrep && \
@@ -24,7 +27,7 @@ FROM python:3.9-alpine
 ARG SCANNER_VERSION
 ENV SCANNER_VERSION ${SCANNER_VERSION}
 
-COPY --from=build /analyzer /analyzer
+COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY --from=build /ca-cert-additional-gitlab-bundle.pem /etc/ssl/certs/ca-cert-additional-gitlab-bundle.pem
 COPY rules /rules
 RUN mkdir /.cache && \
@@ -32,6 +35,9 @@ RUN mkdir /.cache && \
 
 RUN apk add --no-cache git && \
     pip install semgrep==$SCANNER_VERSION
+
+COPY --from=tracking /analyzer-tracking /analyzer-tracking
+COPY --from=tracking /start.sh /analyzer
 
 ENTRYPOINT []
 CMD ["/analyzer", "run"]
