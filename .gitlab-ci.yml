@@ -62,6 +62,7 @@ python-pip-multi-project-qa:
   extends: .qa-downstream-sast
   variables:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-multi-project/gl-sast-report.json"
+    SAST_EXCLUDED_ANALYZERS: "eslint"
   trigger:
     project: gitlab-org/security-products/tests/python-pip
     branch: multi-project-FREEZE
@@ -70,6 +71,7 @@ python-pip-qa:
   extends: .qa-downstream-sast
   variables:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip/gl-sast-report.json"
+    SAST_EXCLUDED_ANALYZERS: "eslint"
   trigger:
     project: gitlab-org/security-products/tests/python-pip
 
@@ -77,6 +79,7 @@ python-pipenv-qa:
   extends: .qa-downstream-sast
   variables:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pipenv/gl-sast-report.json"
+    SAST_EXCLUDED_ANALYZERS: "eslint"
   trigger:
     project: gitlab-org/security-products/tests/python-pipenv
 
@@ -84,6 +87,7 @@ js-qa:
   extends: .qa-downstream-sast
   variables:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/js/gl-sast-report.json"
+    SAST_EXCLUDED_ANALYZERS: "nodejs-scan"
   trigger:
     project: gitlab-org/security-products/tests/js
     branch: jsx-FREEZE
