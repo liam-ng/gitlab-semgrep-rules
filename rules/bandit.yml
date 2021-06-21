@@ -668,7 +668,7 @@ rules:
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/telnetlib.yaml
 # telnetlib
-- id: bandig.B312
+- id: bandit.B312
   pattern: telnetlib.$ANYTHING(...)
   message: |
     Telnet does not encrypt communications. Use SSH instead.
