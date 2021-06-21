@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.8.1
+- Fixed typo in ruleid (!60)
+
 ## v2.8.0
 - Add [tracking calculator](https://gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator) to semgrep (!56)
 
