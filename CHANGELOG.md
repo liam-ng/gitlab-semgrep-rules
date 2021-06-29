@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.8.2
+- Fix False Positive in eslint.detect-non-literal-regexp (!63 @colleend)
+
 ## v2.8.1
 - Fixed typo in ruleid (!60)
 
