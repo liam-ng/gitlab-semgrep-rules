@@ -626,7 +626,7 @@ rules:
 - id: eslint.detect-non-literal-regexp
   patterns:
     - pattern: |
-        new RegExp(...)
+        new RegExp($ARG, ...)
     - pattern-not: |
         new RegExp("...", ...)
   message: |
