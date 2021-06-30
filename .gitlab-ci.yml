@@ -1,6 +1,5 @@
 variables:
   REPORT_FILENAME: gl-sast-report.json
-  MAJOR: 2
   MAX_IMAGE_SIZE_MB: 200
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
 
