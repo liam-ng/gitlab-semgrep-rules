@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.3.0
+- Add identifier URLs to reports (!65 @mschwager)
+
 ## v2.8.2
 - Fix False Positive in eslint.detect-non-literal-regexp (!63 @colleend)
 

@@ -14,21 +14,41 @@ func TestConvert(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	want := report.Identifier{Type: "bandit_test_id", Name: "Bandit Test ID B303", Value: "B303"}
 	sastReport, err := convert(fixture, "/tmp/app/")
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	got := sastReport.Vulnerabilities[0].Identifiers[3]
+	// Test Semgrep ID
+	want := report.Identifier{
+		Type:  "semgrep_id",
+		Name:  "bandit.B303-1",
+		Value: "bandit.B303-1",
+		URL:   "https://semgrep.dev/r/gitlab.bandit.B303-1",
+	}
+	got := sastReport.Vulnerabilities[0].Identifiers[0]
+	if !reflect.DeepEqual(want, got) {
+		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
+	}
 
+	// Test Bandit ID
+	want = report.Identifier{
+		Type:  "bandit_test_id",
+		Name:  "Bandit Test ID B303",
+		Value: "B303",
+	}
+	got = sastReport.Vulnerabilities[0].Identifiers[3]
 	if !reflect.DeepEqual(want, got) {
 		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
 	}
 }
 
 func TestGenerateBanditID(t *testing.T) {
-	want := report.Identifier{Type: "bandit_test_id", Name: "Bandit Test ID B303", Value: "B303"}
+	want := report.Identifier{
+		Type:  "bandit_test_id",
+		Name:  "Bandit Test ID B303",
+		Value: "B303",
+	}
 	got := generateBanditID("B303-2")
 
 	if !reflect.DeepEqual(want, got) {

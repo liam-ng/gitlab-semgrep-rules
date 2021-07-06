@@ -2,7 +2,7 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "6fa2181dd7e7e09705bae1c9182e90a018932527a9586879755772d1aa0d6f07",
+      "id": "9ec02a337f6be94de7d0f56999f52d6e6f01de68e7e0c62e3ffa060877acfdc1",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
@@ -21,7 +21,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B506",
-          "value": "bandit.B506"
+          "value": "bandit.B506",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B506"
         },
         {
           "type": "cwe",
@@ -70,8 +71,8 @@
       "version": "0.55.1"
     },
     "type": "sast",
-    "start_time": "2021-06-18T17:03:32",
-    "end_time": "2021-06-18T17:03:34",
+    "start_time": "2021-07-01T20:05:08",
+    "end_time": "2021-07-01T20:05:09",
     "status": "success"
   }
 }
