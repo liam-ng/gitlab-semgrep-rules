@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"strings"
@@ -36,6 +37,9 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 	for index, vul := range sastReport.Vulnerabilities {
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
+
+		// generate and add a URL to the semgrep ID
+		vul.Identifiers[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
 
 		ids := ruleToIDs(ruleID)
 		if len(ids) > 0 {

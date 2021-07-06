@@ -2,7 +2,7 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "c82346a13e0a4221b012cdd42b98c7c8773b566b492d5d8c38ece033b95b2272",
+      "id": "c864f321562ae4fe2eb0a6945d238c28b7267fbf55bfca2a945120d0049318b6",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to 'someFunction'. This could be dangerous if\na real password is not supplied.\n",
@@ -21,7 +21,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B107",
-          "value": "bandit.B107"
+          "value": "bandit.B107",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
         },
         {
           "type": "cwe",
@@ -58,7 +59,7 @@
       }
     },
     {
-      "id": "aec91c1862df837a414b989262c8c53070ced76a9634347755c2d9b18570695c",
+      "id": "afd1e3437eba4d737f17e1adae2fdcde1efa8ac0d7395998feb70a51eac9075a",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to 'doLogin'. This could be dangerous if\na real password is not supplied.\n",
@@ -77,7 +78,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B107",
-          "value": "bandit.B107"
+          "value": "bandit.B107",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
         },
         {
           "type": "cwe",
@@ -114,7 +116,7 @@
       }
     },
     {
-      "id": "a79ddd626062b4fb85150e4e2a34273cc9ad7b9b743e925d734e25dcb0610a9e",
+      "id": "9cda8472cee07fb8b7d9672a0eef247ef8e36b2a0c984b6dcb5c52f03649c7d1",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -133,7 +135,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B106",
-          "value": "bandit.B106"
+          "value": "bandit.B106",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B106"
         },
         {
           "type": "cwe",
@@ -154,7 +157,7 @@
       ]
     },
     {
-      "id": "b21836786eddc741b93df6cf7a256cfd8f889ed430ae8f56a76013351037aa28",
+      "id": "c144191cfa3433fc6103fab4a1f818f53acec61384b04f34142a749e81c4469c",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -173,7 +176,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B105",
-          "value": "bandit.B105"
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -194,7 +198,7 @@
       ]
     },
     {
-      "id": "b5bdfe151b5cb60635210b8c7ac158f200677ec2ebfa9a6373a9bfcd771183b1",
+      "id": "e8a7e854dc30c73998ed27704b57c18a7ac8cec9d5a7c9f5a3ceafd2965cefd8",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -213,7 +217,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B105",
-          "value": "bandit.B105"
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -250,7 +255,7 @@
       }
     },
     {
-      "id": "2d294eeb1511f5b1d0a226d347d89b08623dda5846e16d15a15294037b82613f",
+      "id": "3a94043b4be902bbc4c83abecadcd428977939c298f946d0e4cf364d5cfbd6d6",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -269,7 +274,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B105",
-          "value": "bandit.B105"
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -306,7 +312,7 @@
       }
     },
     {
-      "id": "b852340862af085e3cc63d017e7060daba96614af94848f52fc3b0587e7def89",
+      "id": "345721831a439094b48ab4c00d96bdb1a878d9656e8bc11aca9bd2e930b76ecd",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -325,7 +331,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B105",
-          "value": "bandit.B105"
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -362,7 +369,7 @@
       }
     },
     {
-      "id": "89a77b843c470025ed6e86b45e76e19c92a029cee2a1dacda936616c56de4800",
+      "id": "0bd14f955cdc92fc00f9aa12fd3fd9be99e74601d6c69f917813970c9ede6a89",
       "category": "sast",
       "message": "Insecure Temporary File",
       "description": "Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.\n",
@@ -381,7 +388,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B108-1",
-          "value": "bandit.B108-1"
+          "value": "bandit.B108-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108-1"
         },
         {
           "type": "cwe",
@@ -397,7 +405,7 @@
       ]
     },
     {
-      "id": "83e8761c7cdb6b2a6055398cc2173ba5cfb34ecd0ce83ac99a35c2380346e565",
+      "id": "c54f4308f508cc39c7f99ada5ea4a84d36959f4d1462c7bb81d338a77e9c7df9",
       "category": "sast",
       "message": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.   \n",
@@ -416,7 +424,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B108-2",
-          "value": "bandit.B108-2"
+          "value": "bandit.B108-2",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108-2"
         },
         {
           "type": "cwe",
@@ -432,7 +441,7 @@
       ]
     },
     {
-      "id": "ad1a39815aa96f86ea9a9723253388873280a7cae6f8ce7b74e6563de63b2df6",
+      "id": "cc7a9c9182575239c979ea7338fdcac7241005380884fa18b14834de8d6b5dbf",
       "category": "sast",
       "message": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.   \n",
@@ -451,7 +460,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B108-2",
-          "value": "bandit.B108-2"
+          "value": "bandit.B108-2",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108-2"
         },
         {
           "type": "cwe",
@@ -467,7 +477,7 @@
       ]
     },
     {
-      "id": "d8a6d98bb8ddacd2a8d0dd8cbfe026e6fadb8006e6a0c9fc8bd4e66c8e9dac00",
+      "id": "6ccc161c97dfc00d9d91c3045b45693507df493f3d9f4f3f40440c73244761b9",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
@@ -486,7 +496,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B602",
-          "value": "bandit.B602"
+          "value": "bandit.B602",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B602"
         },
         {
           "type": "cwe",
@@ -507,7 +518,7 @@
       ]
     },
     {
-      "id": "9f6a1b0de04713b4e803dc06cce363ae2de4d91aafaf103d3153a0437c4e9419",
+      "id": "2de1bd2a0c3d1e45abe0b4e26a0ed3b4f1f13d81b7d35e467aa70170044f8109",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -526,7 +537,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B403",
-          "value": "bandit.B403"
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
         },
         {
           "type": "cwe",
@@ -547,7 +559,7 @@
       ]
     },
     {
-      "id": "5aa4b6ee83ecc881c6cc8c841f04aadf32b2836a666565f679799165cd197584",
+      "id": "b9939dc1000a0ddb202446971244f044e17aeddb801259dd40c687a90eb8e508",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -566,7 +578,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B403",
-          "value": "bandit.B403"
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
         },
         {
           "type": "cwe",
@@ -587,7 +600,7 @@
       ]
     },
     {
-      "id": "d51a75404b3799cb525f264c87b5b619033c069b109d3bb7f396e8207dc35e61",
+      "id": "45d36406bba2ece992f99434f8fd240578398418250cf845f7877c11bd8d55e0",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -606,7 +619,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B404",
-          "value": "bandit.B404"
+          "value": "bandit.B404",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B404"
         },
         {
           "type": "cwe",
@@ -627,7 +641,7 @@
       ]
     },
     {
-      "id": "91d5a3cb2201370acb560cebd02c5247d8eab2d00d9a39c26339c7ca2169c04d",
+      "id": "99a3f9e5508bbcfae0855ea45114e1e47f61af156fc8394fdb859aff2ffcc66f",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
@@ -646,7 +660,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B301-1",
-          "value": "bandit.B301-1"
+          "value": "bandit.B301-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B301-1"
         },
         {
           "type": "cwe",
@@ -667,7 +682,7 @@
       ]
     },
     {
-      "id": "7c8ade76ae9f4a2e11e1c264462c0194ad04b6b8a80ac90a1323f999bc0bd541",
+      "id": "b59e8752f5e7e60dc0e3662dfaa95e33c6c30e10d0f9fde3dd488e850c9cb43d",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -686,7 +701,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B303-1",
-          "value": "bandit.B303-1"
+          "value": "bandit.B303-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -707,7 +723,7 @@
       ]
     },
     {
-      "id": "05fa613790fead80275d1e39b9762be6390a38f64fcb983866591622dd787397",
+      "id": "ef86b9d56648c50d0a5a7d222b4a733d2cac4b172c9707712ac9c2d3de1dad42",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -726,7 +742,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B303-1",
-          "value": "bandit.B303-1"
+          "value": "bandit.B303-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -747,7 +764,7 @@
       ]
     },
     {
-      "id": "687ce4ffacc4b73b60c167b6778e2d1babeb072759cb3225ddbba277a97f7f92",
+      "id": "f7196b193f00d7cebd38253f518e54a3819311747a8dd3dac5a80adf540edabe",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -766,7 +783,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B303-1",
-          "value": "bandit.B303-1"
+          "value": "bandit.B303-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -787,7 +805,7 @@
       ]
     },
     {
-      "id": "d119fb7ac03177a1d19979bab72ab7fbd4f35b0a0f166c26794d6dc6c530142c",
+      "id": "a816a9130180d783f8abc4485b61267f4d1b305124c0ecbe83cfd738126d4826",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -806,7 +824,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B303-1",
-          "value": "bandit.B303-1"
+          "value": "bandit.B303-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -827,7 +846,7 @@
       ]
     },
     {
-      "id": "30a90ac9e33d11cc04d017be421f7bbd8fd6ac0a32efcd7671e59c9fd7914d99",
+      "id": "73277a721e1dbdba05a4ed57e6a5ba1e104314375d13cf787d00dcbf73cc9f92",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -846,7 +865,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B404",
-          "value": "bandit.B404"
+          "value": "bandit.B404",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B404"
         },
         {
           "type": "cwe",
@@ -867,7 +887,7 @@
       ]
     },
     {
-      "id": "945b320a0e7daaaa1bdb1e31d0d8af4436413dae0f5bb108af7404595b40a7d5",
+      "id": "2361f4021352a6f0c8b60ce57ac8d25ce94e1b27656f7787282497d0f90cd2c2",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -886,7 +906,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B403",
-          "value": "bandit.B403"
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
         },
         {
           "type": "cwe",
@@ -907,7 +928,7 @@
       ]
     },
     {
-      "id": "aad18bd003d29e68d10a5bdc55d8c2fa174d04e2e1ce8617132137bea82719ee",
+      "id": "ba67b198628d602f0c739f309923ec5350edf8be406b47a838441ddf6989740e",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -926,7 +947,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B404",
-          "value": "bandit.B404"
+          "value": "bandit.B404",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B404"
         },
         {
           "type": "cwe",
@@ -947,7 +969,7 @@
       ]
     },
     {
-      "id": "8c40980908b5c861c2243df3df90d1998b78f353a346ef9014a509c32be8c95e",
+      "id": "9e9745e745c11985e7f9788f14e656126e13a179255396094ff6314319a01900",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to 'someFunction'. This could be dangerous if\na real password is not supplied.\n",
@@ -966,7 +988,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B107",
-          "value": "bandit.B107"
+          "value": "bandit.B107",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
         },
         {
           "type": "cwe",
@@ -1003,7 +1026,7 @@
       }
     },
     {
-      "id": "2c186962286ce1a4f478f1f0f11aac0c90bcfed35513561bff7b7e6d5e6bba3d",
+      "id": "aaa3eb2b8a7621d2fbc06263520fa503625012c0b0e3d0406954f8970cbb42f8",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to 'doLogin'. This could be dangerous if\na real password is not supplied.\n",
@@ -1022,7 +1045,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B107",
-          "value": "bandit.B107"
+          "value": "bandit.B107",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
         },
         {
           "type": "cwe",
@@ -1059,7 +1083,7 @@
       }
     },
     {
-      "id": "9bd65978113029466076b67357f8a6f29fe4f77b176cc0ac5bb76bdb343aa019",
+      "id": "6278aab4ad9dfdff134173f3c04fd0d57c000e18a08a9d661d908d8f1b1b6062",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1078,7 +1102,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B106",
-          "value": "bandit.B106"
+          "value": "bandit.B106",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B106"
         },
         {
           "type": "cwe",
@@ -1099,7 +1124,7 @@
       ]
     },
     {
-      "id": "011effc2316f9a0dc56b9068a6a371bc76bb70874998be63cdd86a33b19ab4c4",
+      "id": "abbd14d05c014be4edafd238d0c06ef6ba7bfa756e672d117d31e1019ef5f60c",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1118,7 +1143,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B105",
-          "value": "bandit.B105"
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -1139,7 +1165,7 @@
       ]
     },
     {
-      "id": "d2b2469e50be0be2801c41882797e3cdecc8511029b6039a3b0cdffb39ead99c",
+      "id": "666ffb8118ec3ead208097bcd4f1b0a7724e6a9b0ca31cbbb66e2090fb99d9d1",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1158,7 +1184,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B105",
-          "value": "bandit.B105"
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -1195,7 +1222,7 @@
       }
     },
     {
-      "id": "40660ff59878700c653fbb59b52f08468ee70dc2e5eca1dd825d57533606764d",
+      "id": "3eedafa410ba73c5d6d2c8c882cfbc202752fc84c257bf947eb0e942fe0e6871",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1214,7 +1241,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B105",
-          "value": "bandit.B105"
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -1251,7 +1279,7 @@
       }
     },
     {
-      "id": "cbcbb6084117aa00ca5efad3582fca4ad9a2604996f5bcdfe239cf2bf659382e",
+      "id": "9de0014241b1dd3431fcbad965e666f9b384c973c8bd122bae561e7ac3529547",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1270,7 +1298,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B105",
-          "value": "bandit.B105"
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -1307,7 +1336,7 @@
       }
     },
     {
-      "id": "537463b483fc7b27a46c99458bd8a4dbe716a76ded24aa66ecab5971ed01b7b4",
+      "id": "8994941a102ccac641690e4d9a773b585bf756f406ba66d2980071b030c9090a",
       "category": "sast",
       "message": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.   \n",
@@ -1326,7 +1355,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B108-2",
-          "value": "bandit.B108-2"
+          "value": "bandit.B108-2",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108-2"
         },
         {
           "type": "cwe",
@@ -1342,7 +1372,7 @@
       ]
     },
     {
-      "id": "84d3cb55d2aefd754f1d7690ee65eb3ba669eedc089dcad3a45d3f2d088c55a3",
+      "id": "d6c8a7653a193e0261b9f80d0b75700963d9a634ee08a67710e43dcc2904e580",
       "category": "sast",
       "message": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.   \n",
@@ -1361,7 +1391,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B108-2",
-          "value": "bandit.B108-2"
+          "value": "bandit.B108-2",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108-2"
         },
         {
           "type": "cwe",
@@ -1377,7 +1408,7 @@
       ]
     },
     {
-      "id": "7a3bfed5a7b049d98ed6774fffeabb2ebdab7f7ec5b294671b2d9fe58c0e2c2a",
+      "id": "4cee174ecc2074198659d47b6c5d75ac66e5955ced0a82f45a79fd054e564f24",
       "category": "sast",
       "message": "Insecure Temporary File",
       "description": "Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.\n",
@@ -1396,7 +1427,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B108-1",
-          "value": "bandit.B108-1"
+          "value": "bandit.B108-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108-1"
         },
         {
           "type": "cwe",
@@ -1412,7 +1444,7 @@
       ]
     },
     {
-      "id": "8ed03da2b1f30dad71c1e900d95cff4427ac49369d2aa65e18094c873120d621",
+      "id": "2280bd9b2c6904794e9e61ceb690f510f0389e51c55d344d5e62fa6fff735413",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -1431,7 +1463,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B403",
-          "value": "bandit.B403"
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
         },
         {
           "type": "cwe",
@@ -1452,7 +1485,7 @@
       ]
     },
     {
-      "id": "455014993e9a5b9bf02350f5b4aae5c825ba219d41c2c84fa73e4484204c7ae9",
+      "id": "9f0750a2baa615aa4cc548fecc956dfd59f564ab615215cf5a3cf5b9856a3cc7",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -1471,7 +1504,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B403",
-          "value": "bandit.B403"
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
         },
         {
           "type": "cwe",
@@ -1492,7 +1526,7 @@
       ]
     },
     {
-      "id": "461aa8847ead657443004017d59b6e65335b594bf1020ace76d33cd7d3370ec8",
+      "id": "e4c5e4ac0aa25667fe5e2962e406f7735a9b900273aa9abbd24ca52f7e2cf9d3",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
@@ -1511,7 +1545,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B602",
-          "value": "bandit.B602"
+          "value": "bandit.B602",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B602"
         },
         {
           "type": "cwe",
@@ -1532,7 +1567,7 @@
       ]
     },
     {
-      "id": "60bb1aa063594e6e0901b5fcb1c13f43b7c38bdd733ca2d4a92091ae9ad8396d",
+      "id": "6e1e7e1b411e1a99d5478906176ee6cf518a222511dd12a1296bc74e2e769935",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -1551,7 +1586,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B404",
-          "value": "bandit.B404"
+          "value": "bandit.B404",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B404"
         },
         {
           "type": "cwe",
@@ -1572,7 +1608,7 @@
       ]
     },
     {
-      "id": "5de233aba9a8ec34069dedf4adb17528614144fba79a2b273ca5fe1994fd3d01",
+      "id": "ab48b8346c3ad56c34c8492f58b1b0bf7efb8c16c7cf9931773075b4462bf360",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -1591,7 +1627,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B303-1",
-          "value": "bandit.B303-1"
+          "value": "bandit.B303-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1612,7 +1649,7 @@
       ]
     },
     {
-      "id": "283d5520cae48a66cdd554616f2366f908432a31f9f7cc358c3f0a4679d64b74",
+      "id": "a3d189f3f2d4874c9a9bc1544fa992d63a633d62d6f561da23f10a3e6e16e69b",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -1631,7 +1668,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B303-1",
-          "value": "bandit.B303-1"
+          "value": "bandit.B303-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1652,7 +1690,7 @@
       ]
     },
     {
-      "id": "d28c48c1f28e4b0ac8f2dd3dd08395f26ca432c3a68dc10dff72cbe09251c10e",
+      "id": "fe6b4f5350e85bea3ce71b49984bf29e5e51564c56f881c3c5784bc22f1f48fb",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -1671,7 +1709,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B303-1",
-          "value": "bandit.B303-1"
+          "value": "bandit.B303-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1692,7 +1731,7 @@
       ]
     },
     {
-      "id": "79b41a3be8edccfb41e94d30abe92c7af1a649481af3c0988e716eef8303e433",
+      "id": "9531653c277813ebbb95502b2d9210fdad50e79a0e4956f96b01359954c3819f",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -1711,7 +1750,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B303-1",
-          "value": "bandit.B303-1"
+          "value": "bandit.B303-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
         },
         {
           "type": "cwe",
@@ -1732,7 +1772,7 @@
       ]
     },
     {
-      "id": "6174e1613803b13f564d54ed0d437e42898ad4b21f179c0232a6052b8a17969a",
+      "id": "3e9f76e4d7810b61f0316954e8bb7cda5d2e4b4de3ed087322522d8092643d6a",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
@@ -1751,7 +1791,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B301-1",
-          "value": "bandit.B301-1"
+          "value": "bandit.B301-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B301-1"
         },
         {
           "type": "cwe",
@@ -1772,7 +1813,7 @@
       ]
     },
     {
-      "id": "663af21679840600684671906be62e7abf95efc2280e06497ca21b914324154a",
+      "id": "299bab0f06679f4134ba6d1a01e5882e06dfb4cce00ca2ff565c800c932db706",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -1791,7 +1832,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B404",
-          "value": "bandit.B404"
+          "value": "bandit.B404",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B404"
         },
         {
           "type": "cwe",
@@ -1812,7 +1854,7 @@
       ]
     },
     {
-      "id": "b5bc609faf28818d1143e431bac372e1d1a1fec36b5dd21b97efa2e815402410",
+      "id": "93814452e57e1b57c0c9b5422a20978e31a1c65bebad293c75fa0fe36e9fd101",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -1831,7 +1873,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B403",
-          "value": "bandit.B403"
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
         },
         {
           "type": "cwe",
@@ -1852,7 +1895,7 @@
       ]
     },
     {
-      "id": "8d797ed6ea8fb4002a5bdd729f9d8596a05934137fad03e2eb3fb4714c2b025b",
+      "id": "2dcde11804ee72002d3a503b97aa78eb79b03548bd06d929ef5d6ea96ef62ac8",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -1871,7 +1914,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B404",
-          "value": "bandit.B404"
+          "value": "bandit.B404",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B404"
         },
         {
           "type": "cwe",
@@ -1892,7 +1936,7 @@
       ]
     },
     {
-      "id": "eaa8ff398919ac1aed8d0d48a227c8674a457f2ae5d69e396f7950c684577b8b",
+      "id": "da35811dd3ed09539087346b33b2076aa5ce1677da9420c2c5ab2996a479d8a1",
       "category": "sast",
       "message": "Improper Check for Unusual or Exceptional Conditions",
       "description": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
@@ -1911,7 +1955,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B101",
-          "value": "bandit.B101"
+          "value": "bandit.B101",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B101"
         },
         {
           "type": "cwe",
@@ -1955,8 +2000,8 @@
       "version": "0.55.1"
     },
     "type": "sast",
-    "start_time": "2021-06-16T20:14:41",
-    "end_time": "2021-06-16T20:14:54",
+    "start_time": "2021-07-01T20:05:14",
+    "end_time": "2021-07-01T20:05:27",
     "status": "success"
   }
 }

@@ -2,7 +2,7 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "3189c88bf9c9c1045ea4be135470bb37f1656693da5112f98f77072aa2f1df0a",
+      "id": "4eaa23ffb9a3a3c3d95db3755594d63ca0d44e562ac4ad1f6f53faa460eaf21f",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -21,7 +21,8 @@
         {
           "type": "semgrep_id",
           "name": "eslint.detect-eval-with-expression",
-          "value": "eslint.detect-eval-with-expression"
+          "value": "eslint.detect-eval-with-expression",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-eval-with-expression"
         },
         {
           "type": "cwe",
@@ -42,7 +43,7 @@
       ]
     },
     {
-      "id": "49d175cf8cfd179205f84068c5f263aa834e813be573fb1454f46fe566e54c0b",
+      "id": "381f32fca51128d96230bae69f2e22c17a3a1057272a37037d0d4befeebd1197",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -61,7 +62,8 @@
         {
           "type": "semgrep_id",
           "name": "eslint.detect-non-literal-regexp",
-          "value": "eslint.detect-non-literal-regexp"
+          "value": "eslint.detect-non-literal-regexp",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -77,7 +79,7 @@
       ]
     },
     {
-      "id": "195af5f015b1d5ecd2489656be22046e11cc873f8218e9e0e99c4f3042ba9c66",
+      "id": "d64fdfb0de711d6da70080c1257e4206b149f0bacb0c3dc06f6f26492b745641",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -96,7 +98,8 @@
         {
           "type": "semgrep_id",
           "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection"
+          "value": "eslint.detect-object-injection",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
         },
         {
           "type": "cwe",
@@ -112,7 +115,7 @@
       ]
     },
     {
-      "id": "195af5f015b1d5ecd2489656be22046e11cc873f8218e9e0e99c4f3042ba9c66",
+      "id": "d64fdfb0de711d6da70080c1257e4206b149f0bacb0c3dc06f6f26492b745641",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -131,7 +134,8 @@
         {
           "type": "semgrep_id",
           "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection"
+          "value": "eslint.detect-object-injection",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
         },
         {
           "type": "cwe",
@@ -159,8 +163,8 @@
       "version": "0.55.1"
     },
     "type": "sast",
-    "start_time": "2021-05-13T21:01:08",
-    "end_time": "2021-05-13T21:01:12",
+    "start_time": "2021-07-01T20:19:55",
+    "end_time": "2021-07-01T20:19:59",
     "status": "success"
   }
 }

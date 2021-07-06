@@ -2,7 +2,7 @@
   "version": "14.0.0",
   "vulnerabilities": [
     {
-      "id": "6fa2181dd7e7e09705bae1c9182e90a018932527a9586879755772d1aa0d6f07",
+      "id": "9ec02a337f6be94de7d0f56999f52d6e6f01de68e7e0c62e3ffa060877acfdc1",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
@@ -21,7 +21,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B506",
-          "value": "bandit.B506"
+          "value": "bandit.B506",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B506"
         },
         {
           "type": "cwe",
@@ -58,7 +59,7 @@
       }
     },
     {
-      "id": "2c4efce9f31385707082dbf13961ee052089a980796ea4c0522248eae861101f",
+      "id": "a253a873375b2d8766074fcc69fb7bd65e0679089f42951051c6ee80628202f6",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
@@ -77,7 +78,8 @@
         {
           "type": "semgrep_id",
           "name": "bandit.B608",
-          "value": "bandit.B608"
+          "value": "bandit.B608",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B608"
         },
         {
           "type": "cwe",
@@ -114,7 +116,7 @@
       }
     },
     {
-      "id": "8ad9c94f58b5772a8d8465a56a15c01024c7ab9be38630f015fc6b266dff3dde",
+      "id": "3c3873f898982c687ad7051d1c59eb443e21f346af399c229ce29b2df7f11c7f",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -133,7 +135,8 @@
         {
           "type": "semgrep_id",
           "name": "eslint.detect-eval-with-expression",
-          "value": "eslint.detect-eval-with-expression"
+          "value": "eslint.detect-eval-with-expression",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-eval-with-expression"
         },
         {
           "type": "cwe",
@@ -170,7 +173,7 @@
       }
     },
     {
-      "id": "a2caf7a4a9d21a45e55fcbb07bae21013200cf81e3b155db55d51703aa044299",
+      "id": "eeea691963da735438fc0318a659bfd7509cbd2a847aae52eac81afa8f003c8f",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -189,7 +192,8 @@
         {
           "type": "semgrep_id",
           "name": "eslint.detect-non-literal-regexp",
-          "value": "eslint.detect-non-literal-regexp"
+          "value": "eslint.detect-non-literal-regexp",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
         },
         {
           "type": "cwe",
@@ -221,7 +225,7 @@
       }
     },
     {
-      "id": "750b8ac96be44407aa1c4162690ca32a90058da472106810a469b89a5ec39329",
+      "id": "c7645e974aec4cc44e73536cc994122fa5c5effabe2fe2eabcab529e7250b639",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -240,7 +244,8 @@
         {
           "type": "semgrep_id",
           "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection"
+          "value": "eslint.detect-object-injection",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
         },
         {
           "type": "cwe",
@@ -284,8 +289,8 @@
       "version": "0.55.1"
     },
     "type": "sast",
-    "start_time": "2021-06-18T16:53:18",
-    "end_time": "2021-06-18T16:53:32",
+    "start_time": "2021-07-01T20:04:41",
+    "end_time": "2021-07-01T20:05:04",
     "status": "success"
   }
 }
