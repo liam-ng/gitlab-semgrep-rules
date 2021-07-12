@@ -1,5 +1,38 @@
 Semgrep analyzer changelog
 
+## v2.9.1
+- Update semgrep to [0.57.0](https://github.com/returntocorp/semgrep/releases/tag/v0.57.0) (!67)
+  + 0.57.0 Changes:
+    + Add: new options: field in a YAML rule to enable/disable certain features (e.g., constant propagation).
+    + Add: capture groups in pattern-regex: in $1, $2, etc.
+    + Add: support metavariables inside atoms (e.g., foo(:$ATOM))
+    + Add: support metavariables and ellipsis inside regexp literals (e.g., foo(/.../))
+    + Add: associative-commutative matching for bitwise OR, AND, and XOR operations
+    + Add: support for $...MVAR in generic patterns.
+    + Add: metavariable-pattern: Add support for nested Spacegrep/regex/Comby patterns
+    + Add: C#: support ellipsis in method parameters
+    + Fixed: C#: parse \_\_makeref, \_\_reftype, \_\_refvalue
+    + Fixed: Java: parsing of dots inside function annotations with brackets
+    + Fixed: Do not pretend that short-circuit Boolean AND and OR operators are commutative
+    + Fixed: metavariable-pattern: Fix crash when nesting a non-generic pattern within a generic rule
+    + Fixed: metavariable-pattern: Fix parse info when matching content of a metavariable under a different language
+    + Fixed: metavariable-comparison: Fix crash when comparing integers and floats
+    + Fixed: generic mode on Markdown files with very long lines will now work
+    + Changed: generic mode: files that don't look like nicely-indented programs are no longer ignored, which may cause accidental slowdowns in setups where excessively large files are not excluded explicitly
+    + Changed: Do not filter findings with the same range but different metavariable bindings
+    + Changed: Set parsing_state.have_timeout when a timeout occurs
+    + Changed: Set a timeout of 10s per file
+    + Changed: Memoize getting ranges to speed up rules with large ranges
+    + Changed: When anded with other patterns, pattern: $X will not be evaluated on its own, but will look at the context and find $X within the metavariables bound, which should be significantly faster
+  + 0.56.0 Changes:
+    + Add: associative-commutative matching for Boolean AND and OR operations
+    + Add: support metavariables inside strings (e.g., foo("$VAR"))
+    + Add: support metavariables inside atoms (e.g., foo(:$ATOM))
+    + Add: metavariable-pattern: Allow matching the content of a metavariable under a different language.
+    + Fixed: C#: Parse attributes for local functions
+    + Fixed: Go: Recognize other common package naming conventions
+    + Changed: Upgrade TypeScript parser
+
 ## v2.9.0
 - Add identifier URLs to reports (!65 @mschwager)
 
