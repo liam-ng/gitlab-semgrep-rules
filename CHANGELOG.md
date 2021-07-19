@@ -1,5 +1,29 @@
 Semgrep analyzer changelog
 
+## v2.9.2
+- Update semgrep to [0.58.2](https://github.com/returntocorp/semgrep/releases/tag/v0.58.2) (!68)
+    + 0.58.2 Notable Changes
+      + Fixed: Significant speed improvements, but the binary is now 95MB (from 47MB in 0.58.1, but it was 170MB in 0.58.0)
+    + 0.58.1 Notable Changes
+      + Changed: Switch from OCaml 4.10.0 to OCaml 4.10.2 (and later to OCaml 4.12.0) resulted in smaller semgrep-core binaries (from 170MB to 47MB) and a smaller docker image (from 95MB to 40MB).
+    + 0.58.0 Notable Changes
+      + Added: New iteration of taint-mode that allows to specify sources/sanitizers/sinks using arbitrary pattern formulas. This provides plenty of flexibility. Note that we breaks compatibility with the previous taint-mode format, e.g. source(...) must now be written as - pattern: source(...).
+      + Added: HTML experimental support. This does not rely on the "generic" mode but instead really parses the HTML using tree-sitter-html. This allows some semantic matching (e.g., matching attributes in any order).
+      + Added: Vue.js alpha support
+      + Added: New matching option implicit_ellipsis that allows disabling the implicit ... that are added to record patterns, plus allow matching "spread fields" (JS ...x) at any position
+      + Added: Support globstar (**) syntax in path include/exclude
+      + Fixed: Ruby command shells are distinguished from strings (#3343)
+      + Fixed: Java varargs are now correctly matched (#3455)
+      + Fixed: Support for partial statements (e.g., try { ... }) for Java (#3417)
+      + Fixed: Java generics are now correctly stored in the AST (#3505)
+      + Fixed: Constant propagation now works inside Python with statements (#3402)
+      + Fixed: Metavariable value replacement in message/autofix no longer mixes up short and long names like $X vs $X2 (#3458)
+      + Fixed: Fixed metavariable name collision during interpolation of message / autofix (#3483)
+      + Fixed: Revert pattern: $X optimization (#3476)
+      + Fixed: metavariable-pattern: Allow filtering using a single pattern or pattern-regex
+      + Fixed: Dataflow: Translate call chains into IL
+      + Changed: Faster matching times for generic mode
+
 ## v2.9.1
 - Update semgrep to [0.57.0](https://github.com/returntocorp/semgrep/releases/tag/v0.57.0) (!67)
   + 0.57.0 Changes:
