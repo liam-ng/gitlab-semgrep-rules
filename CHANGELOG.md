@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.9.3
+- Update tracking calculator (!71)
+
 ## v2.9.2
 - Update semgrep to [0.58.2](https://github.com/returntocorp/semgrep/releases/tag/v0.58.2) (!68)
     + 0.58.2 Notable Changes
