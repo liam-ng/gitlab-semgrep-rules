@@ -1,5 +1,19 @@
 Semgrep analyzer changelog
 
+## v2.9.4
+- Update semgrep to [0.60.0](https://github.com/returntocorp/semgrep/releases/tag/v0.60.0) (!72)
+    + 0.60.0 Notable Changes
+      + Added: Detect duplicate keys in YAML dictionaries in semgrep rules when parsing a rule (e.g., detect multiple 'metavariable' inside one 'metavariable-regex')
+      + Fixed: JS: Fixed stack overflows (segmentation faults) when processing very large files
+      + Fixed: JS: Detect numeric object keys 1 and 0x1 as equal
+      + Fixed: taint-mode: Check nested functions
+      + Fixed: taint-mode: foo.x is now detected as tainted if foo is a source of taint
+      + Fixed: taint-mode: Do not crash when is not possible to compute range info
+      + Changed: Added precise error location for the semgrep metachecker, to detect for example duplicate patterns in a rule
+    + 0.59.0 Notable Changes
+      + Fixed: Improve location reporting of errors metavariable-pattern: pattern-not-regex now works
+      + Fixed: Python: imports are unsugared correctly
+
 ## v2.9.3
 - Update tracking calculator (!71)
 
