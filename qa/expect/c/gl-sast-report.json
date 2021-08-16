@@ -1,0 +1,124 @@
+{
+  "version": "14.0.0",
+  "vulnerabilities": [
+    {
+      "id": "9d428808a1e29b416f15f89a22aeb655dbfad0ccd16f15f9a3081faa8865c5db",
+      "category": "sast",
+      "message": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
+      "description": "Perform bounds checking, use functions that limit length, or ensure that the size is larger\nthan the maximum possible length.\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "subdir/utils.c",
+        "start_line": 4,
+        "end_line": 4
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "flawfinder.char-1.TCHAR-1.wchar_t-1",
+          "value": "flawfinder.char-1.TCHAR-1.wchar_t-1",
+          "url": "https://semgrep.dev/r/gitlab.flawfinder.char-1.TCHAR-1.wchar_t-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-120",
+          "value": "120",
+          "url": "https://cwe.mitre.org/data/definitions/120.html"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - char",
+          "value": "char"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - TCHAR",
+          "value": "TCHAR"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - wchar_t",
+          "value": "wchar_t"
+        }
+      ]
+    },
+    {
+      "id": "97ab712e42bdaac4d881e9c47736e5c640b456ded6c7faabeebb868682c835cf",
+      "category": "sast",
+      "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
+      "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "subdir/utils.c",
+        "start_line": 8,
+        "end_line": 8
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "flawfinder.fopen-1.open-1",
+          "value": "flawfinder.fopen-1.open-1",
+          "url": "https://semgrep.dev/r/gitlab.flawfinder.fopen-1.open-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-362",
+          "value": "362",
+          "url": "https://cwe.mitre.org/data/definitions/362.html"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - fopen",
+          "value": "fopen"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - open",
+          "value": "open"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "subdir/utils.c",
+            "line_start": 8,
+            "line_end": 8,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "subdir/utils.c|doStuff()[0]:2"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "remediations": [],
+  "scan": {
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "0.60.0"
+    },
+    "type": "sast",
+    "start_time": "2021-08-13T15:15:51",
+    "end_time": "2021-08-13T15:15:57",
+    "status": "success"
+  }
+}
