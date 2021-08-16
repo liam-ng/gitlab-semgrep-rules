@@ -69,6 +69,12 @@ func ruleToIDs(ruleID string) []report.Identifier {
 		ids = append(ids, generateEslintID(matches[1]))
 	}
 
+	if matches[0] == "flawfinder" {
+		for i := 1; i < len(matches); i++ {
+			ids = append(ids, generateFlawfinderID(matches[i]))
+		}
+	}
+
 	return ids
 }
 
@@ -88,5 +94,14 @@ func generateEslintID(id string) report.Identifier {
 		Type:  "eslint_rule_id",
 		Name:  "ESLint rule ID security/" + id,
 		Value: "security/" + id,
+	}
+}
+
+func generateFlawfinderID(id string) report.Identifier {
+	value := strings.Split(id, "-")[0]
+	return report.Identifier{
+		Type:  "flawfinder_func_name",
+		Name:  "Flawfinder - " + value,
+		Value: value,
 	}
 }

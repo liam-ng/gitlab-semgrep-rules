@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.10.0
+- flawfinder rule-set (!74)
+
 ## v2.9.4
 - Update semgrep to [0.60.0](https://github.com/returntocorp/semgrep/releases/tag/v0.60.0) (!72)
     + 0.60.0 Notable Changes
