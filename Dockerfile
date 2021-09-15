@@ -1,7 +1,7 @@
 ARG SCANNER_VERSION=0.60.0
-ARG TRACKING_CALCULATOR_VERSION=2.2.1
+ARG TRACKING_CALCULATOR_VERSION=2.2.3
 
-FROM registry.gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
+FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
 FROM golang:1.15-alpine AS build
 

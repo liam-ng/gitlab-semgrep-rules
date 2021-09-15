@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.10.1
+- update tracking calculator (!78)
+
 ## v2.10.0
 - flawfinder rule-set (!74)
 
