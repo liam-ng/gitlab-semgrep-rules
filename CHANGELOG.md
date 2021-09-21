@@ -1,5 +1,49 @@
 Semgrep analyzer changelog
 
+## v2.11.0
+- Update semgrep to [0.65.0](https://github.com/returntocorp/semgrep/releases/tag/v0.65.0) (!79)
+    + 0.65.0 Notable Changes
+      + Fixed: Taint detection with ternary ifs
+      + Fixed: Fixed corner-case crash affecting the pattern: $X optimization ("empty And; no positive terms in And")
+      + Fixed: Fix semgrep-core crash when a cache file exceeds the file size limit
+      + Fixed: Sped up Semgrep interface with tree-sitter parsing
+    + 0.64.0 Notable Changes
+      + Added: Enable associative matching for string concatenation
+      + Changed: Add logging on failure to git ls-files
+      + Changed: Ignore files whose contents look minified
+      + Changed: Display semgrep-core errors in a better way
+      + Fixed: Taint mode will now benefit from semgrep-core's -filter_irrelevant_rules
+      + Fixed: Taint mode should no longer report duplicate matches
+      + Fixed: Only change source directory when running in docker context
+    + 0.63.0 Notable Changes
+      + Fixed: Dataflow: Disregard type arguments but not the entire instruction
+      + Changed: Optimize ending ... in pattern-insides to simply match anything left
+    + 0.62.0 Notable Changes
+      + Added: Add help text to sarif formatter output if defined in metadata field.
+      + Added: Update shortDescription in sarif formatter output if defined in metadata field.
+      + Added: Add tags as defined in metadata field in addition to the existing tags.
+      + Fixed: core: Fix parsing of numeric literals in rule files
+      + Fixed: Generic mode scanner no longer tries to open submodule folders as files
+      + Fixed: pattern-regex with completely empty files
+      + Fixed: --sarif exit code with suppressed findings
+      + Fixed: Fixed fatal errors when a pattern results in a large number of matches
+      + Fixed: Better error message when rule contains empty pattern
+      + Changed: Add backtrace to fatal errors reported by semgrep-core
+      + Changed: Report errors during rule evaluation to the user
+      + Changed: When anded with other patterns, pattern: $X will not be evaluated on its own, but will look at the context and find $X within the metavariables bound, which should be significantly faster
+    + 0.61.0 Notable Changes
+      + Changed: Run version check and print upgrade message after scan instead of before
+      + Changed: Memoize range computation for expressions and speed up taint mode
+      + Changed: Report semgrep-core's message upon a parse error
+      + Changed: Deprecated the following experimental features:
+          + pattern-where-python
+          + taint-mode
+          + equivalences
+          + step-by-step evaluation output
+      + Changed: Deduplicate findings that fire on the same line ranges and have the same message.
+      + Fixed: core: Do not crash when is not possible to compute range info
+      + Fixed: eliminate 6x slowdown when using the '--max-memory' option
+
 ## v2.10.1
 - update tracking calculator (!78)
 
