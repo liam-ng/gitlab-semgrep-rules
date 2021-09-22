@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.12.0
+- gosec rule-set (!76)
+
 ## v2.11.0
 - Update semgrep to [0.65.0](https://github.com/returntocorp/semgrep/releases/tag/v0.65.0) (!79)
     + 0.65.0 Notable Changes
