@@ -1,0 +1,72 @@
+{
+  "version": "14.0.0",
+  "vulnerabilities": [
+    {
+      "id": "157d9354ef3f871a798c7efc511ebf5916e18060674c36c82983051c79d9800e",
+      "category": "sast",
+      "message": "Key Exchange without Entity Authentication",
+      "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "foo.go",
+        "start_line": 8,
+        "end_line": 8
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gosec.G106-1",
+          "value": "gosec.G106-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-322",
+          "value": "322",
+          "url": "https://cwe.mitre.org/data/definitions/322.html"
+        },
+        {
+          "type": "gosec_rule_id",
+          "name": "Gosec Rule ID G106",
+          "value": "G106"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "foo.go",
+            "line_start": 8,
+            "line_end": 8,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "foo.go|foo[0]:1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "remediations": [],
+  "scan": {
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "0.65.0"
+    },
+    "type": "sast",
+    "start_time": "2021-09-21T12:35:34",
+    "end_time": "2021-09-21T12:35:39",
+    "status": "success"
+  }
+}

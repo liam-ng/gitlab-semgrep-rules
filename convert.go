@@ -39,7 +39,9 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
 		// generate and add a URL to the semgrep ID
-		vul.Identifiers[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
+		if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
+			vul.Identifiers[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
+		}
 
 		ids := ruleToIDs(ruleID)
 		if len(ids) > 0 {
@@ -75,6 +77,12 @@ func ruleToIDs(ruleID string) []report.Identifier {
 		}
 	}
 
+	if matches[0] == "gosec" {
+		for i := 1; i < len(matches); i++ {
+			ids = append(ids, generateGosecID(matches[i]))
+		}
+	}
+
 	return ids
 }
 
@@ -102,6 +110,15 @@ func generateFlawfinderID(id string) report.Identifier {
 	return report.Identifier{
 		Type:  "flawfinder_func_name",
 		Name:  "Flawfinder - " + value,
+		Value: value,
+	}
+}
+
+func generateGosecID(id string) report.Identifier {
+	value := strings.Split(id, "-")[0]
+	return report.Identifier{
+		Type:  "gosec_rule_id",
+		Name:  "Gosec Rule ID " + value,
 		Value: value,
 	}
 }

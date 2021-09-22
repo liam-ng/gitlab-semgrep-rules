@@ -21,8 +21,7 @@
         {
           "type": "semgrep_id",
           "name": "flawfinder.char-1.TCHAR-1.wchar_t-1",
-          "value": "flawfinder.char-1.TCHAR-1.wchar_t-1",
-          "url": "https://semgrep.dev/r/gitlab.flawfinder.char-1.TCHAR-1.wchar_t-1"
+          "value": "flawfinder.char-1.TCHAR-1.wchar_t-1"
         },
         {
           "type": "cwe",
@@ -67,8 +66,7 @@
         {
           "type": "semgrep_id",
           "name": "flawfinder.fopen-1.open-1",
-          "value": "flawfinder.fopen-1.open-1",
-          "url": "https://semgrep.dev/r/gitlab.flawfinder.fopen-1.open-1"
+          "value": "flawfinder.fopen-1.open-1"
         },
         {
           "type": "cwe",
