@@ -102,6 +102,7 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths string, enable
 		"--sarif",
 		"--no-rewrite-rule-ids",
 		"--strict",
+		"--disable-version-check",
 		"--no-git-ignore",
 	}
 

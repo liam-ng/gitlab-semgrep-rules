@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v2.13.2
+- fix: Return non-zero exit codes (!80)
+- chore: suppress `--disable-version-check` warning if outdated version (!80)
+
 ## v2.13.1
 - Update semgrep to [0.69.1](https://github.com/returntocorp/semgrep/releases/tag/v0.69.1) (!83)
     + 0.69.1 Notable Changes
