@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v2.13.1
+- Update semgrep to [0.69.1](https://github.com/returntocorp/semgrep/releases/tag/v0.69.1) (!83)
+    + 0.69.1 Notable Changes
+      + Fixed: The --enable-metrics flag is now always a flag, does not optionally take an argument
+
 ## v2.13.0
 - Update semgrep to [0.69.0](https://github.com/returntocorp/semgrep/releases/tag/v0.69.0) (!82)
     + 0.69.0 Notable Changes
