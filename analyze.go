@@ -83,8 +83,12 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 	cmd.Env = os.Environ()
 	cmd.Env = append(cmd.Env, "SEMGREP_USER_AGENT_APPEND=(GitLab SAST)")
 
-	output, _ := cmd.CombinedOutput()
-	log.Debugf("%s\n%s", cmd.String(), output)
+	output, err := cmd.CombinedOutput()
+
+	if err != nil {
+		log.Debugf("%s", output)
+		return nil, err
+	}
 
 	return os.Open(outputPath) // #nosec G304
 }
@@ -98,6 +102,7 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths string, enable
 		"--sarif",
 		"--no-rewrite-rule-ids",
 		"--strict",
+		"--disable-version-check",
 		"--no-git-ignore",
 	}
 
