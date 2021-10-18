@@ -109,7 +109,7 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths string, enable
 	}
 
 	if enableMetrics {
-		args = append(args, "--enable-metrics")
+		args = append(args, "--enable-metrics", "on")
 	}
 
 	args = append(args, projectPath)

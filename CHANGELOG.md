@@ -1,5 +1,43 @@
 Semgrep analyzer changelog
 
+## v2.13.0
+- Update semgrep to [0.69.0](https://github.com/returntocorp/semgrep/releases/tag/v0.69.0) (!82)
+    + 0.69.0 Notable Changes
+      + Added: C: support ... in parameters and sizeof arguments
+      + Added: C: support declaration and function patterns
+      + Fixed: Reverted change to exclude minified files from the scan (see changelog for 0.66.0)
+      + Fixed: Python: fix range of tuples
+      + Fixed: C: fix some wrong typedef inference
+      + Fixed: Ruby: put back equivalence on old syntax for keyword arguments
+      + Changed: taint-mode: Introduce a new kind of not conflicting sanitizer that must be declared with not_conflicting: true. This affects the change made in 0.68.0 that allowed a sanitizer like - pattern: $F(...) to work, but turned out to affect our ability to specify sanitization by side-effect. Now the default semantics of sanitizers is reverted back to the same as before 0.68.0, and - pattern: $F(...) is supported via the new not-conflicting sanitizers.
+    + 0.68.2 Notable Changes
+      + Fixed: taint-mode: Fixed (another) bug where a tainted sink could go unreported when the sink is a specific argument in a function call
+    + 0.68.1 Notable Changes
+      + Added: Added support for raise/throw expressions in the dataflow engine and improved existing support for try-catch-finally
+      + Fixed: Respect rule level path filtering
+    + 0.68.0 Notable Changes
+      + Changed: taint-mode: Sanitizers that match exactly a source or a sink are filtered out, making it possible to use - pattern: $F(...) for declaring that any other function is a sanitizer
+      + Changed: taint-mode: Remove built-in source source(...) and built-in sanitizer sanitize(...) used for convenience during early development, this was causing some unexpected behavior in real code that e.g. had a function called source!
+      + Changed: Resolution of rulesets (i.e. p/ci) use new rule cdn and do client-side hydration
+      + Changed: Set pcre recursion limit so it will not vary with different installations of pcre
+      + Changed: Better pcre error handling in semgrep-core
+      + Fixed: taint-mode: Fixed bug where a tainted sink could go unreported when the sink is a specific argument in a function call
+    + 0.67.0 Notable Changes
+      + Added: Added support for break and continue in the dataflow engine
+      + Added: Added support for switch statements in the dataflow engine
+      + Changed: Taint no longer analyzes dead/unreachable code
+      + Changed: Improve error message for segmentation faults/stack overflows
+      + Changed: Attribute-expression equivalence that allows matching expression patterns against attributes, it is enabled by default but can be disabled via rule options: with attr_expr: false
+      + Fixed: Fix CFG dummy nodes to always connect to exit node
+      + Fixed: Deep ellipsis <... x ...> now matches sub-expressions of statements
+      + Fixed: Ruby: treat 'foo' as a function call when alone on its line
+      + Fixed: Fixed bug in semgrep-core's -filter_irrelevant_rules causing Semgrep to incorrectly skip a file
+    + 0.66.0 Notable Changes
+      + Changed: Constant propagation now assumes that void methods may update the callee
+      + Changed: Various changes to error messages
+      + Changed: Minified files are now automatically excluded from the scan, which may result in shorter scanning times for some projects.
+      + Fixed: Dataflow: Recognize "concat" method and interpret it in a language-dependent manner
+
 ## v2.12.0
 - gosec rule-set (!76)
 

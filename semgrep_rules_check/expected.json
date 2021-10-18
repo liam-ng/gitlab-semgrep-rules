@@ -5,7 +5,8 @@
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 10
+                "line": 10,
+                "offset": 331
             },
             "extra": {
                 "is_ignored": false,
@@ -19,14 +20,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 10
+                "line": 10,
+                "offset": 304
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 34,
-                "line": 11
+                "line": 11,
+                "offset": 365
             },
             "extra": {
                 "is_ignored": false,
@@ -40,14 +43,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 11
+                "line": 11,
+                "offset": 334
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 36,
-                "line": 12
+                "line": 12,
+                "offset": 401
             },
             "extra": {
                 "is_ignored": false,
@@ -61,14 +66,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 12
+                "line": 12,
+                "offset": 368
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 13
+                "line": 13,
+                "offset": 431
             },
             "extra": {
                 "is_ignored": false,
@@ -82,14 +89,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 13
+                "line": 13,
+                "offset": 404
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 40,
-                "line": 14
+                "line": 14,
+                "offset": 471
             },
             "extra": {
                 "is_ignored": false,
@@ -103,14 +112,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 14
+                "line": 14,
+                "offset": 434
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 34,
-                "line": 15
+                "line": 15,
+                "offset": 505
             },
             "extra": {
                 "is_ignored": false,
@@ -124,14 +135,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 15
+                "line": 15,
+                "offset": 474
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 36,
-                "line": 16
+                "line": 16,
+                "offset": 541
             },
             "extra": {
                 "is_ignored": false,
@@ -145,14 +158,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 16
+                "line": 16,
+                "offset": 508
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 17
+                "line": 17,
+                "offset": 571
             },
             "extra": {
                 "is_ignored": false,
@@ -166,14 +181,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 17
+                "line": 17,
+                "offset": 544
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 29,
-                "line": 18
+                "line": 18,
+                "offset": 600
             },
             "extra": {
                 "is_ignored": false,
@@ -187,14 +204,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 18
+                "line": 18,
+                "offset": 574
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 23,
-                "line": 19
+                "line": 19,
+                "offset": 623
             },
             "extra": {
                 "is_ignored": false,
@@ -208,14 +227,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 19
+                "line": 19,
+                "offset": 603
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 29,
-                "line": 20
+                "line": 20,
+                "offset": 652
             },
             "extra": {
                 "is_ignored": false,
@@ -229,14 +250,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 20
+                "line": 20,
+                "offset": 626
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 23,
-                "line": 21
+                "line": 21,
+                "offset": 675
             },
             "extra": {
                 "is_ignored": false,
@@ -250,14 +273,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 21
+                "line": 21,
+                "offset": 655
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 28,
-                "line": 22
+                "line": 22,
+                "offset": 703
             },
             "extra": {
                 "is_ignored": false,
@@ -271,14 +296,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 22
+                "line": 22,
+                "offset": 678
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 22,
-                "line": 23
+                "line": 23,
+                "offset": 725
             },
             "extra": {
                 "is_ignored": false,
@@ -292,14 +319,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 23
+                "line": 23,
+                "offset": 706
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 31,
-                "line": 24
+                "line": 24,
+                "offset": 756
             },
             "extra": {
                 "is_ignored": false,
@@ -313,14 +342,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 24
+                "line": 24,
+                "offset": 728
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 25,
-                "line": 25
+                "line": 25,
+                "offset": 781
             },
             "extra": {
                 "is_ignored": false,
@@ -334,14 +365,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 25
+                "line": 25,
+                "offset": 759
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 26
+                "line": 26,
+                "offset": 813
             },
             "extra": {
                 "is_ignored": false,
@@ -355,14 +388,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 26
+                "line": 26,
+                "offset": 784
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 26,
-                "line": 27
+                "line": 27,
+                "offset": 839
             },
             "extra": {
                 "is_ignored": false,
@@ -376,14 +411,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 27
+                "line": 27,
+                "offset": 816
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 28
+                "line": 28,
+                "offset": 871
             },
             "extra": {
                 "is_ignored": false,
@@ -397,14 +434,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 28
+                "line": 28,
+                "offset": 842
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 26,
-                "line": 29
+                "line": 29,
+                "offset": 897
             },
             "extra": {
                 "is_ignored": false,
@@ -418,14 +457,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 29
+                "line": 29,
+                "offset": 874
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 40,
-                "line": 2
+                "line": 2,
+                "offset": 70
             },
             "extra": {
                 "is_ignored": false,
@@ -439,14 +480,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 2
+                "line": 2,
+                "offset": 33
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 30
+                "line": 30,
+                "offset": 929
             },
             "extra": {
                 "is_ignored": false,
@@ -460,14 +503,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 30
+                "line": 30,
+                "offset": 900
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 26,
-                "line": 31
+                "line": 31,
+                "offset": 955
             },
             "extra": {
                 "is_ignored": false,
@@ -481,14 +526,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 31
+                "line": 31,
+                "offset": 932
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 38,
-                "line": 32
+                "line": 32,
+                "offset": 993
             },
             "extra": {
                 "is_ignored": false,
@@ -502,14 +549,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 32
+                "line": 32,
+                "offset": 958
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 33
+                "line": 33,
+                "offset": 1025
             },
             "extra": {
                 "is_ignored": false,
@@ -523,14 +572,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 33
+                "line": 33,
+                "offset": 996
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 29,
-                "line": 34
+                "line": 34,
+                "offset": 1054
             },
             "extra": {
                 "is_ignored": false,
@@ -544,14 +595,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 34
+                "line": 34,
+                "offset": 1028
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 23,
-                "line": 35
+                "line": 35,
+                "offset": 1077
             },
             "extra": {
                 "is_ignored": false,
@@ -565,14 +618,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 35
+                "line": 35,
+                "offset": 1057
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 28,
-                "line": 36
+                "line": 36,
+                "offset": 1105
             },
             "extra": {
                 "is_ignored": false,
@@ -586,14 +641,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 36
+                "line": 36,
+                "offset": 1080
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 22,
-                "line": 37
+                "line": 37,
+                "offset": 1127
             },
             "extra": {
                 "is_ignored": false,
@@ -607,14 +664,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 37
+                "line": 37,
+                "offset": 1108
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 39,
-                "line": 38
+                "line": 38,
+                "offset": 1166
             },
             "extra": {
                 "is_ignored": false,
@@ -628,14 +687,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 38
+                "line": 38,
+                "offset": 1130
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 33,
-                "line": 39
+                "line": 39,
+                "offset": 1199
             },
             "extra": {
                 "is_ignored": false,
@@ -649,14 +710,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 39
+                "line": 39,
+                "offset": 1169
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 34,
-                "line": 3
+                "line": 3,
+                "offset": 104
             },
             "extra": {
                 "is_ignored": false,
@@ -670,14 +733,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 3
+                "line": 3,
+                "offset": 73
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 40
+                "line": 40,
+                "offset": 1231
             },
             "extra": {
                 "is_ignored": false,
@@ -691,14 +756,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 40
+                "line": 40,
+                "offset": 1202
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 26,
-                "line": 41
+                "line": 41,
+                "offset": 1257
             },
             "extra": {
                 "is_ignored": false,
@@ -712,14 +779,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 41
+                "line": 41,
+                "offset": 1234
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 42
+                "line": 42,
+                "offset": 1287
             },
             "extra": {
                 "is_ignored": false,
@@ -733,14 +802,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 42
+                "line": 42,
+                "offset": 1260
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 24,
-                "line": 43
+                "line": 43,
+                "offset": 1311
             },
             "extra": {
                 "is_ignored": false,
@@ -754,14 +825,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 43
+                "line": 43,
+                "offset": 1290
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 25,
-                "line": 44
+                "line": 44,
+                "offset": 1336
             },
             "extra": {
                 "is_ignored": false,
@@ -775,14 +848,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 44
+                "line": 44,
+                "offset": 1314
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 45
+                "line": 45,
+                "offset": 1366
             },
             "extra": {
                 "is_ignored": false,
@@ -796,14 +871,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 45
+                "line": 45,
+                "offset": 1339
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 24,
-                "line": 46
+                "line": 46,
+                "offset": 1390
             },
             "extra": {
                 "is_ignored": false,
@@ -817,14 +894,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 46
+                "line": 46,
+                "offset": 1369
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 19,
-                "line": 47
+                "line": 47,
+                "offset": 1409
             },
             "extra": {
                 "is_ignored": false,
@@ -838,14 +917,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 47
+                "line": 47,
+                "offset": 1393
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 33,
-                "line": 48
+                "line": 48,
+                "offset": 1442
             },
             "extra": {
                 "is_ignored": false,
@@ -859,14 +940,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 48
+                "line": 48,
+                "offset": 1412
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 33,
-                "line": 49
+                "line": 49,
+                "offset": 1475
             },
             "extra": {
                 "is_ignored": false,
@@ -880,14 +963,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 49
+                "line": 49,
+                "offset": 1445
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 35,
-                "line": 4
+                "line": 4,
+                "offset": 139
             },
             "extra": {
                 "is_ignored": false,
@@ -901,14 +986,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 4
+                "line": 4,
+                "offset": 107
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 27,
-                "line": 50
+                "line": 50,
+                "offset": 1502
             },
             "extra": {
                 "is_ignored": false,
@@ -922,14 +1009,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 50
+                "line": 50,
+                "offset": 1478
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 29,
-                "line": 5
+                "line": 5,
+                "offset": 168
             },
             "extra": {
                 "is_ignored": false,
@@ -943,14 +1032,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 5
+                "line": 5,
+                "offset": 142
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 39,
-                "line": 6
+                "line": 6,
+                "offset": 207
             },
             "extra": {
                 "is_ignored": false,
@@ -964,14 +1055,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 6
+                "line": 6,
+                "offset": 171
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 33,
-                "line": 7
+                "line": 7,
+                "offset": 240
             },
             "extra": {
                 "is_ignored": false,
@@ -985,14 +1078,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 7
+                "line": 7,
+                "offset": 210
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 8
+                "line": 8,
+                "offset": 270
             },
             "extra": {
                 "is_ignored": false,
@@ -1006,14 +1101,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 8
+                "line": 8,
+                "offset": 243
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 31,
-                "line": 9
+                "line": 9,
+                "offset": 301
             },
             "extra": {
                 "is_ignored": false,
@@ -1027,14 +1124,16 @@
             "path": "eslint_rules/fs_funcs_positives.js",
             "start": {
                 "col": 3,
-                "line": 9
+                "line": 9,
+                "offset": 273
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 10
+                "line": 10,
+                "offset": 331
             },
             "extra": {
                 "is_ignored": false,
@@ -1048,14 +1147,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 10
+                "line": 10,
+                "offset": 304
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 34,
-                "line": 11
+                "line": 11,
+                "offset": 365
             },
             "extra": {
                 "is_ignored": false,
@@ -1069,14 +1170,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 11
+                "line": 11,
+                "offset": 334
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 36,
-                "line": 12
+                "line": 12,
+                "offset": 401
             },
             "extra": {
                 "is_ignored": false,
@@ -1090,14 +1193,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 12
+                "line": 12,
+                "offset": 368
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 13
+                "line": 13,
+                "offset": 431
             },
             "extra": {
                 "is_ignored": false,
@@ -1111,14 +1216,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 13
+                "line": 13,
+                "offset": 404
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 40,
-                "line": 14
+                "line": 14,
+                "offset": 471
             },
             "extra": {
                 "is_ignored": false,
@@ -1132,14 +1239,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 14
+                "line": 14,
+                "offset": 434
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 34,
-                "line": 15
+                "line": 15,
+                "offset": 505
             },
             "extra": {
                 "is_ignored": false,
@@ -1153,14 +1262,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 15
+                "line": 15,
+                "offset": 474
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 36,
-                "line": 16
+                "line": 16,
+                "offset": 541
             },
             "extra": {
                 "is_ignored": false,
@@ -1174,14 +1285,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 16
+                "line": 16,
+                "offset": 508
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 17
+                "line": 17,
+                "offset": 571
             },
             "extra": {
                 "is_ignored": false,
@@ -1195,14 +1308,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 17
+                "line": 17,
+                "offset": 544
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 29,
-                "line": 18
+                "line": 18,
+                "offset": 600
             },
             "extra": {
                 "is_ignored": false,
@@ -1216,14 +1331,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 18
+                "line": 18,
+                "offset": 574
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 23,
-                "line": 19
+                "line": 19,
+                "offset": 623
             },
             "extra": {
                 "is_ignored": false,
@@ -1237,14 +1354,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 19
+                "line": 19,
+                "offset": 603
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 29,
-                "line": 20
+                "line": 20,
+                "offset": 652
             },
             "extra": {
                 "is_ignored": false,
@@ -1258,14 +1377,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 20
+                "line": 20,
+                "offset": 626
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 23,
-                "line": 21
+                "line": 21,
+                "offset": 675
             },
             "extra": {
                 "is_ignored": false,
@@ -1279,14 +1400,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 21
+                "line": 21,
+                "offset": 655
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 28,
-                "line": 22
+                "line": 22,
+                "offset": 703
             },
             "extra": {
                 "is_ignored": false,
@@ -1300,14 +1423,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 22
+                "line": 22,
+                "offset": 678
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 22,
-                "line": 23
+                "line": 23,
+                "offset": 725
             },
             "extra": {
                 "is_ignored": false,
@@ -1321,14 +1446,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 23
+                "line": 23,
+                "offset": 706
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 31,
-                "line": 24
+                "line": 24,
+                "offset": 756
             },
             "extra": {
                 "is_ignored": false,
@@ -1342,14 +1469,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 24
+                "line": 24,
+                "offset": 728
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 25,
-                "line": 25
+                "line": 25,
+                "offset": 781
             },
             "extra": {
                 "is_ignored": false,
@@ -1363,14 +1492,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 25
+                "line": 25,
+                "offset": 759
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 26
+                "line": 26,
+                "offset": 813
             },
             "extra": {
                 "is_ignored": false,
@@ -1384,14 +1515,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 26
+                "line": 26,
+                "offset": 784
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 26,
-                "line": 27
+                "line": 27,
+                "offset": 839
             },
             "extra": {
                 "is_ignored": false,
@@ -1405,14 +1538,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 27
+                "line": 27,
+                "offset": 816
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 28
+                "line": 28,
+                "offset": 871
             },
             "extra": {
                 "is_ignored": false,
@@ -1426,14 +1561,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 28
+                "line": 28,
+                "offset": 842
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 26,
-                "line": 29
+                "line": 29,
+                "offset": 897
             },
             "extra": {
                 "is_ignored": false,
@@ -1447,14 +1584,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 29
+                "line": 29,
+                "offset": 874
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 40,
-                "line": 2
+                "line": 2,
+                "offset": 70
             },
             "extra": {
                 "is_ignored": false,
@@ -1468,14 +1607,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 2
+                "line": 2,
+                "offset": 33
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 30
+                "line": 30,
+                "offset": 929
             },
             "extra": {
                 "is_ignored": false,
@@ -1489,14 +1630,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 30
+                "line": 30,
+                "offset": 900
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 26,
-                "line": 31
+                "line": 31,
+                "offset": 955
             },
             "extra": {
                 "is_ignored": false,
@@ -1510,14 +1653,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 31
+                "line": 31,
+                "offset": 932
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 38,
-                "line": 32
+                "line": 32,
+                "offset": 993
             },
             "extra": {
                 "is_ignored": false,
@@ -1531,14 +1676,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 32
+                "line": 32,
+                "offset": 958
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 33
+                "line": 33,
+                "offset": 1025
             },
             "extra": {
                 "is_ignored": false,
@@ -1552,14 +1699,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 33
+                "line": 33,
+                "offset": 996
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 29,
-                "line": 34
+                "line": 34,
+                "offset": 1054
             },
             "extra": {
                 "is_ignored": false,
@@ -1573,14 +1722,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 34
+                "line": 34,
+                "offset": 1028
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 23,
-                "line": 35
+                "line": 35,
+                "offset": 1077
             },
             "extra": {
                 "is_ignored": false,
@@ -1594,14 +1745,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 35
+                "line": 35,
+                "offset": 1057
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 28,
-                "line": 36
+                "line": 36,
+                "offset": 1105
             },
             "extra": {
                 "is_ignored": false,
@@ -1615,14 +1768,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 36
+                "line": 36,
+                "offset": 1080
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 22,
-                "line": 37
+                "line": 37,
+                "offset": 1127
             },
             "extra": {
                 "is_ignored": false,
@@ -1636,14 +1791,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 37
+                "line": 37,
+                "offset": 1108
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 39,
-                "line": 38
+                "line": 38,
+                "offset": 1166
             },
             "extra": {
                 "is_ignored": false,
@@ -1657,14 +1814,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 38
+                "line": 38,
+                "offset": 1130
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 33,
-                "line": 39
+                "line": 39,
+                "offset": 1199
             },
             "extra": {
                 "is_ignored": false,
@@ -1678,14 +1837,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 39
+                "line": 39,
+                "offset": 1169
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 34,
-                "line": 3
+                "line": 3,
+                "offset": 104
             },
             "extra": {
                 "is_ignored": false,
@@ -1699,14 +1860,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 3
+                "line": 3,
+                "offset": 73
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 32,
-                "line": 40
+                "line": 40,
+                "offset": 1231
             },
             "extra": {
                 "is_ignored": false,
@@ -1720,14 +1883,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 40
+                "line": 40,
+                "offset": 1202
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 26,
-                "line": 41
+                "line": 41,
+                "offset": 1257
             },
             "extra": {
                 "is_ignored": false,
@@ -1741,14 +1906,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 41
+                "line": 41,
+                "offset": 1234
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 42
+                "line": 42,
+                "offset": 1287
             },
             "extra": {
                 "is_ignored": false,
@@ -1762,14 +1929,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 42
+                "line": 42,
+                "offset": 1260
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 24,
-                "line": 43
+                "line": 43,
+                "offset": 1311
             },
             "extra": {
                 "is_ignored": false,
@@ -1783,14 +1952,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 43
+                "line": 43,
+                "offset": 1290
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 25,
-                "line": 44
+                "line": 44,
+                "offset": 1336
             },
             "extra": {
                 "is_ignored": false,
@@ -1804,14 +1975,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 44
+                "line": 44,
+                "offset": 1314
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 45
+                "line": 45,
+                "offset": 1366
             },
             "extra": {
                 "is_ignored": false,
@@ -1825,14 +1998,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 45
+                "line": 45,
+                "offset": 1339
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 24,
-                "line": 46
+                "line": 46,
+                "offset": 1390
             },
             "extra": {
                 "is_ignored": false,
@@ -1846,14 +2021,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 46
+                "line": 46,
+                "offset": 1369
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 19,
-                "line": 47
+                "line": 47,
+                "offset": 1409
             },
             "extra": {
                 "is_ignored": false,
@@ -1867,14 +2044,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 47
+                "line": 47,
+                "offset": 1393
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 33,
-                "line": 48
+                "line": 48,
+                "offset": 1442
             },
             "extra": {
                 "is_ignored": false,
@@ -1888,14 +2067,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 48
+                "line": 48,
+                "offset": 1412
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 33,
-                "line": 49
+                "line": 49,
+                "offset": 1475
             },
             "extra": {
                 "is_ignored": false,
@@ -1909,14 +2090,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 49
+                "line": 49,
+                "offset": 1445
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 35,
-                "line": 4
+                "line": 4,
+                "offset": 139
             },
             "extra": {
                 "is_ignored": false,
@@ -1930,14 +2113,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 4
+                "line": 4,
+                "offset": 107
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 27,
-                "line": 50
+                "line": 50,
+                "offset": 1502
             },
             "extra": {
                 "is_ignored": false,
@@ -1951,14 +2136,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 50
+                "line": 50,
+                "offset": 1478
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 29,
-                "line": 5
+                "line": 5,
+                "offset": 168
             },
             "extra": {
                 "is_ignored": false,
@@ -1972,14 +2159,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 5
+                "line": 5,
+                "offset": 142
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 39,
-                "line": 6
+                "line": 6,
+                "offset": 207
             },
             "extra": {
                 "is_ignored": false,
@@ -1993,14 +2182,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 6
+                "line": 6,
+                "offset": 171
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 33,
-                "line": 7
+                "line": 7,
+                "offset": 240
             },
             "extra": {
                 "is_ignored": false,
@@ -2014,14 +2205,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 7
+                "line": 7,
+                "offset": 210
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 30,
-                "line": 8
+                "line": 8,
+                "offset": 270
             },
             "extra": {
                 "is_ignored": false,
@@ -2035,14 +2228,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 8
+                "line": 8,
+                "offset": 243
             }
         },
         {
             "check_id": "eslint.detect-non-literal-fs-filename",
             "end": {
                 "col": 31,
-                "line": 9
+                "line": 9,
+                "offset": 301
             },
             "extra": {
                 "is_ignored": false,
@@ -2056,14 +2251,16 @@
             "path": "eslint_rules/fs_funcs_positives.ts",
             "start": {
                 "col": 3,
-                "line": 9
+                "line": 9,
+                "offset": 273
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 23,
-                "line": 14
+                "line": 14,
+                "offset": 246
             },
             "extra": {
                 "is_ignored": false,
@@ -2077,14 +2274,16 @@
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "col": 11,
-                "line": 14
+                "line": 14,
+                "offset": 234
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 28,
-                "line": 15
+                "line": 15,
+                "offset": 274
             },
             "extra": {
                 "is_ignored": false,
@@ -2098,14 +2297,16 @@
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "col": 11,
-                "line": 15
+                "line": 15,
+                "offset": 257
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 31,
-                "line": 16
+                "line": 16,
+                "offset": 305
             },
             "extra": {
                 "is_ignored": false,
@@ -2119,14 +2320,16 @@
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "col": 11,
-                "line": 16
+                "line": 16,
+                "offset": 285
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 29,
-                "line": 17
+                "line": 17,
+                "offset": 334
             },
             "extra": {
                 "is_ignored": false,
@@ -2140,14 +2343,16 @@
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "col": 11,
-                "line": 17
+                "line": 17,
+                "offset": 316
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 24,
-                "line": 6
+                "line": 6,
+                "offset": 103
             },
             "extra": {
                 "is_ignored": false,
@@ -2161,14 +2366,16 @@
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "col": 11,
-                "line": 6
+                "line": 6,
+                "offset": 90
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 21,
-                "line": 7
+                "line": 7,
+                "offset": 124
             },
             "extra": {
                 "is_ignored": false,
@@ -2182,14 +2389,16 @@
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "col": 11,
-                "line": 7
+                "line": 7,
+                "offset": 114
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 24,
-                "line": 8
+                "line": 8,
+                "offset": 148
             },
             "extra": {
                 "is_ignored": false,
@@ -2203,14 +2412,16 @@
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
                 "col": 11,
-                "line": 8
+                "line": 8,
+                "offset": 135
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 23,
-                "line": 14
+                "line": 14,
+                "offset": 246
             },
             "extra": {
                 "is_ignored": false,
@@ -2224,14 +2435,16 @@
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "col": 11,
-                "line": 14
+                "line": 14,
+                "offset": 234
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 28,
-                "line": 15
+                "line": 15,
+                "offset": 274
             },
             "extra": {
                 "is_ignored": false,
@@ -2245,14 +2458,16 @@
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "col": 11,
-                "line": 15
+                "line": 15,
+                "offset": 257
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 31,
-                "line": 16
+                "line": 16,
+                "offset": 305
             },
             "extra": {
                 "is_ignored": false,
@@ -2266,14 +2481,16 @@
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "col": 11,
-                "line": 16
+                "line": 16,
+                "offset": 285
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 29,
-                "line": 17
+                "line": 17,
+                "offset": 334
             },
             "extra": {
                 "is_ignored": false,
@@ -2287,14 +2504,16 @@
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "col": 11,
-                "line": 17
+                "line": 17,
+                "offset": 316
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 24,
-                "line": 6
+                "line": 6,
+                "offset": 103
             },
             "extra": {
                 "is_ignored": false,
@@ -2308,14 +2527,16 @@
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "col": 11,
-                "line": 6
+                "line": 6,
+                "offset": 90
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 21,
-                "line": 7
+                "line": 7,
+                "offset": 124
             },
             "extra": {
                 "is_ignored": false,
@@ -2329,14 +2550,16 @@
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "col": 11,
-                "line": 7
+                "line": 7,
+                "offset": 114
             }
         },
         {
             "check_id": "eslint.detect-object-injection",
             "end": {
                 "col": 24,
-                "line": 8
+                "line": 8,
+                "offset": 148
             },
             "extra": {
                 "is_ignored": false,
@@ -2350,14 +2573,16 @@
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
                 "col": 11,
-                "line": 8
+                "line": 8,
+                "offset": 135
             }
         },
         {
             "check_id": "eslint.detect-non-literal-regexp",
             "end": {
                 "col": 27,
-                "line": 3
+                "line": 3,
+                "offset": 87
             },
             "extra": {
                 "is_ignored": false,
@@ -2371,14 +2596,16 @@
             "path": "eslint_rules/positives.js",
             "start": {
                 "col": 8,
-                "line": 3
+                "line": 3,
+                "offset": 68
             }
         },
         {
             "check_id": "eslint.detect-non-literal-regexp",
             "end": {
                 "col": 39,
-                "line": 4
+                "line": 4,
+                "offset": 126
             },
             "extra": {
                 "is_ignored": false,
@@ -2392,14 +2619,16 @@
             "path": "eslint_rules/positives.js",
             "start": {
                 "col": 8,
-                "line": 4
+                "line": 4,
+                "offset": 95
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 75,
-                "line": 1
+                "line": 1,
+                "offset": 74
             },
             "extra": {
                 "is_ignored": false,
@@ -2417,14 +2646,16 @@
             "path": "react_rules/positives.js",
             "start": {
                 "col": 28,
-                "line": 1
+                "line": 1,
+                "offset": 27
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 77,
-                "line": 3
+                "line": 3,
+                "offset": 166
             },
             "extra": {
                 "is_ignored": false,
@@ -2442,14 +2673,16 @@
             "path": "react_rules/positives.js",
             "start": {
                 "col": 30,
-                "line": 3
+                "line": 3,
+                "offset": 119
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 75,
-                "line": 5
+                "line": 5,
+                "offset": 256
             },
             "extra": {
                 "is_ignored": false,
@@ -2467,14 +2700,16 @@
             "path": "react_rules/positives.js",
             "start": {
                 "col": 28,
-                "line": 5
+                "line": 5,
+                "offset": 209
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 77,
-                "line": 7
+                "line": 7,
+                "offset": 336
             },
             "extra": {
                 "is_ignored": false,
@@ -2492,14 +2727,16 @@
             "path": "react_rules/positives.js",
             "start": {
                 "col": 30,
-                "line": 7
+                "line": 7,
+                "offset": 289
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 55,
-                "line": 10
+                "line": 10,
+                "offset": 216
             },
             "extra": {
                 "is_ignored": false,
@@ -2517,14 +2754,16 @@
             "path": "react_rules/positives.jsx",
             "start": {
                 "col": 3,
-                "line": 10
+                "line": 10,
+                "offset": 164
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 57,
-                "line": 12
+                "line": 12,
+                "offset": 274
             },
             "extra": {
                 "is_ignored": false,
@@ -2542,14 +2781,16 @@
             "path": "react_rules/positives.jsx",
             "start": {
                 "col": 3,
-                "line": 12
+                "line": 12,
+                "offset": 220
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 9,
-                "line": 4
+                "line": 4,
+                "offset": 80
             },
             "extra": {
                 "is_ignored": false,
@@ -2567,14 +2808,16 @@
             "path": "react_rules/positives.jsx",
             "start": {
                 "col": 3,
-                "line": 2
+                "line": 2,
+                "offset": 8
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 11,
-                "line": 8
+                "line": 8,
+                "offset": 160
             },
             "extra": {
                 "is_ignored": false,
@@ -2592,14 +2835,16 @@
             "path": "react_rules/positives.jsx",
             "start": {
                 "col": 3,
-                "line": 6
+                "line": 6,
+                "offset": 84
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 75,
-                "line": 1
+                "line": 1,
+                "offset": 74
             },
             "extra": {
                 "is_ignored": false,
@@ -2617,14 +2862,16 @@
             "path": "react_rules/positives.ts",
             "start": {
                 "col": 28,
-                "line": 1
+                "line": 1,
+                "offset": 27
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 77,
-                "line": 3
+                "line": 3,
+                "offset": 166
             },
             "extra": {
                 "is_ignored": false,
@@ -2642,14 +2889,16 @@
             "path": "react_rules/positives.ts",
             "start": {
                 "col": 30,
-                "line": 3
+                "line": 3,
+                "offset": 119
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 75,
-                "line": 5
+                "line": 5,
+                "offset": 256
             },
             "extra": {
                 "is_ignored": false,
@@ -2667,14 +2916,16 @@
             "path": "react_rules/positives.ts",
             "start": {
                 "col": 28,
-                "line": 5
+                "line": 5,
+                "offset": 209
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 77,
-                "line": 7
+                "line": 7,
+                "offset": 336
             },
             "extra": {
                 "is_ignored": false,
@@ -2692,14 +2943,16 @@
             "path": "react_rules/positives.ts",
             "start": {
                 "col": 30,
-                "line": 7
+                "line": 7,
+                "offset": 289
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 55,
-                "line": 10
+                "line": 10,
+                "offset": 216
             },
             "extra": {
                 "is_ignored": false,
@@ -2717,14 +2970,16 @@
             "path": "react_rules/positives.tsx",
             "start": {
                 "col": 3,
-                "line": 10
+                "line": 10,
+                "offset": 164
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 57,
-                "line": 12
+                "line": 12,
+                "offset": 274
             },
             "extra": {
                 "is_ignored": false,
@@ -2742,14 +2997,16 @@
             "path": "react_rules/positives.tsx",
             "start": {
                 "col": 3,
-                "line": 12
+                "line": 12,
+                "offset": 220
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 9,
-                "line": 4
+                "line": 4,
+                "offset": 80
             },
             "extra": {
                 "is_ignored": false,
@@ -2767,14 +3024,16 @@
             "path": "react_rules/positives.tsx",
             "start": {
                 "col": 3,
-                "line": 2
+                "line": 2,
+                "offset": 8
             }
         },
         {
             "check_id": "eslint.react-dangerouslysetinnerhtml",
             "end": {
                 "col": 11,
-                "line": 8
+                "line": 8,
+                "offset": 160
             },
             "extra": {
                 "is_ignored": false,
@@ -2792,7 +3051,8 @@
             "path": "react_rules/positives.tsx",
             "start": {
                 "col": 3,
-                "line": 6
+                "line": 6,
+                "offset": 84
             }
         }
     ]
