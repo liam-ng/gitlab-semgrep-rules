@@ -71,7 +71,7 @@ func TestBuildArgs(t *testing.T) {
 				"--no-rewrite-rule-ids",
 				"--strict",
 				"--no-git-ignore",
-				"--enable-metrics", "on",
+				"--enable-metrics",
 				"projectPath",
 			},
 		},

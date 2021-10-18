@@ -1,4 +1,4 @@
-ARG SCANNER_VERSION=0.69.0
+ARG SCANNER_VERSION=0.69.1
 ARG TRACKING_CALCULATOR_VERSION=2.2.3
 
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
