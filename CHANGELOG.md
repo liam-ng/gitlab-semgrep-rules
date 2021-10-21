@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.13.3
+- chore: Use ruleset.ProcessPassthrough helper (!81)
+
 ## v2.13.2
 - fix: Return non-zero exit codes (!80)
 - chore: suppress `--disable-version-check` warning if outdated version (!80)
