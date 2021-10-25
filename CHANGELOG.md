@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.13.4
+- fix: Return non-zero exit codes when executed through entrypoint script (!82)
+
 ## v2.13.3
 - chore: Use ruleset.ProcessPassthrough helper (!81)
 

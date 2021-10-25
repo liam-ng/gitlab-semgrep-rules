@@ -1,6 +1,8 @@
 ARG SCANNER_VERSION=0.69.1
+ARG POST_ANALYZER_SCRIPTS_VERSION=0.0.4
 ARG TRACKING_CALCULATOR_VERSION=2.2.3
 
+FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZER_SCRIPTS_VERSION} AS scripts
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
 FROM golang:1.15-alpine AS build
@@ -37,7 +39,7 @@ RUN apk add --no-cache git && \
     pip install semgrep==$SCANNER_VERSION
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
-COPY --from=tracking /start.sh /analyzer
+COPY --from=scripts /start.sh /analyzer
 
 ENTRYPOINT []
 CMD ["/analyzer", "run"]
