@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	report "gitlab.com/gitlab-org/security-products/analyzers/report/v2"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
 )
 
 func TestConvert(t *testing.T) {

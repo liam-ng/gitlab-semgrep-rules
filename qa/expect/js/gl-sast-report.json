@@ -1,8 +1,8 @@
 {
-  "version": "14.0.0",
+  "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "4eaa23ffb9a3a3c3d95db3755594d63ca0d44e562ac4ad1f6f53faa460eaf21f",
+      "id": "194eb4c2a19424c5a04b548f59014587c3650362490605adc72f31c1874d64b4",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -14,8 +14,7 @@
       },
       "location": {
         "file": "src/jsx/main.jsx",
-        "start_line": 10,
-        "end_line": 10
+        "start_line": 10
       },
       "identifiers": [
         {
@@ -43,7 +42,7 @@
       ]
     },
     {
-      "id": "381f32fca51128d96230bae69f2e22c17a3a1057272a37037d0d4befeebd1197",
+      "id": "cc600a49425974bb1bfb3ea7acb6908de5c5e42f6e816dd8ba9bc2f2c1668587",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -55,8 +54,7 @@
       },
       "location": {
         "file": "src/jsx/main.jsx",
-        "start_line": 16,
-        "end_line": 16
+        "start_line": 16
       },
       "identifiers": [
         {
@@ -79,7 +77,7 @@
       ]
     },
     {
-      "id": "d64fdfb0de711d6da70080c1257e4206b149f0bacb0c3dc06f6f26492b745641",
+      "id": "ee06f1a4f97169721be1c82c95f2719dbb136e89591902cb7001a9f7e8950420",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -91,8 +89,7 @@
       },
       "location": {
         "file": "src/jsx/main.jsx",
-        "start_line": 28,
-        "end_line": 28
+        "start_line": 28
       },
       "identifiers": [
         {
@@ -115,7 +112,7 @@
       ]
     },
     {
-      "id": "d64fdfb0de711d6da70080c1257e4206b149f0bacb0c3dc06f6f26492b745641",
+      "id": "ee06f1a4f97169721be1c82c95f2719dbb136e89591902cb7001a9f7e8950420",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -127,8 +124,7 @@
       },
       "location": {
         "file": "src/jsx/main.jsx",
-        "start_line": 28,
-        "end_line": 28
+        "start_line": 28
       },
       "identifiers": [
         {
@@ -151,7 +147,6 @@
       ]
     }
   ],
-  "remediations": [],
   "scan": {
     "scanner": {
       "id": "semgrep",
@@ -160,11 +155,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.55.1"
+      "version": "0.69.1"
     },
     "type": "sast",
-    "start_time": "2021-07-01T20:19:55",
-    "end_time": "2021-07-01T20:19:59",
+    "start_time": "2021-11-03T20:32:40",
+    "end_time": "2021-11-03T20:32:44",
     "status": "success"
   }
 }

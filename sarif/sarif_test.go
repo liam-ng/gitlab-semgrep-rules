@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	report "gitlab.com/gitlab-org/security-products/analyzers/report/v2"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
 	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
@@ -25,7 +25,6 @@ func TestTransformToGLSASTReport(t *testing.T) {
 		Analyzer:        "semgrep",
 		Config:          ruleset.Config{Path: ruleset.PathSAST},
 		DependencyFiles: []report.DependencyFile{},
-		Remediations:    []report.Remediation{},
 		Vulnerabilities: []report.Vulnerability{
 			{
 				Category:    report.CategorySast,

@@ -8,7 +8,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	report "gitlab.com/gitlab-org/security-products/analyzers/report/v2"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/sarif"
 )
 

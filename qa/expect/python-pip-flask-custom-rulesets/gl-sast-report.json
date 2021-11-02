@@ -1,8 +1,8 @@
 {
-  "version": "14.0.0",
+  "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "9ec02a337f6be94de7d0f56999f52d6e6f01de68e7e0c62e3ffa060877acfdc1",
+      "id": "2419849776d915e5f4e367cd31218c91ef77edcf8a23b519b16af965ceff302d",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
@@ -14,8 +14,7 @@
       },
       "location": {
         "file": "app/app.py",
-        "start_line": 329,
-        "end_line": 329
+        "start_line": 329
       },
       "identifiers": [
         {
@@ -59,7 +58,7 @@
       }
     },
     {
-      "id": "a253a873375b2d8766074fcc69fb7bd65e0679089f42951051c6ee80628202f6",
+      "id": "eb05768b15a01d078823c29e348bbcd6c3175cb353f0fce3e180611187173b8c",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
@@ -71,8 +70,7 @@
       },
       "location": {
         "file": "app/app.py",
-        "start_line": 265,
-        "end_line": 265
+        "start_line": 265
       },
       "identifiers": [
         {
@@ -116,7 +114,7 @@
       }
     },
     {
-      "id": "3c3873f898982c687ad7051d1c59eb443e21f346af399c229ce29b2df7f11c7f",
+      "id": "dfc5a5821194dd9b68620e999ecceae5d59ed3e193a454be1ec8bd67ed7d3981",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -128,8 +126,7 @@
       },
       "location": {
         "file": "app/static/main.js",
-        "start_line": 10,
-        "end_line": 10
+        "start_line": 10
       },
       "identifiers": [
         {
@@ -173,7 +170,7 @@
       }
     },
     {
-      "id": "eeea691963da735438fc0318a659bfd7509cbd2a847aae52eac81afa8f003c8f",
+      "id": "945ae7a199632ad52df8b97b19029f414e062b433a9fac11bf085da6ef4a32bb",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -185,8 +182,7 @@
       },
       "location": {
         "file": "app/static/main.js",
-        "start_line": 15,
-        "end_line": 15
+        "start_line": 15
       },
       "identifiers": [
         {
@@ -225,7 +221,7 @@
       }
     },
     {
-      "id": "c7645e974aec4cc44e73536cc994122fa5c5effabe2fe2eabcab529e7250b639",
+      "id": "91ba1c1a916d33ca0823e0d8931d223301709b9c681fe8b0e956b2ef54113350",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -237,8 +233,7 @@
       },
       "location": {
         "file": "app/static/main.js",
-        "start_line": 27,
-        "end_line": 27
+        "start_line": 27
       },
       "identifiers": [
         {
@@ -277,7 +272,6 @@
       }
     }
   ],
-  "remediations": [],
   "scan": {
     "scanner": {
       "id": "semgrep",
@@ -286,11 +280,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.55.1"
+      "version": "0.69.1"
     },
     "type": "sast",
-    "start_time": "2021-07-01T20:04:41",
-    "end_time": "2021-07-01T20:05:04",
+    "start_time": "2021-11-03T20:33:07",
+    "end_time": "2021-11-03T20:33:15",
     "status": "success"
   }
 }
