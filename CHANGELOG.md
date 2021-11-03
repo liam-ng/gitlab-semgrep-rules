@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.13.6
+- fix: Return only on exitcode 4 or 7, rely on sarif module for runtime exceptions (!88)
+
 ## v2.13.5
 - chore: Use ruleset.TransformToGLSASTReport (!89)
 
