@@ -1,8 +1,8 @@
 {
-  "version": "14.0.0",
+  "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "157d9354ef3f871a798c7efc511ebf5916e18060674c36c82983051c79d9800e",
+      "id": "d2f89a9ad6c422e47d4e0e1b180566bd344d47b3971907b3c68cc9697b173dc9",
       "category": "sast",
       "message": "Key Exchange without Entity Authentication",
       "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
@@ -14,8 +14,7 @@
       },
       "location": {
         "file": "foo.go",
-        "start_line": 8,
-        "end_line": 8
+        "start_line": 8
       },
       "identifiers": [
         {
@@ -53,7 +52,6 @@
       }
     }
   ],
-  "remediations": [],
   "scan": {
     "scanner": {
       "id": "semgrep",
@@ -62,11 +60,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.65.0"
+      "version": "0.69.1"
     },
     "type": "sast",
-    "start_time": "2021-09-21T12:35:34",
-    "end_time": "2021-09-21T12:35:39",
+    "start_time": "2021-11-03T20:33:48",
+    "end_time": "2021-11-03T20:33:53",
     "status": "success"
   }
 }

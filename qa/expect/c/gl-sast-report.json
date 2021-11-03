@@ -1,8 +1,8 @@
 {
-  "version": "14.0.0",
+  "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "9d428808a1e29b416f15f89a22aeb655dbfad0ccd16f15f9a3081faa8865c5db",
+      "id": "e804f760f2da38b25abbd27b5134491482a5713aa82f1aace2b85dfd328174eb",
       "category": "sast",
       "message": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
       "description": "Perform bounds checking, use functions that limit length, or ensure that the size is larger\nthan the maximum possible length.\n",
@@ -14,8 +14,7 @@
       },
       "location": {
         "file": "subdir/utils.c",
-        "start_line": 4,
-        "end_line": 4
+        "start_line": 4
       },
       "identifiers": [
         {
@@ -47,7 +46,7 @@
       ]
     },
     {
-      "id": "97ab712e42bdaac4d881e9c47736e5c640b456ded6c7faabeebb868682c835cf",
+      "id": "c1edb261c091f9d4cb0228b8f4ba1f935ef5123c4398972fdfb8b23bb0195d3a",
       "category": "sast",
       "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
       "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
@@ -59,8 +58,7 @@
       },
       "location": {
         "file": "subdir/utils.c",
-        "start_line": 8,
-        "end_line": 8
+        "start_line": 8
       },
       "identifiers": [
         {
@@ -103,7 +101,6 @@
       }
     }
   ],
-  "remediations": [],
   "scan": {
     "scanner": {
       "id": "semgrep",
@@ -112,11 +109,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.60.0"
+      "version": "0.69.1"
     },
     "type": "sast",
-    "start_time": "2021-08-13T15:15:51",
-    "end_time": "2021-08-13T15:15:57",
+    "start_time": "2021-11-03T20:33:40",
+    "end_time": "2021-11-03T20:33:46",
     "status": "success"
   }
 }
