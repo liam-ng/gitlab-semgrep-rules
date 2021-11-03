@@ -9,7 +9,7 @@ import (
 	log "github.com/sirupsen/logrus"
 
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
-	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/sarif"
+	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
 
 const semgrepIdentifierIndex = 0
@@ -24,7 +24,7 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 
 	log.Debugf("Converting report with the root path: %s", root)
 
-	sastReport, err := sarif.TransformToGLSASTReport(reader, root)
+	sastReport, err := report.TransformToGLSASTReport(reader, root, metadata.AnalyzerID, metadata.IssueScanner)
 	if err != nil {
 		return nil, err
 	}

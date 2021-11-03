@@ -9,7 +9,7 @@ import (
 )
 
 func TestConvert(t *testing.T) {
-	fixture, err := os.Open("sarif/test_fixtures/semgrep.sarif")
+	fixture, err := os.Open("testdata/reports/semgrep.sarif")
 	if err != nil {
 		t.Fatal(err)
 	}
