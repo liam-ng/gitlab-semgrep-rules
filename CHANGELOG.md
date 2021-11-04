@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.13.5
+- chore: Use ruleset.TransformToGLSASTReport (!89)
+
 ## v2.13.4
 - fix: Return non-zero exit codes when executed through entrypoint script (!84)
 

@@ -7,6 +7,6 @@ require (
 	github.com/urfave/cli/v2 v2.3.0
 	gitlab.com/gitlab-org/security-products/analyzers/command v1.5.0
 	gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0
-	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.5.0
+	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.6.0
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.1.0
 )
