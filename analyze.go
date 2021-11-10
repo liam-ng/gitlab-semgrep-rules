@@ -7,6 +7,7 @@ import (
 	"path"
 	"path/filepath"
 	"strings"
+	"syscall"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
@@ -18,6 +19,17 @@ const (
 	flagSASTExcludedPaths  = "sast-excluded-paths"
 	flagSASTSemgrepMetrics = "semgrep-send-metrics"
 )
+
+// invalidExitCodes contains exit codes for which we should err
+// see https://semgrep.dev/docs/cli-usage/#exit-codes
+var invalidExitCodes = map[int]bool{
+	1: false, // Semgrep found issues in your code
+	// In the case of `2` we must inspect the SARIF output, so this is handled within the ConvertFunc
+	// i.e. nosem mismatch
+	2: false, // Semgrep failed
+	4: true,  // Semgrep encountered an invalid pattern
+	7: true,  // All rules in config are invalid
+}
 
 func analyzeFlags() []cli.Flag {
 	return []cli.Flag{
@@ -85,7 +97,14 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 
 	if err != nil {
 		log.Debugf("%s", output)
-		return nil, err
+
+		if exitError, ok := err.(*exec.ExitError); ok {
+			waitStatus := exitError.Sys().(syscall.WaitStatus)
+
+			if invalidExitCodes[waitStatus.ExitStatus()] {
+				return nil, err
+			}
+		}
 	}
 
 	return os.Open(outputPath) // #nosec G304

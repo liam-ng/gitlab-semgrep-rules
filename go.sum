@@ -36,8 +36,8 @@ github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5Cc
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/urfave/cli/v2 v2.3.0 h1:qph92Y649prgesehzOrQjdWyxFOp/QVM+6imKHad91M=
 github.com/urfave/cli/v2 v2.3.0/go.mod h1:LJmUH05zAU44vOAcrfzZQKsZbVcdbOG8rtL3/XcUArI=
-gitlab.com/gitlab-org/security-products/analyzers/command v1.5.0 h1:MPr8m7En5KpVCWX3Qiq/MqVKwdieml/i1KHPZ4p0tIc=
-gitlab.com/gitlab-org/security-products/analyzers/command v1.5.0/go.mod h1:m9X8D9Iz9GtlOMxgA4MciU0UXTfFSSqgSUcpjoEidPk=
+gitlab.com/gitlab-org/security-products/analyzers/command v1.5.1 h1:pwyjQQKqpcG56Z/Fy+4C/MCKHg69iBZ1Tu3nXtaCHec=
+gitlab.com/gitlab-org/security-products/analyzers/command v1.5.1/go.mod h1:m9X8D9Iz9GtlOMxgA4MciU0UXTfFSSqgSUcpjoEidPk=
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.22.1/go.mod h1:+Ey1+fecsSv8Ayuj0d6dKf0h1uWEVOyd5yj4AntXl9s=
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0 h1:e4drZgHymJ2uFu5hgEb42QKkOM2X+Q4AL0yn0FyzSv4=
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0/go.mod h1:HoDWi0h6DclI8JHsWgxOc+T128UYWyUyVF/Vw4FgwS8=
