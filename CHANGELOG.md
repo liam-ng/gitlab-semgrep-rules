@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.13.7
+- chore: Update go to v1.17 (!91)
+
 ## v2.13.6
 - fix: Return only on exitcode 4 or 7, rely on sarif module for runtime exceptions (!88)
 

@@ -5,7 +5,7 @@ ARG TRACKING_CALCULATOR_VERSION=2.2.4
 FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZER_SCRIPTS_VERSION} AS scripts
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
-FROM golang:1.15-alpine AS build
+FROM golang:1.17-alpine AS build
 
 ENV CGO_ENABLED=0 GOOS=linux
 
