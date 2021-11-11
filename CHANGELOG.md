@@ -1,5 +1,33 @@
 Semgrep analyzer changelog
 
+## v2.14.0
+- Update semgrep to [0.72.0](https://github.com/returntocorp/semgrep/releases/tag/v0.72.0) (!92)
+    + 0.72.0 Notable Changes
+      + Added: Dataflow: Add partial support for await, yield, &, and other expressions
+      + Added: Field-definition-as-assignemnt equivalence that allows matching expression patterns against field definitions. It is disabled by default but can be enabled via rule options: with flddef_assign: true
+      + Added: Arrows (a.k.a short lambdas) patterns used to match also regular function definitions. This can now be disabled via rule options: with arrow_is_function: false
+      + Added: Javascript variable patterns using the 'var' keyword used to also match variable declarations using 'let' or 'const'. This can now be disabled via rule options: with let_is_var: false
+      + Fixed: Constant propagation: In a method call x.f(y), if x is a constant then it will be recognized as such
+      + Fixed: Go: match correctly braces in composite literals for autofix
+      + Fixed: Go: match correctly parens in cast for autofix
+      + Fixed: Go: support ellipsis in return type parameters
+      + Fixed: pattern-regex: Hexadecimal notation of Unicode code points is now supported and assumes UTF-8
+      + Fixed: pattern-regex: Update documentation, specifying we use PCRE
+      + Fixed: metavariable-comparison: if a metavariable binds to a code variable that is known to be constant, then we use that constant value in the comparison
+    + 0.71.0 Notable Changes
+      + Added: Metavariable equality is enforced across sources/sanitizers/sinks in taint mode, and these metavariables correctly appear in match messages
+      + Added: semgrep --validate runs metachecks on the rule
+      + Fixed: text_wrapping defaults to MAX_TEXT_WIDTH if get_terminal_size reports width < 1
+      + Fixed: Metrics report the error type of semgrep core errors (Timeout, MaxMemory, etc.)
+      + Fixed: Prevent bad settings files from crashing Semgrep
+      + Fixed: Constant propagation: Tuple/Array destructuring assignments now correctly prevent constant propagation
+      + Fixed: JS: Correctly parse metavariables in template strings
+      + Fixed: Go: support method interface pattern
+      + Changed: Report CI environment variable in metrics for better environment determination
+      + Changed: Bash: a simple expression pattern can now match any command argument rather than having to match the whole command
+    + 0.70.0 Notable Changes
+      + Fixed: Go: support ... in import list, for example import (... "error" ...)
+
 ## v2.13.7
 - chore: Update go to v1.17 (!91)
 
