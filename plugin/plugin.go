@@ -11,7 +11,7 @@ import (
 func Match(path string, info os.FileInfo) (bool, error) {
 	ext := filepath.Ext(info.Name())
 	if ext == ".py" || ext == ".js" || ext == ".ts" ||
-		ext == ".jsx" || ext == ".tsx" || ext == ".c" || ext == ".go" {
+		ext == ".jsx" || ext == ".tsx" || ext == ".c" || ext == ".go" || ext == ".cs" {
 		return true, nil
 	}
 	return false, nil
