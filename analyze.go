@@ -140,15 +140,8 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths string, enable
 }
 
 func getConfigPath(projectPath string, rulesetConfig *ruleset.Config) (string, error) {
-	if rulesetConfig != nil && len(rulesetConfig.PassThrough) != 0 {
-		passThrough := rulesetConfig.PassThrough[0]
-		configPath, err := ruleset.ProcessPassthrough(projectPath, passThrough, log.StandardLogger())
-
-		if err != nil {
-			return "", err
-		}
-
-		return configPath, nil
+	if rulesetConfig != nil && len(rulesetConfig.Passthrough) != 0 {
+		return ruleset.ProcessPassthroughs(rulesetConfig, log.StandardLogger())
 	}
 
 	return path.Join("/", "rules"), nil
