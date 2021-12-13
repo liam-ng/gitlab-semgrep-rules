@@ -105,3 +105,11 @@ go-qa:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/go/gl-sast-report.json"
   trigger:
     project: gitlab-org/security-products/tests/go
+
+go-qa-custom:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/go/gl-sast-report-custom.json"
+  trigger:
+    project: gitlab-org/security-products/tests/go
+    branch: Custom-Ruleset-Synthesis

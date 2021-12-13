@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.15.0
+- Update ruleset module to include rule pack synthesis + corresponding test cases/expectations (!93)
+
 ## v2.14.0
 - Update semgrep to [0.72.0](https://github.com/returntocorp/semgrep/releases/tag/v0.72.0) (!92)
     + 0.72.0 Notable Changes
