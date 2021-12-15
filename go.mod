@@ -7,9 +7,9 @@ require (
 	github.com/sirupsen/logrus v1.8.1
 	github.com/urfave/cli/v2 v2.3.0
 	gitlab.com/gitlab-org/security-products/analyzers/command v1.5.1
-	gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0
-	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.0
+	gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.1
+	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.1
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.3.0
-	golang.org/x/net v0.0.0-20211209124913-491a49abca63 // indirect
-	golang.org/x/sys v0.0.0-20211210111614-af8b64212486 // indirect
+	golang.org/x/net v0.0.0-20211215060638-4ddde0e984e9 // indirect
+	golang.org/x/sys v0.0.0-20211214234402-4825e8c3871d // indirect
 )

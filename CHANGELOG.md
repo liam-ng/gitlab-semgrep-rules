@@ -1,5 +1,37 @@
 Semgrep analyzer changelog
 
+## v2.16.0
+- Update semgrep to [0.76.2](https://github.com/returntocorp/semgrep/releases/tag/v0.76.2) (!#)
+    + 0.76.2 Notable Changes
+      + Fixed: Python: set the right scope for comprehension variables
+      + Fixed: Fixed bug where the presence of .semgrepignore would cause reported targets to have absolute instead of relative file paths
+    + 0.76.1 Notable Changes
+      + Fixed: Fixed bug where the presence of .semgrepignore would cause runs to fail on files that were not subpaths of the directory where semgrep was being run
+    + 0.76.0 Notable Changes
+      + Added: Improved filtering of rules based on file content (important speedup for nodejsscan rules notably)
+      + Fixed: TS: parse correctly type definitions
+      + Fixed: taint-mode: Findings are now reported when the LHS of an access operator is a sink (e.g. as in $SINK->method), and the LHS operand is a tainted variable
+      + Fixed: metavariable-comparison: do not throw a NotHandled exn anymore
+      + Fixed: Python: generate proper lexical exn for unbalanced braces
+      + Fixed: Python: generate proper lexical exn for unbalanced braces
+      + Fixed: Matching "$MVAR" patterns against string literals computed by constant folding no longer causes a crash
+      + Changed: semgrep-core: Log messages are now tagged with the process id
+      + Changed: Optimization: change bloom filters to use sets, move location of filter
+      + Changed: Reduced the size of --debug dumps
+      + Changed: Given --output Semgrep will no longer print search results to stdout, but it will only save/post them to the specified file/URL
+    + 0.75.0 Notable Changes
+      + Fixed: semgrep-ci relies on --disable-nosem still tagging findings with is_ignored correctly. Reverting optimization in 0.74.0 that left this field None when said flag was used
+    + 0.74.0 Notable Changes
+      + Added: Support for method chaining patterns in Python, Golang, Ruby, and C#, so all GA languages now have method chaining
+      + Changed: Constant propagation: Any kind of Python string (raw, byte, or unicode) is now evaluated to a string literal and can be matched by "..."
+      + Fixed: Apply generic filters excluding large files and binary files to 'generic' and 'regex' targets as it was already done for the other languages.
+      + Fixed: Fix some Stack_overflow when using -filter_irrelevant_rules
+    + 0.73.0 Notable Changes
+      + Changed: cli: if an invalid config is passed to semgrep, it will fail immediately, even if valid configs are also passed
+      + Fixed: Performance: Deduplicate rules by rule-id + behavior so rules are not being run twice
+      + Fixed: Catch PCRE errors
+      + Fixed: Constant propagation: Avoid "Impossible" errors due to unhandled cases
+
 ## v2.15.0
 - Update ruleset module to include rule pack synthesis + corresponding test cases/expectations (!93)
 
