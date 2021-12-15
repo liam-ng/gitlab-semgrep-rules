@@ -104,11 +104,12 @@ github.com/xanzy/ssh-agent v0.3.1/go.mod h1:QIE4lCeL7nkC25x+yA3LBIYfwCc1TFziCtG7
 gitlab.com/gitlab-org/security-products/analyzers/command v1.5.1 h1:pwyjQQKqpcG56Z/Fy+4C/MCKHg69iBZ1Tu3nXtaCHec=
 gitlab.com/gitlab-org/security-products/analyzers/command v1.5.1/go.mod h1:m9X8D9Iz9GtlOMxgA4MciU0UXTfFSSqgSUcpjoEidPk=
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.22.1/go.mod h1:+Ey1+fecsSv8Ayuj0d6dKf0h1uWEVOyd5yj4AntXl9s=
-gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0 h1:e4drZgHymJ2uFu5hgEb42QKkOM2X+Q4AL0yn0FyzSv4=
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0/go.mod h1:HoDWi0h6DclI8JHsWgxOc+T128UYWyUyVF/Vw4FgwS8=
+gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.1 h1:/dx8cwC784aH/unPFKVMJrr9gD6DOnZ4IYXSA9b6ffU=
+gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.1/go.mod h1:HoDWi0h6DclI8JHsWgxOc+T128UYWyUyVF/Vw4FgwS8=
 gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.3.0/go.mod h1:uyKC1WUWVekAiVc5kdkhJT765f+e8jQ08xQNOa0K/aU=
-gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.0 h1:8NTHxjW14fT/bzqaY12QkKy+Nt/Jh4kDRRum0mZJW+0=
-gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.0/go.mod h1:oSoQxWtUwCHwUWVtq8J6Zs1lYDBjQsHNKgInCMEVreE=
+gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.1 h1:TxuJhvlHxdyEtO9u3esOCkPp4GBjU6Bu8mWzwx3muSM=
+gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.1/go.mod h1:oSoQxWtUwCHwUWVtq8J6Zs1lYDBjQsHNKgInCMEVreE=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.0.0/go.mod h1:z7wAlQqgacceK7owA4BJbVr0SOm5gA+ICeTqCqN5uzA=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.3.0 h1:TkzPEDjL8sMqXvIO8wCT/rLWMHWs83kD3ZoDUMU8dSU=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.3.0/go.mod h1:OSsBZ498CAwBK77/RnQCTHoTofCl7tMCwW+Ajc2hd4o=
@@ -122,8 +123,8 @@ golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v
 golang.org/x/net v0.0.0-20210326060303-6b1517762897/go.mod h1:uSPa2vr4CLtc/ILN5odXGNXS6mhrKVzTaCXzk9m6W3k=
 golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
 golang.org/x/net v0.0.0-20211206223403-eba003a116a9/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
-golang.org/x/net v0.0.0-20211209124913-491a49abca63 h1:iocB37TsdFuN6IBRZ+ry36wrkoV51/tl5vOWqkcPGvY=
-golang.org/x/net v0.0.0-20211209124913-491a49abca63/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
+golang.org/x/net v0.0.0-20211215060638-4ddde0e984e9 h1:kmreh1vGI63l2FxOAYS3Yv6ATsi7lSTuwNSVbGfJV9I=
+golang.org/x/net v0.0.0-20211215060638-4ddde0e984e9/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
 golang.org/x/sys v0.0.0-20180905080454-ebe1bf3edb33/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/sys v0.0.0-20190422165155-953cdadca894/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20190507160741-ecd444e8653b/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
@@ -141,8 +142,8 @@ golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1/go.mod h1:oPkhp1MJrh7nUepCBc
 golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20210908233432-aa78b53d3365/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20211205182925-97ca703d548d/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
-golang.org/x/sys v0.0.0-20211210111614-af8b64212486 h1:5hpz5aRr+W1erYCL5JRhSUBJRph7l9XkNveoExlrKYk=
-golang.org/x/sys v0.0.0-20211210111614-af8b64212486/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.0.0-20211214234402-4825e8c3871d h1:1oIt9o40TWWI9FUaveVpUvBe13FNqBNVXy3ue2fcfkw=
+golang.org/x/sys v0.0.0-20211214234402-4825e8c3871d/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1 h1:v+OssWQX+hTHEmOBgwxdZxK4zHq3yOs8F9J7mk0PY8E=
 golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
 golang.org/x/text v0.3.3/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
