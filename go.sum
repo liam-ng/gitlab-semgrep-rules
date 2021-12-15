@@ -107,8 +107,8 @@ gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.22.1/go.mod h1:+E
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0 h1:e4drZgHymJ2uFu5hgEb42QKkOM2X+Q4AL0yn0FyzSv4=
 gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0/go.mod h1:HoDWi0h6DclI8JHsWgxOc+T128UYWyUyVF/Vw4FgwS8=
 gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.3.0/go.mod h1:uyKC1WUWVekAiVc5kdkhJT765f+e8jQ08xQNOa0K/aU=
-gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.0 h1:8NTHxjW14fT/bzqaY12QkKy+Nt/Jh4kDRRum0mZJW+0=
-gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.0/go.mod h1:oSoQxWtUwCHwUWVtq8J6Zs1lYDBjQsHNKgInCMEVreE=
+gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.1 h1:TxuJhvlHxdyEtO9u3esOCkPp4GBjU6Bu8mWzwx3muSM=
+gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.7.1/go.mod h1:oSoQxWtUwCHwUWVtq8J6Zs1lYDBjQsHNKgInCMEVreE=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.0.0/go.mod h1:z7wAlQqgacceK7owA4BJbVr0SOm5gA+ICeTqCqN5uzA=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.3.0 h1:TkzPEDjL8sMqXvIO8wCT/rLWMHWs83kD3ZoDUMU8dSU=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.3.0/go.mod h1:OSsBZ498CAwBK77/RnQCTHoTofCl7tMCwW+Ajc2hd4o=

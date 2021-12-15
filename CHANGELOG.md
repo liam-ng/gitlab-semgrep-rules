@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v2.15.1
+- Bump `analyzers/report` to latest v3.7.1 to suppress misleading SARIF warning (!94)
+- Bumps analyzer scripts to v0.0.5 (!94)
+
 ## v2.15.0
 - Update ruleset module to include rule pack synthesis + corresponding test cases/expectations (!93)
 
