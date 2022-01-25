@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.0.26
+# rule-set version: v1.0.28
 # yamllint enable
 ---
 rules:
@@ -429,7 +429,7 @@ rules:
         }
     - pattern: |
         for _, $ARG := range $SLICE {
-          <... $X(..., <... $ARG ...>, ...) ...>
+          <... $X(..., <... &$ARG ...>, ...) ...>
         }
   - pattern-not: "for _, $ARG := range $SLICE {\n  <... *$ARG ...>\n}\n"
   - pattern-not-inside: |-

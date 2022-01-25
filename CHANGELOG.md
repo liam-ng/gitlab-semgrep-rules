@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.16.1
+- Update to gosec rulset v1.0.28 to fix [this issue](https://gitlab.com/gitlab-org/gitlab/-/issues/348952) (!96)
+
 ## v2.16.0
 - Update semgrep to [0.76.2](https://github.com/returntocorp/semgrep/releases/tag/v0.76.2) (!#)
     + 0.76.2 Notable Changes
