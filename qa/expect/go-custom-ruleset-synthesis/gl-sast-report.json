@@ -93,46 +93,6 @@
       }
     },
     {
-      "id": "b012c13b860d8b9cb0fe177fbd96d2aa3524dba53ada38b7a79f4c8daebd69fa",
-      "category": "sast",
-      "message": "return nil instead of nil value",
-      "description": "return nil err instead of nil value",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "foo.go",
-        "start_line": 14,
-        "end_line": 16
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "return-nil",
-          "value": "return-nil"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "foo.go",
-            "line_start": 14,
-            "line_end": 14,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "foo.go|foo[0]:3"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "d23d71a35ac98ac5626288b8a7f84722183c9b7401e43d14ba9ecb6dc53b363b",
       "category": "sast",
       "message": "Exposure of Sensitive Information to an Unauthorized Actor",
@@ -178,10 +138,50 @@
       }
     },
     {
-      "id": "89e5a47e922c7379d043d7431827c8061366c272ec6bdccebb2b291a48d40929",
+      "id": "0b50502d4c57a277cdff4b7878eec6f1e149eabe32cb22181c0cc6519cc48d03",
       "category": "sast",
-      "message": "return nil instead of nil value",
+      "message": "return nil err instead of nil value",
       "description": "return nil instead of nil value",
+      "cve": "",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "foo.go",
+        "start_line": 14,
+        "end_line": 16
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "return-nil",
+          "value": "return-nil"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "foo.go",
+            "line_start": 14,
+            "line_end": 14,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "foo.go|foo[0]:3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "5bc190a961a2fd1f52cf8a20261fe8f837f4d38a409409a5a86d7283e136463f",
+      "category": "sast",
+      "message": "return nil err instead of nil value",
+      "description": "return nil err instead of nil value",
       "cve": "",
       "severity": "Critical",
       "scanner": {
@@ -327,11 +327,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.72.0"
+      "version": "0.80.0"
     },
     "type": "sast",
-    "start_time": "2021-12-07T19:30:29",
-    "end_time": "2021-12-07T19:30:44",
+    "start_time": "2022-02-07T20:03:07",
+    "end_time": "2022-02-07T20:03:20",
     "status": "success"
   }
 }
