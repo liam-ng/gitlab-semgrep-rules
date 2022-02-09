@@ -121,4 +121,4 @@ go-custom-ruleset-synthesis-qa:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/go-custom-ruleset-synthesis/gl-sast-report.json"
   trigger:
     project: gitlab-org/security-products/tests/go
-    branch: Custom-Ruleset-Synthesis # todo this should be a *-FREEZE branch
+    branch: Custom-Ruleset-Synthesis-FREEZE
