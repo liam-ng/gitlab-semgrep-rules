@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.17.0
+- Update ruleset, report, and command modules to support ruleset overrides (!102)
+
 ## v2.16.1
 - Update to gosec rulset v1.0.28 to fix [this issue](https://gitlab.com/gitlab-org/gitlab/-/issues/348952) (!96)
 
