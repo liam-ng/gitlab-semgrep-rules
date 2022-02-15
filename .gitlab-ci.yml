@@ -2,7 +2,6 @@ variables:
   REPORT_FILENAME: gl-sast-report.json
   MAX_IMAGE_SIZE_MB: 200
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
-  SEC_REGISTRY_IMAGE: registry.gitlab.com/security-products/sast/semgrep
 
 include:
   - https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
