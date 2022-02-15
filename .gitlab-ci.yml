@@ -4,7 +4,17 @@ variables:
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
 
 include:
-  - https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+  - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+
+  # Include Reviewers.gitlab-ci.yml to recommend code reviewers for a given MR
+  - project: gitlab-org/modelops/applied-ml/review-recommender/ci-templates
+    ref: v0.2.0
+    file: recommender/Reviewers.gitlab-ci.yml
+
+reviewers-recommender:
+  stage: pre-build
+  rules:
+    - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
 
 semgrep-rules-test:
   stage: test
