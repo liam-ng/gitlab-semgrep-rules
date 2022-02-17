@@ -1,4 +1,5 @@
-ARG SCANNER_VERSION=0.80.0
+# When updating version make sure to check on semgrepignore file as well
+ARG SCANNER_VERSION=0.82.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.0.5
 ARG TRACKING_CALCULATOR_VERSION=2.2.4
 
@@ -28,10 +29,12 @@ FROM python:3.9-alpine
 
 ARG SCANNER_VERSION
 ENV SCANNER_VERSION ${SCANNER_VERSION}
+ENV SEMGREP_R2C_INTERNAL_EXPLICIT_SEMGREPIGNORE "/semgrepignore"
 
 COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY --from=build /ca-cert-additional-gitlab-bundle.pem /etc/ssl/certs/ca-cert-additional-gitlab-bundle.pem
 COPY rules /rules
+COPY semgrepignore /semgrepignore
 RUN mkdir /.cache && \
     chmod -R g+rw /.cache
 

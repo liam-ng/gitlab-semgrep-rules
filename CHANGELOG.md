@@ -1,12 +1,19 @@
 Semgrep analyzer changelog
 
 ## v2.18.0
-- Update semgrep to [0.80.0](https://github.com/returntocorp/semgrep/releases/tag/v0.80.0) (!98)
+- Update semgrep to [0.82.0](https://github.com/returntocorp/semgrep/releases/tag/v0.82.0) (!98)
+    + 0.82.0 Notable Changes
+      + Changed: Performance: send all rules directly to semgrep-core instead of invoking semgrep-core
+      + Changed: Scans now report a breakdown of how many target paths were skipped for what reason.
+      + Changed: Performance: send all rules directly to semgrep-core instead of invoking semgrep-core for each rule, reducing the overhead significantly. Other changes resulting from this: Sarif output now includes all rules run. Error messages use full path of rules. Progress bar reports by file instead of by rule
+      + Changed: Bloom filter optimization now considers import module file names, thus speeding up matching of patterns like import { $X } from 'foo'
+    + 0.81.0 Notable Changes
+      + Fixed: Gracefully handle timeout errors with missing rule_id
     + 0.80.0 Notable Changes
       + Changed: Ruby: a metavariable matching an atom can also be used to match an identifier with the same name
       + Fixed: Handle missing target files without raising an exception
     + 0.79.0 Notable Changes
-      + Changed: CLI: parse errors (reported with --verbose) appear once per file, not once per rule/file
+      + None for GitLab users
     + 0.78.0 Notable Changes
       + Added: Semgrep is now able to symbolically propagate simple definitions. E.g., given an assignment x = foo.bar() followed by a call x.baz(), Semgrep will keep track of x's definition, and it will successfully match x.baz() with a pattern like foo.bar().baz(). This feature should help writing simple yet powerful rules, by letting the dataflow engine take care of any intermediate assignments. Symbolic propagation is still experimental and it is disabled by default, it must be enabled in a per-rule basis using options: and setting symbolic_propagation: true. (#2783, #2859, #3207)
       + Added: metavariable-comparison now handles metavariables that bind to arbitrary constant expressions (instead of just code variables)

@@ -138,50 +138,10 @@
       }
     },
     {
-      "id": "0b50502d4c57a277cdff4b7878eec6f1e149eabe32cb22181c0cc6519cc48d03",
-      "category": "sast",
-      "message": "return nil instead of nil value",
-      "description": "return nil instead of nil value",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "foo.go",
-        "start_line": 14,
-        "end_line": 16
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "return-nil",
-          "value": "return-nil"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "foo.go",
-            "line_start": 14,
-            "line_end": 14,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "foo.go|foo[0]:3"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
       "id": "5bc190a961a2fd1f52cf8a20261fe8f837f4d38a409409a5a86d7283e136463f",
       "category": "sast",
       "message": "return nil instead of nil value",
-      "description": "return nil err instead of nil value",
+      "description": "return nil instead of nil value",
       "cve": "",
       "severity": "Critical",
       "scanner": {
@@ -327,11 +287,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.80.0"
+      "version": "0.82.0"
     },
     "type": "sast",
-    "start_time": "2022-02-07T20:03:07",
-    "end_time": "2022-02-07T20:03:20",
+    "start_time": "2022-02-17T02:11:13",
+    "end_time": "2022-02-17T02:11:20",
     "status": "success"
   }
 }
