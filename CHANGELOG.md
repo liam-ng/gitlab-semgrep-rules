@@ -1,5 +1,34 @@
 Semgrep analyzer changelog
 
+## v2.18.0
+- Update semgrep to [0.82.0](https://github.com/returntocorp/semgrep/releases/tag/v0.82.0) (!98)
+    + 0.82.0 Notable Changes
+      + Changed: Performance: send all rules directly to semgrep-core instead of invoking semgrep-core
+      + Changed: Scans now report a breakdown of how many target paths were skipped for what reason.
+      + Changed: Performance: send all rules directly to semgrep-core instead of invoking semgrep-core for each rule, reducing the overhead significantly. Other changes resulting from this: Sarif output now includes all rules run. Error messages use full path of rules. Progress bar reports by file instead of by rule
+      + Changed: Bloom filter optimization now considers import module file names, thus speeding up matching of patterns like import { $X } from 'foo'
+    + 0.81.0 Notable Changes
+      + Fixed: Gracefully handle timeout errors with missing rule_id
+    + 0.80.0 Notable Changes
+      + Changed: Ruby: a metavariable matching an atom can also be used to match an identifier with the same name
+      + Fixed: Handle missing target files without raising an exception
+    + 0.79.0 Notable Changes
+      + None for GitLab users
+    + 0.78.0 Notable Changes
+      + Added: Semgrep is now able to symbolically propagate simple definitions. E.g., given an assignment x = foo.bar() followed by a call x.baz(), Semgrep will keep track of x's definition, and it will successfully match x.baz() with a pattern like foo.bar().baz(). This feature should help writing simple yet powerful rules, by letting the dataflow engine take care of any intermediate assignments. Symbolic propagation is still experimental and it is disabled by default, it must be enabled in a per-rule basis using options: and setting symbolic_propagation: true. (#2783, #2859, #3207)
+      + Added: metavariable-comparison now handles metavariables that bind to arbitrary constant expressions (instead of just code variables)
+      + Fixed: Python: return statement can contain tuple expansions
+      + Fixed: metavariable-comparison: do not throw a Not_found exn anymore
+      + Fixed: better ordering of match results with respect to captured metavariables
+      + Fixed: Go, JavaScript, Java, Python, TypeScript: correct matching of multibyte characters
+    + 0.77.0 Notable Changes
+      + Fixed: Go: fixed bug where using an ellipsis to stand for a list of key-value pairs would sometimes cause a parse error
+      + Fixed: Allow name resolution on imported packages named just vN, where N is a number
+      + Fixed: Python: get the correct range when matching comprehension
+      + Fixed: Python and other languages: allow matches of patterns containing non-ascii characters, but still with possibly many false positives
+      + Changed: Constant propagation is now a proper must-analysis, if a variable is undefined in some path then it will be considered as non-constant
+      + Changed: semgrep-core will log a warning when a worker process is consuming above 400 MiB of memory, or reached 80% of the specified memory limit, whatever happens first. This is meant to help diagnosing OOM-related crashes.
+
 ## v2.17.0
 - Update ruleset, report, and command modules to support ruleset overrides (!102)
 
