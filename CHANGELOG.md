@@ -1,7 +1,7 @@
 Semgrep analyzer changelog
 
 ## v2.18.1
-- Update `report` module containing fix for the issue: [#344616](https://gitlab.com/gitlab-org/gitlab/-/issues/344616) 
+- Update `report` module containing fix for the issue: [#344616](https://gitlab.com/gitlab-org/gitlab/-/issues/344616) (!105)
 
 ## v2.18.0
 - Update semgrep to [0.82.0](https://github.com/returntocorp/semgrep/releases/tag/v0.82.0) (!98)
