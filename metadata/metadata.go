@@ -17,6 +17,8 @@ const (
 	// AnalyzerName is the name of the analyzer
 	AnalyzerName = scannerName
 
+	analyzerURL = "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep"
+
 	scannerVendor = AnalyzerVendor
 	scannerURL    = "https://github.com/returntocorp/semgrep"
 
@@ -37,6 +39,18 @@ var (
 
 	// ScannerVersion is the semantic version of the scanner and is defined in the Dockerfile
 	ScannerVersion = os.Getenv("SCANNER_VERSION")
+
+	// AnalyzerDetails provides information about the analyzer itself.
+	// It corresponds with the `analyzer` field on the security report.
+	AnalyzerDetails = report.ScannerDetails{
+		ID:   AnalyzerID,
+		Name: AnalyzerName,
+		URL:  analyzerURL,
+		Vendor: report.Vendor{
+			Name: AnalyzerVendor,
+		},
+		Version: AnalyzerVersion,
+	}
 
 	// IssueScanner describes the scanner used to find a vulnerability
 	IssueScanner = report.Scanner{

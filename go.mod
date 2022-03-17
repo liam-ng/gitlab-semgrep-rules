@@ -8,9 +8,9 @@ require (
 	github.com/cpuguy83/go-md2man/v2 v2.0.1 // indirect
 	github.com/sirupsen/logrus v1.8.1
 	github.com/urfave/cli/v2 v2.3.0
-	gitlab.com/gitlab-org/security-products/analyzers/command v1.6.0
+	gitlab.com/gitlab-org/security-products/analyzers/command v1.6.1
 	gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.1
-	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.9.2
+	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.11.0
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
 	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect

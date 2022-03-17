@@ -1,5 +1,15 @@
 Semgrep analyzer changelog
 
+## v2.19.0
+- Update semgrep to [0.84.0](https://github.com/returntocorp/semgrep/releases/tag/v0.84.0) (!106)
+    + 0.84.0 Notable Changes
+      + Fixed: Report parse errors even when invoked with --strict
+      + Fixed: SARIF output formatter not handling lists of OWASP or CWE metadata
+      + Fixed: Scan yarn.lock dependencies that do not specify a hash
+    + 0.83.0 Notable Changes
+      + Fixed: Treat Go raw string literals like ordinary string literals
+      + Changed: Improved constant propagation for global constants
+
 ## v2.18.1
 - Update `report` module containing fix for the issue: [#344616](https://gitlab.com/gitlab-org/gitlab/-/issues/344616) (!105)
 

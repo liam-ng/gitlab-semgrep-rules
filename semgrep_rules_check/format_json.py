@@ -11,4 +11,6 @@ data["results"] = sorted(data["results"], key=semgrep_sort_key)
 for r in data["results"]:
     del r["extra"]["metavars"]
 
+del data["paths"]
+
 print(json.dumps(data, indent=4))
