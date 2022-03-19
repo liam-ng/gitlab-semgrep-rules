@@ -1,6 +1,16 @@
 Semgrep analyzer changelog
 
-## v2.19.0
+## v2.20.0
+- Fixed Docker build issue
+- Update semgrep to [0.85.0](https://github.com/returntocorp/semgrep/releases/tag/v0.85.0) (!107)
+    + 0.85.0 Notable Changes
+      + Fixed: Fixed Deep expression matching and metavariables interaction. Semgrep will not stop anymore at the first match and will enumarate all possible matchings if a metavariable is used in a deep expression pattern (e.g., <... $X ...>). This can introduce some performance regressions.
+      + Fixed: JSX: ellipsis in JSX body (e.g., <div>...</div>) now matches any children (#4678 and #4717)
+      + Fixed: package-lock.json parsing defaults to packages instead of dependencies as the source of dependencies
+      + Fixed: package-lock.json parsing will ignore dependencies with non-standard versions, and will succesfully parse dependencies with no integrity field
+      + Changed: File targeting logic has been mostly rewritten. These inconsistencies were fixed in the process:
+
+## v2.19.0 (Unreleased due to build issues)
 - Update semgrep to [0.84.0](https://github.com/returntocorp/semgrep/releases/tag/v0.84.0) (!106)
     + 0.84.0 Notable Changes
       + Fixed: Report parse errors even when invoked with --strict

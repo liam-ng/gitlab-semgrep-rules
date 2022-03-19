@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=0.84.0
+ARG SCANNER_VERSION=0.85.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.0.5
 ARG TRACKING_CALCULATOR_VERSION=2.2.5
 
@@ -39,6 +39,7 @@ RUN mkdir /.cache && \
     chmod -R g+rw /.cache
 
 RUN apk add --no-cache git && \
+    apk add --no-cache gcc musl-dev python3-dev && \
     pip install semgrep==$SCANNER_VERSION
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
