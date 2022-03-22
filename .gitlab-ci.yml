@@ -122,3 +122,10 @@ go-custom-ruleset-synthesis-qa:
   trigger:
     project: gitlab-org/security-products/tests/go
     branch: Custom-Ruleset-Synthesis-FREEZE
+
+
+boop:
+  stage: pre-build
+  script:
+    - echo $CS_DISABLE_LANGUAGE_VULNERABILITY_SCAN
+    - exit 1
