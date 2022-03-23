@@ -39,7 +39,7 @@ RUN mkdir /.cache && \
     chmod -R g+rw /.cache
 
 RUN apk add --no-cache git && \
-    pip install semgrep==$SCANNER_VERSION
+    pip install ruamel.yaml==0.16.12 semgrep==$SCANNER_VERSION
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
 COPY --from=scripts /start.sh /analyzer

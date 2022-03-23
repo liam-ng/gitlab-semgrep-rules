@@ -1,6 +1,9 @@
 Semgrep analyzer changelog
 
-## v2.19.0
+## v2.19.1
+- Fixed Docker build issue (!107)
+
+## v2.19.0 (Unreleased due to build issues)
 - Update semgrep to [0.84.0](https://github.com/returntocorp/semgrep/releases/tag/v0.84.0) (!106)
     + 0.84.0 Notable Changes
       + Fixed: Report parse errors even when invoked with --strict
