@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.20.1
+- Add `Dockerfile.fips` and include FIPS image releases (!108)
+
 ## v2.20.0
 - Update semgrep to [0.86.5](https://github.com/returntocorp/semgrep/releases/tag/v0.86.5) (!109)
     + 0.86.2 Notable Changes
