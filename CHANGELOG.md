@@ -1,5 +1,27 @@
 Semgrep analyzer changelog
 
+## v2.20.0
+- Update semgrep to [0.86.5](https://github.com/returntocorp/semgrep/releases/tag/v0.86.5) (!109)
+    + 0.86.2 Notable Changes
+      + Fixed: Some finding fingerprints were not matching what semgrep-agent would return.
+    + 0.86.1 Notable Changes
+      + Changed: --timeout-threshold default set to 3 instead of 0
+    + 0.86.0 Notable Changes
+      + Added: Go: use latest tree-sitter-go with support for Go 1.18 generics
+      + Changed: Findings are now considered identical between baseline and current scans based on the same logic as Semgrep CI uses, which means:
+        + Two findings are now identical after whitespace changes such as re-indentation
+        + Two findings are now identical after a nosemgrep comment is added
+      + Changed: Findings are now different if the same code triggered them on different lines
+      + Fixed: Symlinks found in directories are skipped from being scanned again. This is a fix for a regression introduced in 0.85.0.
+      + Fixed: Go: fix unicode parsing bugs by switching to latest tree-sitter-go
+      + Fixed: Constant propagation: A conditional expression where both alternatives are constant will also be considered constant
+      + Fixed: Constant propagation now recognizes operators ++ and -- as side-effectful
+    + 0.85.0 Notable Changes
+      + Added: When scanning multiple languages, Semgrep will now print a table of how many rules and files are used for each language.
+      + Fixed: Fixed Deep expression matching and metavariables interaction. Semgrep will not stop anymore at the first match and will enumarate all possible matchings if a metavariable is used in a deep expression pattern (e.g., <... $X ...>). This can introduce some performance regressions.
+      + Fixed: JSX: ellipsis in JSX body (e.g., <div>...</div>) now matches any children (#4678 and #4717)
+      + Changed: When git ls-files is unavailable or --disable-git-ignore is set, Semgrep walks the file system to find all target files. Semgrep now walks the file system 30% faster compared to previous versions.
+
 ## v2.19.1
 - Fixed Docker build issue (!107)
 
