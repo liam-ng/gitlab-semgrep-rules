@@ -1,6 +1,7 @@
 variables:
   REPORT_FILENAME: gl-sast-report.json
   MAX_IMAGE_SIZE_MB: 200
+  MAX_IMAGE_SIZE_MB_FIPS: 1090
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
 
 include:
@@ -94,6 +95,13 @@ python-pipenv-qa:
 
 c-qa:
   extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/c/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/c
+
+c-fips-qa:
+  extends: .qa-downstream-sast-fips
   variables:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/c/gl-sast-report.json"
   trigger:

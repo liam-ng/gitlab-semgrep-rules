@@ -12,6 +12,7 @@ import (
 
 func main() {
 	app := command.NewApp(metadata.AnalyzerDetails)
+	app.Version = metadata.AnalyzerVersion
 	app.Commands = command.NewCommands(command.Config{
 		Match:        plugin.Match,
 		Analyze:      analyze,
