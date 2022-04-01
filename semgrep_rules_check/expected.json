@@ -9,6 +9,7 @@
                 "offset": 331
             },
             "extra": {
+                "fingerprint": "d960a13923a0a2eebf7038663ef92ab3",
                 "is_ignored": false,
                 "lines": "  fs.exists(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -32,6 +33,7 @@
                 "offset": 365
             },
             "extra": {
+                "fingerprint": "e4a3f04f2a9de78f0605d4bc6b1c78a4",
                 "is_ignored": false,
                 "lines": "  fs.existsSync(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -55,6 +57,7 @@
                 "offset": 401
             },
             "extra": {
+                "fingerprint": "b53757ff016a42f8f560ab0d4fccb480",
                 "is_ignored": false,
                 "lines": "  fs.lchmod(argOne, mode, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -78,6 +81,7 @@
                 "offset": 431
             },
             "extra": {
+                "fingerprint": "17296aa52342f92eacbd2365c2b9c826",
                 "is_ignored": false,
                 "lines": "  fs.lchmodSync(argOne, mode)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -101,6 +105,7 @@
                 "offset": 471
             },
             "extra": {
+                "fingerprint": "a0ed7f8595e0c3f5f045e66bdec4a8aa",
                 "is_ignored": false,
                 "lines": "  fs.lchown(argOne, uid, gid, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -124,6 +129,7 @@
                 "offset": 505
             },
             "extra": {
+                "fingerprint": "4f3d0726b3e45864b60dd4b85976c824",
                 "is_ignored": false,
                 "lines": "  fs.lchownSync(argOne, uid, gid)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -147,6 +153,7 @@
                 "offset": 541
             },
             "extra": {
+                "fingerprint": "b44ce985b711bf69f86b236ca4dc1b13",
                 "is_ignored": false,
                 "lines": "  fs.link(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -170,6 +177,7 @@
                 "offset": 571
             },
             "extra": {
+                "fingerprint": "b6ae5d5843f6cd03ff27b8cc7e1ff2e7",
                 "is_ignored": false,
                 "lines": "  fs.linkSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -193,6 +201,7 @@
                 "offset": 600
             },
             "extra": {
+                "fingerprint": "94f0728966c1b23944766f680565a1e8",
                 "is_ignored": false,
                 "lines": "  fs.lstat(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -216,6 +225,7 @@
                 "offset": 623
             },
             "extra": {
+                "fingerprint": "2b74db9b197507bbfeb57090fe7d71aa",
                 "is_ignored": false,
                 "lines": "  fs.lstatSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -239,6 +249,7 @@
                 "offset": 652
             },
             "extra": {
+                "fingerprint": "f161e1aa476fa852c1c0efae9b7ec262",
                 "is_ignored": false,
                 "lines": "  fs.mkdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -262,6 +273,7 @@
                 "offset": 675
             },
             "extra": {
+                "fingerprint": "43faf1d84c9eceedf27de8ecc43bb0b6",
                 "is_ignored": false,
                 "lines": "  fs.mkdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -285,6 +297,7 @@
                 "offset": 703
             },
             "extra": {
+                "fingerprint": "e2fafa81de746896bc22d802bc03e841",
                 "is_ignored": false,
                 "lines": "  fs.open(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -308,6 +321,7 @@
                 "offset": 725
             },
             "extra": {
+                "fingerprint": "acd8772166e35d123159d5c14876ca64",
                 "is_ignored": false,
                 "lines": "  fs.openSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -331,6 +345,7 @@
                 "offset": 756
             },
             "extra": {
+                "fingerprint": "2b911abe67ce5376e2990f88cebd80fe",
                 "is_ignored": false,
                 "lines": "  fs.readdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -354,6 +369,7 @@
                 "offset": 781
             },
             "extra": {
+                "fingerprint": "23b8daedbd8cd9457f93cda481b63eac",
                 "is_ignored": false,
                 "lines": "  fs.readdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -377,6 +393,7 @@
                 "offset": 813
             },
             "extra": {
+                "fingerprint": "db235528162e3bbbf3f86a2d96b77885",
                 "is_ignored": false,
                 "lines": "  fs.readFile(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -400,6 +417,7 @@
                 "offset": 839
             },
             "extra": {
+                "fingerprint": "b3f8dd44195c78a127cb62d324acc7fb",
                 "is_ignored": false,
                 "lines": "  fs.readFileSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -423,6 +441,7 @@
                 "offset": 871
             },
             "extra": {
+                "fingerprint": "5c6da505821845764b90f1242b71993e",
                 "is_ignored": false,
                 "lines": "  fs.readlink(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -446,6 +465,7 @@
                 "offset": 897
             },
             "extra": {
+                "fingerprint": "6beb9446c9b8adaf91b3f46bc3b25262",
                 "is_ignored": false,
                 "lines": "  fs.readlinkSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -469,6 +489,7 @@
                 "offset": 70
             },
             "extra": {
+                "fingerprint": "555d0423e77fb3f253fc0836309e6e74",
                 "is_ignored": false,
                 "lines": "  fs.appendFile(argOne, data, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -492,6 +513,7 @@
                 "offset": 929
             },
             "extra": {
+                "fingerprint": "d0cd012d391277306d6716a038062d5c",
                 "is_ignored": false,
                 "lines": "  fs.realpath(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -515,6 +537,7 @@
                 "offset": 955
             },
             "extra": {
+                "fingerprint": "30a8dd3d8a0b50c5a6df970ff931dd61",
                 "is_ignored": false,
                 "lines": "  fs.realpathSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -538,6 +561,7 @@
                 "offset": 993
             },
             "extra": {
+                "fingerprint": "bcf06651ef12ec5f02f46a96983273f6",
                 "is_ignored": false,
                 "lines": "  fs.rename(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -561,6 +585,7 @@
                 "offset": 1025
             },
             "extra": {
+                "fingerprint": "7c0bc26c6bc69ba7edb58290b81a481e",
                 "is_ignored": false,
                 "lines": "  fs.renameSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -584,6 +609,7 @@
                 "offset": 1054
             },
             "extra": {
+                "fingerprint": "2f2bea6c5ef7c74af41cbacfe24cb9cf",
                 "is_ignored": false,
                 "lines": "  fs.rmdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -607,6 +633,7 @@
                 "offset": 1077
             },
             "extra": {
+                "fingerprint": "1fb9cb9dbe5f449f3b5109d22a5ff4d4",
                 "is_ignored": false,
                 "lines": "  fs.rmdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -630,6 +657,7 @@
                 "offset": 1105
             },
             "extra": {
+                "fingerprint": "a981a055ef6730e290f04c05ec1cb9a9",
                 "is_ignored": false,
                 "lines": "  fs.stat(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -653,6 +681,7 @@
                 "offset": 1127
             },
             "extra": {
+                "fingerprint": "4fc0bf3fdeb331ffb04a14276dff9cff",
                 "is_ignored": false,
                 "lines": "  fs.statSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -676,6 +705,7 @@
                 "offset": 1166
             },
             "extra": {
+                "fingerprint": "2bc4005e6ed53fd8270af21e1ef44946",
                 "is_ignored": false,
                 "lines": "  fs.symlink(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -699,6 +729,7 @@
                 "offset": 1199
             },
             "extra": {
+                "fingerprint": "ced88423f2a40a20c2acd3fd5315e1a3",
                 "is_ignored": false,
                 "lines": "  fs.symlinkSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -722,6 +753,7 @@
                 "offset": 104
             },
             "extra": {
+                "fingerprint": "6e16201dc8d0746bbd9ca4af8022b4fa",
                 "is_ignored": false,
                 "lines": "  fs.appendFileSync(argOne, data)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -745,6 +777,7 @@
                 "offset": 1231
             },
             "extra": {
+                "fingerprint": "a237653bbc0ddc1e137325a9008e1d19",
                 "is_ignored": false,
                 "lines": "  fs.truncate(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -768,6 +801,7 @@
                 "offset": 1257
             },
             "extra": {
+                "fingerprint": "763ea2e49e07c28ae7e2b1036fb6dca9",
                 "is_ignored": false,
                 "lines": "  fs.truncateSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -791,6 +825,7 @@
                 "offset": 1287
             },
             "extra": {
+                "fingerprint": "6103e0c5e0ad899f9fa15ea21e166afb",
                 "is_ignored": false,
                 "lines": "  fs.unlink(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -814,6 +849,7 @@
                 "offset": 1311
             },
             "extra": {
+                "fingerprint": "6a7e4071908d58d333d1923610a70bdb",
                 "is_ignored": false,
                 "lines": "  fs.unlinkSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -837,6 +873,7 @@
                 "offset": 1336
             },
             "extra": {
+                "fingerprint": "61b8ae9533636f9aa42089de96e29759",
                 "is_ignored": false,
                 "lines": "  fs.unwatchFile(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -860,6 +897,7 @@
                 "offset": 1366
             },
             "extra": {
+                "fingerprint": "bfd8a466f09e62aef83230a7226eb44e",
                 "is_ignored": false,
                 "lines": "  fs.utimes(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -883,6 +921,7 @@
                 "offset": 1390
             },
             "extra": {
+                "fingerprint": "57ac4479138bf09562eb8762c0b949ed",
                 "is_ignored": false,
                 "lines": "  fs.utimesSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -906,6 +945,7 @@
                 "offset": 1409
             },
             "extra": {
+                "fingerprint": "d40ef638a5a05674fede0dbc5eefef5e",
                 "is_ignored": false,
                 "lines": "  fs.watch(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -929,6 +969,7 @@
                 "offset": 1442
             },
             "extra": {
+                "fingerprint": "8ea4c2bdd92a6dd3e6dbcf4d415942b2",
                 "is_ignored": false,
                 "lines": "  fs.watchFile(argOne, listener)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -952,6 +993,7 @@
                 "offset": 1475
             },
             "extra": {
+                "fingerprint": "50febadd989ef50f9e009ad676985dc1",
                 "is_ignored": false,
                 "lines": "  fs.writeFile(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -975,6 +1017,7 @@
                 "offset": 139
             },
             "extra": {
+                "fingerprint": "ddbd83ab217375037a85d7ab54344725",
                 "is_ignored": false,
                 "lines": "  fs.chmod(argOne, mode, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -998,6 +1041,7 @@
                 "offset": 1502
             },
             "extra": {
+                "fingerprint": "5e6f4c57aa25ae674d45dc65b1eb4923",
                 "is_ignored": false,
                 "lines": "  fs.writeFileSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1021,6 +1065,7 @@
                 "offset": 168
             },
             "extra": {
+                "fingerprint": "83fb18fe52278985668602514650c563",
                 "is_ignored": false,
                 "lines": "  fs.chmodSync(argOne, mode)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1044,6 +1089,7 @@
                 "offset": 207
             },
             "extra": {
+                "fingerprint": "ead970df79d4fdd3b4d18e1900d1909f",
                 "is_ignored": false,
                 "lines": "  fs.chown(argOne, uid, gid, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1067,6 +1113,7 @@
                 "offset": 240
             },
             "extra": {
+                "fingerprint": "bbd926385d70b70eb1ca33c542ed367e",
                 "is_ignored": false,
                 "lines": "  fs.chownSync(argOne, uid, gid)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1090,6 +1137,7 @@
                 "offset": 270
             },
             "extra": {
+                "fingerprint": "8c3837655ca53784cd77f2b80fadfec6",
                 "is_ignored": false,
                 "lines": "  fs.createReadStream(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1113,6 +1161,7 @@
                 "offset": 301
             },
             "extra": {
+                "fingerprint": "4d0694fbc7b1d33204044b500f9e8be5",
                 "is_ignored": false,
                 "lines": "  fs.createWriteStream(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1136,6 +1185,7 @@
                 "offset": 331
             },
             "extra": {
+                "fingerprint": "7e6f8ab9d083e6ee42af66218c9551db",
                 "is_ignored": false,
                 "lines": "  fs.exists(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1159,6 +1209,7 @@
                 "offset": 365
             },
             "extra": {
+                "fingerprint": "7bf90d1027ea462809f5d0ba3a451fff",
                 "is_ignored": false,
                 "lines": "  fs.existsSync(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1182,6 +1233,7 @@
                 "offset": 401
             },
             "extra": {
+                "fingerprint": "7706e3b583141c8d003a85257c6d8ffc",
                 "is_ignored": false,
                 "lines": "  fs.lchmod(argOne, mode, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1205,6 +1257,7 @@
                 "offset": 431
             },
             "extra": {
+                "fingerprint": "3e7b719929f4f5f8ce3c38d885690cdc",
                 "is_ignored": false,
                 "lines": "  fs.lchmodSync(argOne, mode)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1228,6 +1281,7 @@
                 "offset": 471
             },
             "extra": {
+                "fingerprint": "15455b23e117d0edc4d40bc1ea5bf52c",
                 "is_ignored": false,
                 "lines": "  fs.lchown(argOne, uid, gid, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1251,6 +1305,7 @@
                 "offset": 505
             },
             "extra": {
+                "fingerprint": "11921e7f8fade089debe3c989624bba2",
                 "is_ignored": false,
                 "lines": "  fs.lchownSync(argOne, uid, gid)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1274,6 +1329,7 @@
                 "offset": 541
             },
             "extra": {
+                "fingerprint": "a0d0699c75957a3647cf7f2e61941f08",
                 "is_ignored": false,
                 "lines": "  fs.link(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1297,6 +1353,7 @@
                 "offset": 571
             },
             "extra": {
+                "fingerprint": "da6934cfa1853b10d3d0c65fd43ed299",
                 "is_ignored": false,
                 "lines": "  fs.linkSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1320,6 +1377,7 @@
                 "offset": 600
             },
             "extra": {
+                "fingerprint": "26279f34797518c017ffee7e5f692277",
                 "is_ignored": false,
                 "lines": "  fs.lstat(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1343,6 +1401,7 @@
                 "offset": 623
             },
             "extra": {
+                "fingerprint": "db73da46a40647c957fd63e49ec21423",
                 "is_ignored": false,
                 "lines": "  fs.lstatSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1366,6 +1425,7 @@
                 "offset": 652
             },
             "extra": {
+                "fingerprint": "d3884f1685ac052079ce7b5849d9370c",
                 "is_ignored": false,
                 "lines": "  fs.mkdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1389,6 +1449,7 @@
                 "offset": 675
             },
             "extra": {
+                "fingerprint": "b69356cabe419389dc2b9bec7feaa140",
                 "is_ignored": false,
                 "lines": "  fs.mkdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1412,6 +1473,7 @@
                 "offset": 703
             },
             "extra": {
+                "fingerprint": "3e92ec8b1f1fe3a2422707a376cf63ff",
                 "is_ignored": false,
                 "lines": "  fs.open(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1435,6 +1497,7 @@
                 "offset": 725
             },
             "extra": {
+                "fingerprint": "ca9368d3767e5a6aadfe779aad5a7fcd",
                 "is_ignored": false,
                 "lines": "  fs.openSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1458,6 +1521,7 @@
                 "offset": 756
             },
             "extra": {
+                "fingerprint": "a95aa3d9ebdbb3b20990414a2362f474",
                 "is_ignored": false,
                 "lines": "  fs.readdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1481,6 +1545,7 @@
                 "offset": 781
             },
             "extra": {
+                "fingerprint": "b857f6c50fbf59a421a8ce298dee954f",
                 "is_ignored": false,
                 "lines": "  fs.readdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1504,6 +1569,7 @@
                 "offset": 813
             },
             "extra": {
+                "fingerprint": "e7b78ec179116018d98321a25711c62c",
                 "is_ignored": false,
                 "lines": "  fs.readFile(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1527,6 +1593,7 @@
                 "offset": 839
             },
             "extra": {
+                "fingerprint": "a18b6ae0ee51f48a0852dc3718496d9e",
                 "is_ignored": false,
                 "lines": "  fs.readFileSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1550,6 +1617,7 @@
                 "offset": 871
             },
             "extra": {
+                "fingerprint": "e74286d954e69a0ad1777e634535089e",
                 "is_ignored": false,
                 "lines": "  fs.readlink(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1573,6 +1641,7 @@
                 "offset": 897
             },
             "extra": {
+                "fingerprint": "ae8f7cd1aacd5369de20c591b9c682be",
                 "is_ignored": false,
                 "lines": "  fs.readlinkSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1596,6 +1665,7 @@
                 "offset": 70
             },
             "extra": {
+                "fingerprint": "98d1e465c383d10b798f83c51ec09af9",
                 "is_ignored": false,
                 "lines": "  fs.appendFile(argOne, data, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1619,6 +1689,7 @@
                 "offset": 929
             },
             "extra": {
+                "fingerprint": "81bbd2c0d8f57fef6d97ff1866141e1f",
                 "is_ignored": false,
                 "lines": "  fs.realpath(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1642,6 +1713,7 @@
                 "offset": 955
             },
             "extra": {
+                "fingerprint": "cc254ff7c76ea4e61782c6a9a1c34828",
                 "is_ignored": false,
                 "lines": "  fs.realpathSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1665,6 +1737,7 @@
                 "offset": 993
             },
             "extra": {
+                "fingerprint": "bbdf08155ddf654f38cab73e6dddb1a4",
                 "is_ignored": false,
                 "lines": "  fs.rename(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1688,6 +1761,7 @@
                 "offset": 1025
             },
             "extra": {
+                "fingerprint": "75a6f61a86aa360adbbd7e4bf0c0f74d",
                 "is_ignored": false,
                 "lines": "  fs.renameSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1711,6 +1785,7 @@
                 "offset": 1054
             },
             "extra": {
+                "fingerprint": "44faa2cfead4c77fc5078a012b37208f",
                 "is_ignored": false,
                 "lines": "  fs.rmdir(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1734,6 +1809,7 @@
                 "offset": 1077
             },
             "extra": {
+                "fingerprint": "dc71011ff3e1baa991d1e33239284591",
                 "is_ignored": false,
                 "lines": "  fs.rmdirSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1757,6 +1833,7 @@
                 "offset": 1105
             },
             "extra": {
+                "fingerprint": "14f5e607c2c319dfcd212d2c4c4eebc3",
                 "is_ignored": false,
                 "lines": "  fs.stat(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1780,6 +1857,7 @@
                 "offset": 1127
             },
             "extra": {
+                "fingerprint": "858b28f49d4d0c58e32f0c404a970fdb",
                 "is_ignored": false,
                 "lines": "  fs.statSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1803,6 +1881,7 @@
                 "offset": 1166
             },
             "extra": {
+                "fingerprint": "98698a15d6ee6c5d6f591be9c661c876",
                 "is_ignored": false,
                 "lines": "  fs.symlink(argOne, argTwo, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1826,6 +1905,7 @@
                 "offset": 1199
             },
             "extra": {
+                "fingerprint": "9da8dc5c50b981dd940d92f1d56a042c",
                 "is_ignored": false,
                 "lines": "  fs.symlinkSync(argOne, argTwo)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1849,6 +1929,7 @@
                 "offset": 104
             },
             "extra": {
+                "fingerprint": "f2d780b8d1099741c79b0895d79e6bdd",
                 "is_ignored": false,
                 "lines": "  fs.appendFileSync(argOne, data)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1872,6 +1953,7 @@
                 "offset": 1231
             },
             "extra": {
+                "fingerprint": "2b1dfc4ecca7fdac43de30c1b8657206",
                 "is_ignored": false,
                 "lines": "  fs.truncate(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1895,6 +1977,7 @@
                 "offset": 1257
             },
             "extra": {
+                "fingerprint": "30b1154f4ed383314d0a8f686e92b9a1",
                 "is_ignored": false,
                 "lines": "  fs.truncateSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1918,6 +2001,7 @@
                 "offset": 1287
             },
             "extra": {
+                "fingerprint": "17569f35f479c59fdbbb97e7dd9f5945",
                 "is_ignored": false,
                 "lines": "  fs.unlink(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1941,6 +2025,7 @@
                 "offset": 1311
             },
             "extra": {
+                "fingerprint": "5b210988aa8cf8450904f6968cf30dc1",
                 "is_ignored": false,
                 "lines": "  fs.unlinkSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1964,6 +2049,7 @@
                 "offset": 1336
             },
             "extra": {
+                "fingerprint": "c5187dd65de872527dc902bb0651f9d8",
                 "is_ignored": false,
                 "lines": "  fs.unwatchFile(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -1987,6 +2073,7 @@
                 "offset": 1366
             },
             "extra": {
+                "fingerprint": "b831a752b8c16e8fb29d41b9b6b094c4",
                 "is_ignored": false,
                 "lines": "  fs.utimes(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2010,6 +2097,7 @@
                 "offset": 1390
             },
             "extra": {
+                "fingerprint": "d5c72f00b616b470ca20128d1afbbafe",
                 "is_ignored": false,
                 "lines": "  fs.utimesSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2033,6 +2121,7 @@
                 "offset": 1409
             },
             "extra": {
+                "fingerprint": "86831e80d845a26f2a6fa0d05f7d9fd0",
                 "is_ignored": false,
                 "lines": "  fs.watch(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2056,6 +2145,7 @@
                 "offset": 1442
             },
             "extra": {
+                "fingerprint": "ce2b3d3b6caf4e206826292533fa3de4",
                 "is_ignored": false,
                 "lines": "  fs.watchFile(argOne, listener)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2079,6 +2169,7 @@
                 "offset": 1475
             },
             "extra": {
+                "fingerprint": "6ab1bbcba2345fc5a30588806472f215",
                 "is_ignored": false,
                 "lines": "  fs.writeFile(argOne, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2102,6 +2193,7 @@
                 "offset": 139
             },
             "extra": {
+                "fingerprint": "169cc311a1437481d2619e38e757f534",
                 "is_ignored": false,
                 "lines": "  fs.chmod(argOne, mode, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2125,6 +2217,7 @@
                 "offset": 1502
             },
             "extra": {
+                "fingerprint": "1353ff43963ce609ae50d20565501dfc",
                 "is_ignored": false,
                 "lines": "  fs.writeFileSync(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2148,6 +2241,7 @@
                 "offset": 168
             },
             "extra": {
+                "fingerprint": "d2e31a51536f2a3d6aa69524466b52fd",
                 "is_ignored": false,
                 "lines": "  fs.chmodSync(argOne, mode)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2171,6 +2265,7 @@
                 "offset": 207
             },
             "extra": {
+                "fingerprint": "787a151f4d4088bc4bc869d6af9f03e3",
                 "is_ignored": false,
                 "lines": "  fs.chown(argOne, uid, gid, callback)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2194,6 +2289,7 @@
                 "offset": 240
             },
             "extra": {
+                "fingerprint": "b8ffa5ecbbbda43012bdbe501f6d58dc",
                 "is_ignored": false,
                 "lines": "  fs.chownSync(argOne, uid, gid)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2217,6 +2313,7 @@
                 "offset": 270
             },
             "extra": {
+                "fingerprint": "b4f172d37dab01a160ece83abd7a58ba",
                 "is_ignored": false,
                 "lines": "  fs.createReadStream(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2240,6 +2337,7 @@
                 "offset": 301
             },
             "extra": {
+                "fingerprint": "a2ed4c4e1f9dc9ac25ef3bcda1162ac6",
                 "is_ignored": false,
                 "lines": "  fs.createWriteStream(argOne)",
                 "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
@@ -2263,6 +2361,7 @@
                 "offset": 246
             },
             "extra": {
+                "fingerprint": "a43eabddd00bf8312f2a611541202b62",
                 "is_ignored": false,
                 "lines": "  value = obj[someVar]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2286,6 +2385,7 @@
                 "offset": 274
             },
             "extra": {
+                "fingerprint": "e6bf63fc7ac8439242462e96cba108a8",
                 "is_ignored": false,
                 "lines": "  value = obj[someObjVar.s]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2309,6 +2409,7 @@
                 "offset": 305
             },
             "extra": {
+                "fingerprint": "d7ff6ef13432dc1fc9ff14f82c2b8dfe",
                 "is_ignored": false,
                 "lines": "  value = obj[someObjVar['s']]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2332,6 +2433,7 @@
                 "offset": 334
             },
             "extra": {
+                "fingerprint": "e0f8070fad5a02a502696ad4b8c63133",
                 "is_ignored": false,
                 "lines": "  value = obj[someArrVar[0]]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2355,6 +2457,7 @@
                 "offset": 103
             },
             "extra": {
+                "fingerprint": "e4fd2365352594bad5092e82f87a8a8a",
                 "is_ignored": false,
                 "lines": "  value = obj[three[0]]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2378,6 +2481,7 @@
                 "offset": 124
             },
             "extra": {
+                "fingerprint": "818545f21561f8dc9ccc34664471e1d7",
                 "is_ignored": false,
                 "lines": "  value = obj[six.s]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2401,6 +2505,7 @@
                 "offset": 148
             },
             "extra": {
+                "fingerprint": "7d7583e0d53a6126815028256c8286eb",
                 "is_ignored": false,
                 "lines": "  value = obj[six['s']]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2424,6 +2529,7 @@
                 "offset": 246
             },
             "extra": {
+                "fingerprint": "38996138ce47bbf59669d05d3886e6a9",
                 "is_ignored": false,
                 "lines": "  value = obj[someVar]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2447,6 +2553,7 @@
                 "offset": 274
             },
             "extra": {
+                "fingerprint": "e0b569713ccf5aca4a24390274aca80a",
                 "is_ignored": false,
                 "lines": "  value = obj[someObjVar.s]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2470,6 +2577,7 @@
                 "offset": 305
             },
             "extra": {
+                "fingerprint": "4d93e82835e0cbb466bc2ce074cb065f",
                 "is_ignored": false,
                 "lines": "  value = obj[someObjVar['s']]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2493,6 +2601,7 @@
                 "offset": 334
             },
             "extra": {
+                "fingerprint": "0dd67ebab9f8dd85e62b42d250f71e4d",
                 "is_ignored": false,
                 "lines": "  value = obj[someArrVar[0]]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2516,6 +2625,7 @@
                 "offset": 103
             },
             "extra": {
+                "fingerprint": "17131c902b188d975bd0a6a29f11c3f8",
                 "is_ignored": false,
                 "lines": "  value = obj[three[0]]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2539,6 +2649,7 @@
                 "offset": 124
             },
             "extra": {
+                "fingerprint": "e0df8956474d17cdf391c2f0b0dde8a5",
                 "is_ignored": false,
                 "lines": "  value = obj[six.s]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2562,6 +2673,7 @@
                 "offset": 148
             },
             "extra": {
+                "fingerprint": "ecad5a9388c269691a7145e0c2be4084",
                 "is_ignored": false,
                 "lines": "  value = obj[six['s']]",
                 "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -2585,6 +2697,7 @@
                 "offset": 87
             },
             "extra": {
+                "fingerprint": "64f2150665c217379bd442a308fe83e9",
                 "is_ignored": false,
                 "lines": "  r2 = new RegExp(someVar)",
                 "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -2608,6 +2721,7 @@
                 "offset": 126
             },
             "extra": {
+                "fingerprint": "6d9073dd17f56225c7c1c566d5054a2f",
                 "is_ignored": false,
                 "lines": "  r3 = new RegExp('a' + someVar + 'b')",
                 "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -2631,6 +2745,7 @@
                 "offset": 74
             },
             "extra": {
+                "fingerprint": "4942215818199b87d50c436602b1363b",
                 "is_ignored": false,
                 "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2658,6 +2773,7 @@
                 "offset": 166
             },
             "extra": {
+                "fingerprint": "09a7fa81bbcf1f4ef2f8c2ce411cdee0",
                 "is_ignored": false,
                 "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2685,6 +2801,7 @@
                 "offset": 256
             },
             "extra": {
+                "fingerprint": "ad56584d339facf7d5b4d3a711a1ebad",
                 "is_ignored": false,
                 "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2712,6 +2829,7 @@
                 "offset": 336
             },
             "extra": {
+                "fingerprint": "75c0c8e9c5e93759fa48d3b202bddd78",
                 "is_ignored": false,
                 "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2739,6 +2857,7 @@
                 "offset": 216
             },
             "extra": {
+                "fingerprint": "38c9fde17adf59aad3bb325f460b9299",
                 "is_ignored": false,
                 "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }} />",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2766,6 +2885,7 @@
                 "offset": 274
             },
             "extra": {
+                "fingerprint": "fc3496077c063aeac5316fee7bde599b",
                 "is_ignored": false,
                 "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }} />",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2793,6 +2913,7 @@
                 "offset": 80
             },
             "extra": {
+                "fingerprint": "4c2dfcfa6df9180376f01201aad56041",
                 "is_ignored": false,
                 "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </div>",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2820,6 +2941,7 @@
                 "offset": 160
             },
             "extra": {
+                "fingerprint": "bdfaea19997a48c5cb3663516bebfa33",
                 "is_ignored": false,
                 "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </Hello>",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2847,6 +2969,7 @@
                 "offset": 74
             },
             "extra": {
+                "fingerprint": "60a70aff85ec59b6a3a73609fe4b32d4",
                 "is_ignored": false,
                 "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2874,6 +2997,7 @@
                 "offset": 166
             },
             "extra": {
+                "fingerprint": "938d086b34c90b7842153569805f1a30",
                 "is_ignored": false,
                 "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } }, \"Children\");",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2901,6 +3025,7 @@
                 "offset": 256
             },
             "extra": {
+                "fingerprint": "d50befb7a814f1f1046e910fa88e88ca",
                 "is_ignored": false,
                 "lines": "React.createElement(\"div\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2928,6 +3053,7 @@
                 "offset": 336
             },
             "extra": {
+                "fingerprint": "594583f15407f00c63d017b21a847ca0",
                 "is_ignored": false,
                 "lines": "React.createElement(\"Hello\", { dangerouslySetInnerHTML: { __html: \"HTML\" } });",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2955,6 +3081,7 @@
                 "offset": 216
             },
             "extra": {
+                "fingerprint": "9a2e5f3e39c36c3ea8e1df2397ef960b",
                 "is_ignored": false,
                 "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }} />",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -2982,6 +3109,7 @@
                 "offset": 274
             },
             "extra": {
+                "fingerprint": "5c6e674e5d34ef80a8fee596f4cf0b33",
                 "is_ignored": false,
                 "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }} />",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -3009,6 +3137,7 @@
                 "offset": 80
             },
             "extra": {
+                "fingerprint": "5f6a31112b594a10c95d94ce09708d48",
                 "is_ignored": false,
                 "lines": "  <div dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </div>",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
@@ -3036,6 +3165,7 @@
                 "offset": 160
             },
             "extra": {
+                "fingerprint": "1d69dee0b2e0bcd23afd7da0822efd89",
                 "is_ignored": false,
                 "lines": "  <Hello dangerouslySetInnerHTML={{ __html: \"HTML\" }}>\n    Children\n  </Hello>",
                 "message": "Setting HTML from code is risky because it\u2019s easy to inadvertently expose your users to a cross-site scripting (XSS) attack.\n",
