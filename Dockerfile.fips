@@ -36,6 +36,11 @@ RUN yum -y -q update --disableplugin=subscription-manager && \
 
 RUN pip install ruamel.yaml==0.16.12 semgrep==$SCANNER_VERSION
 
+# give write access to CA certificates (OpenShift)
+RUN mkdir -p /etc/ssl/certs/ && \
+        touch /etc/ssl/certs/ca-certificates.crt && \
+	chmod g+w /etc/ssl/certs/ca-certificates.crt
+
 RUN useradd --create-home gitlab -g root
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
