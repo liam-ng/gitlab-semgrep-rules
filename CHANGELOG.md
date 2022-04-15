@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v2.20.2
+- Add custom CA support for FIPS docker image (!112)
+
 ## v2.20.1
 - Add `Dockerfile.fips` and include FIPS image releases (!108)
 
