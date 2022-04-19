@@ -3,7 +3,8 @@ variables:
   MAX_IMAGE_SIZE_MB: 200
   MAX_IMAGE_SIZE_MB_FIPS: 1090
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
-
+  SEARCH_MAX_DEPTH: 20
+  
 include:
   - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
 
@@ -130,3 +131,20 @@ go-custom-ruleset-synthesis-qa:
   trigger:
     project: gitlab-org/security-products/tests/go
     branch: Custom-Ruleset-Synthesis-FREEZE
+
+java-maven-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/java-maven
+    branch: semgrep-migration
+
+java-maven-multimodules-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven-multimodules/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/java-maven-multimodules
+    branch: semgrep-migration-FREEZE
+

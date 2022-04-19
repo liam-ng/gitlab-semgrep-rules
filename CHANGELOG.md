@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+
+## v2.21.0
+- Adding Java support (!111)
+
 ## v2.20.2
 - Add custom CA support for FIPS docker image (!112)
 
