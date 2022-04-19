@@ -54,36 +54,31 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 //  banditIdentifiersFor will take in ruleID as string and output a slice of identifiers
 //  Examples of ruleID: bandit.B303-1, bandit.B502.B503
 func ruleToIDs(ruleID string) []report.Identifier {
+	var empty []report.Identifier
 	matches := strings.Split(ruleID, ".")
-	var ids []report.Identifier
-
 	if len(matches) < 2 {
-		return []report.Identifier{}
+		return empty
 	}
 
-	if matches[0] == "bandit" {
-		for i := 1; i < len(matches); i++ {
-			ids = append(ids, generateBanditID(matches[i]))
+	analyzer, subrules := strings.ToLower(matches[0]), matches[1:]
+
+	switch analyzer {
+	case "bandit":
+		return generateIDs(subrules, generateBanditID)
+	case "eslint":
+		if len(subrules) != 1 {
+			return empty
 		}
+		return generateIDs(subrules, generateEslintID)
+	case "flawfinder":
+		return generateIDs(subrules, generateFlawfinderID)
+	case "gosec":
+		return generateIDs(subrules, generateGosecID)
+	case "find_sec_bugs":
+		return generateIDs(subrules, generateFindSecBugsID)
+	default:
+		return empty
 	}
-
-	if matches[0] == "eslint" && len(matches) == 2 {
-		ids = append(ids, generateEslintID(matches[1]))
-	}
-
-	if matches[0] == "flawfinder" {
-		for i := 1; i < len(matches); i++ {
-			ids = append(ids, generateFlawfinderID(matches[i]))
-		}
-	}
-
-	if matches[0] == "gosec" {
-		for i := 1; i < len(matches); i++ {
-			ids = append(ids, generateGosecID(matches[i]))
-		}
-	}
-
-	return ids
 }
 
 //  generateBanditID will take in bandit_id as string and output an identifier
@@ -121,4 +116,21 @@ func generateGosecID(id string) report.Identifier {
 		Name:  "Gosec Rule ID " + value,
 		Value: value,
 	}
+}
+
+func generateFindSecBugsID(id string) report.Identifier {
+	value := strings.Split(id, "-")[0]
+	return report.Identifier{
+		Type:  "find_sec_bugs_type",
+		Name:  "Find Security Bugs-" + value,
+		Value: value,
+	}
+}
+
+func generateIDs(ruleIDs []string, generator func(string) report.Identifier) []report.Identifier {
+	var ids []report.Identifier
+	for i := 0; i < len(ruleIDs); i++ {
+		ids = append(ids, generator(ruleIDs[i]))
+	}
+	return ids
 }
