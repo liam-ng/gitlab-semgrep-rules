@@ -138,7 +138,6 @@ java-maven-qa:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven/gl-sast-report.json"
   trigger:
     project: gitlab-org/security-products/tests/java-maven
-    branch: semgrep-migration
 
 java-maven-multimodules-qa:
   extends: .qa-downstream-sast
@@ -146,5 +145,4 @@ java-maven-multimodules-qa:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven-multimodules/gl-sast-report.json"
   trigger:
     project: gitlab-org/security-products/tests/java-maven-multimodules
-    branch: semgrep-migration-FREEZE
 
