@@ -1,5 +1,7 @@
 Semgrep analyzer changelog
 
+## v3.0.0
+- Bumping to `v3.0.0` (!114)
 
 ## v2.21.0
 - Adding Java support (!111)
