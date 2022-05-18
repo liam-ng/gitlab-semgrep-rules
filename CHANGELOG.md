@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.0.1
+- Update semgrep to [0.93.0](https://github.com/returntocorp/semgrep/releases/tag/v0.93.0) (!115)
+
 ## v3.0.0
 - Bumping to `v3.0.0` (!114)
 
