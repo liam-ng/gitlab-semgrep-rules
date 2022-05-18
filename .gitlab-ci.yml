@@ -147,3 +147,7 @@ java-maven-multimodules-qa:
     project: gitlab-org/security-products/tests/java-maven-multimodules
     branch: semgrep-migration-FREEZE
 
+danger-review:
+  variables:
+    DANGER_BOT_VERSION: bwill-use-shared-roulette
+
