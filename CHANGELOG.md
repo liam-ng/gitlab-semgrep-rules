@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.0.1
+- It's a changelog (!117)
+
 ## v3.0.0
 - Bumping to `v3.0.0` (!114)
 
