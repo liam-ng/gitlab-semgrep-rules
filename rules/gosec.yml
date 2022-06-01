@@ -108,7 +108,7 @@ rules:
     cwe: "CWE-310: Cryptographic Issues"
     owasp: "A05:2021: Security Misconfiguration"
   languages:
-    - go
+    - "go"
   severity: WARNING
 - id: "gosec.G106-1"
   patterns:
