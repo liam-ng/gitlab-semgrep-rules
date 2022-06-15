@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v3.0.1
+- Bumping gosec ruleset to v1.0.47 (!119)
+    - Remove incorrect mapping to Gosec rule G104, which is not currently implemented
+    - Add rule G402 to detect TLS versions before 1.2
+
 ## v3.0.0
 - Bumping to `v3.0.0` (!114)
 
