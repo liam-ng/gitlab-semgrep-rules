@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v3.0.2
+- Fix dependencies conflict resolution via `--best --allowerasing` yum flags (!122)
+- Remove redundant `yum update` operation in favor of `yum upgrade` (!122)
+
 ## v3.0.1
 - Bumping gosec ruleset to v1.0.47 (!119)
     - Remove incorrect mapping to Gosec rule G104, which is not currently implemented
