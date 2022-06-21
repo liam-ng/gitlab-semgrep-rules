@@ -10,6 +10,7 @@ import (
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/plugin"
 )
 
+// test
 func main() {
 	app := command.NewApp(metadata.AnalyzerDetails)
 	app.Version = metadata.AnalyzerVersion
