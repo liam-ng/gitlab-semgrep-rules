@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.0.3
+- Trim whitespace from values in `SAST_EXCLUDED_PATHS` (!123)
+
 ## v3.0.2
 - Fix dependencies conflict resolution via `--best --allowerasing` yum flags (!122)
 - Remove redundant `yum update` operation in favor of `yum upgrade` (!122)

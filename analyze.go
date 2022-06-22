@@ -123,10 +123,10 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths string, enable
 		"--no-git-ignore",
 	}
 
-	if excludedPaths != "" {
+	if strings.TrimSpace(excludedPaths) != "" {
 		excludes := strings.Split(excludedPaths, ",")
 		for _, exclude := range excludes {
-			args = append(args, "--exclude", exclude)
+			args = append(args, "--exclude", strings.TrimSpace(exclude))
 		}
 	}
 
