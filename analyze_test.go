@@ -24,7 +24,6 @@ func TestBuildArgs(t *testing.T) {
 				"--strict",
 				"--disable-version-check",
 				"--no-git-ignore",
-				"projectPath",
 			},
 		},
 		{
@@ -43,7 +42,6 @@ func TestBuildArgs(t *testing.T) {
 				"--exclude", "test",
 				"--exclude", "tests",
 				"--exclude", "tmp",
-				"projectPath",
 			},
 		},
 		{
@@ -60,7 +58,6 @@ func TestBuildArgs(t *testing.T) {
 				"--no-git-ignore",
 				"--exclude", "test/*.js",
 				"--exclude", "*.rb",
-				"projectPath",
 			},
 		},
 		{
@@ -76,7 +73,6 @@ func TestBuildArgs(t *testing.T) {
 				"--disable-version-check",
 				"--no-git-ignore",
 				"--enable-metrics",
-				"projectPath",
 			},
 		},
 	}
