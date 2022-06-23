@@ -2,6 +2,7 @@ Semgrep analyzer changelog
 
 ## v3.0.3
 - Trim whitespace from values in `SAST_EXCLUDED_PATHS` (!123)
+- Match `SAST_EXCLUDED_PATHS` values relative to the project root (!124)
 
 ## v3.0.2
 - Fix dependencies conflict resolution via `--best --allowerasing` yum flags (!122)
