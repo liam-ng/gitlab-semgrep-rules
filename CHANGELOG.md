@@ -1,5 +1,13 @@
 Semgrep analyzer changelog
 
+## v3.1.0
+- Bump semgrep version to [0.98.0](https://github.com/returntocorp/semgrep/releases/tag/v0.98.0) (!120)
+    + Fixed: Fixed a non-deterministic crash when matching a large number of regexes
+    + Changed: If a metrics event request times out, we no longer retry the request. This avoids Semgrep waiting 10-20 seconds before exiting if these requests are slow.
+    + Changed: The metrics collection timeout has been raised from 2 seconds to 3 seconds.
+    + Fixed: Handle utf-8 decoding errors without crashing
+    + Changed: Parsing: fail fast on in semgrep-core if rules fail to validate
+
 ## v3.0.3
 - Trim whitespace from values in `SAST_EXCLUDED_PATHS` (!123)
 - Match `SAST_EXCLUDED_PATHS` values relative to the project root (!124)
