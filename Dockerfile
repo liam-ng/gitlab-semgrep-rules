@@ -21,9 +21,9 @@ RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') &&
 # Allow the semgrep user to add custom ca certificates to the system.
 RUN addgroup -g 1000 semgrep && \
     adduser -u 1000 -D -h /home/semgrep -G semgrep semgrep && \
-    touch /ca-cert-additional-gitlab-bundle.pem && \
-    chown root:semgrep /ca-cert-additional-gitlab-bundle.pem && \
-    chmod g+w /ca-cert-additional-gitlab-bundle.pem
+    touch /ca-cert-additional-gitlab-bundle.crt && \
+    chown root:semgrep /ca-cert-additional-gitlab-bundle.crt&& \
+    chmod g+w /ca-cert-additional-gitlab-bundle.crt
 
 FROM python:3.9-alpine
 
@@ -32,7 +32,7 @@ ENV SCANNER_VERSION ${SCANNER_VERSION}
 ENV SEMGREP_R2C_INTERNAL_EXPLICIT_SEMGREPIGNORE "/semgrepignore"
 
 COPY --from=build /analyzer-semgrep /analyzer-binary
-COPY --from=build /ca-cert-additional-gitlab-bundle.pem /etc/ssl/certs/ca-cert-additional-gitlab-bundle.pem
+COPY --from=build /ca-cert-additional-gitlab-bundle.crt /etc/ssl/certs/ca-cert-additional-gitlab-bundle.crt
 COPY rules /rules
 COPY semgrepignore /semgrepignore
 RUN mkdir /.cache && \

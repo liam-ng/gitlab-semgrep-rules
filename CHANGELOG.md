@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.1.1
+- Fix custom CA cert path (!121)
+
 ## v3.1.0
 - Bump semgrep version to [0.98.0](https://github.com/returntocorp/semgrep/releases/tag/v0.98.0) (!120)
     + Fixed: Fixed a non-deterministic crash when matching a large number of regexes
