@@ -1,0 +1,16 @@
+[gosec]
+  [[gosec.ruleset]]
+    [gosec.ruleset.identifier]
+        type = "CWE"
+        value = "703"
+    [gosec.ruleset.override]
+      severity = "Critical"
+
+[semgrep]
+  description = 'semgrep custom rules configuration'
+  timeout = 60
+
+  [[semgrep.passthrough]]
+    type  = "git"
+    value = "https://gitlab.com/user/myrules.git"
+    ref = "refs/remotes/origin/test"

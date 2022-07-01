@@ -1,0 +1,7 @@
+[gosec]
+  [[gosec.ruleset]]
+    [gosec.ruleset.identifier]
+        type = "CWE"
+        value = "703"
+    [gosec.ruleset.override]
+      severity = "Critical"
