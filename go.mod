@@ -7,6 +7,7 @@ require (
 	github.com/ProtonMail/go-crypto v0.0.0-20220113124808-70ae35bab23f // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.1 // indirect
 	github.com/sirupsen/logrus v1.8.1
+	github.com/stretchr/testify v1.7.0
 	github.com/urfave/cli/v2 v2.3.0
 	gitlab.com/gitlab-org/security-products/analyzers/command v1.6.1
 	gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.1
