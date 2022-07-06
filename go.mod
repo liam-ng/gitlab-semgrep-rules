@@ -10,7 +10,7 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/urfave/cli/v2 v2.3.0
 	gitlab.com/gitlab-org/security-products/analyzers/command v1.6.1
-	gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.1
+	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.0
 	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.11.0
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect

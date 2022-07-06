@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.2.0
+- Upgrade the `common` package to `v3.2.0` to support globstar patterns (!130)
+
 ## v3.1.1
 - Bypass language-based matching filter when custom ruleset contains Semgrep rules (!127)
 

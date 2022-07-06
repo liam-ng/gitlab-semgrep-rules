@@ -7,7 +7,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/common/v2/plugin"
+	"gitlab.com/gitlab-org/security-products/analyzers/common/v3/plugin"
 	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 )
 
