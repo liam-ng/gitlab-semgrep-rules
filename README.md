@@ -10,7 +10,14 @@ contains documentation on how to run, test and modify this analyzer.
 
 ## Rules
 
-You can find details about the rule-sets and their sources in
+When the Semgrep analyzer is executed, it's provided with a directory of rule
+files (the "ruleset"). You can find the default rulset under the `/rules`
+directory, and a collection of archived rules under `/rules_archived`.
+
+Archived rules can be re-enabled using [custom
+rulesets](https://docs.gitlab.com/ee/user/application_security/sast/#customize-rulesets).
+
+You can find more details about rulesets and their sources in
 [`RULES.md`](RULES.md).
 
 ## Contributing
