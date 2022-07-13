@@ -1,7 +1,10 @@
 Semgrep analyzer changelog
 
 ## v3.2.0
-- Upgrade the `common` package to `v3.2.0` to support globstar patterns (!130)
+- Upgrade the `common` and `command` packages, and remove no-op commands from the Dockerfile (!130) 
+  + Adds support for globstar patterns.
+  + Resolves an issue using custom CA certs with the FIPS image
+  + Removes commands from the Dockerfile that set up the `semgrep` user and assigns permissions to the `.pem` cert bundle, as they didn't have an effect
 
 ## v3.1.1
 - Bypass language-based matching filter when custom ruleset contains Semgrep rules (!127)
