@@ -31,6 +31,10 @@ ARG SCANNER_VERSION
 ENV SCANNER_VERSION ${SCANNER_VERSION}
 ENV SEMGREP_R2C_INTERNAL_EXPLICIT_SEMGREPIGNORE "/semgrepignore"
 
+RUN mkdir -p /etc/ssl/certs/ && \
+    touch /etc/ssl/certs/ca-certificates.crt && \
+    chmod g+w /etc/ssl/certs/ca-certificates.crt
+
 COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY --from=build /ca-cert-additional-gitlab-bundle.pem /etc/ssl/certs/ca-cert-additional-gitlab-bundle.pem
 COPY rules /rules
