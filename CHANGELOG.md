@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.2.0
+- Remove the ESLint `detect-object-injection` rule (!132)
+
 ## v3.1.1
 - Bypass language-based matching filter when custom ruleset contains Semgrep rules (!127)
 
