@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.2.0
+- Use `sast-rules` package for rules (!128)
+
 ## v3.1.1
 - Bypass language-based matching filter when custom ruleset contains Semgrep rules (!127)
 
