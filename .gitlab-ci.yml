@@ -12,6 +12,8 @@ variables:
   SECURE_ANALYZERS_PREFIX: registry.gitlab.com/security-products
 
 verify-fips:
+  tags:
+    - fips
   rules:
     - when: always
   stage: test
