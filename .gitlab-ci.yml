@@ -1,6 +1,13 @@
 include:
   - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
 
+print-tmp-image:
+  stage: test
+  rules:
+    - when: always
+  script: |
+    echo "$TMP_IMAGE$IMAGE_TAG_SUFFIX"
+
 verify-fips:
   rules:
     - when: always
