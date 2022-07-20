@@ -13,7 +13,7 @@ variables:
 
 verify-fips:
   tags:
-    - fips
+    - gitlab-org-fips
   rules:
     - when: always
   stage: test
