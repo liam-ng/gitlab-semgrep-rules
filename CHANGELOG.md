@@ -1,5 +1,11 @@
 Semgrep analyzer changelog
 
+## v3.2.1
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.98.0` => [`0.104.0`](https://github.com/returntocorp/semgrep/releases/tag/v0.104.0)] (!133)
+- upgrade `github.com/stretchr/testify` version [`v1.7.0` => [`v1.8.0`](https://github.com/stretchr/testify/releases/tag/v1.8.0)] (!133)
+- upgrade `github.com/urfave/cli/v2` version [`v2.3.0` => [`v2.11.0`](https://github.com/urfave/cli/releases/tag/v2.11.0)] (!133)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.11.0` => [`v3.12.2`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.12.2)] (!133)
+
 ## v3.2.0
 - Upgrade the `common` and `command` packages, and remove no-op commands from the Dockerfile (!130) 
   + Adds support for globstar patterns.
