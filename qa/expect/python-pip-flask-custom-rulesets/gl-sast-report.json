@@ -219,57 +219,6 @@
           }
         ]
       }
-    },
-    {
-      "id": "91ba1c1a916d33ca0823e0d8931d223301709b9c681fe8b0e956b2ef54113350",
-      "category": "sast",
-      "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/static/main.js",
-        "start_line": 27
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-94",
-          "value": "94",
-          "url": "https://cwe.mitre.org/data/definitions/94.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-object-injection",
-          "value": "security/detect-object-injection"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app/static/main.js",
-            "line_start": 27,
-            "line_end": 27,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app/static/main.js|handler[0]:2"
-              }
-            ]
-          }
-        ]
-      }
     }
   ],
   "scan": {

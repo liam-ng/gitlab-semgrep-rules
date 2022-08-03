@@ -18,5 +18,5 @@ require (
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d // indirect
 	golang.org/x/net v0.0.0-20220708220712-1185a9018129 // indirect
-	golang.org/x/sys v0.0.0-20220721230656-c6bc011c0c49 // indirect
+	gopkg.in/yaml.v2 v2.4.0
 )

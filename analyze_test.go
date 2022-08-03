@@ -1,8 +1,14 @@
 package main
 
 import (
+	"io/ioutil"
+	"os"
+	"path"
 	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestBuildArgs(t *testing.T) {
@@ -120,4 +126,28 @@ func TestBuildArgs(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestRemoveRulesFromFile(t *testing.T) {
+	wd, err := os.Getwd()
+	require.Nil(t, err)
+
+	rulefileName := "remove_rules_from_file.yml"
+	rulefileOriginal := path.Join(wd, "testdata", rulefileName)
+	rulefileTesting := path.Join(t.TempDir(), rulefileName)
+
+	// copy original rulefile to a temporary one for testing
+	rulefileTestingContent, err := ioutil.ReadFile(rulefileOriginal)
+	require.Nil(t, err)
+	require.Nil(t, ioutil.WriteFile(rulefileTesting, rulefileTestingContent, 0666))
+
+	// remove some rules
+	ruleToRemove := "eslint.detect-object-injection"
+	require.Nil(t, removeRulesFromFile(rulefileTesting, []string{ruleToRemove}))
+
+	// assert
+	modifiedRulefileContents, err := ioutil.ReadFile(rulefileTesting)
+	assert.NotContains(t, string(modifiedRulefileContents), ruleToRemove)
+	assert.Contains(t, string(modifiedRulefileContents), "eslint.detect-non-literal-fs-filename", "should not remove unmatched rules")
+	assert.Equal(t, 4280, len(modifiedRulefileContents), "should not result in an empty file")
 }
