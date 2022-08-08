@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.3.1
+- Upgrade the `command` package for better analyzer messages. (!138)
+
 ## v3.3.0
 - Disables high-FP rules when `SAST_EXPERIMENTAL_FEATURES` is `true` (!135)
 

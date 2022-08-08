@@ -77,7 +77,6 @@ github.com/otiai10/curr v1.0.0/go.mod h1:LskTG5wDwr8Rs+nNQ+1LlxRjAtTZZjtJW4rMXl6
 github.com/otiai10/mint v1.3.0/go.mod h1:F5AjcsTsWUqX+Na9fpHb52P8pcRX2CI6A3ctIT91xUo=
 github.com/otiai10/mint v1.3.3 h1:7JgpsBaN0uMkyju4tbYHu0mnM55hNKVYLsXmwr15NQI=
 github.com/otiai10/mint v1.3.3/go.mod h1:/yxELlJQ0ufhjUwhshSj+wFjZ78CnZ48/1wtmBH1OTc=
-github.com/pelletier/go-toml v1.8.1/go.mod h1:T2/BmBdy8dvIRq1a/8aqjN41wvWlN4lrapLU/GW4pbc=
 github.com/pelletier/go-toml v1.9.4/go.mod h1:u1nR/EPcESfeI/szUZKdtJ0xRNbUoANCkoOuaOx1Y+c=
 github.com/pelletier/go-toml v1.9.5 h1:4yBQzkHv+7BHq2PQUZF3Mx0IYxG7LsP222s7Agd3ve8=
 github.com/pelletier/go-toml v1.9.5/go.mod h1:u1nR/EPcESfeI/szUZKdtJ0xRNbUoANCkoOuaOx1Y+c=
@@ -117,15 +116,12 @@ github.com/xanzy/ssh-agent v0.3.1 h1:AmzO1SSWxw73zxFZPRwaMN1MohDw8UyHnmuxyceTEGo
 github.com/xanzy/ssh-agent v0.3.1/go.mod h1:QIE4lCeL7nkC25x+yA3LBIYfwCc1TFziCtG7cBAac6w=
 github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 h1:bAn7/zixMGCfxrRTfdpNzjtPYqr8smhKouy9mxVdGPU=
 github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673/go.mod h1:N3UwUGtsrSj3ccvlPHLoLsHnpR27oXr4ZE984MbSER8=
-gitlab.com/gitlab-org/security-products/analyzers/command v1.8.0 h1:5hpTlHBR9qbxqcz1KQFEnQIEYX55sAV8sgH07uAMk6A=
-gitlab.com/gitlab-org/security-products/analyzers/command v1.8.0/go.mod h1:mO331ImRZQjsLm5a+pf89+ZKQaiRhq/E6/wpVQpgkKk=
-gitlab.com/gitlab-org/security-products/analyzers/common/v2 v2.24.0/go.mod h1:HoDWi0h6DclI8JHsWgxOc+T128UYWyUyVF/Vw4FgwS8=
+gitlab.com/gitlab-org/security-products/analyzers/command v1.8.2 h1:riN+ihJnO0MdOEkZXrpId+/6vvd9mjN9rdmfTAuHwlY=
+gitlab.com/gitlab-org/security-products/analyzers/command v1.8.2/go.mod h1:IOX2hZqM7O22XIoKBoGUxLZrUz1YHLN2eeiAdEQ5RRc=
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.0 h1:gzxgyKuKlbjuwBhAJJvpZD4QQalYPjvat4ZcDrCBl0A=
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.0/go.mod h1:MaLrVtJgCo/X9jxNkZUkZPCa7sc5lFAMqJVjsKFMUpc=
-gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.12.0/go.mod h1:B3afHGlhjI8ocwBvhPu6plnvmmt7MPTptbH45KsQZIk=
 gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.12.2 h1:mi5y0MKeCSnx+DpRnVODNGvvj4c/DTtXTsnTnXRezLY=
 gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.12.2/go.mod h1:u0RRQ29T510kw31czk9E7h8+D2CbSnQAyltsf3mBo/w=
-gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.0.0/go.mod h1:z7wAlQqgacceK7owA4BJbVr0SOm5gA+ICeTqCqN5uzA=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0 h1:eprSC+VWldo4+RkgcjYURnKUUEkCADACaLAulqHQ+fQ=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0/go.mod h1:OSsBZ498CAwBK77/RnQCTHoTofCl7tMCwW+Ajc2hd4o=
 golang.org/x/crypto v0.0.0-20190219172222-a4c6cb3142f2/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
