@@ -12,7 +12,7 @@ check scanner version:
     - if: '$REPORT_FILENAME == "gl-sast-report.json"'
   script:
     - |
-      SCANNER_VERSION=$(egrep -o "SCANNER_VERSION(?:=|\:\-){1,}([a-zA-Z0-9\.\-\_])" Dockerfile)
+      SCANNER_VERSION=$(egrep -o "SCANNER_VERSION[:=|\:\-]{1,}([a-zA-Z0-9\.\-\_])" Dockerfile)
       #SCANNER_VERSION_FIPS=$(egrep -o "SCANNER_VERSION(?:=|\:\-){1,}([a-zA-Z0-9\.\-\_])" Dockerfile.fips)
       # check if SCANNER_VERSION is the same as SCANNER_VERSION_FIPS
       #if [ "$SCANNER_VERSION" != "$SCANNER_VERSION_FIPS" ]; then
