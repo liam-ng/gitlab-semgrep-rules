@@ -27,8 +27,8 @@ check scanner version:
       fi
   rules:
     - if: '$REPORT_FILENAME == "gl-sast-report.json"
-      exists:
-        - 'Dockerfile.fips'
+    exists:
+      - 'Dockerfile.fips'
 
 reviewers-recommender:
   stage: pre-build
