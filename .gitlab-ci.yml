@@ -6,5 +6,5 @@ variables:
   SEARCH_MAX_DEPTH: 20
   
 include:
-  - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/-/raw/feat/scanner-version-check/includes-dev/analyzer.yml
+  - https://gitlab.com/gitlab-org/security-products/ci-templates/-/raw/feat/scanner-version-check/includes-dev/analyzer.yml
 
