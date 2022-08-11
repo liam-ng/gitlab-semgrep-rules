@@ -16,6 +16,10 @@ include:
 check scanner version:
   stage: test
   image: docker:20.10
+  rules:
+    - if: '$REPORT_FILENAME == "gl-sast-report.json"
+    exists:
+      - 'Dockerfile.fips'
   script:
     - |
       SCANNER_VERSION=$(egrep -o "SCANNER_VERSION(?:=|:-){1,}([a-zA-Z0-9.-_]+)" Dockerfile)
@@ -25,10 +29,6 @@ check scanner version:
         echo "Error: SCANNER_VERSION and SCANNER_VERSION_FIPS are not the same."
         exit 1
       fi
-      rules:
-    - if: '$REPORT_FILENAME == "gl-sast-report.json"
-    exists:
-      - 'Dockerfile.fips'
 
 reviewers-recommender:
   stage: pre-build
