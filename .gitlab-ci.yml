@@ -10,6 +10,9 @@ check scanner version:
   image: docker:20.10
   rules:
     - if: '$REPORT_FILENAME == "gl-sast-report.json"'
+    exists:
+      - Dockerfile.fips
+
   script:
     - |
       SCANNER_VERSION=$(egrep -o "SCANNER_VERSION[:=|\:\-]{1,}([a-zA-Z0-9\.\-\_]{1,})" Dockerfile)
