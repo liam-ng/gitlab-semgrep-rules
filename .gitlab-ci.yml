@@ -20,13 +20,13 @@ check scanner version:
     - if: '$REPORT_FILENAME == "gl-sast-report.json"'
   script:
     - |
-      SCANNER_VERSION=$(egrep -o "SCANNER_VERSION(?:=|\:\-){1,}([a-zA-Z0-9\.\-\_]{1,})" Dockerfile)
-      SCANNER_VERSION_FIPS=$(egrep -o "SCANNER_VERSION(?:=|\:\-){1,}([a-zA-Z0-9\.\-\_]{1,})" Dockerfile.fips)
+      SCANNER_VERSION=$(egrep -o "SCANNER_VERSION(?:=|\:\-){1,}([a-zA-Z0-9\.\-\_])" Dockerfile)
+      #SCANNER_VERSION_FIPS=$(egrep -o "SCANNER_VERSION(?:=|\:\-){1,}([a-zA-Z0-9\.\-\_])" Dockerfile.fips)
       # check if SCANNER_VERSION is the same as SCANNER_VERSION_FIPS
-      if [ "$SCANNER_VERSION" != "$SCANNER_VERSION_FIPS" ]; then
-        echo "Error: SCANNER_VERSION and SCANNER_VERSION_FIPS are not the same."
-        exit 1
-      fi
+      #if [ "$SCANNER_VERSION" != "$SCANNER_VERSION_FIPS" ]; then
+      #  echo "Error: SCANNER_VERSION and SCANNER_VERSION_FIPS are not the same."
+      #  exit 1
+      #fi
 
 reviewers-recommender:
   stage: pre-build
