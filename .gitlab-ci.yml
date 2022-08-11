@@ -8,3 +8,5 @@ variables:
 include:
   - https://gitlab.com/gitlab-org/security-products/ci-templates/-/raw/feat/scanner-version-check/includes-dev/analyzer.yml
 
+
+
