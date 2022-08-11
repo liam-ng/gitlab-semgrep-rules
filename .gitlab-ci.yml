@@ -17,7 +17,7 @@ check scanner version:
   stage: test
   image: docker:20.10
   rules:
-    - if: '$REPORT_FILENAME == "gl-sast-report.json"
+    if: '$REPORT_FILENAME == "gl-sast-report.json"
     exists:
       - 'Dockerfile.fips'
   script:
