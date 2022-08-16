@@ -16,12 +16,20 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
+	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/cliarg"
 )
 
 const (
 	flagSASTExcludedPaths        = "sast-excluded-paths"
 	flagSASTSemgrepMetrics       = "semgrep-send-metrics"
 	flagSASTExperimentalFeatures = "sast-experimental-features"
+	flagSASTAllowedCLIOpts       = "sast-scanner-allowed-cli-opts"
+)
+
+var (
+	// allowedCliOpts is the set of CLI options that are allowed to pass to
+	// the underlying security scanner. see https://gitlab.com/gitlab-org/gitlab/-/issues/368565
+	allowedCliOpts = []string{"--max-memory"}
 )
 
 // invalidExitCodes contains exit codes for which we should err
@@ -58,6 +66,11 @@ func analyzeFlags() []cli.Flag {
 			Name:    flagSASTExcludedPaths,
 			Usage:   "See https://docs.gitlab.com/ee/user/application_security/sast/#vulnerability-filters",
 			EnvVars: []string{"SAST_EXCLUDED_PATHS"},
+		},
+		&cli.StringFlag{
+			Name:    flagSASTAllowedCLIOpts,
+			Usage:   "See https://docs.gitlab.com/ee/user/application_security/sast/#security-scanner-configuration",
+			EnvVars: []string{"SAST_SCANNER_ALLOWED_CLI_OPTS"},
 		},
 	}
 }
@@ -107,6 +120,7 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 		outputPath,
 		projectPath,
 		c.String(flagSASTExcludedPaths),
+		c.String(flagSASTAllowedCLIOpts),
 		c.Bool(flagSASTSemgrepMetrics),
 	)
 
@@ -134,7 +148,7 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 	return os.Open(outputPath) // #nosec G304
 }
 
-func buildArgs(configPath, outputPath, projectPath, excludedPaths string, enableMetrics bool) []string {
+func buildArgs(configPath, outputPath, projectPath, excludedPaths, scannerOpts string, enableMetrics bool) []string {
 	var args []string
 
 	args = []string{
@@ -156,6 +170,10 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths string, enable
 
 	if enableMetrics {
 		args = append(args, "--enable-metrics")
+	}
+
+	if opts := parseAllowedCLIOpts(scannerOpts); len(opts) > 0 {
+		args = append(args, opts...)
 	}
 
 	return args
@@ -245,4 +263,46 @@ func contains(ruleID string, ruleIDs []string) bool {
 func remove(s []semgrepRule, i int) []semgrepRule {
 	s[i] = s[len(s)-1]
 	return s[:len(s)-1]
+}
+
+// parseAllowedCLIOpts parses arg str passed to SAST_SCANNER_ALLOWED_CLI_OPTS CI var and returns only
+// those args/flags that are present in `allowedCliOpts`. Below are some example input representations:
+//
+// "--arg1 --arg2 -arg3"       // regular flags with different prefixes(-/--)
+// "--arg1 val --arg2 val"     // regular arg name with value separated by space
+// "-arg1 val -arg2 val"       // aliased arg name with value separated by space
+// "--arg1 val --arg2"         // combination of regular arg with space separated value and a flag
+// "--arg1=val --arg2=val"     // regular arg name with value separated by equals(=)
+// "--arg1=val -arg2=val"      // regular args with different prefix - and --
+// "--arg1=val --arg2"         // combination of regular arg with equals(=) separated value and a flag
+//
+func parseAllowedCLIOpts(scannerOpts string) (args []string) {
+	if cliArgStr := strings.TrimSpace(scannerOpts); cliArgStr != "" {
+		cliArgs, invalid := cliarg.Parse(cliArgStr)
+		if len(invalid) > 0 {
+			log.Warnf("skipping following values as they are not represented under any flag: %s", invalid)
+		}
+		for _, arg := range cliArgs {
+			if !isFlagAllowed(arg) {
+				log.Warnf("skipping '%s' arg as it does not fall under allowed list of CLI args: %s", arg.Name, allowedCliOpts)
+				continue
+			}
+			if arg.IsFlag {
+				args = append(args, arg.Name)
+			} else {
+				args = append(args, arg.Name, arg.Value)
+			}
+		}
+	}
+	return
+}
+
+// isFlagAllowed checks if the given flag falls under the allowedCliOpts list
+func isFlagAllowed(flag cliarg.Arg) bool {
+	for _, opt := range allowedCliOpts {
+		if flag.Name == opt {
+			return true
+		}
+	}
+	return false
 }

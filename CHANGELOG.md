@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v3.3.2
+- Add support `SAST_SCANNER_ALLOWED_CLI_OPTS` CI variable (!139)
+- Add `--max-memory` flag under list of scanner allowed CLI options (!139)
+
 ## v3.3.1
 - Upgrade the `command` package for better analyzer messages. (!138)
 
