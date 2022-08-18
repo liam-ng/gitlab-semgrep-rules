@@ -4,9 +4,10 @@ variables:
   MAX_IMAGE_SIZE_MB_FIPS: 1090
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
   SEARCH_MAX_DEPTH: 20
-  
+ 
 include:
   - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+  - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/-/raw/46197e8a563b6be673be55f0dc888b525dcec897/includes-dev/docker-test.yml
 
   # Include Reviewers.gitlab-ci.yml to recommend code reviewers for a given MR
   - project: gitlab-org/modelops/applied-ml/review-recommender/ci-templates
