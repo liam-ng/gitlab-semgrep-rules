@@ -1,7 +1,7 @@
 Semgrep analyzer changelog
 
 ## v3.5.1
-- Fake changelog entry to test tokens (!143)
+- Fake changelog entry to test tokens (!144)
 
 ## v3.5.0
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.104.0` => [`0.110.0`](https://github.com/returntocorp/semgrep/releases/tag/v0.110.0)] (!140)
