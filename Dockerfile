@@ -2,7 +2,7 @@
 ARG SCANNER_VERSION=0.110.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.0.5
 ARG TRACKING_CALCULATOR_VERSION=2.2.5
-
+# noop
 FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZER_SCRIPTS_VERSION} AS scripts
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
