@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=0.98.0
+ARG SCANNER_VERSION=0.110.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.0.5
 ARG TRACKING_CALCULATOR_VERSION=2.2.5
 
@@ -27,18 +27,15 @@ RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') &&
         PATH_TO_MODULE=`go list -m` && \
         go build -ldflags="-X '$PATH_TO_MODULE/metadata.AnalyzerVersion=$CHANGELOG_VERSION'" -o /analyzer-semgrep
 
-# Allow the semgrep user to add custom ca certificates to the system.
-RUN addgroup -g 1000 semgrep && \
-    adduser -u 1000 -D -h /home/semgrep -G semgrep semgrep && \
-    touch /ca-cert-additional-gitlab-bundle.pem && \
-    chown root:semgrep /ca-cert-additional-gitlab-bundle.pem && \
-    chmod g+w /ca-cert-additional-gitlab-bundle.pem
-
 FROM python:3.9-alpine
 
 ARG SCANNER_VERSION
 ENV SCANNER_VERSION ${SCANNER_VERSION}
 ENV SEMGREP_R2C_INTERNAL_EXPLICIT_SEMGREPIGNORE "/semgrepignore"
+
+RUN mkdir -p /etc/ssl/certs/ && \
+    touch /etc/ssl/certs/ca-certificates.crt && \
+    chmod g+w /etc/ssl/certs/ca-certificates.crt
 
 COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY --from=build /ca-cert-additional-gitlab-bundle.pem /etc/ssl/certs/ca-cert-additional-gitlab-bundle.pem

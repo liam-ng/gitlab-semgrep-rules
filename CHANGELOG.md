@@ -1,7 +1,38 @@
 Semgrep analyzer changelog
 
-## v3.2.0
+## v3.6.0
 - Use `sast-rules` package for rules (!128)
+
+## v3.5.0
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.104.0` => [`0.110.0`](https://github.com/returntocorp/semgrep/releases/tag/v0.110.0)] (!140)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.8.2` => [`v1.9.1`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.9.1)] (!140)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.12.2` => [`v3.13.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.13.0)] (!140)
+
+## v3.4.0
+- Upgrade the `command` package (!141)
+  + Logs environment variables at a debug level before running
+
+## v3.3.2
+- Add support `SAST_SCANNER_ALLOWED_CLI_OPTS` CI variable (!139)
+- Add `--max-memory` flag under list of scanner allowed CLI options (!139)
+
+## v3.3.1
+- Upgrade the `command` package for better analyzer messages. (!138)
+
+## v3.3.0
+- Disables high-FP rules when `SAST_EXPERIMENTAL_FEATURES` is `true` (!135)
+
+## v3.2.1
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.98.0` => [`0.104.0`](https://github.com/returntocorp/semgrep/releases/tag/v0.104.0)] (!133)
+- upgrade `github.com/stretchr/testify` version [`v1.7.0` => [`v1.8.0`](https://github.com/stretchr/testify/releases/tag/v1.8.0)] (!133)
+- upgrade `github.com/urfave/cli/v2` version [`v2.3.0` => [`v2.11.0`](https://github.com/urfave/cli/releases/tag/v2.11.0)] (!133)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.11.0` => [`v3.12.2`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.12.2)] (!133)
+
+## v3.2.0
+- Upgrade the `common` and `command` packages, and remove no-op commands from the Dockerfile (!130)
+  + Adds support for globstar patterns.
+  + Resolves an issue using custom CA certs with the FIPS image
+  + Removes commands from the Dockerfile that set up the `semgrep` user and assigns permissions to the `.pem` cert bundle, as they didn't have an effect
 
 ## v3.1.1
 - Bypass language-based matching filter when custom ruleset contains Semgrep rules (!127)
