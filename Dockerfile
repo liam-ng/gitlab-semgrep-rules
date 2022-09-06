@@ -38,7 +38,6 @@ RUN mkdir -p /etc/ssl/certs/ && \
     chmod g+w /etc/ssl/certs/ca-certificates.crt
 
 COPY --from=build /analyzer-semgrep /analyzer-binary
-COPY --from=build /ca-cert-additional-gitlab-bundle.pem /etc/ssl/certs/ca-cert-additional-gitlab-bundle.pem
 COPY --from=build /archive/rule-sets /rules
 COPY semgrepignore /semgrepignore
 RUN mkdir /.cache && \
