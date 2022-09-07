@@ -4,7 +4,7 @@ variables:
   MAX_IMAGE_SIZE_MB_FIPS: 1090
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
   SEARCH_MAX_DEPTH: 20
-  
+
 include:
   - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
 
@@ -147,3 +147,26 @@ java-maven-multimodules-qa:
     project: gitlab-org/security-products/tests/java-maven-multimodules
     branch: semgrep-migration-FREEZE
 
+csharp-dotnetcore-multiproject-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/csharp-dotnetcore-multiproject/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/csharp-dotnetcore-multiproject
+
+csharp-dotnetcore-multisolution-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/csharp-dotnetcore-multisolution/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/csharp-dotnetcore-multiproject
+    branch: multisolution-FREEZE
+
+# Commenting out this until we add `.cs` to this list: https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml#L254-263
+# csharp-dotnetcore-msbuild-multiproject-qa:
+#   extends: .qa-downstream-sast
+#   variables:
+#     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/csharp-dotnetcore-multiproject/multisolution-msbuild/gl-sast-report.json"
+#   trigger:
+#     project: gitlab-org/security-products/tests/csharp-dotnetcore-multiproject
+#     branch: multisolution-msbuild-FREEZE
