@@ -1,7 +1,10 @@
 Semgrep analyzer changelog
 
-## v3.6.0
+## v3.7.0
 - Use `sast-rules` package for rules (!128)
+
+## v3.6.0
+- Adding Csharp support and security-code-scan ruleset (!137)
 
 ## v3.5.0
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.104.0` => [`0.110.0`](https://github.com/returntocorp/semgrep/releases/tag/v0.110.0)] (!140)

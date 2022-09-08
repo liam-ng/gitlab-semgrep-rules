@@ -12,7 +12,7 @@ import (
 )
 
 // supported languages' file extensions
-var supportedExt = []string{".py", ".js", ".ts", ".jsx", ".tsx", ".c", ".go", ".java"}
+var supportedExt = []string{".py", ".js", ".ts", ".jsx", ".tsx", ".c", ".go", ".java", ".cs"}
 
 // isRulesetCheckDone keeps track of whether ruleset check is already done
 // so that when the ruleset file is not present, the same information is reused
