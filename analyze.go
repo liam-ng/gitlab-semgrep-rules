@@ -46,7 +46,7 @@ var invalidExitCodes = map[int]bool{
 // highFPRules is a map of analyzer names to rule IDs of rules that are known to
 // cause a high FP rate.
 var highFPRules = map[string][]string{
-	"eslint.yml": {"eslint.detect-object-injection"},
+	"eslint.yml": {"eslint.security/detect-object-injection-1"},
 }
 
 func analyzeFlags() []cli.Flag {
