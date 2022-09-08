@@ -17,6 +17,7 @@ COPY . .
 RUN apk add --no-cache tar curl && \
     mkdir -p /archive && \
     curl -o bandit.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/bandit.tar.gz && tar -xf bandit.tar.gz -C /archive && \
+    curl -o security_code_scan.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/security_code_scan.tar.gz && tar -xf security_code_scan.tar.gz -C /archive && \
     curl -o gosec.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/gosec.tar.gz && tar -xf gosec.tar.gz -C /archive && \
     curl -o flawfinder.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/flawfinder.tar.gz && tar -xf flawfinder.tar.gz -C /archive && \
     curl -o eslint.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/eslint.tar.gz && tar -xf eslint.tar.gz -C /archive && \
