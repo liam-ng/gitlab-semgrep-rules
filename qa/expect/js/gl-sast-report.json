@@ -2,7 +2,42 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "194eb4c2a19424c5a04b548f59014587c3650362490605adc72f31c1874d64b4",
+      "id": "c9c5b80d16709bd52da09f6eb1857fc51d38fa51b4f9aeb71824cb3c5b0c9a98",
+      "category": "sast",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/jsx/main.jsx",
+        "start_line": 16
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.security/detect-non-literal-regexp-1",
+          "value": "eslint.security/detect-non-literal-regexp-1",
+          "url": "https://semgrep.dev/r/gitlab.eslint.security/detect-non-literal-regexp-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/security/detect-non-literal-regexp-1",
+          "value": "security/security/detect-non-literal-regexp-1"
+        }
+      ]
+    },
+    {
+      "id": "e6e46ebf9df3be30a3afb8933ec1322ba38cd82470cc961e4af4e6066e22372d",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -19,9 +54,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "eslint.detect-eval-with-expression",
-          "value": "eslint.detect-eval-with-expression",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-eval-with-expression"
+          "name": "eslint.security/detect-eval-with-expression-1",
+          "value": "eslint.security/detect-eval-with-expression-1",
+          "url": "https://semgrep.dev/r/gitlab.eslint.security/detect-eval-with-expression-1"
         },
         {
           "type": "cwe",
@@ -36,113 +71,8 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-eval-with-expression",
-          "value": "security/detect-eval-with-expression"
-        }
-      ]
-    },
-    {
-      "id": "cc600a49425974bb1bfb3ea7acb6908de5c5e42f6e816dd8ba9bc2f2c1668587",
-      "category": "sast",
-      "message": "Incorrect Regular Expression",
-      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "src/jsx/main.jsx",
-        "start_line": 16
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-non-literal-regexp",
-          "value": "eslint.detect-non-literal-regexp",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-185",
-          "value": "185",
-          "url": "https://cwe.mitre.org/data/definitions/185.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-regexp",
-          "value": "security/detect-non-literal-regexp"
-        }
-      ]
-    },
-    {
-      "id": "ee06f1a4f97169721be1c82c95f2719dbb136e89591902cb7001a9f7e8950420",
-      "category": "sast",
-      "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "src/jsx/main.jsx",
-        "start_line": 28
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-94",
-          "value": "94",
-          "url": "https://cwe.mitre.org/data/definitions/94.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-object-injection",
-          "value": "security/detect-object-injection"
-        }
-      ]
-    },
-    {
-      "id": "ee06f1a4f97169721be1c82c95f2719dbb136e89591902cb7001a9f7e8950420",
-      "category": "sast",
-      "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "src/jsx/main.jsx",
-        "start_line": 28
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-94",
-          "value": "94",
-          "url": "https://cwe.mitre.org/data/definitions/94.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-object-injection",
-          "value": "security/detect-object-injection"
+          "name": "ESLint rule ID security/security/detect-eval-with-expression-1",
+          "value": "security/security/detect-eval-with-expression-1"
         }
       ]
     }
@@ -155,11 +85,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.69.1"
+      "version": "0.110.0"
     },
     "type": "sast",
-    "start_time": "2021-11-03T20:32:40",
-    "end_time": "2021-11-03T20:32:44",
+    "start_time": "2022-09-08T20:47:56",
+    "end_time": "2022-09-08T20:48:03",
     "status": "success"
   }
 }
