@@ -2,10 +2,10 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "2419849776d915e5f4e367cd31218c91ef77edcf8a23b519b16af965ceff302d",
+      "id": "703f6bfb57d536bd839f5746d67da6e5b67f93481bff3d586b7e4b00c253b692",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
-      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
+      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Pythonobjects. A malicious actor could\nexploit this to run arbitrarycode. Use `safe_load()` instead.\n",
       "cve": "",
       "severity": "Critical",
       "scanner": {
@@ -19,9 +19,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B506",
-          "value": "bandit.B506",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B506"
+          "name": "bandit.B506-1",
+          "value": "bandit.B506-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B506-1"
         },
         {
           "type": "cwe",
@@ -58,7 +58,7 @@
       }
     },
     {
-      "id": "eb05768b15a01d078823c29e348bbcd6c3175cb353f0fce3e180611187173b8c",
+      "id": "c168be10205fb02ef59c02baf54f14a92da2065b3320e539429ff7f8674c3492",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
@@ -75,9 +75,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B608",
-          "value": "bandit.B608",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B608"
+          "name": "bandit.B608-1",
+          "value": "bandit.B608-1",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B608-1"
         },
         {
           "type": "cwe",
@@ -114,66 +114,10 @@
       }
     },
     {
-      "id": "dfc5a5821194dd9b68620e999ecceae5d59ed3e193a454be1ec8bd67ed7d3981",
-      "category": "sast",
-      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
-      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/static/main.js",
-        "start_line": 10
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-eval-with-expression",
-          "value": "eslint.detect-eval-with-expression",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-eval-with-expression"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-95",
-          "value": "95",
-          "url": "https://cwe.mitre.org/data/definitions/95.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Injection",
-          "value": "A1"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-eval-with-expression",
-          "value": "security/detect-eval-with-expression"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app/static/main.js",
-            "line_start": 10,
-            "line_end": 10,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app/static/main.js|dangerous_eval[0]:1"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "945ae7a199632ad52df8b97b19029f414e062b433a9fac11bf085da6ef4a32bb",
+      "id": "18b75c5c13d2ea0e5bb0e6ccf06875887569c67dde63a1a37cf08129f028f039",
       "category": "sast",
       "message": "Incorrect Regular Expression",
-      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -187,9 +131,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "eslint.detect-non-literal-regexp",
-          "value": "eslint.detect-non-literal-regexp",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
+          "name": "eslint.security/detect-non-literal-regexp-1",
+          "value": "eslint.security/detect-non-literal-regexp-1",
+          "url": "https://semgrep.dev/r/gitlab.eslint.security/detect-non-literal-regexp-1"
         },
         {
           "type": "cwe",
@@ -199,8 +143,8 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-regexp",
-          "value": "security/detect-non-literal-regexp"
+          "name": "ESLint rule ID security/security/detect-non-literal-regexp-1",
+          "value": "security/security/detect-non-literal-regexp-1"
         }
       ],
       "tracking": {
@@ -219,6 +163,62 @@
           }
         ]
       }
+    },
+    {
+      "id": "36fe76dc42fd5718180e454174c124375c6bcf757f170d1b552bcba724b422a8",
+      "category": "sast",
+      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/main.js",
+        "start_line": 10
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.security/detect-eval-with-expression-1",
+          "value": "eslint.security/detect-eval-with-expression-1",
+          "url": "https://semgrep.dev/r/gitlab.eslint.security/detect-eval-with-expression-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-95",
+          "value": "95",
+          "url": "https://cwe.mitre.org/data/definitions/95.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Injection",
+          "value": "A1"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/security/detect-eval-with-expression-1",
+          "value": "security/security/detect-eval-with-expression-1"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "app/static/main.js",
+            "line_start": 10,
+            "line_end": 10,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "app/static/main.js|dangerous_eval[0]:1"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "scan": {
@@ -229,11 +229,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.69.1"
+      "version": "0.110.0"
     },
     "type": "sast",
-    "start_time": "2021-11-03T20:33:07",
-    "end_time": "2021-11-03T20:33:15",
+    "start_time": "2022-09-09T17:24:20",
+    "end_time": "2022-09-09T17:24:27",
     "status": "success"
   }
 }
