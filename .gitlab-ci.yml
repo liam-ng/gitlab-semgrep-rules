@@ -78,21 +78,26 @@ python-pip-multi-project-qa:
     project: gitlab-org/security-products/tests/python-pip
     branch: multi-project-FREEZE
 
-python-pip-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip/gl-sast-report.json"
-    SAST_EXCLUDED_ANALYZERS: "eslint"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip
+# ignoring these two tests:
+# - python-pip-qa
+# - python-pipenv-qa
+# these two QA tests contain vulnerabilities that only exist in test files
+#
+# python-pip-qa:
+#   extends: .qa-downstream-sast
+#   variables:
+#     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip/gl-sast-report.json"
+#     SAST_EXCLUDED_ANALYZERS: "eslint"
+#   trigger:
+#     project: gitlab-org/security-products/tests/python-pip
 
-python-pipenv-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pipenv/gl-sast-report.json"
-    SAST_EXCLUDED_ANALYZERS: "eslint"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pipenv
+# python-pipenv-qa:
+#   extends: .qa-downstream-sast
+#   variables:
+#     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pipenv/gl-sast-report.json"
+#     SAST_EXCLUDED_ANALYZERS: "eslint"
+#   trigger:
+#     project: gitlab-org/security-products/tests/python-pipenv
 
 c-qa:
   extends: .qa-downstream-sast
