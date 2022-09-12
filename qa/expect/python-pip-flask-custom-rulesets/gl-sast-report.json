@@ -114,7 +114,7 @@
       }
     },
     {
-      "id": "18b75c5c13d2ea0e5bb0e6ccf06875887569c67dde63a1a37cf08129f028f039",
+      "id": "21683bd4091f7dc7dca926fb6950b759c2a4ff80128966c6fa018839e4e4e07d",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
@@ -143,8 +143,8 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/security/detect-non-literal-regexp-1",
-          "value": "security/security/detect-non-literal-regexp-1"
+          "name": "ESLint rule ID security/detect-non-literal-regexp",
+          "value": "security/detect-non-literal-regexp"
         }
       ],
       "tracking": {
@@ -165,7 +165,7 @@
       }
     },
     {
-      "id": "36fe76dc42fd5718180e454174c124375c6bcf757f170d1b552bcba724b422a8",
+      "id": "e98958d8c3d1ea75795fee69c05dd9a1234cb9299c037c1f60a25c3df6ee27c0",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -199,8 +199,8 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/security/detect-eval-with-expression-1",
-          "value": "security/security/detect-eval-with-expression-1"
+          "name": "ESLint rule ID security/detect-eval-with-expression",
+          "value": "security/detect-eval-with-expression"
         }
       ],
       "tracking": {
@@ -232,8 +232,8 @@
       "version": "0.110.0"
     },
     "type": "sast",
-    "start_time": "2022-09-09T17:24:20",
-    "end_time": "2022-09-09T17:24:27",
+    "start_time": "2022-09-12T20:12:25",
+    "end_time": "2022-09-12T20:12:31",
     "status": "success"
   }
 }
