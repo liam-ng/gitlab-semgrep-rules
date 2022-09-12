@@ -62,8 +62,6 @@ func ruleToIDs(ruleID string) []report.Identifier {
 
 	analyzer, subrules := strings.ToLower(matches[0]), matches[1:]
 
-	fmt.Println(subrules)
-	fmt.Println(analyzer)
 	switch analyzer {
 	case "bandit":
 		return generateIDs(subrules, generateBanditID)
@@ -98,8 +96,6 @@ func computeRuleName(id string) (string, error) {
 
 func generateID(id string, typ string, name string, sep string) (report.Identifier, error) {
 	value, err := computeRuleName(id)
-	fmt.Printf("id %s\n", id)
-	fmt.Printf("rul %s\n", value)
 	if err != nil {
 		return report.Identifier{}, err
 	}
@@ -139,7 +135,7 @@ func generateIDs(ruleIDs []string, generator func(string) (report.Identifier, er
 		ruleid, err := generator(ruleIDs[i])
 		if err != nil {
 			log.Error(err)
-            continue
+			continue
 		}
 
 		ids = append(ids, ruleid)
