@@ -47,7 +47,7 @@
       }
     },
     {
-      "id": "914923fa3428da6bad1c4477fe3b5c018a2e2a6d6669002ec6a55aab245cfb38",
+      "id": "294425d64a7312084f34eb1365e3c5fbdbdaa998d5bec14360411dfbdb3f810d",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
@@ -76,13 +76,13 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/security/detect-non-literal-regexp-1",
-          "value": "security/security/detect-non-literal-regexp-1"
+          "name": "ESLint rule ID security/detect-non-literal-regexp",
+          "value": "security/detect-non-literal-regexp"
         }
       ]
     },
     {
-      "id": "9cf1459f1e7f4c842d71da472fe4daa9c640dc3510d1a98568a4526c64de1235",
+      "id": "031f6583390bb6e444578ad6741cecd683b909a06e775dd5f09be95f3b09960e",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
@@ -111,8 +111,8 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/security/detect-object-injection-1",
-          "value": "security/security/detect-object-injection-1"
+          "name": "ESLint rule ID security/detect-object-injection",
+          "value": "security/detect-object-injection"
         }
       ]
     },
@@ -173,8 +173,8 @@
       "version": "0.110.0"
     },
     "type": "sast",
-    "start_time": "2022-09-09T19:05:29",
-    "end_time": "2022-09-09T19:05:36",
+    "start_time": "2022-09-12T17:29:42",
+    "end_time": "2022-09-12T17:29:53",
     "status": "success"
   }
 }
