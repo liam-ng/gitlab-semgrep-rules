@@ -51,8 +51,8 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 	return sastReport, nil
 }
 
-//  banditIdentifiersFor will take in ruleID as string and output a slice of identifiers
-//  Examples of ruleID: bandit.B303-1, bandit.B502.B503
+// banditIdentifiersFor will take in ruleID as string and output a slice of identifiers
+// Examples of ruleID: bandit.B303-1, bandit.B502.B503
 func ruleToIDs(ruleID string) []report.Identifier {
 	var empty []report.Identifier
 	matches := strings.Split(ruleID, ".")
@@ -62,13 +62,12 @@ func ruleToIDs(ruleID string) []report.Identifier {
 
 	analyzer, subrules := strings.ToLower(matches[0]), matches[1:]
 
+	fmt.Println(subrules)
+	fmt.Println(analyzer)
 	switch analyzer {
 	case "bandit":
 		return generateIDs(subrules, generateBanditID)
 	case "eslint":
-		if len(subrules) != 1 {
-			return empty
-		}
 		return generateIDs(subrules, generateEslintID)
 	case "flawfinder":
 		return generateIDs(subrules, generateFlawfinderID)
@@ -81,56 +80,69 @@ func ruleToIDs(ruleID string) []report.Identifier {
 	}
 }
 
-//  generateBanditID will take in bandit_id as string and output an identifier
-//  Examples of bandit_id: B303-1, B305
-func generateBanditID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
+// compute Rule name computes the native rule id from a semgrep rule
+// it removes numbered suffixes separated by `-` and joins the remaining
+// prefix some-rule-2 => some-rule
+func computeRuleName(id string) (string, error) {
+	segments := strings.Split(id, "-")
+	if len(segments) == 1 {
+		return segments[0], nil
+	}
+
+	if len(segments) < 2 {
+		return "", fmt.Errorf("Unable to compute native rule id from '%s'", id)
+	}
+
+	return strings.Join(segments[0:len(segments)-1], "-"), nil
+}
+
+func generateID(id string, typ string, name string, sep string) (report.Identifier, error) {
+	value, err := computeRuleName(id)
+	fmt.Printf("id %s\n", id)
+	fmt.Printf("rul %s\n", value)
+	if err != nil {
+		return report.Identifier{}, err
+	}
+
 	return report.Identifier{
-		Type:  "bandit_test_id",
-		Name:  "Bandit Test ID " + value,
+		Type:  report.IdentifierType(typ),
+		Name:  strings.Join([]string{name, value}, sep),
 		Value: value,
-	}
+	}, nil
 }
 
-func generateEslintID(id string) report.Identifier {
-	return report.Identifier{
-		Type:  "eslint_rule_id",
-		Name:  "ESLint rule ID security/" + id,
-		Value: "security/" + id,
-	}
+// generateBanditID will take in bandit_id as string and output an identifier
+// Examples of bandit_id: B303-1, B305
+func generateBanditID(id string) (report.Identifier, error) {
+	return generateID(id, "bandit_test_id", "Bandit Test ID", " ")
 }
 
-func generateFlawfinderID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
-	return report.Identifier{
-		Type:  "flawfinder_func_name",
-		Name:  "Flawfinder - " + value,
-		Value: value,
-	}
+func generateEslintID(id string) (report.Identifier, error) {
+	return generateID(id, "eslint_rule_id", "ESLint rule ID", " ")
 }
 
-func generateGosecID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
-	return report.Identifier{
-		Type:  "gosec_rule_id",
-		Name:  "Gosec Rule ID " + value,
-		Value: value,
-	}
+func generateFlawfinderID(id string) (report.Identifier, error) {
+	return generateID(id, "flawfinder_func_name", "Flawfinder -", " ")
 }
 
-func generateFindSecBugsID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
-	return report.Identifier{
-		Type:  "find_sec_bugs_type",
-		Name:  "Find Security Bugs-" + value,
-		Value: value,
-	}
+func generateGosecID(id string) (report.Identifier, error) {
+	return generateID(id, "gosec_rule_id", "Gosec Rule ID", " ")
 }
 
-func generateIDs(ruleIDs []string, generator func(string) report.Identifier) []report.Identifier {
+func generateFindSecBugsID(id string) (report.Identifier, error) {
+	return generateID(id, "find_sec_bugs_type", "Find Security Bugs-", "")
+}
+
+func generateIDs(ruleIDs []string, generator func(string) (report.Identifier, error)) []report.Identifier {
 	var ids []report.Identifier
 	for i := 0; i < len(ruleIDs); i++ {
-		ids = append(ids, generator(ruleIDs[i]))
+		ruleid, err := generator(ruleIDs[i])
+		if err != nil {
+			log.Error(err)
+            continue
+		}
+
+		ids = append(ids, ruleid)
 	}
 	return ids
 }

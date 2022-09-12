@@ -6,6 +6,8 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
 )
 
@@ -50,7 +52,8 @@ func TestGenerateBanditID(t *testing.T) {
 		Name:  "Bandit Test ID B303",
 		Value: "B303",
 	}
-	got := generateBanditID("B303-2")
+	got, err := generateBanditID("B303-2")
+	assert.NoError(t, err)
 
 	if !reflect.DeepEqual(want, got) {
 		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
@@ -64,7 +67,8 @@ func TestGenerateFindSecBugsID(t *testing.T) {
 		Name:  fmt.Sprintf("Find Security Bugs-%s", id),
 		Value: id,
 	}
-	got := generateFindSecBugsID(id + "-2")
+	got, err := generateFindSecBugsID(id + "-2")
+	assert.NoError(t, err)
 
 	if !reflect.DeepEqual(want, got) {
 		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
@@ -97,7 +101,7 @@ func TestGenerateIDs(t *testing.T) {
 				Value: "B503",
 			},
 		},
-		"eslint.detect-no-csrf-before-method-override": {
+		"eslint.security/detect-no-csrf-before-method-override-1": {
 			{
 				Type:  "eslint_rule_id",
 				Name:  "ESLint rule ID security/detect-no-csrf-before-method-override",
