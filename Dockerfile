@@ -7,7 +7,7 @@ FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZE
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
 FROM golang:1.17-alpine AS build
-ARG SAST_RULES_VERSION=1.0.62
+ARG SAST_RULES_VERSION=1.0.63
 ARG SAST_RULES_URL=https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets
 
 
