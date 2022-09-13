@@ -8,6 +8,7 @@ FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${
 
 FROM registry.gitlab.com/gitlab-org/gitlab-runner/go-fips:1.17 AS build
 ARG SAST_RULES_VERSION=1.0.62
+ARG SAST_RULES_URL=https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets
 
 ENV CGO_ENABLED=0 GOOS=linux
 
@@ -15,11 +16,12 @@ WORKDIR /go/src/buildapp
 COPY . .
 
 RUN mkdir -p /archive && \
-    curl -o bandit.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/bandit.tar.gz && tar -xf bandit.tar.gz -C /archive && \
-    curl -o gosec.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/gosec.tar.gz && tar -xf gosec.tar.gz -C /archive && \
-    curl -o flawfinder.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/flawfinder.tar.gz && tar -xf flawfinder.tar.gz -C /archive && \
-    curl -o eslint.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/eslint.tar.gz && tar -xf eslint.tar.gz -C /archive && \
-    curl -o find_sec_bugs.tar.gz https://gitlab.com/api/v4/projects/27038823/packages/generic/rulesets/${SAST_RULES_VERSION}/find_sec_bugs.tar.gz && tar -xf find_sec_bugs.tar.gz -C /archive
+    curl -o bandit.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/bandit.tar.gz && tar -xf bandit.tar.gz -C /archive && \
+    curl -o security_code_scan.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/security_code_scan.tar.gz && tar -xf security_code_scan.tar.gz -C /archive && \
+    curl -o gosec.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/gosec.tar.gz && tar -xf gosec.tar.gz -C /archive && \
+    curl -o flawfinder.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/flawfinder.tar.gz && tar -xf flawfinder.tar.gz -C /archive && \
+    curl -o eslint.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/eslint.tar.gz && tar -xf eslint.tar.gz -C /archive && \
+    curl -o find_sec_bugs.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/find_sec_bugs.tar.gz && tar -xf find_sec_bugs.tar.gz -C /archive
 
 # variable to the most recent version from the CHANGELOG.md file
 RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') && \
