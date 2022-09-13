@@ -138,9 +138,9 @@
       }
     },
     {
-      "id": "0b50502d4c57a277cdff4b7878eec6f1e149eabe32cb22181c0cc6519cc48d03",
+      "id": "89e5a47e922c7379d043d7431827c8061366c272ec6bdccebb2b291a48d40929",
       "category": "sast",
-      "message": "return nil err instead of nil value",
+      "message": "return nil instead of nil value",
       "description": "return nil instead of nil value",
       "cve": "",
       "severity": "Critical",
@@ -290,8 +290,8 @@
       "version": "0.110.0"
     },
     "type": "sast",
-    "start_time": "2022-09-13T15:12:48",
-    "end_time": "2022-09-13T15:12:55",
+    "start_time": "2022-09-13T15:56:30",
+    "end_time": "2022-09-13T15:56:37",
     "status": "success"
   }
 }
