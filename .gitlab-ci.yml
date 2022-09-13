@@ -154,7 +154,7 @@ csharp-dotnetcore-multisolution-qa:
     branch: multisolution-FREEZE
 
 check semgrep-rules-version:
-  stage: test
+  stage: pre-build
   script:
     - |
       SAST_RULES_VERSION=$(egrep -o "SAST_RULES_VERSION[:=|\:\-]{1,}([a-zA-Z0-9\.\-\_]{1,})" Dockerfile)
