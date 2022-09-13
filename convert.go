@@ -51,8 +51,8 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 	return sastReport, nil
 }
 
-// banditIdentifiersFor will take in ruleID as string and output a slice of identifiers
-// Examples of ruleID: bandit.B303-1, bandit.B502.B503
+// ruleToIDs will take in ruleID as string and output a slice of identifiers containing each sub-rule.
+// Examples of ruleID: bandit.B303-1 (outputs one identifier), bandit.B502.B503 (outputs two identifiers)
 func ruleToIDs(ruleID string) []report.Identifier {
 	var empty []report.Identifier
 	matches := strings.Split(ruleID, ".")
@@ -78,9 +78,9 @@ func ruleToIDs(ruleID string) []report.Identifier {
 	}
 }
 
-// compute Rule name computes the native rule id from a semgrep rule
-// it removes numbered suffixes separated by `-` and joins the remaining
-// prefix some-rule-2 => some-rule
+// computeRuleName converts a Semgrep rule name to its native rule ID by removing any numbered suffixes
+// and joining any remaining parts with dashes.
+// For example: B101-1 returns B101, and security/detect-non-literal-regexp-1 -> security/detect-non-literal-regexp
 func computeRuleName(id string) (string, error) {
 	segments := strings.Split(id, "-")
 	if len(segments) == 1 {
