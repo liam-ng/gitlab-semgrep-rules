@@ -153,6 +153,18 @@ csharp-dotnetcore-multisolution-qa:
     project: gitlab-org/security-products/tests/csharp-dotnetcore-multiproject
     branch: multisolution-FREEZE
 
+check semgrep-rules-version:
+  stage: test
+  script:
+    - |
+      SAST_RULES_VERSION=$(egrep -o "SAST_RULES_VERSION[:=|\:\-]{1,}([a-zA-Z0-9\.\-\_]{1,})" Dockerfile)
+      SAST_RULES_VERSION_FIPS=$(egrep -o "SAST_RULES_VERSION[:=|\:\-]{1,}([a-zA-Z0-9\.\-\_]{1,})" Dockerfile.fips)
+      if [ "$SAST_RULES_VERSION" != "$SAST_RULES_VERSION_FIPS" ]; then
+        echo "Error: SAST_RULES_VERSION in Dockerfile and Dockerfile.fips are not the same."
+        exit 1
+      fi
+
+
 # Commenting out this until we add `.cs` to this list: https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml#L254-263
 # csharp-dotnetcore-msbuild-multiproject-qa:
 #   extends: .qa-downstream-sast
