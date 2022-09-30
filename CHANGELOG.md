@@ -1,5 +1,7 @@
 Semgrep analyzer changelog
 
+## v3.6.1
+- Upgrading to the latest find-sec-bugs rule-set 1.0.63 (!153)
 
 ## v3.6.0
 - Adding Csharp support and security-code-scan ruleset (!137)
