@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.0.44
+# rule-set version: v1.0.63
 # yamllint enable
 ---
 rules:
@@ -959,7 +959,8 @@ rules:
             metavariable: "$SHELL"
             regex: "(/.../)?(sh|bash|ksh|csh|tcsh|zsh)$"
     - pattern-not: "(Runtime $R).exec(\"...\",\"...\",\"...\",...);"
-    - pattern-not: "(Runtime $R).exec(new String[]{\"...\",\"...\",\"...\",...},...);\n"
+    - pattern-not: |
+        (Runtime $R).exec(new String[]{"...","...","...",...},...);
   - patterns:
     - pattern-inside: |
         $FUNC(...,String $PARAM, ...) {
@@ -982,7 +983,8 @@ rules:
             metavariable: "$SHELL"
             regex: "(/.../)?(sh|bash|ksh|csh|tcsh|zsh)$"
     - pattern-not: "(ProcessBuilder $PB).command(\"...\",\"...\",\"...\",...);"
-    - pattern-not: "(ProcessBuilder $PB).command(java.util.Arrays.asList(\"...\",\"...\",\"...\",...));\n"
+    - pattern-not: |
+        (ProcessBuilder $PB).command(java.util.Arrays.asList("...","...","...",...));
   message: |
     The highlighted API is used to execute a system command. If unfiltered input is passed to this
     API, it can lead to arbitrary command execution.
@@ -1630,7 +1632,7 @@ rules:
     - pattern-not: "(org.hibernate.criterion.Restrictions $H).sqlRestriction(\"...\",
         ...)"
   - patterns:
-    - pattern: "(org.hibernate.Session $S).createQuery($ARG, ...)"
+    - pattern: "(org.hibernate.Session $S).createQuery((String $ARG), ...)"
     - pattern-not: "(org.hibernate.Session $S).createQuery(\"...\", ...)"
   - patterns:
     - pattern: "(org.hibernate.Session $S).createSQLQuery($ARG, ...)"
@@ -1875,130 +1877,6 @@ rules:
     cwe: "CWE-259: Use of Hard-coded Password"
     technology:
     - "java"
-- id: "find_sec_bugs.HARD_CODE_KEY-1"
-  pattern-either:
-  - patterns:
-    - pattern-not-inside: |
-        $FUNC(...,byte[] $KEY_BYTES, ...) {
-            ...
-        }
-    - pattern-either:
-      - pattern: "new DESKeySpec((byte[] $KEY_BYTES));"
-      - pattern: "new DESedeKeySpec((byte[] $KEY_BYTES));"
-      - pattern: "new KerberosKey(..., (byte[] $KEY_BYTES), ..., ...);"
-      - pattern: "new SecretKeySpec((byte[] $KEY_BYTES), ...);"
-      - pattern: "new X509EncodedKeySpec((byte[] $KEY_BYTES));"
-      - pattern: "new PKCS8EncodedKeySpec((byte[] $KEY_BYTES));"
-      - pattern: "new KeyRep(...,(byte[] $KEY_BYTES));"
-      - pattern: "new KerberosTicket(...,(byte[] $KEY_BYTES),...);"
-    - metavariable-pattern:
-        metavariable: "$KEY_BYTES"
-        patterns:
-        - pattern-not-regex: "(null)"
-  - patterns:
-    - pattern-not-inside: |
-        $FUNC(..., BigInteger $PRIVATE_KEY, ...) {
-            ...
-        }
-    - pattern-either:
-      - pattern: "new DSAPrivateKeySpec((BigInteger $PRIVATE_KEY), ...);"
-      - pattern: "new DSAPublicKeySpec((BigInteger $PRIVATE_KEY), ...);"
-      - pattern: "new DHPrivateKeySpec((BigInteger $PRIVATE_KEY), ...);"
-      - pattern: "new DHPublicKeySpec((BigInteger $PRIVATE_KEY), ...);"
-      - pattern: "new ECPrivateKeySpec((BigInteger $PRIVATE_KEY), ...);"
-      - pattern: "new RSAPrivateKeySpec((BigInteger $PRIVATE_KEY), ...);"
-      - pattern: "new RSAMultiPrimePrivateCrtKeySpec((BigInteger $PRIVATE_KEY), ...);"
-      - pattern: "new RSAPrivateCrtKeySpec((BigInteger $PRIVATE_KEY), ...);"
-      - pattern: "new RSAPublicKeySpec((BigInteger $PRIVATE_KEY), ...);"
-    - metavariable-pattern:
-        metavariable: "$PRIVATE_KEY"
-        patterns:
-        - pattern-not-regex: "(null)"
-  message: |
-    Cryptographic keys should not be kept in the source code. The source code can be widely shared
-    in an enterprise environment, and is certainly shared in open source. To be managed safely,
-    passwords and secret keys should be stored in separate configuration files or keystores.
-  languages:
-  - "java"
-  severity: "ERROR"
-  metadata:
-    category: "security"
-    cwe: "CWE-321: Use of Hard-coded Cryptographic Key"
-    technology:
-    - "java"
-- id: "find_sec_bugs.HARD_CODE_KEY-4"
-  patterns:
-  - pattern-not-inside: |
-      $FUNC(..., $VAR_NAME, ...) {
-          ...
-      }
-  - pattern-either:
-    - pattern: "(String $VAR_NAME).equals(...)"
-    - pattern: "(String $OTHER).equals((String $VAR_NAME))"
-    - pattern: "java.util.Arrays.equals(...,(String $VAR_NAME),...)"
-    - pattern: "(byte[] $VAR_NAME).equals(...)"
-    - pattern: "(byte[] $OTHER).equals((byte[] $VAR_NAME))"
-    - pattern: "java.util.Arrays.equals(...,(byte[] $VAR_NAME),...)"
-    - pattern: "java.lang.Byte.comapre(...,(byte[] $VAR_NAME),...)"
-    - pattern: "(char[] $VAR_NAME).equals(...)"
-    - pattern: "(char[] $OTHER).equals((char[] $VAR_NAME))"
-    - pattern: "java.util.Arrays.equals(...,(char[] $VAR_NAME),...)"
-  - metavariable-regex:
-      metavariable: "$VAR_NAME"
-      regex: "(?i).*(pass|pwd|psw|secret|key|cipher|crypt|des|aes|mac|private|sign|cert).*"
-  message: |
-    Cryptographic keys should not be kept in the source code. The source code can be widely shared
-    in an enterprise environment, and is certainly shared in open source. To be managed safely,
-    passwords and secret keys should be stored in separate configuration files or keystores.
-  languages:
-  - "java"
-  severity: "WARNING"
-  metadata:
-    category: "security"
-    cwe: "CWE-321: Use of Hard-coded Cryptographic Key"
-    technology:
-    - "java"
-- id: "find_sec_bugs.HARD_CODE_KEY-2"
-  patterns:
-  - pattern-either:
-    - pattern: "String $VAR = \"...\";"
-    - pattern: "byte[] $VAR = {...};"
-    - pattern: "byte[] $VAR = new byte[]{...};"
-    - pattern: "char[] $VAR = {...};"
-    - pattern: "char[] $VAR = new char[]{...};"
-  - metavariable-regex:
-      metavariable: "$VAR"
-      regex: "(?i).*(pass|pwd|psw|secret|key|cipher|crypt|des|aes|mac|private|sign|cert).*"
-  message: |
-    Cryptographic keys should not be kept in the source code. The source code can be widely shared
-    in an enterprise environment, and is certainly shared in open source. To be managed safely,
-    passwords and secret keys should be stored in separate configuration files or keystores.
-  languages:
-  - "java"
-  severity: "WARNING"
-  metadata:
-    category: "security"
-    cwe: "CWE-321: Use of Hard-coded Cryptographic Key"
-    technology:
-    - "java"
-- id: "find_sec_bugs.HARD_CODE_KEY-3"
-  patterns:
-  - pattern: "String $VAR = \"$VAL\";"
-  - metavariable-regex:
-      metavariable: "$VAL"
-      regex: "(?i).*(password|motdepasse|heslo|adgangskode|wachtwoord|salasana|passwort|passord|senha|geslo|clave|losenord|clave|parola|secret|pwd).*"
-  message: |
-    Cryptographic keys should not be kept in the source code. The source code can be widely shared
-    in an enterprise environment, and is certainly shared in open source. To be managed safely,
-    passwords and secret keys should be stored in separate configuration files or keystores.
-  languages:
-  - "java"
-  severity: "WARNING"
-  metadata:
-    category: "security"
-    cwe: "CWE-321: Use of Hard-coded Cryptographic Key"
-    technology:
-    - "java"
 - id: "find_sec_bugs.HARD_CODE_PASSWORD-1"
   patterns:
   - pattern-either:
@@ -2159,7 +2037,10 @@ rules:
     - pattern-inside: |
         $E = new org.apache.commons.mail.ImageHtmlEmail(...);
         ...
-  - pattern-not: "$E.setSSLOnConnect(true);\n...\n$E.setSSLCheckServerIdentity(true);\n"
+  - pattern-not: |
+      $E.setSSLOnConnect(true);
+      ...
+      $E.setSSLCheckServerIdentity(true);
   message: |
     Server identity verification is disabled when making SSL connections.
   metadata:
