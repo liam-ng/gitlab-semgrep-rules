@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v3.6.1
+- upgrade schema to `15.0.0` (!141)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/common` version [`v3.2.0` => [`v3.2.1`](https://gitlab.com/gitlab-org/security-products/analyzers/common/-/releases/v3.2.1)] (!141)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.13.0` => [`v3.15.2`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.15.2)] (!141)
 
 ## v3.6.0
 - Adding Csharp support and security-code-scan ruleset (!137)

@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	app := command.NewApp(metadata.AnalyzerDetails)
+	app := command.NewApp(metadata.ReportAnalyzer)
 	app.Version = metadata.AnalyzerVersion
 	app.Commands = command.NewCommands(command.Config{
 		Match:        plugin.Match,
@@ -19,6 +19,7 @@ func main() {
 		AnalyzeFlags: analyzeFlags(),
 		AnalyzeAll:   true,
 		Convert:      convert,
+		Analyzer:     metadata.ReportAnalyzer,
 		Scanner:      metadata.ReportScanner,
 		ScanType:     metadata.Type,
 	})

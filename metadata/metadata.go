@@ -40,9 +40,9 @@ var (
 	// ScannerVersion is the semantic version of the scanner and is defined in the Dockerfile
 	ScannerVersion = os.Getenv("SCANNER_VERSION")
 
-	// AnalyzerDetails provides information about the analyzer itself.
+	// ReportAnalyzer provides information about the analyzer itself.
 	// It corresponds with the `analyzer` field on the security report.
-	AnalyzerDetails = report.ScannerDetails{
+	ReportAnalyzer = report.AnalyzerDetails{
 		ID:   AnalyzerID,
 		Name: AnalyzerName,
 		URL:  analyzerURL,

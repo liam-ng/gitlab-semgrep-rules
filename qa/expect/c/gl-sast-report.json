@@ -1,5 +1,5 @@
 {
-  "version": "14.0.4",
+  "version": "15.0.0",
   "vulnerabilities": [
     {
       "id": "e804f760f2da38b25abbd27b5134491482a5713aa82f1aace2b85dfd328174eb",
@@ -102,6 +102,15 @@
     }
   ],
   "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.6.1"
+    },
     "scanner": {
       "id": "semgrep",
       "name": "Semgrep",
