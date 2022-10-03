@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=0.110.0
+ARG SCANNER_VERSION=0.115.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.0.5
 ARG TRACKING_CALCULATOR_VERSION=2.2.5
 
