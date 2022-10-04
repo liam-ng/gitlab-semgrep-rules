@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.7.1
+- Include missing security-code-scan identifiers (!152)
+
 ## v3.7.0
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.110.0` => [`0.115.0`](https://github.com/returntocorp/semgrep/releases/tag/v0.115.0)] (!149)
 - upgrade `github.com/urfave/cli/v2` version [`v2.11.2` => [`v2.16.3`](https://github.com/urfave/cli/releases/tag/v2.16.3)] (!149)
