@@ -132,6 +132,25 @@ func TestGenerateIDs(t *testing.T) {
 				Value: "G107",
 			},
 		},
+		"security_code_scan.SCS0005-1": {
+			{
+				Type:  "security_code_scan_rule_id",
+				Name:  "SCS0005",
+				Value: "SCS0005",
+			},
+		},
+		"security_code_scan.SCS0026-1.SCS0031-1": {
+			{
+				Type:  "security_code_scan_rule_id",
+				Name:  "SCS0026",
+				Value: "SCS0026",
+			},
+			{
+				Type:  "security_code_scan_rule_id",
+				Name:  "SCS0031",
+				Value: "SCS0031",
+			},
+		},
 	}
 
 	for ruleid, want := range testcases {

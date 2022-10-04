@@ -63,6 +63,8 @@ func ruleToIDs(ruleID string) []report.Identifier {
 	analyzer, subrules := strings.ToLower(matches[0]), matches[1:]
 
 	switch analyzer {
+	case "security_code_scan":
+		return generateIDs(subrules, generateScsID)
 	case "bandit":
 		return generateIDs(subrules, generateBanditID)
 	case "eslint":
@@ -78,6 +80,17 @@ func ruleToIDs(ruleID string) []report.Identifier {
 		return generateIDs(subrules, generateFindSecBugsID)
 	default:
 		return empty
+	}
+}
+
+// generateScsID transforms the input ID into the original format produced by the
+// Security Code Scan analyzer. For example, SCS0005-1 -> SCS0005.
+func generateScsID(id string) report.Identifier {
+	value := strings.Split(id, "-")[0]
+	return report.Identifier{
+		Type:  "security_code_scan_rule_id",
+		Name:  value,
+		Value: value,
 	}
 }
 
