@@ -112,7 +112,7 @@ func generateID(id string, typ string, name string, sep string) (report.Identifi
 // generateScsID transforms the input ID into the original format produced by the
 // Security Code Scan analyzer. For example, SCS0005-1 -> SCS0005.
 func generateScsID(id string) (report.Identifier, error) {
-	return generateID(id, "security_code_scan_rule_id", "Security Code rule ID", " ")
+	return generateID(id, "security_code_scan_rule_id", "", "")
 }
 
 // generateBanditID will take in bandit_id as string and output an identifier
