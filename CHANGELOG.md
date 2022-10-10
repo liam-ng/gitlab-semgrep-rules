@@ -1,7 +1,17 @@
 Semgrep analyzer changelog
 
-## v3.7.0
+## v3.8.0
 - Use `sast-rules` package for rules (!147)
+
+## v3.7.1
+- Include missing security-code-scan identifiers (!152)
+
+## v3.7.0
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.110.0` => [`0.115.0`](https://github.com/returntocorp/semgrep/releases/tag/v0.115.0)] (!149)
+- upgrade `github.com/urfave/cli/v2` version [`v2.11.2` => [`v2.16.3`](https://github.com/urfave/cli/releases/tag/v2.16.3)] (!149)
+
+## v3.6.1
+- Upgrading to the latest find-sec-bugs rule-set 1.0.63 (!153)
 
 ## v3.6.0
 - Adding Csharp support and security-code-scan ruleset (!137)

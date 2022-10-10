@@ -8,15 +8,19 @@ variables:
 include:
   - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
 
-  # Include Reviewers.gitlab-ci.yml to recommend code reviewers for a given MR
-  - project: gitlab-org/modelops/applied-ml/review-recommender/ci-templates
-    ref: v0.2.0
-    file: recommender/Reviewers.gitlab-ci.yml
+semgrep-rules-test:
+  stage: test
+  image: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA # TMP_IMAGE
+  script: cd semgrep_rules_check && ./run_check.sh
+  artifacts:
+    paths:
+      - ./semgrep_rules_check/received.json
 
-reviewers-recommender:
-  stage: pre-build
-  rules:
-    - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+semgrep-meta-rules:
+  stage: test
+  image: returntocorp/semgrep-agent:v1
+  script: semgrep-agent --config p/semgrep-rule-lints
+  allow_failure: true
 
 .qa-downstream-sast:
   variables:
@@ -63,27 +67,6 @@ python-pip-multi-project-qa:
   trigger:
     project: gitlab-org/security-products/tests/python-pip
     branch: multi-project-FREEZE
-
-# ignoring these two tests:
-# - python-pip-qa
-# - python-pipenv-qa
-# these two QA tests contain vulnerabilities that only exist in test files
-#
-# python-pip-qa:
-#   extends: .qa-downstream-sast
-#   variables:
-#     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip/gl-sast-report.json"
-#     SAST_EXCLUDED_ANALYZERS: "eslint"
-#   trigger:
-#     project: gitlab-org/security-products/tests/python-pip
-
-# python-pipenv-qa:
-#   extends: .qa-downstream-sast
-#   variables:
-#     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pipenv/gl-sast-report.json"
-#     SAST_EXCLUDED_ANALYZERS: "eslint"
-#   trigger:
-#     project: gitlab-org/security-products/tests/python-pipenv
 
 c-qa:
   extends: .qa-downstream-sast

@@ -23,6 +23,11 @@
           "value": "security_code_scan.SCS0018-1"
         },
         {
+          "type": "security_code_scan_rule_id",
+          "name": "SCS0018",
+          "value": "SCS0018"
+        },
+        {
           "type": "cwe",
           "name": "CWE-22",
           "value": "22",
@@ -138,6 +143,11 @@
           "value": "security_code_scan.SCS0005-1"
         },
         {
+          "type": "security_code_scan_rule_id",
+          "name": "SCS0005",
+          "value": "SCS0005"
+        },
+        {
           "type": "cwe",
           "name": "CWE-338",
           "value": "338",
@@ -181,6 +191,11 @@
           "type": "semgrep_id",
           "name": "security_code_scan.SCS0018-1",
           "value": "security_code_scan.SCS0018-1"
+        },
+        {
+          "type": "security_code_scan_rule_id",
+          "name": "SCS0018",
+          "value": "SCS0018"
         },
         {
           "type": "cwe",
@@ -296,6 +311,11 @@
           "type": "semgrep_id",
           "name": "security_code_scan.SCS0005-1",
           "value": "security_code_scan.SCS0005-1"
+        },
+        {
+          "type": "security_code_scan_rule_id",
+          "name": "SCS0005",
+          "value": "SCS0005"
         },
         {
           "type": "cwe",

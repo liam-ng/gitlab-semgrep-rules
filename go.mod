@@ -12,7 +12,7 @@ require (
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.0
-	github.com/urfave/cli/v2 v2.11.2
+	github.com/urfave/cli/v2 v2.16.3
 	gitlab.com/gitlab-org/security-products/analyzers/command v1.9.1
 	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.0
 	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.13.0
