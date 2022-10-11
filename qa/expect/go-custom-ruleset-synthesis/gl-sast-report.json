@@ -204,11 +204,6 @@
           "name": "CWE-322",
           "value": "322",
           "url": "https://cwe.mitre.org/data/definitions/322.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
         }
       ],
       "tracking": {

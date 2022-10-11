@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.0.62
+# rule-set version: v1.0.67
 # yamllint enable
 ---
 rules:
@@ -305,20 +305,14 @@ rules:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
       ('OS Command Injection')"
 - id: "security_code_scan.SCS0026-1.SCS0031-1"
-  mode: "taint"
-  pattern-sources:
-  - pattern: "$DIR"
-  - pattern-either:
-    - pattern: "$DIR = DirectorySearcher();"
-    - pattern: "$DIR = DirectoryEntry();"
-  pattern-sinks:
+  patterns:
   - pattern-either:
     - patterns:
-      - pattern: "$DIR.Filter = ..."
-      - pattern-not: "$DIR.Filter = \"...\""
+      - pattern: "(DirectorySearcher $SOURCE).Filter = ..."
+      - pattern-not: "(DirectorySearcher $SOURCE).Filter = \"...\""
     - patterns:
-      - pattern: "$DIR.Path = ..."
-      - pattern-not: "$DIR.Path = \"...\""
+      - pattern: "(DirectorySearcher $SOURCE).Path = ..."
+      - pattern-not: "(DirectorySearcher $SOURCE).Path = \"...\""
   message: |
     The software constructs all or part of an LDAP query using
     externally-influenced input from an upstream component, but it does not
@@ -393,8 +387,11 @@ rules:
       - metavariable-regex:
           metavariable: "$FUNC"
           regex: "^(SelectNodes|SelectSingleNode|Compile|Evaluate|Matches|Select|SelectAncestors|SelectChildren|SelectDescendants)$"
-      - pattern: "$VAR.$FUNC(<...$ARG...>, ...)"
-      - pattern-not: "$VAR.$FUNC(\"...\", ...)"
+      - metavariable-regex:
+          metavariable: "$TY"
+          regex: "^(XPathNavigator|XmlDocument|XmlNode|XmlDocumentXPathExtensions)$"
+      - pattern: "($TY $VAR).$FUNC(<...$ARG...>, ...)"
+      - pattern-not: "($TY $VAR).$FUNC(\"...\", ...)"
     - patterns:
       - pattern-inside: |
           using System.Xml.Linq;
@@ -414,6 +411,7 @@ rules:
           - pattern-not: "$VAR.XPath = \"...\""
         - patterns:
           - pattern: "new XmlSchemaXPath { XPath = <...$ARG...> };"
+          - focus-metavariable: "$ARG"
   message: |
     The method identified is susceptible to injection. The input should be validated and properly
     escaped.
