@@ -18,12 +18,7 @@ COPY . .
 
 RUN apk add --no-cache tar curl && \
     mkdir -p /archive && \
-    curl -o bandit.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/bandit.tar.gz && tar -xf bandit.tar.gz -C /archive && \
-    curl -o security_code_scan.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/security_code_scan.tar.gz && tar -xf security_code_scan.tar.gz -C /archive && \
-    curl -o gosec.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/gosec.tar.gz && tar -xf gosec.tar.gz -C /archive && \
-    curl -o flawfinder.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/flawfinder.tar.gz && tar -xf flawfinder.tar.gz -C /archive && \
-    curl -o eslint.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/eslint.tar.gz && tar -xf eslint.tar.gz -C /archive && \
-    curl -o find_sec_bugs.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}/find_sec_bugs.tar.gz && tar -xf find_sec_bugs.tar.gz -C /archive
+    curl -o rules.tar.gz ${SAST_RULES_URL}/v${SAST_RULES_VERSION}/sast-rules-v${SAST_RULES_VERSION}.tar.gz && tar --strip-components=1 -xf rules.tar.gz -C /archive
 
 # variable to the most recent version from the CHANGELOG.md file
 RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') && \
@@ -41,7 +36,7 @@ RUN mkdir -p /etc/ssl/certs/ && \
     chmod g+w /etc/ssl/certs/ca-certificates.crt
 
 COPY --from=build /analyzer-semgrep /analyzer-binary
-COPY --from=build /archive/rule-sets /rules
+COPY --from=build /archive/dist /rules
 COPY semgrepignore /semgrepignore
 RUN mkdir /.cache && \
     chmod -R g+rw /.cache
