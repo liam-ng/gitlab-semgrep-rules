@@ -7,7 +7,7 @@ FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZE
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
 FROM registry.gitlab.com/gitlab-org/gitlab-runner/go-fips:1.17 AS build
-ARG SAST_RULES_VERSION=1.1.1
+ARG SAST_RULES_VERSION=1.1.2
 ARG SAST_RULES_URL=https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules/-/archive
 
 ENV CGO_ENABLED=0 GOOS=linux
