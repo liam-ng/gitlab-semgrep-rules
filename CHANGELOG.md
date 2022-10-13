@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.7.3
+- Bump go-fips builder image to 1.18 (!161)
+
 ## v3.7.2
 - Upgrade to the latest security-code-scan ruleset 1.0.67 (!156)
 
