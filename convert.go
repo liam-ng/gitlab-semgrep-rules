@@ -118,11 +118,20 @@ func generateScsID(id string) (report.Identifier, error) {
 // generateBanditID will take in bandit_id as string and output an identifier
 // Examples of bandit_id: B303-1, B305
 func generateBanditID(id string) (report.Identifier, error) {
-	return generateID(id, "bandit_test_id", "Bandit Test ID", " ")
+	value := strings.Split(id, "-")[0]
+	return report.Identifier{
+		Type:  "bandit_test_id",
+		Name:  "Bandit Test ID " + value,
+		Value: value,
+	}, nil
 }
 
 func generateEslintID(id string) (report.Identifier, error) {
-	return generateID(id, "eslint_rule_id", "ESLint rule ID", " ")
+	return report.Identifier{
+		Type:  "eslint_rule_id",
+		Name:  "ESLint rule ID security/" + id,
+		Value: "security/" + id,
+	}, nil
 }
 
 func generateFlawfinderID(id string) (report.Identifier, error) {
