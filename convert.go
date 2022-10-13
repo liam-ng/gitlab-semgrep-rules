@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strconv"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
@@ -127,11 +128,24 @@ func generateBanditID(id string) (report.Identifier, error) {
 }
 
 func generateEslintID(id string) (report.Identifier, error) {
+	// ignore last "-" and number
+	values := strings.Split(id, "-")
+	lastElement := values[len(values)-1]
+	if _, err := strconv.Atoi(lastElement); err != nil {
+		return report.Identifier{
+			Type:  "eslint_rule_id",
+			Name:  "ESLint rule ID " + id,
+			Value: id,
+		}, nil
+	}
+	// remove last element and join the rest
+	id = strings.Join(values[:len(values)-1], "-")
 	return report.Identifier{
 		Type:  "eslint_rule_id",
-		Name:  "ESLint rule ID security/" + id,
-		Value: "security/" + id,
+		Name:  "ESLint rule ID " + id,
+		Value: id,
 	}, nil
+
 }
 
 func generateFlawfinderID(id string) (report.Identifier, error) {
