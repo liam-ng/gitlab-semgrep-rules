@@ -1,7 +1,7 @@
 Semgrep analyzer changelog
 
 ## v3.7.4
-- Fix Java false-positive pattern for SQL injection and Hardcoded password (!161)
+- Fix Java false-positive pattern for SQL injection and Hardcoded password (!164)
 
 ## v3.7.3
 - Bump go-fips builder image to 1.18 (!161)
