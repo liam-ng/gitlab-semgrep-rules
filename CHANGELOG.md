@@ -1,7 +1,7 @@
 Semgrep analyzer changelog
 
 ## v3.8.0
-- Use `sast-rules` package for rules (!147)
+- Use `sast-rules` v1.1.3 package for rules (!147)
 
 ## v3.7.2
 - Upgrade to the latest security-code-scan ruleset 1.0.67 (!156)
