@@ -3,13 +3,17 @@ package main
 import (
 	"fmt"
 	"io"
+	"io/fs"
+	"io/ioutil"
 	"os"
-	"strconv"
+	"path/filepath"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
+	"gopkg.in/yaml.v2"
 
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
+	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
 
@@ -25,17 +29,45 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 
 	log.Debugf("Converting report with the root path: %s", root)
 
+	// Load custom config if available
+	rulesetPath := filepath.Join(prependPath, ruleset.PathSAST)
+	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep")
+	if err != nil {
+		switch err.(type) {
+		case *ruleset.NotEnabledError:
+			log.Debug(err)
+		case *ruleset.ConfigFileNotFoundError:
+			log.Debug(err)
+		case *ruleset.ConfigNotFoundError:
+			log.Debug(err)
+		case *ruleset.InvalidConfig:
+			log.Fatal(err)
+		default:
+			return nil, err
+		}
+	}
+
+	configPath, err := getConfigPath(prependPath, rulesetConfig)
+	if err != nil {
+		return nil, err
+	}
+
 	sastReport, err := report.TransformToGLSASTReport(reader, root, metadata.AnalyzerID, metadata.IssueScanner)
 	if err != nil {
 		return nil, err
 	}
 
-	return addAnalyzerIdentifiers(sastReport)
+	return addAnalyzerIdentifiers(sastReport, configPath)
 }
 
 // addAnalyzerIdentifiers iterates through report vulnerability identifiers. Each identifier is then use to
 // determine how the semgrep rule maps to a corresponding analyzer like bandit, or eslint.
-func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
+func addAnalyzerIdentifiers(sastReport *report.Report, configPath string) (*report.Report, error) {
+	ruleMap, err := buildRuleMap(configPath)
+	if err != nil {
+		return sastReport, err
+	}
+
 	for index, vul := range sastReport.Vulnerabilities {
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
@@ -44,7 +76,7 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 			vul.Identifiers[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
 		}
 
-		ids := ruleToIDs(ruleID)
+		ids := ruleToIDs(ruleID, ruleMap)
 		if len(ids) > 0 {
 			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, ids...)
 		}
@@ -52,135 +84,74 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 	return sastReport, nil
 }
 
-// ruleToIDs will take in ruleID as string and output a slice of identifiers containing each sub-rule.
+// ruleToIDs will take in ruleID as string and output a slice of secondaary identifiers containing each sub-rule.
 // Examples of ruleID: bandit.B303-1 (outputs one identifier), bandit.B502.B503 (outputs two identifiers)
-func ruleToIDs(ruleID string) []report.Identifier {
+func ruleToIDs(ruleID string, ruleMap map[string]semgrepRuleFile) []report.Identifier {
 	var empty []report.Identifier
 	matches := strings.Split(ruleID, ".")
 	if len(matches) < 2 {
 		return empty
 	}
 
-	analyzer, subrules := strings.ToLower(matches[0]), matches[1:]
+	analyzer := strings.ToLower(matches[0])
 
 	switch analyzer {
-	case "security_code_scan":
-		return generateIDs(subrules, generateScsID)
-	case "bandit":
-		return generateIDs(subrules, generateBanditID)
-	case "eslint":
-		return generateIDs(subrules, generateEslintID)
-	case "flawfinder":
-		return generateIDs(subrules, generateFlawfinderID)
-	case "gosec":
-		return generateIDs(subrules, generateGosecID)
-	case "find_sec_bugs":
-		return generateIDs(subrules, generateFindSecBugsID)
+	case "bandit", "eslint", "find_sec_bugs", "flawfinder", "gosec", "security_code_scan":
+		return findSecondaryIDs(analyzer, ruleID, ruleMap)
 	default:
 		return empty
 	}
 }
 
-// computeRuleName converts a Semgrep rule name to its native rule ID by removing any numbered suffixes
-// and joining any remaining parts with dashes.
-// For example: B101-1 returns B101, and security/detect-non-literal-regexp-1 -> security/detect-non-literal-regexp
-func computeRuleName(id string) (string, error) {
-	segments := strings.Split(id, "-")
-	if len(segments) == 1 {
-		return segments[0], nil
+func findSecondaryIDs(analyzer string, id string, ruleMap map[string]semgrepRuleFile) []report.Identifier {
+	identifiers := []report.Identifier{}
+
+	if len(ruleMap[analyzer].Rules) == 0 {
+		return identifiers
 	}
 
-	if len(segments) < 2 {
-		return "", fmt.Errorf("Unable to compute native rule id from '%s'", id)
+	for _, rule := range ruleMap[analyzer].Rules {
+		if rule.ID == id {
+			for _, sid := range rule.Metadata.SecondaryIdentifiers {
+				identifiers = append(
+					identifiers,
+					report.Identifier{
+						Type:  report.IdentifierType(sid.Type),
+						Name:  sid.Name,
+						Value: sid.Value,
+					})
+			}
+		}
 	}
 
-	return strings.Join(segments[0:len(segments)-1], "-"), nil
+	return identifiers
 }
 
-func generateID(id string, typ string, name string, sep string) (report.Identifier, error) {
-	value, err := computeRuleName(id)
-	if err != nil {
-		return report.Identifier{}, err
-	}
+func buildRuleMap(configPath string) (map[string]semgrepRuleFile, error) {
+	ruleMap := map[string]semgrepRuleFile{}
 
-	return report.Identifier{
-		Type:  report.IdentifierType(typ),
-		Name:  strings.Join([]string{name, value}, sep),
-		Value: value,
-	}, nil
-}
-
-// generateScsID transforms the input ID into the original format produced by the
-// Security Code Scan analyzer. For example, SCS0005-1 -> SCS0005.
-func generateScsID(id string) (report.Identifier, error) {
-	return generateID(id, "security_code_scan_rule_id", "", "")
-}
-
-// generateBanditID will take in bandit_id as string and output an identifier
-// Examples of bandit_id: B303-1, B305
-func generateBanditID(id string) (report.Identifier, error) {
-	value := strings.Split(id, "-")[0]
-	values := strings.Split(id, "-")
-	lastElement := values[len(values)-1]
-	if _, err := strconv.Atoi(lastElement); err != nil {
-		return report.Identifier{
-			Type:  "bandit_test_id",
-			Name:  "Bandit Test ID " + value,
-			Value: value,
-		}, nil
-	}
-	// remove last element and join the rest
-	id = strings.Join(values[:len(values)-1], "-")
-	return report.Identifier{
-		Type:  "bandit_test_id",
-		Name:  "Bandit Test ID " + id,
-		Value: id,
-	}, nil
-}
-
-func generateEslintID(id string) (report.Identifier, error) {
-	// ignore last "-" and number
-	values := strings.Split(id, "-")
-	lastElement := values[len(values)-1]
-	if _, err := strconv.Atoi(lastElement); err != nil {
-		return report.Identifier{
-			Type:  "eslint_rule_id",
-			Name:  "ESLint rule ID " + id,
-			Value: id,
-		}, nil
-	}
-	// remove last element and join the rest
-	id = strings.Join(values[:len(values)-1], "-")
-	return report.Identifier{
-		Type:  "eslint_rule_id",
-		Name:  "ESLint rule ID " + id,
-		Value: id,
-	}, nil
-
-}
-
-func generateFlawfinderID(id string) (report.Identifier, error) {
-	return generateID(id, "flawfinder_func_name", "Flawfinder -", " ")
-}
-
-func generateGosecID(id string) (report.Identifier, error) {
-	return generateID(id, "gosec_rule_id", "Gosec Rule ID", " ")
-}
-
-func generateFindSecBugsID(id string) (report.Identifier, error) {
-	return generateID(id, "find_sec_bugs_type", "Find Security Bugs-", "")
-}
-
-func generateIDs(ruleIDs []string, generator func(string) (report.Identifier, error)) []report.Identifier {
-	var ids []report.Identifier
-	for i := 0; i < len(ruleIDs); i++ {
-		ruleid, err := generator(ruleIDs[i])
-		if err != nil {
-			log.Error(err)
-			continue
+	err := filepath.WalkDir(configPath, func(path string, d fs.DirEntry, err error) error {
+		_, err = os.Stat(path)
+		if err != nil || d.IsDir() {
+			return nil
 		}
 
-		ids = append(ids, ruleid)
-	}
-	return ids
+		var ruleFile semgrepRuleFile
+
+		fileContent, err := ioutil.ReadFile(path)
+		if err != nil {
+			return fmt.Errorf("read rule file at %s: %w", path, err)
+		}
+
+		if err = yaml.Unmarshal(fileContent, &ruleFile); err != nil {
+			return fmt.Errorf("parse rule file at %s: %w", path, err)
+		}
+
+		rulesetFile := strings.Split(filepath.Base(path), ".")[0]
+		ruleMap[rulesetFile] = ruleFile
+
+		return nil
+	})
+
+	return ruleMap, err
 }
