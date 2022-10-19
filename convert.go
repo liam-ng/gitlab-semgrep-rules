@@ -71,60 +71,88 @@ func addAnalyzerIdentifiers(sastReport *report.Report, configPath string) (*repo
 	for index, vul := range sastReport.Vulnerabilities {
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
-		// generate and add a URL to the semgrep ID
-		if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
-			vul.Identifiers[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
+		pID, sIDs := ruleToIDs(ruleID, ruleMap)
+		if pID != nil {
+			sastReport.Vulnerabilities[index].Identifiers[0] = *pID
 		}
-
-		ids := ruleToIDs(ruleID, ruleMap)
-		if len(ids) > 0 {
-			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, ids...)
+		if len(sIDs) > 0 {
+			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, sIDs...)
 		}
 	}
 	return sastReport, nil
 }
 
-// ruleToIDs will take in ruleID as string and output a slice of secondaary identifiers containing each sub-rule.
-// Examples of ruleID: bandit.B303-1 (outputs one identifier), bandit.B502.B503 (outputs two identifiers)
-func ruleToIDs(ruleID string, ruleMap map[string]semgrepRuleFile) []report.Identifier {
+// ruleToIDs will take in ruleID as string and output a trimmed primary identifier
+// and slice of secondary identifiers containing each sub-rule.
+// Examples of secondary identifiers: bandit.B303-1 (outputs one identifier), bandit.B502.B503 (outputs two identifiers)
+func ruleToIDs(ruleID string, ruleMap map[string]semgrepRuleFile) (*report.Identifier, []report.Identifier) {
 	var empty []report.Identifier
 	matches := strings.Split(ruleID, ".")
 	if len(matches) < 2 {
-		return empty
+		return &report.Identifier{}, empty
 	}
 
 	analyzer := strings.ToLower(matches[0])
 
 	switch analyzer {
 	case "bandit", "eslint", "find_sec_bugs", "flawfinder", "gosec", "security_code_scan":
-		return findSecondaryIDs(analyzer, ruleID, ruleMap)
+		if len(ruleMap[analyzer].Rules) == 0 {
+			return &report.Identifier{}, empty
+		}
+
+		rule := findRuleForID(ruleID, ruleMap[analyzer])
+		if rule == nil {
+			return &report.Identifier{}, empty
+		}
+
+		// if analyzer == "bandit" {
+		// 	panic(fmt.Errorf("%#v", buildSecondaryIDs(rule)))
+		// }
+		return buildPrimaryID(ruleID, rule), buildSecondaryIDs(rule)
 	default:
-		return empty
+		return &report.Identifier{}, empty
 	}
 }
 
-func findSecondaryIDs(analyzer string, id string, ruleMap map[string]semgrepRuleFile) []report.Identifier {
-	identifiers := []report.Identifier{}
-
-	if len(ruleMap[analyzer].Rules) == 0 {
-		return identifiers
+func buildPrimaryID(ruleID string, rule *semgrepRule) *report.Identifier {
+	ID := report.Identifier{
+		Type:  report.IdentifierType("semgrep_id"),
+		Name:  rule.Metadata.PrimaryIdentifier,
+		Value: rule.Metadata.PrimaryIdentifier,
 	}
 
-	for _, rule := range ruleMap[analyzer].Rules {
-		if rule.ID == id {
-			for _, sid := range rule.Metadata.SecondaryIdentifiers {
-				identifiers = append(
-					identifiers,
-					report.Identifier{
-						Type:  report.IdentifierType(sid.Type),
-						Name:  sid.Name,
-						Value: sid.Value,
-					})
-			}
-		}
+	// generate and add a URL to the semgrep ID
+	if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
+		ID.URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
+	}
+
+	return &ID
+}
+
+func buildSecondaryIDs(rule *semgrepRule) []report.Identifier {
+	identifiers := []report.Identifier{}
+
+	for _, sid := range rule.Metadata.SecondaryIdentifiers {
+		identifiers = append(
+			identifiers,
+			report.Identifier{
+				Type:  report.IdentifierType(sid.Type),
+				Name:  sid.Name,
+				Value: sid.Value,
+			})
 	}
 
 	return identifiers
+}
+
+func findRuleForID(id string, ruleFile semgrepRuleFile) *semgrepRule {
+	for _, rule := range ruleFile.Rules {
+		if rule.ID == id {
+			return &rule
+		}
+	}
+
+	return nil
 }
 
 func buildRuleMap(configPath string) (map[string]semgrepRuleFile, error) {

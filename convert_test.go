@@ -30,8 +30,8 @@ func TestConvert(t *testing.T) {
 	// Test Semgrep ID
 	want := report.Identifier{
 		Type:  "semgrep_id",
-		Name:  "bandit.B303-1",
-		Value: "bandit.B303-1",
+		Name:  "bandit.B303",
+		Value: "bandit.B303",
 		URL:   "https://semgrep.dev/r/gitlab.bandit.B303-1",
 	}
 	got := vuln.Identifiers[0]
@@ -134,7 +134,8 @@ func TestGenerateIDs(t *testing.T) {
 	}
 
 	for ruleid, want := range testcases {
-		got := ruleToIDs(ruleid, ruleMap)
+		_, sIDs := ruleToIDs(ruleid, ruleMap)
+		got := sIDs
 		if !reflect.DeepEqual(want, got) {
 			t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
 		}
