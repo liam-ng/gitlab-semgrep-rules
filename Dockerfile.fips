@@ -33,6 +33,9 @@ RUN yum -y -q upgrade --best --allowerasing --disableplugin=subscription-manager
     yum -y -q install --disableplugin=subscription-manager git wget && \
     yum -y clean all --enablerepo='*'
 
+# remove unused packages
+RUN yum -y remove vim-filesystem vim-minimal
+
 # install semgrep
 RUN pip install ruamel.yaml==0.16.12 semgrep==$SCANNER_VERSION
 
