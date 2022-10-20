@@ -18,7 +18,7 @@ RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') &&
         PATH_TO_MODULE=`go list -m` && \
         go build -ldflags="-X '$PATH_TO_MODULE/metadata.AnalyzerVersion=$CHANGELOG_VERSION'" -o /analyzer-semgrep
 
-FROM registry.access.redhat.com/ubi8/python-39
+FROM registry.access.redhat.com/ubi8-minimal
 USER root
 
 ARG SCANNER_VERSION
@@ -29,19 +29,24 @@ COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY rules /rules
 COPY semgrepignore /semgrepignore
 
-RUN yum -y -q upgrade --best --allowerasing --disableplugin=subscription-manager && \
-    yum -y -q install --disableplugin=subscription-manager git wget && \
-    yum -y clean all --enablerepo='*'
-
-# install semgrep
-RUN pip install ruamel.yaml==0.16.12 semgrep==$SCANNER_VERSION
-
-# give write access to CA certificates (OpenShift)
-RUN mkdir -p /etc/ssl/certs/ && \
-        touch /etc/ssl/certs/ca-certificates.crt && \
-	chmod g+w /etc/ssl/certs/ca-certificates.crt
-
-RUN useradd --create-home gitlab -g root
+RUN microdnf update --disableplugin=subscription-manager --nodocs && \
+    microdnf install shadow-utils util-linux git wget python39 --disableplugin=subscription-manager --nodocs && \
+    \
+    # Install Semgrep
+    pip3 install ruamel.yaml==0.16.12 semgrep==$SCANNER_VERSION && \
+    \
+    # Configure CA Certificates
+    mkdir -p /etc/ssl/certs/ && \
+    touch /etc/ssl/certs/ca-certificates.crt && \
+    chmod g+w /etc/ssl/certs/ca-certificates.crt && \
+    \
+    # Create gitlab user
+    useradd --create-home gitlab -g root && \
+    \
+    # Cleanup libs that are no longer needed
+    microdnf remove shadow-utils && \
+    microdnf clean all && \
+    microdnf remove microdnf
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
 COPY --from=scripts /start.sh /analyzer

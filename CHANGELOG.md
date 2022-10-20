@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.7.5
+- Switch to use ubi8-minimal as the base FIPS image (!165)
+
 ## v3.7.4
 - Include `scan.analyzer` in JSON report output (!159)
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.13.0` => [`v3.15.3`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.15.3)] (!159)
