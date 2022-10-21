@@ -101,7 +101,7 @@ func TestGenerateIDs(t *testing.T) {
 				Value: "B503",
 			},
 		},
-		"eslint.security/detect-no-csrf-before-method-override-1": {
+		"eslint.detect-no-csrf-before-method-override-1": {
 			{
 				Type:  "eslint_rule_id",
 				Name:  "ESLint rule ID security/detect-no-csrf-before-method-override",
