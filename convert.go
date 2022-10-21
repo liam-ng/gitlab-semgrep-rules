@@ -153,7 +153,7 @@ func generateEslintID(id string) (report.Identifier, error) {
 	id = strings.Join(values[:len(values)-1], "-")
 	return report.Identifier{
 		Type:  "eslint_rule_id",
-		Name:  "ESLint rule ID security/ " + id,
+		Name:  "ESLint rule ID security/" + id,
 		Value: "security/" + id,
 	}, nil
 
