@@ -7,7 +7,10 @@ FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZE
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
 FROM golang:1.17-alpine AS build
-ARG SAST_RULES_VERSION=1.1.3
+
+# ARG SAST_RULES_VERSION=1.1.3
+# temporary change to pull in in-progress updates to make testing easier
+ARG SAST_RULES_VERSION=misc-identifier-corrections/sast-rules-misc-identifier-corrections
 ARG SAST_RULES_URL=https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules/-/archive
 
 ENV CGO_ENABLED=0 GOOS=linux
@@ -17,7 +20,9 @@ COPY . .
 
 RUN apk add --no-cache tar curl && \
     mkdir -p /archive && \
-    curl -o rules.tar.gz ${SAST_RULES_URL}/v${SAST_RULES_VERSION}/sast-rules-v${SAST_RULES_VERSION}.tar.gz && tar --strip-components=1 -xf rules.tar.gz -C /archive
+    curl -o rules.tar.gz ${SAST_RULES_URL}/${SAST_RULES_VERSION}.tar.gz && tar --strip-components=1 -xf rules.tar.gz -C /archive
+# temporary change to pull in in-progress updates to make testing easier
+#    curl -o rules.tar.gz ${SAST_RULES_URL}/v${SAST_RULES_VERSION}/sast-rules-v${SAST_RULES_VERSION}.tar.gz && tar --strip-components=1 -xf rules.tar.gz -C /archive
 
 # variable to the most recent version from the CHANGELOG.md file
 RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') && \
