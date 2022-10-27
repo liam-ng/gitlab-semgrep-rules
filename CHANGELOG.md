@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.7.6
+- Upgrade gitlab.com/gitlab-org/security-products/analyzers/report to v3.15.5 (!168)
+
 ## v3.7.5
 - Switch to use ubi8-minimal as the base FIPS image (!165)
 
