@@ -1,0 +1,58 @@
+[semgrep]
+  description = 'semgrep custom rules configuration'
+  targetdir = "/sgrules"
+  validate = true
+  
+  [[semgrep.passthrough]]
+    type  = "raw"
+    value = """# My ruleset
+"""
+    target = "rule.yml"
+
+  [[semgrep.passthrough]]
+    type  = "url"
+    value = "https://semgrep.dev/c/p/gosec"
+    target = "rule.yml"
+    mode = "append"
+  
+  [[semgrep.passthrough]]
+    type  = "file"
+    value = "foo.yml"
+    target = "rule.yml"
+    mode = "append"
+
+  [[semgrep.passthrough]]
+    type  = "raw"
+    mode  = "append"
+    target = "rule.yml"
+    value = """
+- id: "baz"
+  patterns:
+  - pattern: "func baz() {...}"
+  message: |
+    Function baz detected
+  metadata:
+    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+  severity: "ERROR"
+  languages:
+  - "go"
+"""
+  
+  [[semgrep.passthrough]]
+    type  = "file"
+    value = "bar.yml"
+    validator = "yaml"
+
+  [[semgrep.passthrough]]
+    type  = "git"
+    value = "https://github.com/dgryski/semgrep-go"
+    ref = "b14e2f07411c22cadaab3a5d7df2346a99e7b36d"
+
+  [[semgrep.passthrough]]
+    type  = "git"
+    value = "https://gitlab.com/julianthome/semgrep-rules"
+    subdir = "go"
+    ref = "refs/heads/develop"
+
+  
+
