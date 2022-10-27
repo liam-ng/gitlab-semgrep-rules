@@ -3,8 +3,8 @@ module gitlab.com/gitlab-org/security-products/analyzers/semgrep
 go 1.15
 
 require (
-	github.com/Microsoft/go-winio v0.5.2 // indirect
-	github.com/ProtonMail/go-crypto v0.0.0-20220812175011-7fcef0dbe794 // indirect
+	github.com/Microsoft/go-winio v0.6.0 // indirect
+	github.com/ProtonMail/go-crypto v0.0.0-20220930113650-c6815a8c17ad // indirect
 	github.com/cloudflare/circl v1.2.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
@@ -13,12 +13,13 @@ require (
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.0
 	github.com/urfave/cli/v2 v2.16.3
+	github.com/xanzy/ssh-agent v0.3.2 // indirect
 	gitlab.com/gitlab-org/security-products/analyzers/command v1.9.1
-	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.1
+	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2
 	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.15.5
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0
-	golang.org/x/crypto v0.0.0-20220817201139-bc19a97f63c8 // indirect
-	golang.org/x/net v0.0.0-20220812174116-3211cb980234 // indirect
-	golang.org/x/sys v0.0.0-20220817070843-5a390386f1f2 // indirect
+	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a
+	golang.org/x/net v0.0.0-20221012135044-0b7e1fb9d458 // indirect
+	golang.org/x/sys v0.0.0-20221010170243-090e33056c14 // indirect
 	gopkg.in/yaml.v2 v2.4.0
 )
