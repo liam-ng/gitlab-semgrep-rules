@@ -3,22 +3,21 @@ package main
 import (
 	"fmt"
 	"os"
-	"reflect"
 	"testing"
 
-	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
+	"github.com/stretchr/testify/require"
+
+	"github.com/stretchr/testify/assert"
+
+	"gitlab.com/gitlab-org/security-products/analyzers/report/v3"
 )
 
 func TestConvert(t *testing.T) {
 	fixture, err := os.Open("testdata/reports/semgrep.sarif")
-	if err != nil {
-		t.Fatal(err)
-	}
+	require.NoError(t, err)
 
 	sastReport, err := convert(fixture, "/tmp/app/")
-	if err != nil {
-		t.Fatal(err)
-	}
+	require.NoError(t, err)
 
 	// Test Semgrep ID
 	want := report.Identifier{
@@ -28,9 +27,7 @@ func TestConvert(t *testing.T) {
 		URL:   "https://semgrep.dev/r/gitlab.bandit.B303-1",
 	}
 	got := sastReport.Vulnerabilities[0].Identifiers[0]
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
+	assert.Equal(t, want, got)
 
 	// Test Bandit ID
 	want = report.Identifier{
@@ -39,9 +36,7 @@ func TestConvert(t *testing.T) {
 		Value: "B303",
 	}
 	got = sastReport.Vulnerabilities[0].Identifiers[3]
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
+	assert.Equal(t, want, got)
 }
 
 func TestGenerateBanditID(t *testing.T) {
@@ -51,10 +46,7 @@ func TestGenerateBanditID(t *testing.T) {
 		Value: "B303",
 	}
 	got := generateBanditID("B303-2")
-
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
+	assert.Equal(t, want, got)
 }
 
 func TestGenerateFindSecBugsID(t *testing.T) {
@@ -65,10 +57,7 @@ func TestGenerateFindSecBugsID(t *testing.T) {
 		Value: id,
 	}
 	got := generateFindSecBugsID(id + "-2")
-
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
+	assert.Equal(t, want, got)
 }
 
 func TestGenerateIDs(t *testing.T) {
@@ -155,8 +144,42 @@ func TestGenerateIDs(t *testing.T) {
 
 	for ruleid, want := range testcases {
 		got := ruleToIDs(ruleid)
-		if !reflect.DeepEqual(want, got) {
-			t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-		}
+		assert.Equal(t, want, got)
 	}
+}
+
+// TestComputeCompareKey ensures the generated `cve` value is stable for occurrences of the same vulnerability, and
+// unique for different vulnerabilities.
+func TestComputeCompareKey(t *testing.T) {
+	v1 := report.Vulnerability{
+		Identifiers: []report.Identifier{
+			{
+				Type:  "myIdentifierType",
+				Value: "myIdentifierValue",
+			},
+		},
+		Location: report.Location{
+			LineStart: 10,
+			LineEnd:   10,
+		},
+	}
+
+	v2 := report.Vulnerability{
+		Identifiers: []report.Identifier{
+			{
+				Type:  "myIdentifierType2",
+				Value: "myIdentifierValue2",
+			},
+		},
+		Location: report.Location{
+			LineStart: 15,
+			LineEnd:   15,
+		},
+	}
+
+	assert.Equal(t, computeCompareKey(v1), computeCompareKey(v1), "same key for same vulnerability")
+	assert.NotEqual(t, computeCompareKey(v1), computeCompareKey(v2), "different keys for different vulnerabilities")
+
+	assert.Equal(t, computeCompareKey(v1), "myIdentifierType:myIdentifierValue:10:10")
+	assert.Equal(t, computeCompareKey(v2), "myIdentifierType2:myIdentifierValue2:15:15")
 }

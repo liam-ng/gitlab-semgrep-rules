@@ -2,61 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "b30fe201a7a31d98969f61767202483f02558c5416359522740ed3c8bc3fdceb",
-      "category": "sast",
-      "message": "Inadequate Encryption Strength",
-      "description": "An authentication cipher mode which provides better confidentiality of the encrypted data\nshould be used instead of Electronic Code Book (ECB) mode, which does not provide good\nconfidentiality. Specifically, ECB mode produces the same output for the same input each time.\nThis allows an attacker to intercept and replay the data.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
-        "start_line": 29
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "find_sec_bugs.ECB_MODE-1",
-          "value": "find_sec_bugs.ECB_MODE-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-326",
-          "value": "326",
-          "url": "https://cwe.mitre.org/data/definitions/326.html"
-        },
-        {
-          "type": "find_sec_bugs_type",
-          "name": "Find Security Bugs-ECB_MODE",
-          "value": "ECB_MODE"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
-            "line_start": 29,
-            "line_end": 29,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "web/src/main/java/com/gitlab/security_products/tests/App.java|App[0]|insecureCypher[0]:2"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "c832a706d2550407af4ebc66c30682e59fe2741abc21d041db9bca8fb0cb83d2",
+      "id": "6b9602b43adee5c918ef642df03174b8cefb22fb0bd299583f685b38b4cac400",
       "category": "sast",
       "message": "Missing Support for Integrity Check",
       "description": "The ciphertext produced is susceptible to alteration by an adversary. This mean that the\ncipher provides no way to detect that the data has been tampered with. If the ciphertext can be\ncontrolled by an attacker, it could be altered without detection.\n",
-      "cve": "",
+      "cve": "semgrep_id:find_sec_bugs.CIPHER_INTEGRITY-1:29:29",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -99,15 +49,17 @@
             ]
           }
         ]
-      }
+      },
+      "links": [],
+      "flags": []
     },
     {
-      "id": "f96d9bf708bbac7157011562d54945743f696dec16ba3203e3810d0eb4136db8",
+      "id": "e8ea4ec545e8da5a66768256ad34c9c2e7dd667b39e05f503e81b95404161a62",
       "category": "sast",
-      "message": "Use of RSA Algorithm without OAEP",
-      "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
-      "cve": "",
-      "severity": "Medium",
+      "message": "Inadequate Encryption Strength",
+      "description": "An authentication cipher mode which provides better confidentiality of the encrypted data\nshould be used instead of Electronic Code Book (ECB) mode, which does not provide good\nconfidentiality. Specifically, ECB mode produces the same output for the same input each time.\nThis allows an attacker to intercept and replay the data.\n",
+      "cve": "semgrep_id:find_sec_bugs.ECB_MODE-1:29:29",
+      "severity": "Critical",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -119,19 +71,19 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "find_sec_bugs.RSA_NO_PADDING-1",
-          "value": "find_sec_bugs.RSA_NO_PADDING-1"
+          "name": "find_sec_bugs.ECB_MODE-1",
+          "value": "find_sec_bugs.ECB_MODE-1"
         },
         {
           "type": "cwe",
-          "name": "CWE-780",
-          "value": "780",
-          "url": "https://cwe.mitre.org/data/definitions/780.html"
+          "name": "CWE-326",
+          "value": "326",
+          "url": "https://cwe.mitre.org/data/definitions/326.html"
         },
         {
           "type": "find_sec_bugs_type",
-          "name": "Find Security Bugs-RSA_NO_PADDING",
-          "value": "RSA_NO_PADDING"
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE"
         }
       ],
       "tracking": {
@@ -149,14 +101,16 @@
             ]
           }
         ]
-      }
+      },
+      "links": [],
+      "flags": []
     },
     {
-      "id": "460c9f1d6315534187720aad977f1660102161e3a64a8d1837a2a6ac0b2d8855",
+      "id": "68ae836684aec39cb030d1f5db2e5116eef5ea2907cd52327b417ea232fd114a",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
-      "cve": "",
+      "cve": "semgrep_id:find_sec_bugs.PREDICTABLE_RANDOM-1:41:42",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -200,14 +154,16 @@
             ]
           }
         ]
-      }
+      },
+      "links": [],
+      "flags": []
     },
     {
-      "id": "ad2ec50003c7dfcb231730b56b3aefcb4658759c53861e69b6041a9cc84a3a12",
+      "id": "66492776fd1caeedb9dcc3de0e5be48514f3a007d1dd036b7df1ce1a01213a06",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
-      "cve": "",
+      "cve": "semgrep_id:find_sec_bugs.PREDICTABLE_RANDOM-1:42:42",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -250,7 +206,61 @@
             ]
           }
         ]
-      }
+      },
+      "links": [],
+      "flags": []
+    },
+    {
+      "id": "677e19d96a163fc6426278c61602ce6d9be1070906eb52f8612122b88999595a",
+      "category": "sast",
+      "message": "Use of RSA Algorithm without OAEP",
+      "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
+      "cve": "semgrep_id:find_sec_bugs.RSA_NO_PADDING-1:29:29",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.RSA_NO_PADDING-1",
+          "value": "find_sec_bugs.RSA_NO_PADDING-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-780",
+          "value": "780",
+          "url": "https://cwe.mitre.org/data/definitions/780.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-RSA_NO_PADDING",
+          "value": "RSA_NO_PADDING"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
+            "line_start": 29,
+            "line_end": 29,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "web/src/main/java/com/gitlab/security_products/tests/App.java|App[0]|insecureCypher[0]:2"
+              }
+            ]
+          }
+        ]
+      },
+      "links": [],
+      "flags": []
     }
   ],
   "scan": {
@@ -260,8 +270,7 @@
       "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
       "vendor": {
         "name": "GitLab"
-      },
-      "version": "3.7.2"
+      }
     },
     "scanner": {
       "id": "semgrep",
@@ -269,12 +278,9 @@
       "url": "https://github.com/returntocorp/semgrep",
       "vendor": {
         "name": "GitLab"
-      },
-      "version": "0.86.5"
+      }
     },
     "type": "sast",
-    "start_time": "2022-04-14T17:42:00",
-    "end_time": "2022-04-14T17:42:10",
     "status": "success"
   }
 }
