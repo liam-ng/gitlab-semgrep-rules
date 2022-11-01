@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "d2f89a9ad6c422e47d4e0e1b180566bd344d47b3971907b3c68cc9697b173dc9",
+      "id": "7331a4b7093875f6eb9f6eb1755b30cc792e9fb3a08c9ce673fb0d2207d7c9c9",
       "category": "sast",
       "message": "Key Exchange without Entity Authentication",
       "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
-      "cve": "",
+      "cve": "semgrep_id:gosec.G106-1:8:8",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -33,12 +33,10 @@
           "name": "Gosec Rule ID G106",
           "value": "G106"
         }
-      ],
-      "tracking": {
-        "items": []
-      }
+      ]
     }
   ],
+  "dependency_files": [],
   "scan": {
     "analyzer": {
       "id": "semgrep",
@@ -47,7 +45,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.7.2"
+      "version": "3.8.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -56,11 +54,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.69.1"
+      "version": "0.115.0"
     },
     "type": "sast",
-    "start_time": "2021-11-03T20:33:48",
-    "end_time": "2021-11-03T20:33:53",
+    "start_time": "2022-10-28T02:39:37",
+    "end_time": "2022-10-28T02:39:43",
     "status": "success"
   }
 }

@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.8.0
+- Populates the `cve` field of each vulnerability finding (!169)
+
 ## v3.7.6
 - Upgrade gitlab.com/gitlab-org/security-products/analyzers/report to v3.15.5 (!168)
 

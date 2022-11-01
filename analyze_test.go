@@ -215,7 +215,7 @@ func TestBuildArgs(t *testing.T) {
 
 func TestRemoveRulesFromFile(t *testing.T) {
 	wd, err := os.Getwd()
-	require.Nil(t, err)
+	require.NoError(t, err)
 
 	rulefileName := "remove_rules_from_file.yml"
 	rulefileOriginal := path.Join(wd, "testdata", rulefileName)
@@ -223,12 +223,12 @@ func TestRemoveRulesFromFile(t *testing.T) {
 
 	// copy original rulefile to a temporary one for testing
 	rulefileTestingContent, err := ioutil.ReadFile(rulefileOriginal)
-	require.Nil(t, err)
-	require.Nil(t, ioutil.WriteFile(rulefileTesting, rulefileTestingContent, 0666))
+	require.NoError(t, err)
+	require.NoError(t, ioutil.WriteFile(rulefileTesting, rulefileTestingContent, 0666))
 
 	// remove some rules
 	ruleToRemove := "eslint.detect-object-injection"
-	require.Nil(t, removeRulesFromFile(rulefileTesting, []string{ruleToRemove}))
+	require.NoError(t, removeRulesFromFile(rulefileTesting, []string{ruleToRemove}))
 
 	// assert
 	modifiedRulefileContents, err := ioutil.ReadFile(rulefileTesting)

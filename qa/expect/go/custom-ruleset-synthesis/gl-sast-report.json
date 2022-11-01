@@ -2,11 +2,69 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "5bc1b2c238431bb3944db41b524f60cab30d6cc38da32b5bf57dbca0e4a28d3b",
+      "id": "80c87171d02edcd89a9602bf34dc07f01006dc623e2e89b983805d393dafd649",
+      "category": "sast",
+      "message": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "description": "Function bar detected\n",
+      "cve": "semgrep_id:bar:9:9",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "foo.go",
+        "start_line": 9
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bar",
+          "value": "bar"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-200",
+          "value": "200",
+          "url": "https://cwe.mitre.org/data/definitions/200.html"
+        }
+      ]
+    },
+    {
+      "id": "fe920519163a4160e167d3519ba0fd214578b38093d795b1ad548d0388e021fa",
+      "category": "sast",
+      "message": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "description": "Function baz detected\n",
+      "cve": "semgrep_id:baz:7:7",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "foo.go",
+        "start_line": 7
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "baz",
+          "value": "baz"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-200",
+          "value": "200",
+          "url": "https://cwe.mitre.org/data/definitions/200.html"
+        }
+      ]
+    },
+    {
+      "id": "4cfb3760b90738fcd63bd720471eea4ff1b37cae89a0f03c4b7560496091cb99",
       "category": "sast",
       "message": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function foo detected\n",
-      "cve": "",
+      "cve": "semgrep_id:foo:11:18",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -29,81 +87,14 @@
           "value": "200",
           "url": "https://cwe.mitre.org/data/definitions/200.html"
         }
-      ],
-      "tracking": {
-        "items": []
-      }
+      ]
     },
     {
-      "id": "7c998016a332ce21e0d77f1a49942695d6dd84fb57fc7558bbf3b0eff1a92774",
-      "category": "sast",
-      "message": "Exposure of Sensitive Information to an Unauthorized Actor",
-      "description": "Function baz detected\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "foo.go",
-        "start_line": 7
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "baz",
-          "value": "baz"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-200",
-          "value": "200",
-          "url": "https://cwe.mitre.org/data/definitions/200.html"
-        }
-      ],
-      "tracking": {
-        "items": []
-      }
-    },
-    {
-      "id": "d23d71a35ac98ac5626288b8a7f84722183c9b7401e43d14ba9ecb6dc53b363b",
-      "category": "sast",
-      "message": "Exposure of Sensitive Information to an Unauthorized Actor",
-      "description": "Function bar detected\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "foo.go",
-        "start_line": 9
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bar",
-          "value": "bar"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-200",
-          "value": "200",
-          "url": "https://cwe.mitre.org/data/definitions/200.html"
-        }
-      ],
-      "tracking": {
-        "items": []
-      }
-    },
-    {
-      "id": "5bc190a961a2fd1f52cf8a20261fe8f837f4d38a409409a5a86d7283e136463f",
+      "id": "a325710962250f839b58de9cd24b3938d2f625c7d514efb2f432b5ced5f3df0c",
       "category": "sast",
       "message": "return nil instead of nil value",
       "description": "return nil instead of nil value",
-      "cve": "",
+      "cve": "semgrep_id:return-nil:14:16",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -120,50 +111,14 @@
           "name": "return-nil",
           "value": "return-nil"
         }
-      ],
-      "tracking": {
-        "items": []
-      }
+      ]
     },
     {
-      "id": "d8eb34f08374bc5826c5146220b288186a8e4dbb1380a0ee79f13f069718ff1d",
+      "id": "a9f752a631963591ad374620e1fc1c831f5abc07ee596d7a437ac04b53adc9ce",
       "category": "sast",
       "message": "Key Exchange without Entity Authentication",
       "description": "Disabled host key verification detected. This allows man-in-the-middle attacks. Use the 'golang.org/x/crypto/ssh/knownhosts' package to do host key verification. See https://skarlso.github.io/2019/02/17/go-ssh-with-host-key-verification/ to learn more about the problem and how to fix it.",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "foo.go",
-        "start_line": 13
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "go.lang.security.audit.crypto.insecure_ssh.avoid-ssh-insecure-ignore-host-key",
-          "value": "go.lang.security.audit.crypto.insecure_ssh.avoid-ssh-insecure-ignore-host-key",
-          "url": "https://semgrep.dev/r/go.lang.security.audit.crypto.insecure_ssh.avoid-ssh-insecure-ignore-host-key"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-322",
-          "value": "322",
-          "url": "https://cwe.mitre.org/data/definitions/322.html"
-        }
-      ],
-      "tracking": {
-        "items": []
-      }
-    },
-    {
-      "id": "48588cff3f09260801174d01d975f994dfb999221871a7b0f598a126b416f068",
-      "category": "sast",
-      "message": "Key Exchange without Entity Authentication",
-      "description": "Disabled host key verification detected. This allows man-in-the-middle attacks. Use the 'golang.org/x/crypto/ssh/knownhosts' package to do host key verification. See https://skarlso.github.io/2019/02/17/go-ssh-with-host-key-verification/ to learn more about the problem and how to fix it.",
-      "cve": "",
+      "cve": "semgrep_id:avoid-ssh-insecure-ignore-host-key:13:13",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -190,12 +145,40 @@
           "name": "Sensitive Data Exposure",
           "value": "A3"
         }
-      ],
-      "tracking": {
-        "items": []
-      }
+      ]
+    },
+    {
+      "id": "e2460959bc947b9883f661ef3c4ddfe97bf4507d7f4b7ce2540f65ace8f9391d",
+      "category": "sast",
+      "message": "Key Exchange without Entity Authentication",
+      "description": "Disabled host key verification detected. This allows man-in-the-middle attacks. Use the 'golang.org/x/crypto/ssh/knownhosts' package to do host key verification. See https://skarlso.github.io/2019/02/17/go-ssh-with-host-key-verification/ to learn more about the problem and how to fix it.",
+      "cve": "semgrep_id:go.lang.security.audit.crypto.insecure_ssh.avoid-ssh-insecure-ignore-host-key:13:13",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "foo.go",
+        "start_line": 13
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "go.lang.security.audit.crypto.insecure_ssh.avoid-ssh-insecure-ignore-host-key",
+          "value": "go.lang.security.audit.crypto.insecure_ssh.avoid-ssh-insecure-ignore-host-key",
+          "url": "https://semgrep.dev/r/go.lang.security.audit.crypto.insecure_ssh.avoid-ssh-insecure-ignore-host-key"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-322",
+          "value": "322",
+          "url": "https://cwe.mitre.org/data/definitions/322.html"
+        }
+      ]
     }
   ],
+  "dependency_files": [],
   "scan": {
     "analyzer": {
       "id": "semgrep",
@@ -204,7 +187,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.7.2"
+      "version": "3.8.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -213,11 +196,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.82.0"
+      "version": "0.115.0"
     },
     "type": "sast",
-    "start_time": "2022-02-17T02:11:13",
-    "end_time": "2022-02-17T02:11:20",
+    "start_time": "2022-10-28T02:39:51",
+    "end_time": "2022-10-28T02:39:59",
     "status": "success"
   }
 }

@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "194eb4c2a19424c5a04b548f59014587c3650362490605adc72f31c1874d64b4",
+      "id": "69745a2f0693173e47ced020f01d677cf641a51903692cd77e9a4fd66b757673",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -39,14 +39,17 @@
           "name": "ESLint rule ID security/detect-eval-with-expression",
           "value": "security/detect-eval-with-expression"
         }
-      ]
+      ],
+      "links": [],
+      "tracking": {},
+      "flags": []
     },
     {
-      "id": "cc600a49425974bb1bfb3ea7acb6908de5c5e42f6e816dd8ba9bc2f2c1668587",
+      "id": "47bef83fc0c10c66e1946261673ae9825f542a4609bcb55e8bfaab0722ffe40c",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-non-literal-regexp:16:16",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -74,14 +77,17 @@
           "name": "ESLint rule ID security/detect-non-literal-regexp",
           "value": "security/detect-non-literal-regexp"
         }
-      ]
+      ],
+      "links": [],
+      "tracking": {},
+      "flags": []
     },
     {
-      "id": "ee06f1a4f97169721be1c82c95f2719dbb136e89591902cb7001a9f7e8950420",
+      "id": "1ac984f487cd525707eb63112136f83d3da086046d9ccb33cc738245741a6a80",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-object-injection:28:28",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -109,14 +115,17 @@
           "name": "ESLint rule ID security/detect-object-injection",
           "value": "security/detect-object-injection"
         }
-      ]
+      ],
+      "links": [],
+      "tracking": {},
+      "flags": []
     },
     {
-      "id": "ee06f1a4f97169721be1c82c95f2719dbb136e89591902cb7001a9f7e8950420",
+      "id": "1ac984f487cd525707eb63112136f83d3da086046d9ccb33cc738245741a6a80",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-object-injection:28:28",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -144,7 +153,10 @@
           "name": "ESLint rule ID security/detect-object-injection",
           "value": "security/detect-object-injection"
         }
-      ]
+      ],
+      "links": [],
+      "tracking": {},
+      "flags": []
     }
   ],
   "scan": {
@@ -154,8 +166,7 @@
       "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
       "vendor": {
         "name": "GitLab"
-      },
-      "version": "3.7.2"
+      }
     },
     "scanner": {
       "id": "semgrep",
@@ -163,12 +174,9 @@
       "url": "https://github.com/returntocorp/semgrep",
       "vendor": {
         "name": "GitLab"
-      },
-      "version": "0.69.1"
+      }
     },
     "type": "sast",
-    "start_time": "2021-11-03T20:32:40",
-    "end_time": "2021-11-03T20:32:44",
     "status": "success"
   }
 }

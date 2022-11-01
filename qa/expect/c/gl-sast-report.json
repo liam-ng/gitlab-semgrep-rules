@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "a6747e5837cc0b07839e413b144ab7ba1316d266399e3eac2fb69be1c943d1bf",
+      "id": "7874c1031e57d8d59483290de05f3007b0b0bdabcffdc6bdc41827021770a807",
       "category": "sast",
       "message": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
       "description": "Perform bounds checking, use functions that limit length, or ensure that the size is larger\nthan the maximum possible length.\n",
-      "cve": "",
+      "cve": "semgrep_id:flawfinder.char-1.TCHAR-1.wchar_t-1:4:4",
       "severity": "Info",
       "scanner": {
         "id": "semgrep",
@@ -46,11 +46,11 @@
       ]
     },
     {
-      "id": "6a700d08d20389fde6bfb9479d7604699d2cee4a02314690c11414043d9da06e",
+      "id": "3d5f210c0a848f0f81945e062a023ce7de6c06893b56c4e55e05484ed44faf82",
       "category": "sast",
       "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
       "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
-      "cve": "",
+      "cve": "semgrep_id:flawfinder.fopen-1.open-1:8:8",
       "severity": "Info",
       "scanner": {
         "id": "semgrep",
@@ -85,6 +85,7 @@
       ]
     }
   ],
+  "dependency_files": [],
   "scan": {
     "analyzer": {
       "id": "semgrep",
@@ -93,7 +94,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.7.2"
+      "version": "3.8.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -105,8 +106,8 @@
       "version": "0.115.0"
     },
     "type": "sast",
-    "start_time": "2022-10-12T17:53:37",
-    "end_time": "2022-10-12T17:53:42",
+    "start_time": "2022-10-28T02:39:29",
+    "end_time": "2022-10-28T02:39:36",
     "status": "success"
   }
 }

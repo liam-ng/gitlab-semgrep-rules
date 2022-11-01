@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "2419849776d915e5f4e367cd31218c91ef77edcf8a23b519b16af965ceff302d",
+      "id": "b089296583cc4f640f882102e44550989b8c367a5a15910e8dcce8239d75e80a",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
-      "cve": "",
+      "cve": "semgrep_id:bandit.B506:329:329",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -58,11 +58,11 @@
       }
     },
     {
-      "id": "eb05768b15a01d078823c29e348bbcd6c3175cb353f0fce3e180611187173b8c",
+      "id": "fc96ecebbd118f4986c48c71ba179a55a61aaa5648696f54b5e14faca6c4e527",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
-      "cve": "",
+      "cve": "semgrep_id:bandit.B608:265:265",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -114,11 +114,11 @@
       }
     },
     {
-      "id": "dfc5a5821194dd9b68620e999ecceae5d59ed3e193a454be1ec8bd67ed7d3981",
+      "id": "20c8166936c29c98ab3a4718e5794fcdbaa4f30ec87f00634dfe2ff505b9c3c2",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -170,11 +170,11 @@
       }
     },
     {
-      "id": "945ae7a199632ad52df8b97b19029f414e062b433a9fac11bf085da6ef4a32bb",
+      "id": "ae8d13b6157329ef8a30550a55971937dc9708df11bd013fba26b41c2358deca",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-non-literal-regexp:15:15",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -229,7 +229,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.7.2"
+      "version": "3.7.6"
     },
     "scanner": {
       "id": "semgrep",
@@ -237,12 +237,9 @@
       "url": "https://github.com/returntocorp/semgrep",
       "vendor": {
         "name": "GitLab"
-      },
-      "version": "0.69.1"
+      }
     },
     "type": "sast",
-    "start_time": "2021-11-03T20:33:07",
-    "end_time": "2021-11-03T20:33:15",
     "status": "success"
   }
 }
