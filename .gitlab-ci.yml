@@ -32,6 +32,11 @@ integration-test:
   script:
     - rspec -f d
 
+integration-test-fips:
+  extends: integration-test
+  variables:
+    IMAGE_TAG_SUFFIX: "-fips"
+
 .qa-downstream-sast:
   variables:
     DS_DEFAULT_ANALYZERS: ""
