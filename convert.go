@@ -120,8 +120,11 @@ func generateScsID(id string) (report.Identifier, error) {
 // Examples of bandit_id: B303-1, B305
 func generateBanditID(id string) (report.Identifier, error) {
 	value := strings.Split(id, "-")[0]
+	log.Infof("id: %s", id)
+	log.Infof("value: %s", value)
 	values := strings.Split(id, "-")
 	lastElement := values[len(values)-1]
+	log.Infof("lastElement: %s", lastElement)
 	if _, err := strconv.Atoi(lastElement); err != nil {
 		return report.Identifier{
 			Type:  "bandit_test_id",
@@ -129,8 +132,10 @@ func generateBanditID(id string) (report.Identifier, error) {
 			Value: value,
 		}, nil
 	}
+
 	// remove last element and join the rest
 	id = strings.Join(values[:len(values)-1], "-")
+	log.Infof("id no early return: %s", id)
 	return report.Identifier{
 		Type:  "bandit_test_id",
 		Name:  "Bandit Test ID " + id,
