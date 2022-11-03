@@ -67,7 +67,9 @@ func ruleToIDs(ruleID string) []report.Identifier {
 	case "security_code_scan":
 		return generateIDs(subrules, generateScsID)
 	case "bandit":
-		return generateIDs(subrules, generateBanditID)
+		ids := generateIDs(subrules, generateBanditID)
+		log.Info(ids)
+		return ids
 	case "eslint":
 		return generateIDs(subrules, generateEslintID)
 	case "flawfinder":
