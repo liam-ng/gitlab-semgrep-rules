@@ -41,6 +41,7 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 
 		// generate and add a URL to the semgrep ID
 		if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
+			log.Info("all ids: ", vul.Identifiers)
 			vul.Identifiers[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
 		}
 
