@@ -8,7 +8,7 @@ FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${
 
 FROM golang:1.17-alpine AS build
 
-ARG SAST_RULES_VERSION=1.1.6
+ARG SAST_RULES_VERSION=1.1.5
 ARG SAST_RULES_URL=https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules/-/archive
 
 ENV CGO_ENABLED=0 GOOS=linux
