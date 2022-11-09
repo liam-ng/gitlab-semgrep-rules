@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.8.2
+- Fix: Stabilize go fixtures, reduce duplication (!171)
+
 ## v3.8.1
 - Fix FP patterns in SQL Injection and Hardcoded Password in Java (!172)
 
