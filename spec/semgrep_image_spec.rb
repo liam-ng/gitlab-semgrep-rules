@@ -83,9 +83,9 @@ describe 'running image' do
     end
 
     context 'with go' do
-      context 'by default' do
-        let(:project) { 'go/default' }
+      let(:project) { 'go/default' }
 
+      context 'by default' do
         it_behaves_like 'successful scan'
 
         describe 'created report' do
@@ -100,8 +100,6 @@ describe 'running image' do
       end
 
       context 'when including tracking signatures' do
-        let(:project) { 'go/with-tracking' }
-
         let(:variables) do
           { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
         end
@@ -111,7 +109,7 @@ describe 'running image' do
 
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report(project)
+              parse_expected_report('go/with-tracking')
             }
           end
 

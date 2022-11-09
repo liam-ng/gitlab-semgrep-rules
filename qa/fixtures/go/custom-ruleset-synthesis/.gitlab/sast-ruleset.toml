@@ -45,14 +45,11 @@
 
   [[semgrep.passthrough]]
     type  = "git"
-    value = "https://github.com/dgryski/semgrep-go"
-    ref = "b14e2f07411c22cadaab3a5d7df2346a99e7b36d"
+    value = "https://github.com/theoretick/semgrep-go"
+    ref = "19f42afe2f39afb5429e756236b73fc7eadd55c0"
 
   [[semgrep.passthrough]]
     type  = "git"
     value = "https://gitlab.com/julianthome/semgrep-rules"
     subdir = "go"
     ref = "refs/heads/develop"
-
-  
-
