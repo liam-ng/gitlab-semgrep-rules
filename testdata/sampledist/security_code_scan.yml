@@ -1,0 +1,29 @@
+---
+rules:
+- id: "security_code_scan.SCS0019-1"
+  patterns:
+  - pattern-inside: |
+      [Authorize]
+      public class $CLZ {
+        ...
+      }
+  - pattern: |
+      [OutputCache]
+      public $RET $FOO(...)
+      {
+        ...
+      }
+  message: |
+    Having the annotation [OutputCache] will disable the annotation [Authorize] for
+    the requests following the first one.
+  languages:
+  - "csharp"
+  severity: "INFO"
+  metadata:
+    category: "security"
+    cwe: "CWE-524: Use of Cache Containing Sensitive Information"
+    primary_identifier: "security_code_scan.SCS0019"
+    secondary_identifiers:
+    - name: "SCS0019"
+      type: "security_code_scan_rule_id"
+      value: "SCS0019"

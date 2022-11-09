@@ -20,10 +20,12 @@ import (
 )
 
 const (
-	flagSASTExcludedPaths        = "sast-excluded-paths"
-	flagSASTSemgrepMetrics       = "semgrep-send-metrics"
-	flagSASTExperimentalFeatures = "sast-experimental-features"
-	flagSASTAllowedCLIOpts       = "sast-scanner-allowed-cli-opts"
+	flagSASTExcludedPaths          = "sast-excluded-paths"
+	flagSASTSemgrepMetrics         = "semgrep-send-metrics"
+	flagSASTExperimentalFeatures   = "sast-experimental-features"
+	flagSASTAllowedCLIOpts         = "sast-scanner-allowed-cli-opts"
+	flagSASTSegrepRuleConfigDir    = "semgrep-rule-config-dir"
+	flagSASTSegrepRuleConfigDirEnv = "SAST_SEMGREP_RULE_CONFIG_DIR"
 )
 
 var (
@@ -72,6 +74,12 @@ func analyzeFlags() []cli.Flag {
 			Usage:   "See https://docs.gitlab.com/ee/user/application_security/sast/#security-scanner-configuration",
 			EnvVars: []string{"SAST_SCANNER_ALLOWED_CLI_OPTS"},
 		},
+		&cli.StringFlag{
+			Name:    flagSASTSegrepRuleConfigDir,
+			Usage:   "Configuration Directory",
+			EnvVars: []string{flagSASTSegrepRuleConfigDirEnv},
+			Value:   "/rules",
+		},
 	}
 }
 
@@ -101,8 +109,12 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 
 	outputPath := path.Join(projectPath, "semgrep.sarif")
 
-	configPath, err := getConfigPath(projectPath, rulesetConfig)
+	configPath, err := getConfigPath(c, projectPath, rulesetConfig)
 	if err != nil {
+		return nil, err
+	}
+
+	if err = os.Setenv(flagSASTSegrepRuleConfigDirEnv, configPath); err != nil {
 		return nil, err
 	}
 
@@ -179,12 +191,12 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths, scannerOpts s
 	return args
 }
 
-func getConfigPath(projectPath string, rulesetConfig *ruleset.Config) (string, error) {
+func getConfigPath(c *cli.Context, projectPath string, rulesetConfig *ruleset.Config) (string, error) {
 	if rulesetConfig != nil && len(rulesetConfig.Passthrough) != 0 {
 		return ruleset.ProcessPassthroughs(rulesetConfig, log.StandardLogger())
 	}
 
-	return path.Join("/", "rules"), nil
+	return c.String(flagSASTSegrepRuleConfigDir), nil
 }
 
 // semgrepRuleFile represents the structure of a Semgrep rule YAML file.

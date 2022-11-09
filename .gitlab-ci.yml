@@ -139,7 +139,6 @@ check semgrep-rules-version:
         exit 1
       fi
 
-
 # Commenting out this until we add `.cs` to this list: https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml#L254-263
 # csharp-dotnetcore-msbuild-multiproject-qa:
 #   extends: .qa-downstream-sast

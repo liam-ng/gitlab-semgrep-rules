@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"gopkg.in/yaml.v2"
 	"io"
+	"io/ioutil"
 	"os"
-	"strconv"
+	"path/filepath"
 	"strings"
 
 	log "github.com/sirupsen/logrus"
@@ -13,7 +15,63 @@ import (
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
 
-const semgrepIdentifierIndex = 0
+const (
+	semgrepIdentifierIndex = 0
+	semgrepIdentifier      = "semgrep_id"
+)
+
+// ruleCache is used to extract rule-mappings from the meta-data provided by
+// the rule files in sast-rules
+var ruleCache = make(map[string]map[string]interface{})
+
+func buildCache(src string) error {
+	return filepath.Walk(src, func(fpath string, info os.FileInfo, err error) error {
+		if info.IsDir() {
+			return nil
+		}
+
+		if strings.HasSuffix(info.Name(), ".yml") {
+			log.Debugf("adding %s to cache", info.Name())
+			rules := make(map[string]interface{})
+
+			name := strings.TrimSuffix(filepath.Base(info.Name()), ".yml")
+
+			yamlFile, err := ioutil.ReadFile(fpath)
+			if err != nil {
+				return err
+			}
+			err = yaml.Unmarshal(yamlFile, rules)
+			if err != nil {
+				return err
+			}
+
+			if _, ok := rules["rules"]; !ok {
+				return fmt.Errorf("Unable to extract rules for %s", info.Name())
+			}
+
+			rulearray := rules["rules"].([]interface{})
+			if rulearray == nil {
+				return fmt.Errorf("Unable to extract rules for %s", info.Name())
+			}
+
+			log.Debugf("caching with key %s", name)
+			rulemap := make(map[string]interface{})
+			for i := range rulearray {
+				rule := rulearray[i].(map[interface{}]interface{})
+				if rule == nil {
+					return fmt.Errorf("Unable to extract rules for %s", info.Name())
+				}
+				if _, ok := rule["id"]; !ok {
+					return fmt.Errorf("Unable to extract rules for %s", info.Name())
+				}
+				rulemap[rule["id"].(string)] = rule
+			}
+
+			ruleCache[name] = rulemap
+		}
+		return nil
+	})
+}
 
 func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	// HACK: extract root path from environment variables
@@ -21,6 +79,17 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	root := os.Getenv("ANALYZER_TARGET_DIR")
 	if root == "" {
 		root = os.Getenv("CI_PROJECT_DIR")
+	}
+
+	src := os.Getenv(flagSASTSegrepRuleConfigDirEnv)
+	if src == "" {
+		return nil, fmt.Errorf("no rule configuration found")
+	}
+
+	// building up rule cache
+	err := buildCache(src)
+	if err != nil {
+		return nil, err
 	}
 
 	log.Debugf("Converting report with the root path: %s", root)
@@ -39,156 +108,102 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 	for index, vul := range sastReport.Vulnerabilities {
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
-		// generate and add a URL to the semgrep ID
-		if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
-			log.Info("all ids: ", vul.Identifiers)
-			vul.Identifiers[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
+		ids, err := ruleIDToIdentifier(ruleID)
+		if err != nil {
+			return nil, err
 		}
-
-		ids := ruleToIDs(ruleID)
 		if len(ids) > 0 {
-			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, ids...)
+			sastReport.Vulnerabilities[index].Identifiers = ids
 		}
 	}
 	return sastReport, nil
 }
 
-// ruleToIDs will take in ruleID as string and output a slice of identifiers containing each sub-rule.
-// Examples of ruleID: bandit.B303-1 (outputs one identifier), bandit.B502.B503 (outputs two identifiers)
-func ruleToIDs(ruleID string) []report.Identifier {
-	var empty []report.Identifier
-	matches := strings.Split(ruleID, ".")
-	if len(matches) < 2 {
-		return empty
+func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
+	identifiers := []report.Identifier{}
+	analyzer := ""
+
+	// only accept the
+	for k := range ruleCache {
+		if strings.HasPrefix(id, k) {
+			analyzer = k
+		}
 	}
 
-	analyzer, subrules := strings.ToLower(matches[0]), matches[1:]
-
-	switch analyzer {
-	case "security_code_scan":
-		return generateIDs(subrules, generateScsID)
-	case "bandit":
-		ids := generateIDs(subrules, generateBanditID)
-		log.Info(ids)
-		return ids
-	case "eslint":
-		return generateIDs(subrules, generateEslintID)
-	case "flawfinder":
-		return generateIDs(subrules, generateFlawfinderID)
-	case "gosec":
-		return generateIDs(subrules, generateGosecID)
-	case "find_sec_bugs":
-		return generateIDs(subrules, generateFindSecBugsID)
-	default:
-		return empty
-	}
-}
-
-// computeRuleName converts a Semgrep rule name to its native rule ID by removing any numbered suffixes
-// and joining any remaining parts with dashes.
-// For example: B101-1 returns B101, and security/detect-non-literal-regexp-1 -> security/detect-non-literal-regexp
-func computeRuleName(id string) (string, error) {
-	segments := strings.Split(id, "-")
-	if len(segments) == 1 {
-		return segments[0], nil
+	// only apply mappings to predefined analyzers
+	// treat the native id as primary id for all other cases
+	if analyzer == "" {
+		identifiers = append(identifiers, report.Identifier{
+			Type:  report.IdentifierType(semgrepIdentifier),
+			Name:  id,
+			Value: id,
+		})
+		return identifiers, nil
 	}
 
-	if len(segments) < 2 {
-		return "", fmt.Errorf("Unable to compute native rule id from '%s'", id)
+	if _, ok := ruleCache[analyzer]; !ok {
+		return nil, fmt.Errorf("No mappings for %s present", analyzer)
 	}
 
-	return strings.Join(segments[0:len(segments)-1], "-"), nil
-}
-
-func generateID(id string, typ string, name string, sep string) (report.Identifier, error) {
-	value, err := computeRuleName(id)
-	if err != nil {
-		return report.Identifier{}, err
+	analyzerIDMappings := ruleCache[analyzer]
+	if _, ok := analyzerIDMappings[id]; !ok {
+		return nil, fmt.Errorf("Unmapped rule %s for %s", id, analyzer)
 	}
 
-	return report.Identifier{
-		Type:  report.IdentifierType(typ),
-		Name:  strings.Join([]string{name, value}, sep),
-		Value: value,
-	}, nil
-}
-
-// generateScsID transforms the input ID into the original format produced by the
-// Security Code Scan analyzer. For example, SCS0005-1 -> SCS0005.
-func generateScsID(id string) (report.Identifier, error) {
-	return generateID(id, "security_code_scan_rule_id", "", "")
-}
-
-// generateBanditID will take in bandit_id as string and output an identifier
-// Examples of bandit_id: B303-1, B305
-func generateBanditID(id string) (report.Identifier, error) {
-	value := strings.Split(id, "-")[0]
-	log.Infof("id: %s", id)
-	log.Infof("value: %s", value)
-	values := strings.Split(id, "-")
-	lastElement := values[len(values)-1]
-	log.Infof("lastElement: %s", lastElement)
-	if _, err := strconv.Atoi(lastElement); err != nil {
-		return report.Identifier{
-			Type:  "bandit_test_id",
-			Name:  "Bandit Test ID " + value,
-			Value: value,
-		}, nil
+	rule := analyzerIDMappings[id].(map[interface{}]interface{})
+	if rule == nil {
+		return nil, fmt.Errorf("Error loading rule content for %s", id)
 	}
 
-	// remove last element and join the rest
-	id = strings.Join(values[:len(values)-1], "-")
-	log.Infof("id no early return: %s", id)
-	return report.Identifier{
-		Type:  "bandit_test_id",
-		Name:  "Bandit Test ID " + id,
-		Value: id,
-	}, nil
-}
-
-func generateEslintID(id string) (report.Identifier, error) {
-	// ignore last "-" and number
-	values := strings.Split(id, "-")
-	lastElement := values[len(values)-1]
-	if _, err := strconv.Atoi(lastElement); err != nil {
-		return report.Identifier{
-			Type:  "eslint_rule_id",
-			Name:  "ESLint rule ID security/" + id,
-			Value: "security/" + id,
-		}, nil
+	if _, ok := rule["metadata"]; !ok {
+		return nil, fmt.Errorf("metadata not present for %s", id)
 	}
-	// remove last element and join the rest
-	id = strings.Join(values[:len(values)-1], "-")
-	return report.Identifier{
-		Type:  "eslint_rule_id",
-		Name:  "ESLint rule ID security/" + id,
-		Value: "security/" + id,
-	}, nil
 
-}
+	metadata := rule["metadata"].(map[interface{}]interface{})
+	if metadata == nil {
+		return nil, fmt.Errorf("Error loading metadata for %s", id)
+	}
 
-func generateFlawfinderID(id string) (report.Identifier, error) {
-	return generateID(id, "flawfinder_func_name", "Flawfinder -", " ")
-}
+	if _, ok := metadata["primary_identifier"]; !ok {
+		return nil, fmt.Errorf("primary identifier not present for %s", id)
+	}
 
-func generateGosecID(id string) (report.Identifier, error) {
-	return generateID(id, "gosec_rule_id", "Gosec Rule ID", " ")
-}
+	primaryIdentifierStr := metadata["primary_identifier"].(string)
 
-func generateFindSecBugsID(id string) (report.Identifier, error) {
-	return generateID(id, "find_sec_bugs_type", "Find Security Bugs-", "")
-}
+	identifiers = append(identifiers, report.Identifier{
+		Type:  report.IdentifierType(semgrepIdentifier),
+		Name:  primaryIdentifierStr,
+		Value: primaryIdentifierStr,
+	})
 
-func generateIDs(ruleIDs []string, generator func(string) (report.Identifier, error)) []report.Identifier {
-	var ids []report.Identifier
-	for i := 0; i < len(ruleIDs); i++ {
-		ruleid, err := generator(ruleIDs[i])
-		if err != nil {
-			log.Error(err)
-			continue
+	if _, ok := metadata["secondary_identifiers"]; !ok {
+		return nil, fmt.Errorf("secondary identifier not present for %s", id)
+	}
+
+	secondaryIdentifier := metadata["secondary_identifiers"].([]interface{})
+	if secondaryIdentifier == nil {
+		return nil, fmt.Errorf("Error loading metadata for %s", id)
+	}
+
+	for i := range secondaryIdentifier {
+		secondaryIdentifier := secondaryIdentifier[i].(map[interface{}]interface{})
+		if secondaryIdentifier == nil {
+			return nil, fmt.Errorf("Error loading secondary identifier %s", id)
 		}
 
-		ids = append(ids, ruleid)
+		name, nameok := secondaryIdentifier["name"].(string)
+		typ, typeok := secondaryIdentifier["type"].(string)
+		value, valueok := secondaryIdentifier["value"].(string)
+
+		if !nameok || !typeok || !valueok {
+			return nil, fmt.Errorf("incomplete secondary identifier for %s", id)
+		}
+
+		identifiers = append(identifiers, report.Identifier{
+			Type:  report.IdentifierType(typ),
+			Name:  name,
+			Value: value,
+		})
 	}
-	return ids
+	return identifiers, nil
 }
