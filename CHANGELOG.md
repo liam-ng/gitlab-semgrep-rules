@@ -1,5 +1,6 @@
 Semgrep analyzer changelog
 
+
 ## v3.8.0
 - Use `sast-rules` v1.1.3 package for rules (!147)
 

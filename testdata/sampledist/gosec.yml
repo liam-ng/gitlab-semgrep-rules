@@ -1,0 +1,19 @@
+---
+rules:
+- id: "gosec.G504-1"
+  patterns:
+  - pattern: |
+      import "net/http/cgi"
+  message: |
+    Go versions < 1.6.3 are vulnerable to Httpoxy attack: (CVE-2016-5386)
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A9: Using Components with Known Vulnerabilities"
+    primary_identifier: "gosec.G504"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G504"
+      type: "gosec_rule_id"
+      value: "G504"
+  severity: "WARNING"
+  languages:
+  - "go"

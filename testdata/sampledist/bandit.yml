@@ -1,0 +1,35 @@
+---
+rules:
+- id: "bandit.B101-1"
+  patterns:
+  - pattern: "assert(...)"
+  - pattern-not-inside: |
+      import pytest
+      ...
+      assert(...)
+  - pattern-not-inside: |
+      import unittest
+      ...
+      assert(...)
+  - pattern: "assert(\"...\")"
+  - pattern-not-inside: |
+      import pytest
+      ...
+      assert("...")
+  - pattern-not-inside: |
+      import unittest
+      ...
+      assert("...")
+  message: |
+    Use of assert detected. The enclosed code will be removed when compiling to optimised byte
+    code.
+  metadata:
+    cwe: "CWE-754: Improper Check for Unusual or Exceptional Conditions"
+    primary_identifier: "bandit.B101"
+    secondary_identifiers:
+    - name: "Bandit Test ID: B101"
+      type: "bandit_test_id"
+      value: "B101"
+  severity: "INFO"
+  languages:
+  - "python"

@@ -1,166 +1,126 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"reflect"
-	"testing"
-
 	"github.com/stretchr/testify/assert"
-
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
+	"testing"
 )
 
 func TestConvert(t *testing.T) {
-	fixture, err := os.Open("testdata/reports/semgrep.sarif")
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	sastReport, err := convert(fixture, "/tmp/app/")
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	// Test Semgrep ID
-	want := report.Identifier{
-		Type:  "semgrep_id",
-		Name:  "bandit.B303-1",
-		Value: "bandit.B303-1",
-		URL:   "https://semgrep.dev/r/gitlab.bandit.B303-1",
-	}
-	got := sastReport.Vulnerabilities[0].Identifiers[0]
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
-
-	// Test Bandit ID
-	want = report.Identifier{
-		Type:  "bandit_test_id",
-		Name:  "Bandit Test ID B303",
-		Value: "B303",
-	}
-	got = sastReport.Vulnerabilities[0].Identifiers[3]
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
-}
-
-func TestGenerateBanditID(t *testing.T) {
-	want := report.Identifier{
-		Type:  "bandit_test_id",
-		Name:  "Bandit Test ID B303",
-		Value: "B303",
-	}
-	got, err := generateBanditID("B303-2")
+	err := buildCache("testdata/sampledist")
 	assert.NoError(t, err)
 
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
-}
-
-func TestGenerateFindSecBugsID(t *testing.T) {
-	id := "LDAP_INJECTION"
-	want := report.Identifier{
-		Type:  "find_sec_bugs_type",
-		Name:  fmt.Sprintf("Find Security Bugs-%s", id),
-		Value: id,
-	}
-	got, err := generateFindSecBugsID(id + "-2")
-	assert.NoError(t, err)
-
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
-}
-
-func TestGenerateIDs(t *testing.T) {
-	testcases := map[string][]report.Identifier{
-		"find_sec_bugs.HARD_CODE_PASSWORD-1.HARD_CODE_KEY-1": {
+	for name, identifiers := range map[string][]report.Identifier{
+		"bandit.B101-1": {
 			{
-				Type:  "find_sec_bugs_type",
-				Name:  "Find Security Bugs-HARD_CODE_PASSWORD",
-				Value: "HARD_CODE_PASSWORD",
-			},
-			{
-				Type:  "find_sec_bugs_type",
-				Name:  "Find Security Bugs-HARD_CODE_KEY",
-				Value: "HARD_CODE_KEY",
+				Type:  "semgrep_id",
+				Name:  "bandit.B101",
+				Value: "bandit.B101",
+				URL:   "",
+			}, {
+				Type:  "bandit_test_id",
+				Name:  "Bandit Test ID: B101",
+				Value: "B101",
+				URL:   "",
 			},
 		},
-		"bandit.B502.B503": {
+		"eslint.detect-buffer-noassert-1": {
 			{
-				Type:  "bandit_test_id",
-				Name:  "Bandit Test ID B502",
-				Value: "B502",
-			},
-			{
-				Type:  "bandit_test_id",
-				Name:  "Bandit Test ID B503",
-				Value: "B503",
-			},
-		},
-		"eslint.detect-no-csrf-before-method-override-1": {
+				Type:  "semgrep_id",
+				Name:  "eslint.detect-buffer-noassert",
+				Value: "eslint.detect-buffer-noassert",
+				URL:   ""},
 			{
 				Type:  "eslint_rule_id",
-				Name:  "ESLint rule ID security/detect-no-csrf-before-method-override",
-				Value: "security/detect-no-csrf-before-method-override",
+				Name:  "security/detect-buffer-noassert",
+				Value: "ESLint rule ID detect-buffer-noassert",
+				URL:   "",
+			},
+		},
+		"find_sec_bugs.HTTPONLY_COOKIE-1": {
+			{
+				Type:  "semgrep_id",
+				Name:  "find_sec_bugs.HTTPONLY_COOKIE",
+				Value: "find_sec_bugs.HTTPONLY_COOKIE",
+				URL:   ""},
+			{
+				Type:  "find_sec_bugs_type",
+				Name:  "Find Security Bugs-HTTPONLY_COOKIE",
+				Value: "HTTPONLY_COOKIE",
+				URL:   "",
+			},
+		},
+		"flawfinder.umask-1": {
+			{
+				Type:  "semgrep_id",
+				Name:  "flawfinder.umask",
+				Value: "flawfinder.umask",
+				URL:   "",
+			},
+			{
+				Type:  "flawfinder_func_name",
+				Name:  "Flawfinder - umask",
+				Value: "umask",
+				URL:   "",
 			},
 		},
 		"flawfinder.char-1.TCHAR-1.wchar_t-1": {
 			{
+				Type:  "semgrep_id",
+				Name:  "flawfinder.char-1.TCHAR-1.wchar_t-1",
+				Value: "flawfinder.char-1.TCHAR-1.wchar_t-1",
+				URL:   "",
+			},
+			{
 				Type:  "flawfinder_func_name",
 				Name:  "Flawfinder - char",
 				Value: "char",
+				URL:   "",
 			},
 			{
 				Type:  "flawfinder_func_name",
 				Name:  "Flawfinder - TCHAR",
 				Value: "TCHAR",
+				URL:   "",
 			},
 			{
 				Type:  "flawfinder_func_name",
 				Name:  "Flawfinder - wchar_t",
 				Value: "wchar_t",
+				URL:   "",
 			},
 		},
-		"gosec.G104-1.G107-1": {
+		"gosec.G504-1": {
+			{
+				Type:  "semgrep_id",
+				Name:  "gosec.G504",
+				Value: "gosec.G504",
+				URL:   "",
+			},
 			{
 				Type:  "gosec_rule_id",
-				Name:  "Gosec Rule ID G104",
-				Value: "G104",
+				Name:  "Gosec Rule ID G504",
+				Value: "G504",
+				URL:   "",
+			},
+		},
+		"security_code_scan.SCS0019-1": {
+			{
+				Type:  "semgrep_id",
+				Name:  "security_code_scan.SCS0019",
+				Value: "security_code_scan.SCS0019",
+				URL:   "",
 			}, {
-				Type:  "gosec_rule_id",
-				Name:  "Gosec Rule ID G107",
-				Value: "G107",
+				Type:  "security_code_scan_rule_id",
+				Name:  "SCS0019",
+				Value: "SCS0019",
+				URL:   "",
 			},
 		},
-		"security_code_scan.SCS0005-1": {
-			{
-				Type:  "security_code_scan_rule_id",
-				Name:  "SCS0005",
-				Value: "SCS0005",
-			},
-		},
-		"security_code_scan.SCS0026-1.SCS0031-1": {
-			{
-				Type:  "security_code_scan_rule_id",
-				Name:  "SCS0026",
-				Value: "SCS0026",
-			},
-			{
-				Type:  "security_code_scan_rule_id",
-				Name:  "SCS0031",
-				Value: "SCS0031",
-			},
-		},
+	} {
+		expected, err := ruleIDToIdentifier(name)
+		assert.NoError(t, err)
+		assert.Equal(t, expected, identifiers)
 	}
 
-	for ruleid, want := range testcases {
-		got := ruleToIDs(ruleid)
-		if !reflect.DeepEqual(want, got) {
-			t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-		}
-	}
 }
