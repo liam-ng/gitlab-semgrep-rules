@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.8.1
+- Fix FP patterns in SQL Injection and Hardcoded Password in Java (!172)
+
 ## v3.8.0
 - Populates the `cve` field of each vulnerability finding (!169)
 
