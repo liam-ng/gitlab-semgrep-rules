@@ -32,6 +32,12 @@ integration-test:
   script:
     - rspec -f d
 
+integration-test-fips:
+  extends: integration-test
+  variables:
+    IMAGE_TAG_SUFFIX: "-fips"
+    PRIVILEGED: 'true'
+
 .qa-downstream-sast:
   variables:
     DS_DEFAULT_ANALYZERS: ""
@@ -105,13 +111,6 @@ js-qa:
 
 java-maven-qa:
   extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/java-maven
-
-java-maven-fips-qa:
-  extends: .qa-downstream-sast-fips
   variables:
     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven/gl-sast-report.json"
   trigger:
