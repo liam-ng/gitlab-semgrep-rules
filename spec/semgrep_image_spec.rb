@@ -14,6 +14,10 @@ describe 'running image' do
     ENV.fetch('TMP_IMAGE', 'semgrep:latest')
   end
 
+  def privileged
+    ENV.fetch('PRIVILEGED', 'true') == 'true'
+  end
+
   context 'with no project' do
     before(:context) do
       @output = `docker run -t --rm -w /app #{image_name}`
@@ -60,6 +64,7 @@ describe 'running image' do
         command: command,
         script: script,
         offline: offline,
+        privileged: privileged,
         variables: global_vars.merge(variables),
         report_filename: 'gl-sast-report.json')
     end
