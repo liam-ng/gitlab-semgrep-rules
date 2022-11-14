@@ -41,8 +41,8 @@ func TestConvert(t *testing.T) {
 		"find_sec_bugs.HTTPONLY_COOKIE-1": {
 			{
 				Type:  "semgrep_id",
-				Name:  "find_sec_bugs.HTTPONLY_COOKIE",
-				Value: "find_sec_bugs.HTTPONLY_COOKIE",
+				Name:  "find_sec_bugs.HTTPONLY_COOKIE-1",
+				Value: "find_sec_bugs.HTTPONLY_COOKIE-1",
 				URL:   ""},
 			{
 				Type:  "find_sec_bugs_type",

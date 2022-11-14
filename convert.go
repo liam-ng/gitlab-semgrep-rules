@@ -176,7 +176,7 @@ func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
 	// some analyzers expect an appended `-x` to the name and value
 	// which is needed for the primary identifier
 	switch analyzer {
-	case "gosec", "flawfinder", "security_code_scan":
+	case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
 		identifiers = append(identifiers, report.Identifier{
 			Type:  report.IdentifierType(semgrepIdentifier),
 			Name:  id,
