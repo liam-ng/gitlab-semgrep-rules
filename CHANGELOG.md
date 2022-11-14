@@ -1,5 +1,13 @@
 Semgrep analyzer changelog
 
+## v3.8.3
+- Upgrade gitlab.com/gitlab-org/security-products/analyzers/report to v3.16.0 (!162)
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.115.0` => [`0.121.2`](https://github.com/returntocorp/semgrep/releases/tag/v0.121.2)] (!162)
+- upgrade `github.com/urfave/cli/v2` version [`v2.16.3` => [`v2.19.2`](https://github.com/urfave/cli/releases/tag/v2.19.2)] (!162)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.9.1` => [`v1.9.2`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.9.2)] (!162)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/common/v3` version [`v3.2.0` => [`v3.2.2`](https://gitlab.com/gitlab-org/security-products/analyzers/common/-/releases/v3.2.2)] (!162)
+- temporarily install C build tools to compile dependencies (!162)
+
 ## v3.8.2
 - Fix: Stabilize go fixtures, reduce duplication (!171)
 
