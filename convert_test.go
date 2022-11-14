@@ -54,8 +54,8 @@ func TestConvert(t *testing.T) {
 		"flawfinder.umask-1": {
 			{
 				Type:  "semgrep_id",
-				Name:  "flawfinder.umask",
-				Value: "flawfinder.umask",
+				Name:  "flawfinder.umask-1",
+				Value: "flawfinder.umask-1",
 				URL:   "",
 			},
 			{
