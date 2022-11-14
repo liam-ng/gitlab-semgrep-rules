@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"gopkg.in/yaml.v2"
 
 	log "github.com/sirupsen/logrus"
 
@@ -120,6 +121,7 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 }
 
 func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
+	log.Info("\n\n\n\nid: ", id)
 	identifiers := []report.Identifier{}
 	analyzer := ""
 
@@ -129,6 +131,7 @@ func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
 			analyzer = k
 		}
 	}
+	log.Info("analyzer: ", analyzer)
 
 	// only apply mappings to predefined analyzers
 	// treat the native id as primary id for all other cases
@@ -170,11 +173,22 @@ func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
 
 	primaryIdentifierStr := metadata["primary_identifier"].(string)
 
-	identifiers = append(identifiers, report.Identifier{
-		Type:  report.IdentifierType(semgrepIdentifier),
-		Name:  primaryIdentifierStr,
-		Value: primaryIdentifierStr,
-	})
+	// some analyzers expect an appended `-x` to the name and value
+	// which is needed for the primary identifier
+	switch analyzer {
+	case "gosec":
+		identifiers = append(identifiers, report.Identifier{
+			Type:  report.IdentifierType(semgrepIdentifier),
+			Name:  id,
+			Value: id,
+		})
+	default:
+		identifiers = append(identifiers, report.Identifier{
+			Type:  report.IdentifierType(semgrepIdentifier),
+			Name:  primaryIdentifierStr,
+			Value: primaryIdentifierStr,
+		})
+	}
 
 	if _, ok := metadata["secondary_identifiers"]; !ok {
 		return nil, fmt.Errorf("secondary identifier not present for %s", id)
