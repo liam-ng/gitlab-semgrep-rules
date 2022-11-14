@@ -10,13 +10,14 @@ FROM golang:1.17-alpine AS build
 
 ENV CGO_ENABLED=0 GOOS=linux
 ENV SAST_RULES_VERSION=1.1.8
+ENV SAST_RULES_VERSION=misc-identifier-corrections
 
 WORKDIR /go/src/buildapp
 COPY . .
 
 RUN apk add --no-cache tar curl git && \
     mkdir -p /archive && \
-    git clone --depth 1 --branch "v$SAST_RULES_VERSION" https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules /rules
+    git clone --depth 1 --branch "$SAST_RULES_VERSION" https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules /rules
 
 # variable to the most recent version from the CHANGELOG.md file
 RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') && \
