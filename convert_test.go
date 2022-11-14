@@ -1,9 +1,10 @@
 package main
 
 import (
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
-	"testing"
 )
 
 func TestConvert(t *testing.T) {
@@ -93,8 +94,8 @@ func TestConvert(t *testing.T) {
 		"gosec.G504-1": {
 			{
 				Type:  "semgrep_id",
-				Name:  "gosec.G504",
-				Value: "gosec.G504",
+				Name:  "gosec.G504-1",
+				Value: "gosec.G504-1",
 				URL:   "",
 			},
 			{
