@@ -213,11 +213,21 @@ func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
 			return nil, fmt.Errorf("incomplete secondary identifier for %s", id)
 		}
 
-		identifiers = append(identifiers, report.Identifier{
-			Type:  report.IdentifierType(typ),
-			Name:  name,
-			Value: value,
-		})
+		// again, apply some special rules for secondary identifiers:
+		switch analyzer {
+		case "eslint":
+			identifiers = append(identifiers, report.Identifier{
+				Type:  report.IdentifierType(typ),
+				Name:  name,
+				Value: "security/" + value,
+			})
+		default:
+			identifiers = append(identifiers, report.Identifier{
+				Type:  report.IdentifierType(typ),
+				Name:  name,
+				Value: value,
+			})
+		}
 	}
 	return identifiers, nil
 }

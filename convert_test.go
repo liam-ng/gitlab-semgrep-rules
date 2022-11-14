@@ -33,8 +33,8 @@ func TestConvert(t *testing.T) {
 				URL:   ""},
 			{
 				Type:  "eslint_rule_id",
-				Name:  "security/detect-buffer-noassert",
-				Value: "ESLint rule ID detect-buffer-noassert",
+				Name:  "ESLint rule ID/detect-buffer-noassert",
+				Value: "security/detect-buffer-noassert",
 				URL:   "",
 			},
 		},
