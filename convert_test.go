@@ -108,8 +108,8 @@ func TestConvert(t *testing.T) {
 		"security_code_scan.SCS0019-1": {
 			{
 				Type:  "semgrep_id",
-				Name:  "security_code_scan.SCS0019",
-				Value: "security_code_scan.SCS0019",
+				Name:  "security_code_scan.SCS0019-1",
+				Value: "security_code_scan.SCS0019-1",
 				URL:   "",
 			}, {
 				Type:  "security_code_scan_rule_id",
