@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=0.115.0
+ARG SCANNER_VERSION=0.121.2
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.0.5
 ARG TRACKING_CALCULATOR_VERSION=2.2.6
 
@@ -33,7 +33,7 @@ RUN microdnf update --disableplugin=subscription-manager --nodocs && \
     microdnf install shadow-utils util-linux git wget python39 --disableplugin=subscription-manager --nodocs && \
     \
     # Install Semgrep
-    pip3 install ruamel.yaml==0.16.12 semgrep==$SCANNER_VERSION && \
+    pip3 install semgrep==$SCANNER_VERSION && \
     \
     # Configure CA Certificates
     mkdir -p /etc/ssl/certs/ && \
