@@ -182,14 +182,6 @@ func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
 			Name:  id,
 			Value: id,
 		})
-	case "security_code_scan":
-		splits := strings.Split(id, "-")
-		newID := strings.Join(splits[:len(splits)-1], "")
-		identifiers = append(identifiers, report.Identifier{
-			Type:  report.IdentifierType(semgrepIdentifier),
-			Name:  newID,
-			Value: newID,
-		})
 	default:
 		identifiers = append(identifiers, report.Identifier{
 			Type:  report.IdentifierType(semgrepIdentifier),
