@@ -51,7 +51,6 @@ describe 'running image' do
     end
 
     let(:project) { 'any' }
-    let(:relative_expectation_dir) { project }
     let(:variables) { {} }
     let(:command) { [] }
     let(:script) { nil }
