@@ -113,7 +113,15 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 		if err != nil {
 			return nil, err
 		}
+
 		if len(ids) > 0 {
+			// add cwe, owasp ids too
+			for _, v := range vul.Identifiers {
+				if v.Type == report.IdentifierTypeCWE || v.Type == "owasp" {
+					ids = append(ids, v)
+				}
+			}
+
 			sastReport.Vulnerabilities[index].Identifiers = ids
 		}
 	}
@@ -121,7 +129,6 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 }
 
 func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
-	log.Info("\n\n\n\nid: ", id)
 	identifiers := []report.Identifier{}
 	analyzer := ""
 
@@ -131,7 +138,6 @@ func ruleIDToIdentifier(id string) ([]report.Identifier, error) {
 			analyzer = k
 		}
 	}
-	log.Info("analyzer: ", analyzer)
 
 	// only apply mappings to predefined analyzers
 	// treat the native id as primary id for all other cases
