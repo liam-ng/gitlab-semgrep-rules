@@ -119,7 +119,7 @@ func TestConvert(t *testing.T) {
 			},
 		},
 	} {
-		expected, err := ruleIDToIdentifier(name)
+		expected, err := ruleIDToIdentifier(name, []report.Identifier{})
 		assert.NoError(t, err)
 		assert.Equal(t, expected, identifiers)
 	}
