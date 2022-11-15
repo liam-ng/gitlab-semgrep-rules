@@ -166,36 +166,28 @@ func ruleIDToIdentifier(id string, vulnIDs []report.Identifier) ([]report.Identi
 		return nil, fmt.Errorf("Error loading metadata for %s", id)
 	}
 
-	if _, ok := metadata["primary_identifier"]; !ok {
-		return nil, fmt.Errorf("primary identifier not present for %s", id)
-	}
+	// primary identifier
+	if _, ok := metadata["primary_identifier"]; ok {
+		primaryIdentifierStr := metadata["primary_identifier"].(string)
 
-	primaryIdentifierStr := metadata["primary_identifier"].(string)
-
-	// some analyzers expect an appended `-x` to the name and value
-	// which is needed for the primary identifier
-	switch analyzer {
-	case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
-		identifiers = append(identifiers, report.Identifier{
-			Type:  report.IdentifierType(semgrepIdentifier),
-			Name:  id,
-			Value: id,
-		})
-	default:
-		identifiers = append(identifiers, report.Identifier{
-			Type:  report.IdentifierType(semgrepIdentifier),
-			Name:  primaryIdentifierStr,
-			Value: primaryIdentifierStr,
-		})
-	}
-
-	if _, ok := metadata["secondary_identifiers"]; !ok {
-		return nil, fmt.Errorf("secondary identifier not present for %s", id)
-	}
-
-	secondaryIdentifier := metadata["secondary_identifiers"].([]interface{})
-	if secondaryIdentifier == nil {
-		return nil, fmt.Errorf("Error loading metadata for %s", id)
+		// some analyzers expect an appended `-x` to the name and value
+		// which is needed for the primary identifier
+		switch analyzer {
+		case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
+			identifiers = append(identifiers, report.Identifier{
+				Type:  report.IdentifierType(semgrepIdentifier),
+				Name:  id,
+				Value: id,
+			})
+		default:
+			identifiers = append(identifiers, report.Identifier{
+				Type:  report.IdentifierType(semgrepIdentifier),
+				Name:  primaryIdentifierStr,
+				Value: primaryIdentifierStr,
+			})
+		}
+	} else {
+		log.Debugf("primary identifier not present for %s", id)
 	}
 
 	// HACK: append metadata identifiers like cwe and owasp before `secondary identifiers`
@@ -208,35 +200,46 @@ func ruleIDToIdentifier(id string, vulnIDs []report.Identifier) ([]report.Identi
 		}
 	}
 
-	for i := range secondaryIdentifier {
-		secondaryIdentifier := secondaryIdentifier[i].(map[interface{}]interface{})
+	// secondary identifier
+	if _, ok := metadata["secondary_identifiers"]; ok {
+		secondaryIdentifier := metadata["secondary_identifiers"].([]interface{})
 		if secondaryIdentifier == nil {
-			return nil, fmt.Errorf("Error loading secondary identifier %s", id)
+			return nil, fmt.Errorf("Error loading metadata for %s", id)
 		}
 
-		name, nameok := secondaryIdentifier["name"].(string)
-		typ, typeok := secondaryIdentifier["type"].(string)
-		value, valueok := secondaryIdentifier["value"].(string)
+		for i := range secondaryIdentifier {
+			secondaryIdentifier := secondaryIdentifier[i].(map[interface{}]interface{})
+			if secondaryIdentifier == nil {
+				return nil, fmt.Errorf("Error loading secondary identifier %s", id)
+			}
 
-		if !nameok || !typeok || !valueok {
-			return nil, fmt.Errorf("incomplete secondary identifier for %s", id)
-		}
+			name, nameok := secondaryIdentifier["name"].(string)
+			typ, typeok := secondaryIdentifier["type"].(string)
+			value, valueok := secondaryIdentifier["value"].(string)
 
-		// again, apply some special rules for secondary identifiers:
-		switch analyzer {
-		case "eslint":
-			identifiers = append(identifiers, report.Identifier{
-				Type:  report.IdentifierType(typ),
-				Name:  name,
-				Value: "security/" + value,
-			})
-		default:
-			identifiers = append(identifiers, report.Identifier{
-				Type:  report.IdentifierType(typ),
-				Name:  name,
-				Value: value,
-			})
+			if !nameok || !typeok || !valueok {
+				return nil, fmt.Errorf("incomplete secondary identifier for %s", id)
+			}
+
+			// again, apply some special rules for secondary identifiers:
+			switch analyzer {
+			case "eslint":
+				identifiers = append(identifiers, report.Identifier{
+					Type:  report.IdentifierType(typ),
+					Name:  name,
+					Value: "security/" + value,
+				})
+			default:
+				identifiers = append(identifiers, report.Identifier{
+					Type:  report.IdentifierType(typ),
+					Name:  name,
+					Value: value,
+				})
+			}
 		}
+	} else {
+		log.Debugf("secondary identifier not present for %s", id)
 	}
+
 	return identifiers, nil
 }
