@@ -224,6 +224,9 @@ func ruleIDToIdentifier(id string, vulnIDs []report.Identifier) ([]report.Identi
 			// again, apply some special rules for secondary identifiers:
 			switch analyzer {
 			case "eslint":
+				// HACK: this should probably go into sast-rules
+				name := strings.Replace(name, "ESLint rule ID", "ESLint rule ID security", -1)
+
 				identifiers = append(identifiers, report.Identifier{
 					Type:  report.IdentifierType(typ),
 					Name:  name,
