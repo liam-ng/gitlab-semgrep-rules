@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.9.0
+- Upgrade base image to ubi9-minimal in FIPS variant of Dockerfile (!175)
+
 ## v3.8.3
 - Upgrade gitlab.com/gitlab-org/security-products/analyzers/report to v3.16.0 (!162)
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.115.0` => [`0.121.2`](https://github.com/returntocorp/semgrep/releases/tag/v0.121.2)] (!162)
