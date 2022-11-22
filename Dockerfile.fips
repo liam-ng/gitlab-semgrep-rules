@@ -18,7 +18,7 @@ RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') &&
         PATH_TO_MODULE=`go list -m` && \
         go build -ldflags="-X '$PATH_TO_MODULE/metadata.AnalyzerVersion=$CHANGELOG_VERSION'" -o /analyzer-semgrep
 
-FROM registry.access.redhat.com/ubi9-minimal
+FROM registry.access.redhat.com/ubi8-minimal
 USER root
 
 ARG SCANNER_VERSION
@@ -29,8 +29,8 @@ COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY rules /rules
 COPY semgrepignore /semgrepignore
 
-RUN microdnf update --assumeyes --disableplugin=subscription-manager --nodocs && \
-    microdnf install --assumeyes shadow-utils util-linux git wget python39 python3-pip --disableplugin=subscription-manager --nodocs && \
+RUN microdnf update --disableplugin=subscription-manager --nodocs && \
+    microdnf install shadow-utils util-linux git wget python39 --disableplugin=subscription-manager --nodocs && \
     \
     # Install Semgrep
     pip3 install semgrep==$SCANNER_VERSION && \
@@ -44,9 +44,9 @@ RUN microdnf update --assumeyes --disableplugin=subscription-manager --nodocs &&
     useradd --create-home gitlab -g root && \
     \
     # Cleanup libs that are no longer needed
-    microdnf remove --assumeyes shadow-utils && \
+    microdnf remove shadow-utils && \
     microdnf clean all && \
-    microdnf remove --assumeyes microdnf
+    microdnf remove microdnf
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
 COPY --from=scripts /start.sh /analyzer
