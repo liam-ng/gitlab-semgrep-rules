@@ -1,8 +1,13 @@
 rules:
 - id: bandit.B101
-  pattern-either:
+  patterns:
   - pattern: assert(...)
-  - pattern: assert("...")
+  - pattern-not-inside: |
+      import pytest
+      ...
+  - pattern-not-inside: |
+      import unittest
+      ...
   message: |
     Use of assert detected. The enclosed code will be removed when
     compiling to optimised byte code.
@@ -14,7 +19,7 @@ rules:
   pattern-either:
   - pattern: exec(...)
   - pattern: exec("...")
-  message: | 
+  message: |
     The use of `exec` is risky.
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
@@ -71,7 +76,7 @@ rules:
     - metavariable-regex:
         metavariable: "$MASK"
         regex: "[^\\[]*([Pp][Aa][Ss][Ss][Ww][Oo][Rr][Dd]|pass|passwd|pwd|secret|token|secrete)[^\\]]*"
-  message: | 
+  message: |
     Possible hardcoded password
   metadata:
     cwe: 'CWE-259: Use of Hard-coded Password'
@@ -84,7 +89,7 @@ rules:
     - metavariable-regex:
         metavariable: "$PW"
         regex: ".*([Pp][Aa][Ss][Ss][Ww][Oo][Rr][Dd]|pass|passwd|pwd|secret|token|secrete).*"
-  message: | 
+  message: |
     Possible hardcoded password
   metadata:
     cwe: 'CWE-259: Use of Hard-coded Password'
@@ -108,7 +113,7 @@ rules:
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/best-practice/hardcoded-tmp-path.yaml
 # hardcoded-tmp-path
-- id: bandit.B108-1
+- id: bandit.B108
   pattern: open("=~/^\/tmp.*/", ...)
   message: |
     Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.
@@ -118,39 +123,40 @@ rules:
   languages: [python]
 - id: bandit.B108-2
   patterns:
-    - pattern: open("=~/^\/(dev|var).*/", ...)
-  message: | 
-    Probable insecure usage of temp file/directory.   
+    - pattern: "open($DIR, ...)"
+    - metavariable-regex:
+        metavariable: "$DIR"
+        regex: "['\"](/tmp|/var/tmp|/dev/shm).*['\"]"
+  message: |
+    Probable insecure usage of temp file/directory.
   metadata:
     cwe: 'CWE-377: Insecure Temporary File'
   severity: WARNING
   languages: [python]
 - id: bandit.B110
-  patterns:
+  pattern-either:
     - pattern: |
-        try:
-          ...
-        except $X:
+        except ...:
           pass
-  message: | 
+    - pattern: "except ... pass"
+  message: |
     Try, Except, Pass
   metadata:
     cwe: 'CWE-703: Improper Check or Handling of Exceptional Conditions'
   severity: INFO
-  languages: [python]
+  languages: [generic]
 - id: bandit.B112
-  patterns:
+  pattern-either:
     - pattern: |
-        try:
-          ...
-        except $X:
+        except ...:
           continue
-  message: | 
+    - pattern: "except ... continue"
+  message: |
     Try, Except, Continue
   metadata:
     cwe: 'CWE-703: Improper Check or Handling of Exceptional Conditions'
   severity: INFO
-  languages: [python]
+  languages: [generic]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/flask/security/audit/debug-enabled.yaml
 # debug-enabled
 - id: bandit.B201
@@ -553,11 +559,15 @@ rules:
   severity: WARNING
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/avoid-mark-safe.yaml
-# avoid-mark-safe 
-- id: bandit.B308.B703
+# avoid-mark-safe
+- id: bandit.B703
   patterns:
-  - pattern-not-inside: django.utils.html.format_html(...)
-  - pattern: django.utils.safestring.mark_safe(...)
+  - pattern-not-inside: |-
+      django.utils.html.format_html(...)
+  - pattern-either:
+    - patterns:
+        - pattern: django.utils.safestring.mark_safe(...)
+        - pattern-not: django.utils.safestring.mark_safe("...")
   message: |
     'mark_safe()' is used to mark a string as "safe" for HTML output.
     This disables escaping and could therefore subject the content to
@@ -678,33 +688,46 @@ rules:
   severity: WARNING
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/use-defused-xml.yaml
-- id: bandit.B313.B314.B315.B316.B318.B319.B320.B405.B406.B407.B408.B409.B410
+- id: bandit.B313
   pattern-either:
-  - pattern: import xml
-  - pattern: import lxml
-    # B313
-  - pattern: xml.etree.cElementTree.fromstring(...)
+  - patterns:
+    - pattern: xml.etree.cElementTree.fromstring(...)
+    - pattern-not: xml.etree.cElementTree.fromstring("...")
   - pattern: xml.etree.cElementTree.parse(...)
   - pattern: xml.etree.cElementTree.iterparse(...)
   - pattern: xml.etree.cElementTree.XMLParser(...)
-    # B314
-  - pattern: xml.etree.ElementTree.fromstring(...)
+  metadata:
+    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
+    owasp: 'A4: XML External Entities (XXE)'
+  message: |
+    Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
+    attacks. The Python documentation recommends the `defusedxml` library instead. Use
+    'defusedxml'. See https://github.com/tiran/defusedxml for more information.
+  severity: WARNING
+  languages: [python]
+- id: bandit.B314
+  pattern-either:
+  - patterns:
+    - pattern: xml.etree.ElementTree.fromstring(...)
+    - pattern-not: xml.etree.ElementTree.fromstring("...")
   - pattern: xml.etree.ElementTree.parse(...)
   - pattern: xml.etree.ElementTree.iterparse(...)
   - pattern: xml.etree.ElementTree.XMLParser(...)
-    # B315
-  - pattern: xml.sax.expatreader.create_parser(...)
-    # B316
-  - pattern: xml.dom.expatbuilder.parse(...)
-  - pattern: xml.dom.expatbuilder.parseString(...)
-    # B318
-  - pattern: xml.dom.minidom.parseString(...)
-  - pattern: xml.dom.minidom.parse(...)
-    # B319
-  - pattern: xml.dom.pulldom.parseString(...)
-  - pattern: xml.dom.pulldom.parse(...)
-    # B320
-  - pattern: lxml.etree.fromstring(...)
+  metadata:
+    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
+    owasp: 'A4: XML External Entities (XXE)'
+  message: |
+    Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
+    attacks. The Python documentation recommends the `defusedxml` library instead. Use
+    'defusedxml'. See https://github.com/tiran/defusedxml for more information.
+  severity: WARNING
+  languages: [python]
+- id: bandit.B320
+  pattern-either:
+  - pattern: lxml.etree.parse(...)
+  - patterns:
+    - pattern: lxml.etree.fromstring(...)
+    - pattern-not: lxml.etree.fromstring("...")
   - pattern: lxml.etree.RestrictedElement(...)
   - pattern: lxml.etree.GlobalParserTLS(...)
   - pattern: lxml.etree.getDefaultParser(...)
@@ -714,25 +737,158 @@ rules:
     owasp: 'A4: XML External Entities (XXE)'
   message: |
     Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
-    attacks. The Python documentation recommends the 'defusedxml' library instead. Use 'defusedxml'.
-    See https://github.com/tiran/defusedxml for more information.
-  severity: ERROR
+    attacks. The Python documentation recommends the `defusedxml` library instead. Use
+    'defusedxml'. See https://github.com/tiran/defusedxml for more information.
+  severity: WARNING
+  languages: [python]
+- id: bandit.B316
+  pattern-either:
+  - patterns:
+    - pattern: xml.dom.expatbuilder.parse(...)
+    - pattern-not: xml.dom.expatbuilder.parse("...")
+  - pattern: xml.dom.expatbuilder.parseString(...)
+  message: |
+    Insecure XML parsing functionality, prefer `defusedxml`
+  metadata:
+    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
+    owasp: 'A4: XML External Entities (XXE)'
+  severity: WARNING
+  languages: [python]
+- id: bandit.B315
+  pattern-either:
+  - pattern: xml.dom.expatreader.parse(...)
+  - patterns:
+    - pattern: xml.dom.expatreader.parseString(...)
+    - pattern-not: xml.dom.expatreader.parseString("...")
+  - pattern: xml.dom.expatreader.parseString(...)
+  - pattern: xml.dom.expatreader.create_parser(...)
+  message: |
+    Insecure XML parsing functionality, prefer `defusedxml`
+  metadata:
+    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
+    owasp: 'A4: XML External Entities (XXE)'
+  severity: WARNING
+  languages: [python]
+- id: bandit.B405
+  patterns:
+  - pattern-either:
+    - pattern: import xml.etree.cElementTree
+    - pattern: import xml.etree.ElementTree
+  message: |
+    Consider possible security implications associated with etree module.
+  metadata:
+    cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
+  severity: INFO
+  languages: [python]
+- id: bandit.B406
+  patterns:
+  - pattern-either:
+    - pattern: import xml.sax
+  message: |
+    Using various methods to parse untrusted XML data is known to be vulnerable to
+    XML attacks. Replace vulnerable imports with the equivalent defusedxml package,
+    or make sure defusedxml.defuse_stdlib() is called.
+  metadata:
+    cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
+  severity: INFO
+  languages: [python]
+- id: bandit.B407
+  patterns:
+  - pattern-either:
+    - pattern: import xml.dom.expatbuilder
+  message: |
+    Using various methods to parse untrusted XML data is known to be vulnerable to
+    XML attacks. Replace vulnerable imports with the equivalent defusedxml package,
+    or make sure defusedxml.defuse_stdlib() is called.
+  metadata:
+    cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
+  severity: INFO
+  languages: [python]
+- id: bandit.B409
+  patterns:
+  - pattern-either:
+    - pattern: import xml.dom.pulldom
+  message: |
+    Using various methods to parse untrusted XML data is known to be vulnerable to
+    XML attacks. Replace vulnerable imports with the equivalent defusedxml package,
+    or make sure defusedxml.defuse_stdlib() is called.
+  metadata:
+    cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
+  severity: INFO
+  languages: [python]
+- id: bandit.B410
+  patterns:
+  - pattern-either:
+    - pattern: import lxml
+  message: |
+    Using various methods to parse untrusted XML data is known to be vulnerable to
+    XML attacks. Replace vulnerable imports with the equivalent defusedxml package.
+  metadata:
+    cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
+  severity: INFO
+  languages: [python]
+- id: bandit.B408
+  patterns:
+  - pattern-either:
+    - pattern: import xml.dom.minidom
+  message: |
+    Using various methods to parse untrusted XML data is known to be vulnerable
+    to XML attacks. Replace vulnerable imports with the equivalent defusedxml
+    package, or make sure defusedxml.defuse_stdlib() is called.
+  metadata:
+    cwe: 'CWE-502: Deserialization of Untrusted Data'
+    owasp: 'A8: Insecure Deserialization'
+  severity: INFO
   languages: [python]
 # source (original): https://semgrep.dev/c/p/bandit
 # contrib.dlint.dlint-equivalent.insecure-xml-use
 - id: bandit.B317
   pattern-either:
-  - patterns:
-    - pattern: xml.$ANYTHING
-    - pattern-not: xml.sax.saxutils
-    - pattern-not: xml.etree.ElementTree.Element
-    - pattern-not: xml.etree.ElementTree.SubElement
-  - pattern: lxml.$ANYTHING
-  - pattern: xmlrpclib.$ANYTHING
-  message: Insecure XML parsing functionality, prefer 'defusedxml'
+    - pattern: xml.sax.parse(...)
+    - patterns:
+      - pattern: xml.sax.parseString(...)
+      - pattern-not: xml.sax.parseString("...")
+    - pattern: xml.sax.make_parser(...)
+  message: |
+    Insecure XML parsing functionality, prefer `defusedxml`
   metadata:
     cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
     owasp: 'A4: XML External Entities (XXE)'
+  severity: WARNING
+  languages: [python]
+- id: bandit.B318
+  pattern-either:
+    - patterns:
+      - pattern: xml.dom.minidom.parseString(...)
+      - pattern-not: xml.dom.minidom.parseString("...")
+    - pattern: xml.dom.minidom.parse(...)
+  message: |
+    Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
+    attacks. The Python documentation recommends the `defusedxml` library instead. Use
+    'defusedxml'. See https://github.com/tiran/defusedxml for more information.
+  metadata:
+    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
+    owasp: 'A4: XML External Entities (XXE)'
+  severity: WARNING
+  languages: [python]
+- id: bandit.B319
+  pattern-either:
+    - patterns:
+      - pattern: xml.dom.pulldom.parseString(...)
+      - pattern-not: xml.dom.pulldom.parseString("...")
+    - pattern: xml.dom.pulldom.parse(...)
+  metadata:
+    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
+    owasp: 'A4: XML External Entities (XXE)'
+  message: |
+    Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
+    attacks. The Python documentation recommends the `defusedxml` library instead. Use
+    'defusedxml'. See https://github.com/tiran/defusedxml for more information.
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/ftplib.yaml
@@ -818,12 +974,13 @@ rules:
     - pattern-either:
       - pattern: import pickle
       - pattern: import cPickle
+      - pattern: import dill
   message: |
     Consider possible security implications associated with pickle module.
   metadata:
     cwe: 'CWE-502: Deserialization of Untrusted Data'
     owasp: 'A8: Insecure Deserialization'
-  severity: ERROR
+  severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/correctness/unchecked-returns.yaml
 # unchecked-subprocess-call
@@ -862,12 +1019,12 @@ rules:
   pattern-either:
     - pattern: import pycryto
     - pattern: import Crypto.Cipher
-    - pattern: import Crypto.Hash 
+    - pattern: import Crypto.Hash
     - pattern: import Crypto.IO
     - pattern: import Crypto.Protocol
     - pattern: import Crypto.PublicKey
     - pattern: import Crypto.Random
-    - pattern: import Crypto.Signature  
+    - pattern: import Crypto.Signature
     - pattern: import Crypto.Util
   message: |
     Consider possible security implications associated with pycrypto module.
@@ -900,7 +1057,7 @@ rules:
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/weak-ssl-version.yaml
 # weak-ssl-version
-- id: bandit.B502.B503
+- id: bandit.B502
   patterns:
   - pattern-either:
     - pattern: ssl.PROTOCOL_SSLv2
@@ -1059,20 +1216,29 @@ rules:
 # dangerous-system-call
 - id: bandit.B603
   patterns:
+    - pattern-not: "subprocess.$FUNC($ARG, shell=<... True ...>)"
+    - pattern-not: "subprocess.$FUNC($ARG, shell=<... 'True' ...>)"
+    - pattern-not: "subprocess.$FUNC($ARG, shell=<... \"True\" ...>)"
     - pattern-either:
-      - pattern: subprocess.$FUNC([...])
-      - pattern: subprocess.$FUNC([...], shell=False)
-      - pattern: subprocess.$FUNC(..., shell=False)
-      - pattern: subprocess.$FUNC([...], shell=0)
-      - pattern: subprocess.$FUNC(..., shell=0)
-      - pattern: subprocess.$FUNC([...], shell=[])
-      - pattern: subprocess.$FUNC(..., shell=[])
-      - pattern: subprocess.$FUNC([...], shell={})
-      - pattern: subprocess.$FUNC(..., shell={})
-      - pattern: subprocess.$FUNC([...], shell=None)
-      - pattern: subprocess.$FUNC(..., shell=None)
+      - pattern: |
+          subprocess.$FUNC($ARG, shell=False)
+      - pattern: |
+          subprocess.$FUNC($ARG, shell=0)
+      - pattern: |
+          subprocess.$FUNC($ARG, shell={...})
+      - pattern: |
+          subprocess.$FUNC($ARG, shell=[...])
+      - pattern: |
+          subprocess.$FUNC($ARG)
   message: |
-    subprocess call - check for execution of untrusted input
+    Python possesses many mechanisms to invoke an external executable. However,
+    doing so may present a security issue if appropriate care is not taken to
+    sanitize any user provided or variable input. This plugin test is part of a
+    family of tests built to check for process spawning and warn appropriately.
+    Specifically, this test looks for the spawning of a subprocess without the
+    use of a command shell. This type of subprocess invocation is not
+    vulnerable to shell injection attacks, but care should still be taken to
+    ensure validity of input.
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
     owasp: 'A1: Injection'
@@ -1091,7 +1257,7 @@ rules:
   languages: [python]
 - id: bandit.B605
   patterns:
-    - pattern-either: 
+    - pattern-either:
       - pattern: os.system(...)
       - pattern: os.popen(...)
       - pattern: os.popen2(...)
@@ -1105,7 +1271,7 @@ rules:
       - pattern: commands.getoutput(...)
       - pattern: commands.getstatusoutput("")
   message: |
-    Starting a process with a shell: Seems safe, but may be changed in the 
+    Starting a process with a shell: Seems safe, but may be changed in the
     future, consider rewriting without shell
   metadata:
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
@@ -1150,32 +1316,21 @@ rules:
   severity: WARNING
   languages: [python]
 - id: bandit.B607
-  patterns:
-    - pattern-either:
-      - pattern: subprocess.Popen($BIN, shell=False)
-      - pattern: subprocess.Popen([$BIN, ...], shell=False)
-      - pattern: os.system($BIN, shell=False)
-      - pattern: os.system([$BIN, ...], shell=False)
-      - pattern: popen2.Popen3($BIN, shell=False)
-      - pattern: popen2.Popen3([$BIN, ...], shell=False)
-      - pattern: popen2.Popen4($BIN, shell=False)
-      - pattern: popen2.Popen4([$BIN, ...], shell=False)
-      - pattern: commands.getoutput($BIN, shell=False)
-      - pattern: commands.getoutput([$BIN, ...], shell=False)
-      - pattern: commands.getstatusoutput($BIN, shell=False)
-      - pattern: commands.getstatusoutput([$BIN, ...], shell=False)
-    - metavariable-regex:
-        metavariable: "$BIN"
-        regex: "^['\"][^/\\.][^:].*['\"]"
+  pattern-either:
+    - pattern: os.system("...", ...)
+    - pattern: $OS.popen("...", ...)
+    - pattern: $OS.popen2("...", ...)
+    - pattern: $OS.popen3("...", ...)
+    - pattern: $OS.popen4("...", ...)
+    - pattern: commands.getoutput("...", ...)
+    - pattern: commands.getstatusoutput("...", ...)
   message: |
-    Starting a process with a partial executable path
-  metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A1: Injection'
+    Starting a process with a shell; seems safe, but may be changed in the future, consider
+    rewriting without shell
   severity: INFO
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/formatted-sql-query.yaml
-# formatted-sql-query 
+# formatted-sql-query
 - id: bandit.B608
   patterns:
   - pattern-either:
@@ -1231,15 +1386,20 @@ rules:
 - id: bandit.B610
   patterns:
   - pattern-either:
-    - pattern: $X.objects.$FUNC(...).extra(...)
-    - pattern: $X.objects.$FUNC(...).$FILTER(...).extra(...)
-    - pattern: $X.objects.$FUNC(...).$FILTER(...).$UPDATE(...).extra(...)
+    - pattern: $X.objects. ... .extra($...Y)
+  - metavariable-pattern:
+      language: generic
+      metavariable: $...Y
+      patterns:
+      - pattern: $K = $V
+      - pattern-not: $K = "..."
+      - pattern-not: $K = '...'
   message: This is a last resort. You should be careful when using QuerySet.extra due to SQLi https://docs.djangoproject.com/en/3.0/ref/models/querysets/#django.db.models.query.QuerySet.extra
   metadata:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
     owasp: 'A1: Injection'
   severity: ERROR
-  languages: [python]
+  languages: [generic]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/raw-query.yaml
 # avoid-raw-sql
 - id: bandit.B611
@@ -1285,24 +1445,5 @@ rules:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
     owasp: 'A7: Cross-Site Scripting (XSS)'
   severity: INFO
-  languages: [python]
-# source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/avoid-mark-safe.yaml
-# avoid-mark-safe
-- id: bandit.B703
-  patterns:
-  - pattern-either:
-    - pattern: django.utils.safestring.SafeText(...)
-    - pattern: django.utils.safestring.SafeUnicode(...)
-    - pattern: django.utils.safestring.SafeString(...)
-    - pattern: django.utils.safestring.SafeBytes(...)
-  message: |
-    'mark_safe()' is used to mark a string as "safe" for HTML output.
-    This disables escaping and could therefore subject the content to
-    XSS attacks. Use 'django.utils.html.format_html()' to build HTML
-    for rendering instead.
-  metadata:
-    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
-    owasp: 'A7: Cross-Site Scripting (XSS)'
-  severity: WARNING
   languages: [python]
 

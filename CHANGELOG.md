@@ -1,5 +1,13 @@
 Semgrep analyzer changelog
 
+## v3.9.1
+- Refined B610 to eliminate FP patterns (!179)
+- Refined B108 to match the original patterns more accurately (!179)
+- Use generic pattern matching for B110, B112 to support exception chains (!179)
+- Broke down the single rule B313, B314, B315, B316, B317, B318, B319, B320, B405, B406, B407, B408, B409, B410 into smaller pieces (!179)
+- Reduced the rules; the initial rules-set was based on a rule-set provided by r2c where we focused more on coverage than actual parity. We trimmed down some of the rules to match more accurately what bandit would return. (!179)
+
+
 ## v3.9.0
 - Upgrade base image to ubi9-minimal in FIPS variant of Dockerfile (!175)
 
