@@ -24,7 +24,7 @@ semgrep-meta-rules:
 
 integration-test:
   image:
-    name: registry.gitlab.com/gitlab-org/security-products/analyzers/integration-test:stable
+    name: registry.gitlab.com/gitlab-org/security-products/analyzers/integration-test:336332-ignore-fixtures-with-skip-fields
   services:
     - docker:20.10-dind
   variables:
