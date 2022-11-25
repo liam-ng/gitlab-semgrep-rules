@@ -1,5 +1,11 @@
 Semgrep analyzer changelog
 
+## v3.9.3
+- upgrade `github.com/stretchr/testify` version [`v1.8.0` => [`v1.8.1`](https://github.com/stretchr/testify/releases/tag/v1.8.1)] (!177)
+- upgrade `github.com/urfave/cli/v2` version [`v2.19.2` => [`v2.23.5`](https://github.com/urfave/cli/releases/tag/v2.23.5)] (!177)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.9.2` => [`v1.10.0`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.10.0)] (!177)
+- upgrade `golang.org/x/crypto` version [`v0.0.0-20221012134737-56aed061732a` => [`v0.2.0`](https://golang.org/x/crypto@v0.2.0)] (!177)
+
 ## v3.9.2
 - Revert: Upgrade base image to ubi9-minimal in FIPS variant of Dockerfile (!180)
 
