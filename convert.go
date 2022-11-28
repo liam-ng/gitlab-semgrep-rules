@@ -21,9 +21,26 @@ const (
 	semgrepIdentifier      = "semgrep_id"
 )
 
+type ruleFile struct {
+	Rules []*ruleFileRule `yaml:"rules"`
+}
+
+type ruleFileRule struct {
+	ID       string `yaml:"id"`
+	Metadata *struct {
+		PrimaryIdentifier    string `yaml:"primary_identifier"`
+		SecondaryIdentifiers []*struct {
+			Name  string                `yaml:"name"`
+			Type  report.IdentifierType `yaml:"type"`
+			Value string                `yaml:"value"`
+		} `yaml:"secondary_identifiers"`
+		Rest map[string]interface{} `yaml:"-"`
+	} `yaml:"metadata"`
+}
+
 // ruleCache is used to extract rule-mappings from the meta-data provided by
 // the rule files in sast-rules
-var ruleCache = make(map[string]map[string]interface{})
+var ruleCache = make(map[string]map[string]ruleFileRule)
 
 func buildCache(src string) error {
 	return filepath.Walk(src, func(fpath string, info os.FileInfo, err error) error {
@@ -33,42 +50,41 @@ func buildCache(src string) error {
 
 		if strings.HasSuffix(info.Name(), ".yml") {
 			log.Debugf("adding %s to cache", info.Name())
-			rules := make(map[string]interface{})
+
+			file := ruleFile{}
 
 			name := strings.TrimSuffix(filepath.Base(info.Name()), ".yml")
+			if _, ok := ruleCache[name]; !ok {
+				ruleCache[name] = make(map[string]ruleFileRule)
+			}
 
 			yamlFile, err := ioutil.ReadFile(fpath)
 			if err != nil {
-				return err
+				return fmt.Errorf("read rules for %s", info.Name())
 			}
-			err = yaml.Unmarshal(yamlFile, rules)
+			err = yaml.Unmarshal(yamlFile, &file)
 			if err != nil {
-				return err
+				return fmt.Errorf("read rules for %s", info.Name())
 			}
 
-			if _, ok := rules["rules"]; !ok {
-				return fmt.Errorf("Unable to extract rules for %s", info.Name())
+			if file.Rules == nil {
+				return fmt.Errorf("extract rules for %s", info.Name())
 			}
 
-			rulearray := rules["rules"].([]interface{})
-			if rulearray == nil {
-				return fmt.Errorf("Unable to extract rules for %s", info.Name())
+			rules := file.Rules
+			if rules == nil {
+				return fmt.Errorf("extract rules for %s", info.Name())
 			}
 
 			log.Debugf("caching with key %s", name)
-			rulemap := make(map[string]interface{})
-			for i := range rulearray {
-				rule := rulearray[i].(map[interface{}]interface{})
-				if rule == nil {
-					return fmt.Errorf("Unable to extract rules for %s", info.Name())
-				}
-				if _, ok := rule["id"]; !ok {
-					return fmt.Errorf("Unable to extract rules for %s", info.Name())
-				}
-				rulemap[rule["id"].(string)] = rule
-			}
 
-			ruleCache[name] = rulemap
+			for _, r := range rules {
+				if r == nil || r.ID == "" {
+					return fmt.Errorf("extract rules for %s", info.Name())
+				}
+
+				ruleCache[name][r.ID] = *r
+			}
 		}
 		return nil
 	})
@@ -152,42 +168,31 @@ func ruleIDToIdentifier(id string, vulnIDs []report.Identifier) ([]report.Identi
 		return nil, fmt.Errorf("Unmapped rule %s for %s", id, analyzer)
 	}
 
-	rule := analyzerIDMappings[id].(map[interface{}]interface{})
-	if rule == nil {
-		return nil, fmt.Errorf("Error loading rule content for %s", id)
-	}
+	rule := analyzerIDMappings[id]
 
-	if _, ok := rule["metadata"]; !ok {
+	if rule.Metadata == nil {
 		return nil, fmt.Errorf("metadata not present for %s", id)
 	}
 
-	metadata := rule["metadata"].(map[interface{}]interface{})
-	if metadata == nil {
-		return nil, fmt.Errorf("Error loading metadata for %s", id)
-	}
-
 	// primary identifier
-	if _, ok := metadata["primary_identifier"]; ok {
-		primaryIdentifierStr := metadata["primary_identifier"].(string)
-
-		// some analyzers expect an appended `-x` to the name and value
-		// which is needed for the primary identifier
-		switch analyzer {
-		case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
-			identifiers = append(identifiers, report.Identifier{
-				Type:  report.IdentifierType(semgrepIdentifier),
-				Name:  id,
-				Value: id,
-			})
-		default:
-			identifiers = append(identifiers, report.Identifier{
-				Type:  report.IdentifierType(semgrepIdentifier),
-				Name:  primaryIdentifierStr,
-				Value: primaryIdentifierStr,
-			})
-		}
-	} else {
+	if rule.Metadata.PrimaryIdentifier == "" {
 		log.Debugf("primary identifier not present for %s", id)
+	}
+	// some analyzers expect an appended `-x` to the name and value
+	// which is needed for the primary identifier
+	switch analyzer {
+	case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
+		identifiers = append(identifiers, report.Identifier{
+			Type:  semgrepIdentifier,
+			Name:  id,
+			Value: id,
+		})
+	default:
+		identifiers = append(identifiers, report.Identifier{
+			Type:  semgrepIdentifier,
+			Name:  rule.Metadata.PrimaryIdentifier,
+			Value: rule.Metadata.PrimaryIdentifier,
+		})
 	}
 
 	// HACK: append metadata identifiers like cwe and owasp before `secondary identifiers`
@@ -201,47 +206,35 @@ func ruleIDToIdentifier(id string, vulnIDs []report.Identifier) ([]report.Identi
 	}
 
 	// secondary identifier
-	if _, ok := metadata["secondary_identifiers"]; ok {
-		secondaryIdentifier := metadata["secondary_identifiers"].([]interface{})
-		if secondaryIdentifier == nil {
-			return nil, fmt.Errorf("Error loading metadata for %s", id)
-		}
-
-		for i := range secondaryIdentifier {
-			secondaryIdentifier := secondaryIdentifier[i].(map[interface{}]interface{})
-			if secondaryIdentifier == nil {
-				return nil, fmt.Errorf("Error loading secondary identifier %s", id)
-			}
-
-			name, nameok := secondaryIdentifier["name"].(string)
-			typ, typeok := secondaryIdentifier["type"].(string)
-			value, valueok := secondaryIdentifier["value"].(string)
-
-			if !nameok || !typeok || !valueok {
-				return nil, fmt.Errorf("incomplete secondary identifier for %s", id)
-			}
-
-			// again, apply some special rules for secondary identifiers:
-			switch analyzer {
-			case "eslint":
-				// HACK: this should probably go into sast-rules
-				name := strings.Replace(name, "ESLint rule ID", "ESLint rule ID security", -1)
-
-				identifiers = append(identifiers, report.Identifier{
-					Type:  report.IdentifierType(typ),
-					Name:  name,
-					Value: "security/" + value,
-				})
-			default:
-				identifiers = append(identifiers, report.Identifier{
-					Type:  report.IdentifierType(typ),
-					Name:  name,
-					Value: value,
-				})
-			}
-		}
-	} else {
+	if len(rule.Metadata.SecondaryIdentifiers) == 0 {
 		log.Debugf("secondary identifier not present for %s", id)
+	}
+
+	for _, secondaryIdentifier := range rule.Metadata.SecondaryIdentifiers {
+		if secondaryIdentifier == nil {
+			return nil, fmt.Errorf("load secondary identifier %s", id)
+		}
+
+		if secondaryIdentifier.Name == "" || secondaryIdentifier.Type == "" || secondaryIdentifier.Value == "" {
+			return nil, fmt.Errorf("incomplete secondary identifier for %s", id)
+		}
+
+		// again, apply some special rules for secondary identifiers:
+		switch analyzer {
+		case "eslint":
+			identifiers = append(identifiers, report.Identifier{
+				Type: secondaryIdentifier.Type,
+				// HACK: this should probably go into sast-rules
+				Name:  strings.Replace(secondaryIdentifier.Name, "ESLint rule ID", "ESLint rule ID security", -1),
+				Value: "security/" + secondaryIdentifier.Value,
+			})
+		default:
+			identifiers = append(identifiers, report.Identifier{
+				Type:  secondaryIdentifier.Type,
+				Name:  secondaryIdentifier.Name,
+				Value: secondaryIdentifier.Value,
+			})
+		}
 	}
 
 	return identifiers, nil
