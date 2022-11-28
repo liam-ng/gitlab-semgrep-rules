@@ -12,7 +12,19 @@ import (
 )
 
 // supported languages' file extensions
-var supportedExt = []string{".py", ".js", ".ts", ".jsx", ".tsx", ".c", ".go", ".java", ".cs"}
+var supportedExt = map[string]struct{}{
+	".py":    struct{}{},
+	".js":    struct{}{},
+	".ts":    struct{}{},
+	".jsx":   struct{}{},
+	".tsx":   struct{}{},
+	".c":     struct{}{},
+	".go":    struct{}{},
+	".java":  struct{}{},
+	".cs":    struct{}{},
+	".scala": struct{}{},
+	".sc":    struct{}{},
+}
 
 // isRulesetCheckDone keeps track of whether ruleset check is already done
 // so that when the ruleset file is not present, the same information is reused
@@ -49,10 +61,8 @@ func Match(path string, info os.FileInfo) (bool, error) {
 
 func matchByLangExt(path string, info os.FileInfo) (bool, error) {
 	ext := filepath.Ext(info.Name())
-	for _, lang := range supportedExt {
-		if ext == lang {
-			return true, nil
-		}
+	if _, present := supportedExt[ext]; present {
+		return true, nil
 	}
 	return false, nil
 }

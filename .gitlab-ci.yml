@@ -125,6 +125,22 @@ csharp-dotnetcore-multisolution-qa:
     project: gitlab-org/security-products/tests/csharp-dotnetcore-multiproject
     branch: multisolution-FREEZE
 
+scala-sbt-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/scala-sbt/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/scala-sbt
+
+# Commenting till the multi project repo supports the SAST test and QA stage https://gitlab.com/gitlab-org/security-products/tests/scala-sbt-multiproject/-/merge_requests/7
+# scala-sbt-multiproject-qa:
+#   extends: .qa-downstream-sast
+#   variables:
+#     SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/scala-sbt-multiproject/gl-sast-report.json"
+#   trigger:
+#     project: gitlab-org/security-products/tests/scala-sbt-multiproject
+#     branch: main
+#
 # Commenting out this until we add `.cs` to this list: https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml#L254-263
 # csharp-dotnetcore-msbuild-multiproject-qa:
 #   extends: .qa-downstream-sast

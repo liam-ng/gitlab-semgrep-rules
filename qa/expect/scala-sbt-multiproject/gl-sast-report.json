@@ -1,0 +1,96 @@
+{
+  "version": "15.0.0",
+  "vulnerabilities": [
+    {
+      "id": "9c620e1dc27ef6d7130dca203f23e9ed6acd0b9a1ee872ec99a6b95a682b6b00",
+      "category": "sast",
+      "name": "Hard coded key",
+      "message": "Hard coded key",
+      "description": "Hard coded cryptographic key found",
+      "cve": "102ac67e0975ecec02a056008e0faad8:HARD_CODE_KEY:proj2/src/main/scala/example/Main.scala:12",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "proj2/src/main/scala/example/Main.scala",
+        "start_line": 12,
+        "class": "example.Main$",
+        "method": "getBytes"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-HARD_CODE_KEY",
+          "value": "HARD_CODE_KEY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#HARD_CODE_KEY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-321",
+          "value": "321",
+          "url": "https://cwe.mitre.org/data/definitions/321.html"
+        }
+      ]
+    },
+    {
+      "id": "e5d30a9f247e1a4736c1764db9fbb5f16bd31e8de2b6160bc43c4277c4cf15e3",
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "22638f20786f979911c3f22f9b30f24f:CIPHER_INTEGRITY:proj2/src/main/scala/example/Main.scala:13",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "proj2/src/main/scala/example/Main.scala",
+        "start_line": 13,
+        "class": "example.Main$",
+        "method": "main"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    }
+  ],
+  "scan": {
+    "analyzer": {
+      "id": "spotbugs",
+      "name": "Spotbugs",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.3.1"
+    },
+    "scanner": {
+      "id": "find_sec_bugs",
+      "name": "Find Security Bugs",
+      "url": "https://spotbugs.github.io",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "4.7.3"
+    },
+    "type": "sast",
+    "start_time": "2022-12-08T10:08:43",
+    "end_time": "2022-12-08T10:11:34",
+    "status": "success"
+  }
+}
