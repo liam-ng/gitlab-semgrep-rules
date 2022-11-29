@@ -114,10 +114,6 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 			return nil, err
 		}
 
-		if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
-			ids[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
-		}
-
 		if len(ids) > 0 {
 			sastReport.Vulnerabilities[index].Identifiers = ids
 		}
@@ -173,6 +169,13 @@ func ruleIDToIdentifier(id string, vulnIDs []report.Identifier) ([]report.Identi
 	// primary identifier
 	if _, ok := metadata["primary_identifier"]; ok {
 		primaryIdentifierStr := metadata["primary_identifier"].(string)
+		url := ""
+
+		if strings.HasPrefix(primaryIdentifierStr, "bandit") ||
+			strings.HasPrefix(primaryIdentifierStr, "eslint") {
+			url = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s",
+				primaryIdentifierStr)
+		}
 
 		// some analyzers expect an appended `-x` to the name and value
 		// which is needed for the primary identifier
@@ -182,12 +185,14 @@ func ruleIDToIdentifier(id string, vulnIDs []report.Identifier) ([]report.Identi
 				Type:  report.IdentifierType(semgrepIdentifier),
 				Name:  id,
 				Value: id,
+				URL:   url,
 			})
 		default:
 			identifiers = append(identifiers, report.Identifier{
 				Type:  report.IdentifierType(semgrepIdentifier),
 				Name:  primaryIdentifierStr,
 				Value: primaryIdentifierStr,
+				URL:   url,
 			})
 		}
 	} else {
