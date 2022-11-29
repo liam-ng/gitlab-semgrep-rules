@@ -20,12 +20,10 @@ import (
 )
 
 const (
-	flagSASTExcludedPaths          = "sast-excluded-paths"
-	flagSASTSemgrepMetrics         = "semgrep-send-metrics"
-	flagSASTExperimentalFeatures   = "sast-experimental-features"
-	flagSASTAllowedCLIOpts         = "sast-scanner-allowed-cli-opts"
-	flagSASTSegrepRuleConfigDir    = "semgrep-rule-config-dir"
-	flagSASTSegrepRuleConfigDirEnv = "SAST_SEMGREP_RULE_CONFIG_DIR"
+	flagSASTExcludedPaths        = "sast-excluded-paths"
+	flagSASTSemgrepMetrics       = "semgrep-send-metrics"
+	flagSASTExperimentalFeatures = "sast-experimental-features"
+	flagSASTAllowedCLIOpts       = "sast-scanner-allowed-cli-opts"
 )
 
 var (
@@ -51,6 +49,8 @@ var highFPRules = map[string][]string{
 	"eslint.yml": {"eslint.security/detect-object-injection-1"},
 }
 
+var defaultConfigPath = path.Join("/", "rules")
+
 func analyzeFlags() []cli.Flag {
 	return []cli.Flag{
 		&cli.BoolFlag{
@@ -73,12 +73,6 @@ func analyzeFlags() []cli.Flag {
 			Name:    flagSASTAllowedCLIOpts,
 			Usage:   "See https://docs.gitlab.com/ee/user/application_security/sast/#security-scanner-configuration",
 			EnvVars: []string{"SAST_SCANNER_ALLOWED_CLI_OPTS"},
-		},
-		&cli.StringFlag{
-			Name:    flagSASTSegrepRuleConfigDir,
-			Usage:   "Configuration Directory",
-			EnvVars: []string{flagSASTSegrepRuleConfigDirEnv},
-			Value:   "/rules",
 		},
 	}
 }
@@ -109,12 +103,8 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 
 	outputPath := path.Join(projectPath, "semgrep.sarif")
 
-	configPath, err := getConfigPath(c, projectPath, rulesetConfig)
+	configPath, err := getConfigPath(projectPath, rulesetConfig)
 	if err != nil {
-		return nil, err
-	}
-
-	if err = os.Setenv(flagSASTSegrepRuleConfigDirEnv, configPath); err != nil {
 		return nil, err
 	}
 
@@ -191,12 +181,12 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths, scannerOpts s
 	return args
 }
 
-func getConfigPath(c *cli.Context, projectPath string, rulesetConfig *ruleset.Config) (string, error) {
+func getConfigPath(projectPath string, rulesetConfig *ruleset.Config) (string, error) {
 	if rulesetConfig != nil && len(rulesetConfig.Passthrough) != 0 {
 		return ruleset.ProcessPassthroughs(rulesetConfig, log.StandardLogger())
 	}
 
-	return c.String(flagSASTSegrepRuleConfigDir), nil
+	return defaultConfigPath, nil
 }
 
 // semgrepRuleFile represents the structure of a Semgrep rule YAML file.
@@ -209,8 +199,15 @@ type semgrepRuleFile struct {
 // we're not interested in. See https://pkg.go.dev/gopkg.in/yaml.v3#Marshal
 // for more information.
 type semgrepRule struct {
-	// We only care about the ID in this context.
-	ID   string                 `yaml:"id"`
+	ID       string `yaml:"id"`
+	Metadata struct {
+		PrimaryIdentifier    string `yaml:"primary_identifier"`
+		SecondaryIdentifiers []struct {
+			Name  string `yaml:"name"`
+			Type  string `yaml:"type"`
+			Value string `yaml:"value"`
+		} `yaml:"secondary_identifiers"`
+	} `yaml:"metadata"`
 	Rest map[string]interface{} `yaml:",inline"`
 }
 
