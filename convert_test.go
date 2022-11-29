@@ -17,8 +17,9 @@ func TestConvert(t *testing.T) {
 				Type:  "semgrep_id",
 				Name:  "bandit.B101",
 				Value: "bandit.B101",
-				URL:   "",
-			}, {
+				URL:   "https://semgrep.dev/r/gitlab.bandit.B101",
+			},
+			{
 				Type:  "bandit_test_id",
 				Name:  "Bandit Test ID: B101",
 				Value: "B101",
@@ -30,7 +31,8 @@ func TestConvert(t *testing.T) {
 				Type:  "semgrep_id",
 				Name:  "eslint.detect-buffer-noassert",
 				Value: "eslint.detect-buffer-noassert",
-				URL:   ""},
+				URL:   "https://semgrep.dev/r/gitlab.eslint.detect-buffer-noassert",
+			},
 			{
 				Type:  "eslint_rule_id",
 				Name:  "ESLint rule ID security/detect-buffer-noassert",
