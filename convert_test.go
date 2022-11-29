@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"path"
 	"reflect"
@@ -11,7 +10,7 @@ import (
 )
 
 func TestConvert(t *testing.T) {
-	defaultConfigPath = path.Join("testdata", "convert")
+	defaultConfigPath = path.Join("testdata", "sampledist")
 
 	fixture, err := os.Open("testdata/reports/semgrep.sarif")
 	if err != nil {
@@ -24,7 +23,6 @@ func TestConvert(t *testing.T) {
 	}
 
 	vuln := sastReport.Vulnerabilities[0]
-	fmt.Println(sastReport.Vulnerabilities)
 	if len(vuln.Identifiers) != 4 {
 		t.Fatalf("Wrong result. Expected:\n%#v\nbut got:\n%#v", 4, len(vuln.Identifiers))
 	}
@@ -34,7 +32,7 @@ func TestConvert(t *testing.T) {
 		Type:  "semgrep_id",
 		Name:  "bandit.B303",
 		Value: "bandit.B303",
-		URL:   "https://semgrep.dev/r/gitlab.bandit.B303-1",
+		URL:   "https://semgrep.dev/r/gitlab.bandit.B303",
 	}
 	got := vuln.Identifiers[0]
 	if !reflect.DeepEqual(want, got) {
