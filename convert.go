@@ -137,6 +137,11 @@ func buildSecondaryIDs(rule *semgrepRule) []report.Identifier {
 	identifiers := []report.Identifier{}
 
 	for _, sid := range rule.Metadata.SecondaryIdentifiers {
+		if sid.Type == "eslint_rule_id" {
+			sid.Name = strings.Replace(sid.Name, "ESLint rule ID", "ESLint rule ID security", -1)
+			sid.Value = "security/" + sid.Value
+		}
+
 		identifiers = append(
 			identifiers,
 			report.Identifier{

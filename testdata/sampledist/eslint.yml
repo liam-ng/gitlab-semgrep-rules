@@ -11,9 +11,9 @@ rules:
     - "https://github.com/nodesecurity/eslint-plugin-security/blob/master/docs/bypass-connect-csrf-protection-by-abusing.md"
     primary_identifier: "eslint.detect-no-csrf-before-method-override"
     secondary_identifiers:
-    - name: "security/detect-no-csrf-before-method-override"
+    - value: "detect-no-csrf-before-method-override"
       type: "eslint_rule_id"
-      value: "ESLint rule ID detect-no-csrf-before-method-override"
+      name: "ESLint rule ID detect-no-csrf-before-method-override"
   message: |
     Detected use of express.csrf() middleware before express.methodOverride(). This can
     allow GET requests (which are not checked by csrf) to turn into POST requests later.

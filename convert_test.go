@@ -78,8 +78,8 @@ func TestGenerateIDs(t *testing.T) {
 			{
 				Type: "eslint_rule_id",
 				// FIXME: https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules/-/merge_requests/98
-				Value: "ESLint rule ID detect-no-csrf-before-method-override",
-				Name:  "security/detect-no-csrf-before-method-override",
+				Name:  "ESLint rule ID security detect-no-csrf-before-method-override",
+				Value: "security/detect-no-csrf-before-method-override",
 			},
 		},
 		"flawfinder.char-1.TCHAR-1.wchar_t-1": {
