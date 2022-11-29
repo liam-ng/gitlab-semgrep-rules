@@ -114,6 +114,10 @@ func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
 			return nil, err
 		}
 
+		if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
+			ids[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
+		}
+
 		if len(ids) > 0 {
 			sastReport.Vulnerabilities[index].Identifiers = ids
 		}
