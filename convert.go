@@ -105,17 +105,23 @@ func ruleToIDs(ruleID string, ruleMap map[string]semgrepRuleFile) (*report.Ident
 			return &report.Identifier{}, empty
 		}
 
-		return buildPrimaryID(ruleID, rule), buildSecondaryIDs(rule)
+		return buildPrimaryID(ruleID, rule, analyzer), buildSecondaryIDs(rule)
 	default:
 		return &report.Identifier{}, empty
 	}
 }
 
-func buildPrimaryID(ruleID string, rule *semgrepRule) *report.Identifier {
+func buildPrimaryID(ruleID string, rule *semgrepRule, analyzer string) *report.Identifier {
 	ID := report.Identifier{
-		Type:  report.IdentifierType("semgrep_id"),
-		Name:  rule.Metadata.PrimaryIdentifier,
-		Value: rule.Metadata.PrimaryIdentifier,
+		Type: report.IdentifierType("semgrep_id"),
+	}
+	switch analyzer {
+	case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
+		ID.Name = ruleID
+		ID.Value = ruleID
+	default:
+		ID.Name = rule.Metadata.PrimaryIdentifier
+		ID.Value = rule.Metadata.PrimaryIdentifier
 	}
 
 	// generate and add a URL to the semgrep ID
