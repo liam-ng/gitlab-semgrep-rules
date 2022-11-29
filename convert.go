@@ -3,76 +3,21 @@ package main
 import (
 	"fmt"
 	"io"
+	"io/fs"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
 
+	log "github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v2"
 
-	log "github.com/sirupsen/logrus"
-
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
+	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
 
-const (
-	semgrepIdentifierIndex = 0
-	semgrepIdentifier      = "semgrep_id"
-)
-
-// ruleCache is used to extract rule-mappings from the meta-data provided by
-// the rule files in sast-rules
-var ruleCache = make(map[string]map[string]interface{})
-
-func buildCache(src string) error {
-	return filepath.Walk(src, func(fpath string, info os.FileInfo, err error) error {
-		if info.IsDir() {
-			return nil
-		}
-
-		if strings.HasSuffix(info.Name(), ".yml") {
-			log.Debugf("adding %s to cache", info.Name())
-			rules := make(map[string]interface{})
-
-			name := strings.TrimSuffix(filepath.Base(info.Name()), ".yml")
-
-			yamlFile, err := ioutil.ReadFile(fpath)
-			if err != nil {
-				return err
-			}
-			err = yaml.Unmarshal(yamlFile, rules)
-			if err != nil {
-				return err
-			}
-
-			if _, ok := rules["rules"]; !ok {
-				return fmt.Errorf("Unable to extract rules for %s", info.Name())
-			}
-
-			rulearray := rules["rules"].([]interface{})
-			if rulearray == nil {
-				return fmt.Errorf("Unable to extract rules for %s", info.Name())
-			}
-
-			log.Debugf("caching with key %s", name)
-			rulemap := make(map[string]interface{})
-			for i := range rulearray {
-				rule := rulearray[i].(map[interface{}]interface{})
-				if rule == nil {
-					return fmt.Errorf("Unable to extract rules for %s", info.Name())
-				}
-				if _, ok := rule["id"]; !ok {
-					return fmt.Errorf("Unable to extract rules for %s", info.Name())
-				}
-				rulemap[rule["id"].(string)] = rule
-			}
-
-			ruleCache[name] = rulemap
-		}
-		return nil
-	})
-}
+const semgrepIdentifierIndex = 0
 
 func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	// HACK: extract root path from environment variables
@@ -82,176 +27,157 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 		root = os.Getenv("CI_PROJECT_DIR")
 	}
 
-	src := os.Getenv(flagSASTSegrepRuleConfigDirEnv)
-	if src == "" {
-		return nil, fmt.Errorf("no rule configuration found")
+	log.Debugf("Converting report with the root path: %s", root)
+
+	// Load custom config if available
+	rulesetPath := filepath.Join(prependPath, ruleset.PathSAST)
+	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep")
+	if err != nil {
+		switch err.(type) {
+		case *ruleset.NotEnabledError:
+			log.Debug(err)
+		case *ruleset.ConfigFileNotFoundError:
+			log.Debug(err)
+		case *ruleset.ConfigNotFoundError:
+			log.Debug(err)
+		case *ruleset.InvalidConfig:
+			log.Fatal(err)
+		default:
+			return nil, err
+		}
 	}
 
-	// building up rule cache
-	err := buildCache(src)
+	configPath, err := getConfigPath(prependPath, rulesetConfig)
 	if err != nil {
 		return nil, err
 	}
-
-	log.Debugf("Converting report with the root path: %s", root)
 
 	sastReport, err := report.TransformToGLSASTReport(reader, root, metadata.AnalyzerID, metadata.IssueScanner)
 	if err != nil {
 		return nil, err
 	}
 
-	return addAnalyzerIdentifiers(sastReport)
+	return addAnalyzerIdentifiers(sastReport, configPath)
 }
 
 // addAnalyzerIdentifiers iterates through report vulnerability identifiers. Each identifier is then use to
 // determine how the semgrep rule maps to a corresponding analyzer like bandit, or eslint.
-func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
+func addAnalyzerIdentifiers(sastReport *report.Report, configPath string) (*report.Report, error) {
+	ruleMap, err := buildRuleMap(configPath)
+	if err != nil {
+		return sastReport, err
+	}
+
 	for index, vul := range sastReport.Vulnerabilities {
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
-		ids, err := ruleIDToIdentifier(ruleID, vul.Identifiers)
-		if err != nil {
-			return nil, err
+		pID, sIDs := ruleToIDs(ruleID, ruleMap)
+		if pID != nil {
+			sastReport.Vulnerabilities[index].Identifiers[0] = *pID
 		}
-
-		if len(ids) > 0 {
-			sastReport.Vulnerabilities[index].Identifiers = ids
+		if len(sIDs) > 0 {
+			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, sIDs...)
 		}
 	}
 	return sastReport, nil
 }
 
-func ruleIDToIdentifier(id string, vulnIDs []report.Identifier) ([]report.Identifier, error) {
+// ruleToIDs will take in ruleID as string and output a trimmed primary identifier
+// and slice of secondary identifiers containing each sub-rule.
+// Examples of secondary identifiers: bandit.B303-1 (outputs one identifier), bandit.B502.B503 (outputs two identifiers)
+func ruleToIDs(ruleID string, ruleMap map[string]semgrepRuleFile) (*report.Identifier, []report.Identifier) {
+	var empty []report.Identifier
+	matches := strings.Split(ruleID, ".")
+	if len(matches) < 2 {
+		return &report.Identifier{}, empty
+	}
+
+	analyzer := strings.ToLower(matches[0])
+
+	switch analyzer {
+	case "bandit", "eslint", "find_sec_bugs", "flawfinder", "gosec", "security_code_scan":
+		if len(ruleMap[analyzer].Rules) == 0 {
+			return &report.Identifier{}, empty
+		}
+
+		rule := findRuleForID(ruleID, ruleMap[analyzer])
+		if rule == nil {
+			return &report.Identifier{}, empty
+		}
+
+		return buildPrimaryID(ruleID, rule), buildSecondaryIDs(rule)
+	default:
+		return &report.Identifier{}, empty
+	}
+}
+
+func buildPrimaryID(ruleID string, rule *semgrepRule) *report.Identifier {
+	ID := report.Identifier{
+		Type:  report.IdentifierType("semgrep_id"),
+		Name:  rule.Metadata.PrimaryIdentifier,
+		Value: rule.Metadata.PrimaryIdentifier,
+	}
+
+	// generate and add a URL to the semgrep ID
+	if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
+		ID.URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s",
+			rule.Metadata.PrimaryIdentifier)
+	}
+
+	return &ID
+}
+
+func buildSecondaryIDs(rule *semgrepRule) []report.Identifier {
 	identifiers := []report.Identifier{}
-	analyzer := ""
 
-	// only accept the
-	for k := range ruleCache {
-		if strings.HasPrefix(id, k) {
-			analyzer = k
-		}
-	}
-
-	// only apply mappings to predefined analyzers
-	// treat the native id as primary id for all other cases
-	if analyzer == "" {
-		identifiers = append(identifiers, report.Identifier{
-			Type:  report.IdentifierType(semgrepIdentifier),
-			Name:  id,
-			Value: id,
-		})
-		return identifiers, nil
-	}
-
-	if _, ok := ruleCache[analyzer]; !ok {
-		return nil, fmt.Errorf("No mappings for %s present", analyzer)
-	}
-
-	analyzerIDMappings := ruleCache[analyzer]
-	if _, ok := analyzerIDMappings[id]; !ok {
-		return nil, fmt.Errorf("Unmapped rule %s for %s", id, analyzer)
-	}
-
-	rule := analyzerIDMappings[id].(map[interface{}]interface{})
-	if rule == nil {
-		return nil, fmt.Errorf("Error loading rule content for %s", id)
-	}
-
-	if _, ok := rule["metadata"]; !ok {
-		return nil, fmt.Errorf("metadata not present for %s", id)
-	}
-
-	metadata := rule["metadata"].(map[interface{}]interface{})
-	if metadata == nil {
-		return nil, fmt.Errorf("Error loading metadata for %s", id)
-	}
-
-	// primary identifier
-	if _, ok := metadata["primary_identifier"]; ok {
-		primaryIdentifierStr := metadata["primary_identifier"].(string)
-		url := ""
-
-		if strings.HasPrefix(primaryIdentifierStr, "bandit") ||
-			strings.HasPrefix(primaryIdentifierStr, "eslint") {
-			url = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s",
-				primaryIdentifierStr)
-		}
-
-		// some analyzers expect an appended `-x` to the name and value
-		// which is needed for the primary identifier
-		switch analyzer {
-		case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
-			identifiers = append(identifiers, report.Identifier{
-				Type:  report.IdentifierType(semgrepIdentifier),
-				Name:  id,
-				Value: id,
-				URL:   url,
+	for _, sid := range rule.Metadata.SecondaryIdentifiers {
+		identifiers = append(
+			identifiers,
+			report.Identifier{
+				Type:  report.IdentifierType(sid.Type),
+				Name:  sid.Name,
+				Value: sid.Value,
 			})
-		default:
-			identifiers = append(identifiers, report.Identifier{
-				Type:  report.IdentifierType(semgrepIdentifier),
-				Name:  primaryIdentifierStr,
-				Value: primaryIdentifierStr,
-				URL:   url,
-			})
-		}
-	} else {
-		log.Debugf("primary identifier not present for %s", id)
 	}
 
-	// HACK: append metadata identifiers like cwe and owasp before `secondary identifiers`
-	// this could probabaly be refactored to be built into the rule cache. Atm
-	// `url` is not generated by sast-rules, so that might be something we add
-	// later down the road
-	for _, v := range vulnIDs {
-		if v.Type == report.IdentifierTypeCWE || v.Type == "owasp" {
-			identifiers = append(identifiers, v)
+	return identifiers
+}
+
+func findRuleForID(id string, ruleFile semgrepRuleFile) *semgrepRule {
+	for _, rule := range ruleFile.Rules {
+		if rule.ID == id {
+			return &rule
 		}
 	}
 
-	// secondary identifier
-	if _, ok := metadata["secondary_identifiers"]; ok {
-		secondaryIdentifier := metadata["secondary_identifiers"].([]interface{})
-		if secondaryIdentifier == nil {
-			return nil, fmt.Errorf("Error loading metadata for %s", id)
+	return nil
+}
+
+func buildRuleMap(configPath string) (map[string]semgrepRuleFile, error) {
+	ruleMap := map[string]semgrepRuleFile{}
+
+	err := filepath.WalkDir(configPath, func(path string, d fs.DirEntry, err error) error {
+		_, err = os.Stat(path)
+		if err != nil || d.IsDir() {
+			return nil
 		}
 
-		for i := range secondaryIdentifier {
-			secondaryIdentifier := secondaryIdentifier[i].(map[interface{}]interface{})
-			if secondaryIdentifier == nil {
-				return nil, fmt.Errorf("Error loading secondary identifier %s", id)
-			}
+		var ruleFile semgrepRuleFile
 
-			name, nameok := secondaryIdentifier["name"].(string)
-			typ, typeok := secondaryIdentifier["type"].(string)
-			value, valueok := secondaryIdentifier["value"].(string)
-
-			if !nameok || !typeok || !valueok {
-				return nil, fmt.Errorf("incomplete secondary identifier for %s", id)
-			}
-
-			// again, apply some special rules for secondary identifiers:
-			switch analyzer {
-			case "eslint":
-				// HACK: this should probably go into sast-rules
-				name := strings.Replace(name, "ESLint rule ID", "ESLint rule ID security", -1)
-
-				identifiers = append(identifiers, report.Identifier{
-					Type:  report.IdentifierType(typ),
-					Name:  name,
-					Value: "security/" + value,
-				})
-			default:
-				identifiers = append(identifiers, report.Identifier{
-					Type:  report.IdentifierType(typ),
-					Name:  name,
-					Value: value,
-				})
-			}
+		fileContent, err := ioutil.ReadFile(path)
+		if err != nil {
+			return fmt.Errorf("read rule file at %s: %w", path, err)
 		}
-	} else {
-		log.Debugf("secondary identifier not present for %s", id)
-	}
 
-	return identifiers, nil
+		if err = yaml.Unmarshal(fileContent, &ruleFile); err != nil {
+			return fmt.Errorf("parse rule file at %s: %w", path, err)
+		}
+
+		rulesetFile := strings.Split(filepath.Base(path), ".")[0]
+		ruleMap[rulesetFile] = ruleFile
+
+		return nil
+	})
+
+	return ruleMap, err
 }

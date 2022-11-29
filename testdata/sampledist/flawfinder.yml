@@ -1,35 +1,8 @@
+# yamllint disable
+# rule-set version: 1.1.3
+# yamllint enable
 ---
 rules:
-- id: "flawfinder.umask-1"
-  languages:
-  - "c"
-  message: |
-    Ensure that umask is given most restrictive possible setting (e.g.,
-    066 or 077)
-  metadata:
-    cwe: "CWE-732: Ensure that umask is given most restrictive possible setting (e.g.,
-      066 or 077) (CWE-732)"
-    primary_identifier: "flawfinder.umask"
-    secondary_identifiers:
-    - name: "Flawfinder - umask"
-      type: "flawfinder_func_name"
-      value: "umask"
-  pattern: "umask(...)"
-  severity: "INFO"
-- id: "flawfinder.MultiByteToWideChar-1"
-  languages:
-  - "c"
-  message: |
-    The software does not properly handle when an input contains Unicode encoding.
-  metadata:
-    cwe: "CWE-120: Requires maximum length in CHARACTERS, not bytes (CWE-120)"
-    primary_identifier: "flawfinder.MultiByteToWideChar"
-    secondary_identifiers:
-    - name: "Flawfinder - MultiByteToWideChar"
-      type: "flawfinder_func_name"
-      value: "MultiByteToWideChar"
-  pattern: "MultiByteToWideChar(...)"
-  severity: "INFO"
 - id: "flawfinder.char-1.TCHAR-1.wchar_t-1"
   languages:
   - "c"
@@ -65,3 +38,4 @@ rules:
   - patterns:
     - pattern-regex: "(.*|)(\\s|)\\=(\\s|)\\((char.*) (malloc)\\(.*\\[[0-9]+\\].*\\)"
   severity: "INFO"
+
