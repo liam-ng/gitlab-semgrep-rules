@@ -90,14 +90,6 @@ go-qa:
   trigger:
     project: gitlab-org/security-products/tests/go
 
-go-custom-ruleset-synthesis-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/go-custom-ruleset-synthesis/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/go
-    branch: Custom-Ruleset-Synthesis-FREEZE
-
 java-maven-qa:
   extends: .qa-downstream-sast
   variables:
