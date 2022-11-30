@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "eb09565ad6cfd35a77373375ef8b0edb87a8e427bcc5f40d73a879ecfd561d02",
+      "id": "bcd3784849b1f4a13b16bc17b4548c4dba9934aabcd3e77053420df1b1b531b0",
       "category": "sast",
       "message": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
       "description": "The software uses external input to construct a pathname that is intended\nto identify a file or directory that is located underneath a restricted\nparent directory, but the software does not properly neutralize special\nelements within the pathname that can cause the pathname to resolve to a\nlocation that is outside of the restricted directory..\n",
-      "cve": "",
+      "cve": "semgrep_id:security_code_scan.SCS0018-1:52:52",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -52,11 +52,11 @@
       }
     },
     {
-      "id": "04a393045d9872a8aae91f87267a47eaa23297dee2bd14b6a20a5270d8fd13c3",
+      "id": "67ce3a1b7ae9206719e415349f6f9a704794f9e230c6b238bf3e5dcd1150bd42",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-non-literal-regexp-1:345:345",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -87,11 +87,11 @@
       ]
     },
     {
-      "id": "082110c2c7f16ffeec578fc8c7329e8789420f691d2b3b39bedc81b527bb6d9a",
+      "id": "793b375f9a1707500edd37990bd7d75fcedde3b0f6a3283d7a2b983c0faf9228",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-object-injection-1:129:129",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -122,11 +122,11 @@
       ]
     },
     {
-      "id": "929ef9cc45d9b68488a626bdd10645bd19e494101f4edc4b8782698c58a4c3ca",
+      "id": "a12ef7d4d85961ec732903dff252aee9dedffa8671016259d0a7ec19505dffa3",
       "category": "sast",
       "message": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
       "description": "The use of a predictable random value can lead to vulnerabilities when used in certain security\ncritical contexts.\n",
-      "cve": "",
+      "cve": "semgrep_id:security_code_scan.SCS0005-1:11:11",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -173,6 +173,15 @@
     }
   ],
   "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.9.4"
+    },
     "scanner": {
       "id": "semgrep",
       "name": "Semgrep",
@@ -180,11 +189,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.115.0"
+      "version": "0.121.2"
     },
     "type": "sast",
-    "start_time": "2022-11-29T22:25:04",
-    "end_time": "2022-11-29T22:25:12",
+    "start_time": "2022-11-30T21:11:05",
+    "end_time": "2022-11-30T21:11:14",
     "status": "success"
   }
 }

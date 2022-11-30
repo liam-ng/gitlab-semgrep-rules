@@ -19,6 +19,7 @@ func main() {
 		AnalyzeFlags: analyzeFlags(),
 		AnalyzeAll:   true,
 		Convert:      convert,
+		Analyzer:     metadata.AnalyzerDetails,
 		Scanner:      metadata.ReportScanner,
 		ScanType:     metadata.Type,
 	})

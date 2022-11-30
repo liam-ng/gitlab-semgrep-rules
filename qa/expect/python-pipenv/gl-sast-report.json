@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "4f0732572cb4d73335808b1ab270a1383da343a14eedb2c3cad3c8319b35ab59",
+      "id": "f73e6bed8f11738e2384ed4c5e871b3c59f93a64ebc3529fbcdefc52b90aa553",
       "category": "sast",
       "message": "Improper Check for Unusual or Exceptional Conditions",
-      "description": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
-      "cve": "",
+      "description": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte\ncode.\n",
+      "cve": "semgrep_id:bandit.B101-1:7:7",
       "severity": "Info",
       "scanner": {
         "id": "semgrep",
@@ -54,6 +54,15 @@
     }
   ],
   "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.9.4"
+    },
     "scanner": {
       "id": "semgrep",
       "name": "Semgrep",
@@ -61,11 +70,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.69.1"
+      "version": "0.121.2"
     },
     "type": "sast",
-    "start_time": "2021-11-03T20:33:31",
-    "end_time": "2021-11-03T20:33:38",
+    "start_time": "2022-11-30T21:09:48",
+    "end_time": "2022-11-30T21:09:55",
     "status": "success"
   }
 }
