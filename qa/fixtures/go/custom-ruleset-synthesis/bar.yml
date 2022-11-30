@@ -1,0 +1,11 @@
+rules:
+- id: "bar"
+  patterns:
+  - pattern: "func bar() {...}"
+  message: |
+    Function bar detected
+  metadata:
+    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+  severity: "ERROR"
+  languages:
+  - "go"

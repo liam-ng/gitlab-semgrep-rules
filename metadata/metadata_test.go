@@ -1,11 +1,27 @@
 package metadata
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
 )
+
+func TestAnalyzerDetails(t *testing.T) {
+	want := report.AnalyzerDetails{
+		ID:      "semgrep",
+		Name:    "Semgrep",
+		Version: AnalyzerVersion,
+		Vendor: report.Vendor{
+			Name: "GitLab",
+		},
+		URL: "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+	}
+	got := AnalyzerDetails
+
+	assert.Equal(t, want, got)
+}
 
 func TestReportScanner(t *testing.T) {
 	want := report.ScannerDetails{
@@ -19,7 +35,5 @@ func TestReportScanner(t *testing.T) {
 	}
 	got := ReportScanner
 
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
-	}
+	assert.Equal(t, want, got)
 }

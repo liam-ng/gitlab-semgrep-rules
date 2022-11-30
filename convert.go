@@ -19,6 +19,21 @@ import (
 
 const semgrepIdentifierIndex = 0
 
+// computeCompareKey returns a stable and unique key based on some content of the
+// vulnerability. The value is intended to be used as the `cve` field temporarily,
+// until analyzers are able to be upgraded to v15.x of the Security Report schema.
+//
+// See https://gitlab.com/gitlab-org/gitlab/-/issues/374496#note_1148831158
+func computeCompareKey(v report.Vulnerability) string {
+	return strings.Join(
+		[]string{
+			string(v.Identifiers[0].Type),
+			v.Identifiers[0].Value,
+			fmt.Sprint(v.Location.LineStart),
+			fmt.Sprint(v.Location.LineEnd),
+		}, ":")
+}
+
 func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	// HACK: extract root path from environment variables
 	// TODO: https://gitlab.com/gitlab-org/gitlab/-/issues/320975
@@ -55,6 +70,11 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	sastReport, err := report.TransformToGLSASTReport(reader, root, metadata.AnalyzerID, metadata.IssueScanner)
 	if err != nil {
 		return nil, err
+	}
+
+	for i := range sastReport.Vulnerabilities {
+		vuln := &sastReport.Vulnerabilities[i]
+		vuln.CompareKey = computeCompareKey(*vuln)
 	}
 
 	return addAnalyzerIdentifiers(sastReport, configPath)

@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "9b7b6c058245dd0fcc28feeedbe4e2d65de6495b1a248885ab44cfbc89cf51b8",
+      "id": "0365666c9600da574ee833287f544aca8be80a3f4638542a638ecf003f0186df",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Pythonobjects. A malicious actor could\nexploit this to run arbitrarycode. Use `safe_load()` instead.\n",
-      "cve": "",
+      "cve": "semgrep_id:bandit.B506-1:329:329",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -58,11 +58,11 @@
       }
     },
     {
-      "id": "eb05768b15a01d078823c29e348bbcd6c3175cb353f0fce3e180611187173b8c",
+      "id": "8eaec1cf299a81fbaf7966b2d517c223c108b484892c121a372232d2af0d31b4",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
-      "cve": "",
+      "cve": "semgrep_id:bandit.B608-1:265:265",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -114,62 +114,11 @@
       }
     },
     {
-      "id": "dd7da32079ca8099d75932522e41cc9d418072c6c2f7598e18022b1973e86362",
-      "category": "sast",
-      "message": "Incorrect Regular Expression",
-      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/static/main.js",
-        "start_line": 15
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-non-literal-regexp",
-          "value": "eslint.detect-non-literal-regexp",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-185",
-          "value": "185",
-          "url": "https://cwe.mitre.org/data/definitions/185.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-regexp",
-          "value": "security/detect-non-literal-regexp"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app/static/main.js",
-            "line_start": 15,
-            "line_end": 15,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app/static/main.js|dangerous_regexp[0]:1"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "dfc5a5821194dd9b68620e999ecceae5d59ed3e193a454be1ec8bd67ed7d3981",
+      "id": "e39ea1ffa6a305c87ae18631ef8320431d0225ff2f8a8c6c90fb204e8fa7cf85",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
-      "cve": "",
+      "cve": "semgrep_id:eslint.detect-eval-with-expression-1:10:10",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -219,9 +168,69 @@
           }
         ]
       }
+    },
+    {
+      "id": "cf8adba8957641fee2aa634d9b3e5276fdb3ae46d2535981ac9c93281e255a6e",
+      "category": "sast",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
+      "cve": "semgrep_id:eslint.detect-non-literal-regexp-1:15:15",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/static/main.js",
+        "start_line": 15
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-non-literal-regexp",
+          "value": "security/detect-non-literal-regexp"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "app/static/main.js",
+            "line_start": 15,
+            "line_end": 15,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "app/static/main.js|dangerous_regexp[0]:1"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.9.4"
+    },
     "scanner": {
       "id": "semgrep",
       "name": "Semgrep",
@@ -229,11 +238,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.115.0"
+      "version": "0.121.2"
     },
     "type": "sast",
-    "start_time": "2022-11-30T18:59:59",
-    "end_time": "2022-11-30T19:00:07",
+    "start_time": "2022-11-30T21:09:48",
+    "end_time": "2022-11-30T21:09:56",
     "status": "success"
   }
 }

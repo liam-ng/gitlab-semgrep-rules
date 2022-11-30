@@ -14,6 +14,22 @@ semgrep-meta-rules:
   script: semgrep-agent --config p/semgrep-rule-lints
   allow_failure: true
 
+integration-test:
+  image:
+    name: registry.gitlab.com/gitlab-org/security-products/analyzers/integration-test:stable
+  services:
+    - docker:20.10-dind
+  variables:
+    TMP_IMAGE: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
+  script:
+    - rspec -f d
+
+integration-test-fips:
+  extends: integration-test
+  variables:
+    IMAGE_TAG_SUFFIX: "-fips"
+    PRIVILEGED: 'true'
+
 .qa-downstream-sast:
   variables:
     DS_DEFAULT_ANALYZERS: ""
@@ -60,19 +76,21 @@ python-pip-multi-project-qa:
     project: gitlab-org/security-products/tests/python-pip
     branch: multi-project-FREEZE
 
-c-qa:
+python-pip-qa:
   extends: .qa-downstream-sast
   variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/c/gl-sast-report.json"
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip/gl-sast-report.json"
+    SAST_EXCLUDED_ANALYZERS: "eslint"
   trigger:
-    project: gitlab-org/security-products/tests/c
+    project: gitlab-org/security-products/tests/python-pip
 
-c-fips-qa:
-  extends: .qa-downstream-sast-fips
+python-pipenv-qa:
+  extends: .qa-downstream-sast
   variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/c/gl-sast-report.json"
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pipenv/gl-sast-report.json"
+    SAST_EXCLUDED_ANALYZERS: "eslint"
   trigger:
-    project: gitlab-org/security-products/tests/c
+    project: gitlab-org/security-products/tests/python-pipenv
 
 js-qa:
   extends: .qa-downstream-sast
@@ -82,13 +100,6 @@ js-qa:
   trigger:
     project: gitlab-org/security-products/tests/js
     branch: jsx-FREEZE
-
-go-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/go/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/go
 
 java-maven-qa:
   extends: .qa-downstream-sast

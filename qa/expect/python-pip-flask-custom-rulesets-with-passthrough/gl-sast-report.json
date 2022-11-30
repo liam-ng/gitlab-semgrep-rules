@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "f57b5f7fbae31aa590c205cec4fe9ba7f36935f738dbf6f7f31163eb3b84077d",
+      "id": "101db62260dd8cff8caf61ad3289cd92d439664cc1e966c6d2769ef175b2bbac",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
-      "cve": "",
+      "cve": "semgrep_id:bandit.B506:329:329",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -53,6 +53,15 @@
     }
   ],
   "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.9.4"
+    },
     "scanner": {
       "id": "semgrep",
       "name": "Semgrep",
@@ -60,11 +69,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.115.0"
+      "version": "0.121.2"
     },
     "type": "sast",
-    "start_time": "2022-11-30T19:32:33",
-    "end_time": "2022-11-30T19:32:35",
+    "start_time": "2022-11-30T21:09:47",
+    "end_time": "2022-11-30T21:09:49",
     "status": "success"
   }
 }

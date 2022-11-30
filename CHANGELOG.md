@@ -1,8 +1,58 @@
 Semgrep analyzer changelog
 
 
-## v3.8.0
+## v3.9.4
 - Use `sast-rules` v1.1.3 package for rules (!147)
+
+## v3.9.3
+- upgrade `github.com/stretchr/testify` version [`v1.8.0` => [`v1.8.1`](https://github.com/stretchr/testify/releases/tag/v1.8.1)] (!177)
+- upgrade `github.com/urfave/cli/v2` version [`v2.19.2` => [`v2.23.5`](https://github.com/urfave/cli/releases/tag/v2.23.5)] (!177)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.9.2` => [`v1.10.0`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.10.0)] (!177)
+- upgrade `golang.org/x/crypto` version [`v0.0.0-20221012134737-56aed061732a` => [`v0.2.0`](https://golang.org/x/crypto@v0.2.0)] (!177)
+
+## v3.9.2
+- Revert: Upgrade base image to ubi9-minimal in FIPS variant of Dockerfile (!180)
+
+## v3.9.1
+- Refined B610 to eliminate FP patterns (!179)
+- Refined B108 to match the original patterns more accurately (!179)
+- Use generic pattern matching for B110, B112 to support exception chains (!179)
+- Broke down the single rule B313, B314, B315, B316, B317, B318, B319, B320, B405, B406, B407, B408, B409, B410 into smaller pieces (!179)
+- Reduced the rules; the initial rules-set was based on a rule-set provided by r2c where we focused more on coverage than actual parity. We trimmed down some of the rules to match more accurately what bandit would return. (!179)
+
+## v3.9.0
+- Upgrade base image to ubi9-minimal in FIPS variant of Dockerfile (!175)
+
+## v3.8.3
+- Upgrade gitlab.com/gitlab-org/security-products/analyzers/report to v3.16.0 (!162)
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.115.0` => [`0.121.2`](https://github.com/returntocorp/semgrep/releases/tag/v0.121.2)] (!162)
+- upgrade `github.com/urfave/cli/v2` version [`v2.16.3` => [`v2.19.2`](https://github.com/urfave/cli/releases/tag/v2.19.2)] (!162)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.9.1` => [`v1.9.2`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.9.2)] (!162)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/common/v3` version [`v3.2.0` => [`v3.2.2`](https://gitlab.com/gitlab-org/security-products/analyzers/common/-/releases/v3.2.2)] (!162)
+- temporarily install C build tools to compile dependencies (!162)
+
+## v3.8.2
+- Fix: Stabilize go fixtures, reduce duplication (!171)
+
+## v3.8.1
+- Fix FP patterns in SQL Injection and Hardcoded Password in Java (!172)
+
+## v3.8.0
+- Populates the `cve` field of each vulnerability finding (!169)
+
+## v3.7.6
+- Upgrade gitlab.com/gitlab-org/security-products/analyzers/report to v3.15.5 (!168)
+
+## v3.7.5
+- Switch to use ubi8-minimal as the base FIPS image (!165)
+
+## v3.7.4
+- Include `scan.analyzer` in JSON report output (!159)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.13.0` => [`v3.15.3`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.15.3)] (!159)
+- Bump tracking-calculator version to v2.2.6 (!159)
+
+## v3.7.3
+- Bump go-fips builder image to 1.18 (!161)
 
 ## v3.7.2
 - Upgrade to the latest security-code-scan ruleset 1.0.67 (!156)
