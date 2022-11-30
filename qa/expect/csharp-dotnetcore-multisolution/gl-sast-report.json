@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "701b292809f6bf2d686f24a5a9d2f509d8c40c391ae8809f02708379d6cc956f",
+      "id": "7db450e98a727f1b206f81050ac7a974b21062cc1a43ce8032d7f3c6170de2f3",
       "category": "sast",
       "message": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
       "description": "The software uses external input to construct a pathname that is intended\nto identify a file or directory that is located underneath a restricted\nparent directory, but the software does not properly neutralize special\nelements within the pathname that can cause the pathname to resolve to a\nlocation that is outside of the restricted directory..\n",
@@ -52,10 +52,10 @@
       }
     },
     {
-      "id": "f52693fb21397a6083efee5ce682066d4c168808b1902bb9462774ceed56e39f",
+      "id": "0d22db1f3a08728a93b1eaa265d0bb0636fad77ddada4eb29a7d383fc8b249e2",
       "category": "sast",
       "message": "Incorrect Regular Expression",
-      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -87,10 +87,10 @@
       ]
     },
     {
-      "id": "3b06442c1ea1e7ed7771236da1bcfc9930c022d35c09bbb6eee0d83604eb937c",
+      "id": "e1b1f5fb1908af689552208f99025de4c2195609ba02b8fa0e86406b8c086fe0",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+      "description": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "id": "a56f3afdd33beda42b7e9a5ae2a01a34bee50994e7b46f45df48dcafeb02f8dc",
+      "id": "e5ff79dbd579b313fd1c68d92637a57ae54d9772eac2f2ad4ef27976079666df",
       "category": "sast",
       "message": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
       "description": "The use of a predictable random value can lead to vulnerabilities when used in certain security\ncritical contexts.\n",
@@ -172,7 +172,7 @@
       }
     },
     {
-      "id": "0ad94cadbc61fbf5b01eee3d82d37fab3620be26fba3ba45b7263b9790ced6c4",
+      "id": "eb09565ad6cfd35a77373375ef8b0edb87a8e427bcc5f40d73a879ecfd561d02",
       "category": "sast",
       "message": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
       "description": "The software uses external input to construct a pathname that is intended\nto identify a file or directory that is located underneath a restricted\nparent directory, but the software does not properly neutralize special\nelements within the pathname that can cause the pathname to resolve to a\nlocation that is outside of the restricted directory..\n",
@@ -222,10 +222,10 @@
       }
     },
     {
-      "id": "886361300f776dd259497d707dceea967929a7776fde7520cb50fec24fb2c1f6",
+      "id": "04a393045d9872a8aae91f87267a47eaa23297dee2bd14b6a20a5270d8fd13c3",
       "category": "sast",
       "message": "Incorrect Regular Expression",
-      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -257,10 +257,10 @@
       ]
     },
     {
-      "id": "af6dd6c3fddd961e9a7a22af892cf5fb58d876d1b08efd8a085349f8ab802a6e",
+      "id": "082110c2c7f16ffeec578fc8c7329e8789420f691d2b3b39bedc81b527bb6d9a",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+      "description": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -292,7 +292,7 @@
       ]
     },
     {
-      "id": "90e70dff80084f7b5ab1f1682f787f35df1adc7c643681937f39bf7c373ff657",
+      "id": "929ef9cc45d9b68488a626bdd10645bd19e494101f4edc4b8782698c58a4c3ca",
       "category": "sast",
       "message": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
       "description": "The use of a predictable random value can lead to vulnerabilities when used in certain security\ncritical contexts.\n",
@@ -350,11 +350,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.110.0"
+      "version": "0.115.0"
     },
     "type": "sast",
-    "start_time": "2022-09-02T18:09:29",
-    "end_time": "2022-09-02T18:09:39",
+    "start_time": "2022-11-30T19:01:22",
+    "end_time": "2022-11-30T19:01:30",
     "status": "success"
   }
 }

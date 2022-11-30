@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "2419849776d915e5f4e367cd31218c91ef77edcf8a23b519b16af965ceff302d",
+      "id": "f57b5f7fbae31aa590c205cec4fe9ba7f36935f738dbf6f7f31163eb3b84077d",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
@@ -18,10 +18,9 @@
       },
       "identifiers": [
         {
-          "type": "semgrep_id",
-          "name": "bandit.B506",
-          "value": "bandit.B506",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B506"
+          "type": "",
+          "name": "",
+          "value": ""
         },
         {
           "type": "cwe",
@@ -33,11 +32,6 @@
           "type": "owasp",
           "name": "Insecure Deserialization",
           "value": "A8"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B506",
-          "value": "B506"
         }
       ],
       "tracking": {
@@ -66,11 +60,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.69.1"
+      "version": "0.115.0"
     },
     "type": "sast",
-    "start_time": "2021-11-03T20:33:17",
-    "end_time": "2021-11-03T20:33:19",
+    "start_time": "2022-11-30T18:59:53",
+    "end_time": "2022-11-30T18:59:55",
     "status": "success"
   }
 }

@@ -2,10 +2,10 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "f055353f2a3c162dfe6d0ed59e55ea8660bf9c89796dc2c63326222ecb680a35",
+      "id": "e1e9dbfb131ab6aac14e450c90bb23c9bb5febfcb978853643210123b82fae5a",
       "category": "sast",
       "message": "Use of Hard-coded Password",
-      "description": "Hardcoded password is used as a default argument to 'someFunction'. This could be dangerous if\na real password is not supplied.\n",
+      "description": "Hardcoded password is used as a default argument to `someFunction`. This could be dangerous if a real\npassword is not supplied.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -59,10 +59,10 @@
       }
     },
     {
-      "id": "f6432b4b284e4545b9b47e06920df4542f7fb048d76c33c7d28f1bf4c3baec23",
+      "id": "3aec3309a40c0b6ab2f6ee807463a2c75e7c7a2d1b0e9f8cd58d4d2652a5eb62",
       "category": "sast",
       "message": "Use of Hard-coded Password",
-      "description": "Hardcoded password is used as a default argument to 'doLogin'. This could be dangerous if\na real password is not supplied.\n",
+      "description": "Hardcoded password is used as a default argument to `doLogin`. This could be dangerous if a real\npassword is not supplied.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -116,7 +116,7 @@
       }
     },
     {
-      "id": "114837764bf4aad705d71539d0f164ce51ab999aabffcd6169c7fe8d8a90e960",
+      "id": "f94a927e0d80425d6d83d8e9ba94d229f0841b4afc4049cd4bd225fa64a40abf",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -128,14 +128,14 @@
       },
       "location": {
         "file": "app1/hardcoded/hardcoded-passwords.py",
-        "start_line": 22
+        "start_line": 24
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B106",
-          "value": "bandit.B106",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B106"
+          "name": "bandit.B105",
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
         },
         {
           "type": "cwe",
@@ -150,8 +150,8 @@
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B106",
-          "value": "B106"
+          "name": "Bandit Test ID B105",
+          "value": "B105"
         }
       ]
     },
@@ -308,6 +308,46 @@
       }
     },
     {
+      "id": "114837764bf4aad705d71539d0f164ce51ab999aabffcd6169c7fe8d8a90e960",
+      "category": "sast",
+      "message": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/hardcoded/hardcoded-passwords.py",
+        "start_line": 22
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B106",
+          "value": "bandit.B106",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B106"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Broken Authentication and Session Management",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B106",
+          "value": "B106"
+        }
+      ]
+    },
+    {
       "id": "a7ce403f34db78be40735ab41ca0c138802859bcdd957a996cc412d5bf280360",
       "category": "sast",
       "message": "Use of Hard-coded Password",
@@ -364,10 +404,10 @@
       }
     },
     {
-      "id": "54b52431a7f78257ea8d83fce1aa054ca3f852cbd831a91675aed75b3eb281d3",
+      "id": "3ddd60fad3dc227ec9f5353c11f9a27330ee6d0e427f8ad6ca957c94dee454c2",
       "category": "sast",
       "message": "Insecure Temporary File",
-      "description": "Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.\n",
+      "description": "Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -381,9 +421,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B108-1",
-          "value": "bandit.B108-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B108-1"
+          "name": "bandit.B108",
+          "value": "bandit.B108",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108"
         },
         {
           "type": "cwe",
@@ -399,45 +439,10 @@
       ]
     },
     {
-      "id": "918810a4d82cb4fd898edc4274aa83ab8957b1cc9d7ee3e47f60dcea7cdd0f9e",
+      "id": "534a49acac28f44f354ae5c71b86c4ed408268c3082d0afea907df56e599ecca",
       "category": "sast",
       "message": "Insecure Temporary File",
-      "description": "Probable insecure usage of temp file/directory.   \n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app1/hardcoded/hardcoded-tmp.py",
-        "start_line": 10
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B108-2",
-          "value": "bandit.B108-2",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B108-2"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-377",
-          "value": "377",
-          "url": "https://cwe.mitre.org/data/definitions/377.html"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B108",
-          "value": "B108"
-        }
-      ]
-    },
-    {
-      "id": "774e238a07b583b17dbd49fbdf03626fd8ef8a4bd2540f088d272d204c7fe4fc",
-      "category": "sast",
-      "message": "Insecure Temporary File",
-      "description": "Probable insecure usage of temp file/directory.   \n",
+      "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -451,9 +456,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B108-2",
-          "value": "bandit.B108-2",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B108-2"
+          "name": "bandit.B108",
+          "value": "bandit.B108",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108"
         },
         {
           "type": "cwe",
@@ -469,10 +474,80 @@
       ]
     },
     {
-      "id": "e71c2a21b37643c2fbf290ce6e175ecaa763a72533ef46316047b87b48128988",
+      "id": "470fe0dae9385985de4d4bfd7053bfe8d4a82f53e7a45e4f24d53081fa166571",
+      "category": "sast",
+      "message": "Insecure Temporary File",
+      "description": "Probable insecure usage of temp file/directory.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/hardcoded/hardcoded-tmp.py",
+        "start_line": 10
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B108",
+          "value": "bandit.B108",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-377",
+          "value": "377",
+          "url": "https://cwe.mitre.org/data/definitions/377.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B108",
+          "value": "B108"
+        }
+      ]
+    },
+    {
+      "id": "7001639a7a954babbfae34ae6ea3065bebfe8e8f17118b88180b2ed33936fc6d",
+      "category": "sast",
+      "message": "Insecure Temporary File",
+      "description": "Probable insecure usage of temp file/directory.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/hardcoded/hardcoded-tmp.py",
+        "start_line": 1
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B108",
+          "value": "bandit.B108",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-377",
+          "value": "377",
+          "url": "https://cwe.mitre.org/data/definitions/377.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B108",
+          "value": "B108"
+        }
+      ]
+    },
+    {
+      "id": "5ffa9228b2d50b3c21e5fa58459ab5f3526442902bbe8b4945ee55a71394df28",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-      "description": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
+      "description": "Found `subprocess` function `Popen` with `shell=True`. This is dangerous because this call will\nspawn the command using a shell process. Doing so propagates current shell settings and\nvariables,\nwhich makes it much easier for a malicious actor to execute commands. Use `shell=False`\ninstead.\n",
       "cve": "",
       "severity": "Critical",
       "scanner": {
@@ -509,66 +584,66 @@
       ]
     },
     {
-      "id": "d362da25257a4a3e311389420abe0305a7f7932c45a637821c8d318c4bde0af5",
+      "id": "f42a73ff1b382417cc20a31e2fef024cd2dfe95d55962de1bc4b5e4cdaba387e",
       "category": "sast",
-      "message": "Deserialization of Untrusted Data",
-      "description": "Consider possible security implications associated with pickle module.\n",
+      "message": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "",
-      "severity": "Critical",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
         "file": "app1/imports/imports-aliases.py",
-        "start_line": 6
+        "start_line": 14
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B403",
-          "value": "bandit.B403",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
         },
         {
           "type": "cwe",
-          "name": "CWE-502",
-          "value": "502",
-          "url": "https://cwe.mitre.org/data/definitions/502.html"
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
-          "value": "A8"
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B403",
-          "value": "B403"
+          "name": "Bandit Test ID B303",
+          "value": "B303"
         }
       ]
     },
     {
-      "id": "de022a64918ce34487c3d8e79895c846e9d57f2d5506b2ca36b85e694025ed58",
+      "id": "c40928528643273a182b683304a12da273231fc4599dc7288e18e092c47eb92b",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
-      "description": "Consider possible security implications associated with pickle module.\n",
+      "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
       "cve": "",
-      "severity": "Critical",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
         "file": "app1/imports/imports-aliases.py",
-        "start_line": 7
+        "start_line": 15
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B403",
-          "value": "bandit.B403",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
+          "name": "bandit.B301",
+          "value": "bandit.B301",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B301"
         },
         {
           "type": "cwe",
@@ -583,8 +658,8 @@
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B403",
-          "value": "B403"
+          "name": "Bandit Test ID B301",
+          "value": "B301"
         }
       ]
     },
@@ -629,127 +704,7 @@
       ]
     },
     {
-      "id": "dd97a9f363f871f6d9fee1e6b70c8ceebc8d93ca1352f771bc48155d4a823e2d",
-      "category": "sast",
-      "message": "Deserialization of Untrusted Data",
-      "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app1/imports/imports-aliases.py",
-        "start_line": 15
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B301-1",
-          "value": "bandit.B301-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B301-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-502",
-          "value": "502",
-          "url": "https://cwe.mitre.org/data/definitions/502.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Insecure Deserialization",
-          "value": "A8"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B301",
-          "value": "B301"
-        }
-      ]
-    },
-    {
-      "id": "714a734a7b3a8728debc082eae141203be3908d3657e17e0d9e171ee8a7e9045",
-      "category": "sast",
-      "message": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app1/imports/imports-aliases.py",
-        "start_line": 11
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-327",
-          "value": "327",
-          "url": "https://cwe.mitre.org/data/definitions/327.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B303",
-          "value": "B303"
-        }
-      ]
-    },
-    {
-      "id": "264ef560505cf7cb68966b60cf050165e83e7a1f305cf84fb909f08f796ce23e",
-      "category": "sast",
-      "message": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app1/imports/imports-aliases.py",
-        "start_line": 12
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-327",
-          "value": "327",
-          "url": "https://cwe.mitre.org/data/definitions/327.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B303",
-          "value": "B303"
-        }
-      ]
-    },
-    {
-      "id": "9aed2368eb980d2cb6dcfadc7c65302621b954d23e5b73cc613d718b32c0d1a7",
+      "id": "9095648de3e7e785bb60de61c6e1731900ac912646d7657d678536139484b1db",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -766,9 +721,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
         },
         {
           "type": "cwe",
@@ -789,7 +744,7 @@
       ]
     },
     {
-      "id": "f7d704363e1dead95a00eba163628d7e2a0071001cd80e58e82df843cfa66dda",
+      "id": "ddad51c92367aa111b1323b8a032f62150d8959b3174f887b334d068ff365387",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -801,14 +756,14 @@
       },
       "location": {
         "file": "app1/imports/imports-aliases.py",
-        "start_line": 14
+        "start_line": 12
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
         },
         {
           "type": "cwe",
@@ -825,6 +780,126 @@
           "type": "bandit_test_id",
           "name": "Bandit Test ID B303",
           "value": "B303"
+        }
+      ]
+    },
+    {
+      "id": "fd1c29053c217c13bfe5e9c0c35af5db6ea69df20ef4d810bdca9fec0b0a7958",
+      "category": "sast",
+      "message": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/imports/imports-aliases.py",
+        "start_line": 11
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B303",
+          "value": "B303"
+        }
+      ]
+    },
+    {
+      "id": "3353565155997074be92710026191f3b9f0e389114273b1aa4ac6656b9566cc8",
+      "category": "sast",
+      "message": "Deserialization of Untrusted Data",
+      "description": "Consider possible security implications associated with pickle module.\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/imports/imports-aliases.py",
+        "start_line": 6
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B403",
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-502",
+          "value": "502",
+          "url": "https://cwe.mitre.org/data/definitions/502.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Insecure Deserialization",
+          "value": "A8"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B403",
+          "value": "B403"
+        }
+      ]
+    },
+    {
+      "id": "c776a22a3548ad5b5dd1f18de7c87d164a248b382947a28e411811bfd4b14510",
+      "category": "sast",
+      "message": "Deserialization of Untrusted Data",
+      "description": "Consider possible security implications associated with pickle module.\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/imports/imports-aliases.py",
+        "start_line": 7
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B403",
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-502",
+          "value": "502",
+          "url": "https://cwe.mitre.org/data/definitions/502.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Insecure Deserialization",
+          "value": "A8"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B403",
+          "value": "B403"
         }
       ]
     },
@@ -869,46 +944,6 @@
       ]
     },
     {
-      "id": "3492ecb3dcf72aa1baef183669e3bf33da2fe457e7b4a749c0376d477ce1afb9",
-      "category": "sast",
-      "message": "Deserialization of Untrusted Data",
-      "description": "Consider possible security implications associated with pickle module.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app1/imports/imports.py",
-        "start_line": 2
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B403",
-          "value": "bandit.B403",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-502",
-          "value": "502",
-          "url": "https://cwe.mitre.org/data/definitions/502.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Insecure Deserialization",
-          "value": "A8"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B403",
-          "value": "B403"
-        }
-      ]
-    },
-    {
       "id": "8039325f9f4f3be617e509e4a42030f0ab68fbeebbc486f09c17f7bd3b249e1b",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -949,10 +984,50 @@
       ]
     },
     {
-      "id": "4627a5b98c5910b1f03192ad4dc5d6875db233cd682af1e60e1f7d4f51a99c34",
+      "id": "469dd4e2ef7179a599440d845a32868c20560b89d81202af6d2bc4e2d0e3e12f",
+      "category": "sast",
+      "message": "Deserialization of Untrusted Data",
+      "description": "Consider possible security implications associated with pickle module.\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/imports/imports.py",
+        "start_line": 2
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B403",
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-502",
+          "value": "502",
+          "url": "https://cwe.mitre.org/data/definitions/502.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Insecure Deserialization",
+          "value": "A8"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B403",
+          "value": "B403"
+        }
+      ]
+    },
+    {
+      "id": "15c02fe53a48fac07f1e2b99e4ae62a46130757172d3babe86baa09898a39dcb",
       "category": "sast",
       "message": "Use of Hard-coded Password",
-      "description": "Hardcoded password is used as a default argument to 'someFunction'. This could be dangerous if\na real password is not supplied.\n",
+      "description": "Hardcoded password is used as a default argument to `someFunction`. This could be dangerous if a real\npassword is not supplied.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -1006,10 +1081,10 @@
       }
     },
     {
-      "id": "fbcd017f720438b040d50babcf5e17a595f6ee53579a46d572fd39c0981632a3",
+      "id": "ad838a2d92e271276fd55fb1543e8f3740f8da69f62c93a9ed7d086a7d0ab83f",
       "category": "sast",
       "message": "Use of Hard-coded Password",
-      "description": "Hardcoded password is used as a default argument to 'doLogin'. This could be dangerous if\na real password is not supplied.\n",
+      "description": "Hardcoded password is used as a default argument to `doLogin`. This could be dangerous if a real\npassword is not supplied.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -1056,142 +1131,6 @@
               {
                 "algorithm": "scope_offset",
                 "value": "app2/hardcoded/hardcoded-passwords.py|doLogin[0]:0"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "8df5336f69528a1cf016a7fd26fad03e5f526ca9ed49a4aa3bab66640b6d8b5b",
-      "category": "sast",
-      "message": "Use of Hard-coded Password",
-      "description": "Possible hardcoded password\n",
-      "cve": "",
-      "severity": "Info",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/hardcoded/hardcoded-passwords.py",
-        "start_line": 22
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B106",
-          "value": "bandit.B106",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B106"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Broken Authentication and Session Management",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B106",
-          "value": "B106"
-        }
-      ]
-    },
-    {
-      "id": "b134aceae2d82ca053e54f4444d71c54352c17235130a038173c51446d5c56e7",
-      "category": "sast",
-      "message": "Use of Hard-coded Password",
-      "description": "Possible hardcoded password\n",
-      "cve": "",
-      "severity": "Info",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/hardcoded/hardcoded-passwords.py",
-        "start_line": 23
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B105",
-          "value": "bandit.B105",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Broken Authentication and Session Management",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
-        }
-      ]
-    },
-    {
-      "id": "04c44c1bd7ee6a02f86085b6374f2816b36ee9f63abf35290053cc62abcd9b56",
-      "category": "sast",
-      "message": "Use of Hard-coded Password",
-      "description": "Possible hardcoded password\n",
-      "cve": "",
-      "severity": "Info",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/hardcoded/hardcoded-passwords.py",
-        "start_line": 13
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B105",
-          "value": "bandit.B105",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Broken Authentication and Session Management",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app2/hardcoded/hardcoded-passwords.py",
-            "line_start": 13,
-            "line_end": 13,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app2/hardcoded/hardcoded-passwords.py|NoMatch2[0]:1"
               }
             ]
           }
@@ -1255,6 +1194,142 @@
       }
     },
     {
+      "id": "04c44c1bd7ee6a02f86085b6374f2816b36ee9f63abf35290053cc62abcd9b56",
+      "category": "sast",
+      "message": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/hardcoded/hardcoded-passwords.py",
+        "start_line": 13
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B105",
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Broken Authentication and Session Management",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "app2/hardcoded/hardcoded-passwords.py",
+            "line_start": 13,
+            "line_end": 13,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "app2/hardcoded/hardcoded-passwords.py|NoMatch2[0]:1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "b134aceae2d82ca053e54f4444d71c54352c17235130a038173c51446d5c56e7",
+      "category": "sast",
+      "message": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/hardcoded/hardcoded-passwords.py",
+        "start_line": 23
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B105",
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Broken Authentication and Session Management",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
+        }
+      ]
+    },
+    {
+      "id": "7e014a3aa61269d291dc41b69490eeeac4c7385c1d391cb6ef217046afdf5bee",
+      "category": "sast",
+      "message": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/hardcoded/hardcoded-passwords.py",
+        "start_line": 24
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B105",
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Broken Authentication and Session Management",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
+        }
+      ]
+    },
+    {
       "id": "ce1f7d2d6fcd187023315a7ce546cdb4cfa4db9725157396482260fca4921f79",
       "category": "sast",
       "message": "Use of Hard-coded Password",
@@ -1311,45 +1386,50 @@
       }
     },
     {
-      "id": "243ee5c63c2c033d9e1020550ef109b678a0260dd74e7d7077eff15df7f82252",
+      "id": "8df5336f69528a1cf016a7fd26fad03e5f526ca9ed49a4aa3bab66640b6d8b5b",
       "category": "sast",
-      "message": "Insecure Temporary File",
-      "description": "Probable insecure usage of temp file/directory.   \n",
+      "message": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
       "cve": "",
-      "severity": "Medium",
+      "severity": "Info",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "app2/hardcoded/hardcoded-tmp.py",
-        "start_line": 10
+        "file": "app2/hardcoded/hardcoded-passwords.py",
+        "start_line": 22
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B108-2",
-          "value": "bandit.B108-2",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B108-2"
+          "name": "bandit.B106",
+          "value": "bandit.B106",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B106"
         },
         {
           "type": "cwe",
-          "name": "CWE-377",
-          "value": "377",
-          "url": "https://cwe.mitre.org/data/definitions/377.html"
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Broken Authentication and Session Management",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B108",
-          "value": "B108"
+          "name": "Bandit Test ID B106",
+          "value": "B106"
         }
       ]
     },
     {
-      "id": "537af332990f6a9f9b07e34ab0dd03b030c32f43c5da2801184a61c12dba55a4",
+      "id": "5ed96b27bce2bb336eff069266e6626dfb6c356787aaf9e51d2062442d39a698",
       "category": "sast",
       "message": "Insecure Temporary File",
-      "description": "Probable insecure usage of temp file/directory.   \n",
+      "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -1363,9 +1443,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B108-2",
-          "value": "bandit.B108-2",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B108-2"
+          "name": "bandit.B108",
+          "value": "bandit.B108",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108"
         },
         {
           "type": "cwe",
@@ -1381,10 +1461,45 @@
       ]
     },
     {
-      "id": "3e3612321f40b107e2921e263d5a74991e001a4fadcb9180501da6e17d2b436b",
+      "id": "c0433b3221cfc2141be96e3ad38bbece44d4097306e1fd7a81d5aeaaeedd17e4",
       "category": "sast",
       "message": "Insecure Temporary File",
-      "description": "Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.\n",
+      "description": "Probable insecure usage of temp file/directory.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/hardcoded/hardcoded-tmp.py",
+        "start_line": 10
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B108",
+          "value": "bandit.B108",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-377",
+          "value": "377",
+          "url": "https://cwe.mitre.org/data/definitions/377.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B108",
+          "value": "B108"
+        }
+      ]
+    },
+    {
+      "id": "100cf43849aecea2509a4dc894e17e2a2a9d7b0aea02a0d5a9b2747b308aa22f",
+      "category": "sast",
+      "message": "Insecure Temporary File",
+      "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "",
       "severity": "Medium",
       "scanner": {
@@ -1398,9 +1513,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B108-1",
-          "value": "bandit.B108-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B108-1"
+          "name": "bandit.B108",
+          "value": "bandit.B108",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108"
         },
         {
           "type": "cwe",
@@ -1416,50 +1531,45 @@
       ]
     },
     {
-      "id": "d0f52dcd7765ec4a388a23fe5156a1cca908738d61f50e1aff51e7b569e2b032",
+      "id": "999325c5b87f101fa94c0b600eb019a4e0e9fcb5c5962ccbebd03f2563480c9d",
       "category": "sast",
-      "message": "Deserialization of Untrusted Data",
-      "description": "Consider possible security implications associated with pickle module.\n",
+      "message": "Insecure Temporary File",
+      "description": "Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.\n",
       "cve": "",
-      "severity": "Critical",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "app2/imports/imports-aliases.py",
-        "start_line": 6
+        "file": "app2/hardcoded/hardcoded-tmp.py",
+        "start_line": 1
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B403",
-          "value": "bandit.B403",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
+          "name": "bandit.B108",
+          "value": "bandit.B108",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B108"
         },
         {
           "type": "cwe",
-          "name": "CWE-502",
-          "value": "502",
-          "url": "https://cwe.mitre.org/data/definitions/502.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Insecure Deserialization",
-          "value": "A8"
+          "name": "CWE-377",
+          "value": "377",
+          "url": "https://cwe.mitre.org/data/definitions/377.html"
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B403",
-          "value": "B403"
+          "name": "Bandit Test ID B108",
+          "value": "B108"
         }
       ]
     },
     {
-      "id": "767cc125948616f47f7d4ce833a920d6aeae23f3bffdabff8c8bf4cc3d9ec8f0",
+      "id": "a0f6fa384753742c75df139620ccec74fc429af52f5f3ed56b9cc76d53ecf9ac",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-      "description": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
+      "description": "Found `subprocess` function `Popen` with `shell=True`. This is dangerous because this call will\nspawn the command using a shell process. Doing so propagates current shell settings and\nvariables,\nwhich makes it much easier for a malicious actor to execute commands. Use `shell=False`\ninstead.\n",
       "cve": "",
       "severity": "Critical",
       "scanner": {
@@ -1496,26 +1606,186 @@
       ]
     },
     {
-      "id": "c6b40983953f9496fca1ff0ecade8a8c0d5eae337d7af48d596165d5d3be5cab",
+      "id": "d46539df471f02cdc9f265801dd2fcad29412b6e2b7dfed265e56410c4615855",
       "category": "sast",
-      "message": "Deserialization of Untrusted Data",
-      "description": "Consider possible security implications associated with pickle module.\n",
+      "message": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "",
-      "severity": "Critical",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
         "file": "app2/imports/imports-aliases.py",
-        "start_line": 7
+        "start_line": 11
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B403",
-          "value": "bandit.B403",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B303",
+          "value": "B303"
+        }
+      ]
+    },
+    {
+      "id": "bb03d42c0bef42350094aea32214ef68c2ea4026085e20b3050a5b9dbcd70f89",
+      "category": "sast",
+      "message": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/imports/imports-aliases.py",
+        "start_line": 12
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B303",
+          "value": "B303"
+        }
+      ]
+    },
+    {
+      "id": "f4cbf2df00d88aa41c43e5afefcfe05c5bfd36f48bc8d23d01bb06116764a5df",
+      "category": "sast",
+      "message": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/imports/imports-aliases.py",
+        "start_line": 13
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B303",
+          "value": "B303"
+        }
+      ]
+    },
+    {
+      "id": "8da420796436e0240f156ae1762900440ceeca732c54ffaf7ac72cce2e08b495",
+      "category": "sast",
+      "message": "Use of a Broken or Risky Cryptographic Algorithm",
+      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/imports/imports-aliases.py",
+        "start_line": 14
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B303",
+          "value": "B303"
+        }
+      ]
+    },
+    {
+      "id": "dce7c6f5be3dd754f53029af941b29ff57a9b271adf58f846fdc4f58e374763d",
+      "category": "sast",
+      "message": "Deserialization of Untrusted Data",
+      "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
+      "cve": "",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/imports/imports-aliases.py",
+        "start_line": 15
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B301",
+          "value": "bandit.B301",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B301"
         },
         {
           "type": "cwe",
@@ -1530,8 +1800,8 @@
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B403",
-          "value": "B403"
+          "name": "Bandit Test ID B301",
+          "value": "B301"
         }
       ]
     },
@@ -1576,186 +1846,26 @@
       ]
     },
     {
-      "id": "1aadb05464eee127b849ba13a4b2df8c0744e458effdd065a9730302e675957b",
-      "category": "sast",
-      "message": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/imports/imports-aliases.py",
-        "start_line": 11
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-327",
-          "value": "327",
-          "url": "https://cwe.mitre.org/data/definitions/327.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B303",
-          "value": "B303"
-        }
-      ]
-    },
-    {
-      "id": "3186d241b6ace2a2803d139cd80e4758f9fea25e58196571c886adfc14a82e75",
-      "category": "sast",
-      "message": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/imports/imports-aliases.py",
-        "start_line": 12
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-327",
-          "value": "327",
-          "url": "https://cwe.mitre.org/data/definitions/327.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B303",
-          "value": "B303"
-        }
-      ]
-    },
-    {
-      "id": "7883168315f98070525b3f2dd4c10c955f7440f6da64f808d60dff35d1825012",
-      "category": "sast",
-      "message": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/imports/imports-aliases.py",
-        "start_line": 13
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-327",
-          "value": "327",
-          "url": "https://cwe.mitre.org/data/definitions/327.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B303",
-          "value": "B303"
-        }
-      ]
-    },
-    {
-      "id": "0d921dadd0df74232621b395ea7ae83eaf61a2e3a8328a78291cb6f59359aa2d",
-      "category": "sast",
-      "message": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/imports/imports-aliases.py",
-        "start_line": 14
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-327",
-          "value": "327",
-          "url": "https://cwe.mitre.org/data/definitions/327.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B303",
-          "value": "B303"
-        }
-      ]
-    },
-    {
-      "id": "76de4995248cc4ec6a33f06496dbc73365e8f89b3863ec8644ea2f50755c6398",
+      "id": "539301ae755d27804213b337e6f86c6153a2526598602b31538d3e44786c99d6",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
-      "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
+      "description": "Consider possible security implications associated with pickle module.\n",
       "cve": "",
-      "severity": "Medium",
+      "severity": "Info",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
         "file": "app2/imports/imports-aliases.py",
-        "start_line": 15
+        "start_line": 6
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B301-1",
-          "value": "bandit.B301-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B301-1"
+          "name": "bandit.B403",
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
         },
         {
           "type": "cwe",
@@ -1770,8 +1880,48 @@
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B301",
-          "value": "B301"
+          "name": "Bandit Test ID B403",
+          "value": "B403"
+        }
+      ]
+    },
+    {
+      "id": "4919d748524acea93ea3122e1c2d93f26b2e933b7107ec4abf89d4c6081fb6c9",
+      "category": "sast",
+      "message": "Deserialization of Untrusted Data",
+      "description": "Consider possible security implications associated with pickle module.\n",
+      "cve": "",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/imports/imports-aliases.py",
+        "start_line": 7
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B403",
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-502",
+          "value": "502",
+          "url": "https://cwe.mitre.org/data/definitions/502.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Insecure Deserialization",
+          "value": "A8"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B403",
+          "value": "B403"
         }
       ]
     },
@@ -1816,46 +1966,6 @@
       ]
     },
     {
-      "id": "58156f1ee3eb6456df4fd1afb38e156b25b9e5cb31a856c6e8a0f6fc92fe3d1b",
-      "category": "sast",
-      "message": "Deserialization of Untrusted Data",
-      "description": "Consider possible security implications associated with pickle module.\n",
-      "cve": "",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/imports/imports.py",
-        "start_line": 2
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B403",
-          "value": "bandit.B403",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-502",
-          "value": "502",
-          "url": "https://cwe.mitre.org/data/definitions/502.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Insecure Deserialization",
-          "value": "A8"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B403",
-          "value": "B403"
-        }
-      ]
-    },
-    {
       "id": "685c7b6237d082c86cf9af3fc37246e37b64f408b7872e0322a2cd081a0698e3",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -1896,10 +2006,10 @@
       ]
     },
     {
-      "id": "4f0732572cb4d73335808b1ab270a1383da343a14eedb2c3cad3c8319b35ab59",
+      "id": "9e68b58b18a20ac158037c934eac35399386a7f2b1b42686712bdab77d143c1a",
       "category": "sast",
-      "message": "Improper Check for Unusual or Exceptional Conditions",
-      "description": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
+      "message": "Deserialization of Untrusted Data",
+      "description": "Consider possible security implications associated with pickle module.\n",
       "cve": "",
       "severity": "Info",
       "scanner": {
@@ -1907,44 +2017,33 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "tests/test_simple.py",
-        "start_line": 7
+        "file": "app2/imports/imports.py",
+        "start_line": 2
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B101",
-          "value": "bandit.B101",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B101"
+          "name": "bandit.B403",
+          "value": "bandit.B403",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B403"
         },
         {
           "type": "cwe",
-          "name": "CWE-754",
-          "value": "754",
-          "url": "https://cwe.mitre.org/data/definitions/754.html"
+          "name": "CWE-502",
+          "value": "502",
+          "url": "https://cwe.mitre.org/data/definitions/502.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Insecure Deserialization",
+          "value": "A8"
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B101",
-          "value": "B101"
+          "name": "Bandit Test ID B403",
+          "value": "B403"
         }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "tests/test_simple.py",
-            "line_start": 7,
-            "line_end": 7,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "tests/test_simple.py|test_success[0]:1"
-              }
-            ]
-          }
-        ]
-      }
+      ]
     }
   ],
   "scan": {
@@ -1955,11 +2054,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.69.1"
+      "version": "0.115.0"
     },
     "type": "sast",
-    "start_time": "2021-11-03T20:33:20",
-    "end_time": "2021-11-03T20:33:29",
+    "start_time": "2022-11-30T19:01:44",
+    "end_time": "2022-11-30T19:01:51",
     "status": "success"
   }
 }
