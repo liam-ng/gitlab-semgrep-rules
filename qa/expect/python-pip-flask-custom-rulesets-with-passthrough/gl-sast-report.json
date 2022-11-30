@@ -63,8 +63,8 @@
       "version": "0.115.0"
     },
     "type": "sast",
-    "start_time": "2022-11-30T18:59:53",
-    "end_time": "2022-11-30T18:59:55",
+    "start_time": "2022-11-30T19:32:33",
+    "end_time": "2022-11-30T19:32:35",
     "status": "success"
   }
 }
