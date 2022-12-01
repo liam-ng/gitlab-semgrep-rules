@@ -93,7 +93,7 @@ func addAnalyzerIdentifiers(sastReport *report.Report, configPath string) (*repo
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
 		pID, sIDs := ruleToIDs(ruleID, ruleMap)
-		if pID.Type != "" {
+		if pID != nil {
 			sastReport.Vulnerabilities[index].Identifiers[0] = *pID
 		}
 		if len(sIDs) > 0 {
@@ -110,7 +110,7 @@ func ruleToIDs(ruleID string, ruleMap map[string]semgrepRuleFile) (*report.Ident
 	var empty []report.Identifier
 	matches := strings.Split(ruleID, ".")
 	if len(matches) < 2 {
-		return &report.Identifier{}, empty
+		return nil, empty
 	}
 
 	analyzer := strings.ToLower(matches[0])
@@ -118,17 +118,17 @@ func ruleToIDs(ruleID string, ruleMap map[string]semgrepRuleFile) (*report.Ident
 	switch analyzer {
 	case "bandit", "eslint", "find_sec_bugs", "flawfinder", "gosec", "security_code_scan":
 		if len(ruleMap[analyzer].Rules) == 0 {
-			return &report.Identifier{}, empty
+			return nil, empty
 		}
 
 		rule := findRuleForID(ruleID, ruleMap[analyzer])
 		if rule == nil {
-			return &report.Identifier{}, empty
+			return nil, empty
 		}
 
 		return buildPrimaryID(ruleID, rule, analyzer), buildSecondaryIDs(rule)
 	default:
-		return &report.Identifier{}, empty
+		return nil, empty
 	}
 }
 
