@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "101db62260dd8cff8caf61ad3289cd92d439664cc1e966c6d2769ef175b2bbac",
+      "id": "dd494929a79d315e2ee847f250a65fbe739f144c3a1a5d29bea26e8dc514f98a",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
@@ -18,9 +18,9 @@
       },
       "identifiers": [
         {
-          "type": "",
-          "name": "",
-          "value": ""
+          "type": "semgrep_id",
+          "name": "bandit.B506",
+          "value": "bandit.B506"
         },
         {
           "type": "cwe",
@@ -72,8 +72,8 @@
       "version": "0.121.2"
     },
     "type": "sast",
-    "start_time": "2022-11-30T21:09:47",
-    "end_time": "2022-11-30T21:09:49",
+    "start_time": "2022-12-01T20:12:31",
+    "end_time": "2022-12-01T20:12:33",
     "status": "success"
   }
 }
