@@ -6,6 +6,7 @@ import (
 	"io/fs"
 	"io/ioutil"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 
@@ -45,7 +46,7 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	log.Debugf("Converting report with the root path: %s", root)
 
 	// Load custom config if available
-	rulesetPath := filepath.Join(prependPath, ruleset.PathSAST)
+	rulesetPath := filepath.Join(root, ruleset.PathSAST)
 	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep")
 	if err != nil {
 		switch err.(type) {
@@ -62,7 +63,7 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 		}
 	}
 
-	configPath, err := getConfigPath(prependPath, rulesetConfig)
+	configPath, err := getConfigPath(root, rulesetConfig)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +78,7 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 		vuln.CompareKey = computeCompareKey(*vuln)
 	}
 
-	return addAnalyzerIdentifiers(sastReport, configPath)
+	return addAnalyzerIdentifiers(sastReport, path.Join(root, configPath))
 }
 
 // addAnalyzerIdentifiers iterates through report vulnerability identifiers. Each identifier is then use to
@@ -92,7 +93,7 @@ func addAnalyzerIdentifiers(sastReport *report.Report, configPath string) (*repo
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
 		pID, sIDs := ruleToIDs(ruleID, ruleMap)
-		if pID != nil {
+		if pID.Type != "" {
 			sastReport.Vulnerabilities[index].Identifiers[0] = *pID
 		}
 		if len(sIDs) > 0 {
