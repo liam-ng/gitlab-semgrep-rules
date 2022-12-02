@@ -6,6 +6,7 @@ import (
 	"io/fs"
 	"io/ioutil"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 
@@ -186,24 +187,30 @@ func findRuleForID(id string, ruleFile semgrepRuleFile) *semgrepRule {
 func buildRuleMap(configPath string) (map[string]semgrepRuleFile, error) {
 	ruleMap := map[string]semgrepRuleFile{}
 
-	err := filepath.WalkDir(configPath, func(path string, d fs.DirEntry, err error) error {
-		_, err = os.Stat(path)
+	err := filepath.WalkDir(configPath, func(p string, d fs.DirEntry, err error) error {
+		_, err = os.Stat(p)
 		if err != nil || d.IsDir() {
+			return nil
+		}
+
+		ext := path.Ext(p)
+		if ext != ".yml" && ext != ".yaml" {
+			log.Debugf("skipping parse for non-rule file: %s", p)
 			return nil
 		}
 
 		var ruleFile semgrepRuleFile
 
-		fileContent, err := ioutil.ReadFile(path)
+		fileContent, err := ioutil.ReadFile(p)
 		if err != nil {
-			return fmt.Errorf("read rule file at %s: %w", path, err)
+			return fmt.Errorf("read rule file at %s: %w", p, err)
 		}
 
 		if err = yaml.Unmarshal(fileContent, &ruleFile); err != nil {
-			return fmt.Errorf("parse rule file at %s: %w", path, err)
+			return fmt.Errorf("parse rule file at %s: %w", p, err)
 		}
 
-		rulesetFile := strings.Split(filepath.Base(path), ".")[0]
+		rulesetFile := strings.Split(filepath.Base(p), ".")[0]
 		ruleMap[rulesetFile] = ruleFile
 
 		return nil

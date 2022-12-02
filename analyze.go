@@ -221,7 +221,8 @@ type semgrepRule struct {
 func removeRulesFromFile(file string, ruleIDs []string) error {
 	var ruleFile semgrepRuleFile
 
-	if path.Ext(file) != ".yml" {
+	ext := path.Ext(file)
+	if ext != ".yml" && ext != ".yaml" {
 		log.Debugf("skipping parse for non-rule file: %s", file)
 		return nil
 	}
