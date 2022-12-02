@@ -1,0 +1,79 @@
+{
+  "version": "14.0.4",
+  "vulnerabilities": [
+    {
+      "id": "b20cedb56bca883a3aeb9167ebf14e8e9c44698f8fa37917568d5539af4e9183",
+      "category": "sast",
+      "message": "Key Exchange without Entity Authentication",
+      "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
+      "cve": "semgrep_id:gosec.G106-1:8:8",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "foo.go",
+        "start_line": 8
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "gosec.G106-1",
+          "value": "gosec.G106-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-322",
+          "value": "322",
+          "url": "https://cwe.mitre.org/data/definitions/322.html"
+        },
+        {
+          "type": "gosec_rule_id",
+          "name": "Gosec Rule ID G106",
+          "value": "G106"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "foo.go",
+            "line_start": 8,
+            "line_end": 8,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "foo.go|foo[0]:1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.8.0"
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "0.115.0"
+    },
+    "type": "sast",
+    "start_time": "2022-10-28T02:39:44",
+    "end_time": "2022-10-28T02:39:50",
+    "status": "success"
+  }
+}
