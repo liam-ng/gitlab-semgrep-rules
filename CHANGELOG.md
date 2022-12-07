@@ -1,8 +1,12 @@
 Semgrep analyzer changelog
 
 
-## v3.9.4
+## v3.9.5
 - Use `sast-rules` v1.1.3 package for rules (!147)
+
+## v3.9.4
+- Improve scan performance and reduce false positives for Bandit rule: B610  (!183)
+- Improve scan performance of Bandit rules: B110, B112 (!183)
 
 ## v3.9.3
 - upgrade `github.com/stretchr/testify` version [`v1.8.0` => [`v1.8.1`](https://github.com/stretchr/testify/releases/tag/v1.8.1)] (!177)
