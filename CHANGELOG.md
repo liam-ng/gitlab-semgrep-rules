@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v3.10.0
+- Include `scan.primary_identifiers` (!146)
+- Bump tracking-calculator version to v2.2.8 (!146)
+
 ## v3.9.4
 - Improve scan performance and reduce false positives for Bandit rule: B610  (!183)
 - Improve scan performance of Bandit rules: B110, B112 (!183)
