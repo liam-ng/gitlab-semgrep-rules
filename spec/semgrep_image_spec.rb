@@ -73,16 +73,36 @@ describe 'running image' do
     context "with c" do
       let(:project) { "c" }
 
-      it_behaves_like "successful scan"
+      context 'by default' do
+        it_behaves_like "successful scan"
 
-      describe "created report" do
-        it_behaves_like "non-empty report"
+        describe "created report" do
+          it_behaves_like "non-empty report"
 
-        it_behaves_like "recorded report" do
-          let(:recorded_report) { parse_expected_report(project) }
+          it_behaves_like "recorded report" do
+            let(:recorded_report) { parse_expected_report(project + '/default') }
+          end
+
+          it_behaves_like "valid report"
+        end
+      end
+
+      context 'when including primary_identifiers' do
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'sast_fp_reduction' }
         end
 
-        it_behaves_like "valid report"
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report('c/with-primary-identifiers')
+            }
+          end
+
+          it_behaves_like 'valid report'
+        end
       end
     end
 
