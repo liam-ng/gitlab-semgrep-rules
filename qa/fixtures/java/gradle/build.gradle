@@ -1,0 +1,21 @@
+group 'com.gitlab.security_products'
+version '0.0.1'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '4.12'
+}
+
+dependencies {
+    testImplementation "junit:junit:$junitVersion"
+    implementation 'io.netty:netty:3.9.1.Final'
+    implementation 'org.apache.maven:maven-artifact:3.3.9'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
+    implementation 'org.mozilla:rhino:1.7.10'
+    implementation 'org.apache.geode:geode-core:1.1.1'
+}

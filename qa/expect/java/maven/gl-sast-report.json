@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "6b9602b43adee5c918ef642df03174b8cefb22fb0bd299583f685b38b4cac400",
+      "id": "2c91dce9211e2923209fdf2c879b40b78b2881f9a5f0f1d5898c1cf84bf30e7b",
       "category": "sast",
       "message": "Missing Support for Integrity Check",
       "description": "The ciphertext produced is susceptible to alteration by an adversary. This mean that the\ncipher provides no way to detect that the data has been tampered with. If the ciphertext can be\ncontrolled by an attacker, it could be altered without detection.\n",
@@ -13,7 +13,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
+        "file": "src/main/java/com/gitlab/security_products/App.java",
         "start_line": 29
       },
       "identifiers": [
@@ -33,28 +33,10 @@
           "name": "Find Security Bugs-CIPHER_INTEGRITY",
           "value": "CIPHER_INTEGRITY"
         }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
-            "line_start": 29,
-            "line_end": 29,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "web/src/main/java/com/gitlab/security_products/tests/App.java|App[0]|insecureCypher[0]:2"
-              }
-            ]
-          }
-        ]
-      },
-      "links": [],
-      "flags": []
+      ]
     },
     {
-      "id": "e8ea4ec545e8da5a66768256ad34c9c2e7dd667b39e05f503e81b95404161a62",
+      "id": "459813bba0cba5c28e6aff62726b3d8b6cabaab9d7d3c3ca2d3a08bea3ffaacf",
       "category": "sast",
       "message": "Inadequate Encryption Strength",
       "description": "An authentication cipher mode which provides better confidentiality of the encrypted data\nshould be used instead of Electronic Code Book (ECB) mode, which does not provide good\nconfidentiality. Specifically, ECB mode produces the same output for the same input each time.\nThis allows an attacker to intercept and replay the data.\n",
@@ -65,7 +47,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
+        "file": "src/main/java/com/gitlab/security_products/App.java",
         "start_line": 29
       },
       "identifiers": [
@@ -85,28 +67,10 @@
           "name": "Find Security Bugs-ECB_MODE",
           "value": "ECB_MODE"
         }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
-            "line_start": 29,
-            "line_end": 29,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "web/src/main/java/com/gitlab/security_products/tests/App.java|App[0]|insecureCypher[0]:2"
-              }
-            ]
-          }
-        ]
-      },
-      "links": [],
-      "flags": []
+      ]
     },
     {
-      "id": "68ae836684aec39cb030d1f5db2e5116eef5ea2907cd52327b417ea232fd114a",
+      "id": "e75bed960540eb8901a986e9a120d8c9018bc431e104d155e110fdf153ea8270",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
@@ -117,7 +81,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
+        "file": "src/main/java/com/gitlab/security_products/App.java",
         "start_line": 41,
         "end_line": 42
       },
@@ -138,28 +102,10 @@
           "name": "Find Security Bugs-PREDICTABLE_RANDOM",
           "value": "PREDICTABLE_RANDOM"
         }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
-            "line_start": 41,
-            "line_end": 41,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "web/src/main/java/com/gitlab/security_products/tests/App.java|App[0]|String[0]:1"
-              }
-            ]
-          }
-        ]
-      },
-      "links": [],
-      "flags": []
+      ]
     },
     {
-      "id": "66492776fd1caeedb9dcc3de0e5be48514f3a007d1dd036b7df1ce1a01213a06",
+      "id": "b64c01e31a3f44c2be3af20d4effe6c2f7df6583960b0de6ee2aa07f971f9834",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
@@ -170,7 +116,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
+        "file": "src/main/java/com/gitlab/security_products/App.java",
         "start_line": 42
       },
       "identifiers": [
@@ -190,28 +136,79 @@
           "name": "Find Security Bugs-PREDICTABLE_RANDOM",
           "value": "PREDICTABLE_RANDOM"
         }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
-            "line_start": 42,
-            "line_end": 42,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "web/src/main/java/com/gitlab/security_products/tests/App.java|App[0]|String[0]:2"
-              }
-            ]
-          }
-        ]
-      },
-      "links": [],
-      "flags": []
+      ]
     },
     {
-      "id": "677e19d96a163fc6426278c61602ce6d9be1070906eb52f8612122b88999595a",
+      "id": "44182d51d2e5b2684461204e6eca7649823312bb3f14b145fb2412f6b5c92ba3",
+      "category": "sast",
+      "message": "Use of Insufficiently Random Values",
+      "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
+      "cve": "semgrep_id:find_sec_bugs.PREDICTABLE_RANDOM-1:47:48",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/App.java",
+        "start_line": 47,
+        "end_line": 48
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
+          "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM"
+        }
+      ]
+    },
+    {
+      "id": "e0894ee4f2888332a08ad2889f74333972fc201cfa44846d38972eb54546d274",
+      "category": "sast",
+      "message": "Use of Insufficiently Random Values",
+      "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
+      "cve": "semgrep_id:find_sec_bugs.PREDICTABLE_RANDOM-1:48:48",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/App.java",
+        "start_line": 48
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
+          "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM"
+        }
+      ]
+    },
+    {
+      "id": "d10e51da80914c8be5a21beec2c3b04f387ae8c1690603cc61b664242f0b0cdd",
       "category": "sast",
       "message": "Use of RSA Algorithm without OAEP",
       "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
@@ -222,7 +219,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
+        "file": "src/main/java/com/gitlab/security_products/App.java",
         "start_line": 29
       },
       "identifiers": [
@@ -242,27 +239,10 @@
           "name": "Find Security Bugs-RSA_NO_PADDING",
           "value": "RSA_NO_PADDING"
         }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
-            "line_start": 29,
-            "line_end": 29,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "web/src/main/java/com/gitlab/security_products/tests/App.java|App[0]|insecureCypher[0]:2"
-              }
-            ]
-          }
-        ]
-      },
-      "links": [],
-      "flags": []
+      ]
     }
   ],
+  "dependency_files": [],
   "scan": {
     "analyzer": {
       "id": "semgrep",
@@ -270,7 +250,8 @@
       "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
       "vendor": {
         "name": "GitLab"
-      }
+      },
+      "version": "3.9.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -278,9 +259,12 @@
       "url": "https://github.com/returntocorp/semgrep",
       "vendor": {
         "name": "GitLab"
-      }
+      },
+      "version": "0.121.2"
     },
     "type": "sast",
+    "start_time": "2022-11-25T09:20:46",
+    "end_time": "2022-11-25T09:21:18",
     "status": "success"
   }
 }
