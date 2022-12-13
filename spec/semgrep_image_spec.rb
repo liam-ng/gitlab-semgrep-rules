@@ -46,7 +46,9 @@ describe 'running image' do
         # CI_PROJECT_DIR is needed for `post-analyzers/scripts` to
         # properly resolve file locations
         # https://gitlab.com/gitlab-org/security-products/post-analyzers/scripts/-/blob/25479eae03e423cd67f2493f23d0c4f9789cdd0e/start.sh#L2
-        'CI_PROJECT_DIR': '/app'
+        'CI_PROJECT_DIR': '/app',
+        'SECURE_LOG_LEVEL': 'debug',
+        'SEARCH_MAX_DEPTH': 20
       }
     end
 
@@ -162,6 +164,74 @@ describe 'running image' do
           it_behaves_like 'valid report'
         end
       end
+    end
+
+    context "with java" do
+
+      context 'when using maven build-tool on Java 11' do
+        let(:project) { 'java/maven' }
+        let(:variables) do
+          {
+            'SAST_JAVA_VERSION': 11,
+            'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=11 -Dmaven.compiler.target=11 -DskipTests --batch-mode',
+          }
+        end
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+
+      context 'when using maven build-tool on Java 17' do
+        let(:project) { 'java/maven' }
+        let(:variables) do
+          {
+            'SAST_JAVA_VERSION': 17,
+            'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=17 -Dmaven.compiler.target=17 -DskipTests --batch-mode'
+          }
+        end
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+
+      context 'when using gradle build-tool' do
+        let(:project) { 'java/gradle' }
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+
+      context 'when using maven build-tool for multimodules' do
+        let(:project) { 'java/maven-multimodules' }
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+
     end
   end
 end
