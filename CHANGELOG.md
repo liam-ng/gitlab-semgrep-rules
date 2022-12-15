@@ -1,8 +1,5 @@
 Semgrep analyzer changelog
 
-## v3.11.0
-- Integration with VET backend for false-positive reduction on `.go` files (!163)
-
 ## v3.10.0
 - Include `scan.primary_identifiers` (!146)
 - Bump tracking-calculator version to v2.2.8 (!146)
