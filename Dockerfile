@@ -1,12 +1,12 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=0.121.2
+ARG SCANNER_VERSION=1.1.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.0.5
 ARG TRACKING_CALCULATOR_VERSION=2.2.8
 
 FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZER_SCRIPTS_VERSION} AS scripts
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
 
-FROM golang:1.17-alpine AS build
+FROM golang:1.18-alpine AS build
 
 ENV CGO_ENABLED=0 GOOS=linux
 

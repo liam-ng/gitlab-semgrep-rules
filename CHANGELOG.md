@@ -1,5 +1,12 @@
 Semgrep analyzer changelog
 
+## v3.10.1
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.121.2` => [`1.1.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.1.0)] (!186)
+- upgrade `github.com/urfave/cli/v2` version [`v2.23.5` => [`v2.23.6`](https://github.com/urfave/cli/releases/tag/v2.23.6)] (!186)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.16.0` => [`v3.17.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.17.0)] (!186)
+- upgrade `golang.org/x/crypto` version [`v0.2.0` => [`v0.4.0`](https://golang.org/x/crypto@v0.4.0)] (!186)
+- update `go` version to `v1.18` for Non-FIPS docker image (!186)
+
 ## v3.10.0
 - Include `scan.primary_identifiers` (!146)
 - Bump tracking-calculator version to v2.2.8 (!146)
