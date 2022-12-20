@@ -1,0 +1,716 @@
+# yamllint disable
+# maps spotbugs rule ids to semgrep rules
+# License: MIT (c) GitLab Inc.
+# yamllint enable
+---
+find_sec_bugs_scala:
+  native_id:
+    type: "find_sec_bugs_type"
+    name: "Find Security Bugs-$ID"
+    value: "$ID"
+  mappings:  
+  # random
+  - id: "PREDICTABLE_RANDOM"
+    rules:
+    - "scala/random/rule-PseudoRandom"
+  
+  # XXE
+  - id: "XXE_SAXPARSER"
+    rules:
+    - "scala/xxe/rule-SaxParserXXE"
+  - id: "XXE_XMLREADER"
+    rules:
+    - "scala/xxe/rule-XMLRdr"
+  - id: "XXE_XMLSTREAMREADER"
+    rules:
+    - "scala/xxe/rule-XMLStreamRdr"
+  - id: "XXE_XPATH"
+    rules:
+    - "scala/xxe/rule-XPathXXE"
+  - id: "XXE_DOCUMENT"
+    rules:
+    - "scala/xxe/rule-Document"
+  - id: "XXE_DTD_TRANSFORM_FACTORY"
+    rules:
+    - "scala/xxe/rule-Trans"
+  - id: "XXE_XSLT_TRANSFORM_FACTORY"
+    rules:
+    - "scala/xxe/rule-Trans"
+
+  # XSS
+  - id: "XSS_SERVLET"
+    rules:
+    - "scala/xss/rule-XSSServlet"
+  - id: "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
+    rules:
+    - "scala/xss/rule-XSSReqParamToServletWriter"
+  - id: "WICKET_XSS1"
+    rules:
+    - "scala/xss/rule-WicketXSS"
+  - id: "XSS_REQUEST_WRAPPER"
+    rules:
+    - "scala/xss/rule-RequestWrapper"
+
+  # SQLI
+  - id: "SQL_INJECTION_SPRING_JDBC"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JPA"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JDO"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JDBC"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+  - id: "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+
+    # XPATHI
+  - id: "XPATH_INJECTION"
+    rules:
+    - "scala/xpathi/rule-XpathInjection"
+
+  # Strings
+  - id: "NORMALIZATION_AFTER_VALIDATION"
+    rules:
+    - "scala/strings/rule-NormalizeAfterValidation"
+  - id: "MODIFICATION_AFTER_VALIDATION"
+    rules:
+    - "scala/strings/rule-ModifyAfterValidation"
+  - id: "IMPROPER_UNICODE"
+    rules:
+    - "scala/strings/rule-ImproperUnicode"
+  - id: "BAD_HEXA_CONVERSION"
+    rules:
+    - "scala/strings/rule-BadHexConversion"
+  
+  # Permissions 
+  - id: "DANGEROUS_PERMISSION_COMBINATION"
+    rules:
+    - "scala/perm/rule-DangerousPermissions"
+  - id: "OVERLY_PERMISSIVE_FILE_PERMISSION"
+    rules:
+    - "scala/perm/rule-OverlyPermissiveFilePermissionInline"
+    - "scala/perm/rule-OverlyPermissiveFilePermissionObj"
+  - id: "FORMAT_STRING_MANIPULATION"
+    rules:
+    - "scala/strings/rule-FormatStringManipulation"
+
+  # Form
+  - id: "STRUTS_FORM_VALIDATION"
+    rules:
+    - "scala/form/rule-FormValidate"
+
+  # XML 
+  - id: "SAML_IGNORE_COMMENTS"
+    rules:
+    - "scala/xml/rule-SAMLIgnoreComments"
+  - id: "RPC_ENABLED_EXTENSIONS"
+    rules:
+    - "scala/xml/rule-ApacheXmlRpc"
+  - id: "XML_DECODER"
+    rules:
+    - "scala/xml/rule-XmlDecoder"
+
+  # SMTP
+  - id: "SMTP_HEADER_INJECTION"
+    rules:
+    - "scala/smtp/rule-SmtpClient"
+  - id: "INSECURE_SMTP_SSL"
+    rules:
+    - "scala/smtp/rule-InsecureSmtp"
+
+  - id: "TEMPLATE_INJECTION_PEBBLE"
+    rules:
+    - "scala/templateinjection/rule-TemplateInjection"
+
+  - id: "TEMPLATE_INJECTION_FREEMARKER"
+    rules:
+    - "scala/templateinjection/rule-TemplateInjection"
+
+  - id: "TEMPLATE_INJECTION_VELOCITY"
+    rules:
+    - "scala/templateinjection/rule-TemplateInjection"
+  - id: "MALICIOUS_XSLT"
+    rules:
+    - "scala/xml/rule-XsltTransform"
+
+  # Injections    
+  - id: "AWS_QUERY_INJECTION"
+    rules: 
+    - "scala/inject/rule-AWSQueryInjection"
+  - id: "BEAN_PROPERTY_INJECTION"
+    rules: 
+    - "scala/inject/rule-BeanPropertyInjection"
+  - id: "COMMAND_INJECTION"
+    rules: 
+    - "scala/inject/rule-CommandInjection"
+  - id: "CRLF_INJECTION_LOGS"
+    rules: 
+    - "scala/inject/rule-CLRFInjectionLogs"
+  - id: "CUSTOM_INJECTION"
+    rules: 
+    - "scala/inject/rule-CustomInjection"
+    - "scala/inject/rule-CustomInjectionSQLString"
+  - id: "EL_INJECTION"
+    rules: 
+    - "scala/inject/rule-ELInjection"
+  - id: "REQUESTDISPATCHER_FILE_DISCLOSURE"
+    rules: 
+    - "scala/inject/rule-FileDisclosure"
+  - id: "STRUTS_FILE_DISCLOSURE"
+    rules: 
+    - "scala/inject/rule-FileDisclosure"
+  - id: "SPRING_FILE_DISCLOSURE"
+    rules: 
+    - "scala/inject/rule-FileDisclosure"
+  - id: "LDAP_INJECTION"
+    rules: 
+    - "scala/inject/rule-LDAPInjection"
+  - id: "PATH_TRAVERSAL_IN"
+    rules: 
+    - "scala/inject/rule-PathTraversalIn"
+  - id: "PATH_TRAVERSAL_OUT"
+    rules: 
+    - "scala/inject/rule-PathTraversalOut"
+  - id: "PT_RELATIVE_PATH_TRAVERSAL"
+    rules: 
+    - "scala/inject/rule-SpotbugsPathTraversalRelative"
+  - id: "PT_ABSOLUTE_PATH_TRAVERSAL"
+    rules: 
+    - "scala/inject/rule-SpotbugsPathTraversalAbsolute"
+  - id: "OGNL_INJECTION"
+    rules:
+    - "scala/inject/rule-OgnlInjection"
+  
+  # Cryptography
+  - id: "BLOWFISH_KEY_SIZE"
+    rules: 
+    - "scala/crypto/rule-BlowfishKeySize"
+  - id: "CIPHER_INTEGRITY"
+    rules: 
+    - "scala/crypto/rule-CipherIntegrity"
+  - id: "ECB_MODE"
+    rules: 
+    - "scala/crypto/rule-CipherECBMode"
+  - id: "PADDING_ORACLE"
+    rules: 
+    - "scala/crypto/rule-CipherPaddingOracle"
+  - id: "CUSTOM_MESSAGE_DIGEST"
+    rules: 
+    - "scala/crypto/rule-CustomMessageDigest"
+  - id: "DEFAULT_HTTP_CLIENT"
+    rules: 
+    - "scala/crypto/rule-DefaultHTTPClient"
+  - id: "DES_USAGE"
+    rules: 
+    - "scala/crypto/rule-CipherDESInsecure"
+  - id: "TDES_USAGE"
+    rules: 
+    - "scala/crypto/rule-CipherDESedeInsecure"
+  - id: "HAZELCAST_SYMMETRIC_ENCRYPTION"
+    rules: 
+    - "scala/crypto/rule-HazelcastSymmetricEncryption"
+  - id: "RSA_KEY_SIZE"
+    rules: 
+    - "scala/crypto/rule-InsufficientKeySizeRsa"
+  - id: "RSA_NO_PADDING"
+    rules:
+    - "scala/crypto/rule-RsaNoPadding"
+  - id: "SSL_CONTEXT"
+    rules:
+    - "scala/crypto/rule-WeakTLSProtocol"
+  - id: "WEAK_MESSAGE_DIGEST_MD5"
+    rules:
+    - "scala/crypto/rule-WeakMessageDigest"
+  - id: "WEAK_MESSAGE_DIGEST_SHA1"
+    rules:
+    - "scala/crypto/rule-WeakMessageDigest"
+  - id: "NULL_CIPHER"
+    rules:
+    - "scala/crypto/rule-NullCipher"
+  
+  # Cookie
+  - id: "COOKIE_PERSISTENT"
+    rules: 
+    - "scala/cookie/rule-CookiePersistent"
+  - id: "INSECURE_COOKIE"
+    rules: 
+    - "scala/cookie/rule-CookieInsecure"
+  - id: "HTTPONLY_COOKIE"
+    rules: 
+    - "scala/cookie/rule-CookieHTTPOnly"
+  - id: "COOKIE_USAGE"
+    rules: 
+    - "scala/cookie/rule-CookieUsage"
+  - id: "HTTP_RESPONSE_SPLITTING"
+    rules: 
+    - "scala/cookie/rule-HttpResponseSplitting"
+  - id: "HRS_REQUEST_PARAMETER_TO_COOKIE"
+    rules: 
+    - "scala/cookie/rule-RequestParamToCookie"
+  - id: "TRUST_BOUNDARY_VIOLATION"
+    rules: 
+    - "scala/cookie/rule-TrustBoundaryViolation"
+  - id: "HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
+    rules: 
+    - "scala/cookie/rule-RequestParamToHeader"
+  
+  # Password
+  - id: "DMI_EMPTY_DB_PASSWORD"
+    rules:
+    - "scala/password/rule-EmptyDBPassword"
+  - id: "DMI_CONSTANT_DB_PASSWORD"
+    rules:
+    - "scala/password/rule-ConstantDBPassword"
+  - id: "HARD_CODE_PASSWORD"
+    rules:
+    - "scala/password/rule-HardcodePassword"
+    - "scala/password/rule-EmptyDBPassword"
+    - "scala/password/rule-ConstantDBPassword"
+
+  # Unsafe
+  - id: "EXTERNAL_CONFIG_CONTROL"
+    rules:
+    - "scala/unsafe/rule-ExternalConfigControl"
+  - id: "INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
+    rules:
+    - "scala/unsafe/rule-InformationExposure"
+
+  # File
+  - id: "FILE_UPLOAD_FILENAME"
+    rules:
+    - "scala/file/rule-FileUploadFileName"
+  - id: "WEAK_FILENAMEUTILS"
+    rules:
+    - "scala/file/rule-FilenameUtils"
+  
+  # SSRF
+  - id: "URLCONNECTION_SSRF_FD"
+    rules:
+    - "scala/ssrf/rule-SSRF"
+
+  # HTTP_PARAMETER_POLLUTION
+  - id: "HTTP_PARAMETER_POLLUTION"
+    rules:
+    - "scala/inject/rule-HttpParameterPollution"
+
+  # LDAP
+  - id: "LDAP_ANONYMOUS"
+    rules:
+    - "scala/ldap/rule-AnonymousLDAP"
+  - id: "LDAP_ENTRY_POISONING"
+    rules:
+    - "scala/ldap/rule-EntryPoisoning"
+
+  # Script
+  - id: "SCRIPT_ENGINE_INJECTION"
+    rules:
+    - "scala/script/rule-ScriptInjection"
+    - "scala/script/rule-SpelView"
+
+  - id: "SPEL_INJECTION"
+    rules:
+    - "scala/script/rule-ScriptInjection"
+
+  - id: "EL_INJECTION"
+    rules:
+    - "scala/script/rule-ScriptInjection"
+
+  - id: "SEAM_LOG_INJECTION"
+    rules:
+    - "scala/script/rule-ScriptInjection"
+
+  # Servlet
+  - id: "UNENCRYPTED_SOCKET"
+    rules:
+    - "scala/endpoint/rule-UnencryptedSocket"
+  - id: "UNENCRYPTED_SERVER_SOCKET"
+    rules:
+    - "scala/endpoint/rule-UnencryptedSocket"
+  - id: "UNVALIDATED_REDIRECT"
+    rules:
+    - "scala/endpoint/rule-UnvalidatedRedirect"
+  - id: "URL_REWRITING"
+    rules:
+    - "scala/endpoint/rule-UnvalidatedRedirect"
+  - id: "WEAK_HOSTNAME_VERIFIER"
+    rules:
+    - "scala/endpoint/rule-WeakHostNameVerification"
+  - id: "WEAK_TRUST_MANAGER"
+    rules:
+    - "scala/endpoint/rule-WeakHostNameVerification"
+
+  # Endpoint
+  - id: "JAXWS_ENDPOINT"
+    rules:
+    - "scala/endpoint/rule-JaxWsEndpoint"
+  
+  - id: "JAXRS_ENDPOINT"
+    rules:
+    - "scala/endpoint/rule-JaxRsEndpoint"
+
+  # Cors
+  - id: "PERMISSIVE_CORS"
+    rules: 
+    - "scala/cors/rule-PermissiveCORS"
+    - "scala/cors/rule-PermissiveCORSInjection"
+
+find_sec_bugs:
+  native_id:
+    type: "find_sec_bugs_type"
+    name: "Find Security Bugs-$ID"
+    value: "$ID"
+  mappings:  
+  # random
+  - id: "PREDICTABLE_RANDOM"
+    rules:
+    - "scala/random/rule-PseudoRandom"
+  
+  # XXE
+  - id: "XXE_SAXPARSER"
+    rules:
+    - "scala/xxe/rule-SaxParserXXE"
+  - id: "XXE_XMLREADER"
+    rules:
+    - "scala/xxe/rule-XMLRdr"
+  - id: "XXE_XMLSTREAMREADER"
+    rules:
+    - "scala/xxe/rule-XMLStreamRdr"
+  - id: "XXE_XPATH"
+    rules:
+    - "scala/xxe/rule-XPathXXE"
+  - id: "XXE_DOCUMENT"
+    rules:
+    - "scala/xxe/rule-XPathXXE"
+  - id: "XXE_DTD_TRANSFORM_FACTORY"
+    rules:
+    - "scala/xxe/rule-Trans"
+  - id: "XXE_XSLT_TRANSFORM_FACTORY"
+    rules:
+    - "scala/xxe/rule-Trans"
+
+  # XSS
+  - id: "XSS_SERVLET"
+    rules:
+    - "scala/xss/rule-XSSServlet"
+  - id: "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
+    rules:
+    - "scala/xss/rule-XSSReqParamToServletWriter"
+  - id: "WICKET_XSS1"
+    rules:
+    - "scala/xss/rule-WicketXSS"
+  - id: "XSS_REQUEST_WRAPPER"
+    rules:
+    - "scala/xss/rule-RequestWrapper"
+
+  # SQLI
+  - id: "SQL_INJECTION_SPRING_JDBC"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JPA"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JDO"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+  - id: "SQL_INJECTION_JDBC"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+  - id: "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
+    rules: 
+    - "scala/inject/rule-SqlInjection"
+
+    # XPATHI
+  - id: "XPATH_INJECTION"
+    rules:
+    - "scala/xpathi/rule-XpathInjection"
+
+  # Strings
+  - id: "NORMALIZATION_AFTER_VALIDATION"
+    rules:
+    - "scala/strings/rule-NormalizeAfterValidation"
+  - id: "MODIFICATION_AFTER_VALIDATION"
+    rules:
+    - "scala/strings/rule-ModifyAfterValidation"
+  - id: "IMPROPER_UNICODE"
+    rules:
+    - "scala/strings/rule-ImproperUnicode"
+  - id: "BAD_HEXA_CONVERSION"
+    rules:
+    - "scala/strings/rule-BadHexConversion"
+  
+  # Permissions 
+  - id: "DANGEROUS_PERMISSION_COMBINATION"
+    rules:
+    - "scala/perm/rule-DangerousPermissions"
+  - id: "OVERLY_PERMISSIVE_FILE_PERMISSION"
+    rules:
+    - "scala/perm/rule-OverlyPermissiveFilePermissionInline"
+    - "scala/perm/rule-OverlyPermissiveFilePermissionObj"
+  - id: "FORMAT_STRING_MANIPULATION"
+    rules:
+    - "scala/strings/rule-FormatStringManipulation"
+
+  # Form
+  - id: "STRUTS_FORM_VALIDATION"
+    rules:
+    - "scala/form/rule-FormValidate"
+
+  # XML 
+  - id: "SAML_IGNORE_COMMENTS"
+    rules:
+    - "scala/xml/rule-SAMLIgnoreComments"
+  - id: "RPC_ENABLED_EXTENSIONS"
+    rules:
+    - "scala/xml/rule-ApacheXmlRpc"
+  - id: "XML_DECODER"
+    rules:
+    - "scala/xml/rule-XmlDecoder"
+
+  # SMTP
+  - id: "SMTP_HEADER_INJECTION"
+    rules:
+    - "scala/smtp/rule-SmtpClient"
+  - id: "INSECURE_SMTP_SSL"
+    rules:
+    - "scala/smtp/rule-InsecureSmtp"
+
+  - id: "TEMPLATE_INJECTION_PEBBLE"
+    rules:
+    - "scala/templateinjection/rule-TemplateInjection"
+
+  - id: "TEMPLATE_INJECTION_FREEMARKER"
+    rules:
+    - "scala/templateinjection/rule-TemplateInjection"
+
+  - id: "TEMPLATE_INJECTION_VELOCITY"
+    rules:
+    - "scala/templateinjection/rule-TemplateInjection"
+  - id: "MALICIOUS_XSLT"
+    rules:
+    - "scala/xml/rule-XsltTransform"
+
+  # Injections    
+  - id: "AWS_QUERY_INJECTION"
+    rules: 
+    - "scala/inject/rule-AWSQueryInjection"
+  - id: "BEAN_PROPERTY_INJECTION"
+    rules: 
+    - "scala/inject/rule-BeanPropertyInjection"
+  - id: "COMMAND_INJECTION"
+    rules: 
+    - "scala/inject/rule-CommandInjection"
+  - id: "CRLF_INJECTION_LOGS"
+    rules: 
+    - "scala/inject/rule-CLRFInjectionLogs"
+  - id: "CUSTOM_INJECTION"
+    rules: 
+    - "scala/inject/rule-CustomInjection"
+    - "scala/inject/rule-CustomInjectionSQLString"
+  - id: "EL_INJECTION"
+    rules: 
+    - "scala/inject/rule-ELInjection"
+  - id: "REQUESTDISPATCHER_FILE_DISCLOSURE"
+    rules: 
+    - "scala/inject/rule-FileDisclosure"
+  - id: "STRUTS_FILE_DISCLOSURE"
+    rules: 
+    - "scala/inject/rule-FileDisclosure"
+  - id: "SPRING_FILE_DISCLOSURE"
+    rules: 
+    - "scala/inject/rule-FileDisclosure"
+  - id: "LDAP_INJECTION"
+    rules: 
+    - "scala/inject/rule-LDAPInjection"
+  - id: "PATH_TRAVERSAL_IN"
+    rules: 
+    - "scala/inject/rule-PathTraversalIn"
+  - id: "PATH_TRAVERSAL_OUT"
+    rules: 
+    - "scala/inject/rule-PathTraversalOut"
+  - id: "PT_RELATIVE_PATH_TRAVERSAL"
+    rules: 
+    - "scala/inject/rule-SpotbugsPathTraversalRelative"
+  - id: "PT_ABSOLUTE_PATH_TRAVERSAL"
+    rules: 
+    - "scala/inject/rule-SpotbugsPathTraversalAbsolute"
+  - id: "OGNL_INJECTION"
+    rules:
+    - "scala/inject/rule-OgnlInjection"
+  
+  # Cryptography
+  - id: "BLOWFISH_KEY_SIZE"
+    rules: 
+    - "scala/crypto/rule-BlowfishKeySize"
+  - id: "CIPHER_INTEGRITY"
+    rules: 
+    - "scala/crypto/rule-CipherIntegrity"
+  - id: "ECB_MODE"
+    rules: 
+    - "scala/crypto/rule-CipherECBMode"
+  - id: "PADDING_ORACLE"
+    rules: 
+    - "scala/crypto/rule-CipherPaddingOracle"
+  - id: "CUSTOM_MESSAGE_DIGEST"
+    rules: 
+    - "scala/crypto/rule-CustomMessageDigest"
+  - id: "DEFAULT_HTTP_CLIENT"
+    rules: 
+    - "scala/crypto/rule-DefaultHTTPClient"
+  - id: "DES_USAGE"
+    rules: 
+    - "scala/crypto/rule-CipherDESInsecure"
+  - id: "TDES_USAGE"
+    rules: 
+    - "scala/crypto/rule-CipherDESedeInsecure"
+  - id: "HAZELCAST_SYMMETRIC_ENCRYPTION"
+    rules: 
+    - "scala/crypto/rule-HazelcastSymmetricEncryption"
+  - id: "RSA_KEY_SIZE"
+    rules: 
+    - "scala/crypto/rule-InsufficientKeySizeRsa"
+  - id: "RSA_NO_PADDING"
+    rules:
+    - "scala/crypto/rule-RsaNoPadding"
+  - id: "SSL_CONTEXT"
+    rules:
+    - "scala/crypto/rule-WeakTLSProtocol"
+  - id: "WEAK_MESSAGE_DIGEST_MD5"
+    rules:
+    - "scala/crypto/rule-WeakMessageDigest"
+  - id: "WEAK_MESSAGE_DIGEST_SHA1"
+    rules:
+    - "scala/crypto/rule-WeakMessageDigest"
+  - id: "NULL_CIPHER"
+    rules:
+    - "scala/crypto/rule-NullCipher"
+  
+  # Cookie
+  - id: "COOKIE_PERSISTENT"
+    rules: 
+    - "scala/cookie/rule-CookiePersistent"
+  - id: "INSECURE_COOKIE"
+    rules: 
+    - "scala/cookie/rule-CookieInsecure"
+  - id: "HTTPONLY_COOKIE"
+    rules: 
+    - "scala/cookie/rule-CookieHTTPOnly"
+  - id: "COOKIE_USAGE"
+    rules: 
+    - "scala/cookie/rule-CookieUsage"
+  - id: "HTTP_RESPONSE_SPLITTING"
+    rules: 
+    - "scala/cookie/rule-HttpResponseSplitting"
+  - id: "HRS_REQUEST_PARAMETER_TO_COOKIE"
+    rules: 
+    - "scala/cookie/rule-RequestParamToCookie"
+  - id: "TRUST_BOUNDARY_VIOLATION"
+    rules: 
+    - "scala/cookie/rule-TrustBoundaryViolation"
+  - id: "HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
+    rules: 
+    - "scala/cookie/rule-RequestParamToHeader"
+  
+  # Password
+  - id: "DMI_EMPTY_DB_PASSWORD"
+    rules:
+    - "scala/password/rule-EmptyDBPassword"
+  - id: "DMI_CONSTANT_DB_PASSWORD"
+    rules:
+    - "scala/password/rule-ConstantDBPassword"
+  - id: "HARD_CODE_PASSWORD"
+    rules:
+    - "scala/password/rule-HardcodePassword"
+    - "scala/password/rule-EmptyDBPassword"
+    - "scala/password/rule-ConstantDBPassword"
+
+  # Unsafe
+  - id: "EXTERNAL_CONFIG_CONTROL"
+    rules:
+    - "scala/unsafe/rule-ExternalConfigControl"
+  - id: "INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
+    rules:
+    - "scala/unsafe/rule-InformationExposure"
+
+  # File
+  - id: "FILE_UPLOAD_FILENAME"
+    rules:
+    - "scala/file/rule-FileUploadFileName"
+  - id: "WEAK_FILENAMEUTILS"
+    rules:
+    - "scala/file/rule-FilenameUtils"
+  
+  # SSRF
+  - id: "URLCONNECTION_SSRF_FD"
+    rules:
+    - "scala/ssrf/rule-SSRF"
+
+  # HTTP_PARAMETER_POLLUTION
+  - id: "HTTP_PARAMETER_POLLUTION"
+    rules:
+    - "scala/inject/rule-HttpParameterPollution"
+
+  # LDAP
+  - id: "LDAP_ANONYMOUS"
+    rules:
+    - "scala/ldap/rule-AnonymousLDAP"
+  - id: "LDAP_ENTRY_POISONING"
+    rules:
+    - "scala/ldap/rule-EntryPoisoning"
+
+  # Script
+  - id: "SCRIPT_ENGINE_INJECTION"
+    rules:
+    - "scala/script/rule-ScriptInjection"
+    - "scala/script/rule-SpelView"
+
+  - id: "SPEL_INJECTION"
+    rules:
+    - "scala/script/rule-ScriptInjection"
+
+  - id: "EL_INJECTION"
+    rules:
+    - "scala/script/rule-ScriptInjection"
+
+  - id: "SEAM_LOG_INJECTION"
+    rules:
+    - "scala/script/rule-ScriptInjection"
+
+  # Servlet
+  - id: "UNENCRYPTED_SOCKET"
+    rules:
+    - "scala/endpoint/rule-UnencryptedSocket"
+  - id: "UNENCRYPTED_SERVER_SOCKET"
+    rules:
+    - "scala/endpoint/rule-UnencryptedSocket"
+  - id: "UNVALIDATED_REDIRECT"
+    rules:
+    - "scala/endpoint/rule-UnvalidatedRedirect"
+  - id: "URL_REWRITING"
+    rules:
+    - "scala/endpoint/rule-UnvalidatedRedirect"
+  - id: "WEAK_HOSTNAME_VERIFIER"
+    rules:
+    - "scala/endpoint/rule-WeakHostNameVerification"
+  - id: "WEAK_TRUST_MANAGER"
+    rules:
+    - "scala/endpoint/rule-WeakHostNameVerification"
+
+  # Endpoint
+  - id: "JAXWS_ENDPOINT"
+    rules:
+    - "scala/endpoint/rule-JaxWsEndpoint"
+  
+  - id: "JAXRS_ENDPOINT"
+    rules:
+    - "scala/endpoint/rule-JaxRsEndpoint"
+
+  # Cors
+  - id: "PERMISSIVE_CORS"
+    rules: 
+    - "scala/cors/rule-PermissiveCORS"
+    - "scala/cors/rule-PermissiveCORSInjection"
