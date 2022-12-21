@@ -1,7 +1,36 @@
 {
   "version": "14.0.4",
-  "vulnerabilities": [],
-  "dependency_files": [],
+  "vulnerabilities": [
+    {
+      "id": "e6a9349ea5e45b7c48edabccacccc606cd3fe1c7f76bf9bc75eaabbb570c2c2d",
+      "category": "sast",
+      "message": "Use of RSA Algorithm without OAEP",
+      "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
+      "cve": "semgrep_id:find_sec_bugs_scala.RSA_NO_PADDING-1:13:13",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/scala/example/Main.scala",
+        "start_line": 13
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs_scala.RSA_NO_PADDING-1",
+          "value": "find_sec_bugs_scala.RSA_NO_PADDING-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-780",
+          "value": "780",
+          "url": "https://cwe.mitre.org/data/definitions/780.html"
+        }
+      ]
+    }
+  ],
   "scan": {
     "analyzer": {
       "id": "semgrep",
@@ -22,8 +51,8 @@
       "version": "0.121.2"
     },
     "type": "sast",
-    "start_time": "2022-12-07T16:23:45",
-    "end_time": "2022-12-07T16:24:26",
+    "start_time": "2022-12-21T08:31:44",
+    "end_time": "2022-12-21T08:31:53",
     "status": "success"
   }
 }
