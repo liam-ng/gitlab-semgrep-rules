@@ -233,5 +233,24 @@ describe 'running image' do
       end
 
     end
+
+    context "with scala" do
+      context 'when using sbt' do
+        let(:project) { 'scala/sbt' }
+        let(:variables) do
+        {
+            'SAST_JAVA_VERSION': 11,
+        }
+        end
+        
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+              let(:recorded_report) { parse_expected_report(project) }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+    end
   end
 end

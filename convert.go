@@ -98,6 +98,8 @@ func ruleToIDs(ruleID string) []report.Identifier {
 		return generateIDs(subrules, generateGosecID)
 	case "find_sec_bugs":
 		return generateIDs(subrules, generateFindSecBugsID)
+	case "find_sec_bugs_scala":
+		return generateIDs(subrules, generateFindSecBugsID)
 	default:
 		return empty
 	}

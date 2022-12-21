@@ -128,10 +128,9 @@ csharp-dotnetcore-multisolution-qa:
 scala-sbt-qa:
   extends: .qa-downstream-sast
   variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/scala-sbt/gl-sast-report.json"
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/scala/sbt/gl-sast-report.json"
   trigger:
     project: gitlab-org/security-products/tests/scala-sbt
-
 # Commenting till the multi project repo supports the SAST test and QA stage https://gitlab.com/gitlab-org/security-products/tests/scala-sbt-multiproject/-/merge_requests/7
 # scala-sbt-multiproject-qa:
 #   extends: .qa-downstream-sast
