@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.0.0
+- Add support for Scala (!182)
+- Change file extension check from array based to map based (!182)
+
 ## v3.10.1
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`0.121.2` => [`1.1.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.1.0)] (!186)
 - upgrade `github.com/urfave/cli/v2` version [`v2.23.5` => [`v2.23.6`](https://github.com/urfave/cli/releases/tag/v2.23.6)] (!186)
