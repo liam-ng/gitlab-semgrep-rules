@@ -13,7 +13,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/App.java",
+        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
         "start_line": 29
       },
       "identifiers": [
@@ -47,7 +47,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/App.java",
+        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
         "start_line": 29
       },
       "identifiers": [
@@ -81,7 +81,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/App.java",
+        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
         "start_line": 41,
         "end_line": 42
       },
@@ -116,7 +116,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/App.java",
+        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
         "start_line": 42
       },
       "identifiers": [
@@ -150,7 +150,7 @@
         "name": "Semgrep"
       },
       "location": {
-        "file": "web/src/main/java/com/gitlab/security_products/App.java",
+        "file": "web/src/main/java/com/gitlab/security_products/tests/App.java",
         "start_line": 29
       },
       "identifiers": [
