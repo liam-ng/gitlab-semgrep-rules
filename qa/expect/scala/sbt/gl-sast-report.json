@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "e6a9349ea5e45b7c48edabccacccc606cd3fe1c7f76bf9bc75eaabbb570c2c2d",
+      "id": "83d92336eca2629942bbf9e69b6815296e42eef772a7a98867e79bcbde8b8cfb",
       "category": "sast",
       "message": "Use of RSA Algorithm without OAEP",
       "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
@@ -27,10 +27,16 @@
           "name": "CWE-780",
           "value": "780",
           "url": "https://cwe.mitre.org/data/definitions/780.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-RSA_NO_PADDING",
+          "value": "RSA_NO_PADDING"
         }
       ]
     }
   ],
+  "dependency_files": [],
   "scan": {
     "analyzer": {
       "id": "semgrep",
@@ -39,7 +45,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.9.3"
+      "version": "4.0.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -48,12 +54,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.121.2"
+      "version": "1.1.0"
     },
     "type": "sast",
-    "start_time": "2022-12-21T08:31:44",
-    "end_time": "2022-12-21T08:31:53",
+    "start_time": "2022-12-22T03:26:20",
+    "end_time": "2022-12-22T03:27:13",
     "status": "success"
   }
 }
-

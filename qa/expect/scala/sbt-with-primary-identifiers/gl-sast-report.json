@@ -2,85 +2,36 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "7874c1031e57d8d59483290de05f3007b0b0bdabcffdc6bdc41827021770a807",
+      "id": "83d92336eca2629942bbf9e69b6815296e42eef772a7a98867e79bcbde8b8cfb",
       "category": "sast",
-      "message": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
-      "description": "Perform bounds checking, use functions that limit length, or ensure that the size is larger\nthan the maximum possible length.\n",
-      "cve": "semgrep_id:flawfinder.char-1.TCHAR-1.wchar_t-1:4:4",
-      "severity": "Info",
+      "message": "Use of RSA Algorithm without OAEP",
+      "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
+      "cve": "semgrep_id:find_sec_bugs_scala.RSA_NO_PADDING-1:13:13",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "subdir/utils.c",
-        "start_line": 4
+        "file": "src/main/scala/example/Main.scala",
+        "start_line": 13
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "flawfinder.char-1.TCHAR-1.wchar_t-1",
-          "value": "flawfinder.char-1.TCHAR-1.wchar_t-1"
+          "name": "find_sec_bugs_scala.RSA_NO_PADDING-1",
+          "value": "find_sec_bugs_scala.RSA_NO_PADDING-1"
         },
         {
           "type": "cwe",
-          "name": "CWE-120",
-          "value": "120",
-          "url": "https://cwe.mitre.org/data/definitions/120.html"
+          "name": "CWE-780",
+          "value": "780",
+          "url": "https://cwe.mitre.org/data/definitions/780.html"
         },
         {
-          "type": "flawfinder_func_name",
-          "name": "Flawfinder - char",
-          "value": "char"
-        },
-        {
-          "type": "flawfinder_func_name",
-          "name": "Flawfinder - TCHAR",
-          "value": "TCHAR"
-        },
-        {
-          "type": "flawfinder_func_name",
-          "name": "Flawfinder - wchar_t",
-          "value": "wchar_t"
-        }
-      ]
-    },
-    {
-      "id": "3d5f210c0a848f0f81945e062a023ce7de6c06893b56c4e55e05484ed44faf82",
-      "category": "sast",
-      "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
-      "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
-      "cve": "semgrep_id:flawfinder.fopen-1.open-1:8:8",
-      "severity": "Info",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "subdir/utils.c",
-        "start_line": 8
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "flawfinder.fopen-1.open-1",
-          "value": "flawfinder.fopen-1.open-1"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-362",
-          "value": "362",
-          "url": "https://cwe.mitre.org/data/definitions/362.html"
-        },
-        {
-          "type": "flawfinder_func_name",
-          "name": "Flawfinder - fopen",
-          "value": "fopen"
-        },
-        {
-          "type": "flawfinder_func_name",
-          "name": "Flawfinder - open",
-          "value": "open"
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-RSA_NO_PADDING",
+          "value": "RSA_NO_PADDING"
         }
       ]
     }
@@ -2088,8 +2039,8 @@
       }
     ],
     "type": "sast",
-    "start_time": "2022-12-22T03:15:55",
-    "end_time": "2022-12-22T03:16:51",
+    "start_time": "2022-12-22T02:42:57",
+    "end_time": "2022-12-22T02:43:07",
     "status": "success"
   }
 }

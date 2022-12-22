@@ -1,5 +1,5 @@
-require "tmpdir"
-require "English"
+require 'tmpdir'
+require 'English'
 
 require 'gitlab_secure/integration_test/docker_runner'
 require 'gitlab_secure/integration_test/shared_examples/scan_shared_examples'
@@ -25,7 +25,7 @@ describe 'running image' do
     end
 
     it 'shows there is no match' do
-      expect(@output).to match(/no match in \/app/i)
+      expect(@output).to match(%r{no match in /app}i)
     end
 
     describe 'exit code' do
@@ -33,7 +33,6 @@ describe 'running image' do
     end
   end
 
-  # rubocop:disable RSpec/MultipleMemoizedHelpers
   context 'with test project' do
     def parse_expected_report(expectation_name)
       path = File.join(expectations_dir, expectation_name, 'gl-sast-report.json')
@@ -67,25 +66,26 @@ describe 'running image' do
         offline: offline,
         privileged: privileged,
         variables: global_vars.merge(variables),
-        report_filename: 'gl-sast-report.json')
+        report_filename: 'gl-sast-report.json'
+      )
     end
 
     let(:report) { scan.report }
 
-    context "with c" do
-      let(:project) { "c" }
+    context 'with c' do
+      let(:project) { 'c' }
 
       context 'by default' do
-        it_behaves_like "successful scan"
+        it_behaves_like 'successful scan'
 
-        describe "created report" do
-          it_behaves_like "non-empty report"
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
 
-          it_behaves_like "recorded report" do
+          it_behaves_like 'recorded report' do
             let(:recorded_report) { parse_expected_report(project + '/default') }
           end
 
-          it_behaves_like "valid report"
+          it_behaves_like 'valid report'
         end
       end
 
@@ -97,10 +97,10 @@ describe 'running image' do
         describe 'created report' do
           it_behaves_like 'non-empty report'
 
-          it_behaves_like "recorded report" do
-            let(:recorded_report) {
+          it_behaves_like 'recorded report' do
+            let(:recorded_report) do
               parse_expected_report('c/with-primary-identifiers')
-            }
+            end
           end
 
           it_behaves_like 'valid report'
@@ -117,7 +117,7 @@ describe 'running image' do
         describe 'created report' do
           it_behaves_like 'non-empty report'
 
-          it_behaves_like "recorded report" do
+          it_behaves_like 'recorded report' do
             let(:recorded_report) { parse_expected_report(project) }
           end
 
@@ -133,10 +133,10 @@ describe 'running image' do
         describe 'created report' do
           it_behaves_like 'non-empty report'
 
-          it_behaves_like "recorded report" do
-            let(:recorded_report) {
+          it_behaves_like 'recorded report' do
+            let(:recorded_report) do
               parse_expected_report('go/with-tracking')
-            }
+            end
           end
 
           it_behaves_like 'valid report'
@@ -155,10 +155,10 @@ describe 'running image' do
         describe 'created report' do
           it_behaves_like 'non-empty report'
 
-          it_behaves_like "recorded report" do
-            let(:recorded_report) {
+          it_behaves_like 'recorded report' do
+            let(:recorded_report) do
               parse_expected_report(project)
-            }
+            end
           end
 
           it_behaves_like 'valid report'
@@ -166,22 +166,21 @@ describe 'running image' do
       end
     end
 
-    context "with java" do
-
+    context 'with java' do
       context 'when using maven build-tool on Java 11' do
         let(:project) { 'java/maven' }
         let(:variables) do
           {
             'SAST_JAVA_VERSION': 11,
-            'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=11 -Dmaven.compiler.target=11 -DskipTests --batch-mode',
+            'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=11 -Dmaven.compiler.target=11 -DskipTests --batch-mode'
           }
         end
         describe 'created report' do
           it_behaves_like 'non-empty report'
-          it_behaves_like "recorded report" do
-            let(:recorded_report) {
+          it_behaves_like 'recorded report' do
+            let(:recorded_report) do
               parse_expected_report(project)
-            }
+            end
           end
           it_behaves_like 'valid report'
         end
@@ -197,10 +196,10 @@ describe 'running image' do
         end
         describe 'created report' do
           it_behaves_like 'non-empty report'
-          it_behaves_like "recorded report" do
-            let(:recorded_report) {
+          it_behaves_like 'recorded report' do
+            let(:recorded_report) do
               parse_expected_report(project)
-            }
+            end
           end
           it_behaves_like 'valid report'
         end
@@ -210,10 +209,10 @@ describe 'running image' do
         let(:project) { 'java/gradle' }
         describe 'created report' do
           it_behaves_like 'non-empty report'
-          it_behaves_like "recorded report" do
-            let(:recorded_report) {
+          it_behaves_like 'recorded report' do
+            let(:recorded_report) do
               parse_expected_report(project)
-            }
+            end
           end
           it_behaves_like 'valid report'
         end
@@ -223,34 +222,53 @@ describe 'running image' do
         let(:project) { 'java/maven-multimodules' }
         describe 'created report' do
           it_behaves_like 'non-empty report'
-          it_behaves_like "recorded report" do
-            let(:recorded_report) {
+          it_behaves_like 'recorded report' do
+            let(:recorded_report) do
               parse_expected_report(project)
-            }
+            end
           end
           it_behaves_like 'valid report'
         end
       end
-
     end
 
-    context "with scala" do
+    context 'with scala' do
       context 'when using sbt' do
         let(:project) { 'scala/sbt' }
         let(:variables) do
-        {
-            'SAST_JAVA_VERSION': 11,
-        }
+          {
+            'SAST_JAVA_VERSION': 17,
+            'GITLAB_FEATURES': ''
+          }
         end
-        
+
         describe 'created report' do
           it_behaves_like 'non-empty report'
-          it_behaves_like "recorded report" do
-              let(:recorded_report) { parse_expected_report(project) }
+          it_behaves_like 'recorded report' do
+            let(:recorded_report) { parse_expected_report(project) }
           end
           it_behaves_like 'valid report'
         end
+
+        context 'when using sbt with primary identifiers' do
+            let(:variables) do
+              {
+                'SAST_JAVA_VERSION': 17,
+                'GITLAB_FEATURES': 'sast_fp_reduction'
+              }
+            end
+    
+            describe 'created report' do
+              it_behaves_like 'non-empty report'
+              it_behaves_like 'recorded report' do
+                let(:recorded_report) { parse_expected_report('scala/sbt-with-primary-identifiers') }
+              end
+              it_behaves_like 'valid report'
+            end
+          end
       end
+
+      
     end
   end
 end
