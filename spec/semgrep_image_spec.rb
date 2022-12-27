@@ -35,8 +35,8 @@ describe 'running image' do
 
   # rubocop:disable RSpec/MultipleMemoizedHelpers
   context 'with test project' do
-    def parse_expected_report(expectation_name)
-      path = File.join(expectations_dir, expectation_name, 'gl-sast-report.json')
+    def parse_expected_report(expectation_name, report_name = 'gl-sast-report.json')
+      path = File.join(expectations_dir, expectation_name, report_name)
       JSON.parse(File.read(path))
     end
 
@@ -204,6 +204,21 @@ describe 'running image' do
           end
           it_behaves_like 'valid report'
         end
+
+        context 'with tracking fingerprint' do
+          let(:variables) do
+            { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+          end
+          describe 'created report' do
+            it_behaves_like 'non-empty report'
+            it_behaves_like 'recorded report' do
+              let(:recorded_report) {
+                parse_expected_report(project, 'gl-sast-report-incl-tracking.json')
+              }
+            end
+            it_behaves_like 'valid report'
+          end
+        end
       end
 
       context 'when using gradle build-tool' do
@@ -217,6 +232,21 @@ describe 'running image' do
           end
           it_behaves_like 'valid report'
         end
+
+        context 'with tracking fingerprint' do
+          let(:variables) do
+            { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+          end
+          describe 'created report' do
+            it_behaves_like 'non-empty report'
+            it_behaves_like 'recorded report' do
+              let(:recorded_report) {
+                parse_expected_report(project, 'gl-sast-report-incl-tracking.json')
+              }
+            end
+            it_behaves_like 'valid report'
+          end
+        end
       end
 
       context 'when using maven build-tool for multimodules' do
@@ -229,6 +259,21 @@ describe 'running image' do
             }
           end
           it_behaves_like 'valid report'
+        end
+
+        context 'with tracking fingerprint' do
+          let(:variables) do
+            { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+          end
+          describe 'created report' do
+            it_behaves_like 'non-empty report'
+            it_behaves_like 'recorded report' do
+              let(:recorded_report) {
+                parse_expected_report(project, 'gl-sast-report-incl-tracking.json')
+              }
+            end
+            it_behaves_like 'valid report'
+          end
         end
       end
 
