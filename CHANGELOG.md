@@ -1,6 +1,6 @@
 Semgrep analyzer changelog
 
-## v4.0.0
+## v3.11.0
 - Add support for Scala (!182)
 - Change file extension check from array based to map based (!182)
 
