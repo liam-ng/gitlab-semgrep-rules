@@ -1,0 +1,65 @@
+{
+  "version": "14.0.4",
+  "vulnerabilities": [
+    {
+      "id": "1bca4a3c36d9ace9e5c59556ae428e3252e964cc55e7115ac4faa2657ea9fcbb",
+      "category": "sast",
+      "message": "Improper Check for Unusual or Exceptional Conditions",
+      "description": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
+      "cve": "semgrep_id:bandit.B101:7:7",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/test_simple.py",
+        "start_line": 7
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B101",
+          "value": "bandit.B101",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B101"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-754",
+          "value": "754",
+          "url": "https://cwe.mitre.org/data/definitions/754.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B101",
+          "value": "B101"
+        }
+      ]
+    }
+  ],
+  "dependency_files": [],
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.9.3"
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "0.121.2"
+    },
+    "type": "sast",
+    "start_time": "2022-12-05T09:22:05",
+    "end_time": "2022-12-05T09:22:33",
+    "status": "success"
+  }
+}

@@ -1,0 +1,4 @@
+[semgrep]
+  [[semgrep.passthrough]]
+    type = "file"
+    value = "semgrep_rules/python.yml"

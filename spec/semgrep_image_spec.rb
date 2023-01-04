@@ -6,6 +6,7 @@ require 'gitlab_secure/integration_test/shared_examples/scan_shared_examples'
 require 'gitlab_secure/integration_test/shared_examples/report_shared_examples'
 require 'gitlab_secure/integration_test/spec_helper'
 
+
 describe 'running image' do
   let(:fixtures_dir) { 'qa/fixtures' }
   let(:expectations_dir) { 'qa/expect' }
@@ -35,6 +36,22 @@ describe 'running image' do
 
   # rubocop:disable RSpec/MultipleMemoizedHelpers
   context 'with test project' do
+
+    # `successful job` is a shared example for grouping the operations
+    # of running a successful scan and further validating the generated
+    # report against the expected report
+    shared_examples "successful job" do
+      it_behaves_like "successful scan"
+      describe "created report" do
+        it_behaves_like "non-empty report"
+        it_behaves_like "recorded report" do
+          let(:recorded_report) { parse_expected_report(project) }
+        end
+        it_behaves_like "valid report"
+      end
+    end
+
+
     def parse_expected_report(expectation_name)
       path = File.join(expectations_dir, expectation_name, 'gl-sast-report.json')
       JSON.parse(File.read(path))
@@ -233,5 +250,44 @@ describe 'running image' do
       end
 
     end
+
+    context 'with python' do
+      context 'when using pip package management' do
+        let(:project) { 'python/pip' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when using pipenv package management' do
+        let(:project) { 'python/pipenv' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when using pip package management for flask-based python project' do
+        let(:project) { 'python/pip-flask' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when using multi-module python project' do
+        let(:project) { 'python/pip-multi-project' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when adding custom rulesets in the project' do
+        let(:project) { 'python/pip-flask-custom-rulesets' }
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'sast_custom_rulesets' }
+        end
+        it_behaves_like 'successful job'
+      end
+
+      context 'when synthesizing rulesets in the project' do
+        let(:project) { 'python/pip-flask-custom-rulesets-with-passthrough' }
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'sast_custom_rulesets' }
+        end
+        it_behaves_like 'successful job'
+      end
+    end
+
   end
 end
