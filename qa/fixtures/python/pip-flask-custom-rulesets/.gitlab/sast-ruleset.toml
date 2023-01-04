@@ -1,0 +1,11 @@
+[semgrep]
+  [[semgrep.ruleset]]
+    disable = true
+    [semgrep.ruleset.identifier]
+      type = "semgrep_id"
+      value = "rules.bandit.B506"
+  [[semgrep.ruleset]]
+    disable = true
+    [semgrep.ruleset.identifier]
+      type = "owasp"
+      value = "A3"
