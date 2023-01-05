@@ -1,0 +1,185 @@
+{
+  "version": "14.0.4",
+  "vulnerabilities": [
+    {
+      "id": "e844c25716c33aa5999ed2b353fa58b6aae1fa7c7a9cd7bcb638f84c4c7ccd60",
+      "category": "sast",
+      "message": "Deserialization of Untrusted Data",
+      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Pythonobjects. A malicious actor could\nexploit this to run arbitrarycode. Use `safe_load()` instead.\n",
+      "cve": "semgrep_id:bandit.B506-1:329:329",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app.py",
+        "start_line": 329
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B506",
+          "value": "bandit.B506",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B506"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-502",
+          "value": "502",
+          "url": "https://cwe.mitre.org/data/definitions/502.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Insecure Deserialization",
+          "value": "A8"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B506",
+          "value": "B506"
+        }
+      ]
+    },
+    {
+      "id": "106fe4b0b1a4e6cc0fdc65195ed16813e525a5f6f880bd148c24589af06d6d57",
+      "category": "sast",
+      "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+      "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
+      "cve": "semgrep_id:bandit.B608-1:265:265",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app.py",
+        "start_line": 265
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B608",
+          "value": "bandit.B608",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B608"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-89",
+          "value": "89",
+          "url": "https://cwe.mitre.org/data/definitions/89.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Injection",
+          "value": "A1"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B608",
+          "value": "B608"
+        }
+      ]
+    },
+    {
+      "id": "52220e91cc460ccc28aa0ad8f4b11f17ffc6825ce2d5fb8fd7960bd8891af9d3",
+      "category": "sast",
+      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "cve": "semgrep_id:eslint.detect-eval-with-expression-1:10:10",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "static/main.js",
+        "start_line": 10
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.detect-eval-with-expression",
+          "value": "eslint.detect-eval-with-expression",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-eval-with-expression"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-95",
+          "value": "95",
+          "url": "https://cwe.mitre.org/data/definitions/95.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Injection",
+          "value": "A1"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-eval-with-expression",
+          "value": "security/detect-eval-with-expression"
+        }
+      ]
+    },
+    {
+      "id": "63fcfeb66af4e3c880203dce68a11ffb3e9b48c537935a50984c1f6746a6d293",
+      "category": "sast",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
+      "cve": "semgrep_id:eslint.detect-non-literal-regexp-1:15:15",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "static/main.js",
+        "start_line": 15
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-non-literal-regexp",
+          "value": "security/detect-non-literal-regexp"
+        }
+      ]
+    }
+  ],
+  "dependency_files": [],
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.12.0"
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "1.1.0"
+    },
+    "type": "sast",
+    "start_time": "2023-01-05T20:49:33",
+    "end_time": "2023-01-05T20:49:43",
+    "status": "success"
+  }
+}

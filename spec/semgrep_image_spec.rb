@@ -6,6 +6,7 @@ require 'gitlab_secure/integration_test/shared_examples/scan_shared_examples'
 require 'gitlab_secure/integration_test/shared_examples/report_shared_examples'
 require 'gitlab_secure/integration_test/spec_helper'
 
+
 describe 'running image' do
   let(:fixtures_dir) { 'qa/fixtures' }
   let(:expectations_dir) { 'qa/expect' }
@@ -35,8 +36,23 @@ describe 'running image' do
 
   # rubocop:disable RSpec/MultipleMemoizedHelpers
   context 'with test project' do
-    def parse_expected_report(expectation_name)
-      path = File.join(expectations_dir, expectation_name, 'gl-sast-report.json')
+
+    # `successful job` is a shared example for grouping the operations
+    # of running a successful scan and further validating the generated
+    # report against the expected report
+    shared_examples "successful job" do
+      it_behaves_like "successful scan"
+      describe "created report" do
+        it_behaves_like "non-empty report"
+        it_behaves_like "recorded report" do
+          let(:recorded_report) { parse_expected_report(project) }
+        end
+        it_behaves_like "valid report"
+      end
+    end
+
+    def parse_expected_report(expectation_name, report_name = "gl-sast-report.json")
+      path = File.join(expectations_dir, expectation_name, report_name)
       JSON.parse(File.read(path))
     end
 
@@ -46,7 +62,9 @@ describe 'running image' do
         # CI_PROJECT_DIR is needed for `post-analyzers/scripts` to
         # properly resolve file locations
         # https://gitlab.com/gitlab-org/security-products/post-analyzers/scripts/-/blob/25479eae03e423cd67f2493f23d0c4f9789cdd0e/start.sh#L2
-        'CI_PROJECT_DIR': '/app'
+        'CI_PROJECT_DIR': '/app',
+        'SEARCH_IGNORED_DIRS': 'bundle, node_modules, vendor, tmp', # remove test, tests
+        'SEARCH_MAX_DEPTH': 20
       }
     end
 
@@ -73,16 +91,36 @@ describe 'running image' do
     context "with c" do
       let(:project) { "c" }
 
-      it_behaves_like "successful scan"
+      context 'by default' do
+        it_behaves_like "successful scan"
 
-      describe "created report" do
-        it_behaves_like "non-empty report"
+        describe "created report" do
+          it_behaves_like "non-empty report"
 
-        it_behaves_like "recorded report" do
-          let(:recorded_report) { parse_expected_report(project) }
+          it_behaves_like "recorded report" do
+            let(:recorded_report) { parse_expected_report(project + '/default') }
+          end
+
+          it_behaves_like "valid report"
+        end
+      end
+
+      context 'when including primary_identifiers' do
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'sast_fp_reduction' }
         end
 
-        it_behaves_like "valid report"
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report('c/with-primary-identifiers')
+            }
+          end
+
+          it_behaves_like 'valid report'
+        end
       end
     end
 
@@ -121,6 +159,48 @@ describe 'running image' do
         end
       end
 
+      context 'when VET FP reduction for Go' do
+        context 'feature is enabled' do
+          let(:project) { 'go/fpreduction' }
+          let(:variables) do
+            {
+              'GITLAB_FEATURES': 'sast_fp_reduction',
+              'CI_PROJECT_ROOT_NAMESPACE': 'gitlab-org'
+            }
+          end
+          it_behaves_like 'successful scan'
+          describe 'created report' do
+            it_behaves_like 'non-empty report'
+            it_behaves_like 'recorded report' do
+              let(:recorded_report) {
+                parse_expected_report('go/with-fp-reduction', 'gl-sast-report-ff-enabled.json')
+              }
+            end
+
+            it_behaves_like 'valid report'
+          end
+        end
+
+        context 'feature is disabled' do
+          let(:project) { 'go/fpreduction' }
+          let(:variables) do
+            { 'CI_PROJECT_ROOT_NAMESPACE': 'gitlab-org' }
+          end
+
+          it_behaves_like 'successful scan'
+          describe 'created report' do
+            it_behaves_like 'non-empty report'
+            it_behaves_like 'recorded report' do
+                let(:recorded_report) {
+                  parse_expected_report('go/with-fp-reduction', 'gl-sast-report-ff-disabled.json')
+                }
+            end
+            it_behaves_like 'valid report'
+          end
+        end
+
+      end
+
       context 'when using ruleset synthesis' do
         let(:project) { 'go/custom-ruleset-synthesis' }
 
@@ -143,5 +223,112 @@ describe 'running image' do
         end
       end
     end
+
+    context "with java" do
+
+      context 'when using maven build-tool on Java 11' do
+        let(:project) { 'java/maven' }
+        let(:variables) do
+          {
+            'SAST_JAVA_VERSION': 11,
+            'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=11 -Dmaven.compiler.target=11 -DskipTests --batch-mode',
+          }
+        end
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+
+      context 'when using maven build-tool on Java 17' do
+        let(:project) { 'java/maven' }
+        let(:variables) do
+          {
+            'SAST_JAVA_VERSION': 17,
+            'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=17 -Dmaven.compiler.target=17 -DskipTests --batch-mode'
+          }
+        end
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+
+      context 'when using gradle build-tool' do
+        let(:project) { 'java/gradle' }
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+
+      context 'when using maven build-tool for multimodules' do
+        let(:project) { 'java/maven-multimodules' }
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+          it_behaves_like 'valid report'
+        end
+      end
+
+    end
+
+    context 'with python' do
+      context 'when using pip package management' do
+        let(:project) { 'python/pip' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when using pipenv package management' do
+        let(:project) { 'python/pipenv' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when using pip package management for flask-based python project' do
+        let(:project) { 'python/pip-flask' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when using multi-module python project' do
+        let(:project) { 'python/pip-multi-project' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when adding custom rulesets in the project' do
+        let(:project) { 'python/pip-flask-custom-rulesets' }
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'sast_custom_rulesets' }
+        end
+        it_behaves_like 'successful job'
+      end
+
+      context 'when synthesizing rulesets in the project' do
+        let(:project) { 'python/pip-flask-custom-rulesets-with-passthrough' }
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'sast_custom_rulesets' }
+        end
+        it_behaves_like 'successful job'
+      end
+    end
+
   end
 end

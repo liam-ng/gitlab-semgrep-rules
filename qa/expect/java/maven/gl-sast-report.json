@@ -1,0 +1,270 @@
+{
+  "version": "14.0.4",
+  "vulnerabilities": [
+    {
+      "id": "2c91dce9211e2923209fdf2c879b40b78b2881f9a5f0f1d5898c1cf84bf30e7b",
+      "category": "sast",
+      "message": "Missing Support for Integrity Check",
+      "description": "The ciphertext produced is susceptible to alteration by an adversary. This mean that the\ncipher provides no way to detect that the data has been tampered with. If the ciphertext can be\ncontrolled by an attacker, it could be altered without detection.\n",
+      "cve": "semgrep_id:find_sec_bugs.CIPHER_INTEGRITY-1:29:29",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.CIPHER_INTEGRITY-1",
+          "value": "find_sec_bugs.CIPHER_INTEGRITY-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY"
+        }
+      ]
+    },
+    {
+      "id": "459813bba0cba5c28e6aff62726b3d8b6cabaab9d7d3c3ca2d3a08bea3ffaacf",
+      "category": "sast",
+      "message": "Inadequate Encryption Strength",
+      "description": "An authentication cipher mode which provides better confidentiality of the encrypted data\nshould be used instead of Electronic Code Book (ECB) mode, which does not provide good\nconfidentiality. Specifically, ECB mode produces the same output for the same input each time.\nThis allows an attacker to intercept and replay the data.\n",
+      "cve": "semgrep_id:find_sec_bugs.ECB_MODE-1:29:29",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.ECB_MODE-1",
+          "value": "find_sec_bugs.ECB_MODE-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-326",
+          "value": "326",
+          "url": "https://cwe.mitre.org/data/definitions/326.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE"
+        }
+      ]
+    },
+    {
+      "id": "e75bed960540eb8901a986e9a120d8c9018bc431e104d155e110fdf153ea8270",
+      "category": "sast",
+      "message": "Use of Insufficiently Random Values",
+      "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
+      "cve": "semgrep_id:find_sec_bugs.PREDICTABLE_RANDOM-1:41:42",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 41,
+        "end_line": 42
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
+          "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM"
+        }
+      ]
+    },
+    {
+      "id": "b64c01e31a3f44c2be3af20d4effe6c2f7df6583960b0de6ee2aa07f971f9834",
+      "category": "sast",
+      "message": "Use of Insufficiently Random Values",
+      "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
+      "cve": "semgrep_id:find_sec_bugs.PREDICTABLE_RANDOM-1:42:42",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 42
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
+          "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM"
+        }
+      ]
+    },
+    {
+      "id": "44182d51d2e5b2684461204e6eca7649823312bb3f14b145fb2412f6b5c92ba3",
+      "category": "sast",
+      "message": "Use of Insufficiently Random Values",
+      "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
+      "cve": "semgrep_id:find_sec_bugs.PREDICTABLE_RANDOM-1:47:48",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 47,
+        "end_line": 48
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
+          "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM"
+        }
+      ]
+    },
+    {
+      "id": "e0894ee4f2888332a08ad2889f74333972fc201cfa44846d38972eb54546d274",
+      "category": "sast",
+      "message": "Use of Insufficiently Random Values",
+      "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
+      "cve": "semgrep_id:find_sec_bugs.PREDICTABLE_RANDOM-1:48:48",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 48
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
+          "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM"
+        }
+      ]
+    },
+    {
+      "id": "d10e51da80914c8be5a21beec2c3b04f387ae8c1690603cc61b664242f0b0cdd",
+      "category": "sast",
+      "message": "Use of RSA Algorithm without OAEP",
+      "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
+      "cve": "semgrep_id:find_sec_bugs.RSA_NO_PADDING-1:29:29",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.RSA_NO_PADDING-1",
+          "value": "find_sec_bugs.RSA_NO_PADDING-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-780",
+          "value": "780",
+          "url": "https://cwe.mitre.org/data/definitions/780.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-RSA_NO_PADDING",
+          "value": "RSA_NO_PADDING"
+        }
+      ]
+    }
+  ],
+  "dependency_files": [],
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.9.2"
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "0.121.2"
+    },
+    "type": "sast",
+    "start_time": "2022-11-25T09:20:46",
+    "end_time": "2022-11-25T09:21:18",
+    "status": "success"
+  }
+}

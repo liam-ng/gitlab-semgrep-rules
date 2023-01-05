@@ -3,6 +3,7 @@ variables:
   MAX_IMAGE_SIZE_MB: 200
   MAX_IMAGE_SIZE_MB_FIPS: 1090
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
+  SAST_EXCLUDED_PATHS: "qa, spec, test, tests, tmp, testdata"
   SEARCH_MAX_DEPTH: 20
 
 include:
@@ -36,62 +37,6 @@ integration-test-fips:
     SAST_EXCLUDED_ANALYZERS: "bandit,eslint"
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
 
-python-pip-flask-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip-flask
-
-python-pip-flask-custom-rulesets-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask-custom-rulesets/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip-flask
-    branch: custom-rulesets-FREEZE
-
-python-pip-flask-custom-rulesets-with-passthrough-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask-custom-rulesets-with-passthrough/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip-flask
-    branch: custom-rulesets-with-passthrough-FREEZE
-
-python-pip-flask-custom-rulesets-with-raw-passthrough-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-flask-custom-rulesets-with-passthrough/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip-flask
-    branch: custom-rulesets-with-raw-passthrough-FREEZE
-
-python-pip-multi-project-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip-multi-project/gl-sast-report.json"
-    SAST_EXCLUDED_ANALYZERS: "eslint"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip
-    branch: multi-project-FREEZE
-
-python-pip-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pip/gl-sast-report.json"
-    SAST_EXCLUDED_ANALYZERS: "eslint"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pip
-
-python-pipenv-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/python-pipenv/gl-sast-report.json"
-    SAST_EXCLUDED_ANALYZERS: "eslint"
-  trigger:
-    project: gitlab-org/security-products/tests/python-pipenv
-
 js-qa:
   extends: .qa-downstream-sast
   variables:
@@ -100,21 +45,6 @@ js-qa:
   trigger:
     project: gitlab-org/security-products/tests/js
     branch: jsx-FREEZE
-
-java-maven-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/java-maven
-
-java-maven-multimodules-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven-multimodules/gl-sast-report.json"
-  trigger:
-    project: gitlab-org/security-products/tests/java-maven-multimodules
-    branch: semgrep-migration-FREEZE
 
 csharp-dotnetcore-multiproject-qa:
   extends: .qa-downstream-sast

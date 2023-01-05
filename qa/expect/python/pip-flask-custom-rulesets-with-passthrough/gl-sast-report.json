@@ -1,0 +1,64 @@
+{
+  "version": "14.0.4",
+  "vulnerabilities": [
+    {
+      "id": "49c8a407197da4b6dff8da5d3bca72218196aff824e5ec5898c9e309faec6a21",
+      "category": "sast",
+      "message": "Deserialization of Untrusted Data",
+      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
+      "cve": "semgrep_id:bandit.B506:329:329",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app.py",
+        "start_line": 329
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B506",
+          "value": "bandit.B506"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-502",
+          "value": "502",
+          "url": "https://cwe.mitre.org/data/definitions/502.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Insecure Deserialization",
+          "value": "A8"
+        }
+      ]
+    }
+  ],
+  "dependency_files": [],
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.12.0"
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "1.1.0"
+    },
+    "type": "sast",
+    "start_time": "2023-01-05T20:49:44",
+    "end_time": "2023-01-05T20:49:46",
+    "status": "success"
+  }
+}

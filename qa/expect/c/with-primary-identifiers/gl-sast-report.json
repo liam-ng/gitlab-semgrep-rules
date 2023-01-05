@@ -1,0 +1,1650 @@
+{
+  "version": "14.0.4",
+  "vulnerabilities": [
+    {
+      "id": "7874c1031e57d8d59483290de05f3007b0b0bdabcffdc6bdc41827021770a807",
+      "category": "sast",
+      "message": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
+      "description": "Perform bounds checking, use functions that limit length, or ensure that the size is larger\nthan the maximum possible length.\n",
+      "cve": "semgrep_id:flawfinder.char-1.TCHAR-1.wchar_t-1:4:4",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "subdir/utils.c",
+        "start_line": 4
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "flawfinder.char-1.TCHAR-1.wchar_t-1",
+          "value": "flawfinder.char-1.TCHAR-1.wchar_t-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-120",
+          "value": "120",
+          "url": "https://cwe.mitre.org/data/definitions/120.html"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - char",
+          "value": "char"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - TCHAR",
+          "value": "TCHAR"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - wchar_t",
+          "value": "wchar_t"
+        }
+      ]
+    },
+    {
+      "id": "3d5f210c0a848f0f81945e062a023ce7de6c06893b56c4e55e05484ed44faf82",
+      "category": "sast",
+      "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
+      "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
+      "cve": "semgrep_id:flawfinder.fopen-1.open-1:8:8",
+      "severity": "Info",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "subdir/utils.c",
+        "start_line": 8
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "flawfinder.fopen-1.open-1",
+          "value": "flawfinder.fopen-1.open-1"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-362",
+          "value": "362",
+          "url": "https://cwe.mitre.org/data/definitions/362.html"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - fopen",
+          "value": "fopen"
+        },
+        {
+          "type": "flawfinder_func_name",
+          "name": "Flawfinder - open",
+          "value": "open"
+        }
+      ]
+    }
+  ],
+  "dependency_files": [],
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.12.0"
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "1.1.0"
+    },
+    "primary_identifiers": [
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B101-1",
+        "value": "bandit.B101-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B102-1",
+        "value": "bandit.B102-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B103-1",
+        "value": "bandit.B103-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B104-1",
+        "value": "bandit.B104-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B105-1",
+        "value": "bandit.B105-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B106-1",
+        "value": "bandit.B106-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B107-1",
+        "value": "bandit.B107-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B108-1",
+        "value": "bandit.B108-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B108-2",
+        "value": "bandit.B108-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B110-1",
+        "value": "bandit.B110-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B112-1",
+        "value": "bandit.B112-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B201-1",
+        "value": "bandit.B201-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B301-1",
+        "value": "bandit.B301-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B301-2",
+        "value": "bandit.B301-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B301-3",
+        "value": "bandit.B301-3"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B301-4",
+        "value": "bandit.B301-4"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B302-1",
+        "value": "bandit.B302-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B303-1",
+        "value": "bandit.B303-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B303-2",
+        "value": "bandit.B303-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B303-3",
+        "value": "bandit.B303-3"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B303-4",
+        "value": "bandit.B303-4"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B303-5",
+        "value": "bandit.B303-5"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B303-6",
+        "value": "bandit.B303-6"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B303-7",
+        "value": "bandit.B303-7"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B303-8",
+        "value": "bandit.B303-8"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B304-1",
+        "value": "bandit.B304-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B304-2",
+        "value": "bandit.B304-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B304-3",
+        "value": "bandit.B304-3"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B304-4",
+        "value": "bandit.B304-4"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B304-5",
+        "value": "bandit.B304-5"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B304-6",
+        "value": "bandit.B304-6"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B304-7",
+        "value": "bandit.B304-7"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B304-8",
+        "value": "bandit.B304-8"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B305-1",
+        "value": "bandit.B305-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B306-1",
+        "value": "bandit.B306-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B307-1",
+        "value": "bandit.B307-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B309-1",
+        "value": "bandit.B309-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B310-1",
+        "value": "bandit.B310-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B310-2",
+        "value": "bandit.B310-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B311-1",
+        "value": "bandit.B311-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B312-1",
+        "value": "bandit.B312-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B313-1",
+        "value": "bandit.B313-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B314-1",
+        "value": "bandit.B314-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B315-1",
+        "value": "bandit.B315-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B316-1",
+        "value": "bandit.B316-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B317-1",
+        "value": "bandit.B317-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B318-1",
+        "value": "bandit.B318-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B319-1",
+        "value": "bandit.B319-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B320-1",
+        "value": "bandit.B320-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B321-1",
+        "value": "bandit.B321-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B323-1",
+        "value": "bandit.B323-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B324-1",
+        "value": "bandit.B324-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B325-1",
+        "value": "bandit.B325-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B401-1",
+        "value": "bandit.B401-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B402-1",
+        "value": "bandit.B402-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B403-1",
+        "value": "bandit.B403-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B404-1",
+        "value": "bandit.B404-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B405-1",
+        "value": "bandit.B405-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B406-1",
+        "value": "bandit.B406-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B407-1",
+        "value": "bandit.B407-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B408-1",
+        "value": "bandit.B408-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B409-1",
+        "value": "bandit.B409-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B410-1",
+        "value": "bandit.B410-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B411-1",
+        "value": "bandit.B411-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B412-1",
+        "value": "bandit.B412-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B413-1",
+        "value": "bandit.B413-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B501-1",
+        "value": "bandit.B501-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B502-1",
+        "value": "bandit.B502-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B504-1",
+        "value": "bandit.B504-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B505-1",
+        "value": "bandit.B505-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B505-2",
+        "value": "bandit.B505-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B506-1",
+        "value": "bandit.B506-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B507-1",
+        "value": "bandit.B507-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B601-1",
+        "value": "bandit.B601-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B602-1",
+        "value": "bandit.B602-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B603-1",
+        "value": "bandit.B603-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B604-1",
+        "value": "bandit.B604-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B605-1",
+        "value": "bandit.B605-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B606-1",
+        "value": "bandit.B606-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B607-1",
+        "value": "bandit.B607-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B608-1",
+        "value": "bandit.B608-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B609-1",
+        "value": "bandit.B609-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B610-1",
+        "value": "bandit.B610-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B611-1",
+        "value": "bandit.B611-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B701-1",
+        "value": "bandit.B701-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B702-1",
+        "value": "bandit.B702-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B703-1",
+        "value": "bandit.B703-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-buffer-noassert-1",
+        "value": "eslint.detect-buffer-noassert-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-child-process-1",
+        "value": "eslint.detect-child-process-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-disable-mustache-escape-1",
+        "value": "eslint.detect-disable-mustache-escape-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-eval-with-expression-1",
+        "value": "eslint.detect-eval-with-expression-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-no-csrf-before-method-override-1",
+        "value": "eslint.detect-no-csrf-before-method-override-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-non-literal-fs-filename-1",
+        "value": "eslint.detect-non-literal-fs-filename-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-non-literal-regexp-1",
+        "value": "eslint.detect-non-literal-regexp-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-non-literal-require-1",
+        "value": "eslint.detect-non-literal-require-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-object-injection-1",
+        "value": "eslint.detect-object-injection-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-possible-timing-attacks-1",
+        "value": "eslint.detect-possible-timing-attacks-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-pseudoRandomBytes-1",
+        "value": "eslint.detect-pseudoRandomBytes-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.react-dangerouslysetinnerhtml-1",
+        "value": "eslint.react-dangerouslysetinnerhtml-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.react-missing-noopener-1",
+        "value": "eslint.react-missing-noopener-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.AWS_QUERY_INJECTION-1",
+        "value": "find_sec_bugs.AWS_QUERY_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.BAD_HEXA_CONVERSION-1",
+        "value": "find_sec_bugs.BAD_HEXA_CONVERSION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.BEAN_PROPERTY_INJECTION-1",
+        "value": "find_sec_bugs.BEAN_PROPERTY_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.BLOWFISH_KEY_SIZE-1",
+        "value": "find_sec_bugs.BLOWFISH_KEY_SIZE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CIPHER_INTEGRITY-1",
+        "value": "find_sec_bugs.CIPHER_INTEGRITY-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.COMMAND_INJECTION-1",
+        "value": "find_sec_bugs.COMMAND_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.COOKIE_PERSISTENT-1",
+        "value": "find_sec_bugs.COOKIE_PERSISTENT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.COOKIE_USAGE-1",
+        "value": "find_sec_bugs.COOKIE_USAGE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CRLF_INJECTION_LOGS-1",
+        "value": "find_sec_bugs.CRLF_INJECTION_LOGS-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CUSTOM_INJECTION-1",
+        "value": "find_sec_bugs.CUSTOM_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CUSTOM_INJECTION-2",
+        "value": "find_sec_bugs.CUSTOM_INJECTION-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CUSTOM_MESSAGE_DIGEST-1",
+        "value": "find_sec_bugs.CUSTOM_MESSAGE_DIGEST-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION-1",
+        "value": "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DEFAULT_HTTP_CLIENT-1",
+        "value": "find_sec_bugs.DEFAULT_HTTP_CLIENT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DES_USAGE-1",
+        "value": "find_sec_bugs.DES_USAGE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3",
+        "value": "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2",
+        "value": "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.ECB_MODE-1",
+        "value": "find_sec_bugs.ECB_MODE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.EL_INJECTION-1",
+        "value": "find_sec_bugs.EL_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.EXTERNAL_CONFIG_CONTROL-1",
+        "value": "find_sec_bugs.EXTERNAL_CONFIG_CONTROL-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.FILE_UPLOAD_FILENAME-1",
+        "value": "find_sec_bugs.FILE_UPLOAD_FILENAME-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.FORMAT_STRING_MANIPULATION-1",
+        "value": "find_sec_bugs.FORMAT_STRING_MANIPULATION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HARD_CODE_PASSWORD-1",
+        "value": "find_sec_bugs.HARD_CODE_PASSWORD-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION-1",
+        "value": "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE-1",
+        "value": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER-1",
+        "value": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HTTPONLY_COOKIE-1",
+        "value": "find_sec_bugs.HTTPONLY_COOKIE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HTTP_PARAMETER_POLLUTION-1",
+        "value": "find_sec_bugs.HTTP_PARAMETER_POLLUTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HTTP_RESPONSE_SPLITTING-1",
+        "value": "find_sec_bugs.HTTP_RESPONSE_SPLITTING-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.IMPROPER_UNICODE-1",
+        "value": "find_sec_bugs.IMPROPER_UNICODE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE-1",
+        "value": "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.INSECURE_COOKIE-1",
+        "value": "find_sec_bugs.INSECURE_COOKIE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.INSECURE_SMTP_SSL-1",
+        "value": "find_sec_bugs.INSECURE_SMTP_SSL-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.JAXRS_ENDPOINT-1",
+        "value": "find_sec_bugs.JAXRS_ENDPOINT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.JAXWS_ENDPOINT-1",
+        "value": "find_sec_bugs.JAXWS_ENDPOINT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.LDAP_ANONYMOUS-1",
+        "value": "find_sec_bugs.LDAP_ANONYMOUS-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.LDAP_ENTRY_POISONING-1",
+        "value": "find_sec_bugs.LDAP_ENTRY_POISONING-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.LDAP_INJECTION-1",
+        "value": "find_sec_bugs.LDAP_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.MALICIOUS_XSLT-1",
+        "value": "find_sec_bugs.MALICIOUS_XSLT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.MODIFICATION_AFTER_VALIDATION-1",
+        "value": "find_sec_bugs.MODIFICATION_AFTER_VALIDATION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION-1",
+        "value": "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.NULL_CIPHER-1",
+        "value": "find_sec_bugs.NULL_CIPHER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.OGNL_INJECTION-1",
+        "value": "find_sec_bugs.OGNL_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-1",
+        "value": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2",
+        "value": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PADDING_ORACLE-1",
+        "value": "find_sec_bugs.PADDING_ORACLE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PATH_TRAVERSAL_IN-1",
+        "value": "find_sec_bugs.PATH_TRAVERSAL_IN-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1",
+        "value": "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PERMISSIVE_CORS-1",
+        "value": "find_sec_bugs.PERMISSIVE_CORS-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PERMISSIVE_CORS-2",
+        "value": "find_sec_bugs.PERMISSIVE_CORS-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
+        "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL-1",
+        "value": "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL-1",
+        "value": "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1",
+        "value": "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.RPC_ENABLED_EXTENSIONS-1",
+        "value": "find_sec_bugs.RPC_ENABLED_EXTENSIONS-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.RSA_KEY_SIZE-1",
+        "value": "find_sec_bugs.RSA_KEY_SIZE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.RSA_NO_PADDING-1",
+        "value": "find_sec_bugs.RSA_NO_PADDING-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SAML_IGNORE_COMMENTS-1",
+        "value": "find_sec_bugs.SAML_IGNORE_COMMENTS-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1",
+        "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2",
+        "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1",
+        "value": "find_sec_bugs.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SMTP_HEADER_INJECTION-1",
+        "value": "find_sec_bugs.SMTP_HEADER_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1",
+        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SSL_CONTEXT-1",
+        "value": "find_sec_bugs.SSL_CONTEXT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.STRUTS_FORM_VALIDATION-1",
+        "value": "find_sec_bugs.STRUTS_FORM_VALIDATION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.TDES_USAGE-1",
+        "value": "find_sec_bugs.TDES_USAGE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1",
+        "value": "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.TRUST_BOUNDARY_VIOLATION-1",
+        "value": "find_sec_bugs.TRUST_BOUNDARY_VIOLATION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1",
+        "value": "find_sec_bugs.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.UNVALIDATED_REDIRECT-1.URL_REWRITING-1",
+        "value": "find_sec_bugs.UNVALIDATED_REDIRECT-1.URL_REWRITING-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.URLCONNECTION_SSRF_FD-1",
+        "value": "find_sec_bugs.URLCONNECTION_SSRF_FD-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.WEAK_FILENAMEUTILS-1",
+        "value": "find_sec_bugs.WEAK_FILENAMEUTILS-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1",
+        "value": "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5-1.WEAK_MESSAGE_DIGEST_SHA1-1",
+        "value": "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5-1.WEAK_MESSAGE_DIGEST_SHA1-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.WICKET_XSS1-1",
+        "value": "find_sec_bugs.WICKET_XSS1-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XML_DECODER-1",
+        "value": "find_sec_bugs.XML_DECODER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XPATH_INJECTION-1",
+        "value": "find_sec_bugs.XPATH_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1",
+        "value": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XSS_REQUEST_WRAPPER-1",
+        "value": "find_sec_bugs.XSS_REQUEST_WRAPPER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XSS_SERVLET-1",
+        "value": "find_sec_bugs.XSS_SERVLET-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XSS_SERVLET-2.XSS_SERVLET_PARAMETER-1",
+        "value": "find_sec_bugs.XSS_SERVLET-2.XSS_SERVLET_PARAMETER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1",
+        "value": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_SAXPARSER-1",
+        "value": "find_sec_bugs.XXE_SAXPARSER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_XMLREADER-1",
+        "value": "find_sec_bugs.XXE_XMLREADER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_XMLSTREAMREADER-1",
+        "value": "find_sec_bugs.XXE_XMLSTREAMREADER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1",
+        "value": "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.AddAccessAllowedAce-1",
+        "value": "flawfinder.AddAccessAllowedAce-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.CreateProcess-1",
+        "value": "flawfinder.CreateProcess-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.CreateProcessAsUser-1.CreateProcessWithLogon-1",
+        "value": "flawfinder.CreateProcessAsUser-1.CreateProcessWithLogon-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.EVP_des_ecb-1.EVP_des_cbc-1.EVP_des_cfb-1.EVP_des_ofb-1.EVP_desx_cbc-1",
+        "value": "flawfinder.EVP_des_ecb-1.EVP_des_cbc-1.EVP_des_cfb-1.EVP_des_ofb-1.EVP_desx_cbc-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.EVP_rc4_40-1.EVP_rc2_40_cbc-1.EVP_rc2_64_cbc-1",
+        "value": "flawfinder.EVP_rc4_40-1.EVP_rc2_40_cbc-1.EVP_rc2_64_cbc-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.GetTempFileName-1",
+        "value": "flawfinder.GetTempFileName-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.InitializeCriticalSection-1",
+        "value": "flawfinder.InitializeCriticalSection-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.LoadLibrary-1",
+        "value": "flawfinder.LoadLibrary-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.LoadLibraryEx-1",
+        "value": "flawfinder.LoadLibraryEx-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.MultiByteToWideChar-1",
+        "value": "flawfinder.MultiByteToWideChar-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.RpcImpersonateClient-1.ImpersonateLoggedOnUser-1.CoImpersonateClient-1.ImpersonateNamedPipeClient-1.ImpersonateDdeClientWindow-1.ImpersonateSecurityContext-1.SetThreadToken-1",
+        "value": "flawfinder.RpcImpersonateClient-1.ImpersonateLoggedOnUser-1.CoImpersonateClient-1.ImpersonateNamedPipeClient-1.ImpersonateDdeClientWindow-1.ImpersonateSecurityContext-1.SetThreadToken-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.SetSecurityDescriptorDacl-1",
+        "value": "flawfinder.SetSecurityDescriptorDacl-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.StrCat-1.StrCatA-1.StrcatW-1.lstrcatA-1.lstrcatW-1.strCatBuff-1.StrCatBuffA-1.StrCatBuffW-1.StrCatChainW-1._tccat-1._mbccat-1._ftcscat-1.StrCatN-1.StrCatNA-1.StrCatNW-1.StrNCat-1.StrNCatA-1.StrNCatW-1.lstrncat-1.lstrcatnA-1.lstrcatnW-1",
+        "value": "flawfinder.StrCat-1.StrCatA-1.StrcatW-1.lstrcatA-1.lstrcatW-1.strCatBuff-1.StrCatBuffA-1.StrCatBuffW-1.StrCatChainW-1._tccat-1._mbccat-1._ftcscat-1.StrCatN-1.StrCatNA-1.StrCatNW-1.StrNCat-1.StrNCatA-1.StrNCatW-1.lstrncat-1.lstrcatnA-1.lstrcatnW-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.access-1",
+        "value": "flawfinder.access-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.atoi-1.atol-1._wtoi-1._wtoi64-1",
+        "value": "flawfinder.atoi-1.atol-1._wtoi-1._wtoi64-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.char-1.TCHAR-1.wchar_t-1",
+        "value": "flawfinder.char-1.TCHAR-1.wchar_t-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.chgrp-1",
+        "value": "flawfinder.chgrp-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.chmod-1",
+        "value": "flawfinder.chmod-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.chown-1",
+        "value": "flawfinder.chown-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.chroot-1",
+        "value": "flawfinder.chroot-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.crypt-1.crypt_r-1",
+        "value": "flawfinder.crypt-1.crypt_r-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.cuserid-1",
+        "value": "flawfinder.cuserid-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.drand48-1.erand48-1.jrand48-1.lcong48-1.lrand48-1.mrand48-1.nrand48-1.random-1.seed48-1.setstate-1.srand-1.strfry-1.srandom-1.g_rand_boolean-1.g_rand_int-1.g_rand_int_range-1.g_rand_double-1.g_rand_double_range-1.g_random_boolean-1.g_random_int-1.g_random_int_range-1.g_random_double-1.g_random_double_range-1",
+        "value": "flawfinder.drand48-1.erand48-1.jrand48-1.lcong48-1.lrand48-1.mrand48-1.nrand48-1.random-1.seed48-1.setstate-1.srand-1.strfry-1.srandom-1.g_rand_boolean-1.g_rand_int-1.g_rand_int_range-1.g_rand_double-1.g_rand_double_range-1.g_random_boolean-1.g_random_int-1.g_random_int_range-1.g_random_double-1.g_random_double_range-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.equal-1.mismatch-1.is_permutation-1",
+        "value": "flawfinder.equal-1.mismatch-1.is_permutation-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.execl-1.execlp-1.execle-1.execv-1.execvp-1.popen-1.WinExec-1.ShellExecute-1",
+        "value": "flawfinder.execl-1.execlp-1.execle-1.execv-1.execvp-1.popen-1.WinExec-1.ShellExecute-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.fopen-1.open-1",
+        "value": "flawfinder.fopen-1.open-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.fprintf-1.vfprintf-1._ftprintf-1._vftprintf-1.fwprintf-1.fvwprintf-1",
+        "value": "flawfinder.fprintf-1.vfprintf-1._ftprintf-1._vftprintf-1.fwprintf-1.fvwprintf-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.fscanf-1.sscanf-1.vsscanf-1.vfscanf-1._ftscanf-1.fwscanf-1.vfwscanf-1.vswscanf-1",
+        "value": "flawfinder.fscanf-1.sscanf-1.vsscanf-1.vfscanf-1._ftscanf-1.fwscanf-1.vfwscanf-1.vswscanf-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.g_get_home_dir-1",
+        "value": "flawfinder.g_get_home_dir-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.g_get_tmp_dir-1",
+        "value": "flawfinder.g_get_tmp_dir-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.getchar-1.fgetc-1.getc-1.read-1._gettc-1",
+        "value": "flawfinder.getchar-1.fgetc-1.getc-1.read-1._gettc-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.getenv-1.curl_getenv-1",
+        "value": "flawfinder.getenv-1.curl_getenv-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.getlogin-1",
+        "value": "flawfinder.getlogin-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.getopt-1.getopt_long-1",
+        "value": "flawfinder.getopt-1.getopt_long-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.getpass-1",
+        "value": "flawfinder.getpass-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.getpw-1",
+        "value": "flawfinder.getpw-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.gets-1._getts-1",
+        "value": "flawfinder.gets-1._getts-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.getwd-1",
+        "value": "flawfinder.getwd-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.gsignal-1.ssignal-1",
+        "value": "flawfinder.gsignal-1.ssignal-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.lstrcat-1.wcscat-1._tcscat-1._mbscat-1",
+        "value": "flawfinder.lstrcat-1.wcscat-1._tcscat-1._mbscat-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.lstrcatn-1.wcsncat-1._tcsncat-1._mbsnbcat-1",
+        "value": "flawfinder.lstrcatn-1.wcsncat-1._tcsncat-1._mbsnbcat-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.lstrcpy-1.wcscpy-1._tcscpy-1._mbscpy-1",
+        "value": "flawfinder.lstrcpy-1.wcscpy-1._tcscpy-1._mbscpy-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.lstrcpyn-1.wcsncpy-1._tcsncpy-1._mbsnbcpy-1",
+        "value": "flawfinder.lstrcpyn-1.wcsncpy-1._tcsncpy-1._mbsnbcpy-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.memalign-1",
+        "value": "flawfinder.memalign-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.memcpy-1.CopyMemory-1.bcopy-1",
+        "value": "flawfinder.memcpy-1.CopyMemory-1.bcopy-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.mkstemp-1",
+        "value": "flawfinder.mkstemp-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.mktemp-1",
+        "value": "flawfinder.mktemp-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.printf-1.vprintf-1.vwprintf-1.vfwprintf-1._vtprintf-1.wprintf-1",
+        "value": "flawfinder.printf-1.vprintf-1.vwprintf-1.vfwprintf-1._vtprintf-1.wprintf-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.readlink-1",
+        "value": "flawfinder.readlink-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.realpath-1",
+        "value": "flawfinder.realpath-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.scanf-1.vscanf-1.wscanf-1._tscanf-1.vwscanf-1",
+        "value": "flawfinder.scanf-1.vscanf-1.wscanf-1._tscanf-1.vwscanf-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.snprintf-1.vsnprintf-1._snprintf-1._sntprintf-1._vsntprintf-1",
+        "value": "flawfinder.snprintf-1.vsnprintf-1._snprintf-1._sntprintf-1._vsntprintf-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.sprintf-1.vsprintf-1.swprintf-1.vswprintf-1._stprintf-1._vstprintf-1",
+        "value": "flawfinder.sprintf-1.vsprintf-1.swprintf-1.vswprintf-1._stprintf-1._vstprintf-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strcat-1",
+        "value": "flawfinder.strcat-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strccpy-1.strcadd-1",
+        "value": "flawfinder.strccpy-1.strcadd-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strcpy-1",
+        "value": "flawfinder.strcpy-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strcpyA-1.strcpyW-1.StrCpy-1.StrCpyA-1.lstrcpyA-1.lstrcpyW-1._tccpy-1._mbccpy-1._ftcscpy-1._mbsncpy-1.StrCpyN-1.StrCpyNA-1.StrCpyNW-1.StrNCpy-1.strcpynA-1.StrNCpyA-1.StrNCpyW-1.lstrcpynA-1.lstrcpynW-1",
+        "value": "flawfinder.strcpyA-1.strcpyW-1.StrCpy-1.StrCpyA-1.lstrcpyA-1.lstrcpyW-1._tccpy-1._mbccpy-1._ftcscpy-1._mbsncpy-1.StrCpyN-1.StrCpyNA-1.StrCpyNW-1.StrNCpy-1.strcpynA-1.StrNCpyA-1.StrNCpyW-1.lstrcpynA-1.lstrcpynW-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.streadd-1.strecpy-1",
+        "value": "flawfinder.streadd-1.strecpy-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strlen-1.wcslen-1._tcslen-1._mbslen-1",
+        "value": "flawfinder.strlen-1.wcslen-1._tcslen-1._mbslen-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strncat-1",
+        "value": "flawfinder.strncat-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strncpy-1",
+        "value": "flawfinder.strncpy-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strtrns-1",
+        "value": "flawfinder.strtrns-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.syslog-1",
+        "value": "flawfinder.syslog-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.system-1",
+        "value": "flawfinder.system-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.tmpfile-1",
+        "value": "flawfinder.tmpfile-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.tmpnam-1.tempnam-1",
+        "value": "flawfinder.tmpnam-1.tempnam-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.ulimit-1",
+        "value": "flawfinder.ulimit-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.umask-1",
+        "value": "flawfinder.umask-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.usleep-1",
+        "value": "flawfinder.usleep-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.vfork-1",
+        "value": "flawfinder.vfork-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G101-1",
+        "value": "gosec.G101-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G102-1",
+        "value": "gosec.G102-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G103-1",
+        "value": "gosec.G103-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G106-1",
+        "value": "gosec.G106-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G107-1",
+        "value": "gosec.G107-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G108-1",
+        "value": "gosec.G108-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G109-1",
+        "value": "gosec.G109-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G110-1",
+        "value": "gosec.G110-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G201-1",
+        "value": "gosec.G201-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G202-1",
+        "value": "gosec.G202-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G203-1",
+        "value": "gosec.G203-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G204-1",
+        "value": "gosec.G204-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G301-1",
+        "value": "gosec.G301-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G302-1",
+        "value": "gosec.G302-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G303-1",
+        "value": "gosec.G303-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G304-1",
+        "value": "gosec.G304-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G305-1",
+        "value": "gosec.G305-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G306-1",
+        "value": "gosec.G306-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G401-1",
+        "value": "gosec.G401-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G402-1",
+        "value": "gosec.G402-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G402-2",
+        "value": "gosec.G402-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G403-1",
+        "value": "gosec.G403-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G404-1",
+        "value": "gosec.G404-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G501-1",
+        "value": "gosec.G501-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G502-1",
+        "value": "gosec.G502-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G503-1",
+        "value": "gosec.G503-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G504-1",
+        "value": "gosec.G504-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G505-1",
+        "value": "gosec.G505-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G601-1",
+        "value": "gosec.G601-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0001-1",
+        "value": "security_code_scan.SCS0001-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0002-1",
+        "value": "security_code_scan.SCS0002-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0003-1",
+        "value": "security_code_scan.SCS0003-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0004-1",
+        "value": "security_code_scan.SCS0004-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0005-1",
+        "value": "security_code_scan.SCS0005-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0006-1",
+        "value": "security_code_scan.SCS0006-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0007-1",
+        "value": "security_code_scan.SCS0007-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0008-1",
+        "value": "security_code_scan.SCS0008-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0009-1",
+        "value": "security_code_scan.SCS0009-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0010-1",
+        "value": "security_code_scan.SCS0010-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0011-1",
+        "value": "security_code_scan.SCS0011-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0012-1",
+        "value": "security_code_scan.SCS0012-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0013-1",
+        "value": "security_code_scan.SCS0013-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0016-1",
+        "value": "security_code_scan.SCS0016-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0017-1",
+        "value": "security_code_scan.SCS0017-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0018-1",
+        "value": "security_code_scan.SCS0018-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0019-1",
+        "value": "security_code_scan.SCS0019-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0026-1.SCS0031-1",
+        "value": "security_code_scan.SCS0026-1.SCS0031-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0027-1",
+        "value": "security_code_scan.SCS0027-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0028-1",
+        "value": "security_code_scan.SCS0028-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0029-1",
+        "value": "security_code_scan.SCS0029-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0032-1.SCS0033-1.SCS0034-1",
+        "value": "security_code_scan.SCS0032-1.SCS0033-1.SCS0034-1"
+      }
+    ],
+    "type": "sast",
+    "start_time": "2023-01-05T20:57:21",
+    "end_time": "2023-01-05T20:57:28",
+    "status": "success"
+  }
+}

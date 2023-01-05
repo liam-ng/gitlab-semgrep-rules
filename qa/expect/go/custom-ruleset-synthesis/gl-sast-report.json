@@ -90,7 +90,7 @@
       ]
     },
     {
-      "id": "a325710962250f839b58de9cd24b3938d2f625c7d514efb2f432b5ced5f3df0c",
+      "id": "ff9ee8117179a891b84d774d69b969ba34ed872dfff2b760bad6be83065cd6b6",
       "category": "sast",
       "message": "return nil instead of nil value",
       "description": "return nil instead of nil value",
@@ -187,7 +187,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.8.0"
+      "version": "3.12.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -196,11 +196,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.115.0"
+      "version": "1.1.0"
     },
     "type": "sast",
-    "start_time": "2022-10-28T02:39:51",
-    "end_time": "2022-10-28T02:39:59",
+    "start_time": "2023-01-05T20:58:02",
+    "end_time": "2023-01-05T20:58:11",
     "status": "success"
   }
 }
