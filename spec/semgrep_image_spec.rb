@@ -237,7 +237,6 @@ describe 'running image' do
         let(:project) { 'scala/sbt' }
         let(:variables) do
           {
-            'SAST_JAVA_VERSION': 17,
             'GITLAB_FEATURES': ''
           }
         end
@@ -251,24 +250,21 @@ describe 'running image' do
         end
 
         context 'when using sbt with primary identifiers' do
-            let(:variables) do
-              {
-                'SAST_JAVA_VERSION': 17,
-                'GITLAB_FEATURES': 'sast_fp_reduction'
-              }
-            end
-    
-            describe 'created report' do
-              it_behaves_like 'non-empty report'
-              it_behaves_like 'recorded report' do
-                let(:recorded_report) { parse_expected_report('scala/sbt-with-primary-identifiers') }
-              end
-              it_behaves_like 'valid report'
-            end
+          let(:variables) do
+            {
+              'GITLAB_FEATURES': 'sast_fp_reduction'
+            }
           end
-      end
 
-      
+          describe 'created report' do
+            it_behaves_like 'non-empty report'
+            it_behaves_like 'recorded report' do
+              let(:recorded_report) { parse_expected_report('scala/sbt-with-primary-identifiers') }
+            end
+            it_behaves_like 'valid report'
+          end
+        end
+      end
     end
   end
 end
