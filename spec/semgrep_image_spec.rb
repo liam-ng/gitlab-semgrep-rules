@@ -51,9 +51,8 @@ describe 'running image' do
       end
     end
 
-
-    def parse_expected_report(expectation_name)
-      path = File.join(expectations_dir, expectation_name, 'gl-sast-report.json')
+    def parse_expected_report(expectation_name, report_name = "gl-sast-report.json")
+      path = File.join(expectations_dir, expectation_name, report_name)
       JSON.parse(File.read(path))
     end
 
@@ -158,6 +157,48 @@ describe 'running image' do
 
           it_behaves_like 'valid report'
         end
+      end
+
+      context 'when VET FP reduction for Go' do
+        context 'feature is enabled' do
+          let(:project) { 'go/fpreduction' }
+          let(:variables) do
+            {
+              'GITLAB_FEATURES': 'sast_fp_reduction',
+              'CI_PROJECT_ROOT_NAMESPACE': 'gitlab-org'
+            }
+          end
+          it_behaves_like 'successful scan'
+          describe 'created report' do
+            it_behaves_like 'non-empty report'
+            it_behaves_like 'recorded report' do
+              let(:recorded_report) {
+                parse_expected_report('go/with-fp-reduction', 'gl-sast-report-ff-enabled.json')
+              }
+            end
+
+            it_behaves_like 'valid report'
+          end
+        end
+
+        context 'feature is disabled' do
+          let(:project) { 'go/fpreduction' }
+          let(:variables) do
+            { 'CI_PROJECT_ROOT_NAMESPACE': 'gitlab-org' }
+          end
+
+          it_behaves_like 'successful scan'
+          describe 'created report' do
+            it_behaves_like 'non-empty report'
+            it_behaves_like 'recorded report' do
+                let(:recorded_report) {
+                  parse_expected_report('go/with-fp-reduction', 'gl-sast-report-ff-disabled.json')
+                }
+            end
+            it_behaves_like 'valid report'
+          end
+        end
+
       end
 
       context 'when using ruleset synthesis' do
