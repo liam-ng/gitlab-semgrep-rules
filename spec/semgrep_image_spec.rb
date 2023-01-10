@@ -90,6 +90,9 @@ describe 'running image' do
 
     context "with c" do
       let(:project) { "c" }
+      let(:variables) do
+        { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+      end
 
       context 'by default' do
         it_behaves_like "successful scan"
@@ -232,6 +235,7 @@ describe 'running image' do
           {
             'SAST_JAVA_VERSION': 11,
             'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=11 -Dmaven.compiler.target=11 -DskipTests --batch-mode',
+            'GITLAB_FEATURES': 'vulnerability_finding_signatures'
           }
         end
         describe 'created report' do
@@ -250,7 +254,8 @@ describe 'running image' do
         let(:variables) do
           {
             'SAST_JAVA_VERSION': 17,
-            'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=17 -Dmaven.compiler.target=17 -DskipTests --batch-mode'
+            'MAVEN_CLI_OPTS': '-Dmaven.compiler.source=17 -Dmaven.compiler.target=17 -DskipTests --batch-mode',
+            'GITLAB_FEATURES': 'vulnerability_finding_signatures'
           }
         end
         describe 'created report' do
@@ -266,6 +271,9 @@ describe 'running image' do
 
       context 'when using gradle build-tool' do
         let(:project) { 'java/gradle' }
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+        end
         describe 'created report' do
           it_behaves_like 'non-empty report'
           it_behaves_like "recorded report" do
@@ -279,6 +287,10 @@ describe 'running image' do
 
       context 'when using maven build-tool for multimodules' do
         let(:project) { 'java/maven-multimodules' }
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+        end
+
         describe 'created report' do
           it_behaves_like 'non-empty report'
           it_behaves_like "recorded report" do
@@ -293,6 +305,10 @@ describe 'running image' do
     end
 
     context 'with python' do
+      let(:variables) do
+        { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+      end
+
       context 'when using pip package management' do
         let(:project) { 'python/pip' }
         it_behaves_like 'successful job'
@@ -316,7 +332,7 @@ describe 'running image' do
       context 'when adding custom rulesets in the project' do
         let(:project) { 'python/pip-flask-custom-rulesets' }
         let(:variables) do
-          { 'GITLAB_FEATURES': 'sast_custom_rulesets' }
+          { 'GITLAB_FEATURES': 'vulnerability_finding_signatures, sast_custom_rulesets' }
         end
         it_behaves_like 'successful job'
       end
@@ -324,7 +340,7 @@ describe 'running image' do
       context 'when synthesizing rulesets in the project' do
         let(:project) { 'python/pip-flask-custom-rulesets-with-passthrough' }
         let(:variables) do
-          { 'GITLAB_FEATURES': 'sast_custom_rulesets' }
+          { 'GITLAB_FEATURES': 'vulnerability_finding_signatures, sast_custom_rulesets' }
         end
         it_behaves_like 'successful job'
       end
