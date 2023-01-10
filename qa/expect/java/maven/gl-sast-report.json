@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "2c91dce9211e2923209fdf2c879b40b78b2881f9a5f0f1d5898c1cf84bf30e7b",
+      "id": "31261040d0485b23adf8ccb6334d3312f45e6f7a33afec7898f43c546ee91579",
       "category": "sast",
       "message": "Missing Support for Integrity Check",
       "description": "The ciphertext produced is susceptible to alteration by an adversary. This mean that the\ncipher provides no way to detect that the data has been tampered with. If the ciphertext can be\ncontrolled by an attacker, it could be altered without detection.\n",
@@ -33,10 +33,26 @@
           "name": "Find Security Bugs-CIPHER_INTEGRITY",
           "value": "CIPHER_INTEGRITY"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+            "line_start": 29,
+            "line_end": 29,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "src/main/java/com/gitlab/security_products/tests/App.java|App[0]|insecureCypher[0]:2"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
-      "id": "459813bba0cba5c28e6aff62726b3d8b6cabaab9d7d3c3ca2d3a08bea3ffaacf",
+      "id": "c39d1a6ed947407ea592c3466749d5fdee341041d060e2b78237cbc5594898a4",
       "category": "sast",
       "message": "Inadequate Encryption Strength",
       "description": "An authentication cipher mode which provides better confidentiality of the encrypted data\nshould be used instead of Electronic Code Book (ECB) mode, which does not provide good\nconfidentiality. Specifically, ECB mode produces the same output for the same input each time.\nThis allows an attacker to intercept and replay the data.\n",
@@ -67,10 +83,26 @@
           "name": "Find Security Bugs-ECB_MODE",
           "value": "ECB_MODE"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+            "line_start": 29,
+            "line_end": 29,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "src/main/java/com/gitlab/security_products/tests/App.java|App[0]|insecureCypher[0]:2"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
-      "id": "e75bed960540eb8901a986e9a120d8c9018bc431e104d155e110fdf153ea8270",
+      "id": "9e45fa0a72d8292976452aaa9ac8e7769161ea23239afaf9973f237f451729aa",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
@@ -102,10 +134,26 @@
           "name": "Find Security Bugs-PREDICTABLE_RANDOM",
           "value": "PREDICTABLE_RANDOM"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+            "line_start": 41,
+            "line_end": 41,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "src/main/java/com/gitlab/security_products/tests/App.java|App[0]|String[0]:1"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
-      "id": "b64c01e31a3f44c2be3af20d4effe6c2f7df6583960b0de6ee2aa07f971f9834",
+      "id": "f4179c1c1bc62946c3f0dfa511c9deda63fdd2a39894737bbe4d3ed688aee1a1",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
@@ -136,10 +184,26 @@
           "name": "Find Security Bugs-PREDICTABLE_RANDOM",
           "value": "PREDICTABLE_RANDOM"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+            "line_start": 42,
+            "line_end": 42,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "src/main/java/com/gitlab/security_products/tests/App.java|App[0]|String[0]:2"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
-      "id": "44182d51d2e5b2684461204e6eca7649823312bb3f14b145fb2412f6b5c92ba3",
+      "id": "dc6fafde88303887f0d0737c84ab26ada6395d8a41e6920938707637e1ad38a6",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
@@ -171,10 +235,26 @@
           "name": "Find Security Bugs-PREDICTABLE_RANDOM",
           "value": "PREDICTABLE_RANDOM"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+            "line_start": 47,
+            "line_end": 47,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "src/main/java/com/gitlab/security_products/tests/App.java|App[0]|String[1]:1"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
-      "id": "e0894ee4f2888332a08ad2889f74333972fc201cfa44846d38972eb54546d274",
+      "id": "7e44bbe9fbae6c545f71ccccb3c79d7580b6caca5fc969df48490b9f4d061037",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
@@ -205,10 +285,26 @@
           "name": "Find Security Bugs-PREDICTABLE_RANDOM",
           "value": "PREDICTABLE_RANDOM"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+            "line_start": 48,
+            "line_end": 48,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "src/main/java/com/gitlab/security_products/tests/App.java|App[0]|String[1]:2"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
-      "id": "d10e51da80914c8be5a21beec2c3b04f387ae8c1690603cc61b664242f0b0cdd",
+      "id": "66d9f9a572a064870f280fb28d78dc3ccd02592e6e3512308f2e7cb49f3e4915",
       "category": "sast",
       "message": "Use of RSA Algorithm without OAEP",
       "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
@@ -239,7 +335,23 @@
           "name": "Find Security Bugs-RSA_NO_PADDING",
           "value": "RSA_NO_PADDING"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "src/main/java/com/gitlab/security_products/tests/App.java",
+            "line_start": 29,
+            "line_end": 29,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "src/main/java/com/gitlab/security_products/tests/App.java|App[0]|insecureCypher[0]:2"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "dependency_files": [],
@@ -251,7 +363,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.9.2"
+      "version": "3.11.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -260,11 +372,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.121.2"
+      "version": "1.1.0"
     },
     "type": "sast",
-    "start_time": "2022-11-25T09:20:46",
-    "end_time": "2022-11-25T09:21:18",
+    "start_time": "2023-01-09T09:22:45",
+    "end_time": "2023-01-09T09:23:20",
     "status": "success"
   }
 }

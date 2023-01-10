@@ -46,7 +46,7 @@
       ]
     },
     {
-      "id": "3d5f210c0a848f0f81945e062a023ce7de6c06893b56c4e55e05484ed44faf82",
+      "id": "9fb40d50e1701d9936d9c51536eee940e5cc8616c59d4bf1e9a464b6b0d00d0f",
       "category": "sast",
       "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
       "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
@@ -82,7 +82,23 @@
           "name": "Flawfinder - open",
           "value": "open"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "subdir/utils.c",
+            "line_start": 8,
+            "line_end": 8,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "subdir/utils.c|doStuff()[0]:2"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "dependency_files": [],
@@ -94,7 +110,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.8.0"
+      "version": "3.11.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -103,11 +119,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.115.0"
+      "version": "1.1.0"
     },
     "type": "sast",
-    "start_time": "2022-10-28T02:39:29",
-    "end_time": "2022-10-28T02:39:36",
+    "start_time": "2023-01-09T10:13:51",
+    "end_time": "2023-01-09T10:14:17",
     "status": "success"
   }
 }

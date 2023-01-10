@@ -2,170 +2,6 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "1d7a0cd85aeb47291b70aae0224cca80cf2a0e33ab75475c6569fdf9e2265692",
-      "category": "sast",
-      "message": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "semgrep_id:bandit.B501:17:18",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 17,
-        "end_line": 18
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B501",
-          "value": "bandit.B501",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
-      "id": "a4ef8739990fe4af2a622965692ea6e06d0aefd3703fe133778b1aa05f4565ad",
-      "category": "sast",
-      "message": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "semgrep_id:bandit.B501:28:29",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 28,
-        "end_line": 29
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B501",
-          "value": "bandit.B501",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
-      "id": "6b5859dd92677ec895f1c32271b44a3323a5dc43b6f883e90950a18f8d1ee67d",
-      "category": "sast",
-      "message": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "semgrep_id:bandit.B501:36:37",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 36,
-        "end_line": 37
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B501",
-          "value": "bandit.B501",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
-      "id": "0171890fe12b118a6b89fd6c0267084dc3921afe12a95850854943d65792d1c2",
-      "category": "sast",
-      "message": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "semgrep_id:bandit.B501:44:45",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "tests/e2e_zap.py",
-        "start_line": 44,
-        "end_line": 45
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B501",
-          "value": "bandit.B501",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B501"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-295",
-          "value": "295",
-          "url": "https://cwe.mitre.org/data/definitions/295.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Sensitive Data Exposure",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B501",
-          "value": "B501"
-        }
-      ]
-    },
-    {
       "id": "cfd10622b8247a2cfdfd4fb84f7eee7b4b90f766da959ce40fec13b8c245b722",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
@@ -282,116 +118,6 @@
           "type": "bandit_test_id",
           "name": "Bandit Test ID B608",
           "value": "B608"
-        }
-      ]
-    },
-    {
-      "id": "e87621dd7a2806be99ff40219bbb922bd3f9e7a4f3765847767dd835af5b7098",
-      "category": "sast",
-      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
-      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
-      "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "static/main.js",
-        "start_line": 10
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-eval-with-expression",
-          "value": "eslint.detect-eval-with-expression",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-eval-with-expression"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-95",
-          "value": "95",
-          "url": "https://cwe.mitre.org/data/definitions/95.html"
-        },
-        {
-          "type": "owasp",
-          "name": "Injection",
-          "value": "A1"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-eval-with-expression",
-          "value": "security/detect-eval-with-expression"
-        }
-      ]
-    },
-    {
-      "id": "5a27217b17de664f6df8673e9acb2c0e92988f0f3334c7b782c43a6f64902418",
-      "category": "sast",
-      "message": "Incorrect Regular Expression",
-      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
-      "cve": "semgrep_id:eslint.detect-non-literal-regexp:15:15",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "static/main.js",
-        "start_line": 15
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-non-literal-regexp",
-          "value": "eslint.detect-non-literal-regexp",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-185",
-          "value": "185",
-          "url": "https://cwe.mitre.org/data/definitions/185.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-regexp",
-          "value": "security/detect-non-literal-regexp"
-        }
-      ]
-    },
-    {
-      "id": "171480329d3cc48972f630bfa94f926dde16b7e96465d85e139f9b401f502d06",
-      "category": "sast",
-      "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-      "cve": "semgrep_id:eslint.detect-object-injection:27:27",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "static/main.js",
-        "start_line": 27
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-94",
-          "value": "94",
-          "url": "https://cwe.mitre.org/data/definitions/94.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-object-injection",
-          "value": "security/detect-object-injection"
         }
       ]
     },
@@ -554,6 +280,280 @@
           "value": "B311"
         }
       ]
+    },
+    {
+      "id": "e87621dd7a2806be99ff40219bbb922bd3f9e7a4f3765847767dd835af5b7098",
+      "category": "sast",
+      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
+      "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "static/main.js",
+        "start_line": 10
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.detect-eval-with-expression",
+          "value": "eslint.detect-eval-with-expression",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-eval-with-expression"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-95",
+          "value": "95",
+          "url": "https://cwe.mitre.org/data/definitions/95.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Injection",
+          "value": "A1"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-eval-with-expression",
+          "value": "security/detect-eval-with-expression"
+        }
+      ]
+    },
+    {
+      "id": "5a27217b17de664f6df8673e9acb2c0e92988f0f3334c7b782c43a6f64902418",
+      "category": "sast",
+      "message": "Incorrect Regular Expression",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "cve": "semgrep_id:eslint.detect-non-literal-regexp:15:15",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "static/main.js",
+        "start_line": 15
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.detect-non-literal-regexp",
+          "value": "eslint.detect-non-literal-regexp",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-non-literal-regexp"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-185",
+          "value": "185",
+          "url": "https://cwe.mitre.org/data/definitions/185.html"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-non-literal-regexp",
+          "value": "security/detect-non-literal-regexp"
+        }
+      ]
+    },
+    {
+      "id": "171480329d3cc48972f630bfa94f926dde16b7e96465d85e139f9b401f502d06",
+      "category": "sast",
+      "message": "Improper Control of Generation of Code ('Code Injection')",
+      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+      "cve": "semgrep_id:eslint.detect-object-injection:27:27",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "static/main.js",
+        "start_line": 27
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.detect-object-injection",
+          "value": "eslint.detect-object-injection",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-94",
+          "value": "94",
+          "url": "https://cwe.mitre.org/data/definitions/94.html"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID security/detect-object-injection",
+          "value": "security/detect-object-injection"
+        }
+      ]
+    },
+    {
+      "id": "1d7a0cd85aeb47291b70aae0224cca80cf2a0e33ab75475c6569fdf9e2265692",
+      "category": "sast",
+      "message": "Improper Certificate Validation",
+      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+      "cve": "semgrep_id:bandit.B501:17:18",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 17,
+        "end_line": 18
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B501",
+          "value": "bandit.B501",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B501"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-295",
+          "value": "295",
+          "url": "https://cwe.mitre.org/data/definitions/295.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
+        }
+      ]
+    },
+    {
+      "id": "a4ef8739990fe4af2a622965692ea6e06d0aefd3703fe133778b1aa05f4565ad",
+      "category": "sast",
+      "message": "Improper Certificate Validation",
+      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+      "cve": "semgrep_id:bandit.B501:28:29",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 28,
+        "end_line": 29
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B501",
+          "value": "bandit.B501",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B501"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-295",
+          "value": "295",
+          "url": "https://cwe.mitre.org/data/definitions/295.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
+        }
+      ]
+    },
+    {
+      "id": "6b5859dd92677ec895f1c32271b44a3323a5dc43b6f883e90950a18f8d1ee67d",
+      "category": "sast",
+      "message": "Improper Certificate Validation",
+      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+      "cve": "semgrep_id:bandit.B501:36:37",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 36,
+        "end_line": 37
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B501",
+          "value": "bandit.B501",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B501"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-295",
+          "value": "295",
+          "url": "https://cwe.mitre.org/data/definitions/295.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
+        }
+      ]
+    },
+    {
+      "id": "0171890fe12b118a6b89fd6c0267084dc3921afe12a95850854943d65792d1c2",
+      "category": "sast",
+      "message": "Improper Certificate Validation",
+      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
+      "cve": "semgrep_id:bandit.B501:44:45",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 44,
+        "end_line": 45
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B501",
+          "value": "bandit.B501",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B501"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-295",
+          "value": "295",
+          "url": "https://cwe.mitre.org/data/definitions/295.html"
+        },
+        {
+          "type": "owasp",
+          "name": "Sensitive Data Exposure",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B501",
+          "value": "B501"
+        }
+      ]
     }
   ],
   "dependency_files": [],
@@ -565,7 +565,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.9.3"
+      "version": "3.11.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -574,11 +574,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.121.2"
+      "version": "1.1.0"
     },
     "type": "sast",
-    "start_time": "2022-12-05T09:17:18",
-    "end_time": "2022-12-05T09:17:46",
+    "start_time": "2023-01-09T09:23:41",
+    "end_time": "2023-01-09T09:24:11",
     "status": "success"
   }
 }
