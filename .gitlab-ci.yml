@@ -45,15 +45,6 @@ integration-test-fips:
     SAST_EXCLUDED_ANALYZERS: "bandit,eslint"
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
 
-js-qa:
-  extends: .qa-downstream-sast
-  variables:
-    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/js/gl-sast-report.json"
-    SAST_EXCLUDED_ANALYZERS: "nodejs-scan"
-  trigger:
-    project: gitlab-org/security-products/tests/js
-    branch: jsx-FREEZE
-
 csharp-dotnetcore-multiproject-qa:
   extends: .qa-downstream-sast
   variables:
