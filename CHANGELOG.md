@@ -1,5 +1,11 @@
 Semgrep analyzer changelog
 
+## v3.11.1
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.1.0` => [`1.3.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.3.0)] (!193)
+- upgrade `github.com/urfave/cli/v2` version [`v2.23.6` => [`v2.23.7`](https://github.com/urfave/cli/releases/tag/v2.23.7)] (!193)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.10.0` => [`v1.10.1`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.10.1)] (!193)
+- upgrade `golang.org/x/crypto` version [`v0.4.0` => [`v0.5.0`](https://golang.org/x/crypto@v0.5.0)] (!193)
+
 ## v3.11.0
 - Integrate VET for FP reduction on Go files (!189)
 
