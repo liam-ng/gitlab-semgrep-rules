@@ -330,5 +330,32 @@ describe 'running image' do
       end
     end
 
+    context 'with javascript' do
+      let(:variables) do
+        { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+      end
+
+      context 'when a project contains JS files' do
+        let(:project) { 'js/default' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when a project contains JSX files' do
+        let(:project) { 'js/jsx' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when a typescript project contains TSX files' do
+        let(:project) { 'js/typescript-tsx' }
+        it_behaves_like 'successful job'
+      end
+
+      context 'when a typescript project uses Yarn package management' do
+        let(:project) { 'js/typescript-yarn' }
+        it_behaves_like 'successful job'
+      end
+
+    end
+
   end
 end

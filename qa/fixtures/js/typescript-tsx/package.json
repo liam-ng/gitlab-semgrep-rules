@@ -1,0 +1,23 @@
+{
+  "name": "typescript-test",
+  "version": "1.0.0",
+  "description": "Example typescript test project",
+  "license" : "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "build": "node node_modules/typescript/bin/tsc",
+    "start": "node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.9.4",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/gitlab-org/security-products/tests/typescript-yarn.git"
+  }
+}

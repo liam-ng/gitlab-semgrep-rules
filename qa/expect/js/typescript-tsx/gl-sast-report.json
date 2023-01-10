@@ -2,19 +2,19 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "69745a2f0693173e47ced020f01d677cf641a51903692cd77e9a4fd66b757673",
+      "id": "1339b1d031b3bf909ccb666abc654e890ec448c1985222b06db1d7e314cf510d",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
-      "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
+      "cve": "semgrep_id:eslint.detect-eval-with-expression:47:47",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "src/jsx/main.jsx",
-        "start_line": 10
+        "file": "src/app.tsx",
+        "start_line": 47
       },
       "identifiers": [
         {
@@ -39,25 +39,22 @@
           "name": "ESLint rule ID security/detect-eval-with-expression",
           "value": "security/detect-eval-with-expression"
         }
-      ],
-      "links": [],
-      "tracking": {},
-      "flags": []
+      ]
     },
     {
-      "id": "47bef83fc0c10c66e1946261673ae9825f542a4609bcb55e8bfaab0722ffe40c",
+      "id": "9c19186340b1848a91cef0b7a06cdb7129c19c7a6fbd88330530c755b3ff41ad",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
-      "cve": "semgrep_id:eslint.detect-non-literal-regexp:16:16",
+      "cve": "semgrep_id:eslint.detect-non-literal-regexp:34:34",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "src/jsx/main.jsx",
-        "start_line": 16
+        "file": "src/app.tsx",
+        "start_line": 34
       },
       "identifiers": [
         {
@@ -77,88 +74,45 @@
           "name": "ESLint rule ID security/detect-non-literal-regexp",
           "value": "security/detect-non-literal-regexp"
         }
-      ],
-      "links": [],
-      "tracking": {},
-      "flags": []
+      ]
     },
     {
-      "id": "1ac984f487cd525707eb63112136f83d3da086046d9ccb33cc738245741a6a80",
+      "id": "867af8f3e76bdf64a79154e156c5171327e95c515a126260d1f2236b7f12b968",
       "category": "sast",
-      "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-      "cve": "semgrep_id:eslint.detect-object-injection:28:28",
+      "message": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
+      "description": "Detected usage of crypto.pseudoRandomBytes, which does not produce secure random numbers.\n",
+      "cve": "semgrep_id:eslint.detect-pseudoRandomBytes:41:41",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
       },
       "location": {
-        "file": "src/jsx/main.jsx",
-        "start_line": 28
+        "file": "src/app.tsx",
+        "start_line": 41
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
+          "name": "eslint.detect-pseudoRandomBytes",
+          "value": "eslint.detect-pseudoRandomBytes",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-pseudoRandomBytes"
         },
         {
           "type": "cwe",
-          "name": "CWE-94",
-          "value": "94",
-          "url": "https://cwe.mitre.org/data/definitions/94.html"
+          "name": "CWE-338",
+          "value": "338",
+          "url": "https://cwe.mitre.org/data/definitions/338.html"
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-object-injection",
-          "value": "security/detect-object-injection"
+          "name": "ESLint rule ID security/detect-pseudoRandomBytes",
+          "value": "security/detect-pseudoRandomBytes"
         }
-      ],
-      "links": [],
-      "tracking": {},
-      "flags": []
-    },
-    {
-      "id": "1ac984f487cd525707eb63112136f83d3da086046d9ccb33cc738245741a6a80",
-      "category": "sast",
-      "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
-      "cve": "semgrep_id:eslint.detect-object-injection:28:28",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "src/jsx/main.jsx",
-        "start_line": 28
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-94",
-          "value": "94",
-          "url": "https://cwe.mitre.org/data/definitions/94.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-object-injection",
-          "value": "security/detect-object-injection"
-        }
-      ],
-      "links": [],
-      "tracking": {},
-      "flags": []
+      ]
     }
   ],
+  "dependency_files": [],
   "scan": {
     "analyzer": {
       "id": "semgrep",
@@ -166,7 +120,8 @@
       "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
       "vendor": {
         "name": "GitLab"
-      }
+      },
+      "version": "3.11.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -174,9 +129,12 @@
       "url": "https://github.com/returntocorp/semgrep",
       "vendor": {
         "name": "GitLab"
-      }
+      },
+      "version": "1.1.0"
     },
     "type": "sast",
+    "start_time": "2023-01-10T11:18:07",
+    "end_time": "2023-01-10T11:18:36",
     "status": "success"
   }
 }
