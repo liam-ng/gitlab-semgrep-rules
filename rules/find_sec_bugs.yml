@@ -822,7 +822,7 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-20: Improper Input Validation"
-    owasp: "OWASP: Cross-Site Request Forgery"
+    owasp: "A10:2021 – Server-Side Request Forgery (SSRF)"
     technology:
     - "java"
     primary_identifier: "find_sec_bugs.JAXWS_ENDPOINT-1"

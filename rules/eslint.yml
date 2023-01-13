@@ -57,7 +57,7 @@ rules:
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
       ('Eval Injection')"
-    owasp: "A1: Injection"
+    owasp: 'A01:2017 - Injection'
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-eval-with-expression.js"
     primary_identifier: "eslint.detect-eval-with-expression"
     secondary_identifiers:
@@ -78,7 +78,7 @@ rules:
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
       ('Eval Injection')"
-    owasp: "A1: Injection"
+    owasp: 'A01:2017 - Injection'
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-child-process.js"
     primary_identifier: "eslint.detect-child-process"
     secondary_identifiers:
@@ -114,7 +114,7 @@ rules:
 - id: eslint.detect-disable-mustache-escape
   metadata:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation (XSS)"
-    owasp: "A7: Cross-Site Scripting XSS"
+    owasp: 'A07:2017 - Cross-Site Scripting XSS'
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-disable-mustache-escape.js"
     primary_identifier: "eslint.detect-disable-mustache-escape"
     secondary_identifiers:
@@ -133,7 +133,7 @@ rules:
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
       ('Eval Injection')"
-    owasp: "A1: Injection"
+    owasp: 'A01:2017 - Injection'
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-non-literal-require.js"
     primary_identifier: "eslint.detect-non-literal-require"
     secondary_identifiers:
