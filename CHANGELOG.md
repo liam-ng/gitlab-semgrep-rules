@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.11.2
+- Run Semgrep in verbose mode when SECURE_LOG_LEVEL=debug (!199)
+
 ## v3.11.1
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.1.0` => [`1.3.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.3.0)] (!193)
 - upgrade `github.com/urfave/cli/v2` version [`v2.23.6` => [`v2.23.7`](https://github.com/urfave/cli/releases/tag/v2.23.7)] (!193)

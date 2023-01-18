@@ -17,6 +17,7 @@ func TestBuildArgs(t *testing.T) {
 		excludedPaths string
 		enableMetrics bool
 		passedCLIOpts string
+		envVars       map[string]string
 		want          []string
 	}{
 		{
@@ -198,12 +199,31 @@ func TestBuildArgs(t *testing.T) {
 				"--enable-metrics",
 			},
 		},
+		{
+			name: "passes the --verbose flag when SECURE_LOG_LEVEL=debug",
+			envVars: map[string]string{
+				"SECURE_LOG_LEVEL": "debug",
+			},
+			want: []string{
+				"-f", "configPath",
+				"-o", "outputPath",
+				"--sarif",
+				"--no-rewrite-rule-ids",
+				"--strict",
+				"--disable-version-check",
+				"--no-git-ignore",
+				"--verbose",
+			},
+		},
 	}
 
 	for _, tt := range tests {
 		tt := tt // NOTE: https://github.com/golang/go/wiki/CommonMistakes#using-goroutines-on-loop-iterator-variables
 		t.Run(tt.name, func(t *testing.T) {
-			t.Parallel()
+			for key, val := range tt.envVars {
+				t.Setenv(key, val)
+			}
+
 			got := buildArgs("configPath", "outputPath", "projectPath", tt.excludedPaths, tt.passedCLIOpts, tt.enableMetrics)
 
 			if !reflect.DeepEqual(tt.want, got) {

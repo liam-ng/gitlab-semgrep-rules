@@ -176,6 +176,10 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths, scannerOpts s
 		args = append(args, opts...)
 	}
 
+	if level, ok := os.LookupEnv("SECURE_LOG_LEVEL"); ok && strings.ToLower(level) == "debug" {
+		args = append(args, "--verbose")
+	}
+
 	return args
 }
 
