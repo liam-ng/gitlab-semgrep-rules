@@ -3,10 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
-	"os"
 	"strings"
-
-	log "github.com/sirupsen/logrus"
 
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
@@ -30,16 +27,11 @@ func computeCompareKey(v report.Vulnerability) string {
 }
 
 func convert(reader io.Reader, prependPath string) (*report.Report, error) {
-	// HACK: extract root path from environment variables
-	// TODO: https://gitlab.com/gitlab-org/gitlab/-/issues/320975
-	root := os.Getenv("ANALYZER_TARGET_DIR")
-	if root == "" {
-		root = os.Getenv("CI_PROJECT_DIR")
-	}
-
-	log.Debugf("Converting report with the root path: %s", root)
-
-	sastReport, err := report.TransformToGLSASTReport(reader, root, metadata.AnalyzerID, metadata.IssueScanner)
+	sastReport, err := report.TransformToGLSASTReport(
+		reader,
+		"", /* prefix value to trim in relative to the project path. It's empty since we're passing relative project path to semgrep upstream scanner */
+		metadata.AnalyzerID,
+		metadata.IssueScanner)
 	if err != nil {
 		return nil, err
 	}
