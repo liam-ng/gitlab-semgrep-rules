@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.12.0
+- upgrade Post-analyzer script version to v0.2.0, enabling Go FP reduction by default (!200)
+
 ## v3.11.2
 - Run Semgrep in verbose mode when SECURE_LOG_LEVEL=debug (!199)
 
