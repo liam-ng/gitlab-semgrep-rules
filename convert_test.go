@@ -13,30 +13,41 @@ import (
 )
 
 func TestConvert(t *testing.T) {
+	vulnFile := "tests/test_simple.py"
+	// setting CI_PROJECT_DIR containing [location.file]'s prefix to confirm if old behaviour
+	// is removed
+	t.Setenv("CI_PROJECT_DIR", "tests")
+
 	fixture, err := os.Open("testdata/reports/semgrep.sarif")
 	require.NoError(t, err)
+	defer fixture.Close()
 
-	sastReport, err := convert(fixture, "/tmp/app/")
+	sastReport, err := convert(fixture, "" /* unused input */)
 	require.NoError(t, err)
+
+	vuln := sastReport.Vulnerabilities[0]
 
 	// Test Semgrep ID
 	want := report.Identifier{
 		Type:  "semgrep_id",
-		Name:  "bandit.B303-1",
-		Value: "bandit.B303-1",
-		URL:   "https://semgrep.dev/r/gitlab.bandit.B303-1",
+		Name:  "bandit.B101",
+		Value: "bandit.B101",
+		URL:   "https://semgrep.dev/r/gitlab.bandit.B101",
 	}
-	got := sastReport.Vulnerabilities[0].Identifiers[0]
-	assert.Equal(t, want, got)
+	require.Contains(t, vuln.Identifiers, want)
 
 	// Test Bandit ID
 	want = report.Identifier{
 		Type:  "bandit_test_id",
-		Name:  "Bandit Test ID B303",
-		Value: "B303",
+		Name:  "Bandit Test ID B101",
+		Value: "B101",
 	}
-	got = sastReport.Vulnerabilities[0].Identifiers[3]
-	assert.Equal(t, want, got)
+	require.Contains(t, vuln.Identifiers, want)
+
+	// Test if prefix trim made in the vuln file path
+	require.Equal(t, vulnFile, vuln.Location.File)
+	require.Equal(t, 7, vuln.Location.LineStart)
+	require.Equal(t, 7, vuln.Location.LineEnd)
 }
 
 func TestGenerateBanditID(t *testing.T) {
