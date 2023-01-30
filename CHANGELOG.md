@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.12.1
+- Disable trimming prefix of the vulnerability's file location in the SAST report (!197)
+
 ## v3.12.0
 - upgrade Post-analyzer script version to v0.2.0, enabling Go FP reduction by default (!200)
 
