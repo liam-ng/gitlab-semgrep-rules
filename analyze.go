@@ -49,6 +49,8 @@ var highFPRules = map[string][]string{
 	"eslint.yml": {"eslint.detect-object-injection"},
 }
 
+var defaultConfigPath = path.Join("/", "rules")
+
 func analyzeFlags() []cli.Flag {
 	return []cli.Flag{
 		&cli.BoolFlag{
@@ -188,7 +190,7 @@ func getConfigPath(projectPath string, rulesetConfig *ruleset.Config) (string, e
 		return ruleset.ProcessPassthroughs(rulesetConfig, log.StandardLogger())
 	}
 
-	return path.Join("/", "rules"), nil
+	return defaultConfigPath, nil
 }
 
 // semgrepRuleFile represents the structure of a Semgrep rule YAML file.
@@ -201,8 +203,15 @@ type semgrepRuleFile struct {
 // we're not interested in. See https://pkg.go.dev/gopkg.in/yaml.v3#Marshal
 // for more information.
 type semgrepRule struct {
-	// We only care about the ID in this context.
-	ID   string                 `yaml:"id"`
+	ID       string `yaml:"id"`
+	Metadata struct {
+		PrimaryIdentifier    string `yaml:"primary_identifier"`
+		SecondaryIdentifiers []struct {
+			Name  string `yaml:"name"`
+			Type  string `yaml:"type"`
+			Value string `yaml:"value"`
+		} `yaml:"secondary_identifiers"`
+	} `yaml:"metadata"`
 	Rest map[string]interface{} `yaml:",inline"`
 }
 

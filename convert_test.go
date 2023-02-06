@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"os"
+	"path"
+	"reflect"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -13,6 +14,7 @@ import (
 )
 
 func TestConvert(t *testing.T) {
+	defaultConfigPath = path.Join("testdata", "sampledist")
 	vulnFile := "tests/test_simple.py"
 	// setting CI_PROJECT_DIR containing [location.file]'s prefix to confirm if old behaviour
 	// is removed
@@ -50,57 +52,33 @@ func TestConvert(t *testing.T) {
 	require.Equal(t, 7, vuln.Location.LineEnd)
 }
 
-func TestGenerateBanditID(t *testing.T) {
-	want := report.Identifier{
-		Type:  "bandit_test_id",
-		Name:  "Bandit Test ID B303",
-		Value: "B303",
-	}
-	got := generateBanditID("B303-2")
-	assert.Equal(t, want, got)
-}
-
-func TestGenerateFindSecBugsID(t *testing.T) {
-	id := "LDAP_INJECTION"
-	want := report.Identifier{
-		Type:  "find_sec_bugs_type",
-		Name:  fmt.Sprintf("Find Security Bugs-%s", id),
-		Value: id,
-	}
-	got := generateFindSecBugsID(id + "-2")
-	assert.Equal(t, want, got)
-}
-
 func TestGenerateIDs(t *testing.T) {
 	testcases := map[string][]report.Identifier{
-		"find_sec_bugs.HARD_CODE_PASSWORD-1.HARD_CODE_KEY-1": {
+		"find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2": {
+			{
+				Type:  "find_sec_bugs_type",
+				Name:  "Find Security Bugs-DMI_EMPTY_DB_PASSWORD",
+				Value: "DMI_EMPTY_DB_PASSWORD",
+			},
 			{
 				Type:  "find_sec_bugs_type",
 				Name:  "Find Security Bugs-HARD_CODE_PASSWORD",
 				Value: "HARD_CODE_PASSWORD",
 			},
+		},
+		"bandit.B303-1": {
 			{
-				Type:  "find_sec_bugs_type",
-				Name:  "Find Security Bugs-HARD_CODE_KEY",
-				Value: "HARD_CODE_KEY",
+				Type: "bandit_test_id",
+				// FIXME: https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules/-/merge_requests/98
+				Name:  "Bandit Test ID: B303",
+				Value: "B303",
 			},
 		},
-		"bandit.B502.B503": {
+		"eslint.detect-no-csrf-before-method-override-1": {
 			{
-				Type:  "bandit_test_id",
-				Name:  "Bandit Test ID B502",
-				Value: "B502",
-			},
-			{
-				Type:  "bandit_test_id",
-				Name:  "Bandit Test ID B503",
-				Value: "B503",
-			},
-		},
-		"eslint.detect-no-csrf-before-method-override": {
-			{
-				Type:  "eslint_rule_id",
-				Name:  "ESLint rule ID security/detect-no-csrf-before-method-override",
+				Type: "eslint_rule_id",
+				// FIXME: https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules/-/merge_requests/98
+				Name:  "ESLint rule ID security detect-no-csrf-before-method-override",
 				Value: "security/detect-no-csrf-before-method-override",
 			},
 		},
@@ -121,12 +99,8 @@ func TestGenerateIDs(t *testing.T) {
 				Value: "wchar_t",
 			},
 		},
-		"gosec.G104-1.G107-1": {
+		"gosec.G107-1": {
 			{
-				Type:  "gosec_rule_id",
-				Name:  "Gosec Rule ID G104",
-				Value: "G104",
-			}, {
 				Type:  "gosec_rule_id",
 				Name:  "Gosec Rule ID G107",
 				Value: "G107",
@@ -153,9 +127,18 @@ func TestGenerateIDs(t *testing.T) {
 		},
 	}
 
+	defaultConfigPath = path.Join("testdata", "sampledist")
+	ruleMap, err := buildRuleMap(defaultConfigPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+
 	for ruleid, want := range testcases {
-		got := ruleToIDs(ruleid)
-		assert.Equal(t, want, got)
+		_, sIDs := ruleToIDs(ruleid, ruleMap)
+		got := sIDs
+		if !reflect.DeepEqual(want, got) {
+			t.Errorf("Wrong result. Expected:\n%#v\nbut got:\n%#v", want, got)
+		}
 	}
 }
 

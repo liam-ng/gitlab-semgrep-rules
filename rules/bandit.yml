@@ -12,7 +12,12 @@ rules:
     Use of assert detected. The enclosed code will be removed when
     compiling to optimised byte code.
   metadata:
-    cwe: 'CWE-754: Improper Check for Unusual or Exceptional Conditions'
+    cwe: "CWE-754: Improper Check for Unusual or Exceptional Conditions"
+    primary_identifier: "bandit.B101"
+    secondary_identifiers:
+    - name: "Bandit Test ID B101"
+      type: "bandit_test_id"
+      value: "B101"
   severity: INFO
   languages: [python]
 - id: bandit.B102
@@ -22,8 +27,14 @@ rules:
   message: |
     The use of `exec` is risky.
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B102"
+    secondary_identifiers:
+    - name: "Bandit Test ID B102"
+      type: "bandit_test_id"
+      value: "B102"
   severity: WARNING
   languages: [python]
 # https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/insecure-file-permissions.yaml
@@ -37,8 +48,13 @@ rules:
         regex: "(0x..f|0o..[2,3,7]|stat.S_IXGRP|stat.S_IWOTH)"
   message: 'Chmod setting a permissive mask on file.'
   metadata:
-    cwe: 'CWE-732: Incorrect Permission Assignment for Critical Resource'
-    owasp: 'A6: Security Misconfiguration'
+    cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
+    owasp: "A6: Security Misconfiguration"
+    primary_identifier: "bandit.B103"
+    secondary_identifiers:
+    - name: "Bandit Test ID B103"
+      type: "bandit_test_id"
+      value: "B103"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/network/bind.yaml
@@ -64,8 +80,13 @@ rules:
     instead getting correct address from an environment variable or
     configuration file.
   metadata:
-    cwe: 'CWE-200: Exposure of Sensitive Information to an Unauthorized Actor'
-    owasp: 'A6: Security Misconfiguration'
+    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+    owasp: "A6: Security Misconfiguration"
+    primary_identifier: "bandit.B104"
+    secondary_identifiers:
+    - name: "Bandit Test ID B104"
+      type: "bandit_test_id"
+      value: "B104"
   severity: INFO
   languages: [python]
 - id: bandit.B105
@@ -79,8 +100,13 @@ rules:
   message: |
     Possible hardcoded password
   metadata:
-    cwe: 'CWE-259: Use of Hard-coded Password'
-    owasp: 'A3: Broken Authentication and Session Management'
+    cwe: "CWE-259: Use of Hard-coded Password"
+    owasp: "A3: Broken Authentication and Session Management"
+    primary_identifier: "bandit.B105"
+    secondary_identifiers:
+    - name: "Bandit Test ID B105"
+      type: "bandit_test_id"
+      value: "B105"
   severity: INFO
   languages: [python]
 - id: bandit.B106
@@ -92,8 +118,13 @@ rules:
   message: |
     Possible hardcoded password
   metadata:
-    cwe: 'CWE-259: Use of Hard-coded Password'
-    owasp: 'A3: Broken Authentication and Session Management'
+    cwe: "CWE-259: Use of Hard-coded Password"
+    owasp: "A3: Broken Authentication and Session Management"
+    primary_identifier: "bandit.B106"
+    secondary_identifiers:
+    - name: "Bandit Test ID B106"
+      type: "bandit_test_id"
+      value: "B106"
   severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/hardcoded-password-default-argument.yaml
@@ -107,8 +138,13 @@ rules:
     Hardcoded password is used as a default argument to '$FUNC'. This could be dangerous if
     a real password is not supplied.
   metadata:
-    cwe: 'CWE-259: Use of Hard-coded Password'
-    owasp: 'A3: Broken Authentication and Session Management'
+    cwe: "CWE-259: Use of Hard-coded Password"
+    owasp: "A3: Broken Authentication and Session Management"
+    primary_identifier: "bandit.B107"
+    secondary_identifiers:
+    - name: "Bandit Test ID B107"
+      type: "bandit_test_id"
+      value: "B107"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/best-practice/hardcoded-tmp-path.yaml
@@ -118,7 +154,12 @@ rules:
   message: |
     Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.
   metadata:
-    cwe: 'CWE-377: Insecure Temporary File'
+    cwe: "CWE-377: Insecure Temporary File"
+    primary_identifier: "bandit.B108"
+    secondary_identifiers:
+    - name: "Bandit Test ID B108"
+      type: "bandit_test_id"
+      value: "B108"
   severity: WARNING
   languages: [python]
 - id: bandit.B108-2
@@ -130,7 +171,12 @@ rules:
   message: |
     Probable insecure usage of temp file/directory.
   metadata:
-    cwe: 'CWE-377: Insecure Temporary File'
+    cwe: "CWE-377: Insecure Temporary File"
+    primary_identifier: "bandit.B108-2"
+    secondary_identifiers:
+    - name: "Bandit Test ID B108"
+      type: "bandit_test_id"
+      value: "B108"
   severity: WARNING
   languages: [python]
 - id: bandit.B201
@@ -144,8 +190,13 @@ rules:
     as it will leak sensitive information. Instead, consider using Flask configuration
     variables or setting 'debug' using system environment variables.
   metadata:
-    cwe: 'CWE-489: Active Debug Code'
-    owasp: 'A6: Security Misconfiguration'
+    cwe: "CWE-489: Active Debug Code"
+    owasp: "A6: Security Misconfiguration"
+    primary_identifier: "bandit.B201"
+    secondary_identifiers:
+    - name: "Bandit Test ID B201"
+      type: "bandit_test_id"
+      value: "B201"
   severity: WARNING
   languages: [python]
 - id: "bandit.B112"
@@ -266,6 +317,11 @@ rules:
     Try, Except, Continue
   metadata:
     cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
+    primary_identifier: "bandit.B112"
+    secondary_identifiers:
+    - name: "Bandit Test ID B112"
+      type: "bandit_test_id"
+      value: "B112"
   severity: "INFO"
   languages:
   - "python"
@@ -387,6 +443,11 @@ rules:
     Try, Except, Pass
   metadata:
     cwe: "CWE-703: Improper Check or Handling of Exceptional Conditions"
+    primary_identifier: "bandit.B110"
+    secondary_identifiers:
+    - name: "Bandit Test ID B110"
+      type: "bandit_test_id"
+      value: "B110"
   severity: "INFO"
   languages:
   - "python"
@@ -402,8 +463,13 @@ rules:
     Instead, consider serializing the relevant data as JSON or a similar text-based
     serialization format.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B301-1"
+    secondary_identifiers:
+    - name: "Bandit Test ID B301-1"
+      type: "bandit_test_id"
+      value: "B301-1"
   severity: WARNING
   languages: [python]
 # avoid-cPickle
@@ -415,8 +481,13 @@ rules:
     Instead, consider serializing the relevant data as JSON or a similar text-based
     serialization format.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B301"
+    secondary_identifiers:
+    - name: "Bandit Test ID B301"
+      type: "bandit_test_id"
+      value: "B301"
   severity: WARNING
   languages: [python]
 # avoid-dill
@@ -429,8 +500,13 @@ rules:
     Instead, consider serializing the relevant data as JSON or a similar text-based
     serialization format.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B301"
+    secondary_identifiers:
+    - name: "Bandit Test ID B301"
+      type: "bandit_test_id"
+      value: "B301"
   languages: [python]
   severity: WARNING
 # avoid-shelve
@@ -443,8 +519,13 @@ rules:
     Instead, consider serializing the relevant data as JSON or a similar text-based
     serialization format.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B301"
+    secondary_identifiers:
+    - name: "Bandit Test ID B301"
+      type: "bandit_test_id"
+      value: "B301"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/marshal.yaml
@@ -460,8 +541,13 @@ rules:
     Never unmarshal data received from an untrusted or unauthenticated source.
     See more details: https://docs.python.org/3/library/marshal.html?highlight=security
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B302"
+    secondary_identifiers:
+    - name: "Bandit Test ID B302"
+      type: "bandit_test_id"
+      value: "B302"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/insecure-hash-algorithms.yaml
@@ -473,8 +559,13 @@ rules:
     collision resistant and is therefore not suitable as a cryptographic
     signature. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303-1"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-sha1
@@ -485,8 +576,13 @@ rules:
     collision resistant and is therefore not suitable as a cryptographic
     signature. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303-2"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-hash-algorithm.yaml
@@ -500,8 +596,13 @@ rules:
     Detected MD2 hash algorithm which is considered insecure. This algorithm
     has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303-3"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-md4
@@ -514,8 +615,13 @@ rules:
     Detected MD4 hash algorithm which is considered insecure. This algorithm
     has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303-4"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-md5
@@ -529,8 +635,13 @@ rules:
     collision resistant and is therefore not suitable as a cryptographic
     signature. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303-5"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-sha1
@@ -544,8 +655,13 @@ rules:
     collision resistant and is therefore not suitable as a cryptographic
     signature. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303-6"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/cryptography/security/insecure-hash-algorithms.yaml
@@ -557,8 +673,13 @@ rules:
     collision resistant and is therefore not suitable as a cryptographic
     signature. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303-7"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
   severity: WARNING
   languages: [python]
 - id: bandit.B303-8
@@ -568,8 +689,13 @@ rules:
     collision resistant and is therefore not suitable as a cryptographic
     signature. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303-8"
+    secondary_identifiers:
+    - name: "Bandit Test ID B303"
+      type: "bandit_test_id"
+      value: "B303"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-hash-algorithm.yaml
@@ -583,8 +709,13 @@ rules:
     Detected MD2 hash algorithm which is considered insecure. This algorithm
     has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-1"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304-1"
+      type: "bandit_test_id"
+      value: "B304-1"
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-md4
@@ -597,8 +728,13 @@ rules:
     Detected MD4 hash algorithm which is considered insecure. This algorithm
     has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-2"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-md5
@@ -612,8 +748,13 @@ rules:
     collision resistant and is therefore not suitable as a cryptographic
     signature. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-3"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-hash-algorithm-sha1
@@ -627,8 +768,13 @@ rules:
     collision resistant and is therefore not suitable as a cryptographic
     signature. Use SHA256 or SHA3 instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-4"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/pycryptodome/security/insecure-cipher-algorithm.yaml
@@ -641,8 +787,13 @@ rules:
   message: |
     Detected RC2 cipher algorithm which is considered insecure. The algorithm has known vulnerabilities and is difficult to use securely. Use AES instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-5"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-rc4
@@ -655,8 +806,13 @@ rules:
     Detected RC4 cipher algorithm which is considered insecure. The algorithm has many
     known vulnerabilities. Use AES instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-6"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-blowfish
@@ -669,8 +825,13 @@ rules:
     Detected Blowfish cipher algorithm which is considered insecure. The algorithm has many
     known vulnerabilities. Use AES instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-7"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-des
@@ -683,8 +844,13 @@ rules:
     Detected DES cipher algorithm which is considered insecure. The algorithm is
     considered weak and has been deprecated. Use AES instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-8"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-xor
@@ -697,8 +863,13 @@ rules:
     Detected XOR cipher algorithm which is considered insecure. This algorithm
     is not cryptographically secure and can be reversed easily. Use AES instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-rc4
@@ -708,8 +879,13 @@ rules:
     Detected RC4 cipher algorithm which is considered insecure. The algorithm has many
     known vulnerabilities. Use AES instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-10"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-blowfish
@@ -719,8 +895,13 @@ rules:
     Detected Blowfish cipher algorithm which is considered insecure. The algorithm has many
     known vulnerabilities. Use AES instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-11"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # insecure-cipher-algorithm-idea
@@ -730,8 +911,13 @@ rules:
     Detected IDEA cipher algorithm which is considered insecure. The algorithm is
     considered weak and has been deprecated. Use AES instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B304-12"
+    secondary_identifiers:
+    - name: "Bandit Test ID B304"
+      type: "bandit_test_id"
+      value: "B304"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/cryptography/security/insecure-cipher-mode-ecb.yaml
@@ -742,8 +928,13 @@ rules:
     Detected ECB cipher mode which is considered insecure. The algorithm can
     potentially leak information about the plaintext. Use CBC mode instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B305"
+    secondary_identifiers:
+    - name: "Bandit Test ID B305"
+      type: "bandit_test_id"
+      value: "B305"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/correctness/tempfile/mktemp.yaml
@@ -755,8 +946,13 @@ rules:
     NOT BE USED. The file name may refer to a file that did not exist at some point, but by the time you get around to creating
     it, someone else may have beaten you to the punch.
   metadata:
-    cwe: 'CWE-377: Insecure Temporary File'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-377: Insecure Temporary File"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B306"
+    secondary_identifiers:
+    - name: "Bandit Test ID B306"
+      type: "bandit_test_id"
+      value: "B306"
   languages: [python]
   severity: ERROR
 # source (modified): https://semgrep.dev/c/p/bandit
@@ -770,8 +966,14 @@ rules:
     may be a code injection vulnerability. Ensure evaluated content is not definable
     by external sources. Consider using safer ast.literal_eval.
   metadata:
-    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
+      ('Eval Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B307"
+    secondary_identifiers:
+    - name: "Bandit Test ID B307"
+      type: "bandit_test_id"
+      value: "B307"
   severity: WARNING
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/avoid-mark-safe.yaml
@@ -790,8 +992,14 @@ rules:
     XSS attacks. Use 'django.utils.html.format_html()' to build HTML
     for rendering instead.
   metadata:
-    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
-    owasp: 'A7: Cross-Site Scripting (XSS)'
+    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
+      Scripting')"
+    owasp: "A7: Cross-Site Scripting (XSS)"
+    primary_identifier: "bandit.B703"
+    secondary_identifiers:
+    - name: "Bandit Test ID B703"
+      type: "bandit_test_id"
+      value: "B703"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/httpsconnection-detected.yaml
@@ -809,8 +1017,13 @@ rules:
     See https://docs.python.org/3/library/http.client.html#http.client.HTTPSConnection
     for more information.
   metadata:
-    cwe: 'CWE-295: Improper Certificate Validation'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-295: Improper Certificate Validation"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B309"
+    secondary_identifiers:
+    - name: "Bandit Test ID B309"
+      type: "bandit_test_id"
+      value: "B309"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/dynamic-urllib-use-detected.yaml
@@ -850,8 +1063,13 @@ rules:
     Audit uses of urllib calls to ensure user data cannot control the URLs, or consider
     using the 'requests' library instead.
   metadata:
-    cwe: 'CWE-939: Improper Authorization in Handler for Custom URL Scheme'
-    owasp: 'A5: Broken Access Control'
+    cwe: "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+    owasp: "A5: Broken Access Control"
+    primary_identifier: "bandit.B310-1"
+    secondary_identifiers:
+    - name: "Bandit Test ID B310-1"
+      type: "bandit_test_id"
+      value: "B310-1"
   severity: WARNING
   languages: [python]
 - id: bandit.B310-2
@@ -873,8 +1091,13 @@ rules:
     Audit uses of urllib calls to ensure user data cannot control the URLs, or consider
     using the 'requests' library instead.
   metadata:
-    cwe: 'CWE-939: Improper Authorization in Handler for Custom URL Scheme'
-    owasp: 'A5: Broken Access Control'
+    cwe: "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+    owasp: "A5: Broken Access Control"
+    primary_identifier: "bandit.B310-2"
+    secondary_identifiers:
+    - name: "Bandit Test ID B310"
+      type: "bandit_test_id"
+      value: "B310"
   severity: WARNING
   languages: [python]
 - id: bandit.B311
@@ -888,8 +1111,13 @@ rules:
   message: |
     Standard pseudo-random generators are not suitable for security/cryptographic purposes.
   metadata:
-    cwe: 'CWE-330: Use of Insufficiently Random Values'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-330: Use of Insufficiently Random Values"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B311"
+    secondary_identifiers:
+    - name: "Bandit Test ID B311"
+      type: "bandit_test_id"
+      value: "B311"
   severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/telnetlib.yaml
@@ -899,8 +1127,13 @@ rules:
   message: |
     Telnet does not encrypt communications. Use SSH instead.
   metadata:
-    cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B312"
+    secondary_identifiers:
+    - name: "Bandit Test ID B312"
+      type: "bandit_test_id"
+      value: "B312"
   severity: WARNING
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/use-defused-xml.yaml
@@ -913,8 +1146,13 @@ rules:
   - pattern: xml.etree.cElementTree.iterparse(...)
   - pattern: xml.etree.cElementTree.XMLParser(...)
   metadata:
-    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
-    owasp: 'A4: XML External Entities (XXE)'
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+    primary_identifier: "bandit.B313"
+    secondary_identifiers:
+    - name: "Bandit Test ID B313"
+      type: "bandit_test_id"
+      value: "B313"
   message: |
     Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
     attacks. The Python documentation recommends the `defusedxml` library instead. Use
@@ -930,8 +1168,13 @@ rules:
   - pattern: xml.etree.ElementTree.iterparse(...)
   - pattern: xml.etree.ElementTree.XMLParser(...)
   metadata:
-    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
-    owasp: 'A4: XML External Entities (XXE)'
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+    primary_identifier: "bandit.B314"
+    secondary_identifiers:
+    - name: "Bandit Test ID B314"
+      type: "bandit_test_id"
+      value: "B314"
   message: |
     Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
     attacks. The Python documentation recommends the `defusedxml` library instead. Use
@@ -949,8 +1192,13 @@ rules:
   - pattern: lxml.etree.getDefaultParser(...)
   - pattern: lxml.etree.check_docinfo(...)
   metadata:
-    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
-    owasp: 'A4: XML External Entities (XXE)'
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+    primary_identifier: "bandit.B320"
+    secondary_identifiers:
+    - name: "Bandit Test ID B320"
+      type: "bandit_test_id"
+      value: "B320"
   message: |
     Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
     attacks. The Python documentation recommends the `defusedxml` library instead. Use
@@ -966,8 +1214,13 @@ rules:
   message: |
     Insecure XML parsing functionality, prefer `defusedxml`
   metadata:
-    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
-    owasp: 'A4: XML External Entities (XXE)'
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+    primary_identifier: "bandit.B316"
+    secondary_identifiers:
+    - name: "Bandit Test ID B316"
+      type: "bandit_test_id"
+      value: "B316"
   severity: WARNING
   languages: [python]
 - id: bandit.B315
@@ -981,8 +1234,13 @@ rules:
   message: |
     Insecure XML parsing functionality, prefer `defusedxml`
   metadata:
-    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
-    owasp: 'A4: XML External Entities (XXE)'
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+    primary_identifier: "bandit.B315"
+    secondary_identifiers:
+    - name: "Bandit Test ID B315"
+      type: "bandit_test_id"
+      value: "B315"
   severity: WARNING
   languages: [python]
 - id: bandit.B405
@@ -993,8 +1251,13 @@ rules:
   message: |
     Consider possible security implications associated with etree module.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B405"
+    secondary_identifiers:
+    - name: "Bandit Test ID B405"
+      type: "bandit_test_id"
+      value: "B405"
   severity: INFO
   languages: [python]
 - id: bandit.B406
@@ -1006,8 +1269,13 @@ rules:
     XML attacks. Replace vulnerable imports with the equivalent defusedxml package,
     or make sure defusedxml.defuse_stdlib() is called.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B406"
+    secondary_identifiers:
+    - name: "Bandit Test ID B406"
+      type: "bandit_test_id"
+      value: "B406"
   severity: INFO
   languages: [python]
 - id: bandit.B407
@@ -1019,8 +1287,13 @@ rules:
     XML attacks. Replace vulnerable imports with the equivalent defusedxml package,
     or make sure defusedxml.defuse_stdlib() is called.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B407"
+    secondary_identifiers:
+    - name: "Bandit Test ID B407"
+      type: "bandit_test_id"
+      value: "B407"
   severity: INFO
   languages: [python]
 - id: bandit.B409
@@ -1032,8 +1305,13 @@ rules:
     XML attacks. Replace vulnerable imports with the equivalent defusedxml package,
     or make sure defusedxml.defuse_stdlib() is called.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B409"
+    secondary_identifiers:
+    - name: "Bandit Test ID B409"
+      type: "bandit_test_id"
+      value: "B409"
   severity: INFO
   languages: [python]
 - id: bandit.B410
@@ -1044,8 +1322,13 @@ rules:
     Using various methods to parse untrusted XML data is known to be vulnerable to
     XML attacks. Replace vulnerable imports with the equivalent defusedxml package.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B410"
+    secondary_identifiers:
+    - name: "Bandit Test ID B410"
+      type: "bandit_test_id"
+      value: "B410"
   severity: INFO
   languages: [python]
 - id: bandit.B408
@@ -1057,8 +1340,13 @@ rules:
     to XML attacks. Replace vulnerable imports with the equivalent defusedxml
     package, or make sure defusedxml.defuse_stdlib() is called.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B408"
+    secondary_identifiers:
+    - name: "Bandit Test ID B408"
+      type: "bandit_test_id"
+      value: "B408"
   severity: INFO
   languages: [python]
 # source (original): https://semgrep.dev/c/p/bandit
@@ -1073,8 +1361,13 @@ rules:
   message: |
     Insecure XML parsing functionality, prefer `defusedxml`
   metadata:
-    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
-    owasp: 'A4: XML External Entities (XXE)'
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+    primary_identifier: "bandit.B317"
+    secondary_identifiers:
+    - name: "Bandit Test ID B317"
+      type: "bandit_test_id"
+      value: "B317"
   severity: WARNING
   languages: [python]
 - id: bandit.B318
@@ -1088,8 +1381,13 @@ rules:
     attacks. The Python documentation recommends the `defusedxml` library instead. Use
     'defusedxml'. See https://github.com/tiran/defusedxml for more information.
   metadata:
-    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
-    owasp: 'A4: XML External Entities (XXE)'
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+    primary_identifier: "bandit.B318"
+    secondary_identifiers:
+    - name: "Bandit Test ID B318"
+      type: "bandit_test_id"
+      value: "B318"
   severity: WARNING
   languages: [python]
 - id: bandit.B319
@@ -1099,8 +1397,13 @@ rules:
       - pattern-not: xml.dom.pulldom.parseString("...")
     - pattern: xml.dom.pulldom.parse(...)
   metadata:
-    cwe: 'CWE-611: Improper Restriction of XML External Entity Reference'
-    owasp: 'A4: XML External Entities (XXE)'
+    cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    owasp: "A4: XML External Entities (XXE)"
+    primary_identifier: "bandit.B319"
+    secondary_identifiers:
+    - name: "Bandit Test ID B319"
+      type: "bandit_test_id"
+      value: "B319"
   message: |
     Found use of the native Python XML libraries, which is vulnerable to XML external entity (XXE)
     attacks. The Python documentation recommends the `defusedxml` library instead. Use
@@ -1115,8 +1418,13 @@ rules:
     FTP does not encrypt communications by default. This can lead to sensitive
     data being exposed. Ensure use of FTP here does not expose sensitive data.
   metadata:
-    cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B321"
+    secondary_identifiers:
+    - name: "Bandit Test ID B321"
+      type: "bandit_test_id"
+      value: "B321"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/unverified-ssl-context.yaml
@@ -1127,8 +1435,13 @@ rules:
     Unverified SSL context detected. This will permit insecure connections without verifying
     SSL certificates. Use 'ssl.create_default_context()' instead.
   metadata:
-    cwe: 'CWE-295: Improper Certificate Validation'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-295: Improper Certificate Validation"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B323"
+    secondary_identifiers:
+    - name: "Bandit Test ID B323"
+      type: "bandit_test_id"
+      value: "B323"
   severity: ERROR
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/insecure-hash-function.yaml
@@ -1147,8 +1460,13 @@ rules:
     These functions have known vulnerabilities and are considered deprecated.
     Consider using 'SHA256' or a similar function instead.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B324"
+    secondary_identifiers:
+    - name: "Bandit Test ID B324"
+      type: "bandit_test_id"
+      value: "B324"
   severity: WARNING
   languages: [python]
 # source (modified): https://semgrep.dev/c/p/bandit
@@ -1159,7 +1477,12 @@ rules:
   - pattern: os.tmpnam(...)
   message: The Python 'os' tempnam|tmpnam functions are vulnerable to symlink attacks
   metadata:
-    cwe: 'CWE-377: Insecure Temporary File'
+    cwe: "CWE-377: Insecure Temporary File"
+    primary_identifier: "bandit.B325"
+    secondary_identifiers:
+    - name: "Bandit Test ID B325"
+      type: "bandit_test_id"
+      value: "B325"
   severity: WARNING
   languages: [python]
 - id: bandit.B401
@@ -1168,8 +1491,13 @@ rules:
   message: |
     Telnet-related functions are being called. Telnet is considered insecure. Use SSH or some other encrypted protocol.
   metadata:
-    cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B401"
+    secondary_identifiers:
+    - name: "Bandit Test ID B401"
+      type: "bandit_test_id"
+      value: "B401"
   severity: ERROR
   languages: [python]
 - id: bandit.B402
@@ -1181,8 +1509,13 @@ rules:
   message: |
     functions are being called. FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol
   metadata:
-    cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B402"
+    secondary_identifiers:
+    - name: "Bandit Test ID B402"
+      type: "bandit_test_id"
+      value: "B402"
   severity: ERROR
   languages: [python]
 - id: bandit.B403
@@ -1194,8 +1527,13 @@ rules:
   message: |
     Consider possible security implications associated with pickle module.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B403"
+    secondary_identifiers:
+    - name: "Bandit Test ID B403"
+      type: "bandit_test_id"
+      value: "B403"
   severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/correctness/unchecked-returns.yaml
@@ -1206,8 +1544,14 @@ rules:
   message: |
     Consider possible security implications associated with subprocess module.
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B404"
+    secondary_identifiers:
+    - name: "Bandit Test ID B404"
+      type: "bandit_test_id"
+      value: "B404"
   languages: [python]
   severity: WARNING
 - id: bandit.B411
@@ -1216,8 +1560,13 @@ rules:
   message: |
     Consider possible security implications associated with xmlrpclib module.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B411"
+    secondary_identifiers:
+    - name: "Bandit Test ID B411"
+      type: "bandit_test_id"
+      value: "B411"
   severity: ERROR
   languages: [python]
 - id: bandit.B412
@@ -1227,8 +1576,13 @@ rules:
   message: |
     Consider possible security implications associated with httpoxy module.
   metadata:
-    cwe: 'CWE-284: Improper Access Control'
-    owasp: 'A5: Broken Access Control'
+    cwe: "CWE-284: Improper Access Control"
+    owasp: "A5: Broken Access Control"
+    primary_identifier: "bandit.B412"
+    secondary_identifiers:
+    - name: "Bandit Test ID B412"
+      type: "bandit_test_id"
+      value: "B412"
   severity: ERROR
   languages: [python]
 - id: bandit.B413
@@ -1245,8 +1599,13 @@ rules:
   message: |
     Consider possible security implications associated with pycrypto module.
   metadata:
-    cwe: 'CWE-327: Use of a Broken or Risky Cryptographic Algorithm'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B413"
+    secondary_identifiers:
+    - name: "Bandit Test ID B413"
+      type: "bandit_test_id"
+      value: "B413"
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/requests/security/disabled-cert-validation.yaml
@@ -1267,8 +1626,13 @@ rules:
     permits insecure connections to insecure servers. Re-enable
     certification validation.
   metadata:
-    cwe: 'CWE-295: Improper Certificate Validation'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-295: Improper Certificate Validation"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B501"
+    secondary_identifiers:
+    - name: "Bandit Test ID B501"
+      type: "bandit_test_id"
+      value: "B501"
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/weak-ssl-version.yaml
@@ -1290,8 +1654,13 @@ rules:
     are considered weak encryption and are deprecated.
     Use 'ssl.PROTOCOL_TLSv1_2' or higher.
   metadata:
-    cwe: 'CWE-326: Inadequate Encryption Strength'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-326: Inadequate Encryption Strength"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B502"
+    secondary_identifiers:
+    - name: "Bandit Test ID B502"
+      type: "bandit_test_id"
+      value: "B502"
   severity: WARNING
   languages: [python]
 - id: bandit.B504
@@ -1300,8 +1669,13 @@ rules:
   message: |
     ssl.wrap_socket call with no SSL/TLS protocol version specified, the default SSLv23 could be insecure, possible security issue.
   metadata:
-    cwe: 'CWE-326: Inadequate Encryption Strength'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-326: Inadequate Encryption Strength"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B504"
+    secondary_identifiers:
+    - name: "Bandit Test ID B504"
+      type: "bandit_test_id"
+      value: "B504"
   severity: INFO
   languages: [python]
 # source (modified/combined): https://github.com/returntocorp/semgrep-rules/tree/develop/python/cryptography/security/insufficient*-size/insufficient*-size.yaml
@@ -1333,8 +1707,13 @@ rules:
     Detected an insufficient key size for DSA. NIST recommends
     a key size of 2048 or higher.
   metadata:
-    cwe: 'CWE-326: Inadequate Encryption Strength'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-326: Inadequate Encryption Strength"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B505-1"
+    secondary_identifiers:
+    - name: "Bandit Test ID B505-1"
+      type: "bandit_test_id"
+      value: "B505-1"
   severity: WARNING
   languages: [python]
 - id: bandit.B505-2
@@ -1344,8 +1723,13 @@ rules:
     Detected an insufficient curve size for EC. NIST recommends
     a key size of 224 or higher. For example, use 'ec.SECP256R1'.
   metadata:
-    cwe: 'CWE-326: Inadequate Encryption Strength'
-    owasp: 'A3: Sensitive Data Exposure'
+    cwe: "CWE-326: Inadequate Encryption Strength"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B505-2"
+    secondary_identifiers:
+    - name: "Bandit Test ID B505"
+      type: "bandit_test_id"
+      value: "B505"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/deserialization/avoid-pyyaml-load.yaml
@@ -1362,8 +1746,13 @@ rules:
     objects. A malicious actor could exploit this to run arbitrary
     code. Use `safe_load()` instead.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8: Insecure Deserialization'
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8: Insecure Deserialization"
+    primary_identifier: "bandit.B506"
+    secondary_identifiers:
+    - name: "Bandit Test ID B506"
+      type: "bandit_test_id"
+      value: "B506"
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/paramiko-implicit-trust-host-key.yaml
@@ -1383,8 +1772,13 @@ rules:
     is not to a malicious server. Use RejectPolicy or a custom subclass
     instead.
   metadata:
-    cwe: 'CWE-322: Key Exchange without Entity Authentication'
-    owasp: 'A5: Broken Access Control'
+    cwe: "CWE-322: Key Exchange without Entity Authentication"
+    owasp: "A5: Broken Access Control"
+    primary_identifier: "bandit.B507"
+    secondary_identifiers:
+    - name: "Bandit Test ID B507"
+      type: "bandit_test_id"
+      value: "B507"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/paramiko/paramiko-exec-command.yaml
@@ -1399,8 +1793,14 @@ rules:
     Unverified SSL context detected. This will permit insecure connections without verifying
     SSL certificates. Use 'ssl.create_default_context()' instead.
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B601"
+    secondary_identifiers:
+    - name: "Bandit Test ID B601"
+      type: "bandit_test_id"
+      value: "B601"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/subprocess-shell-true.yaml
@@ -1424,8 +1824,14 @@ rules:
     the command using a shell process. Doing so propagates current shell settings and variables, which
     makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B602"
+    secondary_identifiers:
+    - name: "Bandit Test ID B602"
+      type: "bandit_test_id"
+      value: "B602"
   severity: ERROR
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/dangerous-system-call.yaml
@@ -1456,8 +1862,14 @@ rules:
     vulnerable to shell injection attacks, but care should still be taken to
     ensure validity of input.
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B603"
+    secondary_identifiers:
+    - name: "Bandit Test ID B603"
+      type: "bandit_test_id"
+      value: "B603"
   severity: WARNING
   languages: [python]
 - id: bandit.B604
@@ -1467,8 +1879,14 @@ rules:
   message: |
     subprocess call - check for execution of untrusted input
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B604"
+    secondary_identifiers:
+    - name: "Bandit Test ID B604"
+      type: "bandit_test_id"
+      value: "B604"
   severity: INFO
   languages: [python]
 - id: bandit.B605
@@ -1490,8 +1908,14 @@ rules:
     Starting a process with a shell: Seems safe, but may be changed in the
     future, consider rewriting without shell
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B605"
+    secondary_identifiers:
+    - name: "Bandit Test ID B605"
+      type: "bandit_test_id"
+      value: "B605"
   severity: INFO
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/dangerous-spawn-process.yaml
@@ -1527,8 +1951,14 @@ rules:
     data can reach this function call because it allows a malicious actor to
     execute commands. Ensure no external data reaches here.
   metadata:
-    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B606"
+    secondary_identifiers:
+    - name: "Bandit Test ID B606"
+      type: "bandit_test_id"
+      value: "B606"
   severity: WARNING
   languages: [python]
 - id: bandit.B607
@@ -1543,6 +1973,15 @@ rules:
   message: |
     Starting a process with a shell; seems safe, but may be changed in the future, consider
     rewriting without shell
+  metadata:
+    cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
+      ('OS Command Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B607"
+    secondary_identifiers:
+    - name: "Bandit Test ID B607"
+      type: "bandit_test_id"
+      value: "B607"
   severity: INFO
   languages: [python]
 # source (modified): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/formatted-sql-query.yaml
@@ -1569,8 +2008,14 @@ rules:
   message: |
     Detected possible formatted SQL query. Use parameterized queries instead.
   metadata:
-    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
+      ('SQL Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B608"
+    secondary_identifiers:
+    - name: "Bandit Test ID B608"
+      type: "bandit_test_id"
+      value: "B608"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/system-wildcard-detected.yaml
@@ -1593,8 +2038,13 @@ rules:
     https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt
     for more information.
   metadata:
-    cwe: 'CWE-155: Improper Neutralization of Wildcards or Matching Symbols'
-    owasp: 'A1: Injection'
+    cwe: "CWE-155: Improper Neutralization of Wildcards or Matching Symbols"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B609"
+    secondary_identifiers:
+    - name: "Bandit Test ID B609"
+      type: "bandit_test_id"
+      value: "B609"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/django/security/audit/query-set-extra.yaml
@@ -1623,6 +2073,11 @@ rules:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
       ('SQL Injection')"
     owasp: "A1: Injection"
+    primary_identifier: "bandit.B610"
+    secondary_identifiers:
+    - name: "Bandit Test ID B610"
+      type: "bandit_test_id"
+      value: "B610"
   severity: "ERROR"
   languages:
   - "python"
@@ -1635,8 +2090,14 @@ rules:
     - pattern: django.db.models.expressions.RawSQL(...)
   message: You should be very careful whenever you write raw SQL. Consider using Django ORM before raw SQL. See https://docs.djangoproject.com/en/3.0/topics/db/sql/#passing-parameters-into-raw
   metadata:
-    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
-    owasp: 'A1: Injection'
+    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
+      ('SQL Injection')"
+    owasp: "A1: Injection"
+    primary_identifier: "bandit.B611"
+    secondary_identifiers:
+    - name: "Bandit Test ID B611"
+      type: "bandit_test_id"
+      value: "B611"
   severity: ERROR
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/jinja2/security/audit/autoescape-disabled.yaml
@@ -1653,8 +2114,13 @@ rules:
     'autoescape=True.' You may also consider using 'jinja2.select_autoescape()' to only enable
     automatic escaping for certain file extensions.
   metadata:
-    cwe: 'CWE-116: Improper Encoding or Escaping of Output'
-    owasp: 'A7: Cross-Site Scripting (XSS)'
+    cwe: "CWE-116: Improper Encoding or Escaping of Output"
+    owasp: "A7: Cross-Site Scripting (XSS)"
+    primary_identifier: "bandit.B701"
+    secondary_identifiers:
+    - name: "Bandit Test ID B701"
+      type: "bandit_test_id"
+      value: "B701"
   severity: WARNING
   languages: [python]
 # source (original): https://github.com/returntocorp/semgrep-rules/blob/develop/python/lang/security/audit/mako-templates-detected.yaml
@@ -1668,8 +2134,14 @@ rules:
     If you are using Mako to serve web content, consider using
     a system such as Jinja2 which enables global escaping.
   metadata:
-    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
-    owasp: 'A7: Cross-Site Scripting (XSS)'
+    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
+      Scripting')"
+    owasp: "A7: Cross-Site Scripting (XSS)"
+    primary_identifier: "bandit.B702"
+    secondary_identifiers:
+    - name: "Bandit Test ID B702"
+      type: "bandit_test_id"
+      value: "B702"
   severity: INFO
   languages: [python]
 

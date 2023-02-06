@@ -30,6 +30,11 @@ rules:
     cwe: "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.HTTPONLY_COOKIE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-HTTPONLY_COOKIE"
+      type: "find_sec_bugs_type"
+      value: "HTTPONLY_COOKIE"
 - id: "find_sec_bugs.INSECURE_COOKIE-1"
   pattern-either:
   - patterns:
@@ -45,8 +50,8 @@ rules:
         (HttpServletResponse $RESP).addCookie($C);
   - pattern: "(javax.servlet.http.Cookie $C).setSecure(false);"
   message: |
-    "Storing sensitive data in a persistent cookie for an extended period can lead to a breach of
-    confidentiality or account compromise."
+    "A new cookie is created without the Secure flag set. The Secure flag is a directive to the
+    browser to make sure that the cookie is not sent for insecure communication (http://)"
   languages:
   - "java"
   severity: "WARNING"
@@ -55,6 +60,11 @@ rules:
     cwe: "CWE-539: Information Exposure Through Persistent Cookies"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.INSECURE_COOKIE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-INSECURE_COOKIE"
+      type: "find_sec_bugs_type"
+      value: "INSECURE_COOKIE"
 - id: "find_sec_bugs.COOKIE_PERSISTENT-1"
   patterns:
   - pattern-inside: |
@@ -63,8 +73,8 @@ rules:
       metavariable: "$AGE"
       comparison: "$AGE >= 31536000"
   message: |
-    A new cookie is created without the Secure flag set. The Secure flag is a directive to the
-    browser to make sure that the cookie is not sent for insecure communication (http://)
+    Storing sensitive data in a persistent cookie for an extended period can lead to a breach of
+    confidentiality or account compromise.
   languages:
   - "java"
   severity: "WARNING"
@@ -73,6 +83,11 @@ rules:
     cwe: "CWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.COOKIE_PERSISTENT"
+    secondary_identifiers:
+    - name: "Find Security Bugs-COOKIE_PERSISTENT"
+      type: "find_sec_bugs_type"
+      value: "COOKIE_PERSISTENT"
 - id: "find_sec_bugs.COOKIE_USAGE-1"
   patterns:
   - pattern-inside: |
@@ -104,6 +119,11 @@ rules:
     cwe: "CWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.COOKIE_USAGE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-COOKIE_USAGE"
+      type: "find_sec_bugs_type"
+      value: "COOKIE_USAGE"
 - id: "find_sec_bugs.HTTP_RESPONSE_SPLITTING-1"
   mode: "taint"
   pattern-sources:
@@ -142,6 +162,11 @@ rules:
       Response Splitting')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.HTTP_RESPONSE_SPLITTING"
+    secondary_identifiers:
+    - name: "Find Security Bugs-HTTP_RESPONSE_SPLITTING"
+      type: "find_sec_bugs_type"
+      value: "HTTP_RESPONSE_SPLITTING"
 - id: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE-1"
   mode: "taint"
   pattern-sources:
@@ -179,6 +204,11 @@ rules:
       Response Splitting')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-HRS_REQUEST_PARAMETER_TO_COOKIE"
+      type: "find_sec_bugs_type"
+      value: "HRS_REQUEST_PARAMETER_TO_COOKIE"
 - id: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER-1"
   mode: "taint"
   pattern-sources:
@@ -216,6 +246,11 @@ rules:
       Response Splitting')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
+      type: "find_sec_bugs_type"
+      value: "HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
 - id: "find_sec_bugs.TRUST_BOUNDARY_VIOLATION-1"
   patterns:
   - pattern-either:
@@ -239,6 +274,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-501: Trust Boundary Violation"
+    primary_identifier: "find_sec_bugs.TRUST_BOUNDARY_VIOLATION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-TRUST_BOUNDARY_VIOLATION"
+      type: "find_sec_bugs_type"
+      value: "TRUST_BOUNDARY_VIOLATION"
   severity: "WARNING"
 - id: "find_sec_bugs.PERMISSIVE_CORS-1"
   patterns:
@@ -271,6 +311,11 @@ rules:
     category: "security"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.PERMISSIVE_CORS"
+    secondary_identifiers:
+    - name: "Find Security Bugs-PERMISSIVE_CORS"
+      type: "find_sec_bugs_type"
+      value: "PERMISSIVE_CORS"
 - id: "find_sec_bugs.PERMISSIVE_CORS-2"
   mode: "taint"
   pattern-sources:
@@ -303,6 +348,11 @@ rules:
     category: "security"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.PERMISSIVE_CORS"
+    secondary_identifiers:
+    - name: "Find Security Bugs-PERMISSIVE_CORS"
+      type: "find_sec_bugs_type"
+      value: "PERMISSIVE_CORS"
 - id: "find_sec_bugs.BLOWFISH_KEY_SIZE-1"
   patterns:
   - pattern-inside: |
@@ -323,6 +373,11 @@ rules:
     cwe: "CWE-326: Inadequate Encryption Strength"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.BLOWFISH_KEY_SIZE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-BLOWFISH_KEY_SIZE"
+      type: "find_sec_bugs_type"
+      value: "BLOWFISH_KEY_SIZE"
 - id: "find_sec_bugs.DES_USAGE-1"
   patterns:
   - pattern-inside: |-
@@ -341,6 +396,11 @@ rules:
     cwe: "CWE-326: Inadequate Encryption Strength"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.DES_USAGE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-DES_USAGE"
+      type: "find_sec_bugs_type"
+      value: "DES_USAGE"
 - id: "find_sec_bugs.TDES_USAGE-1"
   patterns:
   - pattern-inside: |-
@@ -359,6 +419,11 @@ rules:
     cwe: "CWE-326: Inadequate Encryption Strength"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.TDES_USAGE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-TDES_USAGE"
+      type: "find_sec_bugs_type"
+      value: "TDES_USAGE"
 - id: "find_sec_bugs.ECB_MODE-1"
   patterns:
   - pattern-inside: |-
@@ -377,6 +442,11 @@ rules:
     cwe: "CWE-326: Inadequate Encryption Strength"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.ECB_MODE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-ECB_MODE"
+      type: "find_sec_bugs_type"
+      value: "ECB_MODE"
 - id: "find_sec_bugs.CIPHER_INTEGRITY-1"
   patterns:
   - pattern-inside: |-
@@ -399,6 +469,11 @@ rules:
     cwe: "CWE-353: Missing Support for Integrity Check"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.CIPHER_INTEGRITY"
+    secondary_identifiers:
+    - name: "Find Security Bugs-CIPHER_INTEGRITY"
+      type: "find_sec_bugs_type"
+      value: "CIPHER_INTEGRITY"
 - id: "find_sec_bugs.PADDING_ORACLE-1"
   patterns:
   - pattern-inside: |-
@@ -419,6 +494,11 @@ rules:
     cwe: "CWE-696: Incorrect Behavior Order"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.PADDING_ORACLE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-PADDING_ORACLE"
+      type: "find_sec_bugs_type"
+      value: "PADDING_ORACLE"
 - id: "find_sec_bugs.CUSTOM_MESSAGE_DIGEST-1"
   patterns:
   - pattern: |
@@ -437,6 +517,11 @@ rules:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.CUSTOM_MESSAGE_DIGEST"
+    secondary_identifiers:
+    - name: "Find Security Bugs-CUSTOM_MESSAGE_DIGEST"
+      type: "find_sec_bugs_type"
+      value: "CUSTOM_MESSAGE_DIGEST"
 - id: "find_sec_bugs.DEFAULT_HTTP_CLIENT-1"
   patterns:
   - pattern: "new org.apache.http.impl.client.DefaultHttpClient(...);"
@@ -449,6 +534,11 @@ rules:
     category: "security"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.DEFAULT_HTTP_CLIENT"
+    secondary_identifiers:
+    - name: "Find Security Bugs-DEFAULT_HTTP_CLIENT"
+      type: "find_sec_bugs_type"
+      value: "DEFAULT_HTTP_CLIENT"
 - id: "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION-1"
   patterns:
   - pattern: "new com.hazelcast.config.SymmetricEncryptionConfig()"
@@ -464,6 +554,11 @@ rules:
     cwe: "CWE-326: Inadequate Encryption Strength"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-HAZELCAST_SYMMETRIC_ENCRYPTION"
+      type: "find_sec_bugs_type"
+      value: "HAZELCAST_SYMMETRIC_ENCRYPTION"
 - id: "find_sec_bugs.RSA_KEY_SIZE-1"
   patterns:
   - pattern-either:
@@ -486,6 +581,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-326: Inadequate Encryption Strength"
+    primary_identifier: "find_sec_bugs.RSA_KEY_SIZE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-RSA_KEY_SIZE"
+      type: "find_sec_bugs_type"
+      value: "RSA_KEY_SIZE"
   severity: "WARNING"
   languages:
   - "java"
@@ -503,6 +603,11 @@ rules:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.NULL_CIPHER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-NULL_CIPHER"
+      type: "find_sec_bugs_type"
+      value: "NULL_CIPHER"
 - id: "find_sec_bugs.RSA_NO_PADDING-1"
   patterns:
   - pattern: "javax.crypto.Cipher.getInstance($ALG,...);"
@@ -514,6 +619,11 @@ rules:
     Encryption Padding (OAEP), which might weaken the encryption.
   metadata:
     cwe: "CWE-780: Use of RSA Algorithm without OAEP"
+    primary_identifier: "find_sec_bugs.RSA_NO_PADDING"
+    secondary_identifiers:
+    - name: "Find Security Bugs-RSA_NO_PADDING"
+      type: "find_sec_bugs_type"
+      value: "RSA_NO_PADDING"
   severity: "WARNING"
   languages:
   - "java"
@@ -536,6 +646,14 @@ rules:
     cwe: "CWE-326: Inadequate Encryption Strength"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5"
+    secondary_identifiers:
+    - name: "Find Security Bugs-WEAK_MESSAGE_DIGEST_MD5"
+      type: "find_sec_bugs_type"
+      value: "WEAK_MESSAGE_DIGEST_MD5"
+    - name: "Find Security Bugs-WEAK_MESSAGE_DIGEST_SHA1"
+      type: "find_sec_bugs_type"
+      value: "WEAK_MESSAGE_DIGEST_SHA1"
 - id: "find_sec_bugs.SSL_CONTEXT-1"
   patterns:
   - pattern-either:
@@ -548,6 +666,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-295: Improper Certificate Validation"
+    primary_identifier: "find_sec_bugs.SSL_CONTEXT"
+    secondary_identifiers:
+    - name: "Find Security Bugs-SSL_CONTEXT"
+      type: "find_sec_bugs_type"
+      value: "SSL_CONTEXT"
   severity: "WARNING"
   languages:
   - "java"
@@ -574,6 +697,32 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-20: Improper Input Validation"
+    primary_identifier: "find_sec_bugs.SERVLET_PARAMETER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-SERVLET_PARAMETER"
+      type: "find_sec_bugs_type"
+      value: "SERVLET_PARAMETER"
+    - name: "Find Security Bugs-SERVLET_CONTENT_TYPE"
+      type: "find_sec_bugs_type"
+      value: "SERVLET_CONTENT_TYPE"
+    - name: "Find Security Bugs-SERVLET_SERVER_NAME"
+      type: "find_sec_bugs_type"
+      value: "SERVLET_SERVER_NAME"
+    - name: "Find Security Bugs-SERVLET_SESSION_ID"
+      type: "find_sec_bugs_type"
+      value: "SERVLET_SESSION_ID"
+    - name: "Find Security Bugs-SERVLET_QUERY_STRING"
+      type: "find_sec_bugs_type"
+      value: "SERVLET_QUERY_STRING"
+    - name: "Find Security Bugs-SERVLET_HEADER"
+      type: "find_sec_bugs_type"
+      value: "SERVLET_HEADER"
+    - name: "Find Security Bugs-SERVLET_HEADER_REFERER"
+      type: "find_sec_bugs_type"
+      value: "SERVLET_HEADER_REFERER"
+    - name: "Find Security Bugs-SERVLET_HEADER_USER_AGENT"
+      type: "find_sec_bugs_type"
+      value: "SERVLET_HEADER_USER_AGENT"
   severity: "WARNING"
 - id: "find_sec_bugs.JAXRS_ENDPOINT-1"
   mode: "taint"
@@ -613,6 +762,11 @@ rules:
     cwe: "CWE-20: Improper Input Validation"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.JAXRS_ENDPOINT"
+    secondary_identifiers:
+    - name: "Find Security Bugs-JAXRS_ENDPOINT"
+      type: "find_sec_bugs_type"
+      value: "JAXRS_ENDPOINT"
 - id: "find_sec_bugs.JAXWS_ENDPOINT-1"
   mode: "taint"
   pattern-sources:
@@ -652,6 +806,11 @@ rules:
     owasp: "OWASP: Cross-Site Request Forgery"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.JAXWS_ENDPOINT"
+    secondary_identifiers:
+    - name: "Find Security Bugs-JAXWS_ENDPOINT"
+      type: "find_sec_bugs_type"
+      value: "JAXWS_ENDPOINT"
 - id: "find_sec_bugs.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1"
   patterns:
   - pattern: "new java.net.Socket(...)"
@@ -664,6 +823,14 @@ rules:
     Protection Cheat Sheet for details on how to do this correctly.
   metadata:
     cwe: "CWE-319: Cleartext Transmission of Sensitive Information"
+    primary_identifier: "find_sec_bugs.UNENCRYPTED_SOCKET"
+    secondary_identifiers:
+    - name: "Find Security Bugs-UNENCRYPTED_SOCKET"
+      type: "find_sec_bugs_type"
+      value: "UNENCRYPTED_SOCKET"
+    - name: "Find Security Bugs-UNENCRYPTED_SERVER_SOCKET"
+      type: "find_sec_bugs_type"
+      value: "UNENCRYPTED_SERVER_SOCKET"
   severity: "WARNING"
 - id: "find_sec_bugs.UNVALIDATED_REDIRECT-1.URL_REWRITING-1"
   patterns:
@@ -689,6 +856,14 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-601: URL Redirection to Untrusted Site ('Open Redirect')"
+    primary_identifier: "find_sec_bugs.UNVALIDATED_REDIRECT"
+    secondary_identifiers:
+    - name: "Find Security Bugs-UNVALIDATED_REDIRECT"
+      type: "find_sec_bugs_type"
+      value: "UNVALIDATED_REDIRECT"
+    - name: "Find Security Bugs-URL_REWRITING"
+      type: "find_sec_bugs_type"
+      value: "URL_REWRITING"
   severity: "ERROR"
 - id: "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1"
   patterns:
@@ -725,6 +900,14 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-295: Improper Certificate Validation"
+    primary_identifier: "find_sec_bugs.WEAK_HOSTNAME_VERIFIER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-WEAK_HOSTNAME_VERIFIER"
+      type: "find_sec_bugs_type"
+      value: "WEAK_HOSTNAME_VERIFIER"
+    - name: "Find Security Bugs-WEAK_TRUST_MANAGER"
+      type: "find_sec_bugs_type"
+      value: "WEAK_TRUST_MANAGER"
   severity: "WARNING"
 - id: "find_sec_bugs.FILE_UPLOAD_FILENAME-1"
   patterns:
@@ -753,6 +936,11 @@ rules:
       Traversal')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.FILE_UPLOAD_FILENAME"
+    secondary_identifiers:
+    - name: "Find Security Bugs-FILE_UPLOAD_FILENAME"
+      type: "find_sec_bugs_type"
+      value: "FILE_UPLOAD_FILENAME"
 - id: "find_sec_bugs.WEAK_FILENAMEUTILS-1"
   patterns:
   - pattern-inside: |
@@ -782,6 +970,11 @@ rules:
       Traversal')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.WEAK_FILENAMEUTILS"
+    secondary_identifiers:
+    - name: "Find Security Bugs-WEAK_FILENAMEUTILS"
+      type: "find_sec_bugs_type"
+      value: "WEAK_FILENAMEUTILS"
 - id: "find_sec_bugs.STRUTS_FORM_VALIDATION-1"
   patterns:
   - pattern-inside: |
@@ -800,6 +993,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-20: Improper Input Validation"
+    primary_identifier: "find_sec_bugs.STRUTS_FORM_VALIDATION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-STRUTS_FORM_VALIDATION"
+      type: "find_sec_bugs_type"
+      value: "STRUTS_FORM_VALIDATION"
   severity: "WARNING"
 - id: "find_sec_bugs.AWS_QUERY_INJECTION-1"
   mode: "taint"
@@ -846,6 +1044,11 @@ rules:
     cwe: "CWE-943: Improper Neutralization of Special Elements in Data Query Logic"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.AWS_QUERY_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-AWS_QUERY_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "AWS_QUERY_INJECTION"
 - id: "find_sec_bugs.BEAN_PROPERTY_INJECTION-1"
   patterns:
   - pattern-inside: |-
@@ -881,6 +1084,11 @@ rules:
     cwe: "CWE-15: External Control of System or Configuration Setting"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.BEAN_PROPERTY_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-BEAN_PROPERTY_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "BEAN_PROPERTY_INJECTION"
 - id: "find_sec_bugs.CRLF_INJECTION_LOGS-1"
   patterns:
   - pattern-either:
@@ -937,6 +1145,11 @@ rules:
     cwe: "CWE-93: Improper Neutralization of CRLF Sequences ('CRLF Injection')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.CRLF_INJECTION_LOGS"
+    secondary_identifiers:
+    - name: "Find Security Bugs-CRLF_INJECTION_LOGS"
+      type: "find_sec_bugs_type"
+      value: "CRLF_INJECTION_LOGS"
 - id: "find_sec_bugs.COMMAND_INJECTION-1"
   pattern-either:
   - patterns:
@@ -997,6 +1210,11 @@ rules:
       ('OS Command Injection')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.COMMAND_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-COMMAND_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "COMMAND_INJECTION"
 - id: "find_sec_bugs.CUSTOM_INJECTION-1"
   patterns:
   - pattern-either:
@@ -1033,8 +1251,15 @@ rules:
       ('SQL Injection')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.CUSTOM_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-CUSTOM_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "CUSTOM_INJECTION"
 - id: "find_sec_bugs.CUSTOM_INJECTION-2"
   patterns:
+  - pattern-not-inside: |
+      final String $VAR = ...;
   - pattern-either:
     - pattern: |
         "$SQL_STR" + ...
@@ -1067,6 +1292,11 @@ rules:
       ('SQL Injection')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.CUSTOM_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-CUSTOM_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "CUSTOM_INJECTION"
 - id: "find_sec_bugs.EL_INJECTION-1"
   patterns:
   - pattern-inside: |
@@ -1091,6 +1321,11 @@ rules:
     cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.EL_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-EL_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "EL_INJECTION"
 - id: "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1"
   mode: "taint"
   pattern-sources:
@@ -1143,6 +1378,17 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-552: Files or Directories Accessible to External Parties"
+    primary_identifier: "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-REQUESTDISPATCHER_FILE_DISCLOSURE"
+      type: "find_sec_bugs_type"
+      value: "REQUESTDISPATCHER_FILE_DISCLOSURE"
+    - name: "Find Security Bugs-STRUTS_FILE_DISCLOSURE"
+      type: "find_sec_bugs_type"
+      value: "STRUTS_FILE_DISCLOSURE"
+    - name: "Find Security Bugs-SPRING_FILE_DISCLOSURE"
+      type: "find_sec_bugs_type"
+      value: "SPRING_FILE_DISCLOSURE"
   severity: "ERROR"
 - id: "find_sec_bugs.HTTP_PARAMETER_POLLUTION-1"
   mode: "taint"
@@ -1171,6 +1417,11 @@ rules:
       Injection')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.HTTP_PARAMETER_POLLUTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-HTTP_PARAMETER_POLLUTION"
+      type: "find_sec_bugs_type"
+      value: "HTTP_PARAMETER_POLLUTION"
 - id: "find_sec_bugs.LDAP_INJECTION-1"
   mode: "taint"
   pattern-sources:
@@ -1260,6 +1511,11 @@ rules:
       ('LDAP Injection')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.LDAP_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-LDAP_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "LDAP_INJECTION"
 - id: "find_sec_bugs.OGNL_INJECTION-1"
   mode: "taint"
   pattern-sources:
@@ -1399,6 +1655,11 @@ rules:
     category: "security"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.OGNL_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-OGNL_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "OGNL_INJECTION"
 - id: "find_sec_bugs.PATH_TRAVERSAL_IN-1"
   mode: "taint"
   pattern-sources:
@@ -1462,6 +1723,11 @@ rules:
       Traversal')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.PATH_TRAVERSAL_IN"
+    secondary_identifiers:
+    - name: "Find Security Bugs-PATH_TRAVERSAL_IN"
+      type: "find_sec_bugs_type"
+      value: "PATH_TRAVERSAL_IN"
 - id: "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1"
   mode: "taint"
   pattern-sources:
@@ -1502,6 +1768,11 @@ rules:
       Traversal')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.PATH_TRAVERSAL_OUT"
+    secondary_identifiers:
+    - name: "Find Security Bugs-PATH_TRAVERSAL_OUT"
+      type: "find_sec_bugs_type"
+      value: "PATH_TRAVERSAL_OUT"
 - id: "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL-1"
   mode: "taint"
   pattern-sources:
@@ -1553,6 +1824,11 @@ rules:
       Traversal')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL"
+    secondary_identifiers:
+    - name: "Find Security Bugs-PT_ABSOLUTE_PATH_TRAVERSAL"
+      type: "find_sec_bugs_type"
+      value: "PT_ABSOLUTE_PATH_TRAVERSAL"
 - id: "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL-1"
   mode: "taint"
   pattern-sources:
@@ -1610,6 +1886,11 @@ rules:
       Traversal')"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL"
+    secondary_identifiers:
+    - name: "Find Security Bugs-PT_RELATIVE_PATH_TRAVERSAL"
+      type: "find_sec_bugs_type"
+      value: "PT_RELATIVE_PATH_TRAVERSAL"
 - id: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1"
   patterns:
   - pattern-not-inside: |
@@ -1830,6 +2111,23 @@ rules:
     category: "security"
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
       ('SQL Injection')"
+    primary_identifier: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC"
+    secondary_identifiers:
+    - name: "Find Security Bugs-SQL_INJECTION_SPRING_JDBC"
+      type: "find_sec_bugs_type"
+      value: "SQL_INJECTION_SPRING_JDBC"
+    - name: "Find Security Bugs-SQL_INJECTION_JPA"
+      type: "find_sec_bugs_type"
+      value: "SQL_INJECTION_JPA"
+    - name: "Find Security Bugs-SQL_INJECTION_JDO"
+      type: "find_sec_bugs_type"
+      value: "SQL_INJECTION_JDO"
+    - name: "Find Security Bugs-SQL_INJECTION_JDBC"
+      type: "find_sec_bugs_type"
+      value: "SQL_INJECTION_JDBC"
+    - name: "Find Security Bugs-SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
+      type: "find_sec_bugs_type"
+      value: "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
   severity: "ERROR"
 - id: "find_sec_bugs.LDAP_ANONYMOUS-1"
   patterns:
@@ -1846,6 +2144,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-20: Improper Input Validation"
+    primary_identifier: "find_sec_bugs.LDAP_ANONYMOUS"
+    secondary_identifiers:
+    - name: "Find Security Bugs-LDAP_ANONYMOUS"
+      type: "find_sec_bugs_type"
+      value: "LDAP_ANONYMOUS"
   severity: "WARNING"
 - id: "find_sec_bugs.LDAP_ENTRY_POISONING-1"
   patterns:
@@ -1860,6 +2163,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-20: Improper Input Validation"
+    primary_identifier: "find_sec_bugs.LDAP_ENTRY_POISONING"
+    secondary_identifiers:
+    - name: "Find Security Bugs-LDAP_ENTRY_POISONING"
+      type: "find_sec_bugs_type"
+      value: "LDAP_ENTRY_POISONING"
   severity: "ERROR"
 - id: "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3"
   patterns:
@@ -1875,6 +2183,14 @@ rules:
     cwe: "CWE-259: Use of Hard-coded Password"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD"
+    secondary_identifiers:
+    - name: "Find Security Bugs-DMI_CONSTANT_DB_PASSWORD"
+      type: "find_sec_bugs_type"
+      value: "DMI_CONSTANT_DB_PASSWORD"
+    - name: "Find Security Bugs-HARD_CODE_PASSWORD"
+      type: "find_sec_bugs_type"
+      value: "HARD_CODE_PASSWORD"
 - id: "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2"
   patterns:
   - pattern: "java.sql.DriverManager.getConnection($URI, $USR, \"\");"
@@ -1889,6 +2205,14 @@ rules:
     cwe: "CWE-259: Use of Hard-coded Password"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.DMI_EMPTY_DB_PASSWORD"
+    secondary_identifiers:
+    - name: "Find Security Bugs-DMI_EMPTY_DB_PASSWORD"
+      type: "find_sec_bugs_type"
+      value: "DMI_EMPTY_DB_PASSWORD"
+    - name: "Find Security Bugs-HARD_CODE_PASSWORD"
+      type: "find_sec_bugs_type"
+      value: "HARD_CODE_PASSWORD"
 - id: "find_sec_bugs.HARD_CODE_PASSWORD-1"
   patterns:
   - pattern-either:
@@ -1983,6 +2307,11 @@ rules:
     cwe: "CWE-259: Use of Hard-coded Password"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.HARD_CODE_PASSWORD"
+    secondary_identifiers:
+    - name: "Find Security Bugs-HARD_CODE_PASSWORD"
+      type: "find_sec_bugs_type"
+      value: "HARD_CODE_PASSWORD"
 - id: "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION-1"
   pattern-either:
   - pattern: |
@@ -2002,6 +2331,11 @@ rules:
   metadata:
     category: "security"
     confidence: "HIGH"
+    primary_identifier: "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-DANGEROUS_PERMISSION_COMBINATION"
+      type: "find_sec_bugs_type"
+      value: "DANGEROUS_PERMISSION_COMBINATION"
   severity: "WARNING"
 - id: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-1"
   patterns:
@@ -2022,6 +2356,11 @@ rules:
     cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
     category: "security"
     confidence: "HIGH"
+    primary_identifier: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-OVERLY_PERMISSIVE_FILE_PERMISSION"
+      type: "find_sec_bugs_type"
+      value: "OVERLY_PERMISSIVE_FILE_PERMISSION"
   severity: "WARNING"
 - id: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2"
   patterns:
@@ -2040,6 +2379,11 @@ rules:
     cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
     category: "security"
     confidence: "HIGH"
+    primary_identifier: "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-OVERLY_PERMISSIVE_FILE_PERMISSION"
+      type: "find_sec_bugs_type"
+      value: "OVERLY_PERMISSIVE_FILE_PERMISSION"
   severity: "WARNING"
 - id: "find_sec_bugs.PREDICTABLE_RANDOM-1"
   patterns:
@@ -2067,6 +2411,11 @@ rules:
     cwe: "CWE-330: Use of Insufficiently Random Values"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.PREDICTABLE_RANDOM"
+    secondary_identifiers:
+    - name: "Find Security Bugs-PREDICTABLE_RANDOM"
+      type: "find_sec_bugs_type"
+      value: "PREDICTABLE_RANDOM"
 - id: "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1"
   patterns:
   - pattern: "(javax.script.ScriptEngine $ENGINE).eval($ARG);"
@@ -2081,6 +2430,20 @@ rules:
   severity: "ERROR"
   metadata:
     cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+    primary_identifier: "find_sec_bugs.SCRIPT_ENGINE_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-SCRIPT_ENGINE_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "SCRIPT_ENGINE_INJECTION"
+    - name: "Find Security Bugs-SPEL_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "SPEL_INJECTION"
+    - name: "Find Security Bugs-EL_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "EL_INJECTION"
+    - name: "Find Security Bugs-SEAM_LOG_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "SEAM_LOG_INJECTION"
 - id: "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2"
   patterns:
   - pattern: "(org.springframework.expression.spel.standard.SpelExpressionParser $P).parseExpression($ARG);"
@@ -2096,6 +2459,11 @@ rules:
   severity: "ERROR"
   metadata:
     cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+    primary_identifier: "find_sec_bugs.SCRIPT_ENGINE_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-SCRIPT_ENGINE_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "SCRIPT_ENGINE_INJECTION"
 - id: "find_sec_bugs.INSECURE_SMTP_SSL-1"
   patterns:
   - pattern-either:
@@ -2122,6 +2490,11 @@ rules:
     Server identity verification is disabled when making SSL connections.
   metadata:
     cwe: "CWE-297: Improper Validation of Certificate with Host Mismatch"
+    primary_identifier: "find_sec_bugs.INSECURE_SMTP_SSL"
+    secondary_identifiers:
+    - name: "Find Security Bugs-INSECURE_SMTP_SSL"
+      type: "find_sec_bugs_type"
+      value: "INSECURE_SMTP_SSL"
   severity: "ERROR"
   languages:
   - "java"
@@ -2164,6 +2537,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-77: Improper Neutralization of Special Elements used in a Command"
+    primary_identifier: "find_sec_bugs.SMTP_HEADER_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-SMTP_HEADER_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "SMTP_HEADER_INJECTION"
   severity: "ERROR"
 - id: "find_sec_bugs.URLCONNECTION_SSRF_FD-1"
   pattern-either:
@@ -2192,6 +2570,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-918: Server-Side Request Forgery (SSRF)"
+    primary_identifier: "find_sec_bugs.URLCONNECTION_SSRF_FD"
+    secondary_identifiers:
+    - name: "Find Security Bugs-URLCONNECTION_SSRF_FD"
+      type: "find_sec_bugs_type"
+      value: "URLCONNECTION_SSRF_FD"
   severity: "ERROR"
 - id: "find_sec_bugs.BAD_HEXA_CONVERSION-1"
   patterns:
@@ -2211,6 +2594,11 @@ rules:
     cwe: "CWE-704: Incorrect Type Conversion or Cast"
     category: "security"
     confidence: "HIGH"
+    primary_identifier: "find_sec_bugs.BAD_HEXA_CONVERSION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-BAD_HEXA_CONVERSION"
+      type: "find_sec_bugs_type"
+      value: "BAD_HEXA_CONVERSION"
   severity: "WARNING"
 - id: "find_sec_bugs.FORMAT_STRING_MANIPULATION-1"
   patterns:
@@ -2263,6 +2651,11 @@ rules:
     cwe: "CWE-134: Use of Externally-Controlled Format String"
     category: "security"
     confidence: "HIGH"
+    primary_identifier: "find_sec_bugs.FORMAT_STRING_MANIPULATION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-FORMAT_STRING_MANIPULATION"
+      type: "find_sec_bugs_type"
+      value: "FORMAT_STRING_MANIPULATION"
   severity: "ERROR"
 - id: "find_sec_bugs.IMPROPER_UNICODE-1"
   pattern-either:
@@ -2290,6 +2683,11 @@ rules:
     cwe: "CWE-176: Improper Handling of Unicode Encoding"
     category: "security"
     confidence: "HIGH"
+    primary_identifier: "find_sec_bugs.IMPROPER_UNICODE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-IMPROPER_UNICODE"
+      type: "find_sec_bugs_type"
+      value: "IMPROPER_UNICODE"
   severity: "ERROR"
 - id: "find_sec_bugs.MODIFICATION_AFTER_VALIDATION-1"
   patterns:
@@ -2307,6 +2705,11 @@ rules:
   metadata:
     category: "security"
     confidence: "HIGH"
+    primary_identifier: "find_sec_bugs.MODIFICATION_AFTER_VALIDATION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-MODIFICATION_AFTER_VALIDATION"
+      type: "find_sec_bugs_type"
+      value: "MODIFICATION_AFTER_VALIDATION"
   severity: "WARNING"
 - id: "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION-1"
   patterns:
@@ -2323,6 +2726,11 @@ rules:
   metadata:
     category: "security"
     confidence: "HIGH"
+    primary_identifier: "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-NORMALIZATION_AFTER_VALIDATION"
+      type: "find_sec_bugs_type"
+      value: "NORMALIZATION_AFTER_VALIDATION"
   severity: "WARNING"
 - id: "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1"
   pattern-either:
@@ -2356,6 +2764,17 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+    primary_identifier: "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-TEMPLATE_INJECTION_PEBBLE"
+      type: "find_sec_bugs_type"
+      value: "TEMPLATE_INJECTION_PEBBLE"
+    - name: "Find Security Bugs-TEMPLATE_INJECTION_FREEMARKER"
+      type: "find_sec_bugs_type"
+      value: "TEMPLATE_INJECTION_FREEMARKER"
+    - name: "Find Security Bugs-TEMPLATE_INJECTION_VELOCITY"
+      type: "find_sec_bugs_type"
+      value: "TEMPLATE_INJECTION_VELOCITY"
   severity: "ERROR"
 - id: "find_sec_bugs.EXTERNAL_CONFIG_CONTROL-1"
   patterns:
@@ -2375,6 +2794,11 @@ rules:
     cwe: "CWE-15: External Control of System or Configuration Setting"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.EXTERNAL_CONFIG_CONTROL"
+    secondary_identifiers:
+    - name: "Find Security Bugs-EXTERNAL_CONFIG_CONTROL"
+      type: "find_sec_bugs_type"
+      value: "EXTERNAL_CONFIG_CONTROL"
 - id: "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE-1"
   pattern-either:
   - pattern: |
@@ -2469,6 +2893,11 @@ rules:
     cwe: "CWE-209: Information Exposure Through an Error Message"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
+    secondary_identifiers:
+    - name: "Find Security Bugs-INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
+      type: "find_sec_bugs_type"
+      value: "INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
 - id: "find_sec_bugs.RPC_ENABLED_EXTENSIONS-1"
   patterns:
   - pattern-either:
@@ -2490,6 +2919,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-502: Deserialization of Untrusted Data"
+    primary_identifier: "find_sec_bugs.RPC_ENABLED_EXTENSIONS"
+    secondary_identifiers:
+    - name: "Find Security Bugs-RPC_ENABLED_EXTENSIONS"
+      type: "find_sec_bugs_type"
+      value: "RPC_ENABLED_EXTENSIONS"
   severity: "WARNING"
 - id: "find_sec_bugs.SAML_IGNORE_COMMENTS-1"
   pattern: "(BasicParserPool $POOL).setIgnoreComments(false);"
@@ -2500,6 +2934,11 @@ rules:
   metadata:
     cwe: "CWE-287: Improper Authentication"
     category: "security"
+    primary_identifier: "find_sec_bugs.SAML_IGNORE_COMMENTS"
+    secondary_identifiers:
+    - name: "Find Security Bugs-SAML_IGNORE_COMMENTS"
+      type: "find_sec_bugs_type"
+      value: "SAML_IGNORE_COMMENTS"
   severity: "WARNING"
 - id: "find_sec_bugs.XML_DECODER-1"
   patterns:
@@ -2519,6 +2958,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-502: Deserialization of Untrusted Data"
+    primary_identifier: "find_sec_bugs.XML_DECODER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XML_DECODER"
+      type: "find_sec_bugs_type"
+      value: "XML_DECODER"
   severity: "WARNING"
 - id: "find_sec_bugs.MALICIOUS_XSLT-1"
   mode: "taint"
@@ -2564,6 +3008,11 @@ rules:
     cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
       Traversal')"
     category: "security"
+    primary_identifier: "find_sec_bugs.MALICIOUS_XSLT"
+    secondary_identifiers:
+    - name: "Find Security Bugs-MALICIOUS_XSLT"
+      type: "find_sec_bugs_type"
+      value: "MALICIOUS_XSLT"
   severity: "WARNING"
 - id: "find_sec_bugs.XPATH_INJECTION-1"
   patterns:
@@ -2588,6 +3037,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference ('XXE')"
+    primary_identifier: "find_sec_bugs.XPATH_INJECTION"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XPATH_INJECTION"
+      type: "find_sec_bugs_type"
+      value: "XPATH_INJECTION"
   severity: "ERROR"
 - id: "find_sec_bugs.XSS_REQUEST_WRAPPER-1"
   patterns:
@@ -2604,6 +3058,11 @@ rules:
     category: "security"
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
       Scripting')"
+    primary_identifier: "find_sec_bugs.XSS_REQUEST_WRAPPER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XSS_REQUEST_WRAPPER"
+      type: "find_sec_bugs_type"
+      value: "XSS_REQUEST_WRAPPER"
   severity: "INFO"
 - id: "find_sec_bugs.WICKET_XSS1-1"
   patterns:
@@ -2616,6 +3075,11 @@ rules:
     category: "security"
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
       Scripting')"
+    primary_identifier: "find_sec_bugs.WICKET_XSS1"
+    secondary_identifiers:
+    - name: "Find Security Bugs-WICKET_XSS1"
+      type: "find_sec_bugs_type"
+      value: "WICKET_XSS1"
   severity: "WARNING"
 - id: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1"
   mode: "taint"
@@ -2653,6 +3117,11 @@ rules:
     category: "security"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
+      type: "find_sec_bugs_type"
+      value: "XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
 - id: "find_sec_bugs.XSS_SERVLET-1"
   mode: "taint"
   pattern-sources:
@@ -2688,6 +3157,11 @@ rules:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
       Scripting')"
     category: "security"
+    primary_identifier: "find_sec_bugs.XSS_SERVLET"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XSS_SERVLET"
+      type: "find_sec_bugs_type"
+      value: "XSS_SERVLET"
   severity: "WARNING"
 - id: "find_sec_bugs.XSS_SERVLET-2.XSS_SERVLET_PARAMETER-1"
   pattern-either:
@@ -2726,6 +3200,14 @@ rules:
     category: "security"
     technology:
     - "java"
+    primary_identifier: "find_sec_bugs.XSS_SERVLET"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XSS_SERVLET"
+      type: "find_sec_bugs_type"
+      value: "XSS_SERVLET"
+    - name: "Find Security Bugs-XSS_SERVLET_PARAMETER"
+      type: "find_sec_bugs_type"
+      value: "XSS_SERVLET_PARAMETER"
 - id: "find_sec_bugs.XXE_SAXPARSER-1"
   patterns:
   - pattern-inside: |
@@ -2749,6 +3231,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference ('XXE')"
+    primary_identifier: "find_sec_bugs.XXE_SAXPARSER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XXE_SAXPARSER"
+      type: "find_sec_bugs_type"
+      value: "XXE_SAXPARSER"
   severity: "ERROR"
 - id: "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1"
   patterns:
@@ -2775,6 +3262,14 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference ('XXE')"
+    primary_identifier: "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XXE_DTD_TRANSFORM_FACTORY"
+      type: "find_sec_bugs_type"
+      value: "XXE_DTD_TRANSFORM_FACTORY"
+    - name: "Find Security Bugs-XXE_XSLT_TRANSFORM_FACTORY"
+      type: "find_sec_bugs_type"
+      value: "XXE_XSLT_TRANSFORM_FACTORY"
   severity: "ERROR"
 - id: "find_sec_bugs.XXE_XMLREADER-1"
   patterns:
@@ -2793,6 +3288,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference ('XXE')"
+    primary_identifier: "find_sec_bugs.XXE_XMLREADER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XXE_XMLREADER"
+      type: "find_sec_bugs_type"
+      value: "XXE_XMLREADER"
   severity: "ERROR"
 - id: "find_sec_bugs.XXE_XMLSTREAMREADER-1"
   patterns:
@@ -2805,6 +3305,12 @@ rules:
   - pattern-not-inside: |
       $SF.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, false);
       ...
+  - pattern-not-inside: |
+      $SF.setProperty(XMLInputFactory.SUPPORT_DTD, Boolean.FALSE);
+      ...
+  - pattern-not-inside: |
+      $SF.setProperty(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, Boolean.FALSE);
+      ...
   - pattern: "$SF.createXMLStreamReader(...)"
   languages:
   - "java"
@@ -2814,6 +3320,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference ('XXE')"
+    primary_identifier: "find_sec_bugs.XXE_XMLSTREAMREADER"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XXE_XMLSTREAMREADER"
+      type: "find_sec_bugs_type"
+      value: "XXE_XMLSTREAMREADER"
   severity: "ERROR"
 - id: "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1"
   patterns:
@@ -2841,4 +3352,12 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference ('XXE')"
+    primary_identifier: "find_sec_bugs.XXE_XPATH"
+    secondary_identifiers:
+    - name: "Find Security Bugs-XXE_XPATH"
+      type: "find_sec_bugs_type"
+      value: "XXE_XPATH"
+    - name: "Find Security Bugs-XXE_DOCUMENT"
+      type: "find_sec_bugs_type"
+      value: "XXE_DOCUMENT"
   severity: "ERROR"

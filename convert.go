@@ -3,9 +3,18 @@ package main
 import (
 	"fmt"
 	"io"
+	"io/fs"
+	"io/ioutil"
+	"os"
+	"path"
+	"path/filepath"
 	"strings"
 
+	log "github.com/sirupsen/logrus"
+	"gopkg.in/yaml.v2"
+
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
+	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
 
@@ -27,6 +36,38 @@ func computeCompareKey(v report.Vulnerability) string {
 }
 
 func convert(reader io.Reader, prependPath string) (*report.Report, error) {
+	// HACK: extract root path from environment variables
+	// TODO: https://gitlab.com/gitlab-org/gitlab/-/issues/320975
+	root := os.Getenv("ANALYZER_TARGET_DIR")
+	if root == "" {
+		root = os.Getenv("CI_PROJECT_DIR")
+	}
+
+	log.Debugf("Converting report with the root path: %s", root)
+
+	// Load custom config if available
+	rulesetPath := filepath.Join(prependPath, ruleset.PathSAST)
+	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep")
+	if err != nil {
+		switch err.(type) {
+		case *ruleset.NotEnabledError:
+			log.Debug(err)
+		case *ruleset.ConfigFileNotFoundError:
+			log.Debug(err)
+		case *ruleset.ConfigNotFoundError:
+			log.Debug(err)
+		case *ruleset.InvalidConfig:
+			log.Fatal(err)
+		default:
+			return nil, err
+		}
+	}
+
+	configPath, err := getConfigPath(prependPath, rulesetConfig)
+	if err != nil {
+		return nil, err
+	}
+
 	sastReport, err := report.TransformToGLSASTReport(
 		reader,
 		"", /* prefix value to trim in relative to the project path. It's empty since we're passing relative project path to semgrep upstream scanner */
@@ -41,121 +82,134 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 		vuln.CompareKey = computeCompareKey(*vuln)
 	}
 
-	return addAnalyzerIdentifiers(sastReport)
+	return addAnalyzerIdentifiers(sastReport, configPath)
 }
 
 // addAnalyzerIdentifiers iterates through report vulnerability identifiers. Each identifier is then use to
 // determine how the semgrep rule maps to a corresponding analyzer like bandit, or eslint.
-func addAnalyzerIdentifiers(sastReport *report.Report) (*report.Report, error) {
+func addAnalyzerIdentifiers(sastReport *report.Report, configPath string) (*report.Report, error) {
+	ruleMap, err := buildRuleMap(configPath)
+	if err != nil {
+		return sastReport, err
+	}
+
 	for index, vul := range sastReport.Vulnerabilities {
 		ruleID := vul.Identifiers[semgrepIdentifierIndex].Value
 
-		// generate and add a URL to the semgrep ID
-		if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
-			vul.Identifiers[semgrepIdentifierIndex].URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s", ruleID)
+		pID, sIDs := ruleToIDs(ruleID, ruleMap)
+		if pID != nil {
+			sastReport.Vulnerabilities[index].Identifiers[0] = *pID
 		}
-
-		ids := ruleToIDs(ruleID)
-		if len(ids) > 0 {
-			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, ids...)
+		if len(sIDs) > 0 {
+			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, sIDs...)
 		}
 	}
 	return sastReport, nil
 }
 
-//  banditIdentifiersFor will take in ruleID as string and output a slice of identifiers
-//  Examples of ruleID: bandit.B303-1, bandit.B502.B503
-func ruleToIDs(ruleID string) []report.Identifier {
+// ruleToIDs will take in ruleID as string and output a trimmed primary identifier
+// and slice of secondary identifiers containing each sub-rule.
+// Examples of secondary identifiers: bandit.B303-1 (outputs one identifier), bandit.B502.B503 (outputs two identifiers)
+func ruleToIDs(ruleID string, ruleMap map[string]semgrepRuleFile) (*report.Identifier, []report.Identifier) {
 	var empty []report.Identifier
 	matches := strings.Split(ruleID, ".")
 	if len(matches) < 2 {
-		return empty
+		return nil, empty
 	}
 
-	analyzer, subrules := strings.ToLower(matches[0]), matches[1:]
+	analyzer := strings.ToLower(matches[0])
 
+	if len(ruleMap[analyzer].Rules) == 0 {
+		return nil, empty
+	}
+
+	rule := findRuleForID(ruleID, ruleMap[analyzer])
+	if rule == nil {
+		return nil, empty
+	}
+
+	return buildPrimaryID(ruleID, rule, analyzer), buildSecondaryIDs(rule)
+}
+
+func buildPrimaryID(ruleID string, rule *semgrepRule, analyzer string) *report.Identifier {
+	ID := report.Identifier{
+		Type: report.IdentifierType("semgrep_id"),
+	}
 	switch analyzer {
-	case "security_code_scan":
-		return generateIDs(subrules, generateScsID)
-	case "bandit":
-		return generateIDs(subrules, generateBanditID)
-	case "eslint":
-		if len(subrules) != 1 {
-			return empty
-		}
-		return generateIDs(subrules, generateEslintID)
-	case "flawfinder":
-		return generateIDs(subrules, generateFlawfinderID)
-	case "gosec":
-		return generateIDs(subrules, generateGosecID)
-	case "find_sec_bugs":
-		return generateIDs(subrules, generateFindSecBugsID)
+	case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
+		ID.Name = ruleID
+		ID.Value = ruleID
 	default:
-		return empty
+		ID.Name = rule.Metadata.PrimaryIdentifier
+		ID.Value = rule.Metadata.PrimaryIdentifier
 	}
+
+	// generate and add a URL to the semgrep ID
+	if strings.HasPrefix(ruleID, "bandit") || strings.HasPrefix(ruleID, "eslint") {
+		ID.URL = fmt.Sprintf("https://semgrep.dev/r/gitlab.%s",
+			rule.Metadata.PrimaryIdentifier)
+	}
+
+	return &ID
 }
 
-// generateScsID transforms the input ID into the original format produced by the
-// Security Code Scan analyzer. For example, SCS0005-1 -> SCS0005.
-func generateScsID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
-	return report.Identifier{
-		Type:  "security_code_scan_rule_id",
-		Name:  value,
-		Value: value,
+func buildSecondaryIDs(rule *semgrepRule) []report.Identifier {
+	identifiers := []report.Identifier{}
+
+	for _, sid := range rule.Metadata.SecondaryIdentifiers {
+		identifiers = append(
+			identifiers,
+			report.Identifier{
+				Type:  report.IdentifierType(sid.Type),
+				Name:  sid.Name,
+				Value: sid.Value,
+			})
 	}
+
+	return identifiers
 }
 
-//  generateBanditID will take in bandit_id as string and output an identifier
-//  Examples of bandit_id: B303-1, B305
-func generateBanditID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
-	return report.Identifier{
-		Type:  "bandit_test_id",
-		Name:  "Bandit Test ID " + value,
-		Value: value,
+func findRuleForID(id string, ruleFile semgrepRuleFile) *semgrepRule {
+	for _, rule := range ruleFile.Rules {
+		if rule.ID == id {
+			return &rule
+		}
 	}
+
+	return nil
 }
 
-func generateEslintID(id string) report.Identifier {
-	return report.Identifier{
-		Type:  "eslint_rule_id",
-		Name:  "ESLint rule ID security/" + id,
-		Value: "security/" + id,
-	}
-}
+func buildRuleMap(configPath string) (map[string]semgrepRuleFile, error) {
+	ruleMap := map[string]semgrepRuleFile{}
 
-func generateFlawfinderID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
-	return report.Identifier{
-		Type:  "flawfinder_func_name",
-		Name:  "Flawfinder - " + value,
-		Value: value,
-	}
-}
+	err := filepath.WalkDir(configPath, func(p string, d fs.DirEntry, err error) error {
+		_, err = os.Stat(p)
+		if err != nil || d.IsDir() {
+			return nil
+		}
 
-func generateGosecID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
-	return report.Identifier{
-		Type:  "gosec_rule_id",
-		Name:  "Gosec Rule ID " + value,
-		Value: value,
-	}
-}
+		ext := path.Ext(p)
+		if ext != ".yml" && ext != ".yaml" {
+			log.Debugf("skipping parse for non-rule file: %s", p)
+			return nil
+		}
 
-func generateFindSecBugsID(id string) report.Identifier {
-	value := strings.Split(id, "-")[0]
-	return report.Identifier{
-		Type:  "find_sec_bugs_type",
-		Name:  "Find Security Bugs-" + value,
-		Value: value,
-	}
-}
+		var ruleFile semgrepRuleFile
 
-func generateIDs(ruleIDs []string, generator func(string) report.Identifier) []report.Identifier {
-	var ids []report.Identifier
-	for i := 0; i < len(ruleIDs); i++ {
-		ids = append(ids, generator(ruleIDs[i]))
-	}
-	return ids
+		fileContent, err := ioutil.ReadFile(p)
+		if err != nil {
+			return fmt.Errorf("read rule file at %s: %w", p, err)
+		}
+
+		if err = yaml.Unmarshal(fileContent, &ruleFile); err != nil {
+			return fmt.Errorf("parse rule file at %s: %w", p, err)
+		}
+
+		rulesetFile := strings.Split(filepath.Base(p), ".")[0]
+		ruleMap[rulesetFile] = ruleFile
+
+		return nil
+	})
+
+	return ruleMap, err
 }

@@ -1,0 +1,27 @@
+# yamllint disable
+# rule-set version: 1.1.3
+# yamllint enable
+---
+rules:
+- id: "eslint.detect-no-csrf-before-method-override-1"
+  metadata:
+    cwe: "CWE-352: Cross-Site Request Forgery (CSRF)"
+    source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-no-csrf-before-method-override.js"
+    references:
+    - "https://github.com/nodesecurity/eslint-plugin-security/blob/master/docs/bypass-connect-csrf-protection-by-abusing.md"
+    primary_identifier: "eslint.detect-no-csrf-before-method-override"
+    secondary_identifiers:
+    - value: "security/detect-no-csrf-before-method-override"
+      type: "eslint_rule_id"
+      name: "ESLint rule ID security detect-no-csrf-before-method-override"
+  message: |
+    Detected use of express.csrf() middleware before express.methodOverride(). This can
+    allow GET requests (which are not checked by csrf) to turn into POST requests later.
+  pattern: |
+    express.csrf();
+    ...
+    express.methodOverride();
+  severity: "WARNING"
+  languages:
+  - "javascript"
+  - "typescript"

@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v3.13.0
+- Add `primary-id` and `secondary-ids` to rules metadata (!192)
+- Updates the convert function to use the identifiers from the rules in vuln ids (!192)
+
 ## v3.12.1
 - Disable trimming prefix of the vulnerability's file location in the SAST report (!197)
 
