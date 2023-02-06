@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.0.48
+# rule-set version: v1.2.1
 # yamllint enable
 ---
 rules:
@@ -12,6 +12,11 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
+    primary_identifier: "gosec.G504"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G504"
+      type: "gosec_rule_id"
+      value: "G504"
   severity: "WARNING"
   languages:
   - "go"
@@ -24,6 +29,11 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
+    primary_identifier: "gosec.G502"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G502"
+      type: "gosec_rule_id"
+      value: "G502"
   severity: "WARNING"
   languages:
   - "go"
@@ -39,6 +49,11 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
+    primary_identifier: "gosec.G501"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G501"
+      type: "gosec_rule_id"
+      value: "G501"
   severity: "WARNING"
   languages:
   - "go"
@@ -53,6 +68,11 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
+    primary_identifier: "gosec.G503"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G503"
+      type: "gosec_rule_id"
+      value: "G503"
   severity: "WARNING"
   languages:
   - "go"
@@ -69,6 +89,11 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
+    primary_identifier: "gosec.G505"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G505"
+      type: "gosec_rule_id"
+      value: "G505"
   severity: "WARNING"
   languages:
   - "go"
@@ -92,6 +117,11 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
+    primary_identifier: "gosec.G402"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G402"
+      type: "gosec_rule_id"
+      value: "G402"
   severity: "WARNING"
   languages:
   - "go"
@@ -102,6 +132,11 @@ rules:
     Audit the use of ssh.InsecureIgnoreHostKey
   metadata:
     cwe: "CWE-322: Key Exchange without Entity Authentication"
+    primary_identifier: "gosec.G106"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G106"
+      type: "gosec_rule_id"
+      value: "G106"
   severity: "WARNING"
   languages:
   - "go"
@@ -116,6 +151,11 @@ rules:
   metadata:
     cwe: "CWE-310: Cryptographic Issues"
     owasp: "A05:2021: Security Misconfiguration"
+    primary_identifier: "gosec.G402"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G402"
+      type: "gosec_rule_id"
+      value: "G402"
   languages:
   - "go"
   severity: "WARNING"
@@ -142,6 +182,11 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
+    primary_identifier: "gosec.G401"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G401"
+      type: "gosec_rule_id"
+      value: "G401"
   severity: "WARNING"
   languages:
   - "go"
@@ -158,6 +203,11 @@ rules:
   metadata:
     cwe: "CWE-326: Inadequate Encryption Strength"
     owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "gosec.G403"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G403"
+      type: "gosec_rule_id"
+      value: "G403"
   severity: "WARNING"
   languages:
   - "go"
@@ -180,6 +230,11 @@ rules:
   metadata:
     cwe: "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)"
     owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "gosec.G404"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G404"
+      type: "gosec_rule_id"
+      value: "G404"
   severity: "WARNING"
   languages:
   - "go"
@@ -197,6 +252,11 @@ rules:
   metadata:
     cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
     owasp: "A6: Security Misconfiguration"
+    primary_identifier: "gosec.G302"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G302"
+      type: "gosec_rule_id"
+      value: "G302"
   severity: "WARNING"
   languages:
   - "go"
@@ -214,6 +274,11 @@ rules:
   metadata:
     cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
     owasp: "A6: Security Misconfiguration"
+    primary_identifier: "gosec.G301"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G301"
+      type: "gosec_rule_id"
+      value: "G301"
   severity: "WARNING"
   languages:
   - "go"
@@ -237,6 +302,11 @@ rules:
     Potential DoS vulnerability via decompression bomb
   metadata:
     cwe: "CWE-409: Improper Handling of Highly Compressed Data"
+    primary_identifier: "gosec.G110"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G110"
+      type: "gosec_rule_id"
+      value: "G110"
   severity: "WARNING"
   languages:
   - "go"
@@ -286,6 +356,11 @@ rules:
   metadata:
     cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
       Traversal')"
+    primary_identifier: "gosec.G304"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G304"
+      type: "gosec_rule_id"
+      value: "G304"
   severity: "WARNING"
   languages:
   - "go"
@@ -302,6 +377,11 @@ rules:
     Expect WriteFile permissions to be 600 or less
   metadata:
     cwe: "CWE-276: Incorrect Default Permissions"
+    primary_identifier: "gosec.G306"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G306"
+      type: "gosec_rule_id"
+      value: "G306"
   severity: "WARNING"
   languages:
   - "go"
@@ -319,6 +399,11 @@ rules:
     File creation in shared tmp directory without using ioutil.Tempfile
   metadata:
     cwe: "CWE-378: Creation of Temporary File With Insecure Permissions"
+    primary_identifier: "gosec.G303"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G303"
+      type: "gosec_rule_id"
+      value: "G303"
   severity: "WARNING"
   languages:
   - "go"
@@ -333,6 +418,11 @@ rules:
   metadata:
     cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
       Traversal')"
+    primary_identifier: "gosec.G305"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G305"
+      type: "gosec_rule_id"
+      value: "G305"
   severity: "WARNING"
   languages:
   - "go"
@@ -377,6 +467,11 @@ rules:
     Url provided to HTTP request as taint input
   metadata:
     cwe: "CWE-88: Improper Neutralization of Argument Delimiters in a Command"
+    primary_identifier: "gosec.G107"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G107"
+      type: "gosec_rule_id"
+      value: "G107"
   severity: "WARNING"
   languages:
   - "go"
@@ -399,6 +494,11 @@ rules:
     Use of unescaped data in HTML templates
   metadata:
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation"
+    primary_identifier: "gosec.G203"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G203"
+      type: "gosec_rule_id"
+      value: "G203"
   severity: "WARNING"
   languages:
   - "go"
@@ -410,6 +510,11 @@ rules:
     Profiling endpoint automatically exposed on /debug/pprof
   metadata:
     cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+    primary_identifier: "gosec.G108"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G108"
+      type: "gosec_rule_id"
+      value: "G108"
   severity: "ERROR"
   languages:
   - "go"
@@ -427,6 +532,11 @@ rules:
     Potential Integer overflow made by strconv.Atoi result conversion to int16/32
   metadata:
     cwe: "CWE-190: Integer Overflow or Wraparound"
+    primary_identifier: "gosec.G109"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G109"
+      type: "gosec_rule_id"
+      value: "G109"
   severity: "ERROR"
   languages:
   - "go"
@@ -445,13 +555,21 @@ rules:
         for _, $ARG := range $SLICE {
           <... $X(..., <... &$ARG ...>, ...) ...>
         }
-  - pattern-not: "for _, $ARG := range $SLICE {\n  <... *$ARG ...>\n}\n"
+  - pattern-not: |
+      for _, $ARG := range $SLICE {
+        <... *$ARG ...>
+      }
   - pattern-not-inside: |-
       for _, $ARG := range $SLICE { return ... }
   message: |
     Implicit memory aliasing in for loop.
   metadata:
     cwe: "CWE-118: Incorrect Access of Indexable Resource ('Range Error')"
+    primary_identifier: "gosec.G601"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G601"
+      type: "gosec_rule_id"
+      value: "G601"
   severity: "WARNING"
   languages:
   - "go"
@@ -471,6 +589,11 @@ rules:
   metadata:
     cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
     owasp: "A6: Security Misconfiguration"
+    primary_identifier: "gosec.G102"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G102"
+      type: "gosec_rule_id"
+      value: "G102"
   severity: "WARNING"
   languages:
   - "go"
@@ -486,6 +609,11 @@ rules:
   metadata:
     cwe: "CWE-259: Use of Hard-coded Password"
     owasp: "A3: Broken Authentication and Session Management"
+    primary_identifier: "gosec.G101"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G101"
+      type: "gosec_rule_id"
+      value: "G101"
   severity: "ERROR"
   languages:
   - "go"
@@ -503,6 +631,11 @@ rules:
     SQL query construction using string concatenation
   metadata:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command"
+    primary_identifier: "gosec.G202"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G202"
+      type: "gosec_rule_id"
+      value: "G202"
   severity: "WARNING"
   languages:
   - "go"
@@ -527,6 +660,11 @@ rules:
     SQL query construction using format string
   metadata:
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command"
+    primary_identifier: "gosec.G201"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G201"
+      type: "gosec_rule_id"
+      value: "G201"
   severity: "WARNING"
   languages:
   - "go"
@@ -551,6 +689,11 @@ rules:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
       ('Eval Injection')"
     owasp: "A1: Injection"
+    primary_identifier: "gosec.G204"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G204"
+      type: "gosec_rule_id"
+      value: "G204"
   severity: "WARNING"
   languages:
   - "go"
@@ -569,6 +712,11 @@ rules:
     attackers own script.
   metadata:
     cwe: "CWE-242: Audit the use of unsafe block"
+    primary_identifier: "gosec.G103"
+    secondary_identifiers:
+    - name: "Gosec Rule ID G103"
+      type: "gosec_rule_id"
+      value: "G103"
   severity: "INFO"
   languages:
   - "go"

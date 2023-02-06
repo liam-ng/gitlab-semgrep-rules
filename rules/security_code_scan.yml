@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.0.67
+# rule-set version: v1.2.1
 # yamllint enable
 ---
 rules:
@@ -25,6 +25,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-524: Use of Cache Containing Sensitive Information"
+    primary_identifier: "security_code_scan.SCS0019"
+    secondary_identifiers:
+    - name: "SCS0019"
+      type: "security_code_scan_rule_id"
+      value: "SCS0019"
 - id: "security_code_scan.SCS0009-1"
   mode: "taint"
   pattern-sources:
@@ -43,6 +48,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag"
+    primary_identifier: "security_code_scan.SCS0009"
+    secondary_identifiers:
+    - name: "SCS0009"
+      type: "security_code_scan_rule_id"
+      value: "SCS0009"
 - id: "security_code_scan.SCS0008-1"
   mode: "taint"
   pattern-sources:
@@ -61,6 +71,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-614: Sensitive Cookie in HTTPS Session Without ‘Secure’ Attribute"
+    primary_identifier: "security_code_scan.SCS0008"
+    secondary_identifiers:
+    - name: "SCS0008"
+      type: "security_code_scan_rule_id"
+      value: "SCS0008"
 - id: "security_code_scan.SCS0004-1"
   patterns:
   - pattern-inside: |
@@ -84,6 +99,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-295: Improper Certificate Validation"
+    primary_identifier: "security_code_scan.SCS0004"
+    secondary_identifiers:
+    - name: "SCS0004"
+      type: "security_code_scan_rule_id"
+      value: "SCS0004"
 - id: "security_code_scan.SCS0010-1"
   patterns:
   - pattern-inside: |
@@ -105,6 +125,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    primary_identifier: "security_code_scan.SCS0010"
+    secondary_identifiers:
+    - name: "SCS0010"
+      type: "security_code_scan_rule_id"
+      value: "SCS0010"
 - id: "security_code_scan.SCS0013-1"
   patterns:
   - pattern-inside: |
@@ -125,6 +150,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    primary_identifier: "security_code_scan.SCS0013"
+    secondary_identifiers:
+    - name: "SCS0013"
+      type: "security_code_scan_rule_id"
+      value: "SCS0013"
 - id: "security_code_scan.SCS0006-1"
   patterns:
   - pattern-either:
@@ -147,6 +177,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    primary_identifier: "security_code_scan.SCS0006"
+    secondary_identifiers:
+    - name: "SCS0006"
+      type: "security_code_scan_rule_id"
+      value: "SCS0006"
 - id: "security_code_scan.SCS0005-1"
   patterns:
   - pattern: "(Random $RNG).$METHOD(...);"
@@ -160,10 +195,15 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)"
+    primary_identifier: "security_code_scan.SCS0005"
+    secondary_identifiers:
+    - name: "SCS0005"
+      type: "security_code_scan_rule_id"
+      value: "SCS0005"
 - id: "security_code_scan.SCS0016-1"
   patterns:
   - pattern: |
-      [HttpPost]
+      [$HTTPMETHOD]
       public $RET $FOO(...) {
         ...
       }
@@ -172,6 +212,9 @@ rules:
       public $RET $FOO(...) {
         ...
       }
+  - metavariable-regex:
+      metavariable: "$HTTPMETHOD"
+      regex: "Http(Post|Delete|Patch|Put)"
   message: |
     An attacker could send a link to the victim. By visiting the
     malicious link, a web page would trigger a POST request (because it is a
@@ -188,6 +231,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-352: Cross-Site Request Forgery (CSRF)"
+    primary_identifier: "security_code_scan.SCS0016"
+    secondary_identifiers:
+    - name: "SCS0016"
+      type: "security_code_scan_rule_id"
+      value: "SCS0016"
 - id: "security_code_scan.SCS0028-1"
   patterns:
   - pattern-not: "$OBJ.Deserialize(\"...\")"
@@ -231,6 +279,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-502: Deserialization of Untrusted Data"
+    primary_identifier: "security_code_scan.SCS0028"
+    secondary_identifiers:
+    - name: "SCS0028"
+      type: "security_code_scan_rule_id"
+      value: "SCS0028"
   severity: "WARNING"
 - id: "security_code_scan.SCS0027-1"
   mode: "taint"
@@ -274,6 +327,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-601: URL Redirection to Untrusted Site ('Open Redirect')"
+    primary_identifier: "security_code_scan.SCS0027"
+    secondary_identifiers:
+    - name: "SCS0027"
+      type: "security_code_scan_rule_id"
+      value: "SCS0027"
   severity: "WARNING"
 - id: "security_code_scan.SCS0001-1"
   patterns:
@@ -304,6 +362,11 @@ rules:
     category: "security"
     cwe: "CWE-78: Improper Neutralization of Special Elements used in an OS Command
       ('OS Command Injection')"
+    primary_identifier: "security_code_scan.SCS0001"
+    secondary_identifiers:
+    - name: "SCS0001"
+      type: "security_code_scan_rule_id"
+      value: "SCS0001"
 - id: "security_code_scan.SCS0026-1.SCS0031-1"
   patterns:
   - pattern-either:
@@ -325,6 +388,14 @@ rules:
     category: "security"
     cwe: "CWE-90: Improper Neutralization of Special Elements used in an LDAP Query
       (‘LDAP Injection’)"
+    primary_identifier: "security_code_scan.SCS0026"
+    secondary_identifiers:
+    - name: "SCS0026"
+      type: "security_code_scan_rule_id"
+      value: "SCS0026"
+    - name: "SCS0031"
+      type: "security_code_scan_rule_id"
+      value: "SCS0031"
 - id: "security_code_scan.SCS0002-1"
   patterns:
   - pattern-either:
@@ -345,7 +416,7 @@ rules:
     - patterns:
       - metavariable-regex:
           metavariable: "$IMPL"
-          regex: "^(SqlCommand|EntityCommand|OdbcCommand|OleDbCommand|SqliteCommand)$"
+          regex: "^(SqlCommand|OracleCommand|NpgsqlCommand|MySqlCommand|EntityCommand|OdbcCommand|OleDbCommand|SqliteCommand)$"
       - pattern-either:
         - patterns:
           - pattern: "new $IMPL($ARG, ...);"
@@ -377,6 +448,11 @@ rules:
     category: "security"
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
       (‘SQL Injection’)"
+    primary_identifier: "security_code_scan.SCS0002"
+    secondary_identifiers:
+    - name: "SCS0002"
+      type: "security_code_scan_rule_id"
+      value: "SCS0002"
 - id: "security_code_scan.SCS0003-1"
   patterns:
   - pattern-inside: |
@@ -422,6 +498,11 @@ rules:
     category: "security"
     cwe: "CWE-643: Improper Neutralization of Data within XPath Expressions (‘XPath
       Injection’)"
+    primary_identifier: "security_code_scan.SCS0003"
+    secondary_identifiers:
+    - name: "SCS0003"
+      type: "security_code_scan_rule_id"
+      value: "SCS0003"
 - id: "security_code_scan.SCS0007-1"
   mode: "taint"
   pattern-sanitizers:
@@ -445,6 +526,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference (‘XXE’)"
+    primary_identifier: "security_code_scan.SCS0007"
+    secondary_identifiers:
+    - name: "SCS0007"
+      type: "security_code_scan_rule_id"
+      value: "SCS0007"
 - id: "security_code_scan.SCS0012-1"
   patterns:
   - pattern-inside: |
@@ -471,6 +557,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-284: Improper Access Control"
+    primary_identifier: "security_code_scan.SCS0012"
+    secondary_identifiers:
+    - name: "SCS0012"
+      type: "security_code_scan_rule_id"
+      value: "SCS0012"
 - id: "security_code_scan.SCS0011-1"
   patterns:
   - pattern-either:
@@ -488,6 +579,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-611: Improper Restriction of XML External Entity Reference"
+    primary_identifier: "security_code_scan.SCS0011"
+    secondary_identifiers:
+    - name: "SCS0011"
+      type: "security_code_scan_rule_id"
+      value: "SCS0011"
 - id: "security_code_scan.SCS0032-1.SCS0033-1.SCS0034-1"
   patterns:
   - pattern: |
@@ -542,6 +638,17 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-521: Weak Password Requirements"
+    primary_identifier: "security_code_scan.SCS0032"
+    secondary_identifiers:
+    - name: "SCS0032"
+      type: "security_code_scan_rule_id"
+      value: "SCS0032"
+    - name: "SCS0033"
+      type: "security_code_scan_rule_id"
+      value: "SCS0033"
+    - name: "SCS0034"
+      type: "security_code_scan_rule_id"
+      value: "SCS0034"
 - id: "security_code_scan.SCS0018-1"
   mode: "taint"
   pattern-sources:
@@ -637,6 +744,11 @@ rules:
   metadata:
     cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
       Traversal')"
+    primary_identifier: "security_code_scan.SCS0018"
+    secondary_identifiers:
+    - name: "SCS0018"
+      type: "security_code_scan_rule_id"
+      value: "SCS0018"
   severity: "WARNING"
   languages:
   - "csharp"
@@ -658,6 +770,11 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-554: ASP.NET Misconfiguration: Not Using Input Validation Framework"
+    primary_identifier: "security_code_scan.SCS0017"
+    secondary_identifiers:
+    - name: "SCS0017"
+      type: "security_code_scan_rule_id"
+      value: "SCS0017"
 - id: "security_code_scan.SCS0029-1"
   mode: "taint"
   pattern-sources:
@@ -719,4 +836,9 @@ rules:
     category: "security"
     cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation (‘Cross-site
       Scripting’)"
+    primary_identifier: "security_code_scan.SCS0029"
+    secondary_identifiers:
+    - name: "SCS0029"
+      type: "security_code_scan_rule_id"
+      value: "SCS0029"
   severity: "WARNING"

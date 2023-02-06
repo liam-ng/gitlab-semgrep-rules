@@ -94,7 +94,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.8.0"
+      "version": "3.12.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -103,7 +103,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "0.115.0"
+      "version": "1.3.0"
     },
     "primary_identifiers": [
       {
@@ -1663,8 +1663,8 @@
       }
     ],
     "type": "sast",
-    "start_time": "2022-10-28T02:39:29",
-    "end_time": "2022-10-28T02:39:36",
+    "start_time": "2023-01-18T21:56:12",
+    "end_time": "2023-01-18T21:56:22",
     "status": "success"
   }
 }

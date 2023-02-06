@@ -1,0 +1,45 @@
+# yamllint disable
+# rule-set version: 1.1.3
+# yamllint enable
+---
+rules:
+- id: "bandit.B303-1"
+  patterns:
+  - pattern-either:
+    - pattern: "Crypto.Hash.MD2.new(...)"
+    - pattern: "Cryptodome.Hash.MD2.new (...)"
+  message: |
+    Detected MD2 hash algorithm which is considered insecure. This algorithm
+    has many known vulnerabilities and has been deprecated. Use SHA256 or SHA3 instead.
+  metadata:
+    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    owasp: "A3: Sensitive Data Exposure"
+    primary_identifier: "bandit.B303"
+    secondary_identifiers:
+    - name: "Bandit Test ID: B303"
+      type: "bandit_test_id"
+      value: "B303"
+  severity: "WARNING"
+  languages:
+  - "python"
+- id: bandit.B101
+  patterns:
+  - pattern: assert(...)
+  - pattern-not-inside: |
+      import pytest
+      ...
+  - pattern-not-inside: |
+      import unittest
+      ...
+  message: |
+    Use of assert detected. The enclosed code will be removed when
+    compiling to optimised byte code.
+  metadata:
+    cwe: "CWE-754: Improper Check for Unusual or Exceptional Conditions"
+    primary_identifier: "bandit.B101"
+    secondary_identifiers:
+    - name: "Bandit Test ID B101"
+      type: "bandit_test_id"
+      value: "B101"
+  severity: INFO
+  languages: [python]
