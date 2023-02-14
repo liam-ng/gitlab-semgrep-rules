@@ -483,7 +483,7 @@ rules:
   metadata:
     cwe: "CWE-502: Deserialization of Untrusted Data"
     owasp: "A8: Insecure Deserialization"
-    primary_identifier: "bandit.B301"
+    primary_identifier: "bandit.B301-2"
     secondary_identifiers:
     - name: "Bandit Test ID B301"
       type: "bandit_test_id"
@@ -502,7 +502,7 @@ rules:
   metadata:
     cwe: "CWE-502: Deserialization of Untrusted Data"
     owasp: "A8: Insecure Deserialization"
-    primary_identifier: "bandit.B301"
+    primary_identifier: "bandit.B301-3"
     secondary_identifiers:
     - name: "Bandit Test ID B301"
       type: "bandit_test_id"
@@ -521,7 +521,7 @@ rules:
   metadata:
     cwe: "CWE-502: Deserialization of Untrusted Data"
     owasp: "A8: Insecure Deserialization"
-    primary_identifier: "bandit.B301"
+    primary_identifier: "bandit.B301-4"
     secondary_identifiers:
     - name: "Bandit Test ID B301"
       type: "bandit_test_id"
@@ -865,7 +865,7 @@ rules:
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A3: Sensitive Data Exposure"
-    primary_identifier: "bandit.B304"
+    primary_identifier: "bandit.B304-9"
     secondary_identifiers:
     - name: "Bandit Test ID B304"
       type: "bandit_test_id"

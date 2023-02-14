@@ -135,11 +135,10 @@ func buildPrimaryID(ruleID string, rule *semgrepRule, analyzer string) *report.I
 	ID := report.Identifier{
 		Type: report.IdentifierType("semgrep_id"),
 	}
-	switch analyzer {
-	case "gosec", "flawfinder", "security_code_scan", "find_sec_bugs":
+	if rule.Metadata.PrimaryIdentifier == "" {
 		ID.Name = ruleID
 		ID.Value = ruleID
-	default:
+	} else {
 		ID.Name = rule.Metadata.PrimaryIdentifier
 		ID.Value = rule.Metadata.PrimaryIdentifier
 	}

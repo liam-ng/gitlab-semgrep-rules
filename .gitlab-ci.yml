@@ -23,6 +23,12 @@ semgrep-meta-rules:
   script: semgrep-agent --config p/semgrep-rule-lints
   allow_failure: true
 
+semgrep-rules-yaml-validation:
+  stage: test
+  image:
+    name: registry.gitlab.com/gitlab-org/security-products/analyzers/integration-test:stable
+  script: for f in $(ls rules); do ruby semgrep_rules_check/find_nonmatching_rule_ids.rb rules/$f || exit 1; done
+
 integration-test:
   image:
     name: registry.gitlab.com/gitlab-org/security-products/analyzers/integration-test:stable
