@@ -373,5 +373,31 @@ describe 'running image' do
 
     end
 
+    context 'with csharp' do
+      let(:variables) do
+        { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+      end
+
+      context '.NET Core-based project' do
+        let(:project) { 'csharp/dotnetcore' }
+        it_behaves_like 'successful job'
+      end
+
+      context '.NET Core-based projects under one solution container' do
+        let(:project) { 'csharp/dotnetcore-multiproject' }
+        it_behaves_like 'successful job'
+      end
+
+      context '.NET Core-based projects under different solution containers' do
+        let(:project) { 'csharp/dotnetcore-multisolution' }
+        it_behaves_like 'successful job'
+      end
+
+      context '.NET Core-based project using MSBuild build system' do
+        let(:project) { 'csharp/dotnetcore-msbuild' }
+        it_behaves_like 'successful job'
+      end
+    end
+
   end
 end
