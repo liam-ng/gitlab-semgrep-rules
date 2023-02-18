@@ -1,5 +1,12 @@
 Semgrep analyzer changelog
 
+## v3.13.1
+- Add new rules from upstream secure scanners (!204)
+  + ESLint: detect-new-buffer
+  + FindSecBugs/SpotBugs : SPRING_CSRF_PROTECTION_DISABLED, SQL_INJECTION, SQL_INJECTION_TURBINE, SQL_INJECTION_HIBERNATE, SQL_INJECTION_VERTX, XSS_REQUEST_PARAMETER_TO_SEND_ERROR, SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING
+  + GoSec: G111, G112, G113, G114
+  + Bandit: B113, B202, B508, B509, B612, B415
+
 ## v3.13.0
 - Add `primary-id` and `secondary-ids` to rules metadata (!192)
 - Updates the convert function to use the identifiers from the rules in vuln ids (!192)

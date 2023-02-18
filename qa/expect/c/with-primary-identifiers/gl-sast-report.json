@@ -46,7 +46,7 @@
       ]
     },
     {
-      "id": "3d5f210c0a848f0f81945e062a023ce7de6c06893b56c4e55e05484ed44faf82",
+      "id": "9fb40d50e1701d9936d9c51536eee940e5cc8616c59d4bf1e9a464b6b0d00d0f",
       "category": "sast",
       "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
       "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
@@ -82,7 +82,23 @@
           "name": "Flawfinder - open",
           "value": "open"
         }
-      ]
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "subdir/utils.c",
+            "line_start": 8,
+            "line_end": 8,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "subdir/utils.c|doStuff()[0]:2"
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "dependency_files": [],
@@ -94,7 +110,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.12.0"
+      "version": "3.13.1"
     },
     "scanner": {
       "id": "semgrep",
@@ -163,8 +179,18 @@
       },
       {
         "type": "semgrep_id",
+        "name": "bandit.B113",
+        "value": "bandit.B113"
+      },
+      {
+        "type": "semgrep_id",
         "name": "bandit.B201",
         "value": "bandit.B201"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B202",
+        "value": "bandit.B202"
       },
       {
         "type": "semgrep_id",
@@ -458,6 +484,11 @@
       },
       {
         "type": "semgrep_id",
+        "name": "bandit.B415",
+        "value": "bandit.B415"
+      },
+      {
+        "type": "semgrep_id",
         "name": "bandit.B501",
         "value": "bandit.B501"
       },
@@ -490,6 +521,16 @@
         "type": "semgrep_id",
         "name": "bandit.B507",
         "value": "bandit.B507"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B508",
+        "value": "bandit.B508"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "bandit.B509",
+        "value": "bandit.B509"
       },
       {
         "type": "semgrep_id",
@@ -548,6 +589,11 @@
       },
       {
         "type": "semgrep_id",
+        "name": "bandit.B612",
+        "value": "bandit.B612"
+      },
+      {
+        "type": "semgrep_id",
         "name": "bandit.B701",
         "value": "bandit.B701"
       },
@@ -580,6 +626,11 @@
         "type": "semgrep_id",
         "name": "eslint.detect-eval-with-expression",
         "value": "eslint.detect-eval-with-expression"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "eslint.detect-new-buffer",
+        "value": "eslint.detect-new-buffer"
       },
       {
         "type": "semgrep_id",
@@ -938,8 +989,13 @@
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1",
-        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1"
+        "name": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1",
+        "value": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SQL_INJECTION-1.SQL_INJECTION_HIBERNATE-1.SQL_INJECTION_VERTX-1.SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING-1",
+        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SQL_INJECTION-1.SQL_INJECTION_HIBERNATE-1.SQL_INJECTION_VERTX-1.SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING-1"
       },
       {
         "type": "semgrep_id",
@@ -1010,6 +1066,11 @@
         "type": "semgrep_id",
         "name": "find_sec_bugs.XPATH_INJECTION-1",
         "value": "find_sec_bugs.XPATH_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR-1",
+        "value": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR-1"
       },
       {
         "type": "semgrep_id",
@@ -1448,6 +1509,26 @@
       },
       {
         "type": "semgrep_id",
+        "name": "gosec.G111-1",
+        "value": "gosec.G111-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G112-1",
+        "value": "gosec.G112-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G113-1",
+        "value": "gosec.G113-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G114-1",
+        "value": "gosec.G114-1"
+      },
+      {
+        "type": "semgrep_id",
         "name": "gosec.G201-1",
         "value": "gosec.G201-1"
       },
@@ -1663,8 +1744,8 @@
       }
     ],
     "type": "sast",
-    "start_time": "2023-01-18T21:56:12",
-    "end_time": "2023-01-18T21:56:22",
+    "start_time": "2023-02-16T06:48:50",
+    "end_time": "2023-02-16T06:48:57",
     "status": "success"
   }
 }

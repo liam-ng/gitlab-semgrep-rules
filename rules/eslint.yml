@@ -1,4 +1,35 @@
 rules:
+- id: "eslint.detect-new-buffer"
+  metadata:
+    source-rule-url: "https://github.com/eslint-community/eslint-plugin-security/blob/main/rules/detect-new-buffer.js"
+    primary_identifier: "eslint.detect-new-buffer"
+    secondary_identifiers:
+    - name: "ESLint rule ID/detect-new-buffer"
+      type: "eslint_rule_id"
+      value: "detect-new-buffer"
+  patterns:
+  - patterns:
+    - pattern-not-inside: |-
+        require("safe-buffer")
+        ...
+    - pattern-not-inside: |-
+        import { Buffer } from "safe-buffer"
+        ...
+    - pattern-inside: |-
+        function $FUNC(..., $X, ...) { ... }
+    - pattern: "new Buffer($X,...)"
+  - pattern-not: |
+      new Buffer("...",...)
+  - pattern-not: |
+      new Buffer([...] , ...)
+  message: |
+    Detects instances of new Buffer(argument) where argument is any non-literal value which could
+    cause memory leak. Recommended usage is `Buffer.from()` or `Buffer.alloc()`.
+  languages:
+  - "javascript"
+  - "typescript"
+  severity: "ERROR"
+
 - id: eslint.detect-no-csrf-before-method-override
   metadata:
     cwe: "CWE-352: Cross-Site Request Forgery (CSRF)"
