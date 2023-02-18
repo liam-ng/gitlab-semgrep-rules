@@ -674,25 +674,6 @@ rules:
   severity: "WARNING"
   languages:
   - "java"
-- id: "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1"
-  pattern-either:
-  - pattern: "(org.springframework.security.config.annotation.web.builders.HttpSecurity
-      $H). ... .csrf().disable();"
-  - pattern: "(org.springframework.security.config.annotation.web.configurers.CsrfConfigurer<HttpSecurity>
-      $C).disable();"
-  languages:
-  - "java"
-  message: |
-    Disabling Spring Security's CSRF protection is unsafe for standard web applications.
-  metadata:
-    category: "security"
-    cwe: "CWE-352: Cross-Site Request Forgery (CSRF)"
-    primary_identifier: "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1"
-    secondary_identifiers:
-    - name: "Find Security Bugs-SPRING_CSRF_PROTECTION_DISABLED"
-      type: "find_sec_bugs_type"
-      value: "SPRING_CSRF_PROTECTION_DISABLED"
-  severity: "WARNING"
 - id: "find_sec_bugs.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1"
   mode: "taint"
   pattern-sources:
@@ -1910,7 +1891,7 @@ rules:
     - name: "Find Security Bugs-PT_RELATIVE_PATH_TRAVERSAL"
       type: "find_sec_bugs_type"
       value: "PT_RELATIVE_PATH_TRAVERSAL"
-- id: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SQL_INJECTION-1.SQL_INJECTION_HIBERNATE-1.SQL_INJECTION_VERTX-1.SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING-1"
+- id: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1"
   patterns:
   - pattern-not-inside: |
       final String $ARG = ...;
@@ -1938,8 +1919,8 @@ rules:
       - pattern: "(javax.jdo.Query $Q).setGrouping($ARG)"
       - pattern-not: "(javax.jdo.Query $Q).setGrouping(\"...\")"
     - patterns:
-      - pattern: "org.hibernate.criterion.Restrictions.sqlRestriction($ARG, ...)"
-      - pattern-not: "org.hibernate.criterion.Restrictions.sqlRestriction(\"...\",
+      - pattern: "(org.hibernate.criterion.Restrictions $H).sqlRestriction($ARG, ...)"
+      - pattern-not: "(org.hibernate.criterion.Restrictions $H).sqlRestriction(\"...\",
           ...)"
     - patterns:
       - pattern: "(org.hibernate.Session $S).createQuery((String $ARG), ...)"
@@ -2130,7 +2111,7 @@ rules:
     category: "security"
     cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command
       ('SQL Injection')"
-    primary_identifier: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SQL_INJECTION-1.SQL_INJECTION_HIBERNATE-1.SQL_INJECTION_VERTX-1.SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING-1"
+    primary_identifier: "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1"
     secondary_identifiers:
     - name: "Find Security Bugs-SQL_INJECTION_SPRING_JDBC"
       type: "find_sec_bugs_type"
@@ -2147,18 +2128,6 @@ rules:
     - name: "Find Security Bugs-SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
       type: "find_sec_bugs_type"
       value: "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"
-    - name: "Find Security Bugs-SQL_INJECTION"
-      type: "find_sec_bugs_type"
-      value: "SQL_INJECTION"
-    - name: "Find Security Bugs-SQL_INJECTION_HIBERNATE"
-      type: "find_sec_bugs_type"
-      value: "SQL_INJECTION_HIBERNATE"
-    - name: "Find Security Bugs-SQL_INJECTION_VERTX"
-      type: "find_sec_bugs_type"
-      value: "SQL_INJECTION_VERTX"
-    - name: "Find Security Bugs-SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING"
-      type: "find_sec_bugs_type"
-      value: "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING"
   severity: "ERROR"
 - id: "find_sec_bugs.LDAP_ANONYMOUS-1"
   patterns:
@@ -3112,46 +3081,6 @@ rules:
       type: "find_sec_bugs_type"
       value: "WICKET_XSS1"
   severity: "WARNING"
-- id: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR-1"
-  mode: "taint"
-  pattern-sources:
-  - patterns:
-    - pattern-inside: |-
-        $FUNC(..., HttpServletRequest $REQ, ...) {...}
-    - pattern-either:
-      - pattern: "$REQ.getParameter(...);"
-      - pattern: "$REQ.getHeader(...);"
-      - pattern: "$REQ.getRequestedSessionId();"
-      - pattern: "$REQ.getQueryString();"
-  pattern-sanitizers:
-  - patterns:
-    - pattern-inside: |-
-        org.owasp.encoder.Encode.forHtml($TAINTED);
-    - pattern: "$TAINTED"
-  pattern-sinks:
-  - patterns:
-    - pattern-inside: |-
-        $FUNC(..., HttpServletResponse $RES, ...) {...}
-    - pattern: "$RES.sendError(..., $DATA);"
-    - pattern: "$DATA"
-  message: |
-    Servlet reflected cross site scripting vulnerability in error page. This code directly writes
-    an HTTP parameter to a Server error page (using HttpServletResponse.sendError). Echoing this
-    untrusted input allows for a reflected cross site scripting vulnerability.
-  languages:
-  - "java"
-  severity: "WARNING"
-  metadata:
-    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site
-      Scripting')"
-    category: "security"
-    technology:
-    - "java"
-    primary_identifier: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR-1"
-    secondary_identifiers:
-    - name: "Find Security Bugs-XSS_REQUEST_PARAMETER_TO_SEND_ERROR"
-      type: "find_sec_bugs_type"
-      value: "XSS_REQUEST_PARAMETER_TO_SEND_ERROR"
 - id: "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1"
   mode: "taint"
   pattern-sources:
