@@ -110,7 +110,7 @@ describe 'running image' do
 
       context 'when including primary_identifiers' do
         let(:variables) do
-          { 'GITLAB_FEATURES': 'sast_fp_reduction' }
+          { 'GITLAB_FEATURES': 'vulnerability_finding_signatures,sast_fp_reduction' }
         end
 
         describe 'created report' do
@@ -167,7 +167,7 @@ describe 'running image' do
           let(:project) { 'go/fpreduction' }
           let(:variables) do
             {
-              'GITLAB_FEATURES': 'sast_fp_reduction',
+              'GITLAB_FEATURES': 'vulnerability_finding_signatures,sast_fp_reduction',
               'CI_PROJECT_ROOT_NAMESPACE': 'gitlab-org'
             }
           end
@@ -187,7 +187,10 @@ describe 'running image' do
         context 'feature is disabled' do
           let(:project) { 'go/fpreduction' }
           let(:variables) do
-            { 'CI_PROJECT_ROOT_NAMESPACE': 'gitlab-org' }
+            {
+              'GITLAB_FEATURES': 'vulnerability_finding_signatures',
+              'CI_PROJECT_ROOT_NAMESPACE': 'gitlab-org'
+            }
           end
 
           it_behaves_like 'successful scan'
