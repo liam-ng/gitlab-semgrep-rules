@@ -2,7 +2,7 @@
   description = 'semgrep custom rules configuration'
   targetdir = "/sgrules"
   validate = true
-  
+
   [[semgrep.passthrough]]
     type  = "raw"
     value = """# My ruleset
@@ -11,10 +11,10 @@
 
   [[semgrep.passthrough]]
     type  = "url"
-    value = "https://semgrep.dev/c/p/gosec"
+    value = "https://semgrep.dev/c/p/gitlab"
     target = "rule.yml"
     mode = "append"
-  
+
   [[semgrep.passthrough]]
     type  = "file"
     value = "foo.yml"
@@ -37,7 +37,7 @@
   languages:
   - "go"
 """
-  
+
   [[semgrep.passthrough]]
     type  = "file"
     value = "bar.yml"

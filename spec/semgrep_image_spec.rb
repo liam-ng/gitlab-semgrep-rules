@@ -213,7 +213,7 @@ describe 'running image' do
         it_behaves_like 'successful scan'
 
         let(:variables) do
-          { 'GITLAB_FEATURES': 'sast_custom_rulesets' }
+          { 'GITLAB_FEATURES': 'vulnerability_finding_signatures, sast_custom_rulesets' }
         end
 
         describe 'created report' do
