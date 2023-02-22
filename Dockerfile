@@ -13,9 +13,14 @@ FROM registry.gitlab.com/gitlab-org/security-products/vet/stencils:${STENCILS_VE
 FROM golang:1.18-alpine AS build
 
 ENV CGO_ENABLED=0 GOOS=linux
+ENV SAST_RULES_VERSION=1.1.10
 
 WORKDIR /go/src/buildapp
 COPY . .
+
+RUN apk add --no-cache tar curl git && \
+    mkdir -p /archive && \
+    git clone --depth 1 --branch "v$SAST_RULES_VERSION" https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules /rules
 
 # variable to the most recent version from the CHANGELOG.md file
 RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') && \
@@ -39,6 +44,8 @@ RUN mkdir -p /etc/ssl/certs/ && \
 
 COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY rules /rules
+COPY --from=build /rules/dist/gosec.yml /rules/gosec.yml
+
 COPY semgrepignore /semgrepignore
 RUN mkdir /.cache && \
     chmod -R g+rw /.cache && \
