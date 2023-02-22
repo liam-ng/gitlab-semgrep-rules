@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v3.13.2
+- Fix file extension filter for VET (!202)
+- Reduce logging output for debugging operations (!202)
+
 ## v3.13.1
 - Add new rules from upstream secure scanners (!204)
   + ESLint: detect-new-buffer
