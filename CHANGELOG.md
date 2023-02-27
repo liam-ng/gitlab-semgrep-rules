@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v3.13.3
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.3.0` => [`1.13.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.13.0)] (!206)
+- upgrade `github.com/urfave/cli/v2` version [`v2.23.7` => [`v2.24.3`](https://github.com/urfave/cli/releases/tag/v2.24.3)] (!206)
+- upgrade `golang.org/x/crypto` version [`v0.5.0` => [`v0.6.0`](https://golang.org/x/crypto@v0.6.0)] (!206)
+
 ## v3.13.2
 - Fix file extension filter for VET (!202)
 - Reduce logging output for debugging operations (!202)

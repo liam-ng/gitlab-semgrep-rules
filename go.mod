@@ -12,11 +12,11 @@ require (
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.1
-	github.com/urfave/cli/v2 v2.23.7
+	github.com/urfave/cli/v2 v2.24.3
 	gitlab.com/gitlab-org/security-products/analyzers/command v1.10.1
 	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2
 	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.17.0
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0
-	golang.org/x/crypto v0.5.0
+	golang.org/x/crypto v0.6.0
 	gopkg.in/yaml.v2 v2.4.0
 )
