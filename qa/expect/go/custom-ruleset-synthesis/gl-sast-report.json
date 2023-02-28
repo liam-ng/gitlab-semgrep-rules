@@ -186,6 +186,46 @@
     {
       "id": "f9f3c98c1965b7cd94708547c6d15ce6564d36f5b66eb954165d29cc8d61e330",
       "category": "sast",
+      "message": "return nil err instead of nil value",
+      "description": "return nil err instead of nil value",
+      "cve": "semgrep_id:return-nil-err:14:16",
+      "severity": "Critical",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "foo.go",
+        "start_line": 14,
+        "end_line": 16
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "return-nil-err",
+          "value": "return-nil-err"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "foo.go",
+            "line_start": 14,
+            "line_end": 14,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "foo.go|foo[0]:3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "f9f3c98c1965b7cd94708547c6d15ce6564d36f5b66eb954165d29cc8d61e330",
+      "category": "sast",
       "message": "return nil instead of nil value",
       "description": "return nil instead of nil value",
       "cve": "semgrep_id:return-nil:14:16",
