@@ -45,8 +45,8 @@
 
   [[semgrep.passthrough]]
     type  = "git"
-    value = "https://github.com/theoretick/semgrep-go"
-    ref = "19f42afe2f39afb5429e756236b73fc7eadd55c0"
+    value = "https://github.com/dgryski/semgrep-go"
+    ref = "4c51248dac62f96894a997f8e685409516d4a32e"
 
   [[semgrep.passthrough]]
     type  = "git"
