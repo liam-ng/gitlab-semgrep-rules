@@ -10,7 +10,7 @@ contains documentation on how to run, test and modify this analyzer.
 
 ## Rules
 
-You can find details about the rule-sets and their sources in
+You can find details about the rulesets and their sources in
 [`RULES.md`](RULES.md).
 
 ### Image integration tests

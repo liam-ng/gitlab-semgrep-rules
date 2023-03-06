@@ -1,6 +1,16 @@
-# Semgrep Bandit ruleset
+# Rules
 
-[bandit.yml](rules/bandit.yml) is a semgrep rule-set that covers all the rules
+The [`/rules`](/rules)
+directory is the source of truth for the GitLab's Semgrep rulesets, organized
+by scanner or language.
+
+NOTE: we will soon be transitioning to
+[sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules)
+as the canonical source for our rule repository.
+
+## Semgrep Bandit ruleset
+
+[bandit.yml](rules/bandit.yml) is a semgrep ruleset that covers all the rules
 that are implemented in [bandit v1.7.0](https://github.com/PyCQA/bandit).
 
 Every semgrep rule contains the bandit identifier (`BXXX`) for the rule it
