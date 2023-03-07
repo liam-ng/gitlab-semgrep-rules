@@ -1,0 +1,53 @@
+{
+  "version": "14.0.4",
+  "vulnerabilities": [
+    {
+      "id": "e7097267be4a1e4b46bb99a18cc8eb53e63c9b8916bc1b82ac173fec5b9704b5",
+      "category": "sast",
+      "message": "Error messages with stack traces may expose sensitive information about the application.",
+      "description": "Error messages with stack traces may expose sensitive information about the application.",
+      "cve": "semgrep_id:generic_error_disclosure:1:1",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "server.js",
+        "start_line": 1
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "generic_error_disclosure",
+          "value": "generic_error_disclosure"
+        }
+      ]
+    }
+  ],
+  "dependency_files": [],
+  "scan": {
+    "analyzer": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "3.13.2"
+    },
+    "scanner": {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "url": "https://github.com/returntocorp/semgrep",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "1.3.0"
+    },
+    "type": "sast",
+    "start_time": "2023-03-07T05:26:42",
+    "end_time": "2023-03-07T05:26:49",
+    "status": "success"
+  }
+}

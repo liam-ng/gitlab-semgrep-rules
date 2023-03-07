@@ -402,5 +402,31 @@ describe 'running image' do
       end
     end
 
+    context 'with nodejs' do
+      let(:variables) do
+        { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+      end
+
+      context 'NodeJS Core-based project', focus: true do
+        let(:project) { 'nodejs/express' }
+        it_behaves_like 'successful job'
+      end
+
+      # context '.NET Core-based projects under one solution container' do
+      #   let(:project) { 'csharp/dotnetcore-multiproject' }
+      #   it_behaves_like 'successful job'
+      # end
+
+      # context '.NET Core-based projects under different solution containers' do
+      #   let(:project) { 'csharp/dotnetcore-multisolution' }
+      #   it_behaves_like 'successful job'
+      # end
+
+      # context '.NET Core-based project using MSBuild build system' do
+      #   let(:project) { 'csharp/dotnetcore-msbuild' }
+      #   it_behaves_like 'successful job'
+      # end      
+    end
+
   end
 end
