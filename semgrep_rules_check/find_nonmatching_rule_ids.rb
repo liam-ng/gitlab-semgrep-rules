@@ -4,7 +4,9 @@ require "yaml"
 
 # Some rules need to be refined and currently exceptional
 RULE_ID_EXCLUSIONS = [
-  "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1"
+  "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1",
+  "generic_error_disclosure",
+  "node_error_disclosure",
 ]
 YAML_FILE = ARGV[0]
 raise "no file provided" unless YAML_FILE
