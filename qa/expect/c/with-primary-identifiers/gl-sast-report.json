@@ -110,7 +110,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.1"
+      "version": "3.13.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -1469,6 +1469,11 @@
       },
       {
         "type": "semgrep_id",
+        "name": "generic_error_disclosure",
+        "value": "generic_error_disclosure"
+      },
+      {
+        "type": "semgrep_id",
         "name": "gosec.G101-1",
         "value": "gosec.G101-1"
       },
@@ -1634,6 +1639,11 @@
       },
       {
         "type": "semgrep_id",
+        "name": "node_error_disclosure",
+        "value": "node_error_disclosure"
+      },
+      {
+        "type": "semgrep_id",
         "name": "security_code_scan.SCS0001-1",
         "value": "security_code_scan.SCS0001-1"
       },
@@ -1744,8 +1754,8 @@
       }
     ],
     "type": "sast",
-    "start_time": "2023-02-16T06:48:50",
-    "end_time": "2023-02-16T06:48:57",
+    "start_time": "2023-03-07T03:00:50",
+    "end_time": "2023-03-07T03:00:57",
     "status": "success"
   }
 }
