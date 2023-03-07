@@ -29,6 +29,11 @@ rules:
     metadata:
       owasp-web: a3
       cwe: cwe-209
+      primary_identifier: "node_error_disclosure"
+      secondary_identifiers:
+      - name: ""
+        type: ""
+        value: ""
   - id: generic_error_disclosure
     patterns:
       - pattern-either:
@@ -49,3 +54,8 @@ rules:
     metadata:
       owasp-web: a3
       cwe: cwe-209
+      primary_identifier: "generic_error_disclosure"
+      secondary_identifiers:
+      - name: ""
+        type: ""
+        value: ""
