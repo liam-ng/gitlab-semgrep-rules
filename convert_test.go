@@ -69,17 +69,15 @@ func TestGenerateIDs(t *testing.T) {
 		"bandit.B303-1": {
 			{
 				Type: "bandit_test_id",
-				// FIXME: https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules/-/merge_requests/98
-				Name:  "Bandit Test ID: B303",
+				Name:  "Bandit Test ID B303",
 				Value: "B303",
 			},
 		},
 		"eslint.detect-no-csrf-before-method-override-1": {
 			{
 				Type: "eslint_rule_id",
-				// FIXME: https://gitlab.com/gitlab-org/secure/gsoc-sast-vulnerability-rules/playground/sast-rules/-/merge_requests/98
-				Name:  "ESLint rule ID security detect-no-csrf-before-method-override",
-				Value: "security/detect-no-csrf-before-method-override",
+				Name:  "ESLint rule ID/detect-no-csrf-before-method-override",
+				Value: "detect-no-csrf-before-method-override",
 			},
 		},
 		"flawfinder.char-1.TCHAR-1.wchar_t-1": {
