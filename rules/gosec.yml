@@ -267,7 +267,7 @@ rules:
     - pattern: "os.MkdirAll(...,$MASK)"
   - metavariable-comparison:
       metavariable: "$MASK"
-      comparison: "$MASK > 0o600 and $MASK != 0o750"
+      comparison: "$MASK > 0o750"
       base: 8
   message: |
     Poor file permissions used when creating a directory
