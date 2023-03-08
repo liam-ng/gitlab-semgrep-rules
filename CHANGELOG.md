@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.13.3
+- Integrate rule refinement for rule G301 (!201)
+
 ## v3.13.2
 - Fix file extension filter for VET (!202)
 - Reduce logging output for debugging operations (!202)
