@@ -68,14 +68,14 @@ func TestGenerateIDs(t *testing.T) {
 		},
 		"bandit.B303-1": {
 			{
-				Type: "bandit_test_id",
+				Type:  "bandit_test_id",
 				Name:  "Bandit Test ID B303",
 				Value: "B303",
 			},
 		},
 		"eslint.detect-no-csrf-before-method-override-1": {
 			{
-				Type: "eslint_rule_id",
+				Type:  "eslint_rule_id",
 				Name:  "ESLint rule ID/detect-no-csrf-before-method-override",
 				Value: "detect-no-csrf-before-method-override",
 			},
