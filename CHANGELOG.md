@@ -2,12 +2,12 @@ Semgrep analyzer changelog
 
 
 ## v3.13.4
-- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.3.0` => [`1.14.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.14.0)] ({{MergeRequestID}})
-- upgrade `github.com/stretchr/testify` version [`v1.8.1` => [`v1.8.2`](https://github.com/stretchr/testify/releases/tag/v1.8.2)] ({{MergeRequestID}})
-- upgrade `github.com/urfave/cli/v2` version [`v2.23.7` => [`v2.25.0`](https://github.com/urfave/cli/releases/tag/v2.25.0)] ({{MergeRequestID}})
-- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.17.0` => [`v3.18.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.18.0)] ({{MergeRequestID}})
-- upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v1.4.0` => [`v1.4.1`](https://gitlab.com/gitlab-org/security-products/analyzers/ruleset/-/releases/v1.4.1)] ({{MergeRequestID}})
-- upgrade `golang.org/x/crypto` version [`v0.5.0` => [`v0.7.0`](https://golang.org/x/crypto@v0.7.0)] ({{MergeRequestID}})
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.3.0` => [`1.14.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.14.0)] (!220)
+- upgrade `github.com/stretchr/testify` version [`v1.8.1` => [`v1.8.2`](https://github.com/stretchr/testify/releases/tag/v1.8.2)] (!220)
+- upgrade `github.com/urfave/cli/v2` version [`v2.23.7` => [`v2.25.0`](https://github.com/urfave/cli/releases/tag/v2.25.0)] (!220)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.17.0` => [`v3.18.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.18.0)] (!220)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v1.4.0` => [`v1.4.1`](https://gitlab.com/gitlab-org/security-products/analyzers/ruleset/-/releases/v1.4.1)] (!220)
+- upgrade `golang.org/x/crypto` version [`v0.5.0` => [`v0.7.0`](https://golang.org/x/crypto@v0.7.0)] (!220)
 
 ## v3.13.3
 - Integrate rule refinement for rule G301 (!201)
