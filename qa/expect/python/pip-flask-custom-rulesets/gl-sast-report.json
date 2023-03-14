@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "b089296583cc4f640f882102e44550989b8c367a5a15910e8dcce8239d75e80a",
+      "id": "0365666c9600da574ee833287f544aca8be80a3f4638542a638ecf003f0186df",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
-      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
-      "cve": "semgrep_id:bandit.B506:329:329",
+      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Pythonobjects. A malicious actor could\nexploit this to run arbitrarycode. Use `safe_load()` instead.\n",
+      "cve": "semgrep_id:bandit.B506-1:329:329",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -58,11 +58,11 @@
       }
     },
     {
-      "id": "fc96ecebbd118f4986c48c71ba179a55a61aaa5648696f54b5e14faca6c4e527",
+      "id": "8eaec1cf299a81fbaf7966b2d517c223c108b484892c121a372232d2af0d31b4",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
-      "cve": "semgrep_id:bandit.B608:265:265",
+      "cve": "semgrep_id:bandit.B608-1:265:265",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -281,7 +281,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.0"
+      "version": "3.13.4"
     },
     "scanner": {
       "id": "semgrep",
@@ -293,8 +293,8 @@
       "version": "1.3.0"
     },
     "type": "sast",
-    "start_time": "2023-02-02T20:04:52",
-    "end_time": "2023-02-02T20:05:00",
+    "start_time": "2023-03-15T02:28:20",
+    "end_time": "2023-03-15T02:28:27",
     "status": "success"
   }
 }

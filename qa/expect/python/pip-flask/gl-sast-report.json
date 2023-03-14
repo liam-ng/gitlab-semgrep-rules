@@ -2,11 +2,11 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "b089296583cc4f640f882102e44550989b8c367a5a15910e8dcce8239d75e80a",
+      "id": "93366bdbb97cfd3c09857bf1c1655917602a94b082605721988d2109a38b4e34",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
-      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
-      "cve": "semgrep_id:bandit.B506:329:329",
+      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Pythonobjects. A malicious actor could\nexploit this to run arbitrarycode. Use `safe_load()` instead.\n",
+      "cve": "semgrep_id:bandit.B506-1:329:329",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -58,11 +58,107 @@
       }
     },
     {
-      "id": "edb9b0f6d9da7f133d31265d6a20fcb5713bc95b3a79dc639add0e3040be95d5",
+      "id": "d64a002914f716b364f883b646d54319d3d9ca64480e831766740c146292cfca",
+      "category": "sast",
+      "message": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
+      "cve": "semgrep_id:bandit.B105-1:28:28",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/app.py",
+        "start_line": 28
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B105",
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A3 - Broken Authentication and Session Management",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
+        }
+      ]
+    },
+    {
+      "id": "f41f1d07c8477ad180e9985254013dd81573620764b4e67301b3d271c33239e9",
+      "category": "sast",
+      "message": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
+      "cve": "semgrep_id:bandit.B105-1:63:63",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app/app.py",
+        "start_line": 63
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B105",
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A3 - Broken Authentication and Session Management",
+          "value": "A3"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "app/app.py",
+            "line_start": 63,
+            "line_end": 63,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "app/app.py|setup_users[0]:7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "167cddae44123bdf0b2e9a35ce0722ccdc30ece319ae023603bfa41bd82efa6b",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "semgrep_id:bandit.B303-1:141:141",
+      "cve": "semgrep_id:bandit.B303-5:141:141",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -75,9 +171,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
         },
         {
           "type": "cwe",
@@ -114,11 +210,11 @@
       }
     },
     {
-      "id": "fc96ecebbd118f4986c48c71ba179a55a61aaa5648696f54b5e14faca6c4e527",
+      "id": "13494282d55dec779739e6743d166c4f591c31b769af7de92a5463453a934006",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
-      "cve": "semgrep_id:bandit.B608:265:265",
+      "cve": "semgrep_id:bandit.B608-1:265:265",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -170,107 +266,11 @@
       }
     },
     {
-      "id": "e19f91454f613a3aa91d1aed05d43205f903fdc49c39c0209ccd68587de61954",
-      "category": "sast",
-      "message": "Use of Hard-coded Password",
-      "description": "Possible hardcoded password\n",
-      "cve": "semgrep_id:bandit.B105:28:28",
-      "severity": "Info",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 28
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B105",
-          "value": "bandit.B105",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A3 - Broken Authentication and Session Management",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
-        }
-      ]
-    },
-    {
-      "id": "6d299ae4c8097ab62f0f50ecde7dba2eeefe284721ce9e0b1a783fc0f6d69176",
-      "category": "sast",
-      "message": "Use of Hard-coded Password",
-      "description": "Possible hardcoded password\n",
-      "cve": "semgrep_id:bandit.B105:63:63",
-      "severity": "Info",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 63
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B105",
-          "value": "bandit.B105",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A3 - Broken Authentication and Session Management",
-          "value": "A3"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app/app.py",
-            "line_start": 63,
-            "line_end": 63,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app/app.py|setup_users[0]:7"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "d69b5232153bdccc06571669eea0553f6782e64fa7a6485ec66f7d0312c1a97c",
+      "id": "7d0bf728515f70f5d7ddcc0a0bf761e23118f95b5cd79e9562ed4d8572051e74",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
-      "cve": "semgrep_id:bandit.B311:295:295",
+      "cve": "semgrep_id:bandit.B311-1:295:295",
       "severity": "Info",
       "scanner": {
         "id": "semgrep",
@@ -322,11 +322,11 @@
       }
     },
     {
-      "id": "4b683d007bdeca06ab095faa4197dafed6a9485bc32667dcd645cfe95f681496",
+      "id": "9b001e6b3656c365cfb2baa66dcea987482d76c03a61f32eec0be43f1bd7e14f",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
-      "cve": "semgrep_id:bandit.B311:319:319",
+      "cve": "semgrep_id:bandit.B311-1:319:319",
       "severity": "Info",
       "scanner": {
         "id": "semgrep",
@@ -378,7 +378,7 @@
       }
     },
     {
-      "id": "20c8166936c29c98ab3a4718e5794fcdbaa4f30ec87f00634dfe2ff505b9c3c2",
+      "id": "706ef4930580377e3aa88c4199bb6dc534be9359c9398a7b666706cf45cf14de",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -536,11 +536,11 @@
       }
     },
     {
-      "id": "1d7a0cd85aeb47291b70aae0224cca80cf2a0e33ab75475c6569fdf9e2265692",
+      "id": "333d1a60d03030d0b25bada41991e9d26fd5dd434c0b120d6f0362af3c6a0ebe",
       "category": "sast",
       "message": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "semgrep_id:bandit.B501:17:18",
+      "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
+      "cve": "semgrep_id:bandit.B501-1:17:18",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -577,11 +577,11 @@
       ]
     },
     {
-      "id": "a4ef8739990fe4af2a622965692ea6e06d0aefd3703fe133778b1aa05f4565ad",
+      "id": "b8adce44678084a0f803d7b8a2deefecd6c52d18b2e91eeb0d6d3e82f9e2319e",
       "category": "sast",
       "message": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "semgrep_id:bandit.B501:28:29",
+      "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
+      "cve": "semgrep_id:bandit.B501-1:28:29",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -618,11 +618,11 @@
       ]
     },
     {
-      "id": "6b5859dd92677ec895f1c32271b44a3323a5dc43b6f883e90950a18f8d1ee67d",
+      "id": "b273bb1062d30e088deee79ac38d9434f909a37e996ed3979ecf7064c5c889b3",
       "category": "sast",
       "message": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "semgrep_id:bandit.B501:36:37",
+      "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
+      "cve": "semgrep_id:bandit.B501-1:36:37",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -659,11 +659,11 @@
       ]
     },
     {
-      "id": "0171890fe12b118a6b89fd6c0267084dc3921afe12a95850854943d65792d1c2",
+      "id": "28f8fea153a2b6d3af61cd9ea76be3d6da4a1819a6dffd78dc11e39173667de6",
       "category": "sast",
       "message": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
-      "cve": "semgrep_id:bandit.B501:44:45",
+      "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
+      "cve": "semgrep_id:bandit.B501-1:44:45",
       "severity": "Critical",
       "scanner": {
         "id": "semgrep",
@@ -698,6 +698,150 @@
           "value": "B501"
         }
       ]
+    },
+    {
+      "id": "1b09698fd08472eef7c72c085953726ac460232a8eac5aa8d1e4144baf3ef63d",
+      "category": "sast",
+      "message": "Uncontrolled Resource Consumption",
+      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "cve": "semgrep_id:bandit.B113-1:17:18",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 17,
+        "end_line": 18
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B113",
+          "value": "bandit.B113",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B113"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-400",
+          "value": "400",
+          "url": "https://cwe.mitre.org/data/definitions/400.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B113",
+          "value": "B113"
+        }
+      ]
+    },
+    {
+      "id": "3ec7cfc6b29835de8dcf628e294fc874622757a0240922875dec4aa45619d222",
+      "category": "sast",
+      "message": "Uncontrolled Resource Consumption",
+      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "cve": "semgrep_id:bandit.B113-1:28:29",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 28,
+        "end_line": 29
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B113",
+          "value": "bandit.B113",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B113"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-400",
+          "value": "400",
+          "url": "https://cwe.mitre.org/data/definitions/400.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B113",
+          "value": "B113"
+        }
+      ]
+    },
+    {
+      "id": "7112ce7ec875f6fc92b2d2e35e8fd8f9d5b95698e9ca42ab2be35c00c691ea8c",
+      "category": "sast",
+      "message": "Uncontrolled Resource Consumption",
+      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "cve": "semgrep_id:bandit.B113-1:36:37",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 36,
+        "end_line": 37
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B113",
+          "value": "bandit.B113",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B113"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-400",
+          "value": "400",
+          "url": "https://cwe.mitre.org/data/definitions/400.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B113",
+          "value": "B113"
+        }
+      ]
+    },
+    {
+      "id": "8d3500e3760fb11c866068555499a03f30f93f793afd6d0ac5b732dda8ad6a28",
+      "category": "sast",
+      "message": "Uncontrolled Resource Consumption",
+      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "cve": "semgrep_id:bandit.B113-1:44:45",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 44,
+        "end_line": 45
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B113",
+          "value": "bandit.B113",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B113"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-400",
+          "value": "400",
+          "url": "https://cwe.mitre.org/data/definitions/400.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B113",
+          "value": "B113"
+        }
+      ]
     }
   ],
   "dependency_files": [],
@@ -709,7 +853,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.0"
+      "version": "3.14.4"
     },
     "scanner": {
       "id": "semgrep",
@@ -721,8 +865,8 @@
       "version": "1.3.0"
     },
     "type": "sast",
-    "start_time": "2023-02-02T20:04:31",
-    "end_time": "2023-02-02T20:04:40",
+    "start_time": "2023-03-30T06:51:55",
+    "end_time": "2023-03-30T06:52:04",
     "status": "success"
   }
 }

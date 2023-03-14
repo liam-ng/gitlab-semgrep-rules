@@ -1,5 +1,11 @@
 Semgrep analyzer changelog
 
+## v3.14.4
+- Update `bandit.yml` rules to [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) version `1.1.10` (!219)
+  - Minor fix to rule `bandit.B105` [sast-rules!23](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/23)
+  - Refactor urllib rules `bandit.B310-2` [sast-rules!23](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/23)
+  - Update `bandit.B606` [sast-rules!15](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/15)
+
 ## v3.14.3
 - bump VET version to fix a crash in the Go front-end that appeared in the presence of placeholders in variable declarations (!227)
 
@@ -14,7 +20,7 @@ Semgrep analyzer changelog
 - Disables high-FP rules when either `SAST_EXPERIMENTAL_FEATURES` is `true` or running after 15.9 release (!187)
 
 ## v3.13.4
-- Integrate rule refinement for rule B113 (!217)
+- Integrate rule refinement for rule B113 (!218)
 
 ## v3.13.3
 - Integrate rule refinement for rule G301 (!201)
