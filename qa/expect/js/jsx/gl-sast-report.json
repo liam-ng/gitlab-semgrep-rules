@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "69745a2f0693173e47ced020f01d677cf641a51903692cd77e9a4fd66b757673",
+      "id": "26c0417b65e3b8de19ee488502a0e6379cf8f5e9c7da8759b640abf600481c6c",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -31,7 +31,7 @@
         },
         {
           "type": "owasp",
-          "name": "Injection",
+          "name": "A1 - Injection",
           "value": "A1"
         },
         {
@@ -156,7 +156,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.12.0"
+      "version": "3.13.4"
     },
     "scanner": {
       "id": "semgrep",
@@ -165,11 +165,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.3.0"
+      "version": "1.14.0"
     },
     "type": "sast",
-    "start_time": "2023-01-18T21:59:08",
-    "end_time": "2023-01-18T21:59:16",
+    "start_time": "2023-03-15T09:15:36",
+    "end_time": "2023-03-15T09:15:44",
     "status": "success"
   }
 }

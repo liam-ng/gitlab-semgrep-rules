@@ -184,7 +184,7 @@
       }
     },
     {
-      "id": "f9f3c98c1965b7cd94708547c6d15ce6564d36f5b66eb954165d29cc8d61e330",
+      "id": "b8596d94c0e0cd79172a325c6a184b296ef5c4c502c7f7f580aec8bf78bf3b92",
       "category": "sast",
       "message": "return nil err instead of nil value",
       "description": "return nil err instead of nil value",
@@ -264,7 +264,7 @@
       }
     },
     {
-      "id": "7dcb601395f30bcde81f4fac1a4771651955b2829b8faff1d76944a2927d536f",
+      "id": "b2edc00ff629953617572596f8a89bc83d7d682efb14ff8773a4245ce8feccf5",
       "category": "sast",
       "message": "Key Exchange without Entity Authentication",
       "description": "Disabled host key verification detected. This allows man-in-the-middle attacks. Use the 'golang.org/x/crypto/ssh/knownhosts' package to do host key verification. See https://skarlso.github.io/2019/02/17/go-ssh-with-host-key-verification/ to learn more about the problem and how to fix it.",
@@ -292,7 +292,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         }
       ],
@@ -369,7 +369,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.1"
+      "version": "3.13.4"
     },
     "scanner": {
       "id": "semgrep",
@@ -378,11 +378,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.3.0"
+      "version": "1.14.0"
     },
     "type": "sast",
-    "start_time": "2023-02-21T13:05:06",
-    "end_time": "2023-02-21T13:05:24",
+    "start_time": "2023-03-15T09:09:45",
+    "end_time": "2023-03-15T09:10:04",
     "status": "success"
   }
 }

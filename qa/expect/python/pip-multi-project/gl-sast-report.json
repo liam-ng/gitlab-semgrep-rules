@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "c8a45719634ba76a5c14bda01a123eee0499eccf8bf94802ea70563072f4cd0b",
+      "id": "578ac423adf4d4815188a75b65efcfc1cb4714d90af6e2c0f732ea4bb9354164",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to 'doLogin'. This could be dangerous if\na real password is not supplied.\n",
@@ -32,7 +32,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -59,7 +59,7 @@
       }
     },
     {
-      "id": "b845ec47c0df251225374da1b3c1e87e6238c9e75f0146062ba689d20c9c4609",
+      "id": "c17226e851de1627c7bf1f58e8c12d9bc0288cbc0213aeea3caf810a49222c2a",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to 'someFunction'. This could be dangerous if\na real password is not supplied.\n",
@@ -89,7 +89,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -116,7 +116,7 @@
       }
     },
     {
-      "id": "816f4d95f65245c03861885dacfd1ebb37facf9f4c1b938bb996dea5c6d94d83",
+      "id": "f522ee6a0c3d75d2e72089221994e6a2bf75614a14961927017242702807c410",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -145,7 +145,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -172,7 +172,7 @@
       }
     },
     {
-      "id": "ed020e3ad2d3983c1681c6fe58676f342253c420bfa4a2925f9ef4e23195e080",
+      "id": "eba8de42d3368374d3de75d7eec612f6d0f8afd60b37f0273f51b09062f3dfbe",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -201,7 +201,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -212,7 +212,7 @@
       ]
     },
     {
-      "id": "1ae4bf4abf140b66affe1c47876837bea6fc761c9c39c3f5a697a6a05cc3a7ff",
+      "id": "101efb0e78b329f94b186fed72499d6dcc720557a4c89c508ea08f5f676e0457",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -241,7 +241,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -268,7 +268,7 @@
       }
     },
     {
-      "id": "ab9d30a127af23e4e11b94def484c2e175d76bc453545a3eae70cb3fdf4f7055",
+      "id": "2411bb033ee597332ae5585435c97d07198c63b2ac2e06b78940a0e8fc8499f5",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -297,7 +297,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -324,7 +324,7 @@
       }
     },
     {
-      "id": "793aea37cb032a4e0db29f927083656dc1a4b37587187113966fc4721c5edc4f",
+      "id": "d786426128df562207cf578fe785734267f101dc385e4b06ba3ea72c647cf1e4",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -353,7 +353,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -504,10 +504,10 @@
       ]
     },
     {
-      "id": "2e65d37268fafca18cf5bf6555431cf6962b79334c79f51ee655518bc8af20da",
+      "id": "19e0923373c32b687299c9406bb19b83c96182f626eeabcabff265f032923c25",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-      "description": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
+      "description": "Found 'subprocess' function 'pop' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
       "cve": "semgrep_id:bandit.B602:9:9",
       "severity": "Critical",
       "scanner": {
@@ -533,7 +533,7 @@
         },
         {
           "type": "owasp",
-          "name": "Injection",
+          "name": "A1 - Injection",
           "value": "A1"
         },
         {
@@ -544,7 +544,7 @@
       ]
     },
     {
-      "id": "6ee52b923977d64a925c88ad1d96b97542c72fa19dc7965b0153e0027c687577",
+      "id": "daee4a614693cc85833b1c3274dc1f8fe201e375101b9881d096e5f1378d2ec3",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
@@ -573,7 +573,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -584,7 +584,7 @@
       ]
     },
     {
-      "id": "cfbd6a43268d499dcbe6fdc4ea19698e5c86a91d7645378b6726364790a9e51a",
+      "id": "9508aefa7dc7ac4a9b3253d7302212891b46e5f6b5f2052d1159cd8009b85ce9",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -613,7 +613,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -624,7 +624,7 @@
       ]
     },
     {
-      "id": "775f2df1087a7163a9bc0ec65ee17bc04f5bc260f385ab0f1102a6d39bc6c350",
+      "id": "359516e4c5f17a34c82882b26dc6384f1021d9307170b1965a5af04be2a339f7",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -653,7 +653,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -664,7 +664,7 @@
       ]
     },
     {
-      "id": "0b40cc491f96becb24d5731f78c42a66515bd3ea9db78c2a62fe4f99affb55ab",
+      "id": "b161d3a38ff2a0173b270a0b89e2cc46c8c0606c7963b6df8cbef8ff8931013c",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -693,7 +693,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -704,7 +704,7 @@
       ]
     },
     {
-      "id": "d8f8ee3b0bbb5bedbdd2bd2d244c4fb54c034dd5884ba035dce058b38efa0436",
+      "id": "3286c691443d4d247b7e20d7888607fd8ea943cee068a6dbed11d93b3616d6f4",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -733,7 +733,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -744,7 +744,7 @@
       ]
     },
     {
-      "id": "d6a1ee2035d764582c38339f7d5af2c80caae663dc62e157bdc4d29395ef332e",
+      "id": "c89384092d9c3029f0c0330dcacf2dffedebe5f9bd52b2ad551b58c7618267e0",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -773,7 +773,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -784,7 +784,7 @@
       ]
     },
     {
-      "id": "bad1e1748e7ebf67e8bfbb738eaaae6d335a6998649d1aaf486c9670947f53d1",
+      "id": "f2fa87d8f7fcf38f90f027631c9e80a284ce7d02cd88a25829f6e06208575bc2",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -813,7 +813,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -824,7 +824,7 @@
       ]
     },
     {
-      "id": "115db443bf16af3c39bc6166998ca09f265430de8cf285b89e4a493ca3b29205",
+      "id": "3e5aa80462b24eb9628f3d88f4317be337876dc867e47157f3b17c48fd585b7b",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -853,7 +853,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -864,7 +864,7 @@
       ]
     },
     {
-      "id": "1b061994c693ebe0d73e37e1ef64ea0567b6a22c51726a75ceab9ee951dcd662",
+      "id": "ce0453cb6a3c471a22d6c98271c31f6e4ee31e1aeb0828d4fa34be243392e014",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -893,7 +893,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -904,7 +904,7 @@
       ]
     },
     {
-      "id": "8b42e09a4599f4fd24685dcb95775ce945f0e8a3a14e9056e4469496d39b51b0",
+      "id": "dacc25987482595db207e2a4a29b72e8ea741dc3246c5383aa0c2bd4f921cd47",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -933,7 +933,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -944,7 +944,7 @@
       ]
     },
     {
-      "id": "85f0d8527ca98fe048476eae7bb08cd46b22462d6deffa9277f800c8d653c55c",
+      "id": "92aa2a6bd4a05890459b678a9a6406d86906c6e89323d17dc4e14eb0860598a1",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -973,7 +973,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -984,7 +984,7 @@
       ]
     },
     {
-      "id": "9e4f0e5aaca7aa202ce06fbf542cbee079a45864fad261c9199472ea228db95e",
+      "id": "588e4d581a5625e73f4fcf2017643a2bb611fe0fca53e34b92eebd40f3ce6631",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to 'doLogin'. This could be dangerous if\na real password is not supplied.\n",
@@ -1014,7 +1014,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -1041,7 +1041,7 @@
       }
     },
     {
-      "id": "59f67debc855a581936c4acb663dc02620a515c41832a4fd8f141d3711030f30",
+      "id": "1d5388b4492d073d167fd0003f97a3e50611e4fb1049d1ca16def710604d8eaf",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to 'someFunction'. This could be dangerous if\na real password is not supplied.\n",
@@ -1071,7 +1071,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -1098,7 +1098,7 @@
       }
     },
     {
-      "id": "61fbe1404ed492595068247d19f26b2f47bdddb88b00215a90535b2538f68e36",
+      "id": "a52402fd8cd9d93d27c8aeb037835370275c7d3a354e28d866ab259f2bb03a49",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1127,7 +1127,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -1154,7 +1154,7 @@
       }
     },
     {
-      "id": "66df95d1acfa8bbd8523f667c9dfc1d8050179a8a7a0f560aebace6deb0d3976",
+      "id": "4852c2e9812435894841debe9030e8938bc09660072b806b914859b4232136f0",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1183,7 +1183,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -1194,7 +1194,7 @@
       ]
     },
     {
-      "id": "744be94027728a10d4d6182b08e6380947897071ac32c5b345a12631605abd2d",
+      "id": "513018d727888857539783e06fa8c9e45d5f5188b5401b04bc97a84962afed85",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1223,7 +1223,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -1250,7 +1250,7 @@
       }
     },
     {
-      "id": "c6fe99d07ac4944adc32cb43a592e57a5a93fc436e0686aa8aa62522f6ba575c",
+      "id": "72f590182cd4311be86a64b9fcdf37e14edea830a712a41a874d7ab77d88eb6c",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1279,7 +1279,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -1306,7 +1306,7 @@
       }
     },
     {
-      "id": "8a072d73e8853501e5ef6dc53bb8d8e3524e3e5ca519794dd1b944f0ff8d2ef6",
+      "id": "97ba3ede17c41e1095c0db7acca3d6f39183504a1d6a11e8049c75c8771da91d",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -1335,7 +1335,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -1486,10 +1486,10 @@
       ]
     },
     {
-      "id": "7e92d15995ef095afb5aa2e7da5e6252e89e807868665156e3e27097c60ebab9",
+      "id": "09075512eac9c8c9a197b6f4ab0ed7bb0dbec3c1efe420ccb8f5166e6a240057",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-      "description": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
+      "description": "Found 'subprocess' function 'pop' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
       "cve": "semgrep_id:bandit.B602:9:9",
       "severity": "Critical",
       "scanner": {
@@ -1515,7 +1515,7 @@
         },
         {
           "type": "owasp",
-          "name": "Injection",
+          "name": "A1 - Injection",
           "value": "A1"
         },
         {
@@ -1526,7 +1526,7 @@
       ]
     },
     {
-      "id": "89b9d54178e741901034dee7b7a1185d216a8272578fe5e731c548e66f5b77ac",
+      "id": "83b26ada0974c2c12fb1962ea5afeebcadb4c3a10901b37e5a91de6760255f69",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
@@ -1555,7 +1555,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -1566,7 +1566,7 @@
       ]
     },
     {
-      "id": "78398fcaef06ba4f0479ac2e502764e90071c63a34100dd887839cb79c9de72e",
+      "id": "03c474aef5877b2f71871b58dec2a8a6c5f67e6e9b46f77449c4518daebe46b1",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -1595,7 +1595,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -1606,7 +1606,7 @@
       ]
     },
     {
-      "id": "d6a4f880d71d871d09cbe251dbe09d8d1ffe3f1d597092b1279f0317c8fd0c54",
+      "id": "03ffa7d8908ccd3e004065f8ecd89c92b9fb2f970e6e94a3099c19354184ffaf",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -1635,7 +1635,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -1646,7 +1646,7 @@
       ]
     },
     {
-      "id": "ba73223e467fb209507bd431f26b00d1582d1e06775ff052fedb29cc7dba830f",
+      "id": "93f0f5995e7b8bf2b55fb488529e91960d64cb6c6222b94cd97abe3b086daf82",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -1675,7 +1675,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -1686,7 +1686,7 @@
       ]
     },
     {
-      "id": "0b574522aca555c0f081fdf8ba640ee8f91793ea8113e0f4e45c6afa38ef7052",
+      "id": "3c799b3cefac6e1c8cd47636685d9a7f5ad981d192d05c3a280bf499b6b4b331",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -1715,7 +1715,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -1726,7 +1726,7 @@
       ]
     },
     {
-      "id": "43d2d453dd31eb77eabe8f75351f1a733efcb3bb7ec90fb6cf8b0d7e026dd64b",
+      "id": "49b6e46be79a45371a84e049b316cc4282eb4ec0f36acbd4e0a19ea72cd02392",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -1755,7 +1755,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -1766,7 +1766,7 @@
       ]
     },
     {
-      "id": "2373c420cfbe0f179d816d249b08cd57e79953334b47b1488b08d519156995b0",
+      "id": "099298c272270c42c1ce05aa6335e075b959a303a1f4ef0575938d4ec6d478d2",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -1795,7 +1795,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -1806,7 +1806,7 @@
       ]
     },
     {
-      "id": "ce277132c9b2de1d00edc6ed88de06966063817686b090c59a1ed4ee140fa514",
+      "id": "549a0566ba0ed979b1551db594fb3dbb8b6419f7176ea73ff1173b28745bb22a",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -1835,7 +1835,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -1846,7 +1846,7 @@
       ]
     },
     {
-      "id": "50bdcedc8f923d141ac21753c1f220bc4f0906e7d8bc34d89e4ecea0dc31c7b1",
+      "id": "25e76888d772594e253325532bc3570955bc41a4f35e12ba3643ded5a21c337b",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -1875,7 +1875,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -1886,7 +1886,7 @@
       ]
     },
     {
-      "id": "1a10f329acc824e82a0647cc1cb61a66e6f181d1bed8d76762345b60142e3992",
+      "id": "89091a9191decbba3605ee81867d9cb8a03b7872189c07d0c1b8f3a80ede06d7",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
@@ -1915,7 +1915,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -1926,7 +1926,7 @@
       ]
     },
     {
-      "id": "d9e2752e5e47a12072523dad1a0a730985740889378192a8fcf0d58384ee922d",
+      "id": "ce2ecb5f1cf92b3b54b68956342f88c59568c687be284d3b91b62aaaeb8edcd0",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
@@ -1955,7 +1955,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -2026,7 +2026,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.0"
+      "version": "3.13.4"
     },
     "scanner": {
       "id": "semgrep",
@@ -2035,11 +2035,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.3.0"
+      "version": "1.14.0"
     },
     "type": "sast",
-    "start_time": "2023-02-02T20:04:41",
-    "end_time": "2023-02-02T20:04:51",
+    "start_time": "2023-03-15T09:13:37",
+    "end_time": "2023-03-15T09:13:44",
     "status": "success"
   }
 }

@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "b089296583cc4f640f882102e44550989b8c367a5a15910e8dcce8239d75e80a",
+      "id": "6b3d50c6b832760c6301edee47de07ced50d69c9b6fd8570191d5d4581c14c98",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
@@ -31,7 +31,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -58,7 +58,7 @@
       }
     },
     {
-      "id": "edb9b0f6d9da7f133d31265d6a20fcb5713bc95b3a79dc639add0e3040be95d5",
+      "id": "d8b13673a77ecbe273e839a7f82fd5085ea2afe1629f64901a8e9831d8cee325",
       "category": "sast",
       "message": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
@@ -87,7 +87,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -114,7 +114,7 @@
       }
     },
     {
-      "id": "fc96ecebbd118f4986c48c71ba179a55a61aaa5648696f54b5e14faca6c4e527",
+      "id": "59c85162e11fb5bd098f987e6c2c1e1adf565fd8aa50436f81f3e39c5176cf04",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
@@ -143,7 +143,7 @@
         },
         {
           "type": "owasp",
-          "name": "Injection",
+          "name": "A1 - Injection",
           "value": "A1"
         },
         {
@@ -170,7 +170,7 @@
       }
     },
     {
-      "id": "e19f91454f613a3aa91d1aed05d43205f903fdc49c39c0209ccd68587de61954",
+      "id": "551d842334aa2c5463c3c0631680729e4103c67fbbfe2afd52cd49de4e546daf",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -199,7 +199,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -210,7 +210,7 @@
       ]
     },
     {
-      "id": "6d299ae4c8097ab62f0f50ecde7dba2eeefe284721ce9e0b1a783fc0f6d69176",
+      "id": "719ff9f9898604ce2e4ff35c0dfda2c93ba349ea2b5be7a7b46e9d6e9ec85481",
       "category": "sast",
       "message": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
@@ -239,7 +239,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -266,7 +266,7 @@
       }
     },
     {
-      "id": "d69b5232153bdccc06571669eea0553f6782e64fa7a6485ec66f7d0312c1a97c",
+      "id": "771246a5636200374f9c82615b4ca10317f1bfa67e8b857848b7933dfebf9fca",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
@@ -295,7 +295,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -322,7 +322,7 @@
       }
     },
     {
-      "id": "4b683d007bdeca06ab095faa4197dafed6a9485bc32667dcd645cfe95f681496",
+      "id": "4cfbcb48bdc6091aad0fba2229435c740db959e2ca47302aa3bcfa77e3595c88",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
@@ -351,7 +351,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -378,7 +378,7 @@
       }
     },
     {
-      "id": "20c8166936c29c98ab3a4718e5794fcdbaa4f30ec87f00634dfe2ff505b9c3c2",
+      "id": "706ef4930580377e3aa88c4199bb6dc534be9359c9398a7b666706cf45cf14de",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -407,7 +407,7 @@
         },
         {
           "type": "owasp",
-          "name": "Injection",
+          "name": "A1 - Injection",
           "value": "A1"
         },
         {
@@ -536,7 +536,7 @@
       }
     },
     {
-      "id": "1d7a0cd85aeb47291b70aae0224cca80cf2a0e33ab75475c6569fdf9e2265692",
+      "id": "572712a2032f3460c1b66e43fcc42b65496fc52ff3aa4177d28f2349a61a7526",
       "category": "sast",
       "message": "Improper Certificate Validation",
       "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
@@ -566,7 +566,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -577,7 +577,7 @@
       ]
     },
     {
-      "id": "a4ef8739990fe4af2a622965692ea6e06d0aefd3703fe133778b1aa05f4565ad",
+      "id": "4e5caf666ee8fb0d4ad47df4bac2df7ffe18df9fc01bc8e8ba24414a123d9de7",
       "category": "sast",
       "message": "Improper Certificate Validation",
       "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
@@ -607,7 +607,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -618,7 +618,7 @@
       ]
     },
     {
-      "id": "6b5859dd92677ec895f1c32271b44a3323a5dc43b6f883e90950a18f8d1ee67d",
+      "id": "791cd7e3ad41792f763b5d87a83235c876e9c6960fa4407a6548d92f0d6f04e0",
       "category": "sast",
       "message": "Improper Certificate Validation",
       "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
@@ -648,7 +648,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -659,7 +659,7 @@
       ]
     },
     {
-      "id": "0171890fe12b118a6b89fd6c0267084dc3921afe12a95850854943d65792d1c2",
+      "id": "550db719af054bc7d87e7dbbbf2ee4513c7cb1151f0137bc710930cdd5fe2cc2",
       "category": "sast",
       "message": "Improper Certificate Validation",
       "description": "Certificate verification has been explicitly disabled. This\npermits insecure connections to insecure servers. Re-enable\ncertification validation.\n",
@@ -689,13 +689,157 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
           "type": "bandit_test_id",
           "name": "Bandit Test ID B501",
           "value": "B501"
+        }
+      ]
+    },
+    {
+      "id": "fcd34ab28ed6668f1fcc27f922238135bdfd414ac314a57b5de25d2307805d0e",
+      "category": "sast",
+      "message": "Uncontrolled Resource Consumption",
+      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "cve": "semgrep_id:bandit.B113:17:18",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 17,
+        "end_line": 18
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B113",
+          "value": "bandit.B113",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B113"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-400",
+          "value": "400",
+          "url": "https://cwe.mitre.org/data/definitions/400.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B113",
+          "value": "B113"
+        }
+      ]
+    },
+    {
+      "id": "9faf3d604f1b9f4c3506e339628a896182321b5d01569d739150762336e9383a",
+      "category": "sast",
+      "message": "Uncontrolled Resource Consumption",
+      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "cve": "semgrep_id:bandit.B113:28:29",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 28,
+        "end_line": 29
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B113",
+          "value": "bandit.B113",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B113"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-400",
+          "value": "400",
+          "url": "https://cwe.mitre.org/data/definitions/400.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B113",
+          "value": "B113"
+        }
+      ]
+    },
+    {
+      "id": "75905c5d3bf0ddee81f06f7a7909e8a2e07868646c80fab39f10c40f7464071f",
+      "category": "sast",
+      "message": "Uncontrolled Resource Consumption",
+      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "cve": "semgrep_id:bandit.B113:36:37",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 36,
+        "end_line": 37
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B113",
+          "value": "bandit.B113",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B113"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-400",
+          "value": "400",
+          "url": "https://cwe.mitre.org/data/definitions/400.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B113",
+          "value": "B113"
+        }
+      ]
+    },
+    {
+      "id": "cf78470736a552bb5f46c7e8b3e0062549d82b3e9ab5ac4b396a564c0b5b0174",
+      "category": "sast",
+      "message": "Uncontrolled Resource Consumption",
+      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "cve": "semgrep_id:bandit.B113:44:45",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "tests/e2e_zap.py",
+        "start_line": 44,
+        "end_line": 45
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B113",
+          "value": "bandit.B113",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B113"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-400",
+          "value": "400",
+          "url": "https://cwe.mitre.org/data/definitions/400.html"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B113",
+          "value": "B113"
         }
       ]
     }
@@ -709,7 +853,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.0"
+      "version": "3.13.4"
     },
     "scanner": {
       "id": "semgrep",
@@ -718,11 +862,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.3.0"
+      "version": "1.14.0"
     },
     "type": "sast",
-    "start_time": "2023-02-02T20:04:31",
-    "end_time": "2023-02-02T20:04:40",
+    "start_time": "2023-03-15T09:12:21",
+    "end_time": "2023-03-15T09:12:29",
     "status": "success"
   }
 }
