@@ -1,6 +1,5 @@
 Semgrep analyzer changelog
 
-
 ## v3.13.4
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.3.0` => [`1.14.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.14.0)] (!220)
 - upgrade `github.com/stretchr/testify` version [`v1.8.1` => [`v1.8.2`](https://github.com/stretchr/testify/releases/tag/v1.8.2)] (!220)
