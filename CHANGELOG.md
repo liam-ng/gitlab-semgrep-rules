@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.13.4
+- Integrate rule refinement for rule B113 (!217)
+
 ## v3.13.3
 - Integrate rule refinement for rule G301 (!201)
 
