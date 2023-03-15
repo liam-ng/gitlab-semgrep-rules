@@ -79,8 +79,8 @@
       "version": "1.14.0"
     },
     "type": "sast",
-    "start_time": "2023-03-15T09:14:39",
-    "end_time": "2023-03-15T09:14:42",
+    "start_time": "2023-03-15T10:19:06",
+    "end_time": "2023-03-15T10:19:10",
     "status": "success"
   }
 }
