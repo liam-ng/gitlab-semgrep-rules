@@ -141,7 +141,7 @@ rules:
           metavariable: "$VAL"
           regex: "(^None)"
     - patterns:
-      - pattern-not: "requests.$METHOD('...', timeout=$VAL)"
+      - pattern-not: "requests.$METHOD('...', timeout=$VAL, ...)"
       - pattern-either:
         - pattern: "requests.$METHOD('...', ...)"
         - pattern: "requests.$METHOD('...')"
