@@ -7,7 +7,7 @@ variables:
   SEARCH_MAX_DEPTH: 20
 
 include:
-  - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+  - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/improve-image-build-speed/includes-dev/analyzer.yml
 
 semgrep-rules-test:
   stage: test
