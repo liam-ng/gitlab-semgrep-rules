@@ -5,6 +5,7 @@ variables:
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,semgrep"
   SAST_EXCLUDED_PATHS: "qa, spec, test, tests, tmp, testdata"
   SEARCH_MAX_DEPTH: 20
+  CACHE_IMAGE_BUILDS: "true"
 
 include:
   - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/improve-image-build-speed/includes-dev/analyzer.yml
