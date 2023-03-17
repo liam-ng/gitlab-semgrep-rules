@@ -288,7 +288,6 @@ func remove(s []semgrepRule, i int) []semgrepRule {
 // "--arg1=val --arg2=val"     // regular arg name with value separated by equals(=)
 // "--arg1=val -arg2=val"      // regular args with different prefix - and --
 // "--arg1=val --arg2"         // combination of regular arg with equals(=) separated value and a flag
-//
 func parseAllowedCLIOpts(scannerOpts string) (args []string) {
 	if cliArgStr := strings.TrimSpace(scannerOpts); cliArgStr != "" {
 		cliArgs, invalid := cliarg.Parse(cliArgStr)
