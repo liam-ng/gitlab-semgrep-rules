@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.14.0
+- Disables high-FP rules when either `SAST_EXPERIMENTAL_FEATURES` is `true` or running after 15.9 release (!187)
+
 ## v3.13.4
 - Integrate rule refinement for rule B113 (!217)
 
