@@ -18,5 +18,6 @@ require (
 	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.17.0
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0
 	golang.org/x/crypto v0.5.0
+	golang.org/x/mod v0.9.0
 	gopkg.in/yaml.v2 v2.4.0
 )

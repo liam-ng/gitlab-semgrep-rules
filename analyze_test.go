@@ -256,3 +256,61 @@ func TestRemoveRulesFromFile(t *testing.T) {
 	assert.Contains(t, string(modifiedRulefileContents), "eslint.detect-non-literal-fs-filename", "should not remove unmatched rules")
 	assert.Equal(t, 4231, len(modifiedRulefileContents), "should not result in an empty file")
 }
+
+func TestIsGitLab1510Plus(t *testing.T) {
+	tests := []struct {
+		serverVersion string
+		want          bool
+	}{
+		{
+			serverVersion: "NaN",
+			want:          false,
+		},
+		{
+			serverVersion: "",
+			want:          false,
+		},
+		{
+			serverVersion: "15",
+			want:          false,
+		},
+		{
+			serverVersion: "14.9.0",
+			want:          false,
+		},
+		{
+			serverVersion: "15.9.0",
+			want:          false,
+		},
+		{
+			serverVersion: "15.10.0-rc42",
+			want:          false,
+		},
+		{
+			serverVersion: "15.10.0-pre",
+			want:          false,
+		},
+		{
+			serverVersion: "15.10.0",
+			want:          true,
+		},
+		{
+			serverVersion: "16.1.0-pre",
+			want:          true,
+		},
+		{
+			serverVersion: "16.1.0",
+			want:          true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Setenv("CI_SERVER_VERSION", tt.serverVersion)
+
+		tt := tt
+		t.Run(tt.serverVersion, func(t *testing.T) {
+			got := isGitLab1510Plus()
+			assert.Equal(t, tt.want, got, "should evaluate correctly")
+		})
+	}
+}
