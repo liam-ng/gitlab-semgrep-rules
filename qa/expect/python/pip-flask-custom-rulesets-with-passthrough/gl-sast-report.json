@@ -30,7 +30,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         }
       ],

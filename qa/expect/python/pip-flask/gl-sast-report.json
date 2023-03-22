@@ -31,7 +31,7 @@
         },
         {
           "type": "owasp",
-          "name": "Insecure Deserialization",
+          "name": "A8 - Insecure Deserialization",
           "value": "A8"
         },
         {
@@ -87,7 +87,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -143,7 +143,7 @@
         },
         {
           "type": "owasp",
-          "name": "Injection",
+          "name": "A1 - Injection",
           "value": "A1"
         },
         {
@@ -199,7 +199,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -239,7 +239,7 @@
         },
         {
           "type": "owasp",
-          "name": "Broken Authentication and Session Management",
+          "name": "A3 - Broken Authentication and Session Management",
           "value": "A3"
         },
         {
@@ -295,7 +295,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -351,7 +351,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -407,7 +407,7 @@
         },
         {
           "type": "owasp",
-          "name": "Injection",
+          "name": "A1 - Injection",
           "value": "A1"
         },
         {
@@ -566,7 +566,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -607,7 +607,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -648,7 +648,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
@@ -689,7 +689,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         },
         {
