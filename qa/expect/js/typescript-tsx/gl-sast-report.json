@@ -31,7 +31,7 @@
         },
         {
           "type": "owasp",
-          "name": "Injection",
+          "name": "A1 - Injection",
           "value": "A1"
         },
         {

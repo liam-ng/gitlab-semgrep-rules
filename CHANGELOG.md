@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.14.1
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report` version [`v3.17.0` => [`v3.18.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.18.0)] (!221)
+
 ## v3.14.0
 - Disables high-FP rules when either `SAST_EXPERIMENTAL_FEATURES` is `true` or running after 15.9 release (!187)
 

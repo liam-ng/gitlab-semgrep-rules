@@ -292,7 +292,7 @@
         },
         {
           "type": "owasp",
-          "name": "Sensitive Data Exposure",
+          "name": "A3 - Sensitive Data Exposure",
           "value": "A3"
         }
       ],
