@@ -38,6 +38,10 @@ integration-test:
     TMP_IMAGE: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
   script:
     - rspec -f d
+  artifacts:
+    paths:
+      - tmp/**/gl-sast-report.json
+    expire_in: 1 week
 
 integration-test-fips:
   extends: integration-test
