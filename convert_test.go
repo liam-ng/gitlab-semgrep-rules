@@ -19,6 +19,7 @@ func TestConvert(t *testing.T) {
 	// setting CI_PROJECT_DIR containing [location.file]'s prefix to confirm if old behaviour
 	// is removed
 	t.Setenv("CI_PROJECT_DIR", "tests")
+	t.Setenv("GITLAB_FEATURES", "sast_fp_reduction")
 
 	fixture, err := os.Open("testdata/reports/semgrep.sarif")
 	require.NoError(t, err)

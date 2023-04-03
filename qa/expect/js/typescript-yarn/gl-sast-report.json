@@ -36,8 +36,8 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-eval-with-expression",
-          "value": "security/detect-eval-with-expression"
+          "name": "ESLint rule ID/detect-eval-with-expression",
+          "value": "detect-eval-with-expression"
         }
       ]
     },
@@ -45,7 +45,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "message": "Incorrect Regular Expression",
-      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:34:34",
       "severity": "Medium",
       "scanner": {
@@ -71,8 +71,8 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-non-literal-regexp",
-          "value": "security/detect-non-literal-regexp"
+          "name": "ESLint rule ID/detect-non-literal-regexp",
+          "value": "detect-non-literal-regexp"
         }
       ]
     },
@@ -106,8 +106,8 @@
         },
         {
           "type": "eslint_rule_id",
-          "name": "ESLint rule ID security/detect-pseudoRandomBytes",
-          "value": "security/detect-pseudoRandomBytes"
+          "name": "ESLint rule ID/detect-pseudoRandomBytes",
+          "value": "detect-pseudoRandomBytes"
         }
       ]
     }
@@ -121,7 +121,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.14.3"
+      "version": "3.14.7"
     },
     "scanner": {
       "id": "semgrep",
@@ -130,7 +130,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.3.0"
+      "version": "1.17.1"
     },
     "type": "sast",
     "start_time": ":SKIP:",

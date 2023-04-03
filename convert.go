@@ -77,12 +77,17 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 		return nil, err
 	}
 
+	sastReport, err = addAnalyzerIdentifiers(sastReport, configPath)
+	if err != nil {
+		return nil, err
+	}
+
 	for i := range sastReport.Vulnerabilities {
 		vuln := &sastReport.Vulnerabilities[i]
 		vuln.CompareKey = computeCompareKey(*vuln)
 	}
 
-	return addAnalyzerIdentifiers(sastReport, configPath)
+	return sastReport, err
 }
 
 // addAnalyzerIdentifiers iterates through report vulnerability identifiers. Each identifier is then use to
@@ -102,6 +107,14 @@ func addAnalyzerIdentifiers(sastReport *report.Report, configPath string) (*repo
 		}
 		if len(sIDs) > 0 {
 			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, sIDs...)
+		}
+	}
+
+	for index, primaryIdentifier := range sastReport.Scan.PrimaryIdentifiers {
+		pID, _ := ruleToIDs(primaryIdentifier.Value, ruleMap)
+		if pID != nil {
+			sastReport.Scan.PrimaryIdentifiers[index].Name = pID.Name
+			sastReport.Scan.PrimaryIdentifiers[index].Value = pID.Value
 		}
 	}
 	return sastReport, nil

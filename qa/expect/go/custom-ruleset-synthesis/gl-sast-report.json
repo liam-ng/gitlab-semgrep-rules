@@ -369,7 +369,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.14.3"
+      "version": "3.14.7"
     },
     "scanner": {
       "id": "semgrep",
@@ -378,7 +378,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.3.0"
+      "version": "1.17.1"
     },
     "type": "sast",
     "start_time": ":SKIP:",

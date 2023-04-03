@@ -2,7 +2,7 @@
     "errors": [],
     "results": [
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 10,
@@ -11,15 +11,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.exists(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -33,7 +33,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 34,
                 "line": 11,
@@ -42,15 +42,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.existsSync(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -64,7 +64,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 36,
                 "line": 12,
@@ -73,15 +73,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lchmod(argOne, mode, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -95,7 +95,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 13,
@@ -104,15 +104,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lchmodSync(argOne, mode)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -126,7 +126,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 40,
                 "line": 14,
@@ -135,15 +135,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lchown(argOne, uid, gid, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -157,7 +157,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 34,
                 "line": 15,
@@ -166,15 +166,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lchownSync(argOne, uid, gid)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -188,7 +188,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 36,
                 "line": 16,
@@ -197,15 +197,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.link(argOne, argTwo, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -219,7 +219,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 17,
@@ -228,15 +228,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.linkSync(argOne, argTwo)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -250,7 +250,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 29,
                 "line": 18,
@@ -259,15 +259,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lstat(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -281,7 +281,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 23,
                 "line": 19,
@@ -290,15 +290,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lstatSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -312,7 +312,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 29,
                 "line": 20,
@@ -321,15 +321,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.mkdir(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -343,7 +343,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 23,
                 "line": 21,
@@ -352,15 +352,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.mkdirSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -374,7 +374,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 28,
                 "line": 22,
@@ -383,15 +383,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.open(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -405,7 +405,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 22,
                 "line": 23,
@@ -414,15 +414,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.openSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -436,7 +436,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 31,
                 "line": 24,
@@ -445,15 +445,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readdir(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -467,7 +467,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 25,
                 "line": 25,
@@ -476,15 +476,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readdirSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -498,7 +498,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 26,
@@ -507,15 +507,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readFile(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -529,7 +529,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 26,
                 "line": 27,
@@ -538,15 +538,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readFileSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -560,7 +560,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 28,
@@ -569,15 +569,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readlink(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -591,7 +591,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 26,
                 "line": 29,
@@ -600,15 +600,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readlinkSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -622,7 +622,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 40,
                 "line": 2,
@@ -631,15 +631,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.appendFile(argOne, data, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -653,7 +653,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 30,
@@ -662,15 +662,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.realpath(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -684,7 +684,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 26,
                 "line": 31,
@@ -693,15 +693,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.realpathSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -715,7 +715,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 38,
                 "line": 32,
@@ -724,15 +724,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.rename(argOne, argTwo, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -746,7 +746,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 33,
@@ -755,15 +755,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.renameSync(argOne, argTwo)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -777,7 +777,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 29,
                 "line": 34,
@@ -786,15 +786,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.rmdir(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -808,7 +808,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 23,
                 "line": 35,
@@ -817,15 +817,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.rmdirSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -839,7 +839,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 28,
                 "line": 36,
@@ -848,15 +848,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.stat(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -870,7 +870,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 22,
                 "line": 37,
@@ -879,15 +879,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.statSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -901,7 +901,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 39,
                 "line": 38,
@@ -910,15 +910,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.symlink(argOne, argTwo, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -932,7 +932,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 33,
                 "line": 39,
@@ -941,15 +941,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.symlinkSync(argOne, argTwo)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -963,7 +963,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 34,
                 "line": 3,
@@ -972,15 +972,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.appendFileSync(argOne, data)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -994,7 +994,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 40,
@@ -1003,15 +1003,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.truncate(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1025,7 +1025,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 26,
                 "line": 41,
@@ -1034,15 +1034,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.truncateSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1056,7 +1056,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 42,
@@ -1065,15 +1065,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.unlink(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1087,7 +1087,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 24,
                 "line": 43,
@@ -1096,15 +1096,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.unlinkSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1118,7 +1118,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 25,
                 "line": 44,
@@ -1127,15 +1127,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.unwatchFile(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1149,7 +1149,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 45,
@@ -1158,15 +1158,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.utimes(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1180,7 +1180,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 24,
                 "line": 46,
@@ -1189,15 +1189,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.utimesSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1211,7 +1211,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 19,
                 "line": 47,
@@ -1220,15 +1220,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.watch(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1242,7 +1242,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 33,
                 "line": 48,
@@ -1251,15 +1251,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.watchFile(argOne, listener)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1273,7 +1273,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 33,
                 "line": 49,
@@ -1282,15 +1282,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.writeFile(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1304,7 +1304,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 35,
                 "line": 4,
@@ -1313,15 +1313,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.chmod(argOne, mode, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1335,7 +1335,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 27,
                 "line": 50,
@@ -1344,15 +1344,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.writeFileSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1366,7 +1366,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 29,
                 "line": 5,
@@ -1375,15 +1375,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.chmodSync(argOne, mode)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1397,7 +1397,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 39,
                 "line": 6,
@@ -1406,15 +1406,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.chown(argOne, uid, gid, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1428,7 +1428,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 33,
                 "line": 7,
@@ -1437,15 +1437,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.chownSync(argOne, uid, gid)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1459,7 +1459,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 8,
@@ -1468,15 +1468,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.createReadStream(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1490,7 +1490,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 31,
                 "line": 9,
@@ -1499,15 +1499,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.createWriteStream(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1521,7 +1521,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 10,
@@ -1530,15 +1530,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.exists(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1552,7 +1552,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 34,
                 "line": 11,
@@ -1561,15 +1561,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.existsSync(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1583,7 +1583,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 36,
                 "line": 12,
@@ -1592,15 +1592,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lchmod(argOne, mode, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1614,7 +1614,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 13,
@@ -1623,15 +1623,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lchmodSync(argOne, mode)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1645,7 +1645,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 40,
                 "line": 14,
@@ -1654,15 +1654,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lchown(argOne, uid, gid, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1676,7 +1676,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 34,
                 "line": 15,
@@ -1685,15 +1685,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lchownSync(argOne, uid, gid)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1707,7 +1707,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 36,
                 "line": 16,
@@ -1716,15 +1716,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.link(argOne, argTwo, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1738,7 +1738,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 17,
@@ -1747,15 +1747,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.linkSync(argOne, argTwo)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1769,7 +1769,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 29,
                 "line": 18,
@@ -1778,15 +1778,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lstat(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1800,7 +1800,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 23,
                 "line": 19,
@@ -1809,15 +1809,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.lstatSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1831,7 +1831,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 29,
                 "line": 20,
@@ -1840,15 +1840,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.mkdir(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1862,7 +1862,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 23,
                 "line": 21,
@@ -1871,15 +1871,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.mkdirSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1893,7 +1893,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 28,
                 "line": 22,
@@ -1902,15 +1902,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.open(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1924,7 +1924,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 22,
                 "line": 23,
@@ -1933,15 +1933,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.openSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1955,7 +1955,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 31,
                 "line": 24,
@@ -1964,15 +1964,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readdir(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -1986,7 +1986,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 25,
                 "line": 25,
@@ -1995,15 +1995,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readdirSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2017,7 +2017,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 26,
@@ -2026,15 +2026,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readFile(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2048,7 +2048,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 26,
                 "line": 27,
@@ -2057,15 +2057,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readFileSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2079,7 +2079,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 28,
@@ -2088,15 +2088,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readlink(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2110,7 +2110,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 26,
                 "line": 29,
@@ -2119,15 +2119,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.readlinkSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2141,7 +2141,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 40,
                 "line": 2,
@@ -2150,15 +2150,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.appendFile(argOne, data, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2172,7 +2172,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 30,
@@ -2181,15 +2181,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.realpath(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2203,7 +2203,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 26,
                 "line": 31,
@@ -2212,15 +2212,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.realpathSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2234,7 +2234,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 38,
                 "line": 32,
@@ -2243,15 +2243,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.rename(argOne, argTwo, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2265,7 +2265,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 33,
@@ -2274,15 +2274,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.renameSync(argOne, argTwo)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2296,7 +2296,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 29,
                 "line": 34,
@@ -2305,15 +2305,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.rmdir(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2327,7 +2327,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 23,
                 "line": 35,
@@ -2336,15 +2336,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.rmdirSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2358,7 +2358,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 28,
                 "line": 36,
@@ -2367,15 +2367,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.stat(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2389,7 +2389,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 22,
                 "line": 37,
@@ -2398,15 +2398,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.statSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2420,7 +2420,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 39,
                 "line": 38,
@@ -2429,15 +2429,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.symlink(argOne, argTwo, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2451,7 +2451,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 33,
                 "line": 39,
@@ -2460,15 +2460,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.symlinkSync(argOne, argTwo)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2482,7 +2482,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 34,
                 "line": 3,
@@ -2491,15 +2491,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.appendFileSync(argOne, data)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2513,7 +2513,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 32,
                 "line": 40,
@@ -2522,15 +2522,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.truncate(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2544,7 +2544,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 26,
                 "line": 41,
@@ -2553,15 +2553,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.truncateSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2575,7 +2575,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 42,
@@ -2584,15 +2584,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.unlink(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2606,7 +2606,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 24,
                 "line": 43,
@@ -2615,15 +2615,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.unlinkSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2637,7 +2637,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 25,
                 "line": 44,
@@ -2646,15 +2646,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.unwatchFile(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2668,7 +2668,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 45,
@@ -2677,15 +2677,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.utimes(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2699,7 +2699,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 24,
                 "line": 46,
@@ -2708,15 +2708,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.utimesSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2730,7 +2730,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 19,
                 "line": 47,
@@ -2739,15 +2739,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.watch(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2761,7 +2761,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 33,
                 "line": 48,
@@ -2770,15 +2770,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.watchFile(argOne, listener)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2792,7 +2792,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 33,
                 "line": 49,
@@ -2801,15 +2801,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.writeFile(argOne, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2823,7 +2823,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 35,
                 "line": 4,
@@ -2832,15 +2832,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.chmod(argOne, mode, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2854,7 +2854,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 27,
                 "line": 50,
@@ -2863,15 +2863,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.writeFileSync(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2885,7 +2885,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 29,
                 "line": 5,
@@ -2894,15 +2894,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.chmodSync(argOne, mode)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2916,7 +2916,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 39,
                 "line": 6,
@@ -2925,15 +2925,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.chown(argOne, uid, gid, callback)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2947,7 +2947,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 33,
                 "line": 7,
@@ -2956,15 +2956,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.chownSync(argOne, uid, gid)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -2978,7 +2978,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 30,
                 "line": 8,
@@ -2987,15 +2987,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.createReadStream(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -3009,7 +3009,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-fs-filename",
+            "check_id": "eslint.detect-non-literal-fs-filename-1",
             "end": {
                 "col": 31,
                 "line": 9,
@@ -3018,15 +3018,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  fs.createWriteStream(argOne)",
-                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to access anything on your system.\n",
+                "message": "A variable is present in the filename argument of fs calls, this might allow an attacker to\naccess anything on your system.\n",
                 "metadata": {
                     "cwe": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
                     "primary_identifier": "eslint.detect-non-literal-fs-filename",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-fs-filename",
+                            "name": "ESLint rule ID/detect-non-literal-fs-filename",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-fs-filename"
+                            "value": "detect-non-literal-fs-filename"
                         }
                     ]
                 },
@@ -3040,7 +3040,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 23,
                 "line": 14,
@@ -3049,15 +3049,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[someVar]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3065,13 +3065,13 @@
             },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 14,
-                "offset": 234
+                "offset": 226
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 28,
                 "line": 15,
@@ -3080,15 +3080,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[someObjVar.s]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3096,13 +3096,13 @@
             },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 15,
-                "offset": 257
+                "offset": 249
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 31,
                 "line": 16,
@@ -3111,15 +3111,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[someObjVar['s']]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3127,13 +3127,13 @@
             },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 16,
-                "offset": 285
+                "offset": 277
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 29,
                 "line": 17,
@@ -3142,15 +3142,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[someArrVar[0]]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3158,13 +3158,13 @@
             },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 17,
-                "offset": 316
+                "offset": 308
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 24,
                 "line": 6,
@@ -3173,15 +3173,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[three[0]]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3189,13 +3189,13 @@
             },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 6,
-                "offset": 90
+                "offset": 82
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 21,
                 "line": 7,
@@ -3204,15 +3204,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[six.s]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3220,13 +3220,13 @@
             },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 7,
-                "offset": 114
+                "offset": 106
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 24,
                 "line": 8,
@@ -3235,15 +3235,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[six['s']]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3251,13 +3251,13 @@
             },
             "path": "eslint_rules/object_injection_positives.js",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 8,
-                "offset": 135
+                "offset": 127
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 23,
                 "line": 14,
@@ -3266,15 +3266,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[someVar]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3282,13 +3282,13 @@
             },
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 14,
-                "offset": 234
+                "offset": 226
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 28,
                 "line": 15,
@@ -3297,15 +3297,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[someObjVar.s]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3313,13 +3313,13 @@
             },
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 15,
-                "offset": 257
+                "offset": 249
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 31,
                 "line": 16,
@@ -3328,15 +3328,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[someObjVar['s']]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3344,13 +3344,13 @@
             },
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 16,
-                "offset": 285
+                "offset": 277
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 29,
                 "line": 17,
@@ -3359,15 +3359,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[someArrVar[0]]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3375,13 +3375,13 @@
             },
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 17,
-                "offset": 316
+                "offset": 308
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 24,
                 "line": 6,
@@ -3390,15 +3390,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[three[0]]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3406,13 +3406,13 @@
             },
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 6,
-                "offset": 90
+                "offset": 82
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 21,
                 "line": 7,
@@ -3421,15 +3421,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[six.s]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3437,13 +3437,13 @@
             },
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 7,
-                "offset": 114
+                "offset": 106
             }
         },
         {
-            "check_id": "eslint.detect-object-injection",
+            "check_id": "eslint.detect-object-injection-1",
             "end": {
                 "col": 24,
                 "line": 8,
@@ -3452,15 +3452,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  value = obj[six['s']]",
-                "message": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
+                "message": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
                 "metadata": {
                     "cwe": "CWE-94: Improper Control of Generation of Code ('Code Injection')",
                     "primary_identifier": "eslint.detect-object-injection",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-object-injection",
+                            "name": "ESLint rule ID/detect-object-injection",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-object-injection"
+                            "value": "detect-object-injection"
                         }
                     ]
                 },
@@ -3468,13 +3468,13 @@
             },
             "path": "eslint_rules/object_injection_positives.ts",
             "start": {
-                "col": 11,
+                "col": 3,
                 "line": 8,
-                "offset": 135
+                "offset": 127
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-regexp",
+            "check_id": "eslint.detect-non-literal-regexp-1",
             "end": {
                 "col": 27,
                 "line": 3,
@@ -3483,15 +3483,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  r2 = new RegExp(someVar)",
-                "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+                "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
                 "metadata": {
                     "cwe": "CWE-185: Incorrect Regular Expression",
                     "primary_identifier": "eslint.detect-non-literal-regexp",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-regexp",
+                            "name": "ESLint rule ID/detect-non-literal-regexp",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-regexp"
+                            "value": "detect-non-literal-regexp"
                         }
                     ]
                 },
@@ -3505,7 +3505,7 @@
             }
         },
         {
-            "check_id": "eslint.detect-non-literal-regexp",
+            "check_id": "eslint.detect-non-literal-regexp-1",
             "end": {
                 "col": 39,
                 "line": 4,
@@ -3514,15 +3514,15 @@
             "extra": {
                 "is_ignored": false,
                 "lines": "  r3 = new RegExp('a' + someVar + 'b')",
-                "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
+                "message": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
                 "metadata": {
                     "cwe": "CWE-185: Incorrect Regular Expression",
                     "primary_identifier": "eslint.detect-non-literal-regexp",
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/detect-non-literal-regexp",
+                            "name": "ESLint rule ID/detect-non-literal-regexp",
                             "type": "eslint_rule_id",
-                            "value": "security/detect-non-literal-regexp"
+                            "value": "detect-non-literal-regexp"
                         }
                     ]
                 },
@@ -3536,7 +3536,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 75,
                 "line": 1,
@@ -3555,9 +3555,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3571,7 +3571,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 77,
                 "line": 3,
@@ -3590,9 +3590,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3606,7 +3606,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 75,
                 "line": 5,
@@ -3625,9 +3625,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3641,7 +3641,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 77,
                 "line": 7,
@@ -3660,9 +3660,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3676,7 +3676,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 55,
                 "line": 10,
@@ -3695,9 +3695,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3711,7 +3711,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 57,
                 "line": 12,
@@ -3730,9 +3730,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3746,7 +3746,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 9,
                 "line": 4,
@@ -3765,9 +3765,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3781,7 +3781,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 11,
                 "line": 8,
@@ -3800,9 +3800,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3816,7 +3816,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 75,
                 "line": 1,
@@ -3835,9 +3835,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3851,7 +3851,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 77,
                 "line": 3,
@@ -3870,9 +3870,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3886,7 +3886,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 75,
                 "line": 5,
@@ -3905,9 +3905,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3921,7 +3921,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 77,
                 "line": 7,
@@ -3940,9 +3940,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3956,7 +3956,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 55,
                 "line": 10,
@@ -3975,9 +3975,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -3991,7 +3991,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 57,
                 "line": 12,
@@ -4010,9 +4010,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -4026,7 +4026,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 9,
                 "line": 4,
@@ -4045,9 +4045,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
@@ -4061,7 +4061,7 @@
             }
         },
         {
-            "check_id": "eslint.react-dangerouslysetinnerhtml",
+            "check_id": "eslint.react-dangerouslysetinnerhtml-1",
             "end": {
                 "col": 11,
                 "line": 8,
@@ -4080,9 +4080,9 @@
                     ],
                     "secondary_identifiers": [
                         {
-                            "name": "ESLint rule ID security/react-dangerouslysetinnerhtml",
+                            "name": "ESLint rule ID/react-dangerouslysetinnerhtml",
                             "type": "eslint_rule_id",
-                            "value": "security/react-dangerouslysetinnerhtml"
+                            "value": "react-dangerouslysetinnerhtml"
                         }
                     ]
                 },
