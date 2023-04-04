@@ -1,7 +1,7 @@
 Semgrep analyzer changelog
 
 ## v3.14.3
-- Fix OWASP naming (@artem-fedorov !232 !196)
+- Fix OWASP naming (!232 @artem-fedorov)
 
 ## v3.14.2
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.10.1` => [`v1.10.2`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.10.2)] (!226)
