@@ -292,8 +292,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
+          "name": "A03:2017 - Sensitive Data Exposure",
+          "value": "A03:2017"
         }
       ],
       "tracking": {

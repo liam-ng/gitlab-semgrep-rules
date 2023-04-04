@@ -31,8 +31,8 @@
         },
         {
           "type": "owasp",
-          "name": "A8 - Insecure Deserialization",
-          "value": "A8"
+          "name": "A08:2017 - Insecure Deserialization",
+          "value": "A08:2017"
         },
         {
           "type": "bandit_test_id",
@@ -87,8 +87,8 @@
         },
         {
           "type": "owasp",
-          "name": "A1 - Injection",
-          "value": "A1"
+          "name": "A01:2017 - Injection",
+          "value": "A01:2017"
         },
         {
           "type": "bandit_test_id",
@@ -143,8 +143,8 @@
         },
         {
           "type": "owasp",
-          "name": "A1 - Injection",
-          "value": "A1"
+          "name": "A01:2017 - Injection",
+          "value": "A01:2017"
         },
         {
           "type": "eslint_rule_id",
