@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.14.4
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report` version [`v3.19.0` => [`v3.22.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.22.0)] (!231)
+
 ## v3.14.3
 - bump VET version to fix a crash in the Go front-end that appeared in the presence of placeholders in variable declarations (!227)
 

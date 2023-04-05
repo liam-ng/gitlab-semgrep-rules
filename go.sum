@@ -132,8 +132,9 @@ gitlab.com/gitlab-org/security-products/analyzers/command v1.10.2/go.mod h1:F69f
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.1/go.mod h1:MaLrVtJgCo/X9jxNkZUkZPCa7sc5lFAMqJVjsKFMUpc=
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2 h1:lY9l94ZqIL6H+k8fSa7AdrpDoI6Yv2y/GV9bRONbX4c=
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2/go.mod h1:8DX0nM2Xz+1nNPItN1xrgHiaQhI4be2h3zVcU3h1ElU=
-gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.19.0 h1:6kMW8qWngEwNVbQDjlfOUUUEcOy1Xcu/uZ4Nl5BlJiM=
 gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.19.0/go.mod h1:eNw3eJyKfLQwUfyB7ho37q89Wy2aCuebjYF6f2AWuKM=
+gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.22.0 h1:1wZS/VXnD+TNgepbMdhw9JdYZMVKTfNmQH6BEWgBy+U=
+gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.22.0/go.mod h1:eNw3eJyKfLQwUfyB7ho37q89Wy2aCuebjYF6f2AWuKM=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0 h1:eprSC+VWldo4+RkgcjYURnKUUEkCADACaLAulqHQ+fQ=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0/go.mod h1:OSsBZ498CAwBK77/RnQCTHoTofCl7tMCwW+Ajc2hd4o=
 golang.org/x/crypto v0.0.0-20190219172222-a4c6cb3142f2/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
