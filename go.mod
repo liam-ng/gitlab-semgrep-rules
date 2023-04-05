@@ -15,7 +15,7 @@ require (
 	github.com/urfave/cli/v2 v2.23.7
 	gitlab.com/gitlab-org/security-products/analyzers/command v1.10.2
 	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2
-	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.19.0
+	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.22.0
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0
 	golang.org/x/crypto v0.5.0
 	golang.org/x/mod v0.9.0
