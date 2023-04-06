@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.14.5
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report` version [`v3.22.0` => [`v3.22.1`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.22.1)] (!234)
+
 ## v3.14.4
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/report` version [`v3.19.0` => [`v3.22.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.22.0)] (!231)
 
