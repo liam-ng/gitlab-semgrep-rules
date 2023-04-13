@@ -507,7 +507,7 @@
       "id": "2e65d37268fafca18cf5bf6555431cf6962b79334c79f51ee655518bc8af20da",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-      "description": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
+      "description": "Found 'subprocess' function 'pop' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
       "cve": "semgrep_id:bandit.B602:9:9",
       "severity": "Critical",
       "scanner": {
@@ -1489,7 +1489,7 @@
       "id": "7e92d15995ef095afb5aa2e7da5e6252e89e807868665156e3e27097c60ebab9",
       "category": "sast",
       "message": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-      "description": "Found 'subprocess' function 'Popen' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
+      "description": "Found 'subprocess' function 'pop' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
       "cve": "semgrep_id:bandit.B602:9:9",
       "severity": "Critical",
       "scanner": {
