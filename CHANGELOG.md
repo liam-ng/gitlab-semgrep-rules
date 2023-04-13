@@ -1,5 +1,14 @@
 Semgrep analyzer changelog
 
+## v3.14.5
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.3.0` => [`1.17.1`](https://github.com/returntocorp/semgrep/releases/tag/v1.17.1)] (!235)
+- upgrade `github.com/stretchr/testify` version [`v1.8.1` => [`v1.8.2`](https://github.com/stretchr/testify/releases/tag/v1.8.2)] (!235)
+- upgrade `github.com/urfave/cli/v2` version [`v2.23.7` => [`v2.25.1`](https://github.com/urfave/cli/releases/tag/v2.25.1)] (!235)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v3` version [`v3.22.0` => [`v3.22.1`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.22.1)] (!235)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v1.4.0` => [`v1.4.1`](https://gitlab.com/gitlab-org/security-products/analyzers/ruleset/-/releases/v1.4.1)] (!235)
+- upgrade `golang.org/x/crypto` version [`v0.5.0` => [`v0.8.0`](https://golang.org/x/crypto@v0.8.0)] (!235)
+- upgrade `golang.org/x/mod` version [`v0.9.0` => [`v0.10.0`](https://golang.org/x/mod@v0.10.0)] (!235)
+
 ## v3.14.4
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/report` version [`v3.19.0` => [`v3.22.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v3.22.0)] (!231)
 
