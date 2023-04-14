@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v3.14.6
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.10.2` => [`v1.10.3`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.10.3)] (!238)
+
 ## v3.14.5
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.3.0` => [`1.17.1`](https://github.com/returntocorp/semgrep/releases/tag/v1.17.1)] (!235)
 - upgrade `github.com/stretchr/testify` version [`v1.8.1` => [`v1.8.2`](https://github.com/stretchr/testify/releases/tag/v1.8.2)] (!235)
