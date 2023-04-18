@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "6b9602b43adee5c918ef642df03174b8cefb22fb0bd299583f685b38b4cac400",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Missing Support for Integrity Check",
       "description": "The ciphertext produced is susceptible to alteration by an adversary. This mean that the\ncipher provides no way to detect that the data has been tampered with. If the ciphertext can be\ncontrolled by an attacker, it could be altered without detection.\n",
@@ -52,7 +52,7 @@
       }
     },
     {
-      "id": "e8ea4ec545e8da5a66768256ad34c9c2e7dd667b39e05f503e81b95404161a62",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Inadequate Encryption Strength",
       "description": "An authentication cipher mode which provides better confidentiality of the encrypted data\nshould be used instead of Electronic Code Book (ECB) mode, which does not provide good\nconfidentiality. Specifically, ECB mode produces the same output for the same input each time.\nThis allows an attacker to intercept and replay the data.\n",
@@ -102,7 +102,7 @@
       }
     },
     {
-      "id": "68ae836684aec39cb030d1f5db2e5116eef5ea2907cd52327b417ea232fd114a",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
@@ -153,7 +153,7 @@
       }
     },
     {
-      "id": "66492776fd1caeedb9dcc3de0e5be48514f3a007d1dd036b7df1ce1a01213a06",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Use of Insufficiently Random Values",
       "description": "The use of a predictable random value can lead to vulnerabilities when\nused in certain security critical contexts. A quick fix could be to replace\nthe use of java.util.Random with something stronger, such as java.security.SecureRandom.\n",
@@ -203,7 +203,7 @@
       }
     },
     {
-      "id": "677e19d96a163fc6426278c61602ce6d9be1070906eb52f8612122b88999595a",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Use of RSA Algorithm without OAEP",
       "description": "The software uses the RSA algorithm but does not incorporate Optimal Asymmetric\nEncryption Padding (OAEP), which might weaken the encryption.\n",
@@ -262,7 +262,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.12.0"
+      "version": "3.14.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -274,8 +274,8 @@
       "version": "1.3.0"
     },
     "type": "sast",
-    "start_time": "2023-01-18T21:57:49",
-    "end_time": "2023-01-18T21:58:04",
+    "start_time": ":SKIP:",
+    "end_time": ":SKIP:",
     "status": "success"
   }
 }
