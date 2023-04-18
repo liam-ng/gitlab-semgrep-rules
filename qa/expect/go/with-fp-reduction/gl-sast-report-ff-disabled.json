@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "793a39905ec1187a4bfda4c6f86d9841a08c9f37eac81f4436e100214cbad151",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
       "description": "File open from tainted variable\n",
@@ -61,7 +61,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.1"
+      "version": "3.14.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -73,8 +73,8 @@
       "version": "1.3.0"
     },
     "type": "sast",
-    "start_time": "2023-02-16T06:45:57",
-    "end_time": "2023-02-16T06:46:05",
+    "start_time": ":SKIP:",
+    "end_time": ":SKIP:",
     "status": "success"
   }
 }

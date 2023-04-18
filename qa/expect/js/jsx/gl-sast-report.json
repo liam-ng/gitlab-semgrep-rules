@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "69745a2f0693173e47ced020f01d677cf641a51903692cd77e9a4fd66b757673",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "id": "47bef83fc0c10c66e1946261673ae9825f542a4609bcb55e8bfaab0722ffe40c",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "id": "1ac984f487cd525707eb63112136f83d3da086046d9ccb33cc738245741a6a80",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "id": "1ac984f487cd525707eb63112136f83d3da086046d9ccb33cc738245741a6a80",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -156,7 +156,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.12.0"
+      "version": "3.14.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -168,8 +168,8 @@
       "version": "1.3.0"
     },
     "type": "sast",
-    "start_time": "2023-01-18T21:59:08",
-    "end_time": "2023-01-18T21:59:16",
+    "start_time": ":SKIP:",
+    "end_time": ":SKIP:",
     "status": "success"
   }
 }

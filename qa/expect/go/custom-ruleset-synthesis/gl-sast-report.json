@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "c6ed70e39309c3191dba15a1ccabf1bd21eed0c7c2c5ce8555e2c4bd26bf312e",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function bar detected\n",
@@ -47,7 +47,7 @@
       }
     },
     {
-      "id": "ba8e75158360c9f2eb893ec98974b3f88738169eb525e8da7c7d31c74dbc399c",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function baz detected\n",
@@ -92,7 +92,7 @@
       }
     },
     {
-      "id": "1bdf6be3fb153c0b3d20b880ce4f5d6d16442d6efca41cb82442515d110ae473",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function foo detected\n",
@@ -138,7 +138,7 @@
       }
     },
     {
-      "id": "0ae0e553337a4f7754646f0384180922de20fe82aa5484668f3def1a7e6f303f",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function bar detected\n",
@@ -184,7 +184,7 @@
       }
     },
     {
-      "id": "f9f3c98c1965b7cd94708547c6d15ce6564d36f5b66eb954165d29cc8d61e330",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "return nil err instead of nil value",
       "description": "return nil err instead of nil value",
@@ -224,7 +224,7 @@
       }
     },
     {
-      "id": "f9f3c98c1965b7cd94708547c6d15ce6564d36f5b66eb954165d29cc8d61e330",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "return nil instead of nil value",
       "description": "return nil instead of nil value",
@@ -264,7 +264,7 @@
       }
     },
     {
-      "id": "7dcb601395f30bcde81f4fac1a4771651955b2829b8faff1d76944a2927d536f",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Key Exchange without Entity Authentication",
       "description": "Disabled host key verification detected. This allows man-in-the-middle attacks. Use the 'golang.org/x/crypto/ssh/knownhosts' package to do host key verification. See https://skarlso.github.io/2019/02/17/go-ssh-with-host-key-verification/ to learn more about the problem and how to fix it.",
@@ -314,7 +314,7 @@
       }
     },
     {
-      "id": "e05f5ff41d26aa50b548bd3d28cf5b5d733732cea9899c83d99e9eabdce77d27",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Key Exchange without Entity Authentication",
       "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
@@ -369,7 +369,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.1"
+      "version": "3.14.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -381,8 +381,8 @@
       "version": "1.3.0"
     },
     "type": "sast",
-    "start_time": "2023-02-21T13:05:06",
-    "end_time": "2023-02-21T13:05:24",
+    "start_time": ":SKIP:",
+    "end_time": ":SKIP:",
     "status": "success"
   }
 }

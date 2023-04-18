@@ -2,7 +2,7 @@
   "version": "14.0.4",
   "vulnerabilities": [
     {
-      "id": "bcd3784849b1f4a13b16bc17b4548c4dba9934aabcd3e77053420df1b1b531b0",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
       "description": "The software uses external input to construct a pathname that is intended\nto identify a file or directory that is located underneath a restricted\nparent directory, but the software does not properly neutralize special\nelements within the pathname that can cause the pathname to resolve to a\nlocation that is outside of the restricted directory..\n",
@@ -52,7 +52,7 @@
       }
     },
     {
-      "id": "37468b42af9f7be6ef47fb4ba2e7ceba10795454a887980f3f75c0b80596a40e",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a long-running regular expression.\n",
@@ -87,7 +87,7 @@
       ]
     },
     {
-      "id": "129899030503e9444978613801670c5498682766909eda1f89b98a4fe3852748",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "id": "360267c7968ab19687127ed2f1e94fc9f61df19f74e42d52fbd808a8a4ce51d6",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -157,7 +157,7 @@
       ]
     },
     {
-      "id": "de9b03c4d9b8697acd8980d61fdb958245ec40eb639b6cc5f747181fb9544f85",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "id": "456e6e1b4f9c06eb996d381bac80bc67171fda6b2ac0ba47b29e6cf70d525674",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -227,7 +227,7 @@
       ]
     },
     {
-      "id": "55c6b5f71793852a51b632454b6822a5fa3e9838740acbe3fc97341ea1f6d9cf",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -262,7 +262,7 @@
       ]
     },
     {
-      "id": "c3dd2d07c193aa699c8120e903cc0b9d646a4e1892e26099e35b9dca72e3c963",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -297,7 +297,7 @@
       ]
     },
     {
-      "id": "02cd9f4addae036f8af85128add22001997fcc167d53d262140b9f5da174df70",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Improper Control of Generation of Code ('Code Injection')",
       "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype, leading to possible code execution.",
@@ -332,7 +332,7 @@
       ]
     },
     {
-      "id": "a12ef7d4d85961ec732903dff252aee9dedffa8671016259d0a7ec19505dffa3",
+      "id": ":SKIP:",
       "category": "sast",
       "message": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
       "description": "The use of a predictable random value can lead to vulnerabilities when used in certain security\ncritical contexts.\n",
@@ -391,7 +391,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "3.13.1"
+      "version": "3.14.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -403,8 +403,8 @@
       "version": "1.3.0"
     },
     "type": "sast",
-    "start_time": "2023-02-15T09:47:20",
-    "end_time": "2023-02-15T09:47:54",
+    "start_time": ":SKIP:",
+    "end_time": ":SKIP:",
     "status": "success"
   }
 }

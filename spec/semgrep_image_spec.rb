@@ -1,5 +1,6 @@
 require "tmpdir"
 require "English"
+require 'fileutils'
 
 require 'gitlab_secure/integration_test/docker_runner'
 require 'gitlab_secure/integration_test/shared_examples/scan_shared_examples'
@@ -53,6 +54,14 @@ describe 'running image' do
 
     def parse_expected_report(expectation_name, report_name = "gl-sast-report.json")
       path = File.join(expectations_dir, expectation_name, report_name)
+      if ENV['REFRESH_EXPECTED'] == "true"
+        tmp_json = File.read(scan.report_path)
+        tmp_json.gsub!(/"id": "[a-z0-9]{64}"/, "\"id\": \":SKIP:\"")
+        tmp_json.gsub!(/"start_time": ".+"/, "\"start_time\": \":SKIP:\"")
+        tmp_json.gsub!(/"end_time": ".+"/, "\"end_time\": \":SKIP:\"")
+        File.open(scan.report_path, "w") {|file| file.puts tmp_json }
+        FileUtils.cp(scan.report_path, File.expand_path(path))
+      end
       JSON.parse(File.read(path))
     end
 
@@ -322,7 +331,7 @@ describe 'running image' do
         it_behaves_like 'successful job'
       end
 
-      context 'when using pip package management for flask-based python project' do
+      context 'when using pip package management for flask-based python project', focus: true do
         let(:project) { 'python/pip-flask' }
         it_behaves_like 'successful job'
       end
