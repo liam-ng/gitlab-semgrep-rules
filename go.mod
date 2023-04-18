@@ -13,7 +13,7 @@ require (
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.2
 	github.com/urfave/cli/v2 v2.25.1
-	gitlab.com/gitlab-org/security-products/analyzers/command v1.10.2
+	gitlab.com/gitlab-org/security-products/analyzers/command v1.10.3
 	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2
 	gitlab.com/gitlab-org/security-products/analyzers/report/v3 v3.22.1
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.1
