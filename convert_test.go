@@ -19,7 +19,6 @@ func TestConvert(t *testing.T) {
 	// setting CI_PROJECT_DIR containing [location.file]'s prefix to confirm if old behaviour
 	// is removed
 	t.Setenv("CI_PROJECT_DIR", "tests")
-	t.Setenv("GITLAB_FEATURES", "sast_fp_reduction")
 
 	fixture, err := os.Open("testdata/reports/semgrep.sarif")
 	require.NoError(t, err)
@@ -51,6 +50,27 @@ func TestConvert(t *testing.T) {
 	require.Equal(t, vulnFile, vuln.Location.File)
 	require.Equal(t, 7, vuln.Location.LineStart)
 	require.Equal(t, 7, vuln.Location.LineEnd)
+}
+
+func TestPrimaryIdentifiers(t *testing.T) {
+	defaultConfigPath = path.Join("testdata", "sampledist")
+	t.Setenv("CI_PROJECT_DIR", "tests")
+	t.Setenv("GITLAB_FEATURES", "sast_fp_reduction")
+
+	fixture, err := os.Open("testdata/reports/semgrep.sarif")
+	require.NoError(t, err)
+	defer fixture.Close()
+
+	sastReport, err := convert(fixture, "" /* unused input */)
+	require.NoError(t, err)
+
+	found := false
+	for _, pid := range sastReport.Scan.PrimaryIdentifiers {
+		if pid.Value == "eslint.detect-non-literal-require" {
+			found = true
+		}
+	}
+	require.True(t, found)
 }
 
 func TestGenerateIDs(t *testing.T) {
