@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+
+## v3.14.7
+- fix: Update JSON report `scan.primary_identifiers` to match rule primary identifiers, not rule IDs (!240)
+
 ## v3.14.6
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/command` version [`v1.10.2` => [`v1.10.3`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v1.10.3)] (!238)
 

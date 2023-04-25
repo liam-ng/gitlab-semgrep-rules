@@ -104,6 +104,14 @@ func addAnalyzerIdentifiers(sastReport *report.Report, configPath string) (*repo
 			sastReport.Vulnerabilities[index].Identifiers = append(vul.Identifiers, sIDs...)
 		}
 	}
+
+	for index, primaryIdentifier := range sastReport.Scan.PrimaryIdentifiers {
+		pID, _ := ruleToIDs(primaryIdentifier.Value, ruleMap)
+		if pID != nil {
+			sastReport.Scan.PrimaryIdentifiers[index].Name = pID.Name
+			sastReport.Scan.PrimaryIdentifiers[index].Value = pID.Value
+		}
+	}
 	return sastReport, nil
 }
 

@@ -3726,8 +3726,8 @@
               "fullDescription": {
                 "text": "Detected the use of require(variable). Calling require with a non-literal argument might\nallow an attacker to load an run arbitrary code, or access arbitrary files.\n"
               },
-              "id": "eslint.detect-non-literal-require",
-              "name": "eslint.detect-non-literal-require",
+              "id": "eslint.detect-non-literal-require-1",
+              "name": "eslint.detect-non-literal-require-1",
               "properties": {
                 "precision": "very-high",
                 "tags": [
