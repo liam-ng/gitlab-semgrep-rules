@@ -52,6 +52,21 @@ func TestConvert(t *testing.T) {
 	require.Equal(t, 7, vuln.Location.LineEnd)
 }
 
+func TestScanPrimaryIdentifiers(t *testing.T) {
+	defaultConfigPath = path.Join("testdata", "sampledist")
+	t.Setenv("CI_PROJECT_DIR", "tests")
+	t.Setenv("GITLAB_FEATURES", "sast_fp_reduction")
+
+	fixture, err := os.Open("testdata/reports/semgrep.sarif")
+	require.NoError(t, err)
+	defer fixture.Close()
+
+	sastReport, err := convert(fixture, "" /* unused input */)
+	require.NoError(t, err)
+
+	require.True(t, scanNameAndValueExist(sastReport.Scan.PrimaryIdentifiers, "eslint.detect-non-literal-require", "eslint.detect-non-literal-require"))
+}
+
 func TestGenerateIDs(t *testing.T) {
 	testcases := map[string][]report.Identifier{
 		"find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2": {
@@ -174,4 +189,14 @@ func TestComputeCompareKey(t *testing.T) {
 
 	assert.Equal(t, computeCompareKey(v1), "myIdentifierType:myIdentifierValue:10:10")
 	assert.Equal(t, computeCompareKey(v2), "myIdentifierType2:myIdentifierValue2:15:15")
+}
+
+func scanNameAndValueExist(identifiers []report.Identifier, name string, value string) bool {
+	found := false
+	for _, pid := range identifiers {
+		if pid.Name == name && pid.Value == value {
+			found = true
+		}
+	}
+	return found
 }
