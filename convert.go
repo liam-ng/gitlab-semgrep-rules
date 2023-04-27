@@ -13,7 +13,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v2"
 
-	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v4"
 	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )

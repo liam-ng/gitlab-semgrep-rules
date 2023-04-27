@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	report "gitlab.com/gitlab-org/security-products/analyzers/report/v3"
+	report "gitlab.com/gitlab-org/security-products/analyzers/report/v4"
 )
 
 func TestAnalyzerDetails(t *testing.T) {

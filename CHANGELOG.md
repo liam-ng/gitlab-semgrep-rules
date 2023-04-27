@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v4.0.0
+- Bump to next major version (!239)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/command/v2` version [`v1.10.3` => [`v2.1.0`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v2.1.0)] (!239)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v4` version [`v3.22.1` => [`v4.1.0`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v4.1.0)] (!239)
+
 ## v3.14.8
 - construct the JSON report `cve` value from rule primary identifier rather than the rule ID (!241)
 
