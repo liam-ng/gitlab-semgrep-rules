@@ -35,7 +35,7 @@
           "message": {
             "text": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n"
           },
-          "ruleId": "bandit.B101"
+          "ruleId": "bandit.B101-1"
         }
       ],
       "tool": {
@@ -707,7 +707,7 @@
               "fullDescription": {
                 "text": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n"
               },
-              "id": "bandit.B101",
+              "id": "bandit.B101-1",
               "name": "bandit.B101",
               "properties": {
                 "precision": "very-high",
