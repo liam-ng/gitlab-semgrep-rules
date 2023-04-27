@@ -52,6 +52,21 @@ func TestConvert(t *testing.T) {
 	require.Equal(t, 7, vuln.Location.LineEnd)
 }
 
+func TestCWE(t *testing.T) {
+	defaultConfigPath = path.Join("testdata", "sampledist")
+	t.Setenv("CI_PROJECT_DIR", "tests")
+
+	fixture, err := os.Open("testdata/reports/semgrep.sarif")
+	require.NoError(t, err)
+	defer fixture.Close()
+
+	sastReport, err := convert(fixture, "")
+	require.NoError(t, err)
+
+	vuln := sastReport.Vulnerabilities[0]
+	require.Equal(t, "semgrep_id:bandit.B101:7:7", vuln.CompareKey)
+}
+
 func TestScanPrimaryIdentifiers(t *testing.T) {
 	defaultConfigPath = path.Join("testdata", "sampledist")
 	t.Setenv("CI_PROJECT_DIR", "tests")

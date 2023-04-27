@@ -1,5 +1,7 @@
 Semgrep analyzer changelog
 
+## v3.14.8
+- construct the JSON report `cve` value from rule primary identifier rather than the rule ID (!241)
 
 ## v3.14.7
 - fix: Update JSON report `scan.primary_identifiers` to match rule primary identifiers, not rule IDs (!240)

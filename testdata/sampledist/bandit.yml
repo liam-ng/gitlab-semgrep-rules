@@ -22,7 +22,7 @@ rules:
   severity: "WARNING"
   languages:
   - "python"
-- id: bandit.B101
+- id: bandit.B101-1
   patterns:
   - pattern: assert(...)
   - pattern-not-inside: |
