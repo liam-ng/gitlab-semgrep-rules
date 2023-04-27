@@ -5,7 +5,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/command"
+	"gitlab.com/gitlab-org/security-products/analyzers/command/v2"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/plugin"
 )

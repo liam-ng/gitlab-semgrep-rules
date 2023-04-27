@@ -14,7 +14,6 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
-	"golang.org/x/mod/semver"
 	"gopkg.in/yaml.v2"
 
 	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
@@ -110,7 +109,7 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 		return nil, err
 	}
 
-	if c.Bool(flagSASTExperimentalFeatures) || isGitLab1510Plus() {
+	if c.Bool(flagSASTExperimentalFeatures) {
 		for rulefileName, ruleIDs := range highFPRules {
 			rulefilePath := path.Join(configPath, rulefileName)
 			if err = removeRulesFromFile(rulefilePath, ruleIDs); err != nil {
@@ -319,25 +318,4 @@ func isFlagAllowed(flag cliarg.Arg) bool {
 		}
 	}
 	return false
-}
-
-// isGitLab1510Plus returns true if predefined variables identify the server version as ahead
-// of %15.9
-func isGitLab1510Plus() bool {
-	serverVersionEnv := "v" + os.Getenv("CI_SERVER_VERSION")
-	if serverVersionEnv == "v" {
-		return false
-	}
-
-	if !semver.IsValid(serverVersionEnv) {
-		return false
-	}
-
-	// exclude v15.x pre-releases from consideration
-	if semver.Major(serverVersionEnv) == "v15" &&
-		semver.Prerelease(serverVersionEnv) != "" {
-		return false
-	}
-
-	return semver.Compare(serverVersionEnv, "v15.9") == 1
 }

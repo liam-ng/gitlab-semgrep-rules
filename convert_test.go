@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/report/v3"
+	"gitlab.com/gitlab-org/security-products/analyzers/report/v4"
 )
 
 func TestConvert(t *testing.T) {
