@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v4.0.1
+  - Update `eslint.yml` rules to [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) version `1.3.0` (!244)
+    - Remove security prefix [sast-rules!94](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/94)
+    - Subexpression matching [sast-rules!55](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/55)
+
 ## v4.0.0
 - Bump to next major version (!239)
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/command/v2` version [`v1.10.3` => [`v2.1.0`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v2.1.0)] (!239)
