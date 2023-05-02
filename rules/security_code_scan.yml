@@ -1,6 +1,3 @@
-# yamllint disable
-# rule-set version: v1.2.1
-# yamllint enable
 ---
 rules:
 - id: "security_code_scan.SCS0019-1"

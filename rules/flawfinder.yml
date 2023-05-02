@@ -1,6 +1,3 @@
-# yamllint disable
-# rule-set version: v1.2.1
-# yamllint enable
 ---
 rules:
 - id: "flawfinder.RpcImpersonateClient-1.ImpersonateLoggedOnUser-1.CoImpersonateClient-1.ImpersonateNamedPipeClient-1.ImpersonateDdeClientWindow-1.ImpersonateSecurityContext-1.SetThreadToken-1"

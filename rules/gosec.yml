@@ -1,6 +1,3 @@
-# yamllint disable
-# rule-set version: v1.2.1
-# yamllint enable
 ---
 rules:
 - id: "gosec.G504-1"
@@ -24,8 +21,9 @@ rules:
   patterns:
   - pattern: |
       import "crypto/des"
-  message: "Usage of a cryptographically broken primitive has been detected. It is
-    recommended that \nChaCha20 or Advanced Encryption Standard (AES) be used instead.\n"
+  message: |
+    Usage of a cryptographically broken primitive has been detected. It is recommended that
+    ChaCha20 or Advanced Encryption Standard (AES) be used instead.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
@@ -112,8 +110,9 @@ rules:
         (?!tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305)|(?!tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256)|
         (?!tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305)|(?!tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256)|
         (?!tls.TLS_DHE_RSA_WITH_AES_128_GCM_SHA256)|(?!tls.TLS_DHE_RSA_WITH_AES_256_GCM_SHA384))"
-  message: "Usage of a cryptographically insecure cipher suite has been detected.
-    It is recommended that \nalternative ciphers be used instead.\n"
+  message: |
+    Usage of a cryptographically insecure cipher suite has been detected. It is recommended that
+    alternative ciphers be used instead.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
     owasp: "A9: Using Components with Known Vulnerabilities"
