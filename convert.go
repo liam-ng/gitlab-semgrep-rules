@@ -14,7 +14,7 @@ import (
 	"gopkg.in/yaml.v2"
 
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v4"
-	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
+	ruleset "gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 )
 
@@ -47,21 +47,7 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 
 	// Load custom config if available
 	rulesetPath := filepath.Join(prependPath, ruleset.PathSAST)
-	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep")
-	if err != nil {
-		switch err.(type) {
-		case *ruleset.NotEnabledError:
-			log.Debug(err)
-		case *ruleset.ConfigFileNotFoundError:
-			log.Debug(err)
-		case *ruleset.ConfigNotFoundError:
-			log.Debug(err)
-		case *ruleset.InvalidConfig:
-			log.Fatal(err)
-		default:
-			return nil, err
-		}
-	}
+	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep", log.StandardLogger())
 
 	configPath, err := getConfigPath(prependPath, rulesetConfig)
 	if err != nil {

@@ -16,7 +16,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"gopkg.in/yaml.v2"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
+	ruleset "gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/cliarg"
 )
 
@@ -84,22 +84,11 @@ func analyzeFlags() []cli.Flag {
 // In other words, this function is internal to the complete program we're building and not exposed to any
 // third party.
 func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
-	// Load custom config if available
 	rulesetPath := filepath.Join(projectPath, ruleset.PathSAST)
-	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep")
+
+	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep", log.StandardLogger())
 	if err != nil {
-		switch err.(type) {
-		case *ruleset.NotEnabledError:
-			log.Debug(err)
-		case *ruleset.ConfigFileNotFoundError:
-			log.Debug(err)
-		case *ruleset.ConfigNotFoundError:
-			log.Debug(err)
-		case *ruleset.InvalidConfig:
-			log.Fatal(err)
-		default:
-			return nil, err
-		}
+		return nil, err
 	}
 
 	outputPath := path.Join(projectPath, "semgrep.sarif")

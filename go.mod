@@ -16,7 +16,8 @@ require (
 	gitlab.com/gitlab-org/security-products/analyzers/command/v2 v2.1.0
 	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2
 	gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.0
-	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.1
+	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.1 // indirect
+	gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2 v2.0.1
 	golang.org/x/crypto v0.8.0
 	golang.org/x/mod v0.10.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0

@@ -8,7 +8,7 @@ import (
 	log "github.com/sirupsen/logrus"
 
 	"gitlab.com/gitlab-org/security-products/analyzers/common/v3/plugin"
-	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
+	ruleset "gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2"
 )
 
 // supported languages' file extensions
@@ -32,7 +32,7 @@ func Match(path string, info os.FileInfo) (bool, error) {
 	// check for existence of semgrep rules in the custom ruleset,
 	// if present then skip language-based matching filter
 	rulesetPath := filepath.Join(path, ruleset.PathSAST)
-	if _, e := ruleset.Load(rulesetPath, "semgrep"); e != nil {
+	if _, e := ruleset.LoadRelative(rulesetPath, "semgrep"); e != nil {
 		switch e.(type) {
 		case *ruleset.ConfigNotFoundError:
 			log.Debug("no semgrep rules found in the custom ruleset, matching via language-based filter..")
