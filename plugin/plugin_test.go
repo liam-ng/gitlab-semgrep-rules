@@ -8,7 +8,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"gitlab.com/gitlab-org/security-products/analyzers/ruleset"
+	ruleset "gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2"
 )
 
 func TestMatch_BypassPluginDetection(tt *testing.T) {
