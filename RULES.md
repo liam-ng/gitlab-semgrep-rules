@@ -37,3 +37,7 @@ We also provide the original rule `id` (from the source rule) in an inline
 comment right above the `id` property. The original `id` uniquely identifies a
 rule within the [semgrep rules repository](https://github.com/returntocorp/semgrep-rules).
 Hence, it is useful for tracking changes and/or upstream contributions.
+
+## Semgrep Javascript ruleset
+
+See [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules)

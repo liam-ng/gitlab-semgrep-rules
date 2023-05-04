@@ -52,7 +52,7 @@ func TestConvert(t *testing.T) {
 	require.Equal(t, 7, vuln.Location.LineEnd)
 }
 
-func TestCWE(t *testing.T) {
+func TestCompareKey(t *testing.T) {
 	defaultConfigPath = path.Join("testdata", "sampledist")
 	t.Setenv("CI_PROJECT_DIR", "tests")
 
