@@ -30,8 +30,8 @@
         },
         {
           "type": "owasp",
-          "name": "A8 - Insecure Deserialization",
-          "value": "A8"
+          "name": "A8:2017 - Insecure Deserialization",
+          "value": "A8:2017"
         }
       ],
       "tracking": {
@@ -61,7 +61,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.0.1"
+      "version": "4.0.2"
     },
     "scanner": {
       "id": "semgrep",

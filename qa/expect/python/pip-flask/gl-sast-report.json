@@ -31,8 +31,8 @@
         },
         {
           "type": "owasp",
-          "name": "A8 - Insecure Deserialization",
-          "value": "A8"
+          "name": "A8:2017 - Insecure Deserialization",
+          "value": "A8:2017"
         },
         {
           "type": "bandit_test_id",
@@ -87,8 +87,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -143,8 +143,8 @@
         },
         {
           "type": "owasp",
-          "name": "A1 - Injection",
-          "value": "A1"
+          "name": "A1:2017 - Injection",
+          "value": "A1:2017"
         },
         {
           "type": "bandit_test_id",
@@ -199,8 +199,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Broken Authentication and Session Management",
-          "value": "A3"
+          "name": "A2:2017 - Broken Authentication",
+          "value": "A2:2017"
         },
         {
           "type": "bandit_test_id",
@@ -239,8 +239,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Broken Authentication and Session Management",
-          "value": "A3"
+          "name": "A2:2017 - Broken Authentication",
+          "value": "A2:2017"
         },
         {
           "type": "bandit_test_id",
@@ -295,8 +295,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -351,8 +351,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -515,8 +515,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -556,8 +556,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -597,8 +597,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -638,8 +638,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -802,7 +802,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.0.1"
+      "version": "4.0.2"
     },
     "scanner": {
       "id": "semgrep",

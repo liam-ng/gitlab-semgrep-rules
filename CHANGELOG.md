@@ -1,13 +1,16 @@
 Semgrep analyzer changelog
 
+## v4.0.2
+- Fix OWASP naming (!246 @artem-fedorov)
+
 ## v4.1.0
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v1.4.1` => [`v2.0.0`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v2.0.0)] (!245)
 - enable support for loading remote ruleset configs (!245)
 
 ## v4.0.1
-  - Update `eslint.yml` rules to [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) version `1.3.0` (!244)
-    - Remove security prefix [sast-rules!94](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/94)
-    - Subexpression matching [sast-rules!55](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/55)
+- Update `eslint.yml` rules to [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) version `1.3.0` (!244)
+  - Remove security prefix [sast-rules!94](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/94)
+  - Subexpression matching [sast-rules!55](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/55)
 
 ## v4.0.0
 - Bump to next major version (!239)
