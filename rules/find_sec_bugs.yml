@@ -822,7 +822,7 @@ rules:
   metadata:
     category: "security"
     cwe: "CWE-20: Improper Input Validation"
-    owasp: "OWASP: Cross-Site Request Forgery"
+    owasp: "A5:2017-Broken Access Control"
     technology:
     - "java"
     primary_identifier: "find_sec_bugs.JAXWS_ENDPOINT-1"

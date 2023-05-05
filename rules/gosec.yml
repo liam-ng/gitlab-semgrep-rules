@@ -11,7 +11,7 @@ rules:
     Go versions < 1.6.3 are vulnerable to Httpoxy attack: (CVE-2016-5386)
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
-    owasp: "A9: Using Components with Known Vulnerabilities"
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G504-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G504"
@@ -28,7 +28,7 @@ rules:
     recommended that \nChaCha20 or Advanced Encryption Standard (AES) be used instead.\n"
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
-    owasp: "A9: Using Components with Known Vulnerabilities"
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G502-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G502"
@@ -48,7 +48,7 @@ rules:
     consider using the bcrypt or Argon2 family of cryptographic hashes.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
-    owasp: "A9: Using Components with Known Vulnerabilities"
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G501-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G501"
@@ -67,7 +67,7 @@ rules:
     Standard (AES) be used instead.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
-    owasp: "A9: Using Components with Known Vulnerabilities"
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G503-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G503"
@@ -88,7 +88,7 @@ rules:
     of cryptographic hashes.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
-    owasp: "A9: Using Components with Known Vulnerabilities"
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G505-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G505"
@@ -116,7 +116,7 @@ rules:
     It is recommended that \nalternative ciphers be used instead.\n"
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
-    owasp: "A9: Using Components with Known Vulnerabilities"
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G402-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G402"
@@ -150,7 +150,7 @@ rules:
     of sensitive information. It is recommended to use TLS 1.2 or TLS 1.3 instead.
   metadata:
     cwe: "CWE-310: Cryptographic Issues"
-    owasp: "A05:2021: Security Misconfiguration"
+    owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "gosec.G402-2"
     secondary_identifiers:
     - name: "Gosec Rule ID G402"
@@ -181,7 +181,7 @@ rules:
     is recommended that alternative algorithms be used instead.
   metadata:
     cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
-    owasp: "A9: Using Components with Known Vulnerabilities"
+    owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G401-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G401"
@@ -202,7 +202,7 @@ rules:
     It is recommended that generated RSA keys are at least 2048 bits in length.
   metadata:
     cwe: "CWE-326: Inadequate Encryption Strength"
-    owasp: "A3: Sensitive Data Exposure"
+    owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "gosec.G403-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G403"
@@ -229,7 +229,7 @@ rules:
     Use of weak random number generator (math/rand instead of crypto/rand)
   metadata:
     cwe: "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)"
-    owasp: "A3: Sensitive Data Exposure"
+    owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "gosec.G404-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G404"
@@ -251,7 +251,7 @@ rules:
     Poor file permissions used when creation file or using chmod
   metadata:
     cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
-    owasp: "A6: Security Misconfiguration"
+    owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "gosec.G302-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G302"
@@ -273,7 +273,7 @@ rules:
     Poor file permissions used when creating a directory
   metadata:
     cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
-    owasp: "A6: Security Misconfiguration"
+    owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "gosec.G301-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G301"
@@ -703,7 +703,7 @@ rules:
     indicate a hardcoded binding to all network interfaces.
   metadata:
     cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
-    owasp: "A6: Security Misconfiguration"
+    owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "gosec.G102-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G102"
@@ -723,7 +723,7 @@ rules:
     The use of hard-coded passwords increases the possibility of password guessing tremendously.
   metadata:
     cwe: "CWE-259: Use of Hard-coded Password"
-    owasp: "A3: Broken Authentication and Session Management"
+    owasp: "A2:2017-Broken Authentication"
     primary_identifier: "gosec.G101-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G101"
@@ -803,7 +803,7 @@ rules:
   metadata:
     cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
       ('Eval Injection')"
-    owasp: "A1: Injection"
+    owasp: "A1:2017-Injection"
     primary_identifier: "gosec.G204-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G204"
