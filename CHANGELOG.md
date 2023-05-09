@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.1.2
+- Update `eslint.yml` rules to [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) version `1.3.6`
+  - Update `metadata.owasp` to adhere to the pattern `A{number}:{year}-{Title}` [sast-rules!136](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/136)
+
 ## v4.1.1
 - Use updated pattern from avoid-pyyaml-load in B506 (@stevep-arm !255)
 
