@@ -5,7 +5,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "message": "Deserialization of Untrusted Data",
-      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python\nobjects. A malicious actor could exploit this to run arbitrary\ncode. Use `safe_load()` instead.\n",
+      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python objects. A malicious actor could\nexploit this to run arbitrarycode. Use `safe\\_load()` instead. It is recommended to use\n`SafeLoader`\nwhen loading yaml.\n",
       "cve": "semgrep_id:bandit.B506:329:329",
       "severity": "Critical",
       "scanner": {
@@ -61,7 +61,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.0.2"
+      "version": "4.1.1"
     },
     "scanner": {
       "id": "semgrep",
