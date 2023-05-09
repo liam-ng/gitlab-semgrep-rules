@@ -31,8 +31,8 @@
         },
         {
           "type": "owasp",
-          "name": "A1 - Injection",
-          "value": "A1"
+          "name": "A1:2017 - Injection",
+          "value": "A1:2017"
         },
         {
           "type": "eslint_rule_id",
