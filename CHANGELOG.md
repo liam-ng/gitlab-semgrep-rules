@@ -1,11 +1,14 @@
 Semgrep analyzer changelog
 
-## v4.0.2
-- Fix OWASP naming (!246 @artem-fedorov)
+## v4.1.1
+- Use updated pattern from avoid-pyyaml-load in B506 (@stevep-arm !255)
 
 ## v4.1.0
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v1.4.1` => [`v2.0.0`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v2.0.0)] (!245)
 - enable support for loading remote ruleset configs (!245)
+
+## v4.0.2
+- Fix OWASP naming (!246 @artem-fedorov)
 
 ## v4.0.1
 - Update `eslint.yml` rules to [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) version `1.3.0` (!244)

@@ -4,14 +4,27 @@ rules:
   - pattern-inside: |
       import yaml
       ...
-      yaml.load($FOO)
-  - pattern: yaml.load($FOO)
+  - pattern-not-inside: |
+      from ruamel.yaml import YAML
+      ...
+  - pattern-either:
+    - pattern: "yaml.unsafe\_load(...)"
+    - pattern: "yaml.$LD(..., Loader=yaml.$LOADER, ...)"
+    - pattern: "yaml.$LD($DATA)"
+  - metavariable-regex:
+      metavariable: "$LOADER"
+      regex: "(Loader|UnsafeLoader|CLoader|FullLoader)"
+  - metavariable-regex:
+      metavariable: "$LD"
+      regex: "(load|load\_all)"
   message: |
-    Avoid using `load()`. `PyYAML.load` can create arbitrary Python
-    objects. A malicious actor could exploit this to run arbitrary
-    code. Use `safe_load()` instead.
+    Avoid using `load()`. `PyYAML.load` can create arbitrary Python objects. A malicious actor could
+    exploit this to run arbitrarycode. Use `safe\_load()` instead. It is recommended to use
+    `SafeLoader`
+    when loading yaml.
   metadata:
-    cwe: 'CWE-502: Deserialization of Untrusted Data'
-    owasp: 'A8:2017-Insecure Deserialization'
-  severity: ERROR
-  languages: [python]
+    cwe: "CWE-502: Deserialization of Untrusted Data"
+    owasp: "A8:2017-Insecure Deserialization"
+  severity: "ERROR"
+  languages:
+  - "python"
