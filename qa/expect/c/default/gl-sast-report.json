@@ -29,6 +29,11 @@
           "url": "https://cwe.mitre.org/data/definitions/120.html"
         },
         {
+          "type": "owasp",
+          "name": "A1:2017 - Injection",
+          "value": "A1:2017"
+        },
+        {
           "type": "flawfinder_func_name",
           "name": "Flawfinder - char",
           "value": "char"
@@ -48,8 +53,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
-      "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
+      "message": "Potential time of check time of use vulnerability (open/fopen)",
+      "description": "Usage of the `open` family of functions may hint at a potential Time Of Check Time Of Use\n(TOCTOU)\nvulnerability. An attacker may be able to modify the file being specified by the `open`\nfunction prior to the `open` function being called.\n\nPrior to calling `open`, use `lstat` to open the file and confirm the attributes\nare correct. Then use `open` to get a file descriptor to this file. Call `fstat",
       "cve": "semgrep_id:flawfinder.fopen-1.open-1:8:8",
       "severity": "Info",
       "scanner": {
@@ -71,6 +76,11 @@
           "name": "CWE-362",
           "value": "362",
           "url": "https://cwe.mitre.org/data/definitions/362.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A5:2017 - Broken Access Control",
+          "value": "A5:2017"
         },
         {
           "type": "flawfinder_func_name",
@@ -110,7 +120,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.1.1"
+      "version": "4.1.2"
     },
     "scanner": {
       "id": "semgrep",

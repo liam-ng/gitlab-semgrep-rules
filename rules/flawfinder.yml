@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.2.1
+# rule-set version: v1.3.11
 # yamllint enable
 ---
 rules:
@@ -7,10 +7,19 @@ rules:
   languages:
   - "c"
   message: |
-    Make sure the return value is checked, and do not continue if a failure is reported.
+    These functions may be used to either drop or change account privileges. If the calls
+    fail, the process will continue to run with the privileges assigned to it on start. Depending
+    on
+    the logic of the application, this may allow attackers to abuse the system due to privileges
+    never
+    being changed to a different access level.
+
+    Always ensure return values of this function are checked to determine if the application should
+    continue to operate.
   metadata:
-    cwe: "CWE-250: If this call fails, the program could fail to drop heightened privileges
-      (CWE-250)"
+    shortDescription: "Ensure return values are checked when attempting to drop privileges"
+    cwe: "CWE-250"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.RpcImpersonateClient-1.ImpersonateLoggedOnUser-1.CoImpersonateClient-1.ImpersonateNamedPipeClient-1.ImpersonateDdeClientWindow-1.ImpersonateSecurityContext-1.SetThreadToken-1"
     secondary_identifiers:
     - name: "Flawfinder - RpcImpersonateClient"
@@ -47,11 +56,15 @@ rules:
   languages:
   - "c"
   message: |
-    Ensure that umask is given most restrictive possible setting (e.g.,
-    066 or 077)
+    The umask function call sets the process's file mode creation mask. umask values determine
+    what permissions a file should be created with and who can read or write to these files.
+    Ensure that umask is given most restrictive possible setting depending on the context,
+    usually 066 or 077, for more information please see:
+    https://en.wikipedia.org/wiki/Umask#Mask_effect.
   metadata:
-    cwe: "CWE-732: Ensure that umask is given most restrictive possible setting (e.g.,
-      066 or 077) (CWE-732)"
+    shortDescription: "Ensure restrictive umask values"
+    cwe: "CWE-732"
+    owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "flawfinder.umask-1"
     secondary_identifiers:
     - name: "Flawfinder - umask"
@@ -63,9 +76,17 @@ rules:
   languages:
   - "c"
   message: |
-    The software does not properly handle when an input contains Unicode encoding.
+    The input buffer is the number of bytes in the string, but the size
+    of the output buffer is the number of characters. To avoid overflows, the
+    application must determine the correct buffer size which depends on the data type
+    the buffer receives.
+
+    For more information see:
+    https://learn.microsoft.com/en-us/windows/win32/intl/security-considerations--international-features
   metadata:
-    cwe: "CWE-120: Requires maximum length in CHARACTERS, not bytes (CWE-120)"
+    shortDescription: "Easily misused function may lead to buffer overflows"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.MultiByteToWideChar-1"
     secondary_identifiers:
     - name: "Flawfinder - MultiByteToWideChar"
@@ -77,10 +98,16 @@ rules:
   languages:
   - "c"
   message: |
-    Buffer overflow is not checked.
+    The `StrCat` family of functions do not guarantee the final string to be null terminated.
+    Consider using one of the following alternatives: `StringCbCat`, `StringCbCatEx`,
+    `StringCbCatN`, `StringCbCatNEx`, `StringCchCat`, `StringCchCatEx`, `StringCchCatN`, or
+    `StringCchCatNEx`.
+
+    For more information please see: https://learn.microsoft.com/en-us/windows/win32/api/strsafe/
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.StrCat-1.StrCatA-1.StrcatW-1.lstrcatA-1.lstrcatW-1.strCatBuff-1.StrCatBuffA-1.StrCatBuffW-1.StrCatChainW-1._tccat-1._mbccat-1._ftcscat-1.StrCatN-1.StrCatNA-1.StrCatNW-1.StrNCat-1.StrNCatA-1.StrNCatW-1.lstrncat-1.lstrcatnA-1.lstrcatnW-1"
     secondary_identifiers:
     - name: "Flawfinder - StrCat"
@@ -178,6 +205,7 @@ rules:
   metadata:
     cwe: "CWE-120: Statically-sized arrays can be improperly restricted, leading to
       potential overflows or other issues (CWE-119!/CWE-120)"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.char-1.TCHAR-1.wchar_t-1"
     secondary_identifiers:
     - name: "Flawfinder - char"
@@ -209,11 +237,14 @@ rules:
   - "c"
   message: |
     This function is often discouraged by most C++ coding standards in favor of its safer
-    alternatives provided since C++14. Consider using a form of this function that checks the
-    second iterator before potentially overflowing it.
+    alternatives provided since C++14. Consider using a form of this function:
+    (std::equal, std::mismatch or std::is_permutation) that checks the second iterator
+    before potentially reading past its bounds.
+
+    For more information please see: https://en.cppreference.com/w/cpp/algorithm
   metadata:
-    cwe: "CWE-126: Function does not check the second iterator for over-read conditions
-      (CWE-126)"
+    shortDescription: "Function does not check the second iterator for over-read conditions"
+    cwe: "CWE-126"
     primary_identifier: "flawfinder.equal-1.mismatch-1.is_permutation-1"
     secondary_identifiers:
     - name: "Flawfinder - equal"
@@ -234,10 +265,19 @@ rules:
   languages:
   - "c"
   message: |
-    Specify a limit to %s, or use a different input function.
+    Format specifiers can take optional field widths, which should be
+    used to limit how many characters are copied into the target buffer.
+
+    Example:
+    ```
+      const char str[20] = "AAAAAAAAAAAAAAAAAAA";
+      char buf[11] = {0};
+      sscanf(str, "%10s", &buf); // buf = AAAAAAAAAA\0
+    ```
   metadata:
-    cwe: "CWE-120: The scanf() family's %s operation, without a limit specification,
-      permits buffer overflows (CWE-120, CWE-20)"
+    shortDescription: "sscanf() functions may allow format string based overflows"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.fscanf-1.sscanf-1.vsscanf-1.vfscanf-1._ftscanf-1.fwscanf-1.vfwscanf-1.vswscanf-1"
     secondary_identifiers:
     - name: "Flawfinder - fscanf"
@@ -278,11 +318,18 @@ rules:
   languages:
   - "c"
   message: |
-    Check environment variables carefully before using them.
+    This function is synonymous with `getenv("HOME")` and should be treated
+    as untrusted input as it could be modified by an attacker. Possible risks
+    include:
+
+    - The value being too large and causing buffer overflows
+    - Files under the attacker's control being used maliciously
+    - Files outside of an attacker's control becoming accessible, depending on
+    access privileges.
   metadata:
-    cwe: "CWE-20: This function is synonymous with 'getenv(\"HOME\")';it returns untrustable
-      input if the environment can beset by an attacker.  It can have any content
-      and length, and the same variable can be set more than once (CWE-807, CWE-20)"
+    shortDescription: "Possible use of untrusted environment variable"
+    cwe: "CWE-20"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.g_get_home_dir-1"
     secondary_identifiers:
     - name: "Flawfinder - g_get_home_dir"
@@ -294,11 +341,18 @@ rules:
   languages:
   - "c"
   message: |
-    Check environment variables carefully before using them.
+    This function is synonymous with `getenv("TMP")` and should be treated
+    as untrusted input as it could be modified by an attacker. Possible risks
+    include:
+
+    - The value being too large and causing buffer overflows
+    - Files under the attacker's control being used maliciously
+    - Files outside of an attacker's control becoming accessible, depending on
+    access privileges.
   metadata:
-    cwe: "CWE-20: This function is synonymous with 'getenv(\"TMP\")';it returns untrustable
-      input if the environment can beset by an attacker.  It can have any content
-      and length, and the same variable can be set more than once (CWE-807, CWE-20)"
+    shortDescription: "Possible use of untrusted environment variable"
+    cwe: "CWE-20"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.g_get_tmp_dir-1"
     secondary_identifiers:
     - name: "Flawfinder - g_get_tmp_dir"
@@ -314,6 +368,7 @@ rules:
   metadata:
     cwe: "CWE-20: Check buffer boundaries if used in a loop including recursive loops
       (CWE-120, CWE-20)"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.getchar-1.fgetc-1.getc-1.read-1._gettc-1"
     secondary_identifiers:
     - name: "Flawfinder - getchar"
@@ -342,11 +397,17 @@ rules:
   languages:
   - "c"
   message: |
-    Check environment variables carefully before using them.
+    This function's return value should be treated as untrusted input as it could be
+    modified by an attacker. Possible risks include:
+
+    - The value being too large and causing buffer overflows
+    - Files under the attacker's control being used maliciously
+    - Files outside of an attacker's control becoming accessible, depending on
+    access privileges.
   metadata:
-    cwe: "CWE-20: Environment variables are untrustable input if they can be set by
-      an attacker.  They can have any content and length, and the same variable can
-      be set more than once (CWE-807, CWE-20)"
+    shortDescription: "Possible use of untrusted environment variable"
+    cwe: "CWE-20"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.getenv-1.curl_getenv-1"
     secondary_identifiers:
     - name: "Flawfinder - getenv"
@@ -367,6 +428,7 @@ rules:
   metadata:
     cwe: "CWE-120: Some older implementations do not protect against internal buffer
       overflows (CWE-120, CWE-20)"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.getopt-1.getopt_long-1"
     secondary_identifiers:
     - name: "Flawfinder - getopt"
@@ -383,12 +445,17 @@ rules:
   languages:
   - "c"
   message: |
-    Use getpwuid() instead.
+    The getpw() function is dangerous as it may overflow the provided
+    buffer when reading from the `/etc/passwd` file.  While the passwd file
+    is not generally writeable, there are no protections offered by this function
+    to protect from reading past the bounds of the destination buffer. This function
+    is obsoleted by `getpwuid`.
+
+    For more information please see: https://linux.die.net/man/3/getpwuid
   metadata:
-    cwe: "CWE-120: This function is dangerous; it may overflow the provided buffer.
-      It extracts data from a 'protected' area, but most systems have many commands
-      to let users modify the protected area, and it's not always clear what their
-      limits are.  Best to avoid using this function altogether (CWE-676, CWE-120)"
+    shortDescription: "Use of deprecated function (getpwd)"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.getpw-1"
     secondary_identifiers:
     - name: "Flawfinder - getpw"
@@ -400,9 +467,20 @@ rules:
   languages:
   - "c"
   message: |
-    Use fgets() instead.
+    The gets() function reads a line from stdin into the provided buffer
+    until either a terminating newline or EOF. This terminating newline or
+    EOF is replaced with a null byte `'\0'`. No check for buffer overruns are
+    performed so it is recommended to use `fgets()` instead. Do note
+    that some platforms will continue reading data after a `'\0'` is encountered.
+
+    Usage of `fgets()` is not recommended for reading binary based files or inputs,
+    instead the `read` or `fread` functions should be used.
+
+    For more information please see: https://linux.die.net/man/3/fgets
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows (CWE-120, CWE-20)"
+    shortDescription: "Use of deprecated function (gets)"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.gets-1._getts-1"
     secondary_identifiers:
     - name: "Flawfinder - gets"
@@ -419,10 +497,15 @@ rules:
   languages:
   - "c"
   message: |
-    Use getcwd instead.
+    `getwd` does not contain a parameter to limit how many characters can be copied into the
+    destination buffer. For portability and security reasons `getwd` has been deprecated in
+    favor of `getcwd`.
+
+    For more information please see: https://linux.die.net/man/3/getcwd
   metadata:
-    cwe: "CWE-120: This does not protect against buffer overflows by itself, so use
-      with caution (CWE-120, CWE-20)"
+    shortDescription: "Insufficient protection against buffer overflow (getwd)"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.getwd-1"
     secondary_identifiers:
     - name: "Flawfinder - getwd"
@@ -434,10 +517,17 @@ rules:
   languages:
   - "c"
   message: |
-    Buffer overflows is not checked
+    The `strcat` family of functions are unable to limit how many bytes are copied
+    to the destination buffer. It is recommended to use more secure alternatives such as
+    `snprintf`.
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strcat-s-wcscat-s-mbscat-s?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure functions unable to limit / check buffer sizes"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.lstrcat-1.wcscat-1._tcscat-1._mbscat-1"
     secondary_identifiers:
     - name: "Flawfinder - lstrcat"
@@ -462,10 +552,16 @@ rules:
   languages:
   - "c"
   message: |
-    Consider strcat_s, strlcat, or automatically resizing strings.
+    Consider using more secure alternatives such as `snprintf`, instead of the
+    `wcsncat` family of functions.
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncat-strncat-l-wcsncat-wcsncat-l-mbsncat-mbsncat-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Easily used incorrectly (e.g., incorrectly computing the correct
-      maximum size to add) [MS-banned] (CWE-120)"
+    shortDescription: "Easily misused string processing functions"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.lstrcatn-1.wcsncat-1._tcsncat-1._mbsnbcat-1"
     secondary_identifiers:
     - name: "Flawfinder - lstrcatn"
@@ -490,10 +586,17 @@ rules:
   languages:
   - "c"
   message: |
-    Consider using a function version that stops copying at the end of the buffer.
+    The `lstrcpy` family of functions do not provide the ability to limit or check buffer
+    sizes before copying to a destination buffer. This can lead to buffer overflows. Consider
+    using more secure alternatives such as `strncpy_s`.
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when copying to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure functions unable to limit / check buffer sizes"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.lstrcpy-1.wcscpy-1._tcscpy-1._mbscpy-1"
     secondary_identifiers:
     - name: "Flawfinder - lstrcpy"
@@ -518,10 +621,19 @@ rules:
   languages:
   - "c"
   message: |
-    Easily used incorrectly
+    The `lstrcpyn` family of functions do not always check for invalid pointers or check if there
+    is sufficient space prior to copying. The count argument limits the number of characters copied
+    but does validate if the count will fit within the size of the destination buffer, leading to
+    potential overflows.
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Doesn't always \\0-terminate or check for invalid pointers [MS-banned]
-      (CWE-120)"
+    shortDescription: "Insecure functions do not always null terminate or check invalid
+      pointers"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.lstrcpyn-1.wcsncpy-1._tcsncpy-1._mbsnbcpy-1"
     secondary_identifiers:
     - name: "Flawfinder - lstrcpyn"
@@ -546,10 +658,17 @@ rules:
   languages:
   - "c"
   message: |
-    Make sure destination can always hold the source data.
+    The `memcpy` family of functions require the developer to validate that the destination buffer
+    is the same size or larger than the source buffer. Buffer overflows could be introduced if care
+    is not taken to validate buffer sizes.
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/memcpy-s-wmemcpy-s?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when copying to destination
-      (CWE-120)"
+    shortDescription: "Function does not check for buffer overflows when copying"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.memcpy-1.CopyMemory-1.bcopy-1"
     secondary_identifiers:
     - name: "Flawfinder - memcpy"
@@ -570,12 +689,31 @@ rules:
   languages:
   - "c"
   message: |
-    Ensure that the destination buffer is at least of size MAXPATHLEN, andto protect against
-    implementation problems, the input argument should also be checked to ensure it is no larger
-    than MAXPATHLEN.
+    The `realpath` function should not be called with a destination buffer as it could
+    lead to overflowing if the path is greater than PATH_LEN. It is instead recommended
+    to call `realpath` with the destination buffer set to NULL and use the return value
+    as the resolved path. Be sure to free the returned pointer as realpath will allocate
+    the buffer internally using `malloc`.
+
+    For more information see: https://linux.die.net/man/3/realpath
+
+    Example:
+
+    ```
+    char const *symlink_path = "/tmp/symlink";
+    char *resolved_path = NULL;
+
+    resolved_path = realpath(symlink_path, NULL);
+    if (errno == 0) {
+      // ... use resolved_path...
+      free(resolved_path);
+    }
+    ```
   metadata:
-    cwe: "CWE-120: This function does not protect against buffer overflows, and some
-      implementations can overflow internally (CWE-120/CWE-785!)"
+    shortDescription: "Function does not ensure destination buffer length is sufficient
+      before copying"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.realpath-1"
     secondary_identifiers:
     - name: "Flawfinder - realpath"
@@ -587,10 +725,24 @@ rules:
   languages:
   - "c"
   message: |
-    Specify a limit to %s, or use a different input function.
+    Format specifiers can take optional field widths, which should be
+    used to limit how many characters are copied into the target buffer.
+
+    For more information please see: https://linux.die.net/man/3/scanf
+
+    Example:
+    ```
+      char buf[11] = {0};
+      scanf("%10s", &buf); // buf = AAAAAAAAAA\0
+    ```
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/scanf-s-scanf-s-l-wscanf-s-wscanf-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: The scanf() family's %s operation, without a limit specification,
-      permits buffer overflows (CWE-120, CWE-20)"
+    shortDescription: "scanf() functions may allow format string based overflows"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.scanf-1.vscanf-1.wscanf-1._tscanf-1.vwscanf-1"
     secondary_identifiers:
     - name: "Flawfinder - scanf"
@@ -629,9 +781,19 @@ rules:
   languages:
   - "c"
   message: |
-    Use sprintf_s, snprintf, or vsnprintf.
+    Use sprintf_s, snprintf, or vsnprintf instead. The `sprintf` family of functions do not allow
+    callers to set limits on how many bytes the destination buffer can hold. Consider using more
+    secure alternatives such as `snprintf`.
+
+    For more information please see: https://linux.die.net/man/3/snprintf
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/sprintf-s-sprintf-s-l-swprintf-s-swprintf-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows (CWE-120)"
+    shortDescription: "Insecure function unable to limit / check buffer sizes"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.sprintf-1.vsprintf-1.swprintf-1.vswprintf-1._stprintf-1._vstprintf-1"
     secondary_identifiers:
     - name: "Flawfinder - sprintf"
@@ -664,10 +826,19 @@ rules:
   languages:
   - "c"
   message: |
-    Consider using strcat_s, strncat, strlcat, or snprintf (warning: strncat is easily misused).
+    The `strcat` family of functions are unable to limit how many bytes are copied
+    to the destination buffer. It is recommended to use more secure alternatives such as
+    `snprintf`.
+
+    For more information please see: https://linux.die.net/man/3/snprintf
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strcat-s-wcscat-s-mbscat-s?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when concatenating to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.strcat-1"
     secondary_identifiers:
     - name: "Flawfinder - strcat"
@@ -679,9 +850,16 @@ rules:
   languages:
   - "c"
   message: |
-    Ensure that destination buffer is sufficiently large.
+    The `strccpy` and `strcadd` functions do not allow the caller to check that the destination
+    size
+    of the buffer will fit the input buffer prior to copying.
+
+    For more information please see:
+    https://docs.oracle.com/cd/E18752_01/html/816-5172/streadd-3gen.html
   metadata:
-    cwe: "CWE-120: Subject to buffer overflow if buffer is not as big as claimed (CWE-120)"
+    shortDescription: "Insecure string processing functions"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.strccpy-1.strcadd-1"
     secondary_identifiers:
     - name: "Flawfinder - strccpy"
@@ -698,10 +876,20 @@ rules:
   languages:
   - "c"
   message: |
-    Consider using snprintf, strcpy_s, or strlcpy (warning: strncpy easily misused).
+    The `strcpy` family of functions do not provide the ability to limit or check buffer
+    sizes before copying to a destination buffer. This can lead to buffer overflows. Consider
+    using more secure alternatives such as `strncpy` and provide the correct limit to the
+    destination buffer and ensure the string is null terminated.
+
+    For more information please see: https://linux.die.net/man/3/strncpy
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when copying to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure string processing function (strcpy)"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.strcpy-1"
     secondary_identifiers:
     - name: "Flawfinder - strcpy"
@@ -713,10 +901,18 @@ rules:
   languages:
   - "c"
   message: |
-    Consider using snprintf, strcpy_s, or strlcpy (warning: strncpy easily misused).
+    The `StrCpy` family of functions do not guarantee the final string to be null terminated.
+    Consider
+    using one of the following alternatives `StringCbCopy`, `StringCbCopyEx`, `StringCbCopyN`,
+    `StringCbCopyNEx`, `StringCchCopy`, `StringCchCopyEx`, `StringCchCopyN`, or `StringCchCopyNEx`.
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Does not check for buffer overflows when copying to destination
-      [MS-banned] (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.strcpyA-1.strcpyW-1.StrCpy-1.StrCpyA-1.lstrcpyA-1.lstrcpyW-1._tccpy-1._mbccpy-1._ftcscpy-1._mbsncpy-1.StrCpyN-1.StrCpyNA-1.StrCpyNW-1.StrNCpy-1.strcpynA-1.StrNCpyA-1.StrNCpyW-1.lstrcpynA-1.lstrcpynW-1"
     secondary_identifiers:
     - name: "Flawfinder - strcpyA"
@@ -801,9 +997,16 @@ rules:
   languages:
   - "c"
   message: |
-    Ensure the destination has 4 times the size of the source, to leave room for expansion.
+    The `strecpy` and `streadd` functions require that the destination buffer size be at least
+    four
+    times the size of the source due to each character potentially becoming a `\` and 3 digits.
+
+    For more information please see:
+    https://docs.oracle.com/cd/E18752_01/html/816-5172/streadd-3gen.html
   metadata:
-    cwe: "CWE-120: This function does not protect against buffer overflows (CWE-120)"
+    shortDescription: "Insecure string processing functions"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.streadd-1.strecpy-1"
     secondary_identifiers:
     - name: "Flawfinder - streadd"
@@ -820,10 +1023,20 @@ rules:
   languages:
   - "c"
   message: |
-    Does not handle strings that are not \\0-terminated.
+    The `strlen` family of functions does not handle strings that are not null
+    terminated. This can lead to buffer over reads and cause the application to
+    crash by accessing unintended memory locations. It is recommended that `strnlen`
+    be used instead as a `maxlen` value can be provided.
+
+    For more information please see: https://linux.die.net/man/3/strnlen
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strnlen-strnlen-s?view=msvc-170
   metadata:
-    cwe: "CWE-126: Does not handle strings that are not \\0-terminated; if given one
-      it may perform an over-read (it could cause a crash if unprotected) (CWE-126)"
+    shortDescription: "Function does not handle null terminated strings properly"
+    cwe: "CWE-126"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.strlen-1.wcslen-1._tcslen-1._mbslen-1"
     secondary_identifiers:
     - name: "Flawfinder - strlen"
@@ -848,10 +1061,20 @@ rules:
   languages:
   - "c"
   message: |
-    Consider strcat_s, strlcat, snprintf, or automatically resizing strings.
+    The `strncat` family of functions are easy to use incorrectly when calculating destination
+    buffer
+    sizes. It is recommended to use more secure alternatives such as `snprintf`.
+
+    For more information please see: https://linux.die.net/man/3/snprintf
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncat-s-strncat-s-l-wcsncat-s-wcsncat-s-l-mbsncat-s-mbsncat-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Easily used incorrectly (e.g., incorrectly computing the correct
-      maximum size to add) [MS-banned] (CWE-120)"
+    shortDescription: "Function does not handle null terminated strings or invalid
+      pointers properly"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.strncat-1"
     secondary_identifiers:
     - name: "Flawfinder - strncat"
@@ -863,10 +1086,19 @@ rules:
   languages:
   - "c"
   message: |
-    Easily used incorrectly
+    The `strncpy` family of functions do not properly handle strings that are not null terminated.
+    It is recommended to use more secure alternatives such as `snprintf`.
+
+    For more information please see: https://linux.die.net/man/3/snprintf
+
+    If developing for C Runtime Library (CRT), more secure versions of these functions should be
+    used, see:
+    https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170
   metadata:
-    cwe: "CWE-120: Doesn't always \\0-terminate or check for invalid pointers [MS-banned]
-      (CWE-120)"
+    shortDescription: "Function does not handle null terminated strings or invalid
+      pointers properly"
+    cwe: "CWE-120"
+    owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "flawfinder.strncpy-1"
     secondary_identifiers:
     - name: "Flawfinder - strncpy"
@@ -878,9 +1110,15 @@ rules:
   languages:
   - "c"
   message: |
-    Ensure that destination is at least as long as the source.
+    This function is easy to misuse by not accounting for the space necessary when transforming
+    strings. Ensure that the destination buffer is large enough to fit the transformed output.
+
+    For more information please see:
+    https://docs.oracle.com/cd/E36784_01/html/E36877/strtrns-3gen.html
   metadata:
-    cwe: "CWE-120: This function does not protect against buffer overflows (CWE-120)"
+    shortDescription: "Insecure string processing function"
+    cwe: "CWE-120"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.strtrns-1"
     secondary_identifiers:
     - name: "Flawfinder - strtrns"
@@ -892,10 +1130,19 @@ rules:
   languages:
   - "c"
   message: |
-    Use a different patent-free encryption algorithm with a larger keysize, such as 3DES or AES.
+    The DES algorithm has not been recommended for over 15 years and was withdrawn from NIST (FIPS
+    46-3) in 2005.
+
+    Consider using libsodium's `crypto_secretbox_easy` authenticated encryption functions instead.
+
+    For more information please see:
+     https://libsodium.gitbook.io/doc/secret-key_cryptography/secretbox.
+
+    If you must be FIPS compliant, consider using OpenSSLs AES or 3DES ciphers.
   metadata:
-    cwe: "CWE-327: DES only supports a 56-bit keysize, which is too small given today's
-      computers (CWE-327)"
+    shortDescription: "Insecure encryption algorithm (DES)"
+    cwe: "CWE-327"
+    owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "flawfinder.EVP_des_ecb-1.EVP_des_cbc-1.EVP_des_cfb-1.EVP_des_ofb-1.EVP_desx_cbc-1"
     secondary_identifiers:
     - name: "Flawfinder - EVP_des_ecb"
@@ -924,9 +1171,18 @@ rules:
   languages:
   - "c"
   message: |
-    Use a different patent-free encryption algorithm with a larger keysize, such as 3DES or AES.
+    The RC4 algorithm is vulnerable to many attacks and should no longer be used for encrypting
+    data streams.
+
+    Consider using libsodium's `crypto_secretstream_xchacha20poly1305` stream cipher encryption
+    functions instead. For more information please see:
+    https://libsodium.gitbook.io/doc/secret-key_cryptography/secretstream
+
+    If you must be FIPS compliant, consider using OpenSSLs AES or 3DES ciphers.
   metadata:
-    cwe: "CWE-327: These keysizes are too small given today's computers (CWE-327)"
+    shortDescription: "Insecure stream cipher (RC4)"
+    cwe: "CWE-327"
+    owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "flawfinder.EVP_rc4_40-1.EVP_rc2_40_cbc-1.EVP_rc2_64_cbc-1"
     secondary_identifiers:
     - name: "Flawfinder - EVP_rc4_40"
@@ -947,12 +1203,15 @@ rules:
   languages:
   - "c"
   message: |
-    Use a different algorithm, such as SHA-256, with a larger, non-repeating salt.
+    The crypt functions are not recommended due to the significantly small
+    key space. Modern hardware can crack crypt produced passwords relatively quickly.
+
+    Consider using the Argon2id password hashing algorithm provided by libsodium.
+    For more information please see: https://libsodium.gitbook.io/doc/password_hashing.
   metadata:
-    cwe: "CWE-327: The crypt functions use a poor one-way hashing algorithm; since
-      they only accept passwords of 8 characters or fewer and only a two-byte salt,
-      they are excessively vulnerable to dictionary attacks given today's faster computing
-      equipment (CWE-327)"
+    shortDescription: "Insecure hashing algorithm"
+    cwe: "CWE-327"
+    owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "flawfinder.crypt-1.crypt_r-1"
     secondary_identifiers:
     - name: "Flawfinder - crypt"
@@ -969,10 +1228,22 @@ rules:
   languages:
   - "c"
   message: |
-    Use a constant for the format specification.
+    Format string vulnerabilities allow an attacker to read or in some cases,
+    potentially write data to
+    and from locations in the processes' memory. To prevent against format
+    string attacks, do not allow
+    users or un-validated input to provide the format specification.
+    Consider using a constant for the format specification, or only allow specific
+    characters to be provided to the format argument for the `fprintf` family of functions.
+
+    For more information please see: https://linux.die.net/man/3/fprintf
+
+    For more information on format string attacks please see OWASP's attack
+    guide: https://owasp.org/www-community/attacks/Format_string_attack
   metadata:
-    cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
-      exploited (CWE-134)"
+    shortDescription: "Potential format string vulnerability"
+    cwe: "CWE-134"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.fprintf-1.vfprintf-1._ftprintf-1._vftprintf-1.fwprintf-1.fvwprintf-1"
     secondary_identifiers:
     - name: "Flawfinder - fprintf"
@@ -1014,10 +1285,22 @@ rules:
   languages:
   - "c"
   message: |
-    Use a constant for the format specification.
+    Format string vulnerabilities allow an attacker to read or in some cases, potentially write
+    data to
+    and from locations in the processes' memory. To prevent against format string attacks, do not
+    allow
+    users or un-validated input to provide the format specification.
+    Consider using a constant for the format specification, or only allow specific
+    characters to be provided to the format argument for the `printf` family of functions.
+
+    For more information please see: https://linux.die.net/man/3/fprintf
+
+    For more information on format string attacks please see OWASP's attack guide:
+    https://owasp.org/www-community/attacks/Format_string_attack
   metadata:
-    cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
-      exploited (CWE-134)"
+    shortDescription: "Potential format string vulnerability"
+    cwe: "CWE-134"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.printf-1.vprintf-1.vwprintf-1.vfwprintf-1._vtprintf-1.wprintf-1"
     secondary_identifiers:
     - name: "Flawfinder - printf"
@@ -1062,10 +1345,24 @@ rules:
   languages:
   - "c"
   message: |
-    Use a constant for the format specification.
+    Format string vulnerabilities allow an attacker to read or in some cases, potentially write
+    data to
+    and from locations in the processes' memory. To prevent against format string attacks, do not
+    allow
+    users or un-validated input to provide the format specification.
+    Consider using a constant for the format specification, or strip all format
+    specifiers from the input prior to calling the `snprintf` family of functions.
+
+    Note that some variations of this function do not always null terminate the strings.
+
+    For more information on using snprintf please see: https://linux.die.net/man/3/snprintf
+
+    For more information on format string attacks please see OWASP's attack guide:
+    https://owasp.org/www-community/attacks/Format_string_attack
   metadata:
-    cwe: "CWE-134: If format strings can be influenced by an attacker, they can be
-      exploited, and note that sprintf variations do not always \\0-terminate (CWE-134)"
+    shortDescription: "Potential format string vulnerability"
+    cwe: "CWE-134"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.snprintf-1.vsnprintf-1._snprintf-1._sntprintf-1._vsntprintf-1"
     secondary_identifiers:
     - name: "Flawfinder - snprintf"
@@ -1104,10 +1401,19 @@ rules:
   languages:
   - "c"
   message: |
-    Use a constant format string for syslog.
+    Format string vulnerabilities allow an attacker to read or in some cases, potentially write
+    data to
+    and from locations in the processes' memory. To prevent against format string attacks, do not
+    allow
+    users or un-validated input to provide the format specification.
+    Consider using a constant for the format specification, or strip all format
+    specifiers from the input prior to calling the `syslog` function.
+
+    For more information please see: https://capec.mitre.org/data/definitions/67.html
   metadata:
-    cwe: "CWE-134: If syslog's format strings can be influenced by an attacker, they
-      can be exploited (CWE-134)"
+    shortDescription: "Potential format string vulnerability in syslog call"
+    cwe: "CWE-134"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.syslog-1"
     secondary_identifiers:
     - name: "Flawfinder - syslog"
@@ -1122,14 +1428,15 @@ rules:
   languages:
   - "c"
   message: |
-    Use posix_memalign instead (defined in POSIX's 1003.1d).  Don't switch to valloc(); it is
-    marked as obsolete in BSD 4.3, as legacy in SUSv2, and is no longer defined in SUSv3.  In some
-    cases, malloc()'s alignment may be sufficient.
+    The `memalign` function may not check that the alignment argument is correct. Calling
+    free (on non Linux-based systems) may fail and in certain circumstances this failure
+    may be exploitable. This function has been deprecated in favor of `posix_memalign`.
+
+    For more information please see: https://linux.die.net/man/3/memalign
   metadata:
-    cwe: "CWE-676: On some systems (though not Linux-based systems) an attempt to
-      free() results from memalign() may fail. This may, on a few systems, be exploitable.
-      \ Also note that memalign() may not check that the boundary parameter is correct
-      (CWE-676)"
+    shortDescription: "Use of deprecated function (memalign)"
+    cwe: "CWE-676"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.memalign-1"
     secondary_identifiers:
     - name: "Flawfinder - memalign"
@@ -1143,12 +1450,15 @@ rules:
   languages:
   - "c"
   message: |
-    If source untrusted, check both minimum and maximum, even if the input had no minus sign (large
-    numbers can roll over into negative number; consider saving to an unsigned value if that is
-    intended).
+    The `atoi` family of functions can potentially overflow or underflow integer values. Consider
+    using `stroul` instead.
+
+    For more information please see:
+    https://wiki.sei.cmu.edu/confluence/display/c/ERR34-C.+Detect+errors+when+converting+a+string+to+a+number
   metadata:
-    cwe: "CWE-190: Unless checked, the resulting number can exceed the expected range
-      (CWE-190)"
+    shortDescription: "Possible integer overflow or underflow"
+    cwe: "CWE-190"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.atoi-1.atol-1._wtoi-1._wtoi64-1"
     secondary_identifiers:
     - name: "Flawfinder - atoi"
@@ -1177,6 +1487,7 @@ rules:
   metadata:
     cwe: "CWE-732: This doesn't set the inheritance bits in the access control entry
       (ACE) header (CWE-732)"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.AddAccessAllowedAce-1"
     secondary_identifiers:
     - name: "Flawfinder - AddAccessAllowedAce"
@@ -1202,11 +1513,32 @@ rules:
   languages:
   - "c"
   message: |
-    Use LoadLibraryEx with one of the search flags, or call SetSearchPathMode to use a safe search
-    path, or pass a full path to the library.
+    The `LoadLibrary` function is used to load DLLs dynamically. Depending on the filepath
+    parameter,
+    the OS version, and the modes set for the process prior to calling LoadLibrary, DLL hijacking
+    may
+    be possible. Attackers can exploit this by placing DLL files with the same name in directories
+    that
+    are searched before the legitimate DLL is.
+
+    To assist in preventing against this class of vulnerability consider:
+    - Specifying a fully qualified path when using LoadLibraryEx.
+    - Use the `LOAD_LIBRARY_SEARCH` flags with LoadLibraryEx or with SetDefaultDllDirectories.
+    - If you use SetDefaultDllDirectories, be sure to use the AddDllDirectory or SetDllDirectory
+      functions to modify the list of directories.
+    - Only use `SearchPath` if the `SetSearchPathMode` function is called with
+      `BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE`. (Note: this only moves the current directory to
+      the end of the SearchPath search list.)
+
+    For more information see the security remarks section of the MSDN documentation:
+    https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya#security-remarks
+
+    For general information securely loading dynamic link libraries, see the MSDN documentation:
+    https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security
   metadata:
-    cwe: "CWE-20: Ensure that the full path to the library is specified, or current
-      directory may be used (CWE-829, CWE-20)"
+    shortDescription: "Potential for DLL hijacking (LoadLibrary)"
+    cwe: "CWE-20"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.LoadLibrary-1"
     secondary_identifiers:
     - name: "Flawfinder - LoadLibrary"
@@ -1218,11 +1550,32 @@ rules:
   languages:
   - "c"
   message: |
-    Use a flag like LOAD_LIBRARY_SEARCH_SYSTEM32 or LOAD_LIBRARY_SEARCH_APPLICATION_DIR to search
-    only desired folders.
+    The `LoadLibraryEx` function is used to load DLLs dynamically. Depending on the filepath
+    parameter,
+    the OS version, and the modes set for the process prior to calling LoadLibrary, DLL hijacking
+    may
+    be possible. Attackers can exploit this by placing DLL files with the same name in directories
+    that
+    are searched before the legitimate DLL is.
+
+    To assist in preventing against this class of vulnerability consider:
+    - Specifying a fully qualified path when using LoadLibraryEx.
+    - Use the `LOAD_LIBRARY_SEARCH` flags with LoadLibraryEx or with SetDefaultDllDirectories.
+    - If you use SetDefaultDllDirectories, be sure to use the AddDllDirectory or SetDllDirectory
+      functions to modify the list of directories.
+    - Only use `SearchPath` if the `SetSearchPathMode` function is called with
+      `BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE`. (Note: this only moves the current directory to
+      the end of the SearchPath search list.)
+
+    For more information see the security remarks section of the MSDN documentation:
+    https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya#security-remarks
+
+    For general information securely loading dynamic link libraries, see the MSDN documentation:
+    https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security
   metadata:
-    cwe: "CWE-20: Ensure that the full path to the library is specified, or current
-      directory may be used (CWE-829, CWE-20)"
+    shortDescription: "Potential for DLL hijacking (LoadLibraryEx)"
+    cwe: "CWE-20"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.LoadLibraryEx-1"
     secondary_identifiers:
     - name: "Flawfinder - LoadLibraryEx"
@@ -1234,11 +1587,20 @@ rules:
   languages:
   - "c"
   message: |
-    Never create NULL ACLs; an attacker can set it to Everyone (Deny
-    All Access)
+    When `SetSecurityDescriptorDacl` is called with a null `pDacl` parameter and the
+    `bDaclPresent` flag is `TRUE`, all access to the object is allowed. An attacker
+    could set the object to Deny all, which would include even the Administrator user(s).
+
+    Either call `SetSecurityDescriptorDacl` with bDaclPresent as `FALSE`, or supply a valid
+    non-null `pDacl` parameter value.
+
+    For more information please see:
+    https://learn.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-setsecuritydescriptordacl#remarks
   metadata:
-    cwe: "CWE-732: Never create NULL ACLs; an attacker can set it to Everyone (Deny
-      All Access), which would even forbid administrator access (CWE-732)"
+    shortDescription: "Null ACL when calling SetSecurityDescriptorDacl may allow all
+      access to objects"
+    cwe: "CWE-732"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.SetSecurityDescriptorDacl-1"
     secondary_identifiers:
     - name: "Flawfinder - SetSecurityDescriptorDacl"
@@ -1255,6 +1617,7 @@ rules:
   metadata:
     cwe: "CWE-22: chroot can be very helpful, but is hard to use correctly (CWE-250,
       CWE-22)"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.chroot-1"
     secondary_identifiers:
     - name: "Flawfinder - chroot"
@@ -1266,14 +1629,18 @@ rules:
   languages:
   - "c"
   message: |
-    Use getpwuid(geteuid()) and extract the desired information instead.
+    `cuserid()` is poorly defined (e.g., some systems use the effective
+    UID, like Linux, while others like System V use the real UID). Therefore, you can't trust
+    what it does. The cuserid function was included in the 1988 version of POSIX, but removed
+    from the 1990 version.  Also, if passed a non-null parameter, there's a risk of a buffer
+    overflow if the passed-in buffer is not at least `L_cuserid` characters long.
+
+    Use `getpwuid(geteuid())` and extract the desired information instead.
+
+    For more information please see: https://linux.die.net/man/3/getpwuid
   metadata:
-    cwe: "CWE-120: Exactly what cuserid() does is poorly defined (e.g., some systems
-      use the effective uid, like Linux, while others like System V use the real uid).
-      Thus, you can't trust what it does. It's certainly not portable (The cuserid
-      function was included in the 1988 version of POSIX, but removed from the 1990
-      version).  Also, if passed a non-null parameter, there's a risk of a buffer
-      overflow if the passed-in buffer is not at least L_cuserid characters long (CWE-120)"
+    shortDescription: "Usage of deprecated function (cuserid)"
+    cwe: "CWE-120"
     primary_identifier: "flawfinder.cuserid-1"
     secondary_identifiers:
     - name: "Flawfinder - cuserid"
@@ -1285,11 +1652,22 @@ rules:
   languages:
   - "c"
   message: |
-    Check when opening files - can an attacker redirect it (via symlinks).
+    Usage of the `open` family of functions may hint at a potential Time Of Check Time Of Use
+    (TOCTOU)
+    vulnerability. An attacker may be able to modify the file being specified by the `open`
+    function prior to the `open` function being called.
+
+    Prior to calling `open`, use `lstat` to open the file and confirm the attributes
+    are correct. Then use `open` to get a file descriptor to this file. Call `fstat` on the
+    `open` file descriptor to confirm that `st_dev` and `st_ino` are equal between the two.
+    If they are, it is safe to read and operate on the file's contents.
+
+    For more information please see:
+    https://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files
   metadata:
-    cwe: "CWE-362: Check when opening files - can an attacker redirect it (via symlinks),
-      force the opening of special file type (e.g., device files), move things around
-      to create a race condition, control its ancestors, or change its contents? (CWE-362)"
+    shortDescription: "Potential time of check time of use vulnerability (open/fopen)"
+    cwe: "CWE-362"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.fopen-1.open-1"
     secondary_identifiers:
     - name: "Flawfinder - fopen"
@@ -1306,13 +1684,17 @@ rules:
   languages:
   - "c"
   message: |
+    The `getlogin` function suffers from many bugs or unknown behaviors depending on the
+    system. Often, it gives only the first 8 characters of the login name. The user
+    currently logged in on the controlling TTY of our program does not necessarily mean
+    it is the user who started the process.
+
     Use getpwuid(geteuid()) and extract the desired information instead.
+
+    For more information please see: https://linux.die.net/man/3/getpwuid
   metadata:
-    cwe: "CWE-807: It's often easy to fool getlogin.  Sometimes it does not work at
-      all, because some program messed up the utmp file.  Often, it gives only the
-      first 8 characters of the login name. The user currently logged in on the controlling
-      tty of our program need not be the user who started it.  Avoid getlogin() for
-      security-related purposes (CWE-807)"
+    shortDescription: "Usage of deprecated function (getlogin)"
+    cwe: "CWE-807"
     primary_identifier: "flawfinder.getlogin-1"
     secondary_identifiers:
     - name: "Flawfinder - getlogin"
@@ -1324,15 +1706,21 @@ rules:
   languages:
   - "c"
   message: |
-    Make the specific calls to do exactly what you want.  If you continue to use it, or write your
-    own, be sure to zero the password as soon as possible to avoid leaving the cleartext password
-    visible in the process' address space.
+    This function is obsolete and not portable. It was in SUSv2 but removed by POSIX.2. What
+    it does exactly varies considerably between systems, particularly in where its prompt is
+    displayed and where it gets its data. Some systems will write to stderr instead of stdout.
+    Some will read from stdin if it can not be read from /dev/tty. In some systems the
+    buffer is static and limited to 127 characters, meaning the full password may not be returned
+    properly.
+
+    If you want to read input without terminal echoing enabled, see the description of the ECHO
+    flag
+    in the termios manual pager. If you ever read passwords from a terminal, be sure to zero the
+    password as soon as possible, to avoid leaving the cleartext password visible in the
+    process' address space.
   metadata:
-    cwe: "CWE-20: This function is obsolete and not portable. It was in SUSv2 but
-      removed by POSIX.2.  What it does exactly varies considerably between systems,
-      particularly in where its prompt is displayed and where it gets its data (e.g.,
-      /dev/tty, stdin, stderr, etc.). In addition, some implementations overflow buffers.
-      (CWE-676, CWE-120, CWE-20)"
+    shortDescription: "Usage of deprecated function (getpass)"
+    cwe: "CWE-20"
     primary_identifier: "flawfinder.getpass-1"
     secondary_identifiers:
     - name: "Flawfinder - getpass"
@@ -1344,12 +1732,13 @@ rules:
   languages:
   - "c"
   message: |
-    Switch to raise/signal, or some other signalling approach.
+    The `gsignal` and `ssignal` functions are obsolete and no longer recommended. Consider
+    using the `raise` or `sigaction` functions instead for process signalling.
+
+    For more information please see: https://linux.die.net/man/3/sigaction
   metadata:
-    cwe: "CWE-676: These functions are considered obsolete on most systems, and very
-      non-portable (Linux-based systems handle them radically different, basically
-      if gsignal/ssignal were the same as raise/signal respectively, while System
-      V considers them a separate set and obsolete) (CWE-676)"
+    shortDescription: "Deprecated function calls (ssignal/gsignal)"
+    cwe: "CWE-676"
     primary_identifier: "flawfinder.gsignal-1.ssignal-1"
     secondary_identifiers:
     - name: "Flawfinder - gsignal"
@@ -1366,10 +1755,13 @@ rules:
   languages:
   - "c"
   message: |
-    Use getrlimit(2), setrlimit(2), and sysconf(3) instead.
+    The ulimit function is obsolete and no longer recommended. Use `getrlimit(2)`,
+    `setrlimit`, or `sysconf` instead.
+
+    For more information please see: https://linux.die.net/man/3/setrlimit
   metadata:
-    cwe: "CWE-676: This C routine is considered obsolete (as opposed to the shell
-      command by the same name, which is NOT obsolete) (CWE-676)"
+    shortDescription: "Usage of deprecated function (ulimit)"
+    cwe: "CWE-676"
     primary_identifier: "flawfinder.ulimit-1"
     secondary_identifiers:
     - name: "Flawfinder - ulimit"
@@ -1381,12 +1773,12 @@ rules:
   languages:
   - "c"
   message: |
-    Use nanosleep(2) or setitimer(2) instead.
+    The `usleep` function has been deprecated, use `nanosleep` or `setitimer` instead.
+
+    For more information please see: https://linux.die.net/man/3/setitimer
   metadata:
-    cwe: "CWE-676: This C routine is considered obsolete (as opposed to the shell
-      command by the same name).   The interaction of this function with SIGALRM and
-      other timer functions such as sleep(), alarm(), setitimer(), and nanosleep()
-      is unspecified (CWE-676)"
+    shortDescription: "Usage of deprecated function (usleep)"
+    cwe: "CWE-676"
     primary_identifier: "flawfinder.usleep-1"
     secondary_identifiers:
     - name: "Flawfinder - usleep"
@@ -1398,11 +1790,25 @@ rules:
   languages:
   - "c"
   message: |
-    Set up the correct permissions (e.g., using setuid()) and try to open the file directly.
+    Usage of the `access` function call hints at a potential Time Of Check Time Of Use (TOCTOU)
+    vulnerability. Using the `access` function to check if a file exists and is readable before
+    opening it, an attacker can create a race condition between the `access` call and
+    opening the file. The attacker could replace the file with a different one or modify its
+    content between the time the `access` function is called and the file is opened, thus
+    bypassing the permission check.
+
+    Call `setuid` to drop privileges on the process prior to opening any files. Instead of using
+    `access`, use `lstat` prior to opening the file and confirm the attributes are correct. Then
+    use `open` to get a file descriptor to this file. Call `fstat` on the `open` file descriptor
+    to confirm that `st_dev` and `st_ino` are equal between the two. If they are, it is safe to
+    read and operate on the file's contents.
+
+    For more information please see:
+    https://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files
   metadata:
-    cwe: "CWE-362: This usually indicates a security flaw.  If an attacker can change
-      anything along the path between the call to access() and the file's actual use
-      (e.g., by moving files), the attacker can exploit the race condition (CWE-362/CWE-367!)"
+    shortDescription: "Potential time of check time of use vulnerability (access)"
+    cwe: "CWE-362"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.access-1"
     secondary_identifiers:
     - name: "Flawfinder - access"
@@ -1418,6 +1824,7 @@ rules:
   metadata:
     cwe: "CWE-362: This accepts filename arguments; if an attacker can move those
       files, a race condition results. (CWE-362)"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.chgrp-1"
     secondary_identifiers:
     - name: "Flawfinder - chgrp"
@@ -1429,10 +1836,21 @@ rules:
   languages:
   - "c"
   message: |
-    Use fchmod( ) instead.
+    Usage of the `chmod` function call hints at a potential Time Of Check Time Of Use (TOCTOU)
+    vulnerability. An attacker may be able to modify the file being specified by the `chmod`
+    function prior to the `chmod` function being called. Since `chmod` will resolve symbolic links,
+    an attacker may be able to exploit this fact to have files outside of their control modified.
+
+    It is recommended that the `fchmod` function be used instead since this function takes
+    a file descriptor instead of a file. Ensure the opened file descriptor is pointing to
+    the correct file or directory prior to executing `fchmod` or any other file based operations.
+
+    For more information please see:
+    https://wiki.sei.cmu.edu/confluence/display/c/FIO01-C.+Be+careful+using+functions+that+use+file+names+for+identification
   metadata:
-    cwe: "CWE-362: This accepts filename arguments; if an attacker can move those
-      files, a race condition results. (CWE-362)"
+    shortDescription: "Potential time of check time of use vulnerability (chmod)"
+    cwe: "CWE-362"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.chmod-1"
     secondary_identifiers:
     - name: "Flawfinder - chmod"
@@ -1444,10 +1862,22 @@ rules:
   languages:
   - "c"
   message: |
-    Use fchown( ) instead.
+    Usage of the `chown` function call hints at a potential Time Of Check Time Of Use (TOCTOU)
+    vulnerability. An attacker may be able to modify the file being specified by the `chmod`
+    function prior to the `chown` function being called. Since `chown` will resolve symbolic links,
+    an attacker may be able to exploit this fact to have files outside of their control modified.
+
+    It is recommended that the `fchown` or the `lchown` functions be used instead. The `fchown`
+    function takes a file descriptor instead of a file. The `lchown` function does not follow
+    symbolic links. Ensure the opened file descriptor is pointing to the correct file or
+    directory prior to executing `fchown` or any other file based operations.
+
+    For more information please see:
+    https://wiki.sei.cmu.edu/confluence/display/c/FIO01-C.+Be+careful+using+functions+that+use+file+names+for+identification
   metadata:
-    cwe: "CWE-362: This accepts filename arguments; if an attacker can move those
-      files, a race condition results. (CWE-362)"
+    shortDescription: "Potential time of check time of use vulnerability (chown)"
+    cwe: "CWE-362"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.chown-1"
     secondary_identifiers:
     - name: "Flawfinder - chown"
@@ -1459,11 +1889,22 @@ rules:
   languages:
   - "c"
   message: |
-    Reconsider approach.
+    Usage of the `readlink` function call hints at a potential Time Of Check Time Of Use (TOCTOU)
+    vulnerability. An attacker may be able to modify the file being specified by the `readlink`
+    function prior to the `readlink` function being called. Additionally, care must be taken
+    that the buffer provided is large enough to hold the contents of the file.
+
+    Instead of using `readlink`, use `lstat` prior to opening the file and confirm the attributes
+    are correct. Then use `open` to get a file descriptor to this file. Call `fstat` on the
+    `open` file descriptor to confirm that `st_dev` and `st_ino` are equal between the two.
+    If they are, it is safe to read and operate on the file's contents.
+
+    For more information please see:
+    https://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files
   metadata:
-    cwe: "CWE-20: This accepts filename arguments; if an attacker can move those files
-      or change the link content, a race condition results.  Also, it does not terminate
-      with ASCII NUL. (CWE-362, CWE-20)"
+    shortDescription: "Potential time of check time of use vulnerability (readlink)"
+    cwe: "CWE-20"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.readlink-1"
     secondary_identifiers:
     - name: "Flawfinder - readlink"
@@ -1475,10 +1916,20 @@ rules:
   languages:
   - "c"
   message: |
-    Use fork() instead.
+    The `vfork` function is suffers from portability issues and is not recommended. In
+    some Linux systems `vfork` is vulnerable to a race condition while the child process
+    is running as the user's UID but hasn't executed `execve`. The user may be able to send
+    signals to this process, which in `vfork` would not be sent to the parent process. As
+    a result a user may be able to cause a denial of service against the privileged process.
+
+    Use `fork` instead and be aware of other potential Time Of Check Time Of Use (TOCTOU)
+    vulnerabilities.
+
+    For more information please see:
+    https://wiki.sei.cmu.edu/confluence/display/c/POS38-C.+Beware+of+race+conditions+when+using+fork+and+file+descriptors
   metadata:
-    cwe: "CWE-362: On some old systems, vfork() permits race conditions, and it's
-      very difficult to use correctly (CWE-362)"
+    shortDescription: "Potential time of check time of use vulnerability (vfork)"
+    cwe: "CWE-362"
     primary_identifier: "flawfinder.vfork-1"
     secondary_identifiers:
     - name: "Flawfinder - vfork"
@@ -1490,10 +1941,20 @@ rules:
   languages:
   - "c"
   message: |
-    Use a more secure technique for acquiring random values.
+    The detected function is not sufficient at generating security-related random numbers,
+    such as those used in key and nonce creation. Consider using the libsodium library's
+    `randombytes_random` function instead. More information on libsodium's random number
+    generators can be found here: https://libsodium.gitbook.io/doc/generating_random_data.
+
+    If FIPS validation is required, consider using OpenSSLs `RAND_bytes` family of functions after
+    enabling the `FIPS_mode_set`.
+
+    For more information on OpenSSL random numbers please see:
+    https://wiki.openssl.org/index.php/Random_Numbers
   metadata:
-    cwe: "CWE-327: This function is not sufficiently random for security-related functions
-      such as key and nonce creation (CWE-327)"
+    shortDescription: "Usage of insufficient random number generators"
+    cwe: "CWE-327"
+    owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "flawfinder.drand48-1.erand48-1.jrand48-1.lcong48-1.lrand48-1.mrand48-1.nrand48-1.random-1.seed48-1.setstate-1.srand-1.strfry-1.srandom-1.g_rand_boolean-1.g_rand_int-1.g_rand_int_range-1.g_rand_double-1.g_rand_double_range-1.g_random_boolean-1.g_random_int-1.g_random_int_range-1.g_random_double-1.g_random_double_range-1"
     secondary_identifiers:
     - name: "Flawfinder - drand48"
@@ -1595,11 +2056,20 @@ rules:
   languages:
   - "c"
   message: |
-    Specify the application path in the first argument, NOT as part of the second, or embedded
-    spaces could allow an attacker to force a different program to run.
+    Due to how `CreateProcess` parses spaces, an attacker may be able to exploit this function
+    by creating a binary with the same name that is loaded first, depending on the search path
+    order.
+
+    Ensure that quotation marks around the executable path are used, such as:
+    ```
+    CreateProcessA(NULL, "\"C:\\Program Files\\MyApp.exe\"", ...)
+    ```
+    For more information, please see MSDNs documentation at:
+    https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa#security-remarks
   metadata:
-    cwe: "CWE-78: This causes a new process to execute and is difficult to use safely
-      (CWE-78)"
+    shortDescription: "Possible executable path hijacking (CreateProcess)"
+    cwe: "CWE-78"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.CreateProcess-1"
     secondary_identifiers:
     - name: "Flawfinder - CreateProcess"
@@ -1611,10 +2081,20 @@ rules:
   languages:
   - "c"
   message: |
-    Especially watch out for embedded spaces.
+    Due to how `CreateProcess` parses spaces, an attacker may be able to exploit this function
+    by creating a binary with the same name that is loaded first, depending on the search path
+    order.
+
+    Ensure that quotation marks around the executable path are used, such as:
+    ```
+    CreateProcessAsUser(hToken, NULL, "\"C:\\Program Files\\MyApp.exe\"", ...)
+    ```
+    For more information, please see MSDNs documentation at:
+    https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessasusera#security-remarks
   metadata:
-    cwe: "CWE-78: This causes a new process to execute and is difficult to use safely
-      (CWE-78)"
+    shortDescription: "Possible executable path hijacking (CreateProcessAsUser/CreateProcessWithLogon)"
+    cwe: "CWE-78"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.CreateProcessAsUser-1.CreateProcessWithLogon-1"
     secondary_identifiers:
     - name: "Flawfinder - CreateProcessAsUser"
@@ -1631,10 +2111,20 @@ rules:
   languages:
   - "c"
   message: |
-    try using a library call that implements the same functionality if available.
+    It is generally not recommended to call out to the operating system to execute commands.
+    When the application is executing file system based commands, user input should never be used
+    in
+    constructing commands or command arguments. If possible, determine if a library can be used
+    instead to provide the same functionality. Otherwise, consider hard coding both the command
+    and arguments to be used, or at the very least restricting which arguments can be passed
+    to the command execution function.
+
+    Please see the compliant solutions in the following page:
+    https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152177
   metadata:
-    cwe: "CWE-78: This causes a new program to execute and is difficult to use safely
-      (CWE-78)"
+    shortDescription: "Potential for OS command injection"
+    cwe: "CWE-78"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.execl-1.execlp-1.execle-1.execv-1.execvp-1.popen-1.WinExec-1.ShellExecute-1"
     secondary_identifiers:
     - name: "Flawfinder - execl"
@@ -1675,10 +2165,20 @@ rules:
   languages:
   - "c"
   message: |
-    try using a library call that implements the same functionality if available.
+    It is generally not recommended to call out to the operating system to execute commands.
+    When the application is executing file system based commands, user input should never be used
+    in
+    constructing commands or command arguments. If possible, determine if a library can be used
+    instead to provide the same functionality. Otherwise, consider hard coding both the command
+    and arguments to be used, or at the very least restricting which arguments can be passed
+    to the command execution function.
+
+    For more information please see:
+    https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152177
   metadata:
-    cwe: "CWE-78: This causes a new program to execute and is difficult to use safely
-      (CWE-78)"
+    shortDescription: "Potential for OS command injection"
+    cwe: "CWE-78"
+    owasp: "A1:2017-Injection"
     primary_identifier: "flawfinder.system-1"
     secondary_identifiers:
     - name: "Flawfinder - system"
@@ -1690,10 +2190,18 @@ rules:
   languages:
   - "c"
   message: |
-    Temporary file race condition in certain cases.
+    The `GetTempFileName` function works by generating a randomly named file, creating the file
+    (if it does not exist) and then closing it. An application wishing to use this temporary file
+    will need to reopen this file to begin working with it. This leads to a potential
+    Time Of Check Time Of Use (TOCTOU) vulnerability, as an attacker could replace or modify
+    the contents of the file prior to it being used by the application.
+
+    Consider generating a random filename and opening the file directly in a single `CreateFile`
+    or `OpenFile` call.
   metadata:
-    cwe: "CWE-377: Temporary file race condition in certain cases (e.g., if run as
-      SYSTEM in many versions of Windows) (CWE-377)"
+    shortDescription: "Potential time of check time of use vulnerability (GetTempFileName)"
+    cwe: "CWE-377"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.GetTempFileName-1"
     secondary_identifiers:
     - name: "Flawfinder - GetTempFileName"
@@ -1705,12 +2213,18 @@ rules:
   languages:
   - "c"
   message: |
-    Some older Unix-like systems create temp files with permission to write by
-    all by default, so be sure to set the umask to override this. Also, some older
-    Unix systems might fail to use O_EXCL when opening the file, so make sure that
-    O_EXCL is used by the library.
+    Some older Unix-like systems, `mkstemp` would create temp files with 0666 permissions,
+    meaning the file created would be read/write access for all users.
+
+    Ensure the process has called the `umask` function with restricted permissions prior
+    to calling `mkstemp` and validate the permissions prior to using the file descriptor.
+
+    For more information on temporary files please see:
+    https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152425
   metadata:
-    cwe: "CWE-377: Potential for temporary file vulnerability in some circumstances."
+    shortDescription: "Potential file permissions issue (mkstemp)"
+    cwe: "CWE-377"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.mkstemp-1"
     secondary_identifiers:
     - name: "Flawfinder - mkstemp"
@@ -1722,10 +2236,21 @@ rules:
   languages:
   - "c"
   message: |
-    Creating and using insecure temporary files can leave application and system data vulnerable to
-    attack (CWE-377).
+    The `mktemp` function should no longer be used due to multiple flaws. Some implementations
+    created random files by using known information like the process ID and a single letter. This
+    allows for possible race conditions where an attacker could guess or manipulate these files
+    prior to them being used.
+
+    Consider using the `mkstemp` function instead, but be aware it also contains possible
+    risks. Ensure the process has called the `umask` function with restricted permissions prior
+    to calling `mkstemp` and validate the permissions prior to using the file descriptor.
+
+    For more information on temporary files please see:
+    https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152425
   metadata:
-    cwe: "CWE-377: Temporary file race condition (CWE-377)"
+    shortDescription: "Use of deprecated function (mktemp)"
+    cwe: "CWE-377"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.mktemp-1"
     secondary_identifiers:
     - name: "Flawfinder - mktemp"
@@ -1737,11 +2262,20 @@ rules:
   languages:
   - "c"
   message: |
-    Creating and using insecure temporary files can leave application and system data vulnerable to
-    attack
+    There exists a possible race condition in between the time that `tmpfile` returns
+    a pathname, and the time that the program opens it, another program might create
+    that pathname using `open`, or create it as a symbolic link.
+
+    Consider using the `mkstemp` function instead, but be aware it also contains possible
+    risks. Ensure the process has called the `umask` function with restricted permissions prior
+    to calling `mkstemp` and validate the permissions prior to using the file descriptor.
+
+    For more information on temporary files please see:
+    https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152425
   metadata:
-    cwe: "CWE-377: Function tmpfile() has a security flaw on some systems (e.g., older
-      System V systems) (CWE-377)"
+    shortDescription: "Potential time of check time of use vulnerability (tmpfile)"
+    cwe: "CWE-377"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.tmpfile-1"
     secondary_identifiers:
     - name: "Flawfinder - tmpfile"
@@ -1753,10 +2287,20 @@ rules:
   languages:
   - "c"
   message: |
-    Creating and using insecure temporary files can leave application and system data vulnerable to
-    attack.
+    There exists a possible race condition in between the time that `tempnam` or `tmpnam`
+    returns a pathname, and the time that the program opens it, another program might create
+    that pathname using `open`, or create it as a symbolic link.
+
+    Consider using the `mkstemp` function instead, but be aware it also contains possible
+    risks. Ensure the process has called the `umask` function with restricted permissions prior
+    to calling `mkstemp` and validate the permissions prior to using the file descriptor.
+
+    For more information on temporary files please see:
+    https://wiki.sei.cmu.edu/confluence/pages/viewpage.action?pageId=87152425
   metadata:
-    cwe: "CWE-377: Temporary file race condition (CWE-377)"
+    shortDescription: "Potential time of check time of use vulnerability (tmpnam/tempnam)"
+    cwe: "CWE-377"
+    owasp: "A5:2017-Broken Access Control"
     primary_identifier: "flawfinder.tmpnam-1.tempnam-1"
     secondary_identifiers:
     - name: "Flawfinder - tmpnam"
