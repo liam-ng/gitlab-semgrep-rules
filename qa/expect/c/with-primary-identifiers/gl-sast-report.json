@@ -29,6 +29,11 @@
           "url": "https://cwe.mitre.org/data/definitions/120.html"
         },
         {
+          "type": "owasp",
+          "name": "A1:2017 - Injection",
+          "value": "A1:2017"
+        },
+        {
           "type": "flawfinder_func_name",
           "name": "Flawfinder - char",
           "value": "char"
@@ -48,8 +53,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362)",
-      "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
+      "message": "Potential time of check time of use vulnerability (open/fopen)",
+      "description": "Usage of the `open` family of functions may hint at a potential Time Of Check Time Of Use\n(TOCTOU)\nvulnerability. An attacker may be able to modify the file being specified by the `open`\nfunction prior to the `open` function being called.\n\nPrior to calling `open`, use `lstat` to open the file and confirm the attributes\nare correct. Then use `open` to get a file descriptor to this file. Call `fstat",
       "cve": "semgrep_id:flawfinder.fopen-1.open-1:8:8",
       "severity": "Info",
       "scanner": {
@@ -71,6 +76,11 @@
           "name": "CWE-362",
           "value": "362",
           "url": "https://cwe.mitre.org/data/definitions/362.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A5:2017 - Broken Access Control",
+          "value": "A5:2017"
         },
         {
           "type": "flawfinder_func_name",
@@ -110,7 +120,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.1.1"
+      "version": "4.1.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -1119,13 +1129,13 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.AddAccessAllowedAce-1",
-        "value": "flawfinder.AddAccessAllowedAce-1"
+        "name": "flawfinder.AddAccessAllowedAce",
+        "value": "flawfinder.AddAccessAllowedAce"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.CreateProcess-1",
-        "value": "flawfinder.CreateProcess-1"
+        "name": "flawfinder.CreateProcess",
+        "value": "flawfinder.CreateProcess"
       },
       {
         "type": "semgrep_id",
@@ -1144,28 +1154,28 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.GetTempFileName-1",
-        "value": "flawfinder.GetTempFileName-1"
+        "name": "flawfinder.GetTempFileName",
+        "value": "flawfinder.GetTempFileName"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.InitializeCriticalSection-1",
-        "value": "flawfinder.InitializeCriticalSection-1"
+        "name": "flawfinder.InitializeCriticalSection",
+        "value": "flawfinder.InitializeCriticalSection"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.LoadLibrary-1",
-        "value": "flawfinder.LoadLibrary-1"
+        "name": "flawfinder.LoadLibrary",
+        "value": "flawfinder.LoadLibrary"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.LoadLibraryEx-1",
-        "value": "flawfinder.LoadLibraryEx-1"
+        "name": "flawfinder.LoadLibraryEx",
+        "value": "flawfinder.LoadLibraryEx"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.MultiByteToWideChar-1",
-        "value": "flawfinder.MultiByteToWideChar-1"
+        "name": "flawfinder.MultiByteToWideChar",
+        "value": "flawfinder.MultiByteToWideChar"
       },
       {
         "type": "semgrep_id",
@@ -1174,8 +1184,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.SetSecurityDescriptorDacl-1",
-        "value": "flawfinder.SetSecurityDescriptorDacl-1"
+        "name": "flawfinder.SetSecurityDescriptorDacl",
+        "value": "flawfinder.SetSecurityDescriptorDacl"
       },
       {
         "type": "semgrep_id",
@@ -1184,8 +1194,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.access-1",
-        "value": "flawfinder.access-1"
+        "name": "flawfinder.access",
+        "value": "flawfinder.access"
       },
       {
         "type": "semgrep_id",
@@ -1199,23 +1209,23 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.chgrp-1",
-        "value": "flawfinder.chgrp-1"
+        "name": "flawfinder.chgrp",
+        "value": "flawfinder.chgrp"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.chmod-1",
-        "value": "flawfinder.chmod-1"
+        "name": "flawfinder.chmod",
+        "value": "flawfinder.chmod"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.chown-1",
-        "value": "flawfinder.chown-1"
+        "name": "flawfinder.chown",
+        "value": "flawfinder.chown"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.chroot-1",
-        "value": "flawfinder.chroot-1"
+        "name": "flawfinder.chroot",
+        "value": "flawfinder.chroot"
       },
       {
         "type": "semgrep_id",
@@ -1224,8 +1234,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.cuserid-1",
-        "value": "flawfinder.cuserid-1"
+        "name": "flawfinder.cuserid",
+        "value": "flawfinder.cuserid"
       },
       {
         "type": "semgrep_id",
@@ -1259,13 +1269,13 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.g_get_home_dir-1",
-        "value": "flawfinder.g_get_home_dir-1"
+        "name": "flawfinder.g_get_home_dir",
+        "value": "flawfinder.g_get_home_dir"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.g_get_tmp_dir-1",
-        "value": "flawfinder.g_get_tmp_dir-1"
+        "name": "flawfinder.g_get_tmp_dir",
+        "value": "flawfinder.g_get_tmp_dir"
       },
       {
         "type": "semgrep_id",
@@ -1279,8 +1289,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getlogin-1",
-        "value": "flawfinder.getlogin-1"
+        "name": "flawfinder.getlogin",
+        "value": "flawfinder.getlogin"
       },
       {
         "type": "semgrep_id",
@@ -1289,13 +1299,13 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getpass-1",
-        "value": "flawfinder.getpass-1"
+        "name": "flawfinder.getpass",
+        "value": "flawfinder.getpass"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getpw-1",
-        "value": "flawfinder.getpw-1"
+        "name": "flawfinder.getpw",
+        "value": "flawfinder.getpw"
       },
       {
         "type": "semgrep_id",
@@ -1304,8 +1314,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getwd-1",
-        "value": "flawfinder.getwd-1"
+        "name": "flawfinder.getwd",
+        "value": "flawfinder.getwd"
       },
       {
         "type": "semgrep_id",
@@ -1334,8 +1344,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.memalign-1",
-        "value": "flawfinder.memalign-1"
+        "name": "flawfinder.memalign",
+        "value": "flawfinder.memalign"
       },
       {
         "type": "semgrep_id",
@@ -1344,13 +1354,13 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.mkstemp-1",
-        "value": "flawfinder.mkstemp-1"
+        "name": "flawfinder.mkstemp",
+        "value": "flawfinder.mkstemp"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.mktemp-1",
-        "value": "flawfinder.mktemp-1"
+        "name": "flawfinder.mktemp",
+        "value": "flawfinder.mktemp"
       },
       {
         "type": "semgrep_id",
@@ -1359,13 +1369,13 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.readlink-1",
-        "value": "flawfinder.readlink-1"
+        "name": "flawfinder.readlink",
+        "value": "flawfinder.readlink"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.realpath-1",
-        "value": "flawfinder.realpath-1"
+        "name": "flawfinder.realpath",
+        "value": "flawfinder.realpath"
       },
       {
         "type": "semgrep_id",
@@ -1384,8 +1394,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strcat-1",
-        "value": "flawfinder.strcat-1"
+        "name": "flawfinder.strcat",
+        "value": "flawfinder.strcat"
       },
       {
         "type": "semgrep_id",
@@ -1394,8 +1404,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strcpy-1",
-        "value": "flawfinder.strcpy-1"
+        "name": "flawfinder.strcpy",
+        "value": "flawfinder.strcpy"
       },
       {
         "type": "semgrep_id",
@@ -1414,33 +1424,33 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strncat-1",
-        "value": "flawfinder.strncat-1"
+        "name": "flawfinder.strncat",
+        "value": "flawfinder.strncat"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strncpy-1",
-        "value": "flawfinder.strncpy-1"
+        "name": "flawfinder.strncpy",
+        "value": "flawfinder.strncpy"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strtrns-1",
-        "value": "flawfinder.strtrns-1"
+        "name": "flawfinder.strtrns",
+        "value": "flawfinder.strtrns"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.syslog-1",
-        "value": "flawfinder.syslog-1"
+        "name": "flawfinder.syslog",
+        "value": "flawfinder.syslog"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.system-1",
-        "value": "flawfinder.system-1"
+        "name": "flawfinder.system",
+        "value": "flawfinder.system"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.tmpfile-1",
-        "value": "flawfinder.tmpfile-1"
+        "name": "flawfinder.tmpfile",
+        "value": "flawfinder.tmpfile"
       },
       {
         "type": "semgrep_id",
@@ -1449,23 +1459,23 @@
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.ulimit-1",
-        "value": "flawfinder.ulimit-1"
+        "name": "flawfinder.ulimit",
+        "value": "flawfinder.ulimit"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.umask-1",
-        "value": "flawfinder.umask-1"
+        "name": "flawfinder.umask",
+        "value": "flawfinder.umask"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.usleep-1",
-        "value": "flawfinder.usleep-1"
+        "name": "flawfinder.usleep",
+        "value": "flawfinder.usleep"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.vfork-1",
-        "value": "flawfinder.vfork-1"
+        "name": "flawfinder.vfork",
+        "value": "flawfinder.vfork"
       },
       {
         "type": "semgrep_id",
