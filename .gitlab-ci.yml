@@ -49,3 +49,7 @@ integration-test-fips:
     SAST_EXCLUDED_ANALYZERS: "bandit,eslint"
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
 
+release-notes:
+  stage: release-version
+  script:
+    - echo "HERE"
