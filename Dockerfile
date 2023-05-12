@@ -29,7 +29,7 @@ ENV SCANNER_VERSION ${SCANNER_VERSION}
 ENV SEMGREP_R2C_INTERNAL_EXPLICIT_SEMGREPIGNORE "/semgrepignore"
 ENV PIP_NO_CACHE_DIR=off
 ENV VET_CONFIGURATION_FILE="/verify/semgrep.toml"
-ENV SAST_RULES_VERSION=1.3.6
+ENV SAST_RULES_VERSION=1.3.10
 
 # Run VET FP reduction only on Go files
 ENV VET_LANG_EXT=".go"
@@ -55,8 +55,19 @@ RUN mkdir /.cache && \
     pip install semgrep==$SCANNER_VERSION && \
     apk del .build-only-deps
 
-RUN git clone --depth 1 --branch "v${SAST_RULES_VERSION}" https://gitlab.com/gitlab-org/security-products/sast-rules.git /sast-rules
-RUN cp /sast-rules/dist/eslint.yml /rules/eslint.yml
+RUN git clone \
+    --depth 1 \
+    --branch "v${SAST_RULES_VERSION}" \
+    --no-checkout \
+    https://gitlab.com/gitlab-org/security-products/sast-rules.git \
+    /sast-rules
+
+RUN cd sast-rules && \
+    # pull only `dist` folder when checking out
+    git sparse-checkout set dist && \
+    git checkout "v${SAST_RULES_VERSION}" && \
+    cp dist/eslint.yml /rules && \
+    cp dist/find_sec_bugs_scala.yml /rules
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
 COPY --from=scripts /start.sh /analyzer

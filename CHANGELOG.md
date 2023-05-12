@@ -1,5 +1,13 @@
 Semgrep analyzer changelog
 
+## v4.2.0
+- Add support for `.scala` and `.sc` file extensions (!254)
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.10) version `1.3.10` (!254)
+  - Enhance usecase coverage for Scala rules [sast-rules!142](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/142)
+  - Remove redundant mapping of find_sec_bugs in Scala mapping [sast-rules!142](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/142)
+  - Introduce native_analyzer property in the mappings file and use it for primary ID prefix [sast-rules!142](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/142)
+- Import Scala rules from [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) (!254)
+
 ## v4.1.2
 - Update `eslint.yml` rules to [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) version `1.3.6`
   - Update `metadata.owasp` to adhere to the pattern `A{number}:{year}-{Title}` [sast-rules!136](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/136)

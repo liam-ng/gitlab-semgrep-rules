@@ -68,7 +68,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.1.1"
+      "version": "4.2.0"
     },
     "scanner": {
       "id": "semgrep",
@@ -667,6 +667,11 @@
       },
       {
         "type": "semgrep_id",
+        "name": "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1",
+        "value": "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
         "name": "find_sec_bugs.COOKIE_PERSISTENT-1",
         "value": "find_sec_bugs.COOKIE_PERSISTENT-1"
       },
@@ -872,6 +877,16 @@
       },
       {
         "type": "semgrep_id",
+        "name": "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1",
+        "value": "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PATH_TRAVERSAL_OUT-1",
+        "value": "find_sec_bugs.PATH_TRAVERSAL_OUT-1"
+      },
+      {
+        "type": "semgrep_id",
         "name": "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1",
         "value": "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1"
       },
@@ -889,6 +904,11 @@
         "type": "semgrep_id",
         "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
         "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1",
+        "value": "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1"
       },
       {
         "type": "semgrep_id",
@@ -927,6 +947,21 @@
       },
       {
         "type": "semgrep_id",
+        "name": "find_sec_bugs.SCALA_PLAY_SSRF-1",
+        "value": "find_sec_bugs.SCALA_PLAY_SSRF-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE-1",
+        "value": "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCALA_XSS_MVC_API-1",
+        "value": "find_sec_bugs.SCALA_XSS_MVC_API-1"
+      },
+      {
+        "type": "semgrep_id",
         "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1",
         "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1"
       },
@@ -949,6 +984,11 @@
         "type": "semgrep_id",
         "name": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1",
         "value": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1",
+        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1"
       },
       {
         "type": "semgrep_id",
@@ -1052,6 +1092,11 @@
       },
       {
         "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_DOCUMENT-1",
+        "value": "find_sec_bugs.XXE_DOCUMENT-1"
+      },
+      {
+        "type": "semgrep_id",
         "name": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1",
         "value": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1"
       },
@@ -1069,6 +1114,11 @@
         "type": "semgrep_id",
         "name": "find_sec_bugs.XXE_XMLSTREAMREADER-1",
         "value": "find_sec_bugs.XXE_XMLSTREAMREADER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_XPATH-1",
+        "value": "find_sec_bugs.XXE_XPATH-1"
       },
       {
         "type": "semgrep_id",
