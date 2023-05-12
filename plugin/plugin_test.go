@@ -4,12 +4,35 @@ import (
 	"errors"
 	"io/fs"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/require"
 
 	ruleset "gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2"
 )
+
+func TestMatch_LangExt(t *testing.T) {
+	folderPath := filepath.Join("..", "testdata", "match-projects", "lang-match")
+	t.Setenv(ruleset.EnvVarGitlabFeatures, "")
+	err := filepath.Walk(folderPath, func(path string, info fs.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if info.IsDir() {
+			return nil
+		}
+		got, matchErr := Match(path, info)
+		if matchErr != nil {
+			return matchErr
+		}
+		filename := filepath.Base(path)
+		want := strings.HasPrefix(filename, "match")
+		require.Equalf(t, want, got, "expectation mismatch for file: %s", filename)
+		return nil
+	})
+	require.NoError(t, err)
+}
 
 func TestMatch_BypassPluginDetection(tt *testing.T) {
 	base := filepath.Join("..", "testdata", "match-projects")
