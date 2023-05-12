@@ -1,5 +1,13 @@
 Semgrep analyzer changelog
 
+## v4.2.1
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.11) version `1.3.11` (!249)
+  - Flawfinder singular rule IDs should include `-1` [sast-rules!147](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/147)
+  - Enhance C ruleset descriptions and titles [sast-rules!128](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/128)
+  - Add shortDescription titles to C rulesets [sast-rules!128](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/128)
+  - Add valdiation to confirm that either cwe tag contains title, or shortDescription is defined [sast-rules!128](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/128)
+- Import Flawfinder ruleset from [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) (!249)
+
 ## v4.2.0
 - Add support for `.scala` and `.sc` file extensions (!254)
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.10) version `1.3.10` (!254)
