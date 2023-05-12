@@ -802,7 +802,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.1.1"
+      "version": "4.2.1"
     },
     "scanner": {
       "id": "semgrep",
