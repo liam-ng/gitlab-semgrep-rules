@@ -89,41 +89,6 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Improper Control of Generation of Code ('Code Injection')",
-      "description": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
-      "cve": "semgrep_id:eslint.detect-object-injection:129:129",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "WebApp/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-        "start_line": 129
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "eslint.detect-object-injection",
-          "value": "eslint.detect-object-injection",
-          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-94",
-          "value": "94",
-          "url": "https://cwe.mitre.org/data/definitions/94.html"
-        },
-        {
-          "type": "eslint_rule_id",
-          "name": "ESLint rule ID/detect-object-injection",
-          "value": "detect-object-injection"
-        }
-      ]
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
       "message": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
       "description": "The use of a predictable random value can lead to vulnerabilities when used in certain security\ncritical contexts.\n",
       "cve": "semgrep_id:security_code_scan.SCS0005-1:11:11",

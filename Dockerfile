@@ -29,7 +29,7 @@ ENV SCANNER_VERSION ${SCANNER_VERSION}
 ENV SEMGREP_R2C_INTERNAL_EXPLICIT_SEMGREPIGNORE "/semgrepignore"
 ENV PIP_NO_CACHE_DIR=off
 ENV VET_CONFIGURATION_FILE="/verify/semgrep.toml"
-ENV SAST_RULES_VERSION=1.3.11
+ENV SAST_RULES_VERSION=1.3.12
 
 # Run VET FP reduction only on Go files
 ENV VET_LANG_EXT=".go"
@@ -69,6 +69,8 @@ RUN cd sast-rules && \
     cp dist/eslint.yml /rules && \
     cp dist/find_sec_bugs_scala.yml /rules && \
     cp dist/flawfinder.yml /rules
+
+ADD https://gitlab.com/gitlab-org/security-products/sast-rules/-/raw/drop-detect-object-injection-rule/dist/eslint.yml /rules/eslint.yml
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
 COPY --from=scripts /start.sh /analyzer
