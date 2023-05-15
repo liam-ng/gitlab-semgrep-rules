@@ -71,7 +71,7 @@ RUN cd sast-rules && \
     cp dist/eslint.yml /rules && \
     cp dist/find_sec_bugs_scala.yml /rules && \
     cp dist/flawfinder.yml /rules && \
-    cp dist/secure_code_scan.yml /rules
+    cp dist/security_code_scan.yml /rules
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
 COPY --from=scripts /start.sh /analyzer
