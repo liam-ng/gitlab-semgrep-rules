@@ -4,8 +4,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')",
-      "description": "File open from tainted variable\n",
+      "message": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
+      "description": "The application dynamically constructs file or path information. If the path\ninformation comes from user input, it could be abused to read sensitive files,\naccess other users data or aid in exploitation to gain further system access.\n\nUser input should never be used in constructing paths or files for interacting\nwith the filesystem. This includes filenames supplied by user uploads or downloads.\nIf",
       "cve": "semgrep_id:gosec.G304-1:11:11",
       "severity": "Medium",
       "scanner": {
@@ -61,7 +61,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.2.1"
+      "version": ":SKIP:"
     },
     "scanner": {
       "id": "semgrep",
