@@ -68,7 +68,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.2.1"
+      "version": ":SKIP:"
     },
     "scanner": {
       "id": "semgrep",
@@ -1642,88 +1642,88 @@
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0001-1",
-        "value": "security_code_scan.SCS0001-1"
+        "name": "security_code_scan.SCS0001",
+        "value": "security_code_scan.SCS0001"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0002-1",
-        "value": "security_code_scan.SCS0002-1"
+        "name": "security_code_scan.SCS0002",
+        "value": "security_code_scan.SCS0002"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0003-1",
-        "value": "security_code_scan.SCS0003-1"
+        "name": "security_code_scan.SCS0003",
+        "value": "security_code_scan.SCS0003"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0004-1",
-        "value": "security_code_scan.SCS0004-1"
+        "name": "security_code_scan.SCS0004",
+        "value": "security_code_scan.SCS0004"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0005-1",
-        "value": "security_code_scan.SCS0005-1"
+        "name": "security_code_scan.SCS0005",
+        "value": "security_code_scan.SCS0005"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0006-1",
-        "value": "security_code_scan.SCS0006-1"
+        "name": "security_code_scan.SCS0006",
+        "value": "security_code_scan.SCS0006"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0007-1",
-        "value": "security_code_scan.SCS0007-1"
+        "name": "security_code_scan.SCS0007",
+        "value": "security_code_scan.SCS0007"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0008-1",
-        "value": "security_code_scan.SCS0008-1"
+        "name": "security_code_scan.SCS0008",
+        "value": "security_code_scan.SCS0008"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0009-1",
-        "value": "security_code_scan.SCS0009-1"
+        "name": "security_code_scan.SCS0009",
+        "value": "security_code_scan.SCS0009"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0010-1",
-        "value": "security_code_scan.SCS0010-1"
+        "name": "security_code_scan.SCS0010",
+        "value": "security_code_scan.SCS0010"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0011-1",
-        "value": "security_code_scan.SCS0011-1"
+        "name": "security_code_scan.SCS0011",
+        "value": "security_code_scan.SCS0011"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0012-1",
-        "value": "security_code_scan.SCS0012-1"
+        "name": "security_code_scan.SCS0012",
+        "value": "security_code_scan.SCS0012"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0013-1",
-        "value": "security_code_scan.SCS0013-1"
+        "name": "security_code_scan.SCS0013",
+        "value": "security_code_scan.SCS0013"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0016-1",
-        "value": "security_code_scan.SCS0016-1"
+        "name": "security_code_scan.SCS0016",
+        "value": "security_code_scan.SCS0016"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0017-1",
-        "value": "security_code_scan.SCS0017-1"
+        "name": "security_code_scan.SCS0017",
+        "value": "security_code_scan.SCS0017"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0018-1",
-        "value": "security_code_scan.SCS0018-1"
+        "name": "security_code_scan.SCS0018",
+        "value": "security_code_scan.SCS0018"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0019-1",
-        "value": "security_code_scan.SCS0019-1"
+        "name": "security_code_scan.SCS0019",
+        "value": "security_code_scan.SCS0019"
       },
       {
         "type": "semgrep_id",
@@ -1732,18 +1732,18 @@
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0027-1",
-        "value": "security_code_scan.SCS0027-1"
+        "name": "security_code_scan.SCS0027",
+        "value": "security_code_scan.SCS0027"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0028-1",
-        "value": "security_code_scan.SCS0028-1"
+        "name": "security_code_scan.SCS0028",
+        "value": "security_code_scan.SCS0028"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0029-1",
-        "value": "security_code_scan.SCS0029-1"
+        "name": "security_code_scan.SCS0029",
+        "value": "security_code_scan.SCS0029"
       },
       {
         "type": "semgrep_id",
