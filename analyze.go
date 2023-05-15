@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"path"
@@ -14,7 +12,6 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
-	"gopkg.in/yaml.v2"
 
 	ruleset "gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/cliarg"
@@ -42,12 +39,6 @@ var invalidExitCodes = map[int]bool{
 	2: false, // Semgrep failed
 	4: true,  // Semgrep encountered an invalid pattern
 	7: true,  // All rules in config are invalid
-}
-
-// highFPRules is a map of analyzer names to rule IDs of rules that are known to
-// cause a high FP rate.
-var highFPRules = map[string][]string{
-	"eslint.yml": {"eslint.detect-object-injection"},
 }
 
 var defaultConfigPath = path.Join("/", "rules")
@@ -96,15 +87,6 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 	configPath, err := getConfigPath(projectPath, rulesetConfig)
 	if err != nil {
 		return nil, err
-	}
-
-	if c.Bool(flagSASTExperimentalFeatures) {
-		for rulefileName, ruleIDs := range highFPRules {
-			rulefilePath := path.Join(configPath, rulefileName)
-			if err = removeRulesFromFile(rulefilePath, ruleIDs); err != nil {
-				log.Debugf("SAST_EXPERIMENTAL_FEATURES was enabled but the analyzer failed to remove high-FP rules: %s", err)
-			}
-		}
 	}
 
 	args := buildArgs(
@@ -203,69 +185,6 @@ type semgrepRule struct {
 		} `yaml:"secondary_identifiers"`
 	} `yaml:"metadata"`
 	Rest map[string]interface{} `yaml:",inline"`
-}
-
-// removeRulesFromFile removes any Semgrep rules from the file whose `id` contains
-// any value in ruleIDs as a substring. For example:
-//
-// rule ID in file   			ruleIDs     	remove?
-// ---------------   			-------     	-------
-// bandit.108-1      			bandit.108  	yes
-// bandit.B313.B314.B315      	bandit.B314  	no
-func removeRulesFromFile(file string, ruleIDs []string) error {
-	var ruleFile semgrepRuleFile
-
-	fileContent, err := ioutil.ReadFile(file)
-	if err != nil {
-		return fmt.Errorf("read rule file at %s: %w", file, err)
-	}
-
-	if err = yaml.Unmarshal(fileContent, &ruleFile); err != nil {
-		return fmt.Errorf("parse rule file at %s: %w", file, err)
-	}
-
-	shouldReserialise := false
-	for idx, rule := range ruleFile.Rules {
-		if contains(rule.ID, ruleIDs) {
-			shouldReserialise = true
-			ruleFile.Rules = remove(ruleFile.Rules, idx)
-		}
-	}
-
-	if shouldReserialise {
-		out, err := yaml.Marshal(ruleFile)
-		if err != nil {
-			return fmt.Errorf("marshal modified rule file %w", err)
-		}
-
-		if err = ioutil.WriteFile(file, out, 0666); err != nil {
-			return fmt.Errorf("write modified rule file to %s: %w", file, err)
-		}
-	}
-
-	return nil
-}
-
-// contains returns whether ruleID is present in ruleIDs.
-func contains(ruleID string, ruleIDs []string) bool {
-	for _, rid := range ruleIDs {
-		// Some rule IDs we process here get suffixed by the `ruleset` package.
-		// e.g. bandit.B108 is represented as bandit.B108-1 and bandit.B108-2
-		if strings.Contains(rid, ruleID) {
-			return true
-		}
-	}
-
-	return false
-}
-
-// remove deletes the element at i from s by replacing s[i] with the last element
-// of the slice before trimming it from the slice. Since the order of rules isn't
-// important, this provides better performance compared to shifting elements for
-// a delete-in-place operation.
-func remove(s []semgrepRule, i int) []semgrepRule {
-	s[i] = s[len(s)-1]
-	return s[:len(s)-1]
 }
 
 // parseAllowedCLIOpts parses arg str passed to SAST_SCANNER_ALLOWED_CLI_OPTS CI var and returns only

@@ -664,11 +664,6 @@
       },
       {
         "type": "semgrep_id",
-        "name": "eslint.detect-object-injection",
-        "value": "eslint.detect-object-injection"
-      },
-      {
-        "type": "semgrep_id",
         "name": "eslint.detect-possible-timing-attacks",
         "value": "eslint.detect-possible-timing-attacks"
       },
