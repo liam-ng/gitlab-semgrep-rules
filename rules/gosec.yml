@@ -1,5 +1,5 @@
 # yamllint disable
-# rule-set version: v1.2.1
+# rule-set version: v1.3.12
 # yamllint enable
 ---
 rules:
@@ -21,13 +21,107 @@ rules:
   languages:
   - "go"
 - id: "gosec.G502-1"
+  languages:
+  - "go"
   patterns:
   - pattern: |
       import "crypto/des"
-  message: "Usage of a cryptographically broken primitive has been detected. It is
-    recommended that \nChaCha20 or Advanced Encryption Standard (AES) be used instead.\n"
+  message: |
+    The DES algorithm has not been recommended for over 15 years and was withdrawn from NIST (FIPS
+    46-3) in 2005. It is recommended that an algorithm that provides message integrity be used
+    instead. Consider using `XChaCha20Poly1305` or `AES-256-GCM`.
+
+    For older applications, `AES-256-GCM` is recommended, however it has many drawbacks:
+    - Slower than `XChaCha20Poly1305`
+    - Smaller nonce value size compared to `XChaCha20Poly1305`
+    - Catastrophic failure if nonce values are re-used
+
+    Example using
+    [XChaCha20Poly1305](https://pkg.go.dev/golang.org/x/crypto/chacha20poly1305#NewX):
+    ```
+    key := make([]byte, chacha20poly1305.KeySize)
+    if _, err := io.ReadFull(rand.Reader, key); err != nil {
+      log.Fatal(err)
+    }
+
+    // NewX is a variant that uses longer nonce values for better security
+    aead, err := chacha20poly1305.NewX(key)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    var encrypted = []byte{}
+    var nonce = []byte{}
+
+    // Encryption routine
+    {
+      msg := []byte("Some secret message")
+      nonce = make([]byte, aead.NonceSize())
+      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+        log.Fatal("failed to generate nonce")
+      }
+
+      encrypted = aead.Seal(nil, nonce, msg, nil)
+    }
+
+    // Decryption routine
+    {
+      if len(encrypted) < aead.NonceSize() {
+        log.Fatal("incorrect ciphertext length")
+      }
+
+      msg, err := aead.Open(nil, nonce, encrypted, nil)
+      if err != nil {
+        log.Fatal(err)
+      }
+      fmt.Printf("Decrypted: %s\n", msg)
+    }
+    ```
+
+    Example using [AES-256-GCM](https://pkg.go.dev/crypto/cipher#NewGCM):
+    ```
+    // 32 byte keys will configure AES-256
+    key := make([]byte, 32)
+    if _, err := io.ReadFull(rand.Reader, key); err != nil {
+      log.Fatal(err)
+    }
+
+    blockCipher, err := aes.NewCipher(key)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    aead, err := cipher.NewGCM(blockCipher)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    var encrypted = []byte{}
+    var nonce = []byte{}
+    // Encryption routine
+    {
+      msg := []byte("Some secret message")
+      // note that the key must be rotated every 2^32 random nonces used otherwise
+      // cipher text could be repeated
+      nonce = make([]byte, 12)
+      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+        log.Fatal(err)
+      }
+      encrypted = aead.Seal(nil, nonce, msg, nil)
+    }
+
+    // Decryption routine
+    {
+      msg, err := aead.Open(nil, nonce, encrypted, nil)
+      if err != nil {
+        log.Fatal(err)
+      }
+      fmt.Printf("Decrypted: %s\n", msg)
+    }
+    ```
   metadata:
-    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    shortDescription: "Use of a broken or risky cryptographic algorithm"
+    cwe: "CWE-327"
     owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G502-1"
     secondary_identifiers:
@@ -35,19 +129,106 @@ rules:
       type: "gosec_rule_id"
       value: "G502"
   severity: "WARNING"
+- id: "gosec.G501-1"
   languages:
   - "go"
-- id: "gosec.G501-1"
   patterns:
   - pattern: |
       import "crypto/md5"
   message: |
     The MD5 message-digest algorithm has been cryptographically broken and is unsuitable for
-    further use. It is recommended that the SHA-3, or BLAKE2 family of algorithms be used for
-    non-password based cryptographic hashes instead. For password based cryptographic hashes,
-    consider using the bcrypt or Argon2 family of cryptographic hashes.
+    further use. The MD5 hash algorithm has been found to be vulnerable to producing collisions.
+    This means that two different values, when hashed, can lead to the same hash value. It is
+    recommended that the SHA-3 or BLAKE2 family of algorithms be used for non-password based
+    cryptographic hashes instead. For password based cryptographic hashes,  consider using the
+    bcrypt or Argon2id family of cryptographic hashes.
+
+    Hashing values using [BLAKE2](https://pkg.go.dev/golang.org/x/crypto/blake2b):
+    ```
+    fileContents := []byte("some file contents to create hash for")
+    blake2bHasher, err := blake2b.New512(nil)
+    if err != nil {
+      log.Fatal(err)
+    }
+    hashedValue := blake2bHasher.Sum(fileContents)
+    fmt.Printf("%s\n", hex.EncodeToString(hashedValue))
+    ```
+
+    Hashing and securely comparing passwords using
+    [Argon2id](https://pkg.go.dev/golang.org/x/crypto/argon2#hdr-Argon2id):
+    ```
+    type argonParameters struct {
+      variant     string
+      version     int
+      memory      uint32
+      iterations  uint32
+      parallelism uint8
+      saltLength  uint32
+      keyLength   uint32
+    }
+
+    func (a argonParameters) StringFormat(salt, derivedKey []byte) string {
+      encodedSalt := base64.RawStdEncoding.EncodeToString(salt)
+      encodedKey := base64.RawStdEncoding.EncodeToString(derivedKey)
+
+      return fmt.Sprintf("$argon2id$v=%d$m=%d,t=%d,p=%d$%s$%s",
+        argon2.Version,
+        a.memory,
+        a.iterations,
+        a.parallelism,
+        encodedSalt,
+        encodedKey,
+      )
+    }
+
+    func main() {
+      // Initialize Argon2id parameters
+      p := argonParameters{
+        memory:      64 * 1024,
+        iterations:  3,
+        parallelism: 2,
+        saltLength:  16,
+        keyLength:   32,
+      }
+
+      // Generate random salt (to be stored alongside derived hash key)
+      salt := make([]byte, p.saltLength)
+      if _, err := io.ReadFull(rand.Reader, salt); err != nil {
+        log.Fatal(err)
+      }
+
+      usersPassword := []byte("User's Very S3cur3P4ss@rd@#$%")
+
+      var derivedKey []byte
+      // Create key hash derived from user's password
+      {
+        derivedKey = argon2.IDKey(usersPassword, salt, p.iterations, p.memory, p.parallelism,
+    p.keyLength)
+        // store p.StringFormat(...) result in a data store...
+        fmt.Printf("%s\n", p.StringFormat(salt, derivedKey))
+      }
+
+      // Verify a user's password against key
+      {
+        keyToCompare := argon2.IDKey(usersPassword, salt, p.iterations, p.memory, p.parallelism,
+    p.keyLength)
+
+        // Use subtle.ConstantTimeCompare(..., ...) to ensure no side channel leaks used in timing
+    attacks
+        if subtle.ConstantTimeCompare(derivedKey, keyToCompare) == 1 {
+          fmt.Printf("Passwords match\n")
+        } else {
+          fmt.Printf("Passwords do not match\n")
+        }
+      }
+    }
+    ```
+
+    For more information on password storage see OWASP's guide:
+    https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
   metadata:
-    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    shortDescription: "Use of a broken or risky cryptographic algorithm"
+    cwe: "CWE-327"
     owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G501-1"
     secondary_identifiers:
@@ -55,18 +236,108 @@ rules:
       type: "gosec_rule_id"
       value: "G501"
   severity: "WARNING"
+- id: "gosec.G503-1"
   languages:
   - "go"
-- id: "gosec.G503-1"
   patterns:
   - pattern: |
       import "crypto/rc4"
   message: |
     The RC4 stream-cipher has been cryptographically broken and is unsuitable
     for use in production. It is recommended that ChaCha20 or Advanced Encryption
-    Standard (AES) be used instead.
+    Standard (AES) be used instead. Consider using `XChaCha20Poly1305` or `AES-256-GCM`.
+
+    For older applications, `AES-256-GCM` is recommended, however it has many drawbacks:
+    - Slower than `XChaCha20Poly1305`
+    - Smaller nonce value size compared to `XChaCha20Poly1305`
+    - Catastrophic failure if nonce values are re-used
+
+    Example using
+    [XChaCha20Poly1305](https://pkg.go.dev/golang.org/x/crypto/chacha20poly1305#NewX):
+    ```
+    key := make([]byte, chacha20poly1305.KeySize)
+    if _, err := io.ReadFull(rand.Reader, key); err != nil {
+      log.Fatal(err)
+    }
+
+    // NewX is a variant that uses longer nonce values for better security
+    aead, err := chacha20poly1305.NewX(key)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    var encrypted = []byte{}
+    var nonce = []byte{}
+
+    // Encryption routine
+    {
+      msg := []byte("Some secret message")
+      nonce = make([]byte, aead.NonceSize())
+      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+        log.Fatal("failed to generate nonce")
+      }
+
+      encrypted = aead.Seal(nil, nonce, msg, nil)
+    }
+
+    // Decryption routine
+    {
+      if len(encrypted) < aead.NonceSize() {
+        log.Fatal("incorrect ciphertext length")
+      }
+
+      msg, err := aead.Open(nil, nonce, encrypted, nil)
+      if err != nil {
+        log.Fatal(err)
+      }
+      fmt.Printf("Decrypted: %s\n", msg)
+    }
+    ```
+
+    Example using [AES-256-GCM](https://pkg.go.dev/crypto/cipher#NewGCM):
+    ```
+    // 32 byte keys will configure AES-256
+    key := make([]byte, 32)
+    if _, err := io.ReadFull(rand.Reader, key); err != nil {
+      log.Fatal(err)
+    }
+
+    blockCipher, err := aes.NewCipher(key)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    aead, err := cipher.NewGCM(blockCipher)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    var encrypted = []byte{}
+    var nonce = []byte{}
+    // Encryption routine
+    {
+      msg := []byte("Some secret message")
+      // note that the key must be rotated every 2^32 random nonces used otherwise
+      // cipher text could be repeated
+      nonce = make([]byte, 12)
+      if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+        log.Fatal(err)
+      }
+      encrypted = aead.Seal(nil, nonce, msg, nil)
+    }
+
+    // Decryption routine
+    {
+      msg, err := aead.Open(nil, nonce, encrypted, nil)
+      if err != nil {
+        log.Fatal(err)
+      }
+      fmt.Printf("Decrypted: %s\n", msg)
+    }
+    ```
   metadata:
-    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    shortDescription: "Use of a broken or risky cryptographic algorithm"
+    cwe: "CWE-327"
     owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G503-1"
     secondary_identifiers:
@@ -74,20 +345,105 @@ rules:
       type: "gosec_rule_id"
       value: "G503"
   severity: "WARNING"
+- id: "gosec.G505-1"
   languages:
   - "go"
-- id: "gosec.G505-1"
   patterns:
   - pattern: |
       import "crypto/sha1"
   message: |
     The SHA-1 message-digest algorithm has been cryptographically broken and
-    is unsuitable for further use. It is recommended that the SHA-3, or BLAKE2 family
-    of algorithms be used for non-password based cryptographic hashes instead. For
-    password based cryptographic hashes, consider using the bcrypt or Argon2 family
-    of cryptographic hashes.
+    is unsuitable for further use. It is
+    recommended that the SHA-3, or BLAKE2 family of algorithms be used for non-password based
+    cryptographic hashes instead. For password based cryptographic hashes, consider using the
+    bcrypt or Argon2id family of cryptographic hashes.
+
+    Hashing values using [BLAKE2](https://pkg.go.dev/golang.org/x/crypto/blake2b):
+    ```
+    fileContents := []byte("some file contents to create hash for")
+    blake2bHasher, err := blake2b.New512(nil)
+    if err != nil {
+      log.Fatal(err)
+    }
+    hashedValue := blake2bHasher.Sum(fileContents)
+    fmt.Printf("%s\n", hex.EncodeToString(hashedValue))
+    ```
+
+    Hashing and securely comparing passwords using
+    [Argon2id](https://pkg.go.dev/golang.org/x/crypto/argon2#hdr-Argon2id):
+    ```
+    type argonParameters struct {
+      variant     string
+      version     int
+      memory      uint32
+      iterations  uint32
+      parallelism uint8
+      saltLength  uint32
+      keyLength   uint32
+    }
+
+    func (a argonParameters) StringFormat(salt, derivedKey []byte) string {
+      encodedSalt := base64.RawStdEncoding.EncodeToString(salt)
+      encodedKey := base64.RawStdEncoding.EncodeToString(derivedKey)
+
+      return fmt.Sprintf("$argon2id$v=%d$m=%d,t=%d,p=%d$%s$%s",
+        argon2.Version,
+        a.memory,
+        a.iterations,
+        a.parallelism,
+        encodedSalt,
+        encodedKey,
+      )
+    }
+
+    func main() {
+      // Initialize Argon2id parameters
+      p := argonParameters{
+        memory:      64 * 1024,
+        iterations:  3,
+        parallelism: 2,
+        saltLength:  16,
+        keyLength:   32,
+      }
+
+      // Generate random salt (to be stored alongside derived hash key)
+      salt := make([]byte, p.saltLength)
+      if _, err := io.ReadFull(rand.Reader, salt); err != nil {
+        log.Fatal(err)
+      }
+
+      usersPassword := []byte("User's Very S3cur3P4ss@rd@#$%")
+
+      var derivedKey []byte
+      // Create key hash derived from user's password
+      {
+        derivedKey = argon2.IDKey(usersPassword, salt, p.iterations, p.memory, p.parallelism,
+    p.keyLength)
+        // store p.StringFormat(...) result in a data store...
+        fmt.Printf("%s\n", p.StringFormat(salt, derivedKey))
+      }
+
+      // Verify a user's password against key
+      {
+        keyToCompare := argon2.IDKey(usersPassword, salt, p.iterations, p.memory, p.parallelism,
+    p.keyLength)
+
+        // Use subtle.ConstantTimeCompare(..., ...) to ensure no side channel leaks used in timing
+    attacks
+        if subtle.ConstantTimeCompare(derivedKey, keyToCompare) == 1 {
+          fmt.Printf("Passwords match\n")
+        } else {
+          fmt.Printf("Passwords do not match\n")
+        }
+      }
+    }
+    ```
+
+    For more information on password storage see OWASP's guide:
+    https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
   metadata:
-    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    shortDescription: "Use of a broken or risky cryptographic algorithm"
+    cwe: "CWE-327"
     owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G505-1"
     secondary_identifiers:
@@ -95,9 +451,9 @@ rules:
       type: "gosec_rule_id"
       value: "G505"
   severity: "WARNING"
+- id: "gosec.G402-1"
   languages:
   - "go"
-- id: "gosec.G402-1"
   patterns:
   - pattern-either:
     - pattern: |
@@ -112,10 +468,64 @@ rules:
         (?!tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305)|(?!tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256)|
         (?!tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305)|(?!tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256)|
         (?!tls.TLS_DHE_RSA_WITH_AES_128_GCM_SHA256)|(?!tls.TLS_DHE_RSA_WITH_AES_256_GCM_SHA384))"
-  message: "Usage of a cryptographically insecure cipher suite has been detected.
-    It is recommended that \nalternative ciphers be used instead.\n"
+  message: |
+    Usage of a cryptographically insecure cipher suite has been detected. It is recommended that
+    alternative ciphers be used instead. It is strongly recommended that all TLS connections
+    use TLS 1.3 as Go will automatically choose the most secure cipher when negotiating the
+    TLS handshake with client or servers. TLS 1.3 cipher suites are configured to require Perfect
+    Forward Secrecy (PFS).
+    PFS is an important property as it will ensure that past encrypted transmissions could not be
+    decrypted
+    if the TLS certificate was compromised.
+
+    Example using TLS 1.3 for a Go server:
+    ```
+    cert, err := tls.LoadX509KeyPair("server.crt", "server.key")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    cfg := &tls.Config{Certificates: []tls.Certificate{cert}, MinVersion: tls.VersionTLS13}
+    srv := &http.Server{
+      Addr:         ":8999",
+      TLSConfig:    cfg,
+      ReadTimeout:  time.Minute,
+      WriteTimeout: time.Minute,
+    }
+    log.Fatal(srv.ListenAndServeTLS("", ""))
+    ```
+
+    If TLS 1.0-1.2 must be used, then the following list of ciphers should be chosen as they
+    support
+    Perfect Forward Secrecy (PFS):
+
+    - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+    - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+    - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+    - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+
+
+    Example `tls.Config` using the recommended cipher suites:
+    ```
+    cfg := &tls.Config{
+        MinVersion: tls.VersionTLS12,
+        CipherSuites: []uint16{
+            tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
+            tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+            tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+            tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+            tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,
+            tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,
+        },
+    }
+    ```
+
+    For more information on cipher suites in Go see: https://go.dev/blog/tls-cipher-suites
   metadata:
-    cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+    shortDescription: "Use of a broken or risky cryptographic algorithm"
+    cwe: "CWE-327"
     owasp: "A9:2017-Using Components with Known Vulnerabilities"
     primary_identifier: "gosec.G402-1"
     secondary_identifiers:
@@ -123,41 +533,95 @@ rules:
       type: "gosec_rule_id"
       value: "G402"
   severity: "WARNING"
+- id: "gosec.G106-1"
   languages:
   - "go"
-- id: "gosec.G106-1"
   patterns:
   - pattern: "ssh.InsecureIgnoreHostKey(...)"
   message: |
-    Audit the use of ssh.InsecureIgnoreHostKey
+    The application was found to ignore host keys. Host keys are important as
+    they provide assurance that the client can prove that the host is trusted.
+    By ignoring these host keys, it is impossible for the client to validate the
+    connection is to a trusted host.
+
+    For the `ssh.ClientConfig` `HostKeyCallback` property, consider using the
+    [knownhosts](https://pkg.go.dev/golang.org/x/crypto/ssh/knownhosts) package that
+    parses OpenSSH's `known_hosts` key database.
+
+    Example configuration connecting to a known, trusted host:
+    ```
+    knownHostCallback, err := knownhosts.New("/home/user/.ssh/known_hosts")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    // Create client config using the knownHost callback function
+    config := &ssh.ClientConfig{
+      ...
+      HostKeyCallback: knownHostCallback,
+    }
+
+    // Connect to ssh server
+    conn, err := ssh.Dial("tcp", "localhost:22", config)
+    if err != nil {
+      log.Fatal("unable to connect: ", err)
+    }
+    defer conn.Close()
+    ```
   metadata:
-    cwe: "CWE-322: Key Exchange without Entity Authentication"
+    shortDescription: "Key exchange without entity authentication"
+    cwe: "CWE-322"
     primary_identifier: "gosec.G106-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G106"
       type: "gosec_rule_id"
       value: "G106"
   severity: "WARNING"
+- id: "gosec.G402-2"
   languages:
   - "go"
-- id: "gosec.G402-2"
   patterns:
   - pattern-either:
     - pattern: "tls.VersionTLS11"
     - pattern: "tls.VersionTLS10"
   message: |
-    Use of deprecated TLS version which may result in the unauthorized retrieval
-    of sensitive information. It is recommended to use TLS 1.2 or TLS 1.3 instead.
+    TLS versions 1.1 and 1.0 were deprecated by the IETF in June 2018 due to a number of attacks
+    against
+    the vulnerable versions. Use of a deprecated TLS version may result in the unauthorized
+    retrieval
+    of sensitive information. It is strongly recommended that all TLS connections
+    use TLS 1.3 as Go will automatically choose the most secure cipher when negotiating the
+    TLS handshake with client or servers. TLS 1.3 cipher suites are configured to require Perfect
+    Forward Secrecy (PFS).
+    PFS is an important property as it will ensure that past encrypted transmissions could not be
+    decrypted
+    if the TLS certificate was compromised.
+
+    Example using TLS 1.3 for a Go server:
+    ```
+    cert, err := tls.LoadX509KeyPair("server.crt", "server.key")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    cfg := &tls.Config{Certificates: []tls.Certificate{cert}, MinVersion: tls.VersionTLS13}
+    srv := &http.Server{
+      Addr:         ":8999",
+      TLSConfig:    cfg,
+      ReadTimeout:  time.Minute,
+      WriteTimeout: time.Minute,
+    }
+    log.Fatal(srv.ListenAndServeTLS("", ""))
+    ```
   metadata:
-    cwe: "CWE-310: Cryptographic Issues"
+    shortDescription: "Use of deprecated TLS version"
+    cwe: "CWE-310"
     owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "gosec.G402-2"
     secondary_identifiers:
     - name: "Gosec Rule ID G402"
       type: "gosec_rule_id"
       value: "G402"
-  languages:
-  - "go"
   severity: "WARNING"
 - id: "gosec.G401-1"
   patterns:
@@ -191,6 +655,8 @@ rules:
   languages:
   - "go"
 - id: "gosec.G403-1"
+  languages:
+  - "go"
   patterns:
   - pattern-either:
     - pattern: |
@@ -199,9 +665,30 @@ rules:
       metavariable: "$ARG"
       comparison: "$ARG < 2048"
   message: |
-    It is recommended that generated RSA keys are at least 2048 bits in length.
+    The application is generating an RSA key that is less than the recommended 2048 bits.
+    The National Institute of Standards and Technology (NIST) deprecated signing Digital
+    Certificates that contained RSA Public Keys of 1024 bits in December 2010. While
+    1024-bit RSA keys have not been factored yet, advances in compute may make it possible
+    in the near future.
+
+    To generate an RSA key of 2048 pass the number of bits as the second parameter to
+    the `rsa.GenerateKey` function:
+    ```
+    import (
+      "crypto/rand"
+      "crypto/rsa"
+    )
+
+    func generate() {
+      key, err := rsa.GenerateKey(rand.Reader, 2048)
+      if err != nil {
+        log.Fatal(err)
+      }
+    }
+    ```
   metadata:
-    cwe: "CWE-326: Inadequate Encryption Strength"
+    shortDescription: "Inadequate encryption strength"
+    cwe: "CWE-326"
     owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "gosec.G403-1"
     secondary_identifiers:
@@ -209,9 +696,9 @@ rules:
       type: "gosec_rule_id"
       value: "G403"
   severity: "WARNING"
+- id: "gosec.G404-1"
   languages:
   - "go"
-- id: "gosec.G404-1"
   patterns:
   - patterns:
     - pattern-inside: |
@@ -226,9 +713,16 @@ rules:
       metavariable: "$METHOD"
       regex: "(Float32|Float64|Int31|Int31n|Int63|Int63n|NormalFloat64|Uint32|Uint64)"
   message: |
-    Use of weak random number generator (math/rand instead of crypto/rand)
+    Go's `math/rand` is not meant for use in generating random numbers for any cryptographic or
+    security sensitive context. This includes generating random numbers that could be used in
+    user specific identifiers or where the random number that is generated is considered to
+    be secret.
+
+    Replace all imports of `math/rand` with `crypto/rand`.
   metadata:
-    cwe: "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)"
+    shortDescription: "Use of cryptographically weak Pseudo-Random Number Generator
+      (PRNG)"
+    cwe: "CWE-338"
     owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "gosec.G404-1"
     secondary_identifiers:
@@ -236,9 +730,9 @@ rules:
       type: "gosec_rule_id"
       value: "G404"
   severity: "WARNING"
+- id: "gosec.G302-1"
   languages:
   - "go"
-- id: "gosec.G302-1"
   patterns:
   - pattern-either:
     - pattern: "os.Chmod(...,$MASK)"
@@ -248,9 +742,29 @@ rules:
       comparison: "$MASK > 0o600"
       base: 8
   message: |
-    Poor file permissions used when creation file or using chmod
+    The application was found setting file permissions to overly permissive values. Consider
+    using the following values if the application user is the only process to access
+    the file:
+
+    - 0400 - read only access to the file
+    - 0200 - write only access to the file
+    - 0600 - read/write access to the file
+
+    Example creating a file with read/write permissions for the application user:
+    ```
+    f, err := os.OpenFile("file.txt", os.O_CREATE, 0600)
+    if err != nil {
+      log.Fatal(err)
+    }
+    defer f.Close()
+    // continue to work with file here
+    ```
+
+    For all other values please see:
+    https://en.wikipedia.org/wiki/File-system_permissions#Numeric_notation
   metadata:
-    cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
+    shortDescription: "Incorrect permission assignment for critical resource"
+    cwe: "CWE-732"
     owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "gosec.G302-1"
     secondary_identifiers:
@@ -258,9 +772,9 @@ rules:
       type: "gosec_rule_id"
       value: "G302"
   severity: "WARNING"
+- id: "gosec.G301-1"
   languages:
   - "go"
-- id: "gosec.G301-1"
   patterns:
   - pattern-either:
     - pattern: "os.Mkdir(...,$MASK)"
@@ -270,9 +784,27 @@ rules:
       comparison: "$MASK > 0o750"
       base: 8
   message: |
-    Poor file permissions used when creating a directory
+    The application was found setting directory permissions to overly permissive values. Consider
+    using the following values if the application user is the only process to access
+    files in the directory specified:
+    - 0700 - read/write access to the files in the directory
+
+    Another common value is `0750` which allows the application user read/write access and group
+    users to read the files contained in the directory.
+
+    Example creating a directory with read/write permissions for only the application user:
+    ```
+    err := os.Mkdir("directory", 0700)
+    if err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+    For all other values please see:
+    https://en.wikipedia.org/wiki/File-system_permissions#Numeric_notation
   metadata:
-    cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
+    shortDescription: "Incorrect permission assignment for critical resource"
+    cwe: "CWE-732"
     owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "gosec.G301-1"
     secondary_identifiers:
@@ -280,9 +812,9 @@ rules:
       type: "gosec_rule_id"
       value: "G301"
   severity: "WARNING"
+- id: "gosec.G110-1"
   languages:
   - "go"
-- id: "gosec.G110-1"
   mode: "taint"
   pattern-sinks:
   - pattern: "io.Copy(...)"
@@ -299,18 +831,47 @@ rules:
   - pattern: "flate.NewReaderDict(...)"
   - pattern: "zip.OpenReader(...)"
   message: |
-    Potential DoS vulnerability via decompression bomb
+    Directly decompressing files or buffers may lead to a potential Denial of Service (DoS)
+    due to a decompression bomb. Decompression bombs are maliciously compressed files
+    or data that decompresses to extremely large sizes. This can cause the process to run
+    out of memory, or the disk to fill up.
+
+    To protect against decompression bombs, an
+    [io.LimitReader(...)](https://pkg.go.dev/io#LimitReader)
+    should be used to limit how much can be read during the decompression routine.
+
+    Example using `io.LimitReader` to protect against a decompression bomb:
+    ```
+    f, err := os.Open("some.gz")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    r, err := gzip.NewReader(f)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    const oneMegabyte = 1024 * 1024
+    limitedReader := io.LimitReader(r, oneMegabyte)
+
+    // use limitedReader to stop copying after 1 MB
+    if _, err := io.Copy(os.Stdout, limitedReader); err != nil {
+      log.Fatal(err)
+    }
+    ```
   metadata:
-    cwe: "CWE-409: Improper Handling of Highly Compressed Data"
+    shortDescription: "Improper handling of highly compressed data"
+    cwe: "CWE-409"
     primary_identifier: "gosec.G110-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G110"
       type: "gosec_rule_id"
       value: "G110"
   severity: "WARNING"
+- id: "gosec.G111-1"
   languages:
   - "go"
-- id: "gosec.G111-1"
   patterns:
   - pattern-either:
     - pattern: |
@@ -322,18 +883,31 @@ rules:
         ...
         http.Dir("/")
   message: |
-    Potential directory traversal
+    The application is potentially exposing the entire filesystem by mounting the root
+    directory `/` to an HTTP handler function. Anyone who is able to access this HTTP
+    server may be able to access any file that the HTTP server has access to.
+
+    Restrict the `http.Dir` path to only a specific folder instead of the entire
+    filesystem.
+
+    Example server only allowing directory listing on a public directory:
+    ```
+    const path = "/var/www/html/public"
+    fs := http.FileServer(http.Dir(path))
+    log.Fatal(http.ListenAndServe(":9000", fs))
+    ```
   metadata:
-    cwe: "CWE-23: Relative Path Traversal"
+    shortDescription: "Relative path traversal"
+    cwe: "CWE-23"
     primary_identifier: "gosec.G111-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G111"
       type: "gosec_rule_id"
       value: "G111"
   severity: "WARNING"
+- id: "gosec.G304-1"
   languages:
   - "go"
-- id: "gosec.G304-1"
   patterns:
   - pattern-not-inside: |
       os.OpenFile(filepath.Clean(...), ...)
@@ -375,19 +949,77 @@ rules:
     - pattern: "os.Open($ARG)"
     - pattern: "ioutil.ReadFile($ARG, ...)"
   message: |
-    File open from tainted variable
+    The application dynamically constructs file or path information. If the path
+    information comes from user input, it could be abused to read sensitive files,
+    access other users data or aid in exploitation to gain further system access.
+
+    User input should never be used in constructing paths or files for interacting
+    with the filesystem. This includes filenames supplied by user uploads or downloads.
+    If possible, consider hashing user input or replacing it with unique values.
+    Additionally, use `filepath.Base` to only use the filename and not path information.
+    Always validate the full path prior to opening or writing to any file.
+
+    Example using `filepath.Base`, generating a unique filename without using
+    user input to construct filepath information:
+    ```
+    type userData struct {
+        id           string
+        userFilename string
+    }
+
+    func newUserData(userFilename string) userData {
+        return userData{
+            id:           randomFileID(), // random id as the filename
+            userFilename: userFilename,
+        }
+    }
+
+    // randomFileID generates a random id, to be used as a filename
+    func randomFileID() string {
+        id := make([]byte, 16)
+        if _, err := io.ReadFull(rand.Reader, id); err != nil {
+            log.Fatal(err)
+        }
+        return hex.EncodeToString(id)
+    }
+
+    func main() {
+
+        // user input, saved only as a reference
+        data := newUserData("../../possibly/malicious")
+
+        // restrict all file access to this path
+        const basePath = "/tmp/"
+
+        // resolve the full path, but only use our random generated id
+        resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))
+        if err != nil {
+            log.Fatal(err)
+        }
+
+        // verify the path is prefixed with our basePath
+        if !strings.HasPrefix(resolvedPath, basePath) {
+            log.Fatal("path does not start with basePath")
+        }
+        // process / work with file
+    }
+    ```
+
+    For more information on path traversal issues see OWASP:
+    https://owasp.org/www-community/attacks/Path_Traversal
   metadata:
-    cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
-      Traversal')"
+    shortDescription: "Improper limitation of a pathname to a restricted directory
+      ('Path Traversal')"
+    cwe: "CWE-22"
     primary_identifier: "gosec.G304-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G304"
       type: "gosec_rule_id"
       value: "G304"
   severity: "WARNING"
+- id: "gosec.G306-1"
   languages:
   - "go"
-- id: "gosec.G306-1"
   patterns:
   - pattern-either:
     - pattern: |
@@ -397,18 +1029,36 @@ rules:
       comparison: "$ARG > 0o600"
       base: 8
   message: |
-    Expect WriteFile permissions to be 600 or less
+    The application was found setting file permissions to overly permissive values. Consider
+    using the following values if the application user is the only process to access
+    the file:
+
+    - 0400 - read only access to the file
+    - 0200 - write only access to the file
+    - 0600 - read/write access to the file
+
+    Example writing file contents with read/write permissions for the application user:
+    ```
+    dat := []byte("sensitive data")
+    if err := os.WriteFile("file.txt", dat, 0600); err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+    For all other values please see:
+    https://en.wikipedia.org/wiki/File-system_permissions#Numeric_notation
   metadata:
-    cwe: "CWE-276: Incorrect Default Permissions"
+    shortDescription: "Incorrect default permissions"
+    cwe: "CWE-276"
     primary_identifier: "gosec.G306-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G306"
       type: "gosec_rule_id"
       value: "G306"
   severity: "WARNING"
+- id: "gosec.G303-1"
   languages:
   - "go"
-- id: "gosec.G303-1"
   patterns:
   - pattern-either:
     - pattern: |
@@ -419,37 +1069,160 @@ rules:
       metavariable: "$ARG"
       regex: "(/tmp/.*|/var/tmp/.*)"
   message: |
-    File creation in shared tmp directory without using ioutil.Tempfile
+    The application was found creating files in shared system temporary directories
+    (`/tmp` or `/var/tmp`) without using the `os.CreateTemp` function. Depending
+    on how the application uses this temporary file, an attacker may be able to create
+    symlinks that point to other files prior to the application creating or writing
+    to the target file, leading to unintended files being created or overwritten.
+
+    Example using `os.CreateTemp` in an application restricted directory:
+    ```
+    // assumes /opt/appdir/ is chown'd to the running application user
+    if err := os.MkdirAll("/opt/appdir/restricted", 0700); err != nil {
+      log.Fatal(err)
+    }
+
+    // create a temporary file in the restricted directory in the form of temp-952569059.txt
+    f, err := os.CreateTemp("/opt/appdir/restricted", "temp-*.txt")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    defer f.Close()
+    // clean up on exit
+    defer os.Remove(f.Name())
+    // work with file
+    ```
   metadata:
-    cwe: "CWE-378: Creation of Temporary File With Insecure Permissions"
+    shortDescription: "Creation of temporary file with insecure permissions"
+    cwe: "CWE-378"
     primary_identifier: "gosec.G303-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G303"
       type: "gosec_rule_id"
       value: "G303"
   severity: "WARNING"
+- id: "gosec.G305-1"
   languages:
   - "go"
-- id: "gosec.G305-1"
   mode: "taint"
   pattern-sources:
   - pattern: "zip.OpenReader(...)"
   pattern-sinks:
   - pattern: "filepath.Join(...)"
   message: |
-    File traversal when extracting zip/tar archive
+    The application may be vulnerable to a path traversal if it extracts untrusted archive files.
+    This vulnerability is colloquially known as 'Zip Slip'. Archive files may contain folders
+    which,
+    when extracted, may write outside of the intended directory. This is exploited by including
+    path traversal characters such as `../../other/directory` to overwrite or place files in system
+    or application directories.
+
+    Extra care must be taken when extracting archive files as there are numerous concerns:
+
+    - Limit the size of the zip archive as it may contain "Zip Bombs", files that extract to
+    extremely
+    large sizes.
+    - If possible, generate unique filenames instead of using the archives file names, as it may be
+    possible for users to overwrite files if the filenames are the same.
+    - Validate file paths are written with a prefixed, known trusted directory.
+    - Only process regular files and not symbolic links, as some applications may attempt to
+    read/follow
+    the symbolic link, leading to arbitrary file read / write vulnerabilities.
+
+
+    Example of securely processing an archive file:
+    ```
+    r, err := zip.OpenReader("trusted.zip")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    // Ensure archive contains only the expected number of files
+    const expectedFileCount = 10
+    if len(r.File) > expectedFileCount {
+      log.Fatalf("too many files in archive: %d\n", len(r.File))
+    }
+
+    // One approach is to sum up all files before attempting to process
+    // them.
+    const totalAllowedSize = 1024 * 1024 * 10 // 10MB
+    var totalSize uint64
+    for _, f := range r.File {
+      totalSize += f.UncompressedSize64
+    }
+
+    if totalSize > totalAllowedSize {
+      log.Fatalf("archive exceeds total allowed size: %d\n", totalSize)
+    }
+
+    // configure a max size per file allowed
+    const maxFileSize = 1024 * 1024 // 1 MB
+
+    // set restricted basePath
+    const basePath = "/var/restricted/"
+
+    // iterate over the files in the archive
+    for _, f := range r.File {
+
+      // Ensure uncompressed size does not exceed our allowed file size
+      if f.UncompressedSize64 > maxFileSize {
+        log.Printf("skipping file as it exceeds maxFileSize: %s\n", f.Name)
+        continue
+      }
+
+      // Ensure file is a regular file and not a symbolic link or has other mode type
+      // bits set
+      if !f.Mode().IsRegular() {
+        log.Printf("skipping non regular file: %s\n", f.Name)
+        continue
+      }
+
+      // if possible consider not using the name at all, but generating a random id instead.
+      // If the filename must be used, extract the base name and not folder path information
+      name := filepath.Base(f.Name)
+
+      // Join the file name to the basePath.
+      resolvedPath, err := filepath.Join(basePath, name)
+      if err != nil {
+        log.Fatal(err)
+      }
+
+      // Application must still verify the path is prefixed by the basePath
+      if !strings.HasPrefix(resolvedPath, basePath) {
+        log.Fatal("path does not start with basePath")
+      }
+
+      // process / work with file
+    }
+    ```
+
+    If the application must process directory names as well, use the following code:
+    ```
+    // Join the cleaned name to the basePath, note if 'name' starts with `../../` it
+    // will still allow for traversal, so you _must_ verify the path prefix below
+    resolvedPath := filepath.Join(basePath, filepath.Clean(name))
+
+    // Application must still verify the path is prefixed by the basePath
+    if !strings.HasPrefix(resolvedPath, basePath) {
+      log.Fatal("path does not start with basePath")
+    }
+
+    // process / work with file
+    ```
   metadata:
-    cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path
-      Traversal')"
+    shortDescription: "Improper limitation of a pathname to a restricted directory
+      ('Path Traversal')"
+    cwe: "CWE-22"
     primary_identifier: "gosec.G305-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G305"
       type: "gosec_rule_id"
       value: "G305"
   severity: "WARNING"
+- id: "gosec.G114-1"
   languages:
   - "go"
-- id: "gosec.G114-1"
   patterns:
   - pattern-inside: |
       import "net/http"
@@ -460,19 +1233,87 @@ rules:
     - pattern: "http.Serve(...)"
     - pattern: "http.ServeTLS(...)"
   message: |
-    The use of net/http serve functions without support for setting timeouts are susceptible to the
-    Slowloris class of attacks.
+    Go's `net/http` serve functions may be vulnerable to resource consumption attacks if timeouts
+    are not properly configured
+    prior to starting the HTTP server. An adversary may open up thousands of connections but never
+    complete sending all data,
+    or never terminate the connections. This may lead to the server no longer accepting new
+    connections.
+
+    To protect against this style of resource consumption attack, timeouts should be set in the
+    `net/http` server prior to calling
+    the listen or serve functions. What this means is that the default `http.ListenAndServe` and
+    `http.Serve` functions should not
+    be used in a production setting as they are unable to have timeouts configured. Instead a
+    custom `http.Server` object must be
+    created with the timeouts configured.
+
+    Example setting timeouts on a `net/http` server:
+    ```
+    // All values chosen below are dependent on application logic and
+    // should be tailored per use-case
+    srv := &http.Server{
+      Addr: "localhost:8000",
+      // ReadHeaderTimeout is the amount of time allowed to read
+      // request headers. The connection's read deadline is reset
+      // after reading the headers and the Handler can decide what
+      // is considered too slow for the body. If ReadHeaderTimeout
+      // is zero, the value of ReadTimeout is used. If both are
+      // zero, there is no timeout.
+      ReadHeaderTimeout: 15 * time.Second,
+
+      // ReadTimeout is the maximum duration for reading the entire
+      // request, including the body. A zero or negative value means
+      // there will be no timeout.
+      //
+      // Because ReadTimeout does not let Handlers make per-request
+      // decisions on each request body's acceptable deadline or
+      // upload rate, most users will prefer to use
+      // ReadHeaderTimeout. It is valid to use them both.
+      ReadTimeout: 15 * time.Second,
+
+      // WriteTimeout is the maximum duration before timing out
+      // writes of the response. It is reset whenever a new
+      // request's header is read. Like ReadTimeout, it does not
+      // let Handlers make decisions on a per-request basis.
+      // A zero or negative value means there will be no timeout.
+      WriteTimeout: 10 * time.Second,
+
+      // IdleTimeout is the maximum amount of time to wait for the
+      // next request when keep-alives are enabled. If IdleTimeout
+      // is zero, the value of ReadTimeout is used. If both are
+      // zero, there is no timeout.
+      IdleTimeout: 30 * time.Second,
+    }
+
+    // For per request timeouts applications can wrap all `http.HandlerFunc(...)` in
+    // `http.TimeoutHandler`` and specify a timeout, but note the TimeoutHandler does not
+    // start ticking until all headers have been read.
+
+    // Listen with our custom server with timeouts configured
+    if err := srv.ListenAndServe(); err != nil {
+      log.Fatal(err)
+    }
+    ```
+    For more information on the `http.Server` timeouts, see: https://pkg.go.dev/net/http#Server
+
+    For information on setting request based timeouts, see:
+    https://pkg.go.dev/net/http#TimeoutHandler
+
+    For more information on the Slowloris attack see:
+    https://en.wikipedia.org/wiki/Slowloris_(computer_security)
   metadata:
-    cwe: "CWE-400: Uncontrolled Resource Consumption"
+    shortDescription: "Uncontrolled resource consumption (Slowloris)"
+    cwe: "CWE-400"
     primary_identifier: "gosec.G114-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G114"
       type: "gosec_rule_id"
       value: "G114"
   severity: "WARNING"
+- id: "gosec.G112-1"
   languages:
   - "go"
-- id: "gosec.G112-1"
   patterns:
   - pattern-inside: |
       import "net/http"
@@ -508,18 +1349,88 @@ rules:
             ...,
           }
   message: |
-    Potential Slowloris Attack because ReadHeaderTimeout is not configured in the http.Server
+    Potential Slowloris Attack because `ReadHeaderTimeout` is not configured in the `http.Server`.
+    This application may
+    be vulnerable to resource consumption attacks if timeouts are not properly configured
+    prior to starting the HTTP server. An adversary may open up thousands of connections but never
+    complete sending all data,
+    or never terminate the connections. This may lead to the server no longer accepting new
+    connections.
+
+    To protect against this style of resource consumption attack, timeouts should be set in the
+    `net/http` server prior to calling
+    the listen or serve functions. The default `http.ListenAndServe` and
+    `http.Serve` functions should not
+    be used in a production setting as they are unable to have timeouts configured. Instead a
+    custom `http.Server` object must be
+    created with the timeouts configured.
+
+    Example setting timeouts on a `net/http` server:
+    ```
+    // All values chosen below are dependent on application logic and
+    // should be tailored per use-case
+    srv := &http.Server{
+      Addr: "localhost:8000",
+      // ReadHeaderTimeout is the amount of time allowed to read
+      // request headers. The connection's read deadline is reset
+      // after reading the headers and the Handler can decide what
+      // is considered too slow for the body. If ReadHeaderTimeout
+      // is zero, the value of ReadTimeout is used. If both are
+      // zero, there is no timeout.
+      ReadHeaderTimeout: 15 * time.Second,
+
+      // ReadTimeout is the maximum duration for reading the entire
+      // request, including the body. A zero or negative value means
+      // there will be no timeout.
+      //
+      // Because ReadTimeout does not let Handlers make per-request
+      // decisions on each request body's acceptable deadline or
+      // upload rate, most users will prefer to use
+      // ReadHeaderTimeout. It is valid to use them both.
+      ReadTimeout: 15 * time.Second,
+
+      // WriteTimeout is the maximum duration before timing out
+      // writes of the response. It is reset whenever a new
+      // request's header is read. Like ReadTimeout, it does not
+      // let Handlers make decisions on a per-request basis.
+      // A zero or negative value means there will be no timeout.
+      WriteTimeout: 10 * time.Second,
+
+      // IdleTimeout is the maximum amount of time to wait for the
+      // next request when keep-alives are enabled. If IdleTimeout
+      // is zero, the value of ReadTimeout is used. If both are
+      // zero, there is no timeout.
+      IdleTimeout: 30 * time.Second,
+    }
+
+    // For per request timeouts applications can wrap all `http.HandlerFunc(...)` in
+    // `http.TimeoutHandler`` and specify a timeout, but note the TimeoutHandler does not
+    // start ticking until all headers have been read.
+
+    // Listen with our custom server with timeouts configured
+    if err := srv.ListenAndServe(); err != nil {
+      log.Fatal(err)
+    }
+    ```
+    For more information on the `http.Server` timeouts, see: https://pkg.go.dev/net/http#Server
+
+    For information on setting request based timeouts, see:
+    https://pkg.go.dev/net/http#TimeoutHandler
+
+    For more information on the Slowloris attack see:
+    https://en.wikipedia.org/wiki/Slowloris_(computer_security)
   metadata:
-    cwe: "CWE-400: Uncontrolled Resource Consumption"
+    shortDescription: "Uncontrolled resource consumption (Slowloris)"
+    cwe: "CWE-400"
     primary_identifier: "gosec.G112-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G112"
       type: "gosec_rule_id"
       value: "G112"
   severity: "WARNING"
+- id: "gosec.G107-1"
   languages:
   - "go"
-- id: "gosec.G107-1"
   patterns:
   - pattern-either:
     - patterns:
@@ -557,18 +1468,112 @@ rules:
           ...
       - pattern: "http.Get($X)"
   message: |
-    Url provided to HTTP request as taint input
+    Server-Side-Request-Forgery (SSRF) exploits backend systems that initiate requests to third
+    parties.
+    If user input is used in constructing or sending these requests, an attacker could supply
+    malicious
+    data to force the request to other systems or modify request data to cause unwanted actions.
+
+    Ensure user input is not used directly in constructing URLs or URIs when initiating requests
+    to third party
+    systems from back end systems. Care must also be taken when constructing payloads using user
+    input. Where
+    possible restrict to known URIs or payloads. Consider using a server side map where key's are
+    used to return
+    URLs such as `https://site/goto?key=1` where `{key: 1, url: 'http://some.url/', key: 2, url:
+    'http://...'}`.
+
+    If you must use user supplied input for requesting URLs, it is strongly recommended that the
+    HTTP client
+    chosen allows you to customize and block certain IP ranges at the network level. By blocking
+    RFC 1918
+    addresses or other network address ranges, you can limit the severity of a successful SSRF
+    attack. Care must
+    also be taken to block certain protocol or address formatting such as IPv6.
+
+    If you can not block address ranges at the client level, you may want to run the HTTP client
+    as a protected
+    user, or in a protected network where you can apply IP Table or firewall rules to block access
+    to dangerous
+    addresses. Finally, if none of the above protections are available, you could also run a
+    custom HTTP proxy
+    and force all requests through it to handle blocking dangerous addresses.
+
+    Example HTTP client that disallows access to loopback and RFC-1918 addresses
+    ```
+    // IsDisallowedIP parses the ip to determine if we should allow the HTTP client to continue
+    func IsDisallowedIP(hostIP string) bool {
+      ip := net.ParseIP(hostIP)
+      return ip.IsMulticast() || ip.IsUnspecified() || ip.IsLoopback() || ip.IsPrivate()
+    }
+
+    // SafeTransport uses the net.Dial to connect, then if successful check if the resolved
+    // ip address is disallowed. We do this due to hosts such as localhost.lol being resolvable to
+    // potentially malicious URLs. We allow connection only for resolution purposes.
+    func SafeTransport(timeout time.Duration) *http.Transport {
+      return &http.Transport{
+        DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+          c, err := net.DialTimeout(network, addr, timeout)
+          if err != nil {
+            return nil, err
+          }
+          ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())
+          if IsDisallowedIP(ip) {
+            return nil, errors.New("ip address is not allowed")
+          }
+          return c, err
+        },
+        DialTLS: func(network, addr string) (net.Conn, error) {
+          dialer := &net.Dialer{Timeout: timeout}
+          c, err := tls.DialWithDialer(dialer, network, addr, &tls.Config{})
+          if err != nil {
+            return nil, err
+          }
+
+          ip, _, _ := net.SplitHostPort(c.RemoteAddr().String())
+          if IsDisallowedIP(ip) {
+            return nil, errors.New("ip address is not allowed")
+          }
+
+          err = c.Handshake()
+          if err != nil {
+            return c, err
+          }
+
+          return c, c.Handshake()
+        },
+        TLSHandshakeTimeout: timeout,
+      }
+    }
+
+    func httpRequest(requestUrl string) {
+      const clientConnectTimeout = time.Second * 10
+      httpClient := &http.Client{
+        Transport: SafeTransport(clientConnectTimeout),
+      }
+      resp, err := httpClient.Get(requestUrl)
+      if err != nil {
+        log.Fatal(err)
+      }
+      defer resp.Body.Close()
+      // work with resp
+    }
+    ```
+
+    For more information on SSRF see OWASP:
+    https://owasp.org/www-community/attacks/Server_Side_Request_Forgery
   metadata:
-    cwe: "CWE-88: Improper Neutralization of Argument Delimiters in a Command"
+    shortDescription: "Server Side Request Forgery (SSRF)"
+    cwe: "CWE-918"
     primary_identifier: "gosec.G107-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G107"
       type: "gosec_rule_id"
       value: "G107"
   severity: "WARNING"
+- id: "gosec.G203-1"
   languages:
   - "go"
-- id: "gosec.G203-1"
   patterns:
   - pattern-either:
     - patterns:
@@ -584,34 +1589,95 @@ rules:
       - pattern: "template.HTMLAttr($IN)"
       - pattern-not: "template.HTMLAttr(\"...\")"
   message: |
-    Use of unescaped data in HTML templates
+    Cross Site Scripting (XSS) is an attack which exploits a web application or system to treat
+    user input
+    as markup or script code. It is important to encode the data depending on the specific context
+    it
+    is used in. There are at least six context types:
+
+    - Inside HTML tags `<div>context 1</div>`
+    - Inside attributes: `<div class="context 2"></div>`
+    - Inside event attributes `<button onclick="context 3">button</button>`
+    - Inside script blocks: `<script>var x = "context 4"</script>`
+    - Unsafe element HTML assignment: `element.innerHTML = "context 5"`
+    - Inside URLs: `<iframe src="context 6"></iframe><a href="context 6">link</a>`
+
+    Script blocks alone have multiple ways they need to be encoded. Extra care must be taken if
+    user input
+    is ever output inside of script tags.
+
+    User input that is displayed within the application must be encoded, sanitized or validated
+    to ensure it cannot be treated as HTML or executed as Javascript code. Care must also be
+    taken
+    to not mix server-side templating with client-side templating, as the server-side templating
+    will
+    not encode things like {{ 7*7 }} which may execute client-side templating features.
+
+    It is _NOT_ advised to encode user input prior to inserting into a data store. The data will
+    need to be
+    encoded depending on context of where it is output. It is much safer to force the displaying
+    system to
+    handle the encoding and not attempt to guess how it should be encoded.
+
+    Use of the following template types with user input denotes a security risk:
+
+    - [template.HTML](https://pkg.go.dev/html/template#HTML)
+    - [template.JS](https://pkg.go.dev/html/template#JS)
+    - [template.URL](https://pkg.go.dev/html/template#URL)
+    - [template.HTMLAttr](https://pkg.go.dev/html/template#HTMLAttr)
+
+    Either remove these types from the application or hardcode as const strings prior
+    to conversion:
+    ```
+    testTemplate, err := template.New("testTemplate").Funcs(template.FuncMap{
+      "SafeHTML": func() template.HTML {
+        const safeHTML = "<div>hardcoded, safe html</div>"
+        return template.HTML(safeHTML)
+      },
+    }).Parse(`<html><body>{{ SafeHTML }}</body>`)
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    if err := testTemplate.Execute(os.Stdout, nil); err != nil {
+      log.Fatal(err)
+    }
+    ```
   metadata:
-    cwe: "CWE-79: Improper Neutralization of Input During Web Page Generation"
+    shortDescription: "Improper neutralization of input during web page generation
+      ('Cross-site Scripting')"
+    cwe: "CWE-79"
     primary_identifier: "gosec.G203-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G203"
       type: "gosec_rule_id"
       value: "G203"
   severity: "WARNING"
+- id: "gosec.G108-1"
   languages:
   - "go"
-- id: "gosec.G108-1"
   patterns:
   - pattern: |
       import _ "net/http/pprof"
   message: |
-    Profiling endpoint automatically exposed on /debug/pprof
+    Go has a built in profiling service that is enabled by starting an HTTP server with
+    `net/http/pprof` imported. The `/debug/pprof` endpoint does not require any
+    authentication and can be accessed by anonymous users. This profiling endpoint
+    can leak sensitive information and should not be enabled in production.
+
+    To remediate this, remove the `net/http/pprof` import from the file.
   metadata:
-    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+    shortDescription: "Active debug code (pprof enabled)"
+    cwe: "CWE-489"
     primary_identifier: "gosec.G108-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G108"
       type: "gosec_rule_id"
       value: "G108"
   severity: "ERROR"
+- id: "gosec.G109-1"
   languages:
   - "go"
-- id: "gosec.G109-1"
   patterns:
   - pattern-either:
     - patterns:
@@ -622,17 +1688,37 @@ rules:
         - pattern: "int32($X)"
         - pattern: "int16($X)"
   message: |
-    Potential Integer overflow made by strconv.Atoi result conversion to int16/32
+    Golang's `int` type size depends on the architecture of where the application is running. For
+    32-bit systems, `int` is
+    32-bit, for 64-bit systems, `int` will be 64-bit. By calling `strconv.Atoi` with a large
+    number, the integer may overflow
+    if the `int` return value is type converted into a smaller type (`int32` or `int16`). This
+    could cause unexpected application
+    behavior depending on how the resultant value is used.
+
+    Prior to running any type conversion, check that the value returned from `strconv.Atoi` will
+    fit in the resulting integer.
+
+    Example of checking the return value before type conversion:
+    ```
+    bigValue, _ := strconv.Atoi("32768")
+    if bigValue > math.MaxInt16 {
+      log.Fatal("value too large to fit in int16")
+    }
+    value := int16(bigValue)
+    fmt.Println(value)
+    ```
+
+    For more information on integer min/max constants see: https://pkg.go.dev/math#pkg-constants
   metadata:
-    cwe: "CWE-190: Integer Overflow or Wraparound"
+    shortDescription: "Integer overflow or wraparound"
+    cwe: "CWE-190"
     primary_identifier: "gosec.G109-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G109"
       type: "gosec_rule_id"
       value: "G109"
   severity: "ERROR"
-  languages:
-  - "go"
 - id: "gosec.G113-1"
   patterns:
   - pattern-inside: |
@@ -656,6 +1742,8 @@ rules:
   languages:
   - "go"
 - id: "gosec.G601-1"
+  languages:
+  - "go"
   patterns:
   - pattern-either:
     - pattern: |
@@ -677,18 +1765,65 @@ rules:
   - pattern-not-inside: |-
       for _, $ARG := range $SLICE { return ... }
   message: |
-    Implicit memory aliasing in for loop.
+    Go's `for ... range` statements create an iteration variable for each iteration of the loop.
+    By taking the address of this iteration variable, the value of the address will be re-used
+    and always point to the same location in memory. This can have unexpected behavior if the
+    address is stored or re-used.
+
+    This can be fixed by:
+    - Not referencing the address of the variable
+    - Re-assigning the iteration variable to a new variable
+    - Using the address of the indexed variable
+
+    Example not referencing the address:
+    ```
+    type someStruct struct {
+      x int
+    }
+
+    for _, n := range []someStruct{{1}, {2}, {3}, {4}} {
+      fmt.Printf("%d\n", n.x)
+    }
+    ```
+
+    Example reassigning the iteration variable to a new variable:
+    ```
+    type someStruct struct {
+      x int
+    }
+
+    for _, n := range []someStruct{{1}, {2}, {3}, {4}} {
+      p := n
+      fmt.Printf("%p\n", &p)
+    }
+    ```
+
+    Example using the address of the indexed variable:
+    ```
+    type someStruct struct {
+      x int
+    }
+
+    structData := []someStruct{{1}, {2}, {3}, {4}}
+    for idx := range structData {
+      fmt.Printf("%p\n", &structData[idx])
+    }
+    ```
+
+    For more information on how the `for ... range` statement works see:
+    https://go.dev/ref/spec#For_statements
   metadata:
-    cwe: "CWE-118: Incorrect Access of Indexable Resource ('Range Error')"
+    shortDescription: "Incorrect access of indexable resource ('Range Error')"
+    cwe: "CWE-118"
     primary_identifier: "gosec.G601-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G601"
       type: "gosec_rule_id"
       value: "G601"
   severity: "WARNING"
+- id: "gosec.G102-1"
   languages:
   - "go"
-- id: "gosec.G102-1"
   patterns:
   - pattern-either:
     - pattern: "net.Listen(..., \"$ADDR\")"
@@ -699,10 +1834,23 @@ rules:
   message: |
     Binding to all network interfaces can potentially open up a service to
     traffic on unintended interfaces, that may not be properly documented or
-    secured. This plugin test looks for a string pattern “0.0.0.0” that may
-    indicate a hardcoded binding to all network interfaces.
+    secured. By passing "0.0.0.0" as the address to the `Listen` family of functions,
+    the application will bind to all interfaces.
+
+    Consider passing in the interface ip address through an environment variable,
+    configuration file, or by determining the primary interface(s) IP address.
+
+    Example getting the IP address from an environment variable `IP_ADDRESS`:
+    ```
+    addr := os.Getenv("IP_ADDRESS")
+    listener, err := net.Listen("tcp", addr)
+    if err != nil {
+      log.Fatal(err)
+    }
+    ```
   metadata:
-    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+    shortDescription: "Exposure of sensitive information to an unauthorized actor"
+    cwe: "CWE-200"
     owasp: "A6:2017-Security Misconfiguration"
     primary_identifier: "gosec.G102-1"
     secondary_identifiers:
@@ -710,9 +1858,9 @@ rules:
       type: "gosec_rule_id"
       value: "G102"
   severity: "WARNING"
+- id: "gosec.G101-1"
   languages:
   - "go"
-- id: "gosec.G101-1"
   patterns:
   - pattern-either:
     - pattern: "$MASK = \"...\""
@@ -720,19 +1868,35 @@ rules:
       metavariable: "$MASK"
       regex: "(password|pass|passwd|pwd|secret|token)"
   message: |
-    The use of hard-coded passwords increases the possibility of password guessing tremendously.
+    A potential hard-coded password was identified. Passwords should not be stored directly in code
+    but loaded from secure locations such as a Key Management System (KMS).
+
+    The purpose of using Key Management System's is so access can be audited and keys easily
+    rotated
+    in the event of a breach. By hardcoding passwords, it will be extremely difficult to determine
+    when or if, a key is compromised.
+
+    The recommendation on which KMS to use depends on the environment the application is running
+    in:
+
+    - For Google Cloud Platform consider [Cloud Key Management](https://cloud.google.com/kms/docs)
+    - For Amazon Web Services consider [AWS Key Management](https://aws.amazon.com/kms/)
+    - For on premise or other alternatives to cloud providers, consider [Hashicorp's
+    Vault](https://www.vaultproject.io/)
+    - For other cloud providers, please see their documentation
   metadata:
-    cwe: "CWE-259: Use of Hard-coded Password"
-    owasp: "A2:2017-Broken Authentication"
+    shortDescription: "Use of hard-coded password"
+    cwe: "CWE-259"
+    owasp: "A3:2017-Sensitive Data Exposure"
     primary_identifier: "gosec.G101-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G101"
       type: "gosec_rule_id"
       value: "G101"
   severity: "ERROR"
+- id: "gosec.G202-1"
   languages:
   - "go"
-- id: "gosec.G202-1"
   patterns:
   - pattern-inside: |
       import "database/sql"
@@ -743,18 +1907,50 @@ rules:
   - pattern-not: "$DB.QueryContext(..., \"...\" + \"...\")"
   - pattern-not: "$DB.Query(\"...\" + \"...\")"
   message: |
-    SQL query construction using string concatenation
+    SQL Injection is a critical vulnerability that can lead to data or system compromise. By
+    dynamically generating SQL query strings, user input may be able to influence the logic of
+    the SQL statement. This could lead to an adversary accessing information they should
+    not have access to or in some circumstances, being able to execute OS functionality or code.
+
+    Replace all dynamically generated SQL queries with parameterized queries. In situations where
+    dynamic queries must be created, never use direct user input, but instead use a map or
+    dictionary of valid values and resolve them using a user supplied key.
+
+    For example, some database drivers do not allow parameterized queries for `>` or `<` comparison
+    operators. In these cases, do not use a user supplied `>` or `<` value, but rather have the
+    user
+    supply a `gt` or `lt` value. The alphabetical values are then used to look up the `>` and `<`
+    values to be used in the construction of the dynamic query. The same goes for other queries
+    where
+    column or table names are required but cannot be parameterized.
+
+    Example using parameterized queries with `sql.Query`:
+    ```
+    rows, err := db.Query("SELECT * FROM users WHERE userName = ?", userName)
+    if err != nil {
+        return nil, err
+    }
+    defer rows.Close()
+    for rows.Next() {
+      // ... process rows
+    }
+    ```
+
+    For more information on SQL Injection see OWASP:
+    https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
   metadata:
-    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command"
+    shortDescription: "Improper Neutralization of Special Elements used in an SQL
+      Command ('SQL Injection')"
+    cwe: "CWE-89"
     primary_identifier: "gosec.G202-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G202"
       type: "gosec_rule_id"
       value: "G202"
   severity: "WARNING"
+- id: "gosec.G201-1"
   languages:
   - "go"
-- id: "gosec.G201-1"
   patterns:
   - pattern-inside: |
       $Q := fmt.Sprintf("$QUERY", ...)
@@ -772,18 +1968,50 @@ rules:
     - pattern: "$DB.QueryContext(..., $Q)"
     - pattern: "$DB.Query($Q)"
   message: |
-    SQL query construction using format string
+    SQL Injection is a critical vulnerability that can lead to data or system compromise. By
+    dynamically generating SQL query strings, user input may be able to influence the logic of
+    the SQL statement. This could lead to an adversary accessing information they should
+    not have access to or in some circumstances, being able to execute OS functionality or code.
+
+    Replace all dynamically generated SQL queries with parameterized queries. In situations where
+    dynamic queries must be created, never use direct user input, but instead use a map or
+    dictionary of valid values and resolve them using a user supplied key.
+
+    For example, some database drivers do not allow parameterized queries for `>` or `<` comparison
+    operators. In these cases, do not use a user supplied `>` or `<` value, but rather have the
+    user
+    supply a `gt` or `lt` value. The alphabetical values are then used to look up the `>` and `<`
+    values to be used in the construction of the dynamic query. The same goes for other queries
+    where
+    column or table names are required but cannot be parameterized.
+
+    Example using parameterized queries with `sql.Query`:
+    ```
+    rows, err := db.Query("SELECT * FROM users WHERE userName = ?", userName)
+    if err != nil {
+        return nil, err
+    }
+    defer rows.Close()
+    for rows.Next() {
+      // ... process rows
+    }
+    ```
+
+    For more information on SQL Injection see OWASP:
+    https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
   metadata:
-    cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command"
+    shortDescription: "Improper Neutralization of Special Elements used in an SQL
+      Command ('SQL Injection')"
+    cwe: "CWE-89"
     primary_identifier: "gosec.G201-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G201"
       type: "gosec_rule_id"
       value: "G201"
   severity: "WARNING"
+- id: "gosec.G204-1"
   languages:
   - "go"
-- id: "gosec.G204-1"
   patterns:
   - pattern-either:
     - patterns:
@@ -799,10 +2027,64 @@ rules:
       - pattern: "syscall.StartProcess($EXE, ...)"
       - pattern-not: "syscall.StartProcess(\"...\", ...)"
   message: |
-    Audit use of command execution
+    OS command injection is a critical vulnerability that can lead to a full system
+    compromise as it may allow an adversary to pass in arbitrary commands or arguments
+    to be executed.
+
+    User input should never be used in constructing commands or command arguments
+    to functions which execute OS commands. This includes filenames supplied by
+    user uploads or downloads.
+
+    Ensure your application does not:
+
+    - Use user-supplied information in the process name to execute.
+    - Use user-supplied information in an OS command execution function which does
+    not escape shell meta-characters.
+    - Use user-supplied information in arguments to OS commands.
+
+    The application should have a hardcoded set of arguments that are to be passed
+    to OS commands. If filenames are being passed to these functions, it is
+    recommended that a hash of the filename be used instead, or some other unique
+    identifier. It is strongly recommended that a native library that implements
+    the same functionality be used instead of using OS system commands, due to the
+    risk of unknown attacks against third party commands.
+
+    If operating in Windows environments, when specifying the OS command, ensure
+    the application uses the full path
+    information, otherwise the OS may attempt to look up which process to execute
+    and could be vulnerable to untrusted search path vulnerabilities (CWE-426).
+
+    Example of safely executing an OS command:
+    ```
+    userData := []byte("user data")
+    // create a temporary file in the application specific directory
+    f, err := ioutil.TempFile("/var/app/restricted", "temp-*.dat")
+    if err != nil {
+      log.Fatal(err)
+    }
+
+    if _, err := f.Write(userData); err != nil {
+      log.Fatal(err)
+    }
+
+    if err := f.Close(); err != nil {
+      log.Fatal(err)
+    }
+
+    // pass the full path to the binary and the name of the temporary file
+    // instead of any user supplied filename
+    out, err := exec.Command("/bin/cat", f.Name()).Output()
+    if err != nil {
+      log.Fatal(err)
+    }
+    ```
+
+    For more information on OS command injection, see OWASP's guide:
+    https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html
   metadata:
-    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
-      ('Eval Injection')"
+    shortDescription: "Improper Neutralization of Directives in Dynamically Evaluated
+      Code ('Eval Injection')"
+    cwe: "CWE-95"
     owasp: "A1:2017-Injection"
     primary_identifier: "gosec.G204-1"
     secondary_identifiers:
@@ -810,9 +2092,9 @@ rules:
       type: "gosec_rule_id"
       value: "G204"
   severity: "WARNING"
+- id: "gosec.G103-1"
   languages:
   - "go"
-- id: "gosec.G103-1"
   patterns:
   - pattern-either:
     - pattern: "unsafe.Alignof(...)"
@@ -820,18 +2102,30 @@ rules:
     - pattern: "unsafe.Sizeof(...)"
     - pattern: "unsafe.Pointer(...)"
   message: |
-    Using the unsafe package in Go gives you low-level memory management and many
-    of the strength of the C language but also gives flexibility to the attacker of
-    your application. The pointer arithmetic is one of the examples from the unsafe
-    package which can be used for data leak, memory corruption or even execution of
-    attackers own script.
+    The `unsafe` package in Go allows low-level access to memory management features.
+    This includes pointers and direct access to memory. The Go compiler will no longer
+    be able to enforce type safety when working with the `unsafe` pointer types.
+
+    While powerful, access to these functions can lead to many security related issues
+     such as:
+
+    - [Buffer overflows](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow) which
+    can lead to code execution.
+    can lead to code execution
+    - [Use after free](https://owasp.org/www-community/vulnerabilities/Using_freed_memory) which
+    can lead to code execution.
+    can lead to code execution
+    - [Information/Memory leaks](https://owasp.org/www-community/vulnerabilities/Memory_leak)
+    which can leak sensitive information, including data which can
+    defeat other protection mechanisms or cause the system to run out of memory.
+
+    Unless required, all calls to the `unsafe` package should be removed.
   metadata:
-    cwe: "CWE-242: Audit the use of unsafe block"
+    shortDescription: "Use of inherently dangerous function (unsafe package)"
+    cwe: "CWE-242"
     primary_identifier: "gosec.G103-1"
     secondary_identifiers:
     - name: "Gosec Rule ID G103"
       type: "gosec_rule_id"
       value: "G103"
   severity: "INFO"
-  languages:
-  - "go"
