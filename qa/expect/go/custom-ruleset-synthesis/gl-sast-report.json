@@ -369,7 +369,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "4.2.3"
+      "version": ":SKIP:"
     },
     "scanner": {
       "id": "semgrep",

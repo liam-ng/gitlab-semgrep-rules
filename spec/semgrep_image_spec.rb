@@ -55,11 +55,7 @@ describe 'running image' do
     def parse_expected_report(expectation_name, report_name = "gl-sast-report.json")
       path = File.join(expectations_dir, expectation_name, report_name)
       if ENV['REFRESH_EXPECTED'] == "true"
-        tmp_json = File.read(scan.report_path)
-        tmp_json.gsub!(/"id": "[a-z0-9]{64}"/, "\"id\": \":SKIP:\"")
-        tmp_json.gsub!(/"start_time": ".+"/, "\"start_time\": \":SKIP:\"")
-        tmp_json.gsub!(/"end_time": ".+"/, "\"end_time\": \":SKIP:\"")
-        File.open(scan.report_path, "w") {|file| file.puts tmp_json }
+        # overwrite the expected JSON with the newly generated JSON
         FileUtils.cp(scan.report_path, File.expand_path(path))
       end
       JSON.parse(File.read(path))
