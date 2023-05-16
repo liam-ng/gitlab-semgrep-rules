@@ -23,6 +23,15 @@ The image integration tests can also be executed locally, for example, to check 
 
 See the [instructions](https://gitlab.com/gitlab-org/security-products/analyzers/integration-test/-/blob/main/README.md#how-to-run-the-integration-test-docker-container-locally) from the `integration-test` project.
 
+#### Updating the integration test expected JSON
+
+Making changes to rules or the semgrep codebase often results in changes to the expected JSON. Rather than manually updating these files,
+the expect JSON, found in `qa/expect`, can be updated using the script [analyzer-refresh-expected-json](https://gitlab.com/gitlab-org/secure/tools/analyzer-scripts/-/blob/master/analyzer-refresh-expected-json). To run the script, follow the instructions in the [analyzer-scripts README](https://gitlab.com/gitlab-org/secure/tools/analyzer-scripts) and then run `analyzer-refresh-expected-json` from your `semgrep` development directory.
+
+This script runs the integration tests from the [integration-test Docker image](#running-image-integration-tests-using-the-integration-test-docker-image) and adds an additional environment variable. This variable causes the integration specs to overwrite the `qa/expect` JSON files with the JSON generated during the specs.
+
+Once that's complete, the `analyzer-refresh-expected-json` then sanitizes the JSON by replacing `scan.start_time`, `scan.end_time`, `vulnerabilities.id` and `scan.analyzer.version` to `:SKIP:`.
+
 ## Contributing
 
 Contributions are welcome, see [`CONTRIBUTING.md`](CONTRIBUTING.md) for more details.
