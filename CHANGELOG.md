@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.2.3
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.13) version `1.3.13` (!268)
+  - feat: Drop high-FP eslint detect-object-injection rule [sast-rules!151](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/151)
+
 ## v4.2.2
 - TEMP: Use patched version of `sast-rules` to remove detect-object-injection (!266)
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.12) version `1.3.12` (!266)
