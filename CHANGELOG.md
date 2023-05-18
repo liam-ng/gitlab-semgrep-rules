@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.2.5
+- Fixes custom ruleset loading behavior for remote rulesets using file passthrough (!258)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v2.0.1` => [`v2.0.2`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v2.0.2)] (!258)
+
 ## v4.2.4
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.14) version `1.3.14` (!269)
   - Update C# SQL Injection with link for more details [sast-rules!139](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/139)
@@ -40,7 +44,7 @@ Semgrep analyzer changelog
 - Use updated pattern from avoid-pyyaml-load in B506 (@stevep-arm !255)
 
 ## v4.1.0
-- upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v1.4.1` => [`v2.0.0`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v2.0.0)] (!245)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v1.4.1` => [`v2.0.1`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v2.0.1)] (!245)
 - enable support for loading remote ruleset configs (!245)
 
 ## v4.0.2
