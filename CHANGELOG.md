@@ -1,5 +1,12 @@
 Semgrep analyzer changelog
 
+## v4.2.4
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.14) version `1.3.14` (!269)
+  - Update C# SQL Injection with link for more details [sast-rules!139](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/139)
+  - Enhance C# ruleset descriptions and titles [sast-rules!134](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/134)
+- Import find_sec_bugs ruleset from [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) (!269)
+- Import security_code_scan ruleset from [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) (!269)
+
 ## v4.2.3
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.13) version `1.3.13` (!268)
   - feat: Drop high-FP eslint detect-object-injection rule [sast-rules!151](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/151)
