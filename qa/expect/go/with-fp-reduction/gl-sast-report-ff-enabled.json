@@ -82,43 +82,43 @@
     "primary_identifiers": [
       {
         "type": "semgrep_id",
-        "name": "bandit.B101",
-        "value": "bandit.B101"
+        "name": "bandit.B101-1",
+        "value": "bandit.B101-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B102",
-        "value": "bandit.B102"
+        "name": "bandit.B102-1",
+        "value": "bandit.B102-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B103",
-        "value": "bandit.B103"
+        "name": "bandit.B103-1",
+        "value": "bandit.B103-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B104",
-        "value": "bandit.B104"
+        "name": "bandit.B104-1",
+        "value": "bandit.B104-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B105",
-        "value": "bandit.B105"
+        "name": "bandit.B105-1",
+        "value": "bandit.B105-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B106",
-        "value": "bandit.B106"
+        "name": "bandit.B106-1",
+        "value": "bandit.B106-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B107",
-        "value": "bandit.B107"
+        "name": "bandit.B107-1",
+        "value": "bandit.B107-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B108",
-        "value": "bandit.B108"
+        "name": "bandit.B108-1",
+        "value": "bandit.B108-1"
       },
       {
         "type": "semgrep_id",
@@ -127,28 +127,28 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B110",
-        "value": "bandit.B110"
+        "name": "bandit.B110-1",
+        "value": "bandit.B110-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B112",
-        "value": "bandit.B112"
+        "name": "bandit.B112-1",
+        "value": "bandit.B112-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B113",
-        "value": "bandit.B113"
+        "name": "bandit.B113-1",
+        "value": "bandit.B113-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B201",
-        "value": "bandit.B201"
+        "name": "bandit.B201-1",
+        "value": "bandit.B201-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B202",
-        "value": "bandit.B202"
+        "name": "bandit.B202-1",
+        "value": "bandit.B202-1"
       },
       {
         "type": "semgrep_id",
@@ -172,8 +172,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B302",
-        "value": "bandit.B302"
+        "name": "bandit.B302-1",
+        "value": "bandit.B302-1"
       },
       {
         "type": "semgrep_id",
@@ -222,21 +222,6 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-10",
-        "value": "bandit.B304-10"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "bandit.B304-11",
-        "value": "bandit.B304-11"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "bandit.B304-12",
-        "value": "bandit.B304-12"
-      },
-      {
-        "type": "semgrep_id",
         "name": "bandit.B304-2",
         "value": "bandit.B304-2"
       },
@@ -272,28 +257,23 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-9",
-        "value": "bandit.B304-9"
+        "name": "bandit.B305-1",
+        "value": "bandit.B305-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B305",
-        "value": "bandit.B305"
+        "name": "bandit.B306-1",
+        "value": "bandit.B306-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B306",
-        "value": "bandit.B306"
+        "name": "bandit.B307-1",
+        "value": "bandit.B307-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B307",
-        "value": "bandit.B307"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "bandit.B309",
-        "value": "bandit.B309"
+        "name": "bandit.B309-1",
+        "value": "bandit.B309-1"
       },
       {
         "type": "semgrep_id",
@@ -307,158 +287,158 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B311",
-        "value": "bandit.B311"
+        "name": "bandit.B311-1",
+        "value": "bandit.B311-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B312",
-        "value": "bandit.B312"
+        "name": "bandit.B312-1",
+        "value": "bandit.B312-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B313",
-        "value": "bandit.B313"
+        "name": "bandit.B313-1",
+        "value": "bandit.B313-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B314",
-        "value": "bandit.B314"
+        "name": "bandit.B314-1",
+        "value": "bandit.B314-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B315",
-        "value": "bandit.B315"
+        "name": "bandit.B315-1",
+        "value": "bandit.B315-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B316",
-        "value": "bandit.B316"
+        "name": "bandit.B316-1",
+        "value": "bandit.B316-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B317",
-        "value": "bandit.B317"
+        "name": "bandit.B317-1",
+        "value": "bandit.B317-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B318",
-        "value": "bandit.B318"
+        "name": "bandit.B318-1",
+        "value": "bandit.B318-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B319",
-        "value": "bandit.B319"
+        "name": "bandit.B319-1",
+        "value": "bandit.B319-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B320",
-        "value": "bandit.B320"
+        "name": "bandit.B320-1",
+        "value": "bandit.B320-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B321",
-        "value": "bandit.B321"
+        "name": "bandit.B321-1",
+        "value": "bandit.B321-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B323",
-        "value": "bandit.B323"
+        "name": "bandit.B323-1",
+        "value": "bandit.B323-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B324",
-        "value": "bandit.B324"
+        "name": "bandit.B324-1",
+        "value": "bandit.B324-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B325",
-        "value": "bandit.B325"
+        "name": "bandit.B325-1",
+        "value": "bandit.B325-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B401",
-        "value": "bandit.B401"
+        "name": "bandit.B401-1",
+        "value": "bandit.B401-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B402",
-        "value": "bandit.B402"
+        "name": "bandit.B402-1",
+        "value": "bandit.B402-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B403",
-        "value": "bandit.B403"
+        "name": "bandit.B403-1",
+        "value": "bandit.B403-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B404",
-        "value": "bandit.B404"
+        "name": "bandit.B404-1",
+        "value": "bandit.B404-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B405",
-        "value": "bandit.B405"
+        "name": "bandit.B405-1",
+        "value": "bandit.B405-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B406",
-        "value": "bandit.B406"
+        "name": "bandit.B406-1",
+        "value": "bandit.B406-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B407",
-        "value": "bandit.B407"
+        "name": "bandit.B407-1",
+        "value": "bandit.B407-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B408",
-        "value": "bandit.B408"
+        "name": "bandit.B408-1",
+        "value": "bandit.B408-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B409",
-        "value": "bandit.B409"
+        "name": "bandit.B409-1",
+        "value": "bandit.B409-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B410",
-        "value": "bandit.B410"
+        "name": "bandit.B410-1",
+        "value": "bandit.B410-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B411",
-        "value": "bandit.B411"
+        "name": "bandit.B411-1",
+        "value": "bandit.B411-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B412",
-        "value": "bandit.B412"
+        "name": "bandit.B412-1",
+        "value": "bandit.B412-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B413",
-        "value": "bandit.B413"
+        "name": "bandit.B413-1",
+        "value": "bandit.B413-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B415",
-        "value": "bandit.B415"
+        "name": "bandit.B415-1",
+        "value": "bandit.B415-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B501",
-        "value": "bandit.B501"
+        "name": "bandit.B501-1",
+        "value": "bandit.B501-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B502",
-        "value": "bandit.B502"
+        "name": "bandit.B502-1",
+        "value": "bandit.B502-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B504",
-        "value": "bandit.B504"
+        "name": "bandit.B504-1",
+        "value": "bandit.B504-1"
       },
       {
         "type": "semgrep_id",
@@ -472,98 +452,98 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B506",
-        "value": "bandit.B506"
+        "name": "bandit.B506-1",
+        "value": "bandit.B506-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B507",
-        "value": "bandit.B507"
+        "name": "bandit.B507-1",
+        "value": "bandit.B507-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B508",
-        "value": "bandit.B508"
+        "name": "bandit.B508-1",
+        "value": "bandit.B508-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B509",
-        "value": "bandit.B509"
+        "name": "bandit.B509-1",
+        "value": "bandit.B509-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B601",
-        "value": "bandit.B601"
+        "name": "bandit.B601-1",
+        "value": "bandit.B601-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B602",
-        "value": "bandit.B602"
+        "name": "bandit.B602-1",
+        "value": "bandit.B602-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B603",
-        "value": "bandit.B603"
+        "name": "bandit.B603-1",
+        "value": "bandit.B603-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B604",
-        "value": "bandit.B604"
+        "name": "bandit.B604-1",
+        "value": "bandit.B604-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B605",
-        "value": "bandit.B605"
+        "name": "bandit.B605-1",
+        "value": "bandit.B605-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B606",
-        "value": "bandit.B606"
+        "name": "bandit.B606-1",
+        "value": "bandit.B606-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B607",
-        "value": "bandit.B607"
+        "name": "bandit.B607-1",
+        "value": "bandit.B607-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B608",
-        "value": "bandit.B608"
+        "name": "bandit.B608-1",
+        "value": "bandit.B608-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B609",
-        "value": "bandit.B609"
+        "name": "bandit.B609-1",
+        "value": "bandit.B609-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B610",
-        "value": "bandit.B610"
+        "name": "bandit.B610-1",
+        "value": "bandit.B610-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B611",
-        "value": "bandit.B611"
+        "name": "bandit.B611-1",
+        "value": "bandit.B611-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B612",
-        "value": "bandit.B612"
+        "name": "bandit.B612-1",
+        "value": "bandit.B612-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B701",
-        "value": "bandit.B701"
+        "name": "bandit.B701-1",
+        "value": "bandit.B701-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B702",
-        "value": "bandit.B702"
+        "name": "bandit.B702-1",
+        "value": "bandit.B702-1"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B703",
-        "value": "bandit.B703"
+        "name": "bandit.B703-1",
+        "value": "bandit.B703-1"
       },
       {
         "type": "semgrep_id",
