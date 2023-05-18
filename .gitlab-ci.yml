@@ -3,7 +3,7 @@ variables:
   MAX_IMAGE_SIZE_MB: 200
   MAX_IMAGE_SIZE_MB_FIPS: 1090
   DS_EXCLUDED_ANALYZERS: "gemnasium-maven,gemnasium-python"
-  SAST_EXCLUDED_ANALYZERS: "bandit,eslint,flawfinder,nodejs-scan,phpcs-security-audit,security-code-scan"
+  SAST_EXCLUDED_ANALYZERS: "bandit,eslint,flawfinder,nodejs-scan,phpcs-security-audit,security-code-scan,spotbugs"
   SAST_EXCLUDED_PATHS: "qa, spec, test, tests, tmp, testdata"
   SEARCH_MAX_DEPTH: 20
 
