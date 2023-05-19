@@ -4,8 +4,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Key Exchange without Entity Authentication",
-      "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
+      "message": "Key exchange without entity authentication",
+      "description": "The application was found to ignore host keys. Host keys are important as\nthey provide assurance that the client can prove that the host is trusted.\nBy ignoring these host keys, it is impossible for the client to validate the\nconnection is to a trusted host.\n\nFor the `ssh.ClientConfig` `HostKeyCallback` property, consider using the\n[knownhosts](https://pkg.go.dev/golang.org/x/crypto/ssh/knownhosts",
       "cve": "semgrep_id:gosec.G106-1:8:8",
       "severity": "Medium",
       "scanner": {

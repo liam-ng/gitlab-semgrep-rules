@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.2.6
+- Import Gosec ruleset from [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) (!263)
+- Enhance Go ruleset descriptions and titles [sast-rules!137](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/137)
+
 ## v4.2.5
 - Fixes custom ruleset loading behavior for remote rulesets using file passthrough (!258)
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset` version [`v2.0.1` => [`v2.0.2`](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/releases/v2.0.2)] (!258)
