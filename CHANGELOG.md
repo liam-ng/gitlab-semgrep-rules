@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v4.2.7
+- upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.17.1` => [`1.21.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.21.0)] (!257)
+- upgrade `github.com/urfave/cli/v2` version [`v2.25.1` => [`v2.25.3`](https://github.com/urfave/cli/releases/tag/v2.25.3)] (!257)
+- upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v4` version [`v4.1.0` => [`v4.1.1`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v4.1.1)] (!257)
+
 ## v4.2.6
 - Import Gosec ruleset from [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) (!263)
 - Enhance Go ruleset descriptions and titles [sast-rules!137](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/137)
