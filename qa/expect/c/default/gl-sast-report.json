@@ -54,7 +54,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "message": "Potential time of check time of use vulnerability (open/fopen)",
-      "description": "Usage of the `open` family of functions may hint at a potential Time Of Check Time Of Use\n(TOCTOU)\nvulnerability. An attacker may be able to modify the file being specified by the `open`\nfunction prior to the `open` function being called.\n\nPrior to calling `open`, use `lstat` to open the file and confirm the attributes\nare correct. Then use `open` to get a file descriptor to this file. Call `fstat",
+      "description": "Usage of the `open` family of functions may hint at a potential Time Of Check Time Of Use\n(TOCTOU)\nvulnerability. An attacker may be able to modify the file being specified by the `open`\nfunction prior to the `open` function being called.\n\nPrior to calling `open`, use `lstat` to open the file and confirm the attributes\nare correct. Then use `open` to get a file descriptor to this file. Call `fstat` on the\n`open` file descriptor to confirm that `st_dev` and `st_ino` are equal between the two.\nIf they are, it is safe to read and operate on the file's contents.\n\nFor more information please see:\nhttps://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files\n",
       "cve": "semgrep_id:flawfinder.fopen-1.open-1:8:8",
       "severity": "Info",
       "scanner": {
@@ -129,7 +129,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.17.1"
+      "version": "1.21.0"
     },
     "type": "sast",
     "start_time": ":SKIP:",
