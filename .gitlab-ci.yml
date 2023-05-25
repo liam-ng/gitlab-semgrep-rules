@@ -6,7 +6,6 @@ variables:
   SAST_EXCLUDED_ANALYZERS: "bandit,eslint,flawfinder,nodejs-scan,phpcs-security-audit,security-code-scan,spotbugs"
   SAST_EXCLUDED_PATHS: "qa, spec, test, tests, tmp, testdata"
   SEARCH_MAX_DEPTH: 20
-  CS_IMAGE: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
 
 include:
   - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
@@ -49,4 +48,3 @@ integration-test-fips:
     DS_DEFAULT_ANALYZERS: ""
     SAST_EXCLUDED_ANALYZERS: "bandit,eslint"
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
-
