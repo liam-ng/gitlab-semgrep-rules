@@ -1,7 +1,7 @@
 Semgrep analyzer changelog
 
 ## v4.2.8
-- Force pipeline
+- Force pipeline (!277)
 
 ## v4.2.7
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.17.1` => [`1.21.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.21.0)] (!257)
