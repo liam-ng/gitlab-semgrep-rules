@@ -23,7 +23,8 @@ rules:
     `SafeLoader`
     when loading yaml.
   metadata:
-    cwe: "CWE-502: Deserialization of Untrusted Data"
+    shortDescription: "Deserialization of Untrusted Data"
+    cwe: "CWE-502"
     owasp: "A8:2017-Insecure Deserialization"
   severity: "ERROR"
   languages:
