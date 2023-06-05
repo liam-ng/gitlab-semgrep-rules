@@ -48,9 +48,3 @@
     type  = "git"
     value = "https://github.com/dgryski/semgrep-go"
     ref = "4c51248dac62f96894a997f8e685409516d4a32e"
-
-  [[semgrep.passthrough]]
-    type  = "git"
-    value = "https://gitlab.com/julianthome/semgrep-rules"
-    subdir = "go"
-    ref = "refs/heads/develop"
