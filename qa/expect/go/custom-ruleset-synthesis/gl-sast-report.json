@@ -186,7 +186,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "return nil err instead of nil value",
+      "message": "Semgrep Finding: return-nil-err",
       "description": "return nil err instead of nil value",
       "cve": "semgrep_id:return-nil-err:14:16",
       "severity": "Critical",
@@ -226,7 +226,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "return nil instead of nil value",
+      "message": "Semgrep Finding: return-nil",
       "description": "return nil instead of nil value",
       "cve": "semgrep_id:return-nil:14:16",
       "severity": "Critical",
@@ -267,56 +267,6 @@
       "id": ":SKIP:",
       "category": "sast",
       "message": "Key Exchange without Entity Authentication",
-      "description": "Disabled host key verification detected. This allows man-in-the-middle attacks. Use the 'golang.org/x/crypto/ssh/knownhosts' package to do host key verification. See https://skarlso.github.io/2019/02/17/go-ssh-with-host-key-verification/ to learn more about the problem and how to fix it.",
-      "cve": "semgrep_id:avoid-ssh-insecure-ignore-host-key:13:13",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "foo.go",
-        "start_line": 13
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "avoid-ssh-insecure-ignore-host-key",
-          "value": "avoid-ssh-insecure-ignore-host-key"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-322",
-          "value": "322",
-          "url": "https://cwe.mitre.org/data/definitions/322.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A3 - Sensitive Data Exposure",
-          "value": "A3"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "foo.go",
-            "line_start": 13,
-            "line_end": 13,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "foo.go|foo[0]:2"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
-      "message": "Key Exchange without Entity Authentication",
       "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
       "cve": "semgrep_id:gitlab.gosec.G106-1:13:13",
       "severity": "Medium",
@@ -332,15 +282,14 @@
         {
           "type": "semgrep_id",
           "name": "gitlab.gosec.G106-1",
-          "value": "gitlab.gosec.G106-1",
-          "url": "https://semgrep.dev/r/gitlab.gosec.G106-1"
+          "value": "gitlab.gosec.G106-1"
         },
         {
           "type": "cwe",
           "name": "CWE-322",
           "value": "322",
           "url": "https://cwe.mitre.org/data/definitions/322.html"
-        }
+        }        
       ],
       "tracking": {
         "type": "source",
