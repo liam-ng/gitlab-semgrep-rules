@@ -11,7 +11,7 @@
 
   [[semgrep.passthrough]]
     type  = "url"
-    value = "https://semgrep.dev/c/p/gitlab"
+    value = "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/raw/bump_semgrep_version_1_23_0/testdata/url-passthrough/gitlab.yml"
     target = "rule.yml"
     mode = "append"
 
