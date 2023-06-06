@@ -68,6 +68,7 @@ describe 'running image' do
         # properly resolve file locations
         # https://gitlab.com/gitlab-org/security-products/post-analyzers/scripts/-/blob/25479eae03e423cd67f2493f23d0c4f9789cdd0e/start.sh#L2
         'CI_PROJECT_DIR': '/app',
+        'SECURE_LOG_LEVEL': 'debug',
         'SEARCH_IGNORED_DIRS': 'bundle, node_modules, vendor, tmp', # remove test, tests
         'SEARCH_MAX_DEPTH': 20
       }

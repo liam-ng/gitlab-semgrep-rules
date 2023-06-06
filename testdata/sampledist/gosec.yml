@@ -43,7 +43,8 @@ rules:
   message: |
     Url provided to HTTP request as taint input
   metadata:
-    cwe: "CWE-88: Improper Neutralization of Argument Delimiters in a Command"
+    shortDescription: "Improper Neutralization of Argument Delimiters in a Command"
+    cwe: "CWE-88"
     primary_identifier: "gosec.G107"
     secondary_identifiers:
     - name: "Gosec Rule ID G107"

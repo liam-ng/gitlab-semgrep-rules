@@ -5,7 +5,8 @@
 rules:
 - id: "eslint.detect-no-csrf-before-method-override-1"
   metadata:
-    cwe: "CWE-352: Cross-Site Request Forgery (CSRF)"
+    shortDescription: "Cross-Site Request Forgery (CSRF)"
+    cwe: "CWE-352"
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-no-csrf-before-method-override.js"
     references:
     - "https://github.com/nodesecurity/eslint-plugin-security/blob/master/docs/bypass-connect-csrf-protection-by-abusing.md"
@@ -27,8 +28,9 @@ rules:
   - "typescript"
 - id: "eslint.detect-non-literal-require-1"
   metadata:
-    cwe: "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code
+    shortDescription: "Improper Neutralization of Directives in Dynamically Evaluated Code
       ('Eval Injection')"
+    cwe: "CWE-95"
     owasp: "A1: Injection"
     source-rule-url: "https://github.com/nodesecurity/eslint-plugin-security/blob/master/rules/detect-non-literal-require.js"
     primary_identifier: "eslint.detect-non-literal-require"

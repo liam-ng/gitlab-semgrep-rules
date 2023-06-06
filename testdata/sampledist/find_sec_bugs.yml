@@ -14,7 +14,8 @@ rules:
   severity: "WARNING"
   metadata:
     category: "security"
-    cwe: "CWE-259: Use of Hard-coded Password"
+    shortDescription: "Use of Hard-coded Password"
+    cwe: "CWE-259"
     technology:
     - "java"
     primary_identifier: "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2"

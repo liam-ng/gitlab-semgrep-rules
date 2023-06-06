@@ -4,7 +4,8 @@
   message: |
     Function foo detected
   metadata:
-    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+    shortDescription: "Exposure of Sensitive Information to an Unauthorized Actor"
+    cwe: "CWE-200"
   severity: "ERROR"
   languages:
   - "go"

@@ -14,14 +14,14 @@ rules:
   - "csharp"
   severity: "WARNING"
   metadata:
+    shortDescription: "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)"
     category: "security"
-    cwe: "CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)"
+    cwe: "CWE-338"
     primary_identifier: "security_code_scan.SCS0005"
     secondary_identifiers:
     - name: "SCS0005"
       type: "security_code_scan_rule_id"
       value: "SCS0005"
-
 - id: "security_code_scan.SCS0026-1.SCS0031-1"
   patterns:
   - pattern-either:
@@ -40,9 +40,10 @@ rules:
   - "csharp"
   severity: "WARNING"
   metadata:
-    category: "security"
-    cwe: "CWE-90: Improper Neutralization of Special Elements used in an LDAP Query
+    shortDescription: "Improper Neutralization of Special Elements used in an LDAP Query
       (‘LDAP Injection’)"
+    category: "security"
+    cwe: "CWE-90"
     primary_identifier: "security_code_scan.SCS0026-1.SCS0031-1"
     secondary_identifiers:
     - name: "SCS0026"
