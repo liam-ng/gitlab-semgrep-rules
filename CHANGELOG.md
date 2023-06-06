@@ -1,5 +1,13 @@
 Semgrep analyzer changelog
 
+## v4.2.8
+- Upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.21.0` => [`1.23.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.23.0)] (!276)
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.18) version `1.3.18` (!276)
+  - Update rules that were missing titles by moving them to shortDescription instead of cwe [sast-rules!161](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/161)
+  - Update Primary identifiers for bandit.B303 and bandit.B304 so that they match the published rules in semgrep [sast-rules!155](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/155)
+  - Update Primary identifiers for bandit.B103 so that they match the published rules in semgrep [sast-rules!154](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/154)
+  - Update primary identifier of bandit.B108-2 to bandit.B108-1 [sast-rules!153](https://gitlab.com/gitlab-org/security-products/sast-rules/-/merge_requests/153)
+
 ## v4.2.7
 - upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.17.1` => [`1.21.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.21.0)] (!257)
 - upgrade `github.com/urfave/cli/v2` version [`v2.25.1` => [`v2.25.3`](https://github.com/urfave/cli/releases/tag/v2.25.3)] (!257)

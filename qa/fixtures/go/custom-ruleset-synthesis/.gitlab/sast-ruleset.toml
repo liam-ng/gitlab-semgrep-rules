@@ -11,7 +11,7 @@
 
   [[semgrep.passthrough]]
     type  = "url"
-    value = "https://semgrep.dev/c/p/gitlab"
+    value = "https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/raw/bump_semgrep_version_1_23_0/testdata/url-passthrough/gitlab.yml"
     target = "rule.yml"
     mode = "append"
 
@@ -32,7 +32,8 @@
   message: |
     Function baz detected
   metadata:
-    cwe: "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor"
+    shortDescription: "Exposure of Sensitive Information to an Unauthorized Actor"
+    cwe: "CWE-200"
   severity: "ERROR"
   languages:
   - "go"
@@ -47,9 +48,3 @@
     type  = "git"
     value = "https://github.com/dgryski/semgrep-go"
     ref = "4c51248dac62f96894a997f8e685409516d4a32e"
-
-  [[semgrep.passthrough]]
-    type  = "git"
-    value = "https://gitlab.com/julianthome/semgrep-rules"
-    subdir = "go"
-    ref = "refs/heads/develop"

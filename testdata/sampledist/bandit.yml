@@ -35,7 +35,8 @@ rules:
     Use of assert detected. The enclosed code will be removed when
     compiling to optimised byte code.
   metadata:
-    cwe: "CWE-754: Improper Check for Unusual or Exceptional Conditions"
+    shortDescription: "Improper Check for Unusual or Exceptional Conditions"
+    cwe: "CWE-754"
     primary_identifier: "bandit.B101"
     secondary_identifiers:
     - name: "Bandit Test ID B101"

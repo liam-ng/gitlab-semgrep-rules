@@ -107,7 +107,8 @@ rules:
       - javascript
     severity: WARNING
     metadata:
-      cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      shortDescription: "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
+      cwe: "CWE-22"
 
   - id: eslint.detect-object-injection
     patterns:
@@ -131,4 +132,5 @@ rules:
       - typescript
     severity: WARNING
     metadata:
-      cwe: "CWE-94: Improper Control of Generation of Code ('Code Injection')"
+      shortDescription: "Improper Control of Generation of Code ('Code Injection')"
+      cwe: "CWE-94"
