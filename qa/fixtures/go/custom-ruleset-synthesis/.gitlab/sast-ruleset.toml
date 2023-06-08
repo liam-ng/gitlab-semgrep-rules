@@ -46,5 +46,5 @@
 
   [[semgrep.passthrough]]
     type  = "git"
-    value = "https://github.com/dgryski/semgrep-go"
-    ref = "4c51248dac62f96894a997f8e685409516d4a32e"
+    value = "https://gitlab.com/gitlab-org/security-products/tests/semgrep-passthrough-git-test"
+    ref = "0c1cfa90eec24631fc48e09130ebca118a724ce1"
