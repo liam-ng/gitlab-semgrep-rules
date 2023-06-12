@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v4.3.0
+- SastBot VET registry access (!243)
+
 ## v4.2.8
 - Upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.21.0` => [`1.23.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.23.0)] (!276)
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.18) version `1.3.18` (!276)
