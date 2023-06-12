@@ -7,7 +7,7 @@ ARG STENCILS_VERSION=0.2.0
 
 FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZER_SCRIPTS_VERSION} AS scripts
 FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
-FROM registry.gitlab.com/gitlab-org/security-products/vet/vet:${VET_VERSION} AS vet
+FROM registry.gitlab.com/security-products/vet:${VET_VERSION} AS vet
 FROM registry.gitlab.com/gitlab-org/security-products/vet/stencils:${STENCILS_VERSION} AS recipes
 
 FROM registry.gitlab.com/gitlab-org/gitlab-runner/go-fips:1.18 AS build
