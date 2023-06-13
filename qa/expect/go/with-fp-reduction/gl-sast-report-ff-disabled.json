@@ -70,7 +70,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.21.0"
+      "version": ":SKIP:"
     },
     "type": "sast",
     "start_time": ":SKIP:",
