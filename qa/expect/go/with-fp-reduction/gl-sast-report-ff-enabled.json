@@ -77,7 +77,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.21.0"
+      "version": ":SKIP:"
     },
     "primary_identifiers": [
       {

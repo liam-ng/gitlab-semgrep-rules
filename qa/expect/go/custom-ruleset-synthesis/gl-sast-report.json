@@ -282,14 +282,15 @@
         {
           "type": "semgrep_id",
           "name": "gitlab.gosec.G106-1",
-          "value": "gitlab.gosec.G106-1"
+          "value": "gitlab.gosec.G106-1",
+          "url": "https://semgrep.dev/r/gitlab.gosec.G106-1"
         },
         {
           "type": "cwe",
           "name": "CWE-322",
           "value": "322",
           "url": "https://cwe.mitre.org/data/definitions/322.html"
-        }        
+        }
       ],
       "tracking": {
         "type": "source",
@@ -327,7 +328,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": "1.21.0"
+      "version": ":SKIP:"
     },
     "type": "sast",
     "start_time": ":SKIP:",
