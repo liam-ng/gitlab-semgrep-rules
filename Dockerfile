@@ -1,12 +1,12 @@
 # When updating version make sure to check on semgrepignore file as well
 ARG SCANNER_VERSION=1.21.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.2.0
-ARG TRACKING_CALCULATOR_VERSION=compress-offsets-with-field-identifier
+ARG TRACKING_CALCULATOR_VERSION=7130b0f408b83c751d4239f2182549496088fe77
 ARG VET_VERSION=0.17.5
 ARG STENCILS_VERSION=0.2.0
 
 FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZER_SCRIPTS_VERSION} AS scripts
-FROM registry.gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
+FROM registry.gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator/tmp:${TRACKING_CALCULATOR_VERSION} AS tracking
 FROM registry.gitlab.com/gitlab-org/security-products/vet/vet:${VET_VERSION} AS vet
 FROM registry.gitlab.com/gitlab-org/security-products/vet/stencils:${STENCILS_VERSION} AS recipes
 
