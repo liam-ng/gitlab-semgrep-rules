@@ -1,5 +1,22 @@
 Semgrep analyzer changelog
 
+## v4.3.1
+- Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.23) version `1.3.23` (!286)
+  - v1.3.23
+    - Update Java `rule-CommandInjection.yml` to match concatenated strings
+    - Update Java `rule-SpelView.yml` to also match `ExpressionParser` interface methods
+    - Update Java `rule-XpathInjection.yml` to match actual XPath import path
+  - v1.3.22 
+    - Update Java `rule-CommandInjection.yml` with ability to match on String arrays
+  - v1.3.21
+    - Update Java `rule-BlowfishKeySize.yml` to add back missing `metavariable`
+    - Update Java rules with minor grammatical fixes
+  - v1.3.20
+    - Enhance Java ruleset descriptions and titles
+  - v1.3.19
+    - Update Primary identifiers for `bandit.B303` and `bandit.B304` so that they match the published rules in semgrep
+    - Remove `-1` from bandit ruleset IDs and primary identifiers to match the published rules in semgrep
+
 ## v4.3.0
 - SastBot VET registry access (!243)
 
