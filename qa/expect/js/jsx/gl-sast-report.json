@@ -4,7 +4,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+      "title": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
       "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
       "severity": "Medium",
@@ -44,7 +44,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Incorrect Regular Expression",
+      "title": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:16:16",
       "severity": "Medium",

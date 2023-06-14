@@ -4,7 +4,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function bar detected\n",
       "cve": "semgrep_id:bar:9:9",
       "severity": "Critical",
@@ -49,7 +49,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function baz detected\n",
       "cve": "semgrep_id:baz:7:7",
       "severity": "Critical",
@@ -94,7 +94,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function foo detected\n",
       "cve": "semgrep_id:foo:11:18",
       "severity": "Critical",
@@ -140,7 +140,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function bar detected\n",
       "cve": "semgrep_id:gitlab.bar:9:9",
       "severity": "Critical",
@@ -186,7 +186,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Semgrep Finding: return-nil-err",
+      "title": "Semgrep Finding: return-nil-err",
       "description": "return nil err instead of nil value",
       "cve": "semgrep_id:return-nil-err:14:16",
       "severity": "Critical",
@@ -226,7 +226,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Semgrep Finding: return-nil",
+      "title": "Semgrep Finding: return-nil",
       "description": "return nil instead of nil value",
       "cve": "semgrep_id:return-nil:14:16",
       "severity": "Critical",
@@ -266,7 +266,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Key Exchange without Entity Authentication",
+      "title": "Key Exchange without Entity Authentication",
       "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
       "cve": "semgrep_id:gitlab.gosec.G106-1:13:13",
       "severity": "Medium",
