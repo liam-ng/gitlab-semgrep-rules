@@ -4,7 +4,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "message": "Deserialization of Untrusted Data",
+      "title": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python objects. A malicious actor could\nexploit this to run arbitrarycode. Use `safe\\_load()` instead. It is recommended to use\n`SafeLoader`\nwhen loading yaml.\n",
       "cve": "semgrep_id:bandit.B506:329:329",
       "severity": "Critical",
