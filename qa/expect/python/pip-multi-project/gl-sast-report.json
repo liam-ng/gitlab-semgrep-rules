@@ -5,123 +5,9 @@
       "id": ":SKIP:",
       "category": "sast",
       "title": "Use of Hard-coded Password",
-      "description": "Hardcoded password is used as a default argument to 'doLogin'. This could be dangerous if\na real password is not supplied.\n",
-      "cve": "semgrep_id:bandit.B107:16:17",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app1/hardcoded/hardcoded-passwords.py",
-        "start_line": 16,
-        "end_line": 17
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B107",
-          "value": "bandit.B107",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B107",
-          "value": "B107"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app1/hardcoded/hardcoded-passwords.py",
-            "line_start": 16,
-            "line_end": 16,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app1/hardcoded/hardcoded-passwords.py|doLogin[0]:0"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
-      "title": "Use of Hard-coded Password",
-      "description": "Hardcoded password is used as a default argument to 'someFunction'. This could be dangerous if\na real password is not supplied.\n",
-      "cve": "semgrep_id:bandit.B107:1:2",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app1/hardcoded/hardcoded-passwords.py",
-        "start_line": 1,
-        "end_line": 2
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B107",
-          "value": "bandit.B107",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B107",
-          "value": "B107"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app1/hardcoded/hardcoded-passwords.py",
-            "line_start": 1,
-            "line_end": 1,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app1/hardcoded/hardcoded-passwords.py|someFunction[0]:0"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
-      "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:13:13",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -145,8 +31,8 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -177,7 +63,7 @@
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:23:23",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -201,8 +87,48 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
+        }
+      ]
+    },
+    {
+      "id": ":SKIP:",
+      "category": "sast",
+      "title": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
+      "cve": "semgrep_id:bandit.B105:24:24",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/hardcoded/hardcoded-passwords.py",
+        "start_line": 24
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B105",
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -217,7 +143,7 @@
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:5:5",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -241,8 +167,8 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -273,7 +199,7 @@
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:9:9",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -297,8 +223,8 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -329,7 +255,7 @@
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B106:22:22",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -353,8 +279,8 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -362,6 +288,120 @@
           "value": "B106"
         }
       ]
+    },
+    {
+      "id": ":SKIP:",
+      "category": "sast",
+      "title": "Use of Hard-coded Password",
+      "description": "Hardcoded password is used as a default argument to `doLogin`. This could be dangerous if a real\npassword is not supplied.\n",
+      "cve": "semgrep_id:bandit.B107:16:17",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/hardcoded/hardcoded-passwords.py",
+        "start_line": 16,
+        "end_line": 17
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B107",
+          "value": "bandit.B107",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B107",
+          "value": "B107"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "app1/hardcoded/hardcoded-passwords.py",
+            "line_start": 16,
+            "line_end": 16,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "app1/hardcoded/hardcoded-passwords.py|doLogin[0]:0"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": ":SKIP:",
+      "category": "sast",
+      "title": "Use of Hard-coded Password",
+      "description": "Hardcoded password is used as a default argument to `someFunction`. This could be dangerous if a real\npassword is not supplied.\n",
+      "cve": "semgrep_id:bandit.B107:1:2",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app1/hardcoded/hardcoded-passwords.py",
+        "start_line": 1,
+        "end_line": 2
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B107",
+          "value": "bandit.B107",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B107",
+          "value": "B107"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "app1/hardcoded/hardcoded-passwords.py",
+            "line_start": 1,
+            "line_end": 1,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "app1/hardcoded/hardcoded-passwords.py|someFunction[0]:0"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": ":SKIP:",
@@ -472,7 +512,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "title": "Insecure Temporary File",
-      "description": "Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.\n",
+      "description": "Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.\n",
       "cve": "semgrep_id:bandit.B108:1:1",
       "severity": "Medium",
       "scanner": {
@@ -507,7 +547,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-      "description": "Found 'subprocess' function 'pop' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
+      "description": "Found `subprocess` function `pop` with `shell=True`. This is dangerous because this call will\nspawn the command using a shell process. Doing so propagates current shell settings and\nvariables,\nwhich makes it much easier for a malicious actor to execute commands. Use `shell=False`\ninstead.\n",
       "cve": "semgrep_id:bandit.B602:9:9",
       "severity": "Critical",
       "scanner": {
@@ -578,8 +618,8 @@
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B301-1",
-          "value": "B301-1"
+          "name": "Bandit Test ID B301",
+          "value": "B301"
         }
       ]
     },
@@ -987,123 +1027,9 @@
       "id": ":SKIP:",
       "category": "sast",
       "title": "Use of Hard-coded Password",
-      "description": "Hardcoded password is used as a default argument to 'doLogin'. This could be dangerous if\na real password is not supplied.\n",
-      "cve": "semgrep_id:bandit.B107:16:17",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/hardcoded/hardcoded-passwords.py",
-        "start_line": 16,
-        "end_line": 17
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B107",
-          "value": "bandit.B107",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B107",
-          "value": "B107"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app2/hardcoded/hardcoded-passwords.py",
-            "line_start": 16,
-            "line_end": 16,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app2/hardcoded/hardcoded-passwords.py|doLogin[0]:0"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
-      "title": "Use of Hard-coded Password",
-      "description": "Hardcoded password is used as a default argument to 'someFunction'. This could be dangerous if\na real password is not supplied.\n",
-      "cve": "semgrep_id:bandit.B107:1:2",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app2/hardcoded/hardcoded-passwords.py",
-        "start_line": 1,
-        "end_line": 2
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B107",
-          "value": "bandit.B107",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B107",
-          "value": "B107"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app2/hardcoded/hardcoded-passwords.py",
-            "line_start": 1,
-            "line_end": 1,
-            "signatures": [
-              {
-                "algorithm": "scope_offset",
-                "value": "app2/hardcoded/hardcoded-passwords.py|someFunction[0]:0"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
-      "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:13:13",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -1127,8 +1053,8 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -1159,7 +1085,7 @@
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:23:23",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -1183,8 +1109,48 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B105",
+          "value": "B105"
+        }
+      ]
+    },
+    {
+      "id": ":SKIP:",
+      "category": "sast",
+      "title": "Use of Hard-coded Password",
+      "description": "Possible hardcoded password\n",
+      "cve": "semgrep_id:bandit.B105:24:24",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/hardcoded/hardcoded-passwords.py",
+        "start_line": 24
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B105",
+          "value": "bandit.B105",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -1199,7 +1165,7 @@
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:5:5",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -1223,8 +1189,8 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -1255,7 +1221,7 @@
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:9:9",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -1279,8 +1245,8 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -1311,7 +1277,7 @@
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B106:22:22",
-      "severity": "Info",
+      "severity": "Medium",
       "scanner": {
         "id": "semgrep",
         "name": "Semgrep"
@@ -1335,8 +1301,8 @@
         },
         {
           "type": "owasp",
-          "name": "A2:2017 - Broken Authentication",
-          "value": "A2:2017"
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
         },
         {
           "type": "bandit_test_id",
@@ -1344,6 +1310,120 @@
           "value": "B106"
         }
       ]
+    },
+    {
+      "id": ":SKIP:",
+      "category": "sast",
+      "title": "Use of Hard-coded Password",
+      "description": "Hardcoded password is used as a default argument to `doLogin`. This could be dangerous if a real\npassword is not supplied.\n",
+      "cve": "semgrep_id:bandit.B107:16:17",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/hardcoded/hardcoded-passwords.py",
+        "start_line": 16,
+        "end_line": 17
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B107",
+          "value": "bandit.B107",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B107",
+          "value": "B107"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "app2/hardcoded/hardcoded-passwords.py",
+            "line_start": 16,
+            "line_end": 16,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "app2/hardcoded/hardcoded-passwords.py|doLogin[0]:0"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": ":SKIP:",
+      "category": "sast",
+      "title": "Use of Hard-coded Password",
+      "description": "Hardcoded password is used as a default argument to `someFunction`. This could be dangerous if a real\npassword is not supplied.\n",
+      "cve": "semgrep_id:bandit.B107:1:2",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "app2/hardcoded/hardcoded-passwords.py",
+        "start_line": 1,
+        "end_line": 2
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "bandit.B107",
+          "value": "bandit.B107",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B107"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        },
+        {
+          "type": "owasp",
+          "name": "A3:2017 - Sensitive Data Exposure",
+          "value": "A3:2017"
+        },
+        {
+          "type": "bandit_test_id",
+          "name": "Bandit Test ID B107",
+          "value": "B107"
+        }
+      ],
+      "tracking": {
+        "type": "source",
+        "items": [
+          {
+            "file": "app2/hardcoded/hardcoded-passwords.py",
+            "line_start": 1,
+            "line_end": 1,
+            "signatures": [
+              {
+                "algorithm": "scope_offset",
+                "value": "app2/hardcoded/hardcoded-passwords.py|someFunction[0]:0"
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": ":SKIP:",
@@ -1454,7 +1534,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "title": "Insecure Temporary File",
-      "description": "Detected hardcoded temp directory. Consider using 'tempfile.TemporaryFile' instead.\n",
+      "description": "Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.\n",
       "cve": "semgrep_id:bandit.B108:1:1",
       "severity": "Medium",
       "scanner": {
@@ -1489,7 +1569,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
-      "description": "Found 'subprocess' function 'pop' with 'shell=True'. This is dangerous because this call will spawn\nthe command using a shell process. Doing so propagates current shell settings and variables, which\nmakes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.\n",
+      "description": "Found `subprocess` function `pop` with `shell=True`. This is dangerous because this call will\nspawn the command using a shell process. Doing so propagates current shell settings and\nvariables,\nwhich makes it much easier for a malicious actor to execute commands. Use `shell=False`\ninstead.\n",
       "cve": "semgrep_id:bandit.B602:9:9",
       "severity": "Critical",
       "scanner": {
@@ -1560,8 +1640,8 @@
         },
         {
           "type": "bandit_test_id",
-          "name": "Bandit Test ID B301-1",
-          "value": "B301-1"
+          "name": "Bandit Test ID B301",
+          "value": "B301"
         }
       ]
     },
@@ -1969,7 +2049,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "title": "Improper Check for Unusual or Exceptional Conditions",
-      "description": "Use of assert detected. The enclosed code will be removed when\ncompiling to optimised byte code.\n",
+      "description": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte\ncode.\n",
       "cve": "semgrep_id:bandit.B101:7:7",
       "severity": "Info",
       "scanner": {

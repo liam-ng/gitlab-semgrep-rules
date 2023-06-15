@@ -39,7 +39,6 @@ RUN mkdir -p /etc/ssl/certs/ && \
     chmod g+w /etc/ssl/certs/ca-certificates.crt
 
 COPY --from=build /analyzer-semgrep /analyzer-binary
-COPY rules /rules
 COPY semgrepignore /semgrepignore
 RUN mkdir /.cache && \
     chmod -R g+rw /.cache && \
@@ -62,6 +61,8 @@ RUN git clone \
     https://gitlab.com/gitlab-org/security-products/sast-rules.git \
     /sast-rules
 
+RUN mkdir -p rules
+
 RUN cd sast-rules && \
     # pull only `dist` folder when checking out
     git sparse-checkout set dist && \
@@ -71,7 +72,8 @@ RUN cd sast-rules && \
     cp dist/flawfinder.yml /rules && \
     cp dist/find_sec_bugs.yml /rules && \
     cp dist/security_code_scan.yml /rules && \
-    cp dist/gosec.yml /rules
+    cp dist/gosec.yml /rules && \
+    cp dist/bandit.yml /rules
 
 COPY --from=tracking /analyzer-tracking /analyzer-tracking
 COPY --from=scripts /start.sh /analyzer

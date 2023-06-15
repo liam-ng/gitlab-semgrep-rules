@@ -187,26 +187,6 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B303-3",
-        "value": "bandit.B303-3"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "bandit.B303-4",
-        "value": "bandit.B303-4"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "bandit.B303-5",
-        "value": "bandit.B303-5"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "bandit.B303-6",
-        "value": "bandit.B303-6"
-      },
-      {
-        "type": "semgrep_id",
         "name": "bandit.B303-7",
         "value": "bandit.B303-7"
       },

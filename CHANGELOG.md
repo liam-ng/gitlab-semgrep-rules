@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v4.3.3
+- Import Bandit ruleset from [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) (!272)
+
 ## v4.3.2
 - upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v4` version [`v4.1.1` => [`v4.1.3`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v4.1.3)] (!283)
 
