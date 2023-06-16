@@ -4,6 +4,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "The application dynamically constructs file or path information. If the path\ninformation comes from user input, it could be abused to read sensitive files,\naccess other users data, or aid in exploitation to gain further system access.\n\nUser input should never be used in constructing paths or files for interacting\nwith the filesystem. This includes filenames supplied by user uploads or downloads.\nIf possible consider hashing user input or replacing it with unique values and\nuse `System.IO.Path.GetFullPath` to resolve and validate the path information\nprior to processing any file functionality.\n\nExample using `Path.GetFullPath` and not allowing direct user input:\n```\n// store user input alongside an ID we control\nstruct userData\n{\n    public string userFilename;\n    public Guid id;\n}\n\nclass Program\n{\n    public static void Main()\n    {\n        userData data = new userData();\n        // user input, saved only as a reference\n        data.userFilename = \"..\\\\test.txt\";\n\n        // random id as the filename\n        data.id = Guid.NewGuid();\n\n        // restrict all file processing to this directory only\n        string basePath = \"C:\\\\Restricted\\\\\";\n\n        // resolve the full path, but only use our random generated id\n        string fullPath = Path.GetFullPath(basePath + data.id);\n\n        // verify the path is contained within our basePath\n        if (!fullPath.StartsWith(basePath)) {\n            Console.WriteLine(\"Invalid path specified!\");\n            return;\n        }\n        // process / work with file\n    }\n}\n```\n\nFor more information on path traversal issues see OWASP:\nhttps://owasp.org/www-community/attacks/Path_Traversal\n",
       "cve": "semgrep_id:security_code_scan.SCS0018-1:52:52",
@@ -54,6 +55,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Incorrect Regular Expression",
       "title": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:345:345",
@@ -89,6 +91,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
       "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
       "description": "Depending on the context, generating weak random numbers may expose cryptographic functions\nwhich rely on these numbers to be exploitable. When generating numbers for sensitive values\nsuch as tokens, nonces, and cryptographic keys, it is recommended that the\n`RandomNumberGenerator` class be used.\n\nExample `RandomNumberGenerator` usage:\n```\nInt32 randInt = RandomNumberGenerator.GetInt32(32000);\nbyte[] randomBytes = new byte[64];\nRandomNumberGenerator.Fill(randomBytes);\nConsole.WriteLine(\"Random Int32: {0}\", randInt);\nConsole.WriteLine(\"Random Bytes: {0}\", BitConverter.ToString(randomBytes).Replace(\"-\", \"\"));\n```\n\nFor more information see:\nhttps://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator\n",
       "cve": "semgrep_id:security_code_scan.SCS0005-1:11:11",
@@ -139,6 +142,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "description": "The application dynamically constructs file or path information. If the path\ninformation comes from user input, it could be abused to read sensitive files,\naccess other users data, or aid in exploitation to gain further system access.\n\nUser input should never be used in constructing paths or files for interacting\nwith the filesystem. This includes filenames supplied by user uploads or downloads.\nIf possible consider hashing user input or replacing it with unique values and\nuse `System.IO.Path.GetFullPath` to resolve and validate the path information\nprior to processing any file functionality.\n\nExample using `Path.GetFullPath` and not allowing direct user input:\n```\n// store user input alongside an ID we control\nstruct userData\n{\n    public string userFilename;\n    public Guid id;\n}\n\nclass Program\n{\n    public static void Main()\n    {\n        userData data = new userData();\n        // user input, saved only as a reference\n        data.userFilename = \"..\\\\test.txt\";\n\n        // random id as the filename\n        data.id = Guid.NewGuid();\n\n        // restrict all file processing to this directory only\n        string basePath = \"C:\\\\Restricted\\\\\";\n\n        // resolve the full path, but only use our random generated id\n        string fullPath = Path.GetFullPath(basePath + data.id);\n\n        // verify the path is contained within our basePath\n        if (!fullPath.StartsWith(basePath)) {\n            Console.WriteLine(\"Invalid path specified!\");\n            return;\n        }\n        // process / work with file\n    }\n}\n```\n\nFor more information on path traversal issues see OWASP:\nhttps://owasp.org/www-community/attacks/Path_Traversal\n",
       "cve": "semgrep_id:security_code_scan.SCS0018-1:52:52",
@@ -189,6 +193,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Incorrect Regular Expression",
       "title": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:345:345",
@@ -224,6 +229,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
       "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
       "description": "Depending on the context, generating weak random numbers may expose cryptographic functions\nwhich rely on these numbers to be exploitable. When generating numbers for sensitive values\nsuch as tokens, nonces, and cryptographic keys, it is recommended that the\n`RandomNumberGenerator` class be used.\n\nExample `RandomNumberGenerator` usage:\n```\nInt32 randInt = RandomNumberGenerator.GetInt32(32000);\nbyte[] randomBytes = new byte[64];\nRandomNumberGenerator.Fill(randomBytes);\nConsole.WriteLine(\"Random Int32: {0}\", randInt);\nConsole.WriteLine(\"Random Bytes: {0}\", BitConverter.ToString(randomBytes).Replace(\"-\", \"\"));\n```\n\nFor more information see:\nhttps://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator\n",
       "cve": "semgrep_id:security_code_scan.SCS0005-1:11:11",

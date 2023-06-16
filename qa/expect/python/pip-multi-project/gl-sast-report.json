@@ -4,6 +4,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:13:13",
@@ -60,6 +61,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:23:23",
@@ -100,6 +102,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:24:24",
@@ -140,6 +143,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:5:5",
@@ -196,6 +200,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:9:9",
@@ -252,6 +257,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B106:22:22",
@@ -292,6 +298,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to `doLogin`. This could be dangerous if a real\npassword is not supplied.\n",
       "cve": "semgrep_id:bandit.B107:16:17",
@@ -349,6 +356,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to `someFunction`. This could be dangerous if a real\npassword is not supplied.\n",
       "cve": "semgrep_id:bandit.B107:1:2",
@@ -406,6 +414,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "semgrep_id:bandit.B108-2:10:10",
@@ -441,6 +450,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "semgrep_id:bandit.B108-2:14:14",
@@ -476,6 +486,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "semgrep_id:bandit.B108-2:1:1",
@@ -511,6 +522,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
       "description": "Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.\n",
       "cve": "semgrep_id:bandit.B108:1:1",
@@ -546,6 +558,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Found `subprocess` function `pop` with `shell=True`. This is dangerous because this call will\nspawn the command using a shell process. Doing so propagates current shell settings and\nvariables,\nwhich makes it much easier for a malicious actor to execute commands. Use `shell=False`\ninstead.\n",
       "cve": "semgrep_id:bandit.B602:9:9",
@@ -586,6 +599,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
       "cve": "semgrep_id:bandit.B301-1:15:15",
@@ -626,6 +640,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:11:11",
@@ -666,6 +681,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:12:12",
@@ -706,6 +722,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:13:13",
@@ -746,6 +763,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:14:14",
@@ -786,6 +804,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
       "cve": "semgrep_id:bandit.B404:1:1",
@@ -826,6 +845,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
       "cve": "semgrep_id:bandit.B403:6:6",
@@ -866,6 +886,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
       "cve": "semgrep_id:bandit.B403:7:7",
@@ -906,6 +927,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
       "cve": "semgrep_id:bandit.B404:1:1",
@@ -946,6 +968,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
       "cve": "semgrep_id:bandit.B404:4:4",
@@ -986,6 +1009,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
       "cve": "semgrep_id:bandit.B403:2:2",
@@ -1026,6 +1050,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:13:13",
@@ -1082,6 +1107,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:23:23",
@@ -1122,6 +1148,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:24:24",
@@ -1162,6 +1189,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:5:5",
@@ -1218,6 +1246,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:9:9",
@@ -1274,6 +1303,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B106:22:22",
@@ -1314,6 +1344,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to `doLogin`. This could be dangerous if a real\npassword is not supplied.\n",
       "cve": "semgrep_id:bandit.B107:16:17",
@@ -1371,6 +1402,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Hardcoded password is used as a default argument to `someFunction`. This could be dangerous if a real\npassword is not supplied.\n",
       "cve": "semgrep_id:bandit.B107:1:2",
@@ -1428,6 +1460,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "semgrep_id:bandit.B108-2:10:10",
@@ -1463,6 +1496,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "semgrep_id:bandit.B108-2:14:14",
@@ -1498,6 +1532,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
       "description": "Probable insecure usage of temp file/directory.\n",
       "cve": "semgrep_id:bandit.B108-2:1:1",
@@ -1533,6 +1568,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
       "description": "Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.\n",
       "cve": "semgrep_id:bandit.B108:1:1",
@@ -1568,6 +1604,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Found `subprocess` function `pop` with `shell=True`. This is dangerous because this call will\nspawn the command using a shell process. Doing so propagates current shell settings and\nvariables,\nwhich makes it much easier for a malicious actor to execute commands. Use `shell=False`\ninstead.\n",
       "cve": "semgrep_id:bandit.B602:9:9",
@@ -1608,6 +1645,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
       "cve": "semgrep_id:bandit.B301-1:15:15",
@@ -1648,6 +1686,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:11:11",
@@ -1688,6 +1727,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:12:12",
@@ -1728,6 +1768,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:13:13",
@@ -1768,6 +1809,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:14:14",
@@ -1808,6 +1850,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
       "cve": "semgrep_id:bandit.B404:1:1",
@@ -1848,6 +1891,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
       "cve": "semgrep_id:bandit.B403:6:6",
@@ -1888,6 +1932,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
       "cve": "semgrep_id:bandit.B403:7:7",
@@ -1928,6 +1973,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
       "cve": "semgrep_id:bandit.B404:1:1",
@@ -1968,6 +2014,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "description": "Consider possible security implications associated with subprocess module.\n",
       "cve": "semgrep_id:bandit.B404:4:4",
@@ -2008,6 +2055,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Consider possible security implications associated with pickle module.\n",
       "cve": "semgrep_id:bandit.B403:2:2",
@@ -2048,6 +2096,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Check for Unusual or Exceptional Conditions",
       "title": "Improper Check for Unusual or Exceptional Conditions",
       "description": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte\ncode.\n",
       "cve": "semgrep_id:bandit.B101:7:7",

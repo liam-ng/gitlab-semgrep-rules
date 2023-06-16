@@ -4,6 +4,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python objects. A malicious actor\ncould exploit this to run arbitrary code. Use `safe_load()` instead. It is recommended to use\n`SafeLoader`\nwhen loading yaml.\n",
       "cve": "semgrep_id:bandit.B506:329:329",
@@ -60,6 +61,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:28:28",
@@ -100,6 +102,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:63:63",
@@ -156,6 +159,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
       "cve": "semgrep_id:bandit.B303-1:141:141",
@@ -212,6 +216,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
       "cve": "semgrep_id:bandit.B608:265:265",
@@ -268,6 +273,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Insufficiently Random Values",
       "title": "Use of Insufficiently Random Values",
       "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
       "cve": "semgrep_id:bandit.B311:295:295",
@@ -324,6 +330,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Insufficiently Random Values",
       "title": "Use of Insufficiently Random Values",
       "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
       "cve": "semgrep_id:bandit.B311:319:319",
@@ -380,6 +387,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "title": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
       "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
@@ -436,6 +444,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Incorrect Regular Expression",
       "title": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:15:15",
@@ -487,6 +496,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Certificate Validation",
       "title": "Improper Certificate Validation",
       "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
       "cve": "semgrep_id:bandit.B501:17:18",
@@ -528,6 +538,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Certificate Validation",
       "title": "Improper Certificate Validation",
       "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
       "cve": "semgrep_id:bandit.B501:28:29",
@@ -569,6 +580,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Certificate Validation",
       "title": "Improper Certificate Validation",
       "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
       "cve": "semgrep_id:bandit.B501:36:37",
@@ -610,6 +622,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Certificate Validation",
       "title": "Improper Certificate Validation",
       "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
       "cve": "semgrep_id:bandit.B501:44:45",
@@ -651,6 +664,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Uncontrolled Resource Consumption",
       "title": "Uncontrolled Resource Consumption",
       "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
       "cve": "semgrep_id:bandit.B113:17:18",
@@ -687,6 +701,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Uncontrolled Resource Consumption",
       "title": "Uncontrolled Resource Consumption",
       "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
       "cve": "semgrep_id:bandit.B113:28:29",
@@ -723,6 +738,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Uncontrolled Resource Consumption",
       "title": "Uncontrolled Resource Consumption",
       "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
       "cve": "semgrep_id:bandit.B113:36:37",
@@ -759,6 +775,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Uncontrolled Resource Consumption",
       "title": "Uncontrolled Resource Consumption",
       "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
       "cve": "semgrep_id:bandit.B113:44:45",

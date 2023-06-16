@@ -4,6 +4,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "title": "Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
       "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
       "cve": "semgrep_id:eslint.detect-eval-with-expression:47:47",
@@ -44,6 +45,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Incorrect Regular Expression",
       "title": "Incorrect Regular Expression",
       "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:34:34",
@@ -79,6 +81,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
       "title": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
       "description": "Detected usage of crypto.pseudoRandomBytes, which does not produce secure random numbers.\n",
       "cve": "semgrep_id:eslint.detect-pseudoRandomBytes:41:41",
