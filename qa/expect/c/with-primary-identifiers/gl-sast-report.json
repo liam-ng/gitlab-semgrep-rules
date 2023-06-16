@@ -4,6 +4,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
       "title": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
       "description": "Perform bounds checking, use functions that limit length, or ensure that the size is larger\nthan the maximum possible length.\n",
       "cve": "semgrep_id:flawfinder.char-1.TCHAR-1.wchar_t-1:4:4",
@@ -53,6 +54,7 @@
     {
       "id": ":SKIP:",
       "category": "sast",
+      "name": "Potential time of check time of use vulnerability (open/fopen)",
       "title": "Potential time of check time of use vulnerability (open/fopen)",
       "description": "Usage of the `open` family of functions may hint at a potential Time Of Check Time Of Use\n(TOCTOU)\nvulnerability. An attacker may be able to modify the file being specified by the `open`\nfunction prior to the `open` function being called.\n\nPrior to calling `open`, use `lstat` to open the file and confirm the attributes\nare correct. Then use `open` to get a file descriptor to this file. Call `fstat` on the\n`open` file descriptor to confirm that `st_dev` and `st_ino` are equal between the two.\nIf they are, it is safe to read and operate on the file's contents.\n\nFor more information please see:\nhttps://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files\n",
       "cve": "semgrep_id:flawfinder.fopen-1.open-1:8:8",

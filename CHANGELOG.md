@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v4.3.4
+- Remap `Title` to `Name` field (!287)
+
 ## v4.3.3
 - Import Bandit ruleset from [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules) (!272)
 
