@@ -1,5 +1,12 @@
 Semgrep analyzer changelog
 
+## v4.3.5
+- Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.25) version `1.3.25` (!289)
+  - v1.3.25
+    - Update Java `rule-SpotbugsPathTraversalAbsolute.yml` to handle getResourceAsStream and getResource
+  - v1.3.24
+    - Remove `-1` from all eslint rule IDs
+
 ## v4.3.4
 - Remap `Title` to `Name` field (!287)
 
