@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v4.3.6
+- Update upstream scanner's exclusion configuration(`semgrepignore`) (!290)
+  - Disable git-aware filtering by removing the `.gitignore` inclusion entry (@SimonGurney)
+  - Consider `.semgrepignore` file defined the project for exclusion (@hmrc.colinameigh)
+
 ## v4.3.5
 - Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.25) version `1.3.25` (!289)
   - v1.3.25
@@ -22,7 +27,7 @@ Semgrep analyzer changelog
     - Update Java `rule-CommandInjection.yml` to match concatenated strings
     - Update Java `rule-SpelView.yml` to also match `ExpressionParser` interface methods
     - Update Java `rule-XpathInjection.yml` to match actual XPath import path
-  - v1.3.22 
+  - v1.3.22
     - Update Java `rule-CommandInjection.yml` with ability to match on String arrays
   - v1.3.21
     - Update Java `rule-BlowfishKeySize.yml` to add back missing `metavariable`
