@@ -80,5 +80,8 @@ COPY --from=scripts /start.sh /analyzer
 COPY --from=vet /usr/bin/analyzer /vet
 COPY --from=recipes /config/verify /verify
 
+# Allow running on m1s in Docker
+RUN sed -i 's/if platform.machine() in {"arm64", "aarch64"} and platform.system() == "Linux":/if 0:/g' /usr/local/lib/python3.9/site-packages/semgrep/cli.py
+
 ENTRYPOINT []
 CMD ["/analyzer", "run"]
