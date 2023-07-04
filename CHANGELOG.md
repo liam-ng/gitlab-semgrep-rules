@@ -1,5 +1,13 @@
 Semgrep analyzer changelog
 
+## v4.3.7
+- Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.27) version `1.3.27` (!291)
+  - v1.3.27
+    - Update Java rule-SSRF.yml to match more cases under java.net.* package
+    - Add Java rule rule-WeakTLSProtocolVersion.yml to detect weak TLS versions
+  - v1.3.26
+    - Update Javascript rule-non_literal_fs_filename.yml to only flag on fs modules
+
 ## v4.3.6
 - Update upstream scanner's exclusion configuration(`semgrepignore`) (!290)
   - Disable git-aware filtering by removing the `.gitignore` inclusion entry (@SimonGurney)
