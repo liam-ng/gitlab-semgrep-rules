@@ -1031,6 +1031,11 @@
       },
       {
         "type": "semgrep_id",
+        "name": "find_sec_bugs.SSL_CONTEXT-2",
+        "value": "find_sec_bugs.SSL_CONTEXT-2"
+      },
+      {
+        "type": "semgrep_id",
         "name": "find_sec_bugs.STRUTS_FORM_VALIDATION-1",
         "value": "find_sec_bugs.STRUTS_FORM_VALIDATION-1"
       },
