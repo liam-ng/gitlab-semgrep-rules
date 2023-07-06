@@ -31,7 +31,7 @@ integration-test:
     TMP_IMAGE: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
   script:
     - gem install parallel_tests
-    - parallel_rspec -- -f d -- .
+    - parallel_rspec -n 4 -- -f d -- .
   artifacts:
     when: always
     paths:
