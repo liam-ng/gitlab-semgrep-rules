@@ -31,7 +31,7 @@ integration-test:
     TMP_IMAGE: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
   script:
     - gem install parallel_split_test
-    - parallel_split_test --no-summary ./spec/semgrep_image_spec.rb -f d
+    - PARALLEL_SPLIT_TEST_PROCESSES=3 parallel_split_test --no-summary ./spec/semgrep_image_spec.rb -f d
   artifacts:
     when: always
     paths:
