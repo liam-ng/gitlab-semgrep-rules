@@ -33,7 +33,7 @@ integration-test:
     - time docker pull $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
     - time gem install parallel_split_test
   script:
-    - time PARALLEL_SPLIT_TEST_PROCESSES=4 parallel_split_test --no-summary ./spec/semgrep_image_spec.rb -f d
+    - time PARALLEL_SPLIT_TEST_PROCESSES=3 parallel_split_test --no-summary ./spec/semgrep_image_spec.rb -f d
   artifacts:
     when: always
     paths:

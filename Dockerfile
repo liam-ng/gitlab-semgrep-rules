@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=1.23.0
+ARG SCANNER_VERSION=1.30.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.2.0
 ARG TRACKING_CALCULATOR_VERSION=2.2.10
 ARG VET_VERSION=0.18.3
@@ -81,7 +81,7 @@ COPY --from=vet /usr/bin/analyzer /vet
 COPY --from=recipes /config/verify /verify
 
 # Allow running on m1s in Docker
-RUN sed -i 's/if platform.machine() in {"arm64", "aarch64"} and platform.system() == "Linux":/if 0:/g' /usr/local/lib/python3.9/site-packages/semgrep/cli.py
+RUN sed -i 's/if platform.machine() in {"arm64", "aarch64"} and platform.system() == "Linux":/if 0:/g' /usr/local/lib/python3.9/site-packages/semgrep/cli.py 2> /dev/null || true
 
 ENTRYPOINT []
 CMD ["/analyzer", "run"]
