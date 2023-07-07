@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=1.30.0
+ARG SCANNER_VERSION=1.23.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.2.0
 ARG TRACKING_CALCULATOR_VERSION=2.2.10
 ARG VET_VERSION=0.18.3
@@ -22,7 +22,7 @@ RUN CHANGELOG_VERSION=$(grep -m 1 '^## v.*$' "CHANGELOG.md" | sed 's/## v//') &&
         PATH_TO_MODULE=`go list -m` && \
         go build -ldflags="-X '$PATH_TO_MODULE/metadata.AnalyzerVersion=$CHANGELOG_VERSION'" -o /analyzer-semgrep
 
-FROM python:3.11-alpine
+FROM python:3.9-alpine
 
 ARG SCANNER_VERSION
 ENV SCANNER_VERSION ${SCANNER_VERSION}
