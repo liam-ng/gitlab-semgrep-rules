@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v4.4.0
+- Upgrade Tracking Calculator to v2.3.1 (!288)
+
 ## v4.3.7
 - Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.27) version `1.3.27` (!291)
   - v1.3.27

@@ -44,6 +44,10 @@
             "line_end": 329,
             "signatures": [
               {
+                "algorithm": "scope_offset_compressed",
+                "value": "app/app.py|yaml_hammer[0]:2"
+              },
+              {
                 "algorithm": "scope_offset",
                 "value": "app/app.py|yaml_hammer[0]:13"
               }

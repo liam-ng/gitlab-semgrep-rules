@@ -44,6 +44,10 @@
             "line_end": 52,
             "signatures": [
               {
+                "algorithm": "scope_offset_compressed",
+                "value": "Project2/WebApp/Controllers/HomeController.cs|HomeController[0]|IActionResult[5]:1"
+              },
+              {
                 "algorithm": "scope_offset",
                 "value": "Project2/WebApp/Controllers/HomeController.cs|HomeController[0]|IActionResult[5]:2"
               }
@@ -131,6 +135,10 @@
             "line_end": 11,
             "signatures": [
               {
+                "algorithm": "scope_offset_compressed",
+                "value": "Project2/WebLib/GetRandom.cs|WebLib[0]|GetRandom[0]|RandomNumber[0]:3"
+              },
+              {
                 "algorithm": "scope_offset",
                 "value": "Project2/WebLib/GetRandom.cs|WebLib[0]|GetRandom[0]|RandomNumber[0]:4"
               }
@@ -181,6 +189,10 @@
             "line_start": 52,
             "line_end": 52,
             "signatures": [
+              {
+                "algorithm": "scope_offset_compressed",
+                "value": "WebApp/Controllers/HomeController.cs|HomeController[0]|IActionResult[5]:1"
+              },
               {
                 "algorithm": "scope_offset",
                 "value": "WebApp/Controllers/HomeController.cs|HomeController[0]|IActionResult[5]:2"
@@ -268,6 +280,10 @@
             "line_start": 11,
             "line_end": 11,
             "signatures": [
+              {
+                "algorithm": "scope_offset_compressed",
+                "value": "WebLib/GetRandom.cs|WebLib[0]|GetRandom[0]|RandomNumber[0]:3"
+              },
               {
                 "algorithm": "scope_offset",
                 "value": "WebLib/GetRandom.cs|WebLib[0]|GetRandom[0]|RandomNumber[0]:4"
