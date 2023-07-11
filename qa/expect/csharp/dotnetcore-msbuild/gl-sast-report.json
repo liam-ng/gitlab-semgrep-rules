@@ -55,6 +55,10 @@
             "line_end": 19,
             "signatures": [
               {
+                "algorithm": "scope_offset_compressed",
+                "value": "ServiceA/ServiceA.cs|ServiceA[0]|ServiceA[0]|Main[0]:3"
+              },
+              {
                 "algorithm": "scope_offset",
                 "value": "ServiceA/ServiceA.cs|ServiceA[0]|ServiceA[0]|Main[0]:8"
               }
@@ -105,6 +109,10 @@
             "line_start": 17,
             "line_end": 17,
             "signatures": [
+              {
+                "algorithm": "scope_offset_compressed",
+                "value": "ServiceA/Vuln.cs|ServiceA[0]|Vulnerability[0]|process[0]:3"
+              },
               {
                 "algorithm": "scope_offset",
                 "value": "ServiceA/Vuln.cs|ServiceA[0]|Vulnerability[0]|process[0]:5"
@@ -157,6 +165,10 @@
             "line_end": 18,
             "signatures": [
               {
+                "algorithm": "scope_offset_compressed",
+                "value": "ServiceA/Vuln.cs|ServiceA[0]|Vulnerability[0]|process[0]:4"
+              },
+              {
                 "algorithm": "scope_offset",
                 "value": "ServiceA/Vuln.cs|ServiceA[0]|Vulnerability[0]|process[0]:6"
               }
@@ -207,6 +219,10 @@
             "line_start": 15,
             "line_end": 15,
             "signatures": [
+              {
+                "algorithm": "scope_offset_compressed",
+                "value": "ServiceB/Random.cs|ServiceB[0]|GetRandom[0]|RandomNumber[0]:3"
+              },
               {
                 "algorithm": "scope_offset",
                 "value": "ServiceB/Random.cs|ServiceB[0]|GetRandom[0]|RandomNumber[0]:4"
