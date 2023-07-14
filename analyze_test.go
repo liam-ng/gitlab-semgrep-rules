@@ -206,7 +206,7 @@ func TestBuildArgs(t *testing.T) {
 				"--strict",
 				"--disable-version-check",
 				"--no-git-ignore",
-				"--verbose",
+				"--debug",
 			},
 		},
 	}
