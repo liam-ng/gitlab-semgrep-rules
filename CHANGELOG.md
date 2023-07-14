@@ -1,5 +1,12 @@
 Semgrep analyzer changelog
 
+## v4.4.1
+- Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.27) version `1.3.29` (!294)
+  - v1.3.29
+    - Improve Go memory aliasing in `G601`
+  - v1.3.28
+    - Enhance Javascript ruleset descriptions and titles
+
 ## v4.4.0
 - Upgrade Tracking Calculator to v2.3.1 (!288)
 
