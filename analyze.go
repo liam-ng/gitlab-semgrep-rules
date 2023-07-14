@@ -107,9 +107,8 @@ func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 
 	output, err := cmd.CombinedOutput()
 
+	log.Debugf("%s", output)
 	if err != nil {
-		log.Debugf("%s", output)
-
 		if exitError, ok := err.(*exec.ExitError); ok {
 			waitStatus := exitError.Sys().(syscall.WaitStatus)
 
@@ -151,7 +150,7 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths, scannerOpts s
 	}
 
 	if level, ok := os.LookupEnv("SECURE_LOG_LEVEL"); ok && strings.ToLower(level) == "debug" {
-		args = append(args, "--verbose")
+		args = append(args, "--debug")
 	}
 
 	return args

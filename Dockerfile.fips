@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=1.23.0
+ARG SCANNER_VERSION=1.32.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.2.0
 ARG TRACKING_CALCULATOR_VERSION=2.3.1
 ARG VET_VERSION=0.18.3
@@ -38,7 +38,7 @@ COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY semgrepignore /semgrepignore
 
 RUN microdnf update --disableplugin=subscription-manager --nodocs && \
-    microdnf install shadow-utils util-linux git wget python39 --disableplugin=subscription-manager --nodocs && \
+    microdnf install shadow-utils util-linux git wget python39 ca-certificates  --disableplugin=subscription-manager --nodocs && \
     \
     # Install Semgrep
     pip3 install semgrep==$SCANNER_VERSION && \
