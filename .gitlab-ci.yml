@@ -33,7 +33,7 @@ integration-test:
     - docker pull $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
     - gem install parallel_split_test
   script:
-    - PARALLEL_SPLIT_TEST_PROCESSES=4 time parallel_split_test --no-summary ./spec/semgrep_image_spec.rb -f d
+    - parallel_split_test --no-summary ./spec/semgrep_image_spec.rb -f d
   artifacts:
     when: always
     paths:
