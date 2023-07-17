@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=1.23.0
+ARG SCANNER_VERSION=1.32.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.2.0
 ARG TRACKING_CALCULATOR_VERSION=2.3.3
 ARG VET_VERSION=0.18.3
@@ -34,19 +34,10 @@ ENV SAST_RULES_VERSION=1.3.29
 # Run VET FP reduction only on Go files
 ENV VET_LANG_EXT=".go"
 
-RUN mkdir -p /etc/ssl/certs/ && \
-    touch /etc/ssl/certs/ca-certificates.crt && \
-    chmod g+w /etc/ssl/certs/ca-certificates.crt
-
 COPY --from=build /analyzer-semgrep /analyzer-binary
 COPY semgrepignore /semgrepignore
 RUN mkdir /.cache && \
     chmod -R g+rw /.cache && \
-    \
-    # Configure CA Certificates
-    mkdir -p /etc/ssl/certs/ && \
-    touch /etc/ssl/certs/ca-certificates.crt && \
-    chmod g+w /etc/ssl/certs/ca-certificates.crt && \
     \
     # Install semgrep and additional tools
     apk add --no-cache git && \
