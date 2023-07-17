@@ -1,5 +1,18 @@
 Semgrep analyzer changelog
 
+## v4.4.2
+- Upgrade Tracking Calculator to `v2.3.3` (!295)
+  - v2.3.2
+    - Upgrade `tree-sitter` to `v0.20.8`
+    - Upgrade grammar `tree-sitter-c` to `v0.20.2`
+    - Upgrade grammar `tree-sitter-c-sharp` to `v0.20.0`
+    - Upgrade grammar `tree-sitter-cpp` to `v0.20.0`
+    - Upgrade grammar `tree-sitter-java` to `v0.20.1`
+    - Upgrade grammar `tree-sitter-kotlin` to `v0.2.11`
+    - Upgrade grammar `tree-sitter-python` to `v0.20.0`
+  - v2.3.3
+    -  feat: Add `-deduplicate` flag for controlling signature deduplication
+
 ## v4.4.1
 - Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.27) version `1.3.29` (!294)
   - v1.3.29
