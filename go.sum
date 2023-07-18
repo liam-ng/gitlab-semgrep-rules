@@ -132,6 +132,8 @@ gitlab.com/gitlab-org/security-products/analyzers/command/v2 v2.1.0/go.mod h1:sr
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.1/go.mod h1:MaLrVtJgCo/X9jxNkZUkZPCa7sc5lFAMqJVjsKFMUpc=
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.3-0.20230718050414-0b61642b3e98 h1:+OlQEifduI3PI6jLijI91aAEV/NR3JLxTsKCM+6uWKI=
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.3-0.20230718050414-0b61642b3e98/go.mod h1:8DX0nM2Xz+1nNPItN1xrgHiaQhI4be2h3zVcU3h1ElU=
+gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.3-0.20230718061535-995269caf0c4 h1:Zd1wu9OiYaYkw47zdpRUorOlauUx5JDOS5xMJ/Hjn/E=
+gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.3-0.20230718061535-995269caf0c4/go.mod h1:8DX0nM2Xz+1nNPItN1xrgHiaQhI4be2h3zVcU3h1ElU=
 gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.0/go.mod h1:kuFdWU0Q71v9iU2AgY//ogf1/xFPjxeiuwUc2U7r2Ew=
 gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.3 h1:XBLaLYrzNfZ9zDa5jF8Nmh6s2XusRaA5yqvEourw2r8=
 gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.3/go.mod h1:N8Ojq9ChHvXp3wxNFuYf1h+97d0Kea4no943cYcAp20=

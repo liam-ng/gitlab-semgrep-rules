@@ -43,13 +43,16 @@ RUN microdnf update --disableplugin=subscription-manager --nodocs && \
     # Install Semgrep
     pip3 install semgrep==$SCANNER_VERSION && \
     \
+    # Create gitlab user
+    useradd --create-home gitlab -g root && \
+    \
+    # Change the certs owner to the user
+    chown -R gitlab:root /etc/pki/ca-trust && \
+    \
     # Configure CA Certificates
     mkdir -p /etc/pki/ca-trust/anchors/ && \
     touch /etc/pki/ca-trust/anchors/ca-certificates.crt && \
     chmod g+w /etc/pki/ca-trust/anchors/ca-certificates.crt && \
-    \
-    # Create gitlab user
-    useradd --create-home gitlab -g root && \
     \
     # Cleanup libs that are no longer needed
     microdnf remove shadow-utils && \
