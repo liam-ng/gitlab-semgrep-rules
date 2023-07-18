@@ -6,6 +6,7 @@ import (
 	log "github.com/sirupsen/logrus"
 
 	"gitlab.com/gitlab-org/security-products/analyzers/command/v2"
+	"gitlab.com/gitlab-org/security-products/analyzers/common/v3/cacert"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/plugin"
 )
@@ -22,9 +23,21 @@ func main() {
 		Analyzer:     metadata.AnalyzerDetails,
 		Scanner:      metadata.ReportScanner,
 		ScanType:     metadata.Type,
+		CACertImportOptions: cacert.ImportOptions{
+			Path: customCertPath(),
+		},
 	})
 
 	if err := app.Run(os.Args); err != nil {
 		log.Fatal(err)
 	}
+}
+
+// customCertPath returns custom certificate's file path into which user's certificate
+// content can be written.
+func customCertPath() string {
+	if cacert.IsUBIImage() {
+		return "/etc/pki/ca-trust/anchors/ca-certificates.crt"
+	}
+	return "/etc/ssl/certs/ca-certificates.crt"
 }
