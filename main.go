@@ -37,7 +37,7 @@ func main() {
 // content can be written.
 func customCertPath() string {
 	if cacert.IsUBIImage() {
-		return "/usr/share/pki/ca-trust-source/anchors/ca-certificates.crt"
+		return "/etc/pki/ca-trust/source/anchors/ca-certificates.crt"
 	}
 	return "/etc/ssl/certs/ca-certificates.crt"
 }
