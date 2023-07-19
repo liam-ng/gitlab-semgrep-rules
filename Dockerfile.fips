@@ -54,7 +54,7 @@ RUN microdnf update --disableplugin=subscription-manager --nodocs && \
     touch /etc/pki/ca-trust/source/anchors/ca-certificates.crt && \
     \
     ## Change the certs owner to the user
-    chown -R gitlab:root /etc/pki/ca-trust && \
+    chmod -R g+w /etc/pki/ca-trust && \
     \
     # Cleanup libs that are no longer needed
     microdnf remove shadow-utils && \
