@@ -23,6 +23,7 @@ semgrep-rules-yaml-validation:
   script: for f in $(ls rules); do ruby semgrep_rules_check/find_nonmatching_rule_ids.rb rules/$f || exit 1; done
 
 integration-test:
+  stage: test
   image:
     name: registry.gitlab.com/gitlab-org/security-products/analyzers/integration-test:stable
   services:
@@ -31,6 +32,8 @@ integration-test:
     TMP_IMAGE: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
   script:
     - rspec -f d
+  needs:
+    - build tmp image
   artifacts:
     when: always
     paths:
@@ -42,9 +45,38 @@ integration-test-fips:
   variables:
     IMAGE_TAG_SUFFIX: "-fips"
     PRIVILEGED: 'true'
+  needs:
+    - build tmp image fips
 
 .qa-downstream-sast:
   variables:
     DS_DEFAULT_ANALYZERS: ""
     SAST_EXCLUDED_ANALYZERS: "bandit,eslint"
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
+
+
+generate-analysis-report:
+  stage: analysis
+  image: golang:1.20
+  services:
+    - docker:23.0.6-dind
+  variables:
+    SEMGREP_BASELINE_IMAGE: registry.gitlab.com/gitlab-org/security-products/analyzers/semgrep:latest
+    SEMGREP_TARGET_IMAGE: $CI_REGISTRY_IMAGE/tmp:$CI_COMMIT_SHA$IMAGE_TAG_SUFFIX
+    HUSH_GIT_URL: https://gitlab.com/gitlab-org/secure/pocs/hush.git
+  script:
+    - docker run --rm  -v "$PWD:/src" -e CI_PROJECT_DIR=/src $SEMGREP_BASELINE_IMAGE /analyzer run
+    - mv gl-sast-report.json gl-sast-report-baseline.json
+    - docker run --rm  -v "$PWD:/src" -e CI_PROJECT_DIR=/src $SEMGREP_TARGET_IMAGE /analyzer run
+    - mv gl-sast-report.json gl-sast-report-target.json
+    - git clone https://gitlab.com/gitlab-org/secure/pocs/hush.git hush
+    - cd hush && make analyze
+    - ./analyze gl-secure --baseline-report-path "gl-sast-report-baseline.json" --target-report-path "gl-sast-report-target.json"
+  needs:
+    - build tmp image
+  artifacts:
+    expose_as: Scan Reports
+    paths:
+      - scan-reports/
+  rules:
+    - when: manual
