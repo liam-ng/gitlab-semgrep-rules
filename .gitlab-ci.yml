@@ -55,9 +55,9 @@ integration-test-fips:
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
 
 
-generate-analysis-report:
+prepare-for-analysis:
   stage: post
-  image: golang:1.20
+  image: docker:stable-git
   services:
     - docker:23.0.6-dind
   variables:
@@ -69,14 +69,32 @@ generate-analysis-report:
     - mv gl-sast-report.json gl-sast-report-baseline.json
     - docker run --rm  -v "$PWD:/src" -e CI_PROJECT_DIR=/src $SEMGREP_TARGET_IMAGE /analyzer run
     - mv gl-sast-report.json gl-sast-report-target.json
-    - git clone https://gitlab.com/gitlab-org/secure/pocs/hush.git hush
-    - cd hush && make analyze
-    - ./analyze gl-secure --baseline-report-path "gl-sast-report-baseline.json" --target-report-path "gl-sast-report-target.json"
+    - ls -lla $CI_PROJECT_DIR
   needs:
     - build tmp image
+  artifacts:
+    paths:
+      - gl-sast-report-baseline.json
+      - gl-sast-report-target.json
+
+
+generate-analysis-report:
+  stage: post
+  image: golang:1.20
+  variables:
+    HUSH_GIT_URL: https://gitlab.com/gitlab-org/secure/pocs/hush.git
+  script:
+    - git clone https://gitlab.com/gitlab-org/secure/pocs/hush.git hush
+    - cd hush && make analyze
+    - ./analyze gl-secure --baseline-report-path gl-sast-report-baseline.json --target-report-path gl-sast-report-target.json
+  dependencies:
+    - prepare-for-analysis
+  needs:
+    - build tmp image
+    - prepare-for-analysis
   artifacts:
     expose_as: Scan Reports
     paths:
       - scan-reports/
-  rules:
-    - when: manual
+
+
