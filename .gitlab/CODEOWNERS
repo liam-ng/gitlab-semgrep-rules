@@ -3,7 +3,7 @@
 # The order in which the paths are defined is significant: the last pattern that matches a given path will be used to find the code owners.
 
 [Maintainers]
-* @theoretick @jamesliu-gitlab @vbhat161
+* @theoretick @jamesliu-gitlab @vbhat161 @craigmsmith
 
 ^[Reviewers]
 * @gitlab-org/secure/static-analysis
