@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "1639d8cb2e7bdc9a8cb9038eb6b1c949aeebb7f9b56c130dfec947a868ac04fb",
       "category": "sast",
       "name": "Improper neutralization of directives in dynamically evaluated code ('Eval Injection')",
       "title": "Improper neutralization of directives in dynamically evaluated code ('Eval Injection')",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "6c8712a7fe5be8d85d9792195ed432d68bcb9ecdbeea9ddc2a698866d83e7af5",
       "category": "sast",
       "name": "Incorrect regular expression",
       "title": "Incorrect regular expression",
@@ -88,7 +88,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -97,11 +97,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:47:38",
+    "end_time": "2023-07-25T10:47:47",
     "status": "success"
   }
 }

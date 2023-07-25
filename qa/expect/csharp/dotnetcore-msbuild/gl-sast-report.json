@@ -2,11 +2,11 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "1f03f17a6f137c7e8ec2f50f93c96c2033f8c78ccfa57943958f0d9a47048906",
       "category": "sast",
       "name": "Weak password requirements",
       "title": "Weak password requirements",
-      "description": "The application's `PasswordValidator.RequiredLength` property allows passwords\nto be less than 8 characters. Consider requiring a length of at least 8 or more\ncharacters to reduce the chance of passwords being brute forced.\n\nExample of setting the RequiredLength to 8 in ASP.NET Core Identity:\n```\nbuilder.Services.Configure<IdentityOptions>(options =>\n{\n    // Default Password settings.\n    options.Password.RequireDigit = true;\n    options.Password.RequireLowercase = true;\n    options.Password.RequireNonAlphanumeric = true;\n    options.Password.RequireUppercase = true;\n    options.Password.RequiredLength = 8;\n    options.Password.RequiredUniqueChars = 1;\n});\n```\n\nFor more information on configuring ASP.NET Core Identity see:\nhttps://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-configuration\n",
+      "description": "The application's `PasswordValidator.RequiredLength` property allows passwords\nto be less than 8 characters. Consider requiring a length of at least 8 or more\ncharacters to reduce the chance of passwords being brute forced.\n\nExample of setting the RequiredLength to 8 in ASP.NET Core Identity:\n```\nbuilder.Services.Configure\u003cIdentityOptions\u003e(options =\u003e\n{\n    // Default Password settings.\n    options.Password.RequireDigit = true;\n    options.Password.RequireLowercase = true;\n    options.Password.RequireNonAlphanumeric = true;\n    options.Password.RequireUppercase = true;\n    options.Password.RequiredLength = 8;\n    options.Password.RequiredUniqueChars = 1;\n});\n```\n\nFor more information on configuring ASP.NET Core Identity see:\nhttps://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-configuration\n",
       "cve": "semgrep_id:security_code_scan.SCS0032-1.SCS0033-1.SCS0034-1:19:22",
       "severity": "Medium",
       "scanner": {
@@ -68,7 +68,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "d45a84e76a7118534d6b0afadfabeaaff474480076c53b2b51ebc4a8bc8c1e37",
       "category": "sast",
       "name": "Improper neutralization of special elements used in an OS command ('OS Command Injection')",
       "title": "Improper neutralization of special elements used in an OS command ('OS Command Injection')",
@@ -123,7 +123,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "2dca5060b19d77f2aebdc29b52140998085fea1dba2c41dd215180f2e86a1a38",
       "category": "sast",
       "name": "Improper neutralization of special elements used in an OS command ('OS Command Injection')",
       "title": "Improper neutralization of special elements used in an OS command ('OS Command Injection')",
@@ -178,7 +178,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "5574399d31d58a4bbe01a559a92c0192410452a9851758742c489459692b3189",
       "category": "sast",
       "name": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
       "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
@@ -242,7 +242,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -251,11 +251,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:48:34",
+    "end_time": "2023-07-25T10:48:43",
     "status": "success"
   }
 }

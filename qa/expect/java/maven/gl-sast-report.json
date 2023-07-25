@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "edad7cd0f2b521aa10561ca05728afe97d66cc58bc3dc6f7dd7071c9efd91dff",
       "category": "sast",
       "name": "Use of a broken or risky cryptographic algorithm",
       "title": "Use of a broken or risky cryptographic algorithm",
@@ -53,7 +53,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "91d796727f840077124b97317dbcc23761e7cc6b0334ab4a23c858e021a268c6",
       "category": "sast",
       "name": "Use of a broken or risky cryptographic algorithm",
       "title": "Use of a broken or risky cryptographic algorithm",
@@ -104,7 +104,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "9d1ade4657c78ba06214de401e6ae1bee0cfacf259552a273edb16cd623c4ef0",
       "category": "sast",
       "name": "Use of insufficiently random values",
       "title": "Use of insufficiently random values",
@@ -156,7 +156,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "9a07f366614b8efc64146f12c9a52c9bb1b929f7f9cd54cf7016140c05407ab6",
       "category": "sast",
       "name": "Use of insufficiently random values",
       "title": "Use of insufficiently random values",
@@ -207,7 +207,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "5e5b7c829f5ec6fd253d4e4b7db2d448ace8424e0659d91602a00f7ff92b1552",
       "category": "sast",
       "name": "Use of insufficiently random values",
       "title": "Use of insufficiently random values",
@@ -259,7 +259,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "1159b6bd87faebb924bd983f7549eb7b13be4374d4c3d787024b1eaf56e3112c",
       "category": "sast",
       "name": "Use of insufficiently random values",
       "title": "Use of insufficiently random values",
@@ -310,7 +310,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "a30f0782ffb0aa1ec15d99b60e5d4eed04b01049e8b5f22b75ba63c92e0122e3",
       "category": "sast",
       "name": "Use of RSA algorithm without OAEP",
       "title": "Use of RSA algorithm without OAEP",
@@ -370,7 +370,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -379,11 +379,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:46:08",
+    "end_time": "2023-07-25T10:46:18",
     "status": "success"
   }
 }

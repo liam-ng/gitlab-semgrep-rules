@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "15b28c33ad0cdd8c75f4d00e3b832a9ba0bc226db7c5047649de8705e82fdc6d",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -63,7 +63,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "933c0632e7ef695652af3cb434a2b4cd5466dc61d2954754008e864b79d9f51d",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -104,7 +104,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "176171863c51580f26aa21806cdf02b0de535f49e55e991e358c01ff5b97164a",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -165,7 +165,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "dc7d936d4e0955eb2fbb33799b0ee8537f62a560d166fa3b597674ff3e3b0b03",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -226,7 +226,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "530044e3debb37277ed317f251b89a1d0aa3acd9d8b0ae1f535b0fbc23153344",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
       "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
@@ -287,7 +287,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "cdc89727a6a74034a369e363bfc33b15c9fe210c2b66781ad913a3ebcb4eee9e",
       "category": "sast",
       "name": "Use of Insufficiently Random Values",
       "title": "Use of Insufficiently Random Values",
@@ -348,7 +348,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "32bae2449161a2df7014f6c65e5fe0673db0245b6fcf0c308c4d31857f3eb664",
       "category": "sast",
       "name": "Use of Insufficiently Random Values",
       "title": "Use of Insufficiently Random Values",
@@ -409,7 +409,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "bf8aae4da85bb8a73ff0e2e02655908697d63439b3438c347ac604278d6e3970",
       "category": "sast",
       "name": "Improper neutralization of directives in dynamically evaluated code ('Eval Injection')",
       "title": "Improper neutralization of directives in dynamically evaluated code ('Eval Injection')",
@@ -466,7 +466,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "0774e3c28f7762a43567d1053c4b84d7940014d2ca6af76e81b63f972980b5d5",
       "category": "sast",
       "name": "Incorrect regular expression",
       "title": "Incorrect regular expression",
@@ -518,7 +518,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "35dcb640439f719f62fc6845ab47def36c66dc850b6b2e67c7a56192287ff575",
       "category": "sast",
       "name": "Improper Certificate Validation",
       "title": "Improper Certificate Validation",
@@ -560,7 +560,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "b6d94badaebbf408fb5611b18429b7ac61c028bade21c37ce8b5608ae393bc50",
       "category": "sast",
       "name": "Improper Certificate Validation",
       "title": "Improper Certificate Validation",
@@ -602,7 +602,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "c535128f4a22576f91595bd14db8f9e233a31e0f3e4f69e7c405020053ecae02",
       "category": "sast",
       "name": "Improper Certificate Validation",
       "title": "Improper Certificate Validation",
@@ -644,7 +644,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "adab75e7a2027c2ecbf7f28fc989026274ee25ecd729f1e65f3aec4f43608275",
       "category": "sast",
       "name": "Improper Certificate Validation",
       "title": "Improper Certificate Validation",
@@ -686,7 +686,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "4432f476bb69661ff88aa79b9021ae74a243d2b6cd293dd68e99779df913adce",
       "category": "sast",
       "name": "Uncontrolled Resource Consumption",
       "title": "Uncontrolled Resource Consumption",
@@ -723,7 +723,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "31b38fb5dc24b8be594cf6baaa0995928be92fd4282264e073a7246865650f73",
       "category": "sast",
       "name": "Uncontrolled Resource Consumption",
       "title": "Uncontrolled Resource Consumption",
@@ -760,7 +760,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "3838f4d34af12b90697da00422bddaa998343cc88293a5860c24aa5887423335",
       "category": "sast",
       "name": "Uncontrolled Resource Consumption",
       "title": "Uncontrolled Resource Consumption",
@@ -797,7 +797,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "67e80a8beeaa0977a5f5fe72ba6e876fa40db5aad3319ad22fc44e2239752b53",
       "category": "sast",
       "name": "Uncontrolled Resource Consumption",
       "title": "Uncontrolled Resource Consumption",
@@ -843,7 +843,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -852,11 +852,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:46:56",
+    "end_time": "2023-07-25T10:47:05",
     "status": "success"
   }
 }

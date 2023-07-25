@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "61bc264d8a8d78d5d44a462b7f73fbb4ae8ab4b94400b90f8fbf07ae6d7c9c51",
       "category": "sast",
       "name": "Improper Check for Unusual or Exceptional Conditions",
       "title": "Improper Check for Unusual or Exceptional Conditions",
@@ -63,7 +63,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -72,11 +72,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:46:38",
+    "end_time": "2023-07-25T10:46:47",
     "status": "success"
   }
 }

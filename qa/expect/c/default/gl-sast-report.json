@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "4924f85667cb51fe7164091f186753b260c7bb48ef871d94a4cd7970871760b7",
       "category": "sast",
       "name": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
       "title": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "17575d8988b1698f410589376830c090059212263d9bae0b6ad66428bbb22fd8",
       "category": "sast",
       "name": "Potential time of check time of use vulnerability (open/fopen)",
       "title": "Potential time of check time of use vulnerability (open/fopen)",
@@ -122,7 +122,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -131,11 +131,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:44:49",
+    "end_time": "2023-07-25T10:44:58",
     "status": "success"
   }
 }

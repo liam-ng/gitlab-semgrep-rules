@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "f612dae390623e365b7010a9058f21e3e06c922e36e0f5dccae07a173425cde4",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -59,7 +59,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "5063c7d8782d384618fb05077500e35290f333ade67e950d2ae2d88cb37173ff",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "f062ce5efa77e899c9681b942ff9ceac9d6df89f4d3fd584eb4fee3e5c044bbf",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "d24a2557212b50bc09ef10b7972ed664f1c2b7c6e9e391cc9863778cb0f88272",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -198,7 +198,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "af9f25bd5975d983172ff0fed630a755e2d01b118e47b33906473355c1ddc5d2",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -255,7 +255,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "9c5af0dae481c9c775a0d9618208a6510f8c783026e155fecaa54e1a375f2da1",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -296,7 +296,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "1758347d6b881a4ea1c63f7463fb3ca5cd047b153016d59f7847d03b1bcd21bd",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -354,7 +354,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "f8824a9476f564b52767200a634aa7bcdebd04e9fe5b64fdfede1da68ea4eb49",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -412,7 +412,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "248fae4f6be10341b5dcb91a0f541f53997c892bb71c0dd4d01d2127783891ff",
       "category": "sast",
       "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
@@ -448,7 +448,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "49e73b210c3aaac18da8df07358a41d46afcc31194b1990ba2c927ec47fc2725",
       "category": "sast",
       "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
@@ -484,7 +484,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "24512bcfac3c74e539d7b9743dc720715fc255ad97f56b7acf47e26fe9d0f0f3",
       "category": "sast",
       "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
@@ -520,7 +520,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "a2680a99cb195df73033fd3b91b455100d82dcce3b1f82300cdcc0ddb3838184",
       "category": "sast",
       "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
@@ -556,7 +556,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "77af0f3ca87d4afb6b27482436b0d71200fabed9e1d785cb89bd7d346ab2fe17",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -597,7 +597,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "bb820993cec23c68d23e92b9cb7053fd3f23833cab85705640a0c7a4cf33a763",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -638,7 +638,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "bc8402760ceecad6c592dd83c0a67fa218f4c4ac8ad8643f3231fe29679edbad",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -679,7 +679,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "c6a4a5c8c4d4b3e6c99efaaaf369317682449e73a14e0761f30befa7d10dd4fc",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -720,7 +720,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "6fb76f70c554c6bcd9ed5b58cf2496486ff0827bd559e9b7077447375eef38f9",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -761,7 +761,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "f2a6c0e08e95b07ed9ac837e094fb8e4d432a5ef48878ec10cd8ff2e26784d69",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -802,7 +802,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "a36c5848f877e729824d5c9546d4c819cdc6f94853a7664a8a2d9715e4a7dace",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -843,7 +843,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "d679886ed830054191e360e6db8bd758c0387fa11f8c4d85d93bc92d7ce6e1a2",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -884,7 +884,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "8e8e1c1ccd2299457849d270f49024d236e63c7c5be43ddba5acdf18f1f2597f",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -925,7 +925,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "6842edc05450c003d3d666ca2b6e0f080762e322e6aafb74e6cd30859db6629d",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -966,7 +966,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "9f48eb662989eac1c68df161829252fcc4f5b2f5f04e892341443f2c3577f26c",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -1007,7 +1007,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "4f555e4787a73bae1085ca0aa877e3c672145bdb3bd6101639f8acd86908a9e1",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -1048,7 +1048,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "ee3e7fa9759855474a406767742cd6a402bb0e713feaa877186050d71d4189d9",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -1105,7 +1105,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "238fd09c0ab0a6b84e7124c1739219617cade3c956a7fae49069ac12345cd688",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -1146,7 +1146,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "fe15d637ed054e9988e099430ad12adf260ce6f980175bb5525de7099423f2b1",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -1187,7 +1187,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "49d6fd4a67448f94e6f7f0356188c99ec6fa659b0423733505fb68fdd2819e13",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -1244,7 +1244,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "cd87ed4d48d9905e16e2e3b779caf755a78de7acaa45c31ba86fb93a78435730",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -1301,7 +1301,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "d8b55167e77c1658951179c12c02056dae123ee934fc3e327e6e969171ba68fd",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -1342,7 +1342,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "b348785d129525371738f5fe4c59e3fb0e05a2443638dece5c24d2dc5aa56665",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -1400,7 +1400,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "ee860bad785b8bbaf021091b5b98baaff46e5ddf3288ff9ed0f6cf66df43d976",
       "category": "sast",
       "name": "Use of Hard-coded Password",
       "title": "Use of Hard-coded Password",
@@ -1458,7 +1458,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "96a65cd896ca21622e25692bd0268212f6663fc888c991dcf5aa81ed1271cbc0",
       "category": "sast",
       "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
@@ -1494,7 +1494,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "cd924fe802784d59eee462b0fa3a46e74c6bf2974fa52a3b6bf901fefee3a1ec",
       "category": "sast",
       "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
@@ -1530,7 +1530,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "5adb9df30799782123a798c6ba1ecda69a3fccd98e64628e6d108cb12dd346ad",
       "category": "sast",
       "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
@@ -1566,7 +1566,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "40dd67ded073e2251dbe0a7c572d7069f136dca18eac0e7ec5283d0db418c189",
       "category": "sast",
       "name": "Insecure Temporary File",
       "title": "Insecure Temporary File",
@@ -1602,7 +1602,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "f85fe0a8bb6fd5b53bae6865a485eacea65a96a895e35a2fb86bd108d7233374",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -1643,7 +1643,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "699d9834bfa9a4d6309533bc09cd3d5b4fdd84c2db910a6833f10520e070b525",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -1684,7 +1684,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "d6d92cf8cf9275056aae5b9db38426641296383f1ad6a95aff19664cb7ca8462",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -1725,7 +1725,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "028efd3527b5f1412f0be296642daceabb34a4a42faf3046bcd4ca0db10c73d1",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -1766,7 +1766,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "1fe1aff81e54b96623e6b3d419ac5e759335cb9df32b62d5577bb0e0e0c6b245",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -1807,7 +1807,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "75d2e51ecf2beb101d5066a08158534e9dc4af9dac9a8cecfba46dab046123d6",
       "category": "sast",
       "name": "Use of a Broken or Risky Cryptographic Algorithm",
       "title": "Use of a Broken or Risky Cryptographic Algorithm",
@@ -1848,7 +1848,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "5d94e9be593a42872ad4fc163c5e74bd2b1cd4a3f59936c3eb309117336a6cd5",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -1889,7 +1889,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "5d8cd80c0a3387dc747f1f55182b29d8fba9039e81cef927d8328ab4195207f6",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -1930,7 +1930,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "c1ee442d38aea0414712d92a1c84d7b413adb2686dab62bee1f226e25614d7ff",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -1971,7 +1971,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "7efb28e50999660320fc138c9e88a9e5dcdd08d039b82376b2b6d8af9725e7ee",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -2012,7 +2012,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "9f6b923867c30894c8ebc0d65311d2e09457dfd94423b6e2242701a51c5245ba",
       "category": "sast",
       "name": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
       "title": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')",
@@ -2053,7 +2053,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "4061fd3d29cf070c30a83195c89c6848d7a6f70dea4189bd9a2cec8da9773fb5",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -2094,7 +2094,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "61bc264d8a8d78d5d44a462b7f73fbb4ae8ab4b94400b90f8fbf07ae6d7c9c51",
       "category": "sast",
       "name": "Improper Check for Unusual or Exceptional Conditions",
       "title": "Improper Check for Unusual or Exceptional Conditions",
@@ -2155,7 +2155,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -2164,11 +2164,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:47:06",
+    "end_time": "2023-07-25T10:47:15",
     "status": "success"
   }
 }

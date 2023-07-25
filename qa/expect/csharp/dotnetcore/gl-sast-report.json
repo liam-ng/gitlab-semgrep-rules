@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "6dfedd8b1a8b143b02f624c87deb6a53d636cc0dc4281931896e009efb3bd3e5",
       "category": "sast",
       "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
@@ -57,7 +57,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "b6dc9d0bfa3a401776ea8ed7e8b3385d60febd2563c6bac76e6cbbeab36a9798",
       "category": "sast",
       "name": "Incorrect regular expression",
       "title": "Incorrect regular expression",
@@ -102,7 +102,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -111,11 +111,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:48:06",
+    "end_time": "2023-07-25T10:48:15",
     "status": "success"
   }
 }

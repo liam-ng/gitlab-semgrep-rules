@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "c25b4e8acfd5a690516ba9f14faa58e40534fb7f9fc73b9a61229d398f7a93df",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
       "title": "Deserialization of Untrusted Data",
@@ -66,7 +66,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -75,11 +75,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:47:25",
+    "end_time": "2023-07-25T10:47:28",
     "status": "success"
   }
 }

@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "97da22a919563b35278e150726e0c818f3b8fb02bd2671298c2d0730b51263e5",
       "category": "sast",
       "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
@@ -62,7 +62,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -71,11 +71,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:45:35",
+    "end_time": "2023-07-25T10:45:44",
     "status": "success"
   }
 }

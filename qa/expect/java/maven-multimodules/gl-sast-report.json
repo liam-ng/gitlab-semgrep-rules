@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "0cf67e0d16cd9955d9151c46de334288493dbc59e1c34bed93b5954076a06ae8",
       "category": "sast",
       "name": "Use of a broken or risky cryptographic algorithm",
       "title": "Use of a broken or risky cryptographic algorithm",
@@ -53,7 +53,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "288ac2233466dba71b1d4bc32d5319292c854a1e4d139f02ace2b8dbf06d2cda",
       "category": "sast",
       "name": "Use of a broken or risky cryptographic algorithm",
       "title": "Use of a broken or risky cryptographic algorithm",
@@ -104,7 +104,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "81607812d31859c0fdfd124d8b8a4d9b3631ef6994a0b6ea6268e250110f0588",
       "category": "sast",
       "name": "Use of insufficiently random values",
       "title": "Use of insufficiently random values",
@@ -156,7 +156,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "f867c0732c2a4502236e6204831366b2062d9ac5197d807193a6b08a3ad0347f",
       "category": "sast",
       "name": "Use of insufficiently random values",
       "title": "Use of insufficiently random values",
@@ -207,7 +207,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "e12723435f9b8647195b0efa26dbd4f4276dacc8bf742d57099e038d741d9329",
       "category": "sast",
       "name": "Use of RSA algorithm without OAEP",
       "title": "Use of RSA algorithm without OAEP",
@@ -267,7 +267,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -276,11 +276,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:46:28",
+    "end_time": "2023-07-25T10:46:38",
     "status": "success"
   }
 }

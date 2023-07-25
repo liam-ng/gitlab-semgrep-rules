@@ -2,7 +2,7 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "6d378b8d0230e916c9a2d3265f52490322b8fc79249aad4aa070ecceedcfc16b",
       "category": "sast",
       "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
@@ -57,7 +57,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "4f3a75c414c676bd27c7d204102bde2245d615d1bf79cfbe3146651e6b998db8",
       "category": "sast",
       "name": "Incorrect regular expression",
       "title": "Incorrect regular expression",
@@ -93,7 +93,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "5f6e6a343a959994f95a4ada445780cea08b59c44631ca2f10889996a3076182",
       "category": "sast",
       "name": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
       "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
@@ -148,7 +148,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "6dfedd8b1a8b143b02f624c87deb6a53d636cc0dc4281931896e009efb3bd3e5",
       "category": "sast",
       "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
       "title": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
@@ -203,7 +203,7 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "b6dc9d0bfa3a401776ea8ed7e8b3385d60febd2563c6bac76e6cbbeab36a9798",
       "category": "sast",
       "name": "Incorrect regular expression",
       "title": "Incorrect regular expression",
@@ -239,7 +239,7 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "c0dcc2fd31327d48e0a7b0bb7bdd5a56b1c5ab8114b02030efa3aa94266d87d7",
       "category": "sast",
       "name": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
       "title": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
@@ -303,7 +303,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.2"
     },
     "scanner": {
       "id": "semgrep",
@@ -312,11 +312,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.32.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-07-25T10:48:25",
+    "end_time": "2023-07-25T10:48:33",
     "status": "success"
   }
 }
