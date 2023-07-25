@@ -8,7 +8,7 @@ variables:
   SEARCH_MAX_DEPTH: 20
 
 include:
-  - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+  - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/semgrep-fips-test/includes-dev/analyzer.yml
 
 semgrep-meta-rules:
   stage: test
