@@ -134,7 +134,7 @@ describe 'running image' do
     end
 
     context 'with go' do
-      let(:project) { 'go/default' }
+      let(:project) { '_go/default' }
 
       context 'by default' do
         it_behaves_like 'successful scan'
@@ -170,7 +170,7 @@ describe 'running image' do
 
       context 'when VET FP reduction for Go' do
         context 'feature is enabled' do
-          let(:project) { 'go/fpreduction' }
+          let(:project) { '_go/fpreduction' }
           let(:variables) do
             {
               'GITLAB_FEATURES': 'vulnerability_finding_signatures,sast_fp_reduction',
@@ -191,7 +191,7 @@ describe 'running image' do
         end
 
         context 'feature is disabled' do
-          let(:project) { 'go/fpreduction' }
+          let(:project) { '_go/fpreduction' }
           let(:variables) do
             {
               'GITLAB_FEATURES': 'vulnerability_finding_signatures',
@@ -214,7 +214,7 @@ describe 'running image' do
       end
 
       context 'when using ruleset synthesis' do
-        let(:project) { 'go/custom-ruleset-synthesis' }
+        let(:project) { '_go/custom-ruleset-synthesis' }
 
         it_behaves_like 'successful scan'
 
