@@ -17,6 +17,12 @@ function dangerous_regexp(myregexpText) {
   myregexp.test("abcd");
 }
 
+// Anonymous function eval
+var dangerous_eval_var = function(myeval) {
+  eval(myeval);
+};
+dangerous_eval_var();
+
 // Bracket object access
 var user = function() { 
   this.name = 'jon';

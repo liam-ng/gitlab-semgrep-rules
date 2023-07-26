@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v4.4.3
+- Upgrade Tracking Calculator to `v2.3.4` (!297)
+
 ## v4.4.2
 - Upgrade Tracking Calculator to `v2.3.3` (!295)
   - v2.3.2

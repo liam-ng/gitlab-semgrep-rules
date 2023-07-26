@@ -360,6 +360,25 @@ describe 'running image' do
         { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
       end
 
+      context 'when including tracking signatures' do
+        let(:project) { 'js/default' }
+        let(:variables) do
+          { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
+        end
+
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report('js/with-tracking')
+            }
+          end
+
+          it_behaves_like 'valid report'
+        end
+      end
+
       context 'when a project contains JS files' do
         let(:project) { 'js/default' }
         it_behaves_like 'successful job'
