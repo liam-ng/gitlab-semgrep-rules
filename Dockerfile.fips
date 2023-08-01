@@ -6,7 +6,8 @@ ARG VET_VERSION=0.18.3
 ARG STENCILS_VERSION=0.2.0
 
 FROM registry.gitlab.com/security-products/post-analyzers/scripts:${POST_ANALYZER_SCRIPTS_VERSION} AS scripts
-FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
+# FROM registry.gitlab.com/security-products/post-analyzers/tracking-calculator:${TRACKING_CALCULATOR_VERSION} AS tracking
+FROM registry.gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator/tmp:723d46242bd94679a9d3d51b685fe54737020674 AS tracking
 FROM registry.gitlab.com/security-products/vet:${VET_VERSION} AS vet
 FROM registry.gitlab.com/gitlab-org/security-products/vet/stencils:${STENCILS_VERSION} AS recipes
 
