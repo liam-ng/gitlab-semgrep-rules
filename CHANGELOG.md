@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.4.4
+- Upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2` version [`v2.0.2` => [`v2.0.4`](https://gitlab.com/gitlab-org/security-products/analyzers/ruleset/-/releases/v2.0.4)] (!300)
+    - Update passthrough support to handle ambiguous/short refs
+
 ## v4.4.3
 - Upgrade Tracking Calculator to `v2.3.4` (!297)
 
