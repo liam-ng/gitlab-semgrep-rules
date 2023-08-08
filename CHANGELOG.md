@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v4.4.6
+- Upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v4` version [`v4.1.3` => [`v4.1.5`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v4.1.5)] (!303)
+    - Do not fail scan upon SARIF `toolExecutionNotifications` of level error (v4.1.5)
+    - Update SARIF parser to use Name over Title (v4.1.4)
+
 ## v4.4.5
 - Upgrade Tracking Calculator to `v2.3.7` (!302)
 
