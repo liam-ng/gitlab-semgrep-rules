@@ -71,7 +71,6 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	for i := range sastReport.Vulnerabilities {
 		vuln := &sastReport.Vulnerabilities[i]
 		vuln.CompareKey = computeCompareKey(*vuln)
-		vuln.Name = vuln.Title
 	}
 
 	return sastReport, err

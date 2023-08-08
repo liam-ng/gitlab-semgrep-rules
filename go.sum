@@ -134,8 +134,8 @@ gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.1/go.mod h1:MaL
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2 h1:lY9l94ZqIL6H+k8fSa7AdrpDoI6Yv2y/GV9bRONbX4c=
 gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.2/go.mod h1:8DX0nM2Xz+1nNPItN1xrgHiaQhI4be2h3zVcU3h1ElU=
 gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.0/go.mod h1:kuFdWU0Q71v9iU2AgY//ogf1/xFPjxeiuwUc2U7r2Ew=
-gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.3 h1:XBLaLYrzNfZ9zDa5jF8Nmh6s2XusRaA5yqvEourw2r8=
-gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.3/go.mod h1:N8Ojq9ChHvXp3wxNFuYf1h+97d0Kea4no943cYcAp20=
+gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.5 h1:WZIQKHDYkxaD2WJa7Dfcb1dsGMK5XklxHzn+9igKXAY=
+gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.5/go.mod h1:N8Ojq9ChHvXp3wxNFuYf1h+97d0Kea4no943cYcAp20=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.0/go.mod h1:OSsBZ498CAwBK77/RnQCTHoTofCl7tMCwW+Ajc2hd4o=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.1 h1:30aMpG3scBFx3qXgmzGu3QxDofH7ab66c5kh9dSQn2U=
 gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.1/go.mod h1:OSsBZ498CAwBK77/RnQCTHoTofCl7tMCwW+Ajc2hd4o=
