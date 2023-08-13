@@ -48,3 +48,24 @@ integration-test-fips:
     DS_DEFAULT_ANALYZERS: ""
     SAST_EXCLUDED_ANALYZERS: "bandit,eslint"
     SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
+
+false-positive-testing:
+  stage: post
+  needs:
+    - tag branch
+    - tag branch fips
+  rules:
+    - if: $CI_MERGE_REQUEST_SOURCE_PROJECT_PATH != $CI_MERGE_REQUEST_PROJECT_PATH
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      variables:
+        HUSH_TARGET_IMAGE: 'semgrep:$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME'
+    - when: manual
+  variables:
+    HUSH_BASELINE_IMAGE: "semgrep:4"
+    HUSH_TARGET_IMAGE: "semgrep:$CI_COMMIT_BRANCH"
+    HUSH_REPORT_TYPE: "sast"
+    HUSH_NUM_JOBS: "100" # no of repos to run the scan
+    HUSH_LANG_FILTER: "go,js,java,python,c,c#"
+  trigger:
+    project: gitlab-org/secure/pocs/hush
