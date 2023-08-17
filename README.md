@@ -1,46 +1,33 @@
 # Semgrep analyzer
 
-This analyzer is a wrapper around [Semgrep](https://github.com/returntocorp/semgrep).
-It's written in Go using
-the [common library](https://gitlab.com/gitlab-org/security-products/analyzers/common)
-shared by all analyzers.
+The Semgrep analyzer performs SAST scanning on repositories containing code written in several languages:
 
-The [common library](https://gitlab.com/gitlab-org/security-products/analyzers/common)
-contains documentation on how to run, test and modify this analyzer.
+* C# (.NET)
+* C
+* Go
+* Java
+* JavaScript
+* Python
+* Scala
+* TypeScript
 
-## Rules
+The analyzer wraps [Semgrep](https://github.com/returntocorp/semgrep), and is written in Go. It's structured similarly to other Static Analysis analyzers because it uses the shared [command](https://gitlab.com/gitlab-org/security-products/analyzers/command) package.
 
-You can find details about the rulesets and their sources in
-[`RULES.md`](RULES.md).
+The analyzer is built and published as a Docker image in the GitLab Container Registry associated with this repository. You would typically use this analyzer in the context of a [SAST](https://docs.gitlab.com/ee/user/application_security/sast) job in your CI/CD pipeline. However, if you're contributing to the analyzer or you need to debug a problem, you can run, debug, and test locally using Docker.
 
-### Image integration tests
+For instructions on local development, please refer to the [README in Analyzer Scripts](https://gitlab.com/gitlab-org/secure/tools/analyzer-scripts/-/blob/master/analyzers-common-readme.md).
 
-Image integration tests are executed on CI to check the Docker image of the analyzer using [RSpec](https://rspec.info/).
-They check the output and exit code of the analyzer, as well as the SAST report it generates.
-The image integration tests can also be executed locally, for example, to check an image that was built locally using `docker build`<sup>[3](#unable-to-build-image)</sup>.
+## SAST Rules
 
-#### Running image integration tests using the integration-test Docker image
+The [`sast-rules`](https://gitlab.com/gitlab-org/security-products/sast-rules) repository is the source of truth for the GitLab Semgrep rulesets. Changes to rules should be made in `sast-rules`. A CI job is responsible for validating and publishing the latest rules, which will eventually be consumed by the Semgrep analyzer here.
 
-See the [instructions](https://gitlab.com/gitlab-org/security-products/analyzers/integration-test/-/blob/main/README.md#how-to-run-the-integration-test-docker-container-locally) from the `integration-test` project.
+## Versioning and release process
 
-#### Updating the integration test expected JSON
-
-Making changes to rules or the semgrep codebase often results in changes to the expected JSON. Rather than manually updating these files,
-the expect JSON, found in `qa/expect`, can be updated using the script [analyzer-refresh-expected-json](https://gitlab.com/gitlab-org/secure/tools/analyzer-scripts/-/blob/master/analyzer-refresh-expected-json). To run the script, follow the instructions in the [analyzer-scripts README](https://gitlab.com/gitlab-org/secure/tools/analyzer-scripts) and then run `analyzer-refresh-expected-json` from your `semgrep` development directory.
-
-This script runs the integration tests from the [integration-test Docker image](#running-image-integration-tests-using-the-integration-test-docker-image) and adds an additional environment variable. This variable causes the integration specs to overwrite the `qa/expect` JSON files with the JSON generated during the specs.
-
-Once that's complete, the `analyzer-refresh-expected-json` then sanitizes the JSON by replacing `scan.start_time`, `scan.end_time`, `vulnerabilities.id` and `scan.analyzer.version` to `:SKIP:`.
+Please check the [versioning and release process documentation](https://gitlab.com/gitlab-org/security-products/analyzers/common#versioning-and-release-process).
 
 ## Contributing
 
 Contributions are welcome, see [`CONTRIBUTING.md`](CONTRIBUTING.md) for more details.
-
-## Troubleshooting
-
-### Unable to build image
-
-If you encounter the error message `Unknown machine architecture: aarch64` while attempting to build an analyzer Docker image locally, this is due to the fact that we currently only support building on an `amd64` architecture, such as an Intel Mac. Other architectures, such as the `ARM` Apple Silicon M1 chip, are not currently supported.
 
 ## License
 
