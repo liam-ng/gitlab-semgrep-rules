@@ -9,6 +9,9 @@ variables:
 
 include:
   - remote: https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+  - project: 'gitlab-org/security-products/ci-templates'
+    ref: 'master'
+    file: '/includes-dev/upsert-git-tag.yml'
 
 semgrep-meta-rules:
   stage: test
@@ -67,3 +70,4 @@ fp-benchmark-test:
     HUSH_LANG_FILTER: "go,js,java,python,c,c#"
   trigger:
     project: gitlab-org/secure/pocs/hush
+  allow_failure: true
