@@ -56,7 +56,7 @@ RUN mkdir /.cache && \
 
 RUN git clone \
     --depth 1 \
-    --branch "v${SAST_RULES_VERSION}" \
+    --branch "vbhat-fix-addr" \
     --no-checkout \
     https://gitlab.com/gitlab-org/security-products/sast-rules.git \
     /sast-rules
@@ -66,7 +66,7 @@ RUN mkdir -p rules
 RUN cd sast-rules && \
     # pull only `dist` folder when checking out
     git sparse-checkout set dist && \
-    git checkout "v${SAST_RULES_VERSION}" && \
+    git checkout "vbhat-fix-addr" && \
     cp dist/eslint.yml /rules && \
     cp dist/find_sec_bugs_scala.yml /rules && \
     cp dist/flawfinder.yml /rules && \
