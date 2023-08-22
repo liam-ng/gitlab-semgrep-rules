@@ -46,20 +46,20 @@ describe 'running image' do
       describe "created report" do
         it_behaves_like "non-empty report"
         it_behaves_like "recorded report" do
-          let(:recorded_report) { parse_expected_report(project) }
+          let(:recorded_report) { GitlabSecure::IntegrationTest::Comparable.parse_expected_report(project, expectations_dir) }
         end
         it_behaves_like "valid report"
       end
     end
 
-    def parse_expected_report(expectation_name, report_name = "gl-sast-report.json")
-      path = File.join(expectations_dir, expectation_name, report_name)
-      if ENV['REFRESH_EXPECTED'] == "true"
-        # overwrite the expected JSON with the newly generated JSON
-        FileUtils.cp(scan.report_path, File.expand_path(path))
-      end
-      JSON.parse(File.read(path))
-    end
+    # def parse_expected_report(expectation_name, report_name = "gl-sast-report.json")
+    #   path = File.join(expectations_dir, expectation_name, report_name)
+    #   if ENV['REFRESH_EXPECTED'] == "true"
+    #     # overwrite the expected JSON with the newly generated JSON
+    #     FileUtils.cp(scan.report_path, File.expand_path(path))
+    #   end
+    #   JSON.parse(File.read(path))
+    # end
 
     let(:global_vars) do
       {
@@ -107,7 +107,7 @@ describe 'running image' do
           it_behaves_like "non-empty report"
 
           it_behaves_like "recorded report" do
-            let(:recorded_report) { parse_expected_report(project + '/default') }
+            let(:recorded_report) { GitlabSecure::IntegrationTest::Comparable.parse_expected_report(project + '/default', expectations_dir) }
           end
 
           it_behaves_like "valid report"
@@ -124,7 +124,7 @@ describe 'running image' do
 
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report('c/with-primary-identifiers')
+              GitlabSecure::IntegrationTest::Comparable.parse_expected_report('c/with-primary-identifiers', expectations_dir)
             }
           end
 
@@ -143,7 +143,7 @@ describe 'running image' do
           it_behaves_like 'non-empty report'
 
           it_behaves_like "recorded report" do
-            let(:recorded_report) { parse_expected_report(project) }
+            let(:recorded_report) { GitlabSecure::IntegrationTest::Comparable.parse_expected_report(project, expectations_dir) }
           end
 
           it_behaves_like 'valid report'
@@ -160,7 +160,7 @@ describe 'running image' do
 
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report('go/with-tracking')
+              GitlabSecure::IntegrationTest::Comparable.parse_expected_report('go/with-tracking', expectations_dir)
             }
           end
 
@@ -182,7 +182,7 @@ describe 'running image' do
             it_behaves_like 'non-empty report'
             it_behaves_like 'recorded report' do
               let(:recorded_report) {
-                parse_expected_report('go/with-fp-reduction', 'gl-sast-report-ff-enabled.json')
+                GitlabSecure::IntegrationTest::Comparable.parse_expected_report('go/with-fp-reduction', expectations_dir, 'gl-sast-report-ff-enabled.json')
               }
             end
 
@@ -204,7 +204,7 @@ describe 'running image' do
             it_behaves_like 'non-empty report'
             it_behaves_like 'recorded report' do
                 let(:recorded_report) {
-                  parse_expected_report('go/with-fp-reduction', 'gl-sast-report-ff-disabled.json')
+                  GitlabSecure::IntegrationTest::Comparable.parse_expected_report('go/with-fp-reduction', expectations_dir, 'gl-sast-report-ff-disabled.json')
                 }
             end
             it_behaves_like 'valid report'
@@ -227,7 +227,7 @@ describe 'running image' do
 
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report(project)
+              GitlabSecure::IntegrationTest::Comparable.parse_expected_report(project, expectations_dir)
             }
           end
 
@@ -251,7 +251,7 @@ describe 'running image' do
           it_behaves_like 'non-empty report'
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report(project)
+              GitlabSecure::IntegrationTest::Comparable.parse_expected_report(project, expectations_dir)
             }
           end
           it_behaves_like 'valid report'
@@ -271,7 +271,7 @@ describe 'running image' do
           it_behaves_like 'non-empty report'
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report(project)
+              GitlabSecure::IntegrationTest::Comparable.parse_expected_report(project, expectations_dir)
             }
           end
           it_behaves_like 'valid report'
@@ -287,7 +287,7 @@ describe 'running image' do
           it_behaves_like 'non-empty report'
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report(project)
+              GitlabSecure::IntegrationTest::Comparable.parse_expected_report(project, expectations_dir)
             }
           end
           it_behaves_like 'valid report'
@@ -304,7 +304,7 @@ describe 'running image' do
           it_behaves_like 'non-empty report'
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report(project)
+              GitlabSecure::IntegrationTest::Comparable.parse_expected_report(project, expectations_dir)
             }
           end
           it_behaves_like 'valid report'
@@ -371,7 +371,7 @@ describe 'running image' do
 
           it_behaves_like "recorded report" do
             let(:recorded_report) {
-              parse_expected_report('js/with-tracking')
+              GitlabSecure::IntegrationTest::Comparable.parse_expected_report('js/with-tracking', expectations_dir)
             }
           end
 
