@@ -2,9 +2,10 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "c25b4e8acfd5a690516ba9f14faa58e40534fb7f9fc73b9a61229d398f7a93df",
       "category": "sast",
       "name": "Deserialization of Untrusted Data",
+      "title": "Deserialization of Untrusted Data",
       "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python objects. A malicious actor could\nexploit this to run arbitrarycode. Use `safe\\_load()` instead. It is recommended to use\n`SafeLoader`\nwhen loading yaml.\n",
       "cve": "semgrep_id:bandit.B506:329:329",
       "severity": "Critical",
@@ -65,7 +66,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -74,11 +75,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.23.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-08-22T15:24:31",
+    "end_time": "2023-08-22T15:24:34",
     "status": "success"
   }
 }

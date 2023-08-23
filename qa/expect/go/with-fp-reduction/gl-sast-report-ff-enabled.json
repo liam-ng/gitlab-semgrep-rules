@@ -2,11 +2,12 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "97feb53f827da61245f60ecce8dd93c5ace26030e25c69ea60b62974ff3fcd21",
       "category": "sast",
-      "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
-      "description": "The application dynamically constructs file or path information. If the path\ninformation comes from user input, it could be abused to read sensitive files,\naccess other users data or aid in exploitation to gain further system access.\n\nUser input should never be used in constructing paths or files for interacting\nwith the filesystem. This includes filenames supplied by user uploads or downloads.\nIf possible, consider hashing user input or replacing it with unique values.\nAdditionally, use `filepath.Base` to only use the filename and not path information.\nAlways validate the full path prior to opening or writing to any file.\n\nExample using `filepath.Base`, generating a unique filename without using\nuser input to construct filepath information:\n```\ntype userData struct {\n    id           string\n    userFilename string\n}\n\nfunc newUserData(userFilename string) userData {\n    return userData{\n        id:           randomFileID(), // random id as the filename\n        userFilename: userFilename,\n    }\n}\n\n// randomFileID generates a random id, to be used as a filename\nfunc randomFileID() string {\n    id := make([]byte, 16)\n    if _, err := io.ReadFull(rand.Reader, id); err != nil {\n        log.Fatal(err)\n    }\n    return hex.EncodeToString(id)\n}\n\nfunc main() {\n\n    // user input, saved only as a reference\n    data := newUserData(\"../../possibly/malicious\")\n\n    // restrict all file access to this path\n    const basePath = \"/tmp/\"\n\n    // resolve the full path, but only use our random generated id\n    resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))\n    if err != nil {\n        log.Fatal(err)\n    }\n\n    // verify the path is prefixed with our basePath\n    if !strings.HasPrefix(resolvedPath, basePath) {\n        log.Fatal(\"path does not start with basePath\")\n    }\n    // process / work with file\n}\n```\n\nFor more information on path traversal issues see OWASP:\nhttps://owasp.org/www-community/attacks/Path_Traversal\n",
-      "cve": "semgrep_id:gosec.G304-1:11:11",
+      "name": "Semgrep Finding: gosec.G304-1",
+      "title": "Semgrep Finding: gosec.G304-1",
+      "description": "File open from tainted variable\n",
+      "cve": "semgrep_id:gosec.G304:11:11",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -26,8 +27,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "gosec.G304-1",
-          "value": "gosec.G304-1"
+          "name": "gosec.G304",
+          "value": "gosec.G304"
         },
         {
           "type": "cwe",
@@ -68,7 +69,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -77,7 +78,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.23.0"
     },
     "primary_identifiers": [
       {
@@ -122,8 +123,8 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B108-2",
-        "value": "bandit.B108-2"
+        "name": "bandit.B108",
+        "value": "bandit.B108"
       },
       {
         "type": "semgrep_id",
@@ -152,23 +153,23 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B301-1",
-        "value": "bandit.B301-1"
+        "name": "bandit.B301",
+        "value": "bandit.B301"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B301-2",
-        "value": "bandit.B301-2"
+        "name": "bandit.B301",
+        "value": "bandit.B301"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B301-3",
-        "value": "bandit.B301-3"
+        "name": "bandit.B301",
+        "value": "bandit.B301"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B301-4",
-        "value": "bandit.B301-4"
+        "name": "bandit.B301",
+        "value": "bandit.B301"
       },
       {
         "type": "semgrep_id",
@@ -177,83 +178,83 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B303-1",
-        "value": "bandit.B303-1"
+        "name": "bandit.B303",
+        "value": "bandit.B303"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B303-2",
-        "value": "bandit.B303-2"
+        "name": "bandit.B303",
+        "value": "bandit.B303"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B303-7",
-        "value": "bandit.B303-7"
+        "name": "bandit.B303",
+        "value": "bandit.B303"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B303-8",
-        "value": "bandit.B303-8"
+        "name": "bandit.B303",
+        "value": "bandit.B303"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-1",
-        "value": "bandit.B304-1"
+        "name": "bandit.B303",
+        "value": "bandit.B303"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-10",
-        "value": "bandit.B304-10"
+        "name": "bandit.B303",
+        "value": "bandit.B303"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-11",
-        "value": "bandit.B304-11"
+        "name": "bandit.B303",
+        "value": "bandit.B303"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-12",
-        "value": "bandit.B304-12"
+        "name": "bandit.B303",
+        "value": "bandit.B303"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-2",
-        "value": "bandit.B304-2"
+        "name": "bandit.B304",
+        "value": "bandit.B304"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-3",
-        "value": "bandit.B304-3"
+        "name": "bandit.B304",
+        "value": "bandit.B304"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-4",
-        "value": "bandit.B304-4"
+        "name": "bandit.B304",
+        "value": "bandit.B304"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-5",
-        "value": "bandit.B304-5"
+        "name": "bandit.B304",
+        "value": "bandit.B304"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-6",
-        "value": "bandit.B304-6"
+        "name": "bandit.B304",
+        "value": "bandit.B304"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-7",
-        "value": "bandit.B304-7"
+        "name": "bandit.B304",
+        "value": "bandit.B304"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-8",
-        "value": "bandit.B304-8"
+        "name": "bandit.B304",
+        "value": "bandit.B304"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B304-9",
-        "value": "bandit.B304-9"
+        "name": "bandit.B304",
+        "value": "bandit.B304"
       },
       {
         "type": "semgrep_id",
@@ -277,13 +278,13 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B310-1",
-        "value": "bandit.B310-1"
+        "name": "bandit.B310",
+        "value": "bandit.B310"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B310-2",
-        "value": "bandit.B310-2"
+        "name": "bandit.B310",
+        "value": "bandit.B310"
       },
       {
         "type": "semgrep_id",
@@ -442,13 +443,13 @@
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B505-1",
-        "value": "bandit.B505-1"
+        "name": "bandit.B505",
+        "value": "bandit.B505"
       },
       {
         "type": "semgrep_id",
-        "name": "bandit.B505-2",
-        "value": "bandit.B505-2"
+        "name": "bandit.B505",
+        "value": "bandit.B505"
       },
       {
         "type": "semgrep_id",
@@ -592,6 +593,11 @@
       },
       {
         "type": "semgrep_id",
+        "name": "eslint.detect-object-injection",
+        "value": "eslint.detect-object-injection"
+      },
+      {
+        "type": "semgrep_id",
         "name": "eslint.detect-possible-timing-attacks",
         "value": "eslint.detect-possible-timing-attacks"
       },
@@ -612,1128 +618,1498 @@
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.AWS_QUERY_INJECTION-1",
-        "value": "find_sec_bugs.AWS_QUERY_INJECTION-1"
+        "name": "find_sec_bugs.AWS_QUERY_INJECTION",
+        "value": "find_sec_bugs.AWS_QUERY_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.BAD_HEXA_CONVERSION-1",
-        "value": "find_sec_bugs.BAD_HEXA_CONVERSION-1"
+        "name": "find_sec_bugs.BAD_HEXA_CONVERSION",
+        "value": "find_sec_bugs.BAD_HEXA_CONVERSION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.BEAN_PROPERTY_INJECTION-1",
-        "value": "find_sec_bugs.BEAN_PROPERTY_INJECTION-1"
+        "name": "find_sec_bugs.BEAN_PROPERTY_INJECTION",
+        "value": "find_sec_bugs.BEAN_PROPERTY_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.BLOWFISH_KEY_SIZE-1",
-        "value": "find_sec_bugs.BLOWFISH_KEY_SIZE-1"
+        "name": "find_sec_bugs.BLOWFISH_KEY_SIZE",
+        "value": "find_sec_bugs.BLOWFISH_KEY_SIZE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.CIPHER_INTEGRITY-1",
-        "value": "find_sec_bugs.CIPHER_INTEGRITY-1"
+        "name": "find_sec_bugs.CIPHER_INTEGRITY",
+        "value": "find_sec_bugs.CIPHER_INTEGRITY"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.COMMAND_INJECTION-1",
-        "value": "find_sec_bugs.COMMAND_INJECTION-1"
+        "name": "find_sec_bugs.COMMAND_INJECTION",
+        "value": "find_sec_bugs.COMMAND_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1",
-        "value": "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1"
+        "name": "find_sec_bugs.COOKIE_PERSISTENT",
+        "value": "find_sec_bugs.COOKIE_PERSISTENT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.COOKIE_PERSISTENT-1",
-        "value": "find_sec_bugs.COOKIE_PERSISTENT-1"
+        "name": "find_sec_bugs.COOKIE_USAGE",
+        "value": "find_sec_bugs.COOKIE_USAGE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.COOKIE_USAGE-1",
-        "value": "find_sec_bugs.COOKIE_USAGE-1"
+        "name": "find_sec_bugs.CRLF_INJECTION_LOGS",
+        "value": "find_sec_bugs.CRLF_INJECTION_LOGS"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.CRLF_INJECTION_LOGS-1",
-        "value": "find_sec_bugs.CRLF_INJECTION_LOGS-1"
+        "name": "find_sec_bugs.CUSTOM_INJECTION",
+        "value": "find_sec_bugs.CUSTOM_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.CUSTOM_INJECTION-1",
-        "value": "find_sec_bugs.CUSTOM_INJECTION-1"
+        "name": "find_sec_bugs.CUSTOM_INJECTION",
+        "value": "find_sec_bugs.CUSTOM_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.CUSTOM_INJECTION-2",
-        "value": "find_sec_bugs.CUSTOM_INJECTION-2"
+        "name": "find_sec_bugs.CUSTOM_MESSAGE_DIGEST",
+        "value": "find_sec_bugs.CUSTOM_MESSAGE_DIGEST"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.CUSTOM_MESSAGE_DIGEST-1",
-        "value": "find_sec_bugs.CUSTOM_MESSAGE_DIGEST-1"
+        "name": "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION",
+        "value": "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION-1",
-        "value": "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION-1"
+        "name": "find_sec_bugs.DEFAULT_HTTP_CLIENT",
+        "value": "find_sec_bugs.DEFAULT_HTTP_CLIENT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.DEFAULT_HTTP_CLIENT-1",
-        "value": "find_sec_bugs.DEFAULT_HTTP_CLIENT-1"
+        "name": "find_sec_bugs.DES_USAGE",
+        "value": "find_sec_bugs.DES_USAGE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.DES_USAGE-1",
-        "value": "find_sec_bugs.DES_USAGE-1"
+        "name": "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD",
+        "value": "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3",
-        "value": "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3"
+        "name": "find_sec_bugs.DMI_EMPTY_DB_PASSWORD",
+        "value": "find_sec_bugs.DMI_EMPTY_DB_PASSWORD"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2",
-        "value": "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2"
+        "name": "find_sec_bugs.ECB_MODE",
+        "value": "find_sec_bugs.ECB_MODE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.ECB_MODE-1",
-        "value": "find_sec_bugs.ECB_MODE-1"
+        "name": "find_sec_bugs.EL_INJECTION",
+        "value": "find_sec_bugs.EL_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.EL_INJECTION-1",
-        "value": "find_sec_bugs.EL_INJECTION-1"
+        "name": "find_sec_bugs.EXTERNAL_CONFIG_CONTROL",
+        "value": "find_sec_bugs.EXTERNAL_CONFIG_CONTROL"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.EXTERNAL_CONFIG_CONTROL-1",
-        "value": "find_sec_bugs.EXTERNAL_CONFIG_CONTROL-1"
+        "name": "find_sec_bugs.FILE_UPLOAD_FILENAME",
+        "value": "find_sec_bugs.FILE_UPLOAD_FILENAME"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.FILE_UPLOAD_FILENAME-1",
-        "value": "find_sec_bugs.FILE_UPLOAD_FILENAME-1"
+        "name": "find_sec_bugs.FORMAT_STRING_MANIPULATION",
+        "value": "find_sec_bugs.FORMAT_STRING_MANIPULATION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.FORMAT_STRING_MANIPULATION-1",
-        "value": "find_sec_bugs.FORMAT_STRING_MANIPULATION-1"
+        "name": "find_sec_bugs.HARD_CODE_PASSWORD",
+        "value": "find_sec_bugs.HARD_CODE_PASSWORD"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.HARD_CODE_PASSWORD-1",
-        "value": "find_sec_bugs.HARD_CODE_PASSWORD-1"
+        "name": "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION",
+        "value": "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION-1",
-        "value": "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION-1"
+        "name": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE",
+        "value": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE-1",
-        "value": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE-1"
+        "name": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER",
+        "value": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER-1",
-        "value": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER-1"
+        "name": "find_sec_bugs.HTTPONLY_COOKIE",
+        "value": "find_sec_bugs.HTTPONLY_COOKIE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.HTTPONLY_COOKIE-1",
-        "value": "find_sec_bugs.HTTPONLY_COOKIE-1"
+        "name": "find_sec_bugs.HTTP_PARAMETER_POLLUTION",
+        "value": "find_sec_bugs.HTTP_PARAMETER_POLLUTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.HTTP_PARAMETER_POLLUTION-1",
-        "value": "find_sec_bugs.HTTP_PARAMETER_POLLUTION-1"
+        "name": "find_sec_bugs.HTTP_RESPONSE_SPLITTING",
+        "value": "find_sec_bugs.HTTP_RESPONSE_SPLITTING"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.HTTP_RESPONSE_SPLITTING-1",
-        "value": "find_sec_bugs.HTTP_RESPONSE_SPLITTING-1"
+        "name": "find_sec_bugs.IMPROPER_UNICODE",
+        "value": "find_sec_bugs.IMPROPER_UNICODE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.IMPROPER_UNICODE-1",
-        "value": "find_sec_bugs.IMPROPER_UNICODE-1"
+        "name": "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE",
+        "value": "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE-1",
-        "value": "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE-1"
+        "name": "find_sec_bugs.INSECURE_COOKIE",
+        "value": "find_sec_bugs.INSECURE_COOKIE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.INSECURE_COOKIE-1",
-        "value": "find_sec_bugs.INSECURE_COOKIE-1"
+        "name": "find_sec_bugs.INSECURE_SMTP_SSL",
+        "value": "find_sec_bugs.INSECURE_SMTP_SSL"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.INSECURE_SMTP_SSL-1",
-        "value": "find_sec_bugs.INSECURE_SMTP_SSL-1"
+        "name": "find_sec_bugs.JAXRS_ENDPOINT",
+        "value": "find_sec_bugs.JAXRS_ENDPOINT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.JAXRS_ENDPOINT-1",
-        "value": "find_sec_bugs.JAXRS_ENDPOINT-1"
+        "name": "find_sec_bugs.JAXWS_ENDPOINT",
+        "value": "find_sec_bugs.JAXWS_ENDPOINT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.JAXWS_ENDPOINT-1",
-        "value": "find_sec_bugs.JAXWS_ENDPOINT-1"
+        "name": "find_sec_bugs.LDAP_ANONYMOUS",
+        "value": "find_sec_bugs.LDAP_ANONYMOUS"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.LDAP_ANONYMOUS-1",
-        "value": "find_sec_bugs.LDAP_ANONYMOUS-1"
+        "name": "find_sec_bugs.LDAP_ENTRY_POISONING",
+        "value": "find_sec_bugs.LDAP_ENTRY_POISONING"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.LDAP_ENTRY_POISONING-1",
-        "value": "find_sec_bugs.LDAP_ENTRY_POISONING-1"
+        "name": "find_sec_bugs.LDAP_INJECTION",
+        "value": "find_sec_bugs.LDAP_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.LDAP_INJECTION-1",
-        "value": "find_sec_bugs.LDAP_INJECTION-1"
+        "name": "find_sec_bugs.MALICIOUS_XSLT",
+        "value": "find_sec_bugs.MALICIOUS_XSLT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.MALICIOUS_XSLT-1",
-        "value": "find_sec_bugs.MALICIOUS_XSLT-1"
+        "name": "find_sec_bugs.MODIFICATION_AFTER_VALIDATION",
+        "value": "find_sec_bugs.MODIFICATION_AFTER_VALIDATION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.MODIFICATION_AFTER_VALIDATION-1",
-        "value": "find_sec_bugs.MODIFICATION_AFTER_VALIDATION-1"
+        "name": "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION",
+        "value": "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION-1",
-        "value": "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION-1"
+        "name": "find_sec_bugs.NULL_CIPHER",
+        "value": "find_sec_bugs.NULL_CIPHER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.NULL_CIPHER-1",
-        "value": "find_sec_bugs.NULL_CIPHER-1"
+        "name": "find_sec_bugs.OGNL_INJECTION",
+        "value": "find_sec_bugs.OGNL_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.OGNL_INJECTION-1",
-        "value": "find_sec_bugs.OGNL_INJECTION-1"
+        "name": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION",
+        "value": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-1",
-        "value": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-1"
+        "name": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION",
+        "value": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2",
-        "value": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2"
+        "name": "find_sec_bugs.PADDING_ORACLE",
+        "value": "find_sec_bugs.PADDING_ORACLE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PADDING_ORACLE-1",
-        "value": "find_sec_bugs.PADDING_ORACLE-1"
+        "name": "find_sec_bugs.PATH_TRAVERSAL_IN",
+        "value": "find_sec_bugs.PATH_TRAVERSAL_IN"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PATH_TRAVERSAL_IN-1",
-        "value": "find_sec_bugs.PATH_TRAVERSAL_IN-1"
+        "name": "find_sec_bugs.PATH_TRAVERSAL_OUT",
+        "value": "find_sec_bugs.PATH_TRAVERSAL_OUT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1",
-        "value": "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1"
+        "name": "find_sec_bugs.PERMISSIVE_CORS",
+        "value": "find_sec_bugs.PERMISSIVE_CORS"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PATH_TRAVERSAL_OUT-1",
-        "value": "find_sec_bugs.PATH_TRAVERSAL_OUT-1"
+        "name": "find_sec_bugs.PERMISSIVE_CORS",
+        "value": "find_sec_bugs.PERMISSIVE_CORS"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1",
-        "value": "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1"
+        "name": "find_sec_bugs.PREDICTABLE_RANDOM",
+        "value": "find_sec_bugs.PREDICTABLE_RANDOM"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PERMISSIVE_CORS-1",
-        "value": "find_sec_bugs.PERMISSIVE_CORS-1"
+        "name": "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL",
+        "value": "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PERMISSIVE_CORS-2",
-        "value": "find_sec_bugs.PERMISSIVE_CORS-2"
+        "name": "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL",
+        "value": "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
-        "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
+        "name": "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE",
+        "value": "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1",
-        "value": "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1"
+        "name": "find_sec_bugs.RPC_ENABLED_EXTENSIONS",
+        "value": "find_sec_bugs.RPC_ENABLED_EXTENSIONS"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL-1",
-        "value": "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL-1"
+        "name": "find_sec_bugs.RSA_KEY_SIZE",
+        "value": "find_sec_bugs.RSA_KEY_SIZE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL-1",
-        "value": "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL-1"
+        "name": "find_sec_bugs.RSA_NO_PADDING",
+        "value": "find_sec_bugs.RSA_NO_PADDING"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1",
-        "value": "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1"
+        "name": "find_sec_bugs.SAML_IGNORE_COMMENTS",
+        "value": "find_sec_bugs.SAML_IGNORE_COMMENTS"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.RPC_ENABLED_EXTENSIONS-1",
-        "value": "find_sec_bugs.RPC_ENABLED_EXTENSIONS-1"
+        "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION",
+        "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.RSA_KEY_SIZE-1",
-        "value": "find_sec_bugs.RSA_KEY_SIZE-1"
+        "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION",
+        "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.RSA_NO_PADDING-1",
-        "value": "find_sec_bugs.RSA_NO_PADDING-1"
+        "name": "find_sec_bugs.SERVLET_PARAMETER",
+        "value": "find_sec_bugs.SERVLET_PARAMETER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SAML_IGNORE_COMMENTS-1",
-        "value": "find_sec_bugs.SAML_IGNORE_COMMENTS-1"
+        "name": "find_sec_bugs.SMTP_HEADER_INJECTION",
+        "value": "find_sec_bugs.SMTP_HEADER_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SCALA_PLAY_SSRF-1",
-        "value": "find_sec_bugs.SCALA_PLAY_SSRF-1"
+        "name": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED",
+        "value": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE-1",
-        "value": "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE-1"
+        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC",
+        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SCALA_XSS_MVC_API-1",
-        "value": "find_sec_bugs.SCALA_XSS_MVC_API-1"
+        "name": "find_sec_bugs.SSL_CONTEXT",
+        "value": "find_sec_bugs.SSL_CONTEXT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1",
-        "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1"
+        "name": "find_sec_bugs.STRUTS_FORM_VALIDATION",
+        "value": "find_sec_bugs.STRUTS_FORM_VALIDATION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2",
-        "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2"
+        "name": "find_sec_bugs.TDES_USAGE",
+        "value": "find_sec_bugs.TDES_USAGE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1",
-        "value": "find_sec_bugs.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1"
+        "name": "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE",
+        "value": "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SMTP_HEADER_INJECTION-1",
-        "value": "find_sec_bugs.SMTP_HEADER_INJECTION-1"
+        "name": "find_sec_bugs.TRUST_BOUNDARY_VIOLATION",
+        "value": "find_sec_bugs.TRUST_BOUNDARY_VIOLATION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1",
-        "value": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1"
+        "name": "find_sec_bugs.UNENCRYPTED_SOCKET",
+        "value": "find_sec_bugs.UNENCRYPTED_SOCKET"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1",
-        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1"
+        "name": "find_sec_bugs.UNVALIDATED_REDIRECT",
+        "value": "find_sec_bugs.UNVALIDATED_REDIRECT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SQL_INJECTION-1.SQL_INJECTION_HIBERNATE-1.SQL_INJECTION_VERTX-1.SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING-1",
-        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SQL_INJECTION-1.SQL_INJECTION_HIBERNATE-1.SQL_INJECTION_VERTX-1.SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING-1"
+        "name": "find_sec_bugs.URLCONNECTION_SSRF_FD",
+        "value": "find_sec_bugs.URLCONNECTION_SSRF_FD"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SSL_CONTEXT-1",
-        "value": "find_sec_bugs.SSL_CONTEXT-1"
+        "name": "find_sec_bugs.WEAK_FILENAMEUTILS",
+        "value": "find_sec_bugs.WEAK_FILENAMEUTILS"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SSL_CONTEXT-2",
-        "value": "find_sec_bugs.SSL_CONTEXT-2"
+        "name": "find_sec_bugs.WEAK_HOSTNAME_VERIFIER",
+        "value": "find_sec_bugs.WEAK_HOSTNAME_VERIFIER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.STRUTS_FORM_VALIDATION-1",
-        "value": "find_sec_bugs.STRUTS_FORM_VALIDATION-1"
+        "name": "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5",
+        "value": "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.TDES_USAGE-1",
-        "value": "find_sec_bugs.TDES_USAGE-1"
+        "name": "find_sec_bugs.WICKET_XSS1",
+        "value": "find_sec_bugs.WICKET_XSS1"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1",
-        "value": "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1"
+        "name": "find_sec_bugs.XML_DECODER",
+        "value": "find_sec_bugs.XML_DECODER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.TRUST_BOUNDARY_VIOLATION-1",
-        "value": "find_sec_bugs.TRUST_BOUNDARY_VIOLATION-1"
+        "name": "find_sec_bugs.XPATH_INJECTION",
+        "value": "find_sec_bugs.XPATH_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1",
-        "value": "find_sec_bugs.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1"
+        "name": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR",
+        "value": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.UNVALIDATED_REDIRECT-1.URL_REWRITING-1",
-        "value": "find_sec_bugs.UNVALIDATED_REDIRECT-1.URL_REWRITING-1"
+        "name": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER",
+        "value": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.URLCONNECTION_SSRF_FD-1",
-        "value": "find_sec_bugs.URLCONNECTION_SSRF_FD-1"
+        "name": "find_sec_bugs.XSS_REQUEST_WRAPPER",
+        "value": "find_sec_bugs.XSS_REQUEST_WRAPPER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.WEAK_FILENAMEUTILS-1",
-        "value": "find_sec_bugs.WEAK_FILENAMEUTILS-1"
+        "name": "find_sec_bugs.XSS_SERVLET",
+        "value": "find_sec_bugs.XSS_SERVLET"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1",
-        "value": "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1"
+        "name": "find_sec_bugs.XSS_SERVLET",
+        "value": "find_sec_bugs.XSS_SERVLET"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5-1.WEAK_MESSAGE_DIGEST_SHA1-1",
-        "value": "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5-1.WEAK_MESSAGE_DIGEST_SHA1-1"
+        "name": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY",
+        "value": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.WICKET_XSS1-1",
-        "value": "find_sec_bugs.WICKET_XSS1-1"
+        "name": "find_sec_bugs.XXE_SAXPARSER",
+        "value": "find_sec_bugs.XXE_SAXPARSER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XML_DECODER-1",
-        "value": "find_sec_bugs.XML_DECODER-1"
+        "name": "find_sec_bugs.XXE_XMLREADER",
+        "value": "find_sec_bugs.XXE_XMLREADER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XPATH_INJECTION-1",
-        "value": "find_sec_bugs.XPATH_INJECTION-1"
+        "name": "find_sec_bugs.XXE_XMLSTREAMREADER",
+        "value": "find_sec_bugs.XXE_XMLSTREAMREADER"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR-1",
-        "value": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SEND_ERROR-1"
+        "name": "find_sec_bugs.XXE_XPATH",
+        "value": "find_sec_bugs.XXE_XPATH"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1",
-        "value": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER-1"
+        "name": "find_sec_bugs_scala.AWS_QUERY_INJECTION",
+        "value": "find_sec_bugs_scala.AWS_QUERY_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XSS_REQUEST_WRAPPER-1",
-        "value": "find_sec_bugs.XSS_REQUEST_WRAPPER-1"
+        "name": "find_sec_bugs_scala.BAD_HEXA_CONVERSION",
+        "value": "find_sec_bugs_scala.BAD_HEXA_CONVERSION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XSS_SERVLET-1",
-        "value": "find_sec_bugs.XSS_SERVLET-1"
+        "name": "find_sec_bugs_scala.BEAN_PROPERTY_INJECTION",
+        "value": "find_sec_bugs_scala.BEAN_PROPERTY_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XSS_SERVLET-2.XSS_SERVLET_PARAMETER-1",
-        "value": "find_sec_bugs.XSS_SERVLET-2.XSS_SERVLET_PARAMETER-1"
+        "name": "find_sec_bugs_scala.BLOWFISH_KEY_SIZE",
+        "value": "find_sec_bugs_scala.BLOWFISH_KEY_SIZE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_DOCUMENT-1",
-        "value": "find_sec_bugs.XXE_DOCUMENT-1"
+        "name": "find_sec_bugs_scala.CIPHER_INTEGRITY",
+        "value": "find_sec_bugs_scala.CIPHER_INTEGRITY"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1",
-        "value": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1"
+        "name": "find_sec_bugs_scala.COMMAND_INJECTION",
+        "value": "find_sec_bugs_scala.COMMAND_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_SAXPARSER-1",
-        "value": "find_sec_bugs.XXE_SAXPARSER-1"
+        "name": "find_sec_bugs_scala.COOKIE_PERSISTENT",
+        "value": "find_sec_bugs_scala.COOKIE_PERSISTENT"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_XMLREADER-1",
-        "value": "find_sec_bugs.XXE_XMLREADER-1"
+        "name": "find_sec_bugs_scala.COOKIE_USAGE",
+        "value": "find_sec_bugs_scala.COOKIE_USAGE"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_XMLSTREAMREADER-1",
-        "value": "find_sec_bugs.XXE_XMLSTREAMREADER-1"
+        "name": "find_sec_bugs_scala.CRLF_INJECTION_LOGS",
+        "value": "find_sec_bugs_scala.CRLF_INJECTION_LOGS"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_XPATH-1",
-        "value": "find_sec_bugs.XXE_XPATH-1"
+        "name": "find_sec_bugs_scala.CUSTOM_INJECTION",
+        "value": "find_sec_bugs_scala.CUSTOM_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1",
-        "value": "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1"
+        "name": "find_sec_bugs_scala.CUSTOM_INJECTION",
+        "value": "find_sec_bugs_scala.CUSTOM_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.AddAccessAllowedAce-1",
-        "value": "flawfinder.AddAccessAllowedAce-1"
+        "name": "find_sec_bugs_scala.CUSTOM_MESSAGE_DIGEST",
+        "value": "find_sec_bugs_scala.CUSTOM_MESSAGE_DIGEST"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.CreateProcess-1",
-        "value": "flawfinder.CreateProcess-1"
+        "name": "find_sec_bugs_scala.DANGEROUS_PERMISSION_COMBINATION",
+        "value": "find_sec_bugs_scala.DANGEROUS_PERMISSION_COMBINATION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.CreateProcessAsUser-1.CreateProcessWithLogon-1",
-        "value": "flawfinder.CreateProcessAsUser-1.CreateProcessWithLogon-1"
+        "name": "find_sec_bugs_scala.DEFAULT_HTTP_CLIENT",
+        "value": "find_sec_bugs_scala.DEFAULT_HTTP_CLIENT"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.EVP_des_ecb-1.EVP_des_cbc-1.EVP_des_cfb-1.EVP_des_ofb-1.EVP_desx_cbc-1",
-        "value": "flawfinder.EVP_des_ecb-1.EVP_des_cbc-1.EVP_des_cfb-1.EVP_des_ofb-1.EVP_desx_cbc-1"
+        "name": "find_sec_bugs_scala.DES_USAGE",
+        "value": "find_sec_bugs_scala.DES_USAGE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.EVP_rc4_40-1.EVP_rc2_40_cbc-1.EVP_rc2_64_cbc-1",
-        "value": "flawfinder.EVP_rc4_40-1.EVP_rc2_40_cbc-1.EVP_rc2_64_cbc-1"
+        "name": "find_sec_bugs_scala.DMI_CONSTANT_DB_PASSWORD",
+        "value": "find_sec_bugs_scala.DMI_CONSTANT_DB_PASSWORD"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.GetTempFileName-1",
-        "value": "flawfinder.GetTempFileName-1"
+        "name": "find_sec_bugs_scala.DMI_EMPTY_DB_PASSWORD",
+        "value": "find_sec_bugs_scala.DMI_EMPTY_DB_PASSWORD"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.InitializeCriticalSection-1",
-        "value": "flawfinder.InitializeCriticalSection-1"
+        "name": "find_sec_bugs_scala.ECB_MODE",
+        "value": "find_sec_bugs_scala.ECB_MODE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.LoadLibrary-1",
-        "value": "flawfinder.LoadLibrary-1"
+        "name": "find_sec_bugs_scala.EL_INJECTION",
+        "value": "find_sec_bugs_scala.EL_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.LoadLibraryEx-1",
-        "value": "flawfinder.LoadLibraryEx-1"
+        "name": "find_sec_bugs_scala.EXTERNAL_CONFIG_CONTROL",
+        "value": "find_sec_bugs_scala.EXTERNAL_CONFIG_CONTROL"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.MultiByteToWideChar-1",
-        "value": "flawfinder.MultiByteToWideChar-1"
+        "name": "find_sec_bugs_scala.FILE_UPLOAD_FILENAME",
+        "value": "find_sec_bugs_scala.FILE_UPLOAD_FILENAME"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.RpcImpersonateClient-1.ImpersonateLoggedOnUser-1.CoImpersonateClient-1.ImpersonateNamedPipeClient-1.ImpersonateDdeClientWindow-1.ImpersonateSecurityContext-1.SetThreadToken-1",
-        "value": "flawfinder.RpcImpersonateClient-1.ImpersonateLoggedOnUser-1.CoImpersonateClient-1.ImpersonateNamedPipeClient-1.ImpersonateDdeClientWindow-1.ImpersonateSecurityContext-1.SetThreadToken-1"
+        "name": "find_sec_bugs_scala.FORMAT_STRING_MANIPULATION",
+        "value": "find_sec_bugs_scala.FORMAT_STRING_MANIPULATION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.SetSecurityDescriptorDacl-1",
-        "value": "flawfinder.SetSecurityDescriptorDacl-1"
+        "name": "find_sec_bugs_scala.HARD_CODE_PASSWORD",
+        "value": "find_sec_bugs_scala.HARD_CODE_PASSWORD"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.StrCat-1.StrCatA-1.StrcatW-1.lstrcatA-1.lstrcatW-1.strCatBuff-1.StrCatBuffA-1.StrCatBuffW-1.StrCatChainW-1._tccat-1._mbccat-1._ftcscat-1.StrCatN-1.StrCatNA-1.StrCatNW-1.StrNCat-1.StrNCatA-1.StrNCatW-1.lstrncat-1.lstrcatnA-1.lstrcatnW-1",
-        "value": "flawfinder.StrCat-1.StrCatA-1.StrcatW-1.lstrcatA-1.lstrcatW-1.strCatBuff-1.StrCatBuffA-1.StrCatBuffW-1.StrCatChainW-1._tccat-1._mbccat-1._ftcscat-1.StrCatN-1.StrCatNA-1.StrCatNW-1.StrNCat-1.StrNCatA-1.StrNCatW-1.lstrncat-1.lstrcatnA-1.lstrcatnW-1"
+        "name": "find_sec_bugs_scala.HAZELCAST_SYMMETRIC_ENCRYPTION",
+        "value": "find_sec_bugs_scala.HAZELCAST_SYMMETRIC_ENCRYPTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.access-1",
-        "value": "flawfinder.access-1"
+        "name": "find_sec_bugs_scala.HRS_REQUEST_PARAMETER_TO_COOKIE",
+        "value": "find_sec_bugs_scala.HRS_REQUEST_PARAMETER_TO_COOKIE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.atoi-1.atol-1._wtoi-1._wtoi64-1",
-        "value": "flawfinder.atoi-1.atol-1._wtoi-1._wtoi64-1"
+        "name": "find_sec_bugs_scala.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER",
+        "value": "find_sec_bugs_scala.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.char-1.TCHAR-1.wchar_t-1",
-        "value": "flawfinder.char-1.TCHAR-1.wchar_t-1"
+        "name": "find_sec_bugs_scala.HTTPONLY_COOKIE",
+        "value": "find_sec_bugs_scala.HTTPONLY_COOKIE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.chgrp-1",
-        "value": "flawfinder.chgrp-1"
+        "name": "find_sec_bugs_scala.HTTP_PARAMETER_POLLUTION",
+        "value": "find_sec_bugs_scala.HTTP_PARAMETER_POLLUTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.chmod-1",
-        "value": "flawfinder.chmod-1"
+        "name": "find_sec_bugs_scala.HTTP_RESPONSE_SPLITTING",
+        "value": "find_sec_bugs_scala.HTTP_RESPONSE_SPLITTING"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.chown-1",
-        "value": "flawfinder.chown-1"
+        "name": "find_sec_bugs_scala.IMPROPER_UNICODE",
+        "value": "find_sec_bugs_scala.IMPROPER_UNICODE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.chroot-1",
-        "value": "flawfinder.chroot-1"
+        "name": "find_sec_bugs_scala.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE",
+        "value": "find_sec_bugs_scala.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.crypt-1.crypt_r-1",
-        "value": "flawfinder.crypt-1.crypt_r-1"
+        "name": "find_sec_bugs_scala.INSECURE_COOKIE",
+        "value": "find_sec_bugs_scala.INSECURE_COOKIE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.cuserid-1",
-        "value": "flawfinder.cuserid-1"
+        "name": "find_sec_bugs_scala.INSECURE_SMTP_SSL",
+        "value": "find_sec_bugs_scala.INSECURE_SMTP_SSL"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.drand48-1.erand48-1.jrand48-1.lcong48-1.lrand48-1.mrand48-1.nrand48-1.random-1.seed48-1.setstate-1.srand-1.strfry-1.srandom-1.g_rand_boolean-1.g_rand_int-1.g_rand_int_range-1.g_rand_double-1.g_rand_double_range-1.g_random_boolean-1.g_random_int-1.g_random_int_range-1.g_random_double-1.g_random_double_range-1",
-        "value": "flawfinder.drand48-1.erand48-1.jrand48-1.lcong48-1.lrand48-1.mrand48-1.nrand48-1.random-1.seed48-1.setstate-1.srand-1.strfry-1.srandom-1.g_rand_boolean-1.g_rand_int-1.g_rand_int_range-1.g_rand_double-1.g_rand_double_range-1.g_random_boolean-1.g_random_int-1.g_random_int_range-1.g_random_double-1.g_random_double_range-1"
+        "name": "find_sec_bugs_scala.JAXRS_ENDPOINT",
+        "value": "find_sec_bugs_scala.JAXRS_ENDPOINT"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.equal-1.mismatch-1.is_permutation-1",
-        "value": "flawfinder.equal-1.mismatch-1.is_permutation-1"
+        "name": "find_sec_bugs_scala.JAXWS_ENDPOINT",
+        "value": "find_sec_bugs_scala.JAXWS_ENDPOINT"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.execl-1.execlp-1.execle-1.execv-1.execvp-1.popen-1.WinExec-1.ShellExecute-1",
-        "value": "flawfinder.execl-1.execlp-1.execle-1.execv-1.execvp-1.popen-1.WinExec-1.ShellExecute-1"
+        "name": "find_sec_bugs_scala.LDAP_ANONYMOUS",
+        "value": "find_sec_bugs_scala.LDAP_ANONYMOUS"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.fopen-1.open-1",
-        "value": "flawfinder.fopen-1.open-1"
+        "name": "find_sec_bugs_scala.LDAP_ENTRY_POISONING",
+        "value": "find_sec_bugs_scala.LDAP_ENTRY_POISONING"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.fprintf-1.vfprintf-1._ftprintf-1._vftprintf-1.fwprintf-1.fvwprintf-1",
-        "value": "flawfinder.fprintf-1.vfprintf-1._ftprintf-1._vftprintf-1.fwprintf-1.fvwprintf-1"
+        "name": "find_sec_bugs_scala.LDAP_INJECTION",
+        "value": "find_sec_bugs_scala.LDAP_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.fscanf-1.sscanf-1.vsscanf-1.vfscanf-1._ftscanf-1.fwscanf-1.vfwscanf-1.vswscanf-1",
-        "value": "flawfinder.fscanf-1.sscanf-1.vsscanf-1.vfscanf-1._ftscanf-1.fwscanf-1.vfwscanf-1.vswscanf-1"
+        "name": "find_sec_bugs_scala.MALICIOUS_XSLT",
+        "value": "find_sec_bugs_scala.MALICIOUS_XSLT"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.g_get_home_dir-1",
-        "value": "flawfinder.g_get_home_dir-1"
+        "name": "find_sec_bugs_scala.MODIFICATION_AFTER_VALIDATION",
+        "value": "find_sec_bugs_scala.MODIFICATION_AFTER_VALIDATION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.g_get_tmp_dir-1",
-        "value": "flawfinder.g_get_tmp_dir-1"
+        "name": "find_sec_bugs_scala.NORMALIZATION_AFTER_VALIDATION",
+        "value": "find_sec_bugs_scala.NORMALIZATION_AFTER_VALIDATION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getchar-1.fgetc-1.getc-1.read-1._gettc-1",
-        "value": "flawfinder.getchar-1.fgetc-1.getc-1.read-1._gettc-1"
+        "name": "find_sec_bugs_scala.NULL_CIPHER",
+        "value": "find_sec_bugs_scala.NULL_CIPHER"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getenv-1.curl_getenv-1",
-        "value": "flawfinder.getenv-1.curl_getenv-1"
+        "name": "find_sec_bugs_scala.OGNL_INJECTION",
+        "value": "find_sec_bugs_scala.OGNL_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getlogin-1",
-        "value": "flawfinder.getlogin-1"
+        "name": "find_sec_bugs_scala.OVERLY_PERMISSIVE_FILE_PERMISSION",
+        "value": "find_sec_bugs_scala.OVERLY_PERMISSIVE_FILE_PERMISSION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getopt-1.getopt_long-1",
-        "value": "flawfinder.getopt-1.getopt_long-1"
+        "name": "find_sec_bugs_scala.OVERLY_PERMISSIVE_FILE_PERMISSION",
+        "value": "find_sec_bugs_scala.OVERLY_PERMISSIVE_FILE_PERMISSION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getpass-1",
-        "value": "flawfinder.getpass-1"
+        "name": "find_sec_bugs_scala.PADDING_ORACLE",
+        "value": "find_sec_bugs_scala.PADDING_ORACLE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getpw-1",
-        "value": "flawfinder.getpw-1"
+        "name": "find_sec_bugs_scala.PATH_TRAVERSAL_IN",
+        "value": "find_sec_bugs_scala.PATH_TRAVERSAL_IN"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.gets-1._getts-1",
-        "value": "flawfinder.gets-1._getts-1"
+        "name": "find_sec_bugs_scala.PATH_TRAVERSAL_OUT",
+        "value": "find_sec_bugs_scala.PATH_TRAVERSAL_OUT"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.getwd-1",
-        "value": "flawfinder.getwd-1"
+        "name": "find_sec_bugs_scala.PERMISSIVE_CORS",
+        "value": "find_sec_bugs_scala.PERMISSIVE_CORS"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.gsignal-1.ssignal-1",
-        "value": "flawfinder.gsignal-1.ssignal-1"
+        "name": "find_sec_bugs_scala.PERMISSIVE_CORS",
+        "value": "find_sec_bugs_scala.PERMISSIVE_CORS"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.lstrcat-1.wcscat-1._tcscat-1._mbscat-1",
-        "value": "flawfinder.lstrcat-1.wcscat-1._tcscat-1._mbscat-1"
+        "name": "find_sec_bugs_scala.PREDICTABLE_RANDOM",
+        "value": "find_sec_bugs_scala.PREDICTABLE_RANDOM"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.lstrcatn-1.wcsncat-1._tcsncat-1._mbsnbcat-1",
-        "value": "flawfinder.lstrcatn-1.wcsncat-1._tcsncat-1._mbsnbcat-1"
+        "name": "find_sec_bugs_scala.PT_ABSOLUTE_PATH_TRAVERSAL",
+        "value": "find_sec_bugs_scala.PT_ABSOLUTE_PATH_TRAVERSAL"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.lstrcpy-1.wcscpy-1._tcscpy-1._mbscpy-1",
-        "value": "flawfinder.lstrcpy-1.wcscpy-1._tcscpy-1._mbscpy-1"
+        "name": "find_sec_bugs_scala.PT_RELATIVE_PATH_TRAVERSAL",
+        "value": "find_sec_bugs_scala.PT_RELATIVE_PATH_TRAVERSAL"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.lstrcpyn-1.wcsncpy-1._tcsncpy-1._mbsnbcpy-1",
-        "value": "flawfinder.lstrcpyn-1.wcsncpy-1._tcsncpy-1._mbsnbcpy-1"
+        "name": "find_sec_bugs_scala.REQUESTDISPATCHER_FILE_DISCLOSURE",
+        "value": "find_sec_bugs_scala.REQUESTDISPATCHER_FILE_DISCLOSURE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.memalign-1",
-        "value": "flawfinder.memalign-1"
+        "name": "find_sec_bugs_scala.RPC_ENABLED_EXTENSIONS",
+        "value": "find_sec_bugs_scala.RPC_ENABLED_EXTENSIONS"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.memcpy-1.CopyMemory-1.bcopy-1",
-        "value": "flawfinder.memcpy-1.CopyMemory-1.bcopy-1"
+        "name": "find_sec_bugs_scala.RSA_KEY_SIZE",
+        "value": "find_sec_bugs_scala.RSA_KEY_SIZE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.mkstemp-1",
-        "value": "flawfinder.mkstemp-1"
+        "name": "find_sec_bugs_scala.RSA_NO_PADDING",
+        "value": "find_sec_bugs_scala.RSA_NO_PADDING"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.mktemp-1",
-        "value": "flawfinder.mktemp-1"
+        "name": "find_sec_bugs_scala.SAML_IGNORE_COMMENTS",
+        "value": "find_sec_bugs_scala.SAML_IGNORE_COMMENTS"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.printf-1.vprintf-1.vwprintf-1.vfwprintf-1._vtprintf-1.wprintf-1",
-        "value": "flawfinder.printf-1.vprintf-1.vwprintf-1.vfwprintf-1._vtprintf-1.wprintf-1"
+        "name": "find_sec_bugs_scala.SCRIPT_ENGINE_INJECTION",
+        "value": "find_sec_bugs_scala.SCRIPT_ENGINE_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.readlink-1",
-        "value": "flawfinder.readlink-1"
+        "name": "find_sec_bugs_scala.SCRIPT_ENGINE_INJECTION",
+        "value": "find_sec_bugs_scala.SCRIPT_ENGINE_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.realpath-1",
-        "value": "flawfinder.realpath-1"
+        "name": "find_sec_bugs_scala.SMTP_HEADER_INJECTION",
+        "value": "find_sec_bugs_scala.SMTP_HEADER_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.scanf-1.vscanf-1.wscanf-1._tscanf-1.vwscanf-1",
-        "value": "flawfinder.scanf-1.vscanf-1.wscanf-1._tscanf-1.vwscanf-1"
+        "name": "find_sec_bugs_scala.SQL_INJECTION_SPRING_JDBC",
+        "value": "find_sec_bugs_scala.SQL_INJECTION_SPRING_JDBC"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.snprintf-1.vsnprintf-1._snprintf-1._sntprintf-1._vsntprintf-1",
-        "value": "flawfinder.snprintf-1.vsnprintf-1._snprintf-1._sntprintf-1._vsntprintf-1"
+        "name": "find_sec_bugs_scala.SSL_CONTEXT",
+        "value": "find_sec_bugs_scala.SSL_CONTEXT"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.sprintf-1.vsprintf-1.swprintf-1.vswprintf-1._stprintf-1._vstprintf-1",
-        "value": "flawfinder.sprintf-1.vsprintf-1.swprintf-1.vswprintf-1._stprintf-1._vstprintf-1"
+        "name": "find_sec_bugs_scala.STRUTS_FORM_VALIDATION",
+        "value": "find_sec_bugs_scala.STRUTS_FORM_VALIDATION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strcat-1",
-        "value": "flawfinder.strcat-1"
+        "name": "find_sec_bugs_scala.TDES_USAGE",
+        "value": "find_sec_bugs_scala.TDES_USAGE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strccpy-1.strcadd-1",
-        "value": "flawfinder.strccpy-1.strcadd-1"
+        "name": "find_sec_bugs_scala.TEMPLATE_INJECTION_PEBBLE",
+        "value": "find_sec_bugs_scala.TEMPLATE_INJECTION_PEBBLE"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strcpy-1",
-        "value": "flawfinder.strcpy-1"
+        "name": "find_sec_bugs_scala.TRUST_BOUNDARY_VIOLATION",
+        "value": "find_sec_bugs_scala.TRUST_BOUNDARY_VIOLATION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strcpyA-1.strcpyW-1.StrCpy-1.StrCpyA-1.lstrcpyA-1.lstrcpyW-1._tccpy-1._mbccpy-1._ftcscpy-1._mbsncpy-1.StrCpyN-1.StrCpyNA-1.StrCpyNW-1.StrNCpy-1.strcpynA-1.StrNCpyA-1.StrNCpyW-1.lstrcpynA-1.lstrcpynW-1",
-        "value": "flawfinder.strcpyA-1.strcpyW-1.StrCpy-1.StrCpyA-1.lstrcpyA-1.lstrcpyW-1._tccpy-1._mbccpy-1._ftcscpy-1._mbsncpy-1.StrCpyN-1.StrCpyNA-1.StrCpyNW-1.StrNCpy-1.strcpynA-1.StrNCpyA-1.StrNCpyW-1.lstrcpynA-1.lstrcpynW-1"
+        "name": "find_sec_bugs_scala.UNENCRYPTED_SOCKET",
+        "value": "find_sec_bugs_scala.UNENCRYPTED_SOCKET"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.streadd-1.strecpy-1",
-        "value": "flawfinder.streadd-1.strecpy-1"
+        "name": "find_sec_bugs_scala.UNVALIDATED_REDIRECT",
+        "value": "find_sec_bugs_scala.UNVALIDATED_REDIRECT"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strlen-1.wcslen-1._tcslen-1._mbslen-1",
-        "value": "flawfinder.strlen-1.wcslen-1._tcslen-1._mbslen-1"
+        "name": "find_sec_bugs_scala.URLCONNECTION_SSRF_FD",
+        "value": "find_sec_bugs_scala.URLCONNECTION_SSRF_FD"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strncat-1",
-        "value": "flawfinder.strncat-1"
+        "name": "find_sec_bugs_scala.WEAK_FILENAMEUTILS",
+        "value": "find_sec_bugs_scala.WEAK_FILENAMEUTILS"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strncpy-1",
-        "value": "flawfinder.strncpy-1"
+        "name": "find_sec_bugs_scala.WEAK_HOSTNAME_VERIFIER",
+        "value": "find_sec_bugs_scala.WEAK_HOSTNAME_VERIFIER"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.strtrns-1",
-        "value": "flawfinder.strtrns-1"
+        "name": "find_sec_bugs_scala.WEAK_MESSAGE_DIGEST_MD5",
+        "value": "find_sec_bugs_scala.WEAK_MESSAGE_DIGEST_MD5"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.syslog-1",
-        "value": "flawfinder.syslog-1"
+        "name": "find_sec_bugs_scala.WICKET_XSS1",
+        "value": "find_sec_bugs_scala.WICKET_XSS1"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.system-1",
-        "value": "flawfinder.system-1"
+        "name": "find_sec_bugs_scala.XML_DECODER",
+        "value": "find_sec_bugs_scala.XML_DECODER"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.tmpfile-1",
-        "value": "flawfinder.tmpfile-1"
+        "name": "find_sec_bugs_scala.XPATH_INJECTION",
+        "value": "find_sec_bugs_scala.XPATH_INJECTION"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.tmpnam-1.tempnam-1",
-        "value": "flawfinder.tmpnam-1.tempnam-1"
+        "name": "find_sec_bugs_scala.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER",
+        "value": "find_sec_bugs_scala.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.ulimit-1",
-        "value": "flawfinder.ulimit-1"
+        "name": "find_sec_bugs_scala.XSS_REQUEST_WRAPPER",
+        "value": "find_sec_bugs_scala.XSS_REQUEST_WRAPPER"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.umask-1",
-        "value": "flawfinder.umask-1"
+        "name": "find_sec_bugs_scala.XSS_SERVLET",
+        "value": "find_sec_bugs_scala.XSS_SERVLET"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.usleep-1",
-        "value": "flawfinder.usleep-1"
+        "name": "find_sec_bugs_scala.XXE_DOCUMENT",
+        "value": "find_sec_bugs_scala.XXE_DOCUMENT"
       },
       {
         "type": "semgrep_id",
-        "name": "flawfinder.vfork-1",
-        "value": "flawfinder.vfork-1"
+        "name": "find_sec_bugs_scala.XXE_DTD_TRANSFORM_FACTORY",
+        "value": "find_sec_bugs_scala.XXE_DTD_TRANSFORM_FACTORY"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G101-1",
-        "value": "gosec.G101-1"
+        "name": "find_sec_bugs_scala.XXE_SAXPARSER",
+        "value": "find_sec_bugs_scala.XXE_SAXPARSER"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G102-1",
-        "value": "gosec.G102-1"
+        "name": "find_sec_bugs_scala.XXE_XMLREADER",
+        "value": "find_sec_bugs_scala.XXE_XMLREADER"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G103-1",
-        "value": "gosec.G103-1"
+        "name": "find_sec_bugs_scala.XXE_XMLSTREAMREADER",
+        "value": "find_sec_bugs_scala.XXE_XMLSTREAMREADER"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G106-1",
-        "value": "gosec.G106-1"
+        "name": "find_sec_bugs_scala.XXE_XPATH",
+        "value": "find_sec_bugs_scala.XXE_XPATH"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G107-1",
-        "value": "gosec.G107-1"
+        "name": "flawfinder.AddAccessAllowedAce",
+        "value": "flawfinder.AddAccessAllowedAce"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G108-1",
-        "value": "gosec.G108-1"
+        "name": "flawfinder.CreateProcess",
+        "value": "flawfinder.CreateProcess"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G109-1",
-        "value": "gosec.G109-1"
+        "name": "flawfinder.CreateProcessAsUser",
+        "value": "flawfinder.CreateProcessAsUser"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G110-1",
-        "value": "gosec.G110-1"
+        "name": "flawfinder.EVP_des_ecb",
+        "value": "flawfinder.EVP_des_ecb"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G111-1",
-        "value": "gosec.G111-1"
+        "name": "flawfinder.EVP_rc4_40",
+        "value": "flawfinder.EVP_rc4_40"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G112-1",
-        "value": "gosec.G112-1"
+        "name": "flawfinder.GetTempFileName",
+        "value": "flawfinder.GetTempFileName"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G113-1",
-        "value": "gosec.G113-1"
+        "name": "flawfinder.InitializeCriticalSection",
+        "value": "flawfinder.InitializeCriticalSection"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G114-1",
-        "value": "gosec.G114-1"
+        "name": "flawfinder.LoadLibrary",
+        "value": "flawfinder.LoadLibrary"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G201-1",
-        "value": "gosec.G201-1"
+        "name": "flawfinder.LoadLibraryEx",
+        "value": "flawfinder.LoadLibraryEx"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G202-1",
-        "value": "gosec.G202-1"
+        "name": "flawfinder.MultiByteToWideChar",
+        "value": "flawfinder.MultiByteToWideChar"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G203-1",
-        "value": "gosec.G203-1"
+        "name": "flawfinder.RpcImpersonateClient",
+        "value": "flawfinder.RpcImpersonateClient"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G204-1",
-        "value": "gosec.G204-1"
+        "name": "flawfinder.SetSecurityDescriptorDacl",
+        "value": "flawfinder.SetSecurityDescriptorDacl"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G301-1",
-        "value": "gosec.G301-1"
+        "name": "flawfinder.StrCat",
+        "value": "flawfinder.StrCat"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G302-1",
-        "value": "gosec.G302-1"
+        "name": "flawfinder.access",
+        "value": "flawfinder.access"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G303-1",
-        "value": "gosec.G303-1"
+        "name": "flawfinder.atoi",
+        "value": "flawfinder.atoi"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G304-1",
-        "value": "gosec.G304-1"
+        "name": "flawfinder.char",
+        "value": "flawfinder.char"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G305-1",
-        "value": "gosec.G305-1"
+        "name": "flawfinder.chgrp",
+        "value": "flawfinder.chgrp"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G306-1",
-        "value": "gosec.G306-1"
+        "name": "flawfinder.chmod",
+        "value": "flawfinder.chmod"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G401-1",
-        "value": "gosec.G401-1"
+        "name": "flawfinder.chown",
+        "value": "flawfinder.chown"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G402-1",
-        "value": "gosec.G402-1"
+        "name": "flawfinder.chroot",
+        "value": "flawfinder.chroot"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G402-2",
-        "value": "gosec.G402-2"
+        "name": "flawfinder.crypt",
+        "value": "flawfinder.crypt"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G403-1",
-        "value": "gosec.G403-1"
+        "name": "flawfinder.cuserid",
+        "value": "flawfinder.cuserid"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G404-1",
-        "value": "gosec.G404-1"
+        "name": "flawfinder.drand48",
+        "value": "flawfinder.drand48"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G501-1",
-        "value": "gosec.G501-1"
+        "name": "flawfinder.equal",
+        "value": "flawfinder.equal"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G502-1",
-        "value": "gosec.G502-1"
+        "name": "flawfinder.execl",
+        "value": "flawfinder.execl"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G503-1",
-        "value": "gosec.G503-1"
+        "name": "flawfinder.fopen",
+        "value": "flawfinder.fopen"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G504-1",
-        "value": "gosec.G504-1"
+        "name": "flawfinder.fprintf",
+        "value": "flawfinder.fprintf"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G505-1",
-        "value": "gosec.G505-1"
+        "name": "flawfinder.fscanf",
+        "value": "flawfinder.fscanf"
       },
       {
         "type": "semgrep_id",
-        "name": "gosec.G601-1",
-        "value": "gosec.G601-1"
+        "name": "flawfinder.g_get_home_dir",
+        "value": "flawfinder.g_get_home_dir"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0001-1",
-        "value": "security_code_scan.SCS0001-1"
+        "name": "flawfinder.g_get_tmp_dir",
+        "value": "flawfinder.g_get_tmp_dir"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0002-1",
-        "value": "security_code_scan.SCS0002-1"
+        "name": "flawfinder.getchar",
+        "value": "flawfinder.getchar"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0003-1",
-        "value": "security_code_scan.SCS0003-1"
+        "name": "flawfinder.getenv",
+        "value": "flawfinder.getenv"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0004-1",
-        "value": "security_code_scan.SCS0004-1"
+        "name": "flawfinder.getlogin",
+        "value": "flawfinder.getlogin"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0005-1",
-        "value": "security_code_scan.SCS0005-1"
+        "name": "flawfinder.getopt",
+        "value": "flawfinder.getopt"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0006-1",
-        "value": "security_code_scan.SCS0006-1"
+        "name": "flawfinder.getpass",
+        "value": "flawfinder.getpass"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0007-1",
-        "value": "security_code_scan.SCS0007-1"
+        "name": "flawfinder.getpw",
+        "value": "flawfinder.getpw"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0008-1",
-        "value": "security_code_scan.SCS0008-1"
+        "name": "flawfinder.gets",
+        "value": "flawfinder.gets"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0009-1",
-        "value": "security_code_scan.SCS0009-1"
+        "name": "flawfinder.getwd",
+        "value": "flawfinder.getwd"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0010-1",
-        "value": "security_code_scan.SCS0010-1"
+        "name": "flawfinder.gsignal",
+        "value": "flawfinder.gsignal"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0011-1",
-        "value": "security_code_scan.SCS0011-1"
+        "name": "flawfinder.lstrcat",
+        "value": "flawfinder.lstrcat"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0012-1",
-        "value": "security_code_scan.SCS0012-1"
+        "name": "flawfinder.lstrcatn",
+        "value": "flawfinder.lstrcatn"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0013-1",
-        "value": "security_code_scan.SCS0013-1"
+        "name": "flawfinder.lstrcpy",
+        "value": "flawfinder.lstrcpy"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0016-1",
-        "value": "security_code_scan.SCS0016-1"
+        "name": "flawfinder.lstrcpyn",
+        "value": "flawfinder.lstrcpyn"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0017-1",
-        "value": "security_code_scan.SCS0017-1"
+        "name": "flawfinder.memalign",
+        "value": "flawfinder.memalign"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0018-1",
-        "value": "security_code_scan.SCS0018-1"
+        "name": "flawfinder.memcpy",
+        "value": "flawfinder.memcpy"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0019-1",
-        "value": "security_code_scan.SCS0019-1"
+        "name": "flawfinder.mkstemp",
+        "value": "flawfinder.mkstemp"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0026-1.SCS0031-1",
-        "value": "security_code_scan.SCS0026-1.SCS0031-1"
+        "name": "flawfinder.mktemp",
+        "value": "flawfinder.mktemp"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0027-1",
-        "value": "security_code_scan.SCS0027-1"
+        "name": "flawfinder.printf",
+        "value": "flawfinder.printf"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0028-1",
-        "value": "security_code_scan.SCS0028-1"
+        "name": "flawfinder.readlink",
+        "value": "flawfinder.readlink"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0029-1",
-        "value": "security_code_scan.SCS0029-1"
+        "name": "flawfinder.realpath",
+        "value": "flawfinder.realpath"
       },
       {
         "type": "semgrep_id",
-        "name": "security_code_scan.SCS0032-1.SCS0033-1.SCS0034-1",
-        "value": "security_code_scan.SCS0032-1.SCS0033-1.SCS0034-1"
+        "name": "flawfinder.scanf",
+        "value": "flawfinder.scanf"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.snprintf",
+        "value": "flawfinder.snprintf"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.sprintf",
+        "value": "flawfinder.sprintf"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strcat",
+        "value": "flawfinder.strcat"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strccpy",
+        "value": "flawfinder.strccpy"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strcpy",
+        "value": "flawfinder.strcpy"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strcpyA",
+        "value": "flawfinder.strcpyA"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.streadd",
+        "value": "flawfinder.streadd"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strlen",
+        "value": "flawfinder.strlen"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strncat",
+        "value": "flawfinder.strncat"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strncpy",
+        "value": "flawfinder.strncpy"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.strtrns",
+        "value": "flawfinder.strtrns"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.syslog",
+        "value": "flawfinder.syslog"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.system",
+        "value": "flawfinder.system"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.tmpfile",
+        "value": "flawfinder.tmpfile"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.tmpnam",
+        "value": "flawfinder.tmpnam"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.ulimit",
+        "value": "flawfinder.ulimit"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.umask",
+        "value": "flawfinder.umask"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.usleep",
+        "value": "flawfinder.usleep"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "flawfinder.vfork",
+        "value": "flawfinder.vfork"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G101",
+        "value": "gosec.G101"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G102",
+        "value": "gosec.G102"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G103",
+        "value": "gosec.G103"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G106",
+        "value": "gosec.G106"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G107",
+        "value": "gosec.G107"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G108",
+        "value": "gosec.G108"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G109",
+        "value": "gosec.G109"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G110",
+        "value": "gosec.G110"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G111",
+        "value": "gosec.G111"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G112",
+        "value": "gosec.G112"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G113",
+        "value": "gosec.G113"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G114",
+        "value": "gosec.G114"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G201",
+        "value": "gosec.G201"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G202",
+        "value": "gosec.G202"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G203",
+        "value": "gosec.G203"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G204",
+        "value": "gosec.G204"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G301",
+        "value": "gosec.G301"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G302",
+        "value": "gosec.G302"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G303",
+        "value": "gosec.G303"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G304",
+        "value": "gosec.G304"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G305",
+        "value": "gosec.G305"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G306",
+        "value": "gosec.G306"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G401",
+        "value": "gosec.G401"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G402",
+        "value": "gosec.G402"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G402",
+        "value": "gosec.G402"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G403",
+        "value": "gosec.G403"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G404",
+        "value": "gosec.G404"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G501",
+        "value": "gosec.G501"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G502",
+        "value": "gosec.G502"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G503",
+        "value": "gosec.G503"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G504",
+        "value": "gosec.G504"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G505",
+        "value": "gosec.G505"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "gosec.G601",
+        "value": "gosec.G601"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0001",
+        "value": "security_code_scan.SCS0001"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0002",
+        "value": "security_code_scan.SCS0002"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0003",
+        "value": "security_code_scan.SCS0003"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0004",
+        "value": "security_code_scan.SCS0004"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0005",
+        "value": "security_code_scan.SCS0005"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0006",
+        "value": "security_code_scan.SCS0006"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0007",
+        "value": "security_code_scan.SCS0007"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0008",
+        "value": "security_code_scan.SCS0008"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0009",
+        "value": "security_code_scan.SCS0009"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0010",
+        "value": "security_code_scan.SCS0010"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0011",
+        "value": "security_code_scan.SCS0011"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0012",
+        "value": "security_code_scan.SCS0012"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0013",
+        "value": "security_code_scan.SCS0013"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0016",
+        "value": "security_code_scan.SCS0016"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0017",
+        "value": "security_code_scan.SCS0017"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0018",
+        "value": "security_code_scan.SCS0018"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0019",
+        "value": "security_code_scan.SCS0019"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0026",
+        "value": "security_code_scan.SCS0026"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0027",
+        "value": "security_code_scan.SCS0027"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0028",
+        "value": "security_code_scan.SCS0028"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0029",
+        "value": "security_code_scan.SCS0029"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "security_code_scan.SCS0032",
+        "value": "security_code_scan.SCS0032"
       }
     ],
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-08-22T15:22:42",
+    "end_time": "2023-08-22T15:22:50",
     "status": "success"
   }
 }

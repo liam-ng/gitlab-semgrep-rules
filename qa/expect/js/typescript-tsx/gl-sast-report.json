@@ -2,10 +2,11 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "bfed95aa3b4973579dcba2585e1be0f09aa5f8a2f1c1f10fa8c6036f5495f589",
       "category": "sast",
-      "name": "Improper neutralization of directives in dynamically evaluated code ('Eval Injection')",
-      "description": "The application was found calling the `eval` function with a non-literal variable. If the\nvariable comes from user-supplied input, an adversary could attempt to execute arbitrary\nJavaScript\ncode. This could lead to a full system compromise in Node applications or Cross-site Scripting\n(XSS) in web applications.\n\nTo remediate this issue, remove all calls to `eval` and consider alternative methods for\nexecuting\nthe necessary business logic. There is almost no safe method of calling `eval` with\nuser-supplied input.\nInstead, consider alternative methods such as using property accessors to dynamically access\nvalues.\n\nExample using property accessors to dynamically access an object's property:\n```\n// Define an object\nconst obj = {key1: 'value1', key2: 'value2'};\n// Get key dynamically from user input\nconst key = getUserInput();\n// Check if the key exists in our object and return it, or a default empty string\nconst value = (obj.hasOwnProperty(key)) ? obj[key] : '';\n// Work with the value\n```\n\nFor more information on why not to use `eval`, and alternatives see:\n-\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!\n",
+      "name": "Semgrep Finding: eslint.detect-eval-with-expression-1",
+      "title": "Semgrep Finding: eslint.detect-eval-with-expression-1",
+      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
       "cve": "semgrep_id:eslint.detect-eval-with-expression:47:47",
       "severity": "Medium",
       "scanner": {
@@ -31,8 +32,8 @@
         },
         {
           "type": "owasp",
-          "name": "A1:2017 - Injection",
-          "value": "A1:2017"
+          "name": "A1 - Injection",
+          "value": "A1"
         },
         {
           "type": "eslint_rule_id",
@@ -42,10 +43,11 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "3869fef46392e20eda1de5a19190e929efb2e32f56deb67e1c47d8af82563d46",
       "category": "sast",
-      "name": "Incorrect regular expression",
-      "description": "The `RegExp` constructor was called with a non-literal variable. If an adversary were able to\nsupply a malicious regex, they could cause a Regular Expression Denial of Service (ReDoS)\nagainst the application. In Node applications, this could cause the entire application to no\nlonger\nbe responsive to other users' requests.\n\nTo remediate this issue, never allow user-supplied regular expressions. Instead, the regular\nexpression should be\nhardcoded. If this is not possible, consider using an alternative regular expression engine\nsuch as [node-re2](https://www.npmjs.com/package/re2). RE2 is a safe alternative that does not\nsupport backtracking, which is what leads to ReDoS.\n\nExample using re2 which does not support backtracking (Note: it is still recommended to\nnever use user-supplied input):\n```\n// Import the re2 module\nconst RE2 = require('re2');\n\nfunction match(userSuppliedRegex, userInput) {\n    // Create a RE2 object with the user supplied regex, this is relatively safe\n    // due to RE2 not supporting backtracking which can be abused to cause long running\n    // queries\n    var re = new RE2(userSuppliedRegex);\n    // Execute the regular expression against some userInput\n    var result = re.exec(userInput);\n    // Work with the result\n}\n```\n\nFor more information on Regular Expression DoS see:\n- https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS\n",
+      "name": "Semgrep Finding: eslint.detect-non-literal-regexp-1",
+      "title": "Semgrep Finding: eslint.detect-non-literal-regexp-1",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:34:34",
       "severity": "Medium",
       "scanner": {
@@ -77,10 +79,11 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "c0ef42efef31f26887b50e28749a150173204f934fc55fe590ec94eab415264e",
       "category": "sast",
-      "name": "Use of cryptographically weak pseudo-random number generator (PRNG)",
-      "description": "Depending on the context, generating weak random numbers may expose cryptographic functions,\nwhich rely on these numbers, to be exploitable. When generating numbers for sensitive values\nsuch as tokens, nonces, and cryptographic keys, it is recommended that the `randomBytes` method\nof the `crypto` module be used instead of `pseudoRandomBytes`.\n\nExample using `randomBytes`:\n```\n// Generate 256 bytes of random data\nconst randomBytes = crypto.randomBytes(256);\n```\n\nFor more information on JavaScript Cryptography see:\nhttps://nodejs.org/api/crypto.html#cryptorandombytessize-callback\n",
+      "name": "Semgrep Finding: eslint.detect-pseudoRandomBytes-1",
+      "title": "Semgrep Finding: eslint.detect-pseudoRandomBytes-1",
+      "description": "Detected usage of crypto.pseudoRandomBytes, which does not produce secure random numbers.\n",
       "cve": "semgrep_id:eslint.detect-pseudoRandomBytes:41:41",
       "severity": "Medium",
       "scanner": {
@@ -121,7 +124,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -130,11 +133,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.23.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-08-22T15:24:51",
+    "end_time": "2023-08-22T15:24:59",
     "status": "success"
   }
 }

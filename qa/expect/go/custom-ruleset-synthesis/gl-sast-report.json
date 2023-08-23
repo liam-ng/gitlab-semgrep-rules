@@ -2,9 +2,10 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "3855a0b1fd21c5a3e790e58fbc219f4bbe675d812b56934b40bd0a89ad240318",
       "category": "sast",
       "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function bar detected\n",
       "cve": "semgrep_id:bar:9:9",
       "severity": "Critical",
@@ -47,9 +48,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "8065f1f927b39955b3decdf0a92faea020f8f6f5f69906bb91970328621915d0",
       "category": "sast",
       "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function baz detected\n",
       "cve": "semgrep_id:baz:7:7",
       "severity": "Critical",
@@ -92,9 +94,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "efe383be7bcf1654775f1d9013a169f826ca532024a7d0f6af3e66f9ceab712a",
       "category": "sast",
       "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function foo detected\n",
       "cve": "semgrep_id:foo:11:18",
       "severity": "Critical",
@@ -138,9 +141,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "fbd1161a713d1a1b53e3f45d0c97d7e93a17cf1c1e874a962aa182c4fcebb86f",
       "category": "sast",
       "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "title": "Exposure of Sensitive Information to an Unauthorized Actor",
       "description": "Function bar detected\n",
       "cve": "semgrep_id:gitlab.bar:9:9",
       "severity": "Critical",
@@ -184,9 +188,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "d4fe084b8530cdc35e2883440cd93c3770ddc16a7537dc74516339c5a6b004b5",
       "category": "sast",
       "name": "Semgrep Finding: return-nil-err",
+      "title": "Semgrep Finding: return-nil-err",
       "description": "return nil err instead of nil value",
       "cve": "semgrep_id:return-nil-err:14:16",
       "severity": "Critical",
@@ -224,9 +229,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "4561e4c7efb50dccb18493f9b0952792b7663bcbb7ce3191d42008b2986324c6",
       "category": "sast",
       "name": "Semgrep Finding: return-nil",
+      "title": "Semgrep Finding: return-nil",
       "description": "return nil instead of nil value",
       "cve": "semgrep_id:return-nil:14:16",
       "severity": "Critical",
@@ -264,9 +270,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "32897c872acb39329b8b5b75983db3f5cd3e7ed7f836d12e969e2e7e0bbb53c9",
       "category": "sast",
       "name": "Key Exchange without Entity Authentication",
+      "title": "Key Exchange without Entity Authentication",
       "description": "Audit the use of ssh.InsecureIgnoreHostKey\n",
       "cve": "semgrep_id:gitlab.gosec.G106-1:13:13",
       "severity": "Medium",
@@ -319,7 +326,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -328,11 +335,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.23.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-08-22T15:22:59",
+    "end_time": "2023-08-22T15:23:11",
     "status": "success"
   }
 }

@@ -2,11 +2,12 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "2054874fce208b79cff6dfb07d59cf3820ed5e8cbb8038bece58678d0ffdd10d",
       "category": "sast",
-      "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
-      "description": "The application dynamically constructs file or path information. If the path\ninformation comes from user input, it could be abused to read sensitive files,\naccess other users data or aid in exploitation to gain further system access.\n\nUser input should never be used in constructing paths or files for interacting\nwith the filesystem. This includes filenames supplied by user uploads or downloads.\nIf possible, consider hashing user input or replacing it with unique values.\nAdditionally, use `filepath.Base` to only use the filename and not path information.\nAlways validate the full path prior to opening or writing to any file.\n\nExample using `filepath.Base`, generating a unique filename without using\nuser input to construct filepath information:\n```\ntype userData struct {\n    id           string\n    userFilename string\n}\n\nfunc newUserData(userFilename string) userData {\n    return userData{\n        id:           randomFileID(), // random id as the filename\n        userFilename: userFilename,\n    }\n}\n\n// randomFileID generates a random id, to be used as a filename\nfunc randomFileID() string {\n    id := make([]byte, 16)\n    if _, err := io.ReadFull(rand.Reader, id); err != nil {\n        log.Fatal(err)\n    }\n    return hex.EncodeToString(id)\n}\n\nfunc main() {\n\n    // user input, saved only as a reference\n    data := newUserData(\"../../possibly/malicious\")\n\n    // restrict all file access to this path\n    const basePath = \"/tmp/\"\n\n    // resolve the full path, but only use our random generated id\n    resolvedPath, err := filepath.Join(basePath, filepath.Base(data.id))\n    if err != nil {\n        log.Fatal(err)\n    }\n\n    // verify the path is prefixed with our basePath\n    if !strings.HasPrefix(resolvedPath, basePath) {\n        log.Fatal(\"path does not start with basePath\")\n    }\n    // process / work with file\n}\n```\n\nFor more information on path traversal issues see OWASP:\nhttps://owasp.org/www-community/attacks/Path_Traversal\n",
-      "cve": "semgrep_id:gosec.G304-1:11:11",
+      "name": "Semgrep Finding: gosec.G304-1",
+      "title": "Semgrep Finding: gosec.G304-1",
+      "description": "File open from tainted variable\n",
+      "cve": "semgrep_id:gosec.G304:11:11",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -19,8 +20,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "gosec.G304-1",
-          "value": "gosec.G304-1"
+          "name": "gosec.G304",
+          "value": "gosec.G304"
         },
         {
           "type": "cwe",
@@ -61,7 +62,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -70,11 +71,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.23.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-08-22T15:22:50",
+    "end_time": "2023-08-22T15:22:58",
     "status": "success"
   }
 }

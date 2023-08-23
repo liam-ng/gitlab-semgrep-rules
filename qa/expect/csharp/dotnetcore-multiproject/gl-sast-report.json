@@ -2,11 +2,12 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "48770bdca22cde94086d3d93bf891ddcd4190d9c348a3eb3fa08bece5b48f9e1",
       "category": "sast",
-      "name": "Improper limitation of a pathname to a restricted directory ('Path Traversal')",
-      "description": "The application dynamically constructs file or path information. If the path\ninformation comes from user input, it could be abused to read sensitive files,\naccess other users data, or aid in exploitation to gain further system access.\n\nUser input should never be used in constructing paths or files for interacting\nwith the filesystem. This includes filenames supplied by user uploads or downloads.\nIf possible consider hashing user input or replacing it with unique values and\nuse `System.IO.Path.GetFullPath` to resolve and validate the path information\nprior to processing any file functionality.\n\nExample using `Path.GetFullPath` and not allowing direct user input:\n```\n// store user input alongside an ID we control\nstruct userData\n{\n    public string userFilename;\n    public Guid id;\n}\n\nclass Program\n{\n    public static void Main()\n    {\n        userData data = new userData();\n        // user input, saved only as a reference\n        data.userFilename = \"..\\\\test.txt\";\n\n        // random id as the filename\n        data.id = Guid.NewGuid();\n\n        // restrict all file processing to this directory only\n        string basePath = \"C:\\\\Restricted\\\\\";\n\n        // resolve the full path, but only use our random generated id\n        string fullPath = Path.GetFullPath(basePath + data.id);\n\n        // verify the path is contained within our basePath\n        if (!fullPath.StartsWith(basePath)) {\n            Console.WriteLine(\"Invalid path specified!\");\n            return;\n        }\n        // process / work with file\n    }\n}\n```\n\nFor more information on path traversal issues see OWASP:\nhttps://owasp.org/www-community/attacks/Path_Traversal\n",
-      "cve": "semgrep_id:security_code_scan.SCS0018-1:52:52",
+      "name": "Semgrep Finding: security_code_scan.SCS0018-1",
+      "title": "Semgrep Finding: security_code_scan.SCS0018-1",
+      "description": "The software uses external input to construct a pathname that is intended\nto identify a file or directory that is located underneath a restricted\nparent directory, but the software does not properly neutralize special\nelements within the pathname that can cause the pathname to resolve to a\nlocation that is outside of the restricted directory..\n",
+      "cve": "semgrep_id:security_code_scan.SCS0018:52:52",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -19,8 +20,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "security_code_scan.SCS0018-1",
-          "value": "security_code_scan.SCS0018-1"
+          "name": "security_code_scan.SCS0018",
+          "value": "security_code_scan.SCS0018"
         },
         {
           "type": "cwe",
@@ -56,10 +57,11 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "ab7031b29edd4f8bdabc4292c0af60bf47ddf5fefbf226e6b759d9f54942dbe9",
       "category": "sast",
-      "name": "Incorrect regular expression",
-      "description": "The `RegExp` constructor was called with a non-literal variable. If an adversary were able to\nsupply a malicious regex, they could cause a Regular Expression Denial of Service (ReDoS)\nagainst the application. In Node applications, this could cause the entire application to no\nlonger\nbe responsive to other users' requests.\n\nTo remediate this issue, never allow user-supplied regular expressions. Instead, the regular\nexpression should be\nhardcoded. If this is not possible, consider using an alternative regular expression engine\nsuch as [node-re2](https://www.npmjs.com/package/re2). RE2 is a safe alternative that does not\nsupport backtracking, which is what leads to ReDoS.\n\nExample using re2 which does not support backtracking (Note: it is still recommended to\nnever use user-supplied input):\n```\n// Import the re2 module\nconst RE2 = require('re2');\n\nfunction match(userSuppliedRegex, userInput) {\n    // Create a RE2 object with the user supplied regex, this is relatively safe\n    // due to RE2 not supporting backtracking which can be abused to cause long running\n    // queries\n    var re = new RE2(userSuppliedRegex);\n    // Execute the regular expression against some userInput\n    var result = re.exec(userInput);\n    // Work with the result\n}\n```\n\nFor more information on Regular Expression DoS see:\n- https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS\n",
+      "name": "Semgrep Finding: eslint.detect-non-literal-regexp-1",
+      "title": "Semgrep Finding: eslint.detect-non-literal-regexp-1",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:345:345",
       "severity": "Medium",
       "scanner": {
@@ -91,11 +93,48 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "5fec3ad9cbef3579b57eaed3582e80cc89a5a8035cc9bdcf97f272ff16814922",
       "category": "sast",
-      "name": "Use of cryptographically weak Pseudo-Random Number Generator (PRNG)",
-      "description": "Depending on the context, generating weak random numbers may expose cryptographic functions\nwhich rely on these numbers to be exploitable. When generating numbers for sensitive values\nsuch as tokens, nonces, and cryptographic keys, it is recommended that the\n`RandomNumberGenerator` class be used.\n\nExample `RandomNumberGenerator` usage:\n```\nInt32 randInt = RandomNumberGenerator.GetInt32(32000);\nbyte[] randomBytes = new byte[64];\nRandomNumberGenerator.Fill(randomBytes);\nConsole.WriteLine(\"Random Int32: {0}\", randInt);\nConsole.WriteLine(\"Random Bytes: {0}\", BitConverter.ToString(randomBytes).Replace(\"-\", \"\"));\n```\n\nFor more information see:\nhttps://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator\n",
-      "cve": "semgrep_id:security_code_scan.SCS0005-1:11:11",
+      "name": "Semgrep Finding: eslint.detect-object-injection-1",
+      "title": "Semgrep Finding: eslint.detect-object-injection-1",
+      "description": "Bracket object notation with user input is present, this might allow an attacker to access all\nproperties of the object and even it's prototype, leading to possible code execution.\n",
+      "cve": "semgrep_id:eslint.detect-object-injection:129:129",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "WebApp/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+        "start_line": 129
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "eslint.detect-object-injection",
+          "value": "eslint.detect-object-injection",
+          "url": "https://semgrep.dev/r/gitlab.eslint.detect-object-injection"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-94",
+          "value": "94",
+          "url": "https://cwe.mitre.org/data/definitions/94.html"
+        },
+        {
+          "type": "eslint_rule_id",
+          "name": "ESLint rule ID/detect-object-injection",
+          "value": "detect-object-injection"
+        }
+      ]
+    },
+    {
+      "id": "41b804ef1a7a05812b45d1a56b8d581a6dd45d5bbdd8558981e7ae6fc68bb8fe",
+      "category": "sast",
+      "name": "Semgrep Finding: security_code_scan.SCS0005-1",
+      "title": "Semgrep Finding: security_code_scan.SCS0005-1",
+      "description": "The use of a predictable random value can lead to vulnerabilities when used in certain security\ncritical contexts.\n",
+      "cve": "semgrep_id:security_code_scan.SCS0005:11:11",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -108,8 +147,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "security_code_scan.SCS0005-1",
-          "value": "security_code_scan.SCS0005-1"
+          "name": "security_code_scan.SCS0005",
+          "value": "security_code_scan.SCS0005"
         },
         {
           "type": "cwe",
@@ -154,7 +193,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -163,11 +202,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.23.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-08-22T15:25:17",
+    "end_time": "2023-08-22T15:25:25",
     "status": "success"
   }
 }

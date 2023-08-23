@@ -2,69 +2,10 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "4257022ded7d1b8abc5236ed0acb297cd5238df0ca5c32c61fc3cf141ab11c76",
       "category": "sast",
-      "name": "Deserialization of Untrusted Data",
-      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python objects. A malicious actor\ncould exploit this to run arbitrary code. Use `safe_load()` instead. It is recommended to use\n`SafeLoader`\nwhen loading yaml.\n",
-      "cve": "semgrep_id:bandit.B506:329:329",
-      "severity": "Critical",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 329
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B506",
-          "value": "bandit.B506",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B506"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-502",
-          "value": "502",
-          "url": "https://cwe.mitre.org/data/definitions/502.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A8:2017 - Insecure Deserialization",
-          "value": "A8:2017"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B506",
-          "value": "B506"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app/app.py",
-            "line_start": 329,
-            "line_end": 329,
-            "signatures": [
-              {
-                "algorithm": "scope_offset_compressed",
-                "value": "app/app.py|yaml_hammer[0]:2"
-              },
-              {
-                "algorithm": "scope_offset",
-                "value": "app/app.py|yaml_hammer[0]:13"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
-      "name": "Use of Hard-coded Password",
+      "name": "Semgrep Finding: bandit.B105-1",
+      "title": "Semgrep Finding: bandit.B105-1",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:28:28",
       "severity": "Medium",
@@ -91,8 +32,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Broken Authentication and Session Management",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -102,9 +43,10 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "65353c8e6552c423413594e42b59e3a3d5103039346faece1e97856e6198be03",
       "category": "sast",
-      "name": "Use of Hard-coded Password",
+      "name": "Semgrep Finding: bandit.B105-1",
+      "title": "Semgrep Finding: bandit.B105-1",
       "description": "Possible hardcoded password\n",
       "cve": "semgrep_id:bandit.B105:63:63",
       "severity": "Medium",
@@ -131,8 +73,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Broken Authentication and Session Management",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -162,11 +104,12 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "1c74a6b2538d11d475dfdcd6d88c998ac01b42ddbb11923a0be465833ab87607",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
+      "name": "Semgrep Finding: bandit.B303-5",
+      "title": "Semgrep Finding: bandit.B303-5",
       "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
-      "cve": "semgrep_id:bandit.B303-1:141:141",
+      "cve": "semgrep_id:bandit.B303:141:141",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -179,9 +122,9 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "bandit.B303-1",
-          "value": "bandit.B303-1",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B303-1"
+          "name": "bandit.B303",
+          "value": "bandit.B303",
+          "url": "https://semgrep.dev/r/gitlab.bandit.B303"
         },
         {
           "type": "cwe",
@@ -191,8 +134,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Sensitive Data Exposure",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -222,9 +165,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "b0ce601e26f796ab5d579e40fd5d5890f89d70dd9e11c028d88f85a5e557d617",
       "category": "sast",
-      "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+      "name": "Semgrep Finding: bandit.B608-1",
+      "title": "Semgrep Finding: bandit.B608-1",
       "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
       "cve": "semgrep_id:bandit.B608:265:265",
       "severity": "Medium",
@@ -251,8 +195,8 @@
         },
         {
           "type": "owasp",
-          "name": "A1:2017 - Injection",
-          "value": "A1:2017"
+          "name": "A1 - Injection",
+          "value": "A1"
         },
         {
           "type": "bandit_test_id",
@@ -282,9 +226,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "ac4c589e0b65a9c4d2139b4dce52c0d706e1ce28e9566c61a174007f09687ccc",
       "category": "sast",
-      "name": "Use of Insufficiently Random Values",
+      "name": "Semgrep Finding: bandit.B311-1",
+      "title": "Semgrep Finding: bandit.B311-1",
       "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
       "cve": "semgrep_id:bandit.B311:295:295",
       "severity": "Info",
@@ -311,8 +256,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Sensitive Data Exposure",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -342,9 +287,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "8a5684c0106c8a7f0a9e4031816b53888a2a3fe12ae5caa320ba14c6774fb8e8",
       "category": "sast",
-      "name": "Use of Insufficiently Random Values",
+      "name": "Semgrep Finding: bandit.B311-1",
+      "title": "Semgrep Finding: bandit.B311-1",
       "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
       "cve": "semgrep_id:bandit.B311:319:319",
       "severity": "Info",
@@ -371,8 +317,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Sensitive Data Exposure",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -402,10 +348,11 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "92f6559cccd39ef07eace776e32dd0d99b321eda410abae70a64b12040c024c3",
       "category": "sast",
-      "name": "Improper neutralization of directives in dynamically evaluated code ('Eval Injection')",
-      "description": "The application was found calling the `eval` function with a non-literal variable. If the\nvariable comes from user-supplied input, an adversary could attempt to execute arbitrary\nJavaScript\ncode. This could lead to a full system compromise in Node applications or Cross-site Scripting\n(XSS) in web applications.\n\nTo remediate this issue, remove all calls to `eval` and consider alternative methods for\nexecuting\nthe necessary business logic. There is almost no safe method of calling `eval` with\nuser-supplied input.\nInstead, consider alternative methods such as using property accessors to dynamically access\nvalues.\n\nExample using property accessors to dynamically access an object's property:\n```\n// Define an object\nconst obj = {key1: 'value1', key2: 'value2'};\n// Get key dynamically from user input\nconst key = getUserInput();\n// Check if the key exists in our object and return it, or a default empty string\nconst value = (obj.hasOwnProperty(key)) ? obj[key] : '';\n// Work with the value\n```\n\nFor more information on why not to use `eval`, and alternatives see:\n-\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!\n",
+      "name": "Semgrep Finding: eslint.detect-eval-with-expression-1",
+      "title": "Semgrep Finding: eslint.detect-eval-with-expression-1",
+      "description": "Detected eval(variable), which could allow a malicious actor to run arbitrary code.\n",
       "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
       "severity": "Medium",
       "scanner": {
@@ -431,8 +378,8 @@
         },
         {
           "type": "owasp",
-          "name": "A1:2017 - Injection",
-          "value": "A1:2017"
+          "name": "A1 - Injection",
+          "value": "A1"
         },
         {
           "type": "eslint_rule_id",
@@ -458,10 +405,11 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "5b447277703732de61872efbdb90f30de0b1c25e7ba60e02d25d64267d927f20",
       "category": "sast",
-      "name": "Incorrect regular expression",
-      "description": "The `RegExp` constructor was called with a non-literal variable. If an adversary were able to\nsupply a malicious regex, they could cause a Regular Expression Denial of Service (ReDoS)\nagainst the application. In Node applications, this could cause the entire application to no\nlonger\nbe responsive to other users' requests.\n\nTo remediate this issue, never allow user-supplied regular expressions. Instead, the regular\nexpression should be\nhardcoded. If this is not possible, consider using an alternative regular expression engine\nsuch as [node-re2](https://www.npmjs.com/package/re2). RE2 is a safe alternative that does not\nsupport backtracking, which is what leads to ReDoS.\n\nExample using re2 which does not support backtracking (Note: it is still recommended to\nnever use user-supplied input):\n```\n// Import the re2 module\nconst RE2 = require('re2');\n\nfunction match(userSuppliedRegex, userInput) {\n    // Create a RE2 object with the user supplied regex, this is relatively safe\n    // due to RE2 not supporting backtracking which can be abused to cause long running\n    // queries\n    var re = new RE2(userSuppliedRegex);\n    // Execute the regular expression against some userInput\n    var result = re.exec(userInput);\n    // Work with the result\n}\n```\n\nFor more information on Regular Expression DoS see:\n- https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS\n",
+      "name": "Semgrep Finding: eslint.detect-non-literal-regexp-1",
+      "title": "Semgrep Finding: eslint.detect-non-literal-regexp-1",
+      "description": "RegExp() called with a variable, this might allow an attacker to DOS your application with a\nlong-running regular expression.\n",
       "cve": "semgrep_id:eslint.detect-non-literal-regexp:15:15",
       "severity": "Medium",
       "scanner": {
@@ -509,9 +457,10 @@
       }
     },
     {
-      "id": ":SKIP:",
+      "id": "bb7a9666302dcaf2ed766190c4ff7fc8c6641b3b9834d50071fcbf8d2a0a78f5",
       "category": "sast",
-      "name": "Improper Certificate Validation",
+      "name": "Semgrep Finding: bandit.B501-1",
+      "title": "Semgrep Finding: bandit.B501-1",
       "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
       "cve": "semgrep_id:bandit.B501:17:18",
       "severity": "Critical",
@@ -539,8 +488,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Sensitive Data Exposure",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -550,9 +499,10 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "5bb024cf60b9e336db89f5261e7606f0be401f605b73617b2918d2c47480e8a2",
       "category": "sast",
-      "name": "Improper Certificate Validation",
+      "name": "Semgrep Finding: bandit.B501-1",
+      "title": "Semgrep Finding: bandit.B501-1",
       "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
       "cve": "semgrep_id:bandit.B501:28:29",
       "severity": "Critical",
@@ -580,8 +530,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Sensitive Data Exposure",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -591,9 +541,10 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "b5e8e8ef0ff9cb0736cd137f265e009998912d8aae898f4926904c1d801724f6",
       "category": "sast",
-      "name": "Improper Certificate Validation",
+      "name": "Semgrep Finding: bandit.B501-1",
+      "title": "Semgrep Finding: bandit.B501-1",
       "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
       "cve": "semgrep_id:bandit.B501:36:37",
       "severity": "Critical",
@@ -621,8 +572,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Sensitive Data Exposure",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -632,9 +583,10 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "633e1e7b914ff77667aae7bab31a7f2a9846418441f63333a5404a66bed84cfb",
       "category": "sast",
-      "name": "Improper Certificate Validation",
+      "name": "Semgrep Finding: bandit.B501-1",
+      "title": "Semgrep Finding: bandit.B501-1",
       "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
       "cve": "semgrep_id:bandit.B501:44:45",
       "severity": "Critical",
@@ -662,8 +614,8 @@
         },
         {
           "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
+          "name": "A3 - Sensitive Data Exposure",
+          "value": "A3"
         },
         {
           "type": "bandit_test_id",
@@ -673,9 +625,10 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "83032098e85fc242af0dea66800b908464e26682a51f06518961336cb7f6ce1f",
       "category": "sast",
-      "name": "Uncontrolled Resource Consumption",
+      "name": "Semgrep Finding: bandit.B113-1",
+      "title": "Semgrep Finding: bandit.B113-1",
       "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
       "cve": "semgrep_id:bandit.B113:17:18",
       "severity": "Medium",
@@ -709,9 +662,10 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "637492553f50b46cf7167a98a122e5815a96b1e9c82e41749073bc689fd85276",
       "category": "sast",
-      "name": "Uncontrolled Resource Consumption",
+      "name": "Semgrep Finding: bandit.B113-1",
+      "title": "Semgrep Finding: bandit.B113-1",
       "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
       "cve": "semgrep_id:bandit.B113:28:29",
       "severity": "Medium",
@@ -745,9 +699,10 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "15242586d5e865ab90152dca2f04321897649692dce0f6960bd0ab916522747a",
       "category": "sast",
-      "name": "Uncontrolled Resource Consumption",
+      "name": "Semgrep Finding: bandit.B113-1",
+      "title": "Semgrep Finding: bandit.B113-1",
       "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
       "cve": "semgrep_id:bandit.B113:36:37",
       "severity": "Medium",
@@ -781,9 +736,10 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "18b539ca6bfb285c6475bc5f8225b7bd732e29e3435de0e30d59918b63b24f43",
       "category": "sast",
-      "name": "Uncontrolled Resource Consumption",
+      "name": "Semgrep Finding: bandit.B113-1",
+      "title": "Semgrep Finding: bandit.B113-1",
       "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
       "cve": "semgrep_id:bandit.B113:44:45",
       "severity": "Medium",
@@ -826,7 +782,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -835,11 +791,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.23.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-08-22T15:24:04",
+    "end_time": "2023-08-22T15:24:13",
     "status": "success"
   }
 }

@@ -2,11 +2,12 @@
   "version": "15.0.4",
   "vulnerabilities": [
     {
-      "id": ":SKIP:",
+      "id": "ef84e6c8ca88786df563fe8b003a8ecacdcafbd1714d352610cd53bfef4d7d01",
       "category": "sast",
-      "name": "Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120)",
+      "name": "Semgrep Finding: flawfinder.char-1.TCHAR-1.wchar_t-1",
+      "title": "Semgrep Finding: flawfinder.char-1.TCHAR-1.wchar_t-1",
       "description": "Perform bounds checking, use functions that limit length, or ensure that the size is larger\nthan the maximum possible length.\n",
-      "cve": "semgrep_id:flawfinder.char-1.TCHAR-1.wchar_t-1:4:4",
+      "cve": "semgrep_id:flawfinder.char:4:4",
       "severity": "Info",
       "scanner": {
         "id": "semgrep",
@@ -19,8 +20,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "flawfinder.char-1.TCHAR-1.wchar_t-1",
-          "value": "flawfinder.char-1.TCHAR-1.wchar_t-1"
+          "name": "flawfinder.char",
+          "value": "flawfinder.char"
         },
         {
           "type": "cwe",
@@ -30,8 +31,8 @@
         },
         {
           "type": "owasp",
-          "name": "A1:2017 - Injection",
-          "value": "A1:2017"
+          "name": "A01:2017 - Injection",
+          "value": "A01:2017"
         },
         {
           "type": "flawfinder_func_name",
@@ -51,11 +52,12 @@
       ]
     },
     {
-      "id": ":SKIP:",
+      "id": "364bff3d06731a8abf5f3b5bd1b13e800ddb4b87256179ed4c12f16b1cceaaca",
       "category": "sast",
-      "name": "Potential time of check time of use vulnerability (open/fopen)",
-      "description": "Usage of the `open` family of functions may hint at a potential Time Of Check Time Of Use\n(TOCTOU)\nvulnerability. An attacker may be able to modify the file being specified by the `open`\nfunction prior to the `open` function being called.\n\nPrior to calling `open`, use `lstat` to open the file and confirm the attributes\nare correct. Then use `open` to get a file descriptor to this file. Call `fstat` on the\n`open` file descriptor to confirm that `st_dev` and `st_ino` are equal between the two.\nIf they are, it is safe to read and operate on the file's contents.\n\nFor more information please see:\nhttps://wiki.sei.cmu.edu/confluence/display/c/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files\n",
-      "cve": "semgrep_id:flawfinder.fopen-1.open-1:8:8",
+      "name": "Semgrep Finding: flawfinder.fopen-1.open-1",
+      "title": "Semgrep Finding: flawfinder.fopen-1.open-1",
+      "description": "Check when opening files - can an attacker redirect it (via symlinks).\n",
+      "cve": "semgrep_id:flawfinder.fopen:8:8",
       "severity": "Info",
       "scanner": {
         "id": "semgrep",
@@ -68,8 +70,8 @@
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "flawfinder.fopen-1.open-1",
-          "value": "flawfinder.fopen-1.open-1"
+          "name": "flawfinder.fopen",
+          "value": "flawfinder.fopen"
         },
         {
           "type": "cwe",
@@ -79,8 +81,8 @@
         },
         {
           "type": "owasp",
-          "name": "A5:2017 - Broken Access Control",
-          "value": "A5:2017"
+          "name": "A05:2017 - Broken Access Control",
+          "value": "A05:2017"
         },
         {
           "type": "flawfinder_func_name",
@@ -120,7 +122,7 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "4.4.3"
     },
     "scanner": {
       "id": "semgrep",
@@ -129,11 +131,11 @@
       "vendor": {
         "name": "GitLab"
       },
-      "version": ":SKIP:"
+      "version": "1.23.0"
     },
     "type": "sast",
-    "start_time": ":SKIP:",
-    "end_time": ":SKIP:",
+    "start_time": "2023-08-22T15:22:07",
+    "end_time": "2023-08-22T15:22:15",
     "status": "success"
   }
 }
