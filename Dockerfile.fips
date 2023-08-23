@@ -43,11 +43,6 @@ RUN microdnf update --disableplugin=subscription-manager --nodocs && \
     # Install Semgrep
     pip3 install semgrep==$SCANNER_VERSION && \
     \
-    # Configure CA Certificates
-    mkdir -p /etc/ssl/certs/ && \
-    touch /etc/ssl/certs/ca-certificates.crt && \
-    chmod g+w /etc/ssl/certs/ca-certificates.crt && \
-    \
     # Create gitlab user
     useradd --create-home gitlab -g root && \
     \
