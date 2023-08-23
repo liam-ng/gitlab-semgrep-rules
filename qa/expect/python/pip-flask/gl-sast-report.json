@@ -4,8 +4,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Deserialization of Untrusted Data",
-      "description": "Avoid using `load()`. `PyYAML.load` can create arbitrary Python objects. A malicious actor\ncould exploit this to run arbitrary code. Use `safe_load()` instead. It is recommended to use\n`SafeLoader`\nwhen loading yaml.\n",
+      "name": "Deserialization of untrusted data",
+      "description": "The application was found using an unsafe version of `yaml` load which is vulnerable to\ndeserialization attacks. Deserialization attacks exploit the process of reading serialized\ndata and turning it back\ninto an object. By constructing malicious objects and serializing them, an adversary may\nattempt to:\n\n- Inject code that is executed upon object construction, which occurs during the\ndeserialization process.\n- Exploit mass assignment by including fields that are not normally a part of the serialized\ndata but are read in during deserialization.\n\nTo remediate this issue, use `safe_load()` or call `yaml.load()` with the `Loader` argument\nset to\n`yaml.SafeLoader`.\n\nExample loading YAML using `safe_load`:\n```\nimport yaml\n\n# Use safe_load to load data into an intermediary object\nintermediary_object = yaml.safe_load(\"\"\"user:\n    name: 'test user'\"\"\"\n)\n# Create our real object, copying over only the necessary fields\nuser_object = {'user': {\n        # Assign the deserialized data from intermediary object\n        'name': intermediary_object['user']['name'],\n        # Add in protected data in object definition (or set it from a class constructor)\n        'is_admin': False,\n    }\n}\n# Work with user_object\n# ...\n```\n\nFor more details on deserialization attacks in general, see OWASP's guide:\n- https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html\n",
       "cve": "semgrep_id:bandit.B506:329:329",
       "severity": "Critical",
       "scanner": {
@@ -164,8 +164,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:141:141",
       "severity": "Medium",
       "scanner": {
@@ -224,8 +224,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
-      "description": "Detected possible formatted SQL query. Use parameterized queries instead.\n",
+      "name": "Improper neutralization of special elements used in an SQL Command ('SQL Injection')",
+      "description": "SQL Injection is a critical vulnerability that can lead to data or system compromise. By\ndynamically generating SQL query strings, user input may be able to influence the logic of\nthe SQL statement. This could lead to an adversary accessing information they should\nnot have access to, or in some circumstances, being able to execute OS functionality or code.\n\nReplace all dynamically generated SQL queries with parameterized queries. In situations where\ndynamic queries must be created, never use direct user input, but instead use a map or\ndictionary of valid values and resolve them using a user supplied key.\n\nFor example, some database drivers do not allow parameterized queries for `>` or `<` comparison\noperators. In these cases, do not use a user supplied `>` or `<` value, but rather have the\nuser\nsupply a `gt` or `lt` value. The alphabetical values are then used to look up the `>` and `<`\nvalues to be used in the construction of the dynamic query. The same goes for other queries\nwhere\ncolumn or table names are required but cannot be parameterized.\n\nExample using `PreparedStatement` queries:\n```\nimport sqlite3\n\n# Create a new database (in memory)\ncon = sqlite3.connect(\":memory:\")\n# Get a cursor from the connection\ncur = con.cursor()\n# Create a tuple of the value to be used in the parameterized query\nparams = ('user-input',)\n# execute the statement, passing in the params for the value\ncur.execute(\"select name from sqlite_master where name = ?\", params)\n# work with the result\nresult = cur.fetchall()\n```\n\nFor more information on SQL Injection see OWASP:\nhttps://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html\n",
       "cve": "semgrep_id:bandit.B608:265:265",
       "severity": "Medium",
       "scanner": {
@@ -284,8 +284,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of Insufficiently Random Values",
-      "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
+      "name": "Use of insufficiently random values",
+      "description": "Depending on the context, generating weak random numbers may expose cryptographic functions,\nwhich rely on these numbers, to be exploitable. When generating numbers for sensitive values\nsuch as tokens, nonces, and cryptographic keys, it is recommended that the `secrets` module\nbe used instead.\n\nExample using the secrets module:\n```\nimport secrets\n\n# Generate a secure random 64 byte array\nrandom_bytes = secrets.token_bytes(64)\nprint(random_bytes)\n\n# Generate a secure random 64 byte array as a hex string\nrandom_bytes_hex = secrets.token_hex(64)\n\n# Generate a secure random 64 byte array base64 encoded for use in URLs\nrandom_string = secrets.token_urlsafe(64)\n```\n\nFor more information on the `secrets` module see:\n- https://docs.python.org/3/library/secrets.html\n",
       "cve": "semgrep_id:bandit.B311:295:295",
       "severity": "Info",
       "scanner": {
@@ -344,8 +344,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of Insufficiently Random Values",
-      "description": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.\n",
+      "name": "Use of insufficiently random values",
+      "description": "Depending on the context, generating weak random numbers may expose cryptographic functions,\nwhich rely on these numbers, to be exploitable. When generating numbers for sensitive values\nsuch as tokens, nonces, and cryptographic keys, it is recommended that the `secrets` module\nbe used instead.\n\nExample using the secrets module:\n```\nimport secrets\n\n# Generate a secure random 64 byte array\nrandom_bytes = secrets.token_bytes(64)\nprint(random_bytes)\n\n# Generate a secure random 64 byte array as a hex string\nrandom_bytes_hex = secrets.token_hex(64)\n\n# Generate a secure random 64 byte array base64 encoded for use in URLs\nrandom_string = secrets.token_urlsafe(64)\n```\n\nFor more information on the `secrets` module see:\n- https://docs.python.org/3/library/secrets.html\n",
       "cve": "semgrep_id:bandit.B311:319:319",
       "severity": "Info",
       "scanner": {
@@ -511,8 +511,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
+      "name": "Improper certificate validation",
+      "description": "The application was found using the `requests` module without configuring a timeout value for\nconnections. The `verify=False` argument has been set, which effectively disables the\nvalidation\nof server certificates.\n\nThis allows for an adversary who is in between the application and the target host to intercept\npotentially sensitive information or transmit malicious data.\n\nTo remediate this issue either remove the `verify=False` argument, or set `verify=True`to each\n`requests` call.\n\nExample verifying server certificates for an HTTP GET request:\n```\n# Issue a GET request to https://example.com with a timeout of 10 seconds and verify the\n# server certificate explicitly.\nresponse = requests.get('https://example.com', timeout=10, verify=True)\n# Work with the response object\n# ...\n```\n\nFor more information on using the requests module see:\n- https://requests.readthedocs.io/en/latest/api/\n",
       "cve": "semgrep_id:bandit.B501:17:18",
       "severity": "Critical",
       "scanner": {
@@ -552,8 +552,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
+      "name": "Improper certificate validation",
+      "description": "The application was found using the `requests` module without configuring a timeout value for\nconnections. The `verify=False` argument has been set, which effectively disables the\nvalidation\nof server certificates.\n\nThis allows for an adversary who is in between the application and the target host to intercept\npotentially sensitive information or transmit malicious data.\n\nTo remediate this issue either remove the `verify=False` argument, or set `verify=True`to each\n`requests` call.\n\nExample verifying server certificates for an HTTP GET request:\n```\n# Issue a GET request to https://example.com with a timeout of 10 seconds and verify the\n# server certificate explicitly.\nresponse = requests.get('https://example.com', timeout=10, verify=True)\n# Work with the response object\n# ...\n```\n\nFor more information on using the requests module see:\n- https://requests.readthedocs.io/en/latest/api/\n",
       "cve": "semgrep_id:bandit.B501:28:29",
       "severity": "Critical",
       "scanner": {
@@ -593,8 +593,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
+      "name": "Improper certificate validation",
+      "description": "The application was found using the `requests` module without configuring a timeout value for\nconnections. The `verify=False` argument has been set, which effectively disables the\nvalidation\nof server certificates.\n\nThis allows for an adversary who is in between the application and the target host to intercept\npotentially sensitive information or transmit malicious data.\n\nTo remediate this issue either remove the `verify=False` argument, or set `verify=True`to each\n`requests` call.\n\nExample verifying server certificates for an HTTP GET request:\n```\n# Issue a GET request to https://example.com with a timeout of 10 seconds and verify the\n# server certificate explicitly.\nresponse = requests.get('https://example.com', timeout=10, verify=True)\n# Work with the response object\n# ...\n```\n\nFor more information on using the requests module see:\n- https://requests.readthedocs.io/en/latest/api/\n",
       "cve": "semgrep_id:bandit.B501:36:37",
       "severity": "Critical",
       "scanner": {
@@ -634,8 +634,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Improper Certificate Validation",
-      "description": "Certificate verification has been explicitly disabled. This permits insecure connections to\ninsecure servers. Re-enable certification validation.\n",
+      "name": "Improper certificate validation",
+      "description": "The application was found using the `requests` module without configuring a timeout value for\nconnections. The `verify=False` argument has been set, which effectively disables the\nvalidation\nof server certificates.\n\nThis allows for an adversary who is in between the application and the target host to intercept\npotentially sensitive information or transmit malicious data.\n\nTo remediate this issue either remove the `verify=False` argument, or set `verify=True`to each\n`requests` call.\n\nExample verifying server certificates for an HTTP GET request:\n```\n# Issue a GET request to https://example.com with a timeout of 10 seconds and verify the\n# server certificate explicitly.\nresponse = requests.get('https://example.com', timeout=10, verify=True)\n# Work with the response object\n# ...\n```\n\nFor more information on using the requests module see:\n- https://requests.readthedocs.io/en/latest/api/\n",
       "cve": "semgrep_id:bandit.B501:44:45",
       "severity": "Critical",
       "scanner": {
@@ -675,8 +675,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Uncontrolled Resource Consumption",
-      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "name": "Uncontrolled resource consumption",
+      "description": "The application was found using the `requests` module without configuring a timeout value for\nconnections. This could lead to uncontrolled resource consumption where the application could\nrun out of\nsocket descriptors, effectively causing a Denial of Service (DoS).\n\nTo remediate this issue, pass in a `timeout=` argument to each `requests` call.\n\nExample using a timeout for an HTTP GET request:\n```\n# Issue a GET request to https://example.com with a timeout of 10 seconds\nresponse = requests.get('https://example.com', timeout=10)\n# Work with the response object\n# ...\n```\n\nFor more information on using the requests module see:\n- https://requests.readthedocs.io/en/latest/api/\n",
       "cve": "semgrep_id:bandit.B113:17:18",
       "severity": "Medium",
       "scanner": {
@@ -711,8 +711,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Uncontrolled Resource Consumption",
-      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "name": "Uncontrolled resource consumption",
+      "description": "The application was found using the `requests` module without configuring a timeout value for\nconnections. This could lead to uncontrolled resource consumption where the application could\nrun out of\nsocket descriptors, effectively causing a Denial of Service (DoS).\n\nTo remediate this issue, pass in a `timeout=` argument to each `requests` call.\n\nExample using a timeout for an HTTP GET request:\n```\n# Issue a GET request to https://example.com with a timeout of 10 seconds\nresponse = requests.get('https://example.com', timeout=10)\n# Work with the response object\n# ...\n```\n\nFor more information on using the requests module see:\n- https://requests.readthedocs.io/en/latest/api/\n",
       "cve": "semgrep_id:bandit.B113:28:29",
       "severity": "Medium",
       "scanner": {
@@ -747,8 +747,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Uncontrolled Resource Consumption",
-      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "name": "Uncontrolled resource consumption",
+      "description": "The application was found using the `requests` module without configuring a timeout value for\nconnections. This could lead to uncontrolled resource consumption where the application could\nrun out of\nsocket descriptors, effectively causing a Denial of Service (DoS).\n\nTo remediate this issue, pass in a `timeout=` argument to each `requests` call.\n\nExample using a timeout for an HTTP GET request:\n```\n# Issue a GET request to https://example.com with a timeout of 10 seconds\nresponse = requests.get('https://example.com', timeout=10)\n# Work with the response object\n# ...\n```\n\nFor more information on using the requests module see:\n- https://requests.readthedocs.io/en/latest/api/\n",
       "cve": "semgrep_id:bandit.B113:36:37",
       "severity": "Medium",
       "scanner": {
@@ -783,8 +783,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Uncontrolled Resource Consumption",
-      "description": "Requests call without timeout can cause your program to hang indefinitely.\n",
+      "name": "Uncontrolled resource consumption",
+      "description": "The application was found using the `requests` module without configuring a timeout value for\nconnections. This could lead to uncontrolled resource consumption where the application could\nrun out of\nsocket descriptors, effectively causing a Denial of Service (DoS).\n\nTo remediate this issue, pass in a `timeout=` argument to each `requests` call.\n\nExample using a timeout for an HTTP GET request:\n```\n# Issue a GET request to https://example.com with a timeout of 10 seconds\nresponse = requests.get('https://example.com', timeout=10)\n# Work with the response object\n# ...\n```\n\nFor more information on using the requests module see:\n- https://requests.readthedocs.io/en/latest/api/\n",
       "cve": "semgrep_id:bandit.B113:44:45",
       "severity": "Medium",
       "scanner": {
