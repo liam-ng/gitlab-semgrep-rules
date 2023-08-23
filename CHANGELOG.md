@@ -1,7 +1,11 @@
 Semgrep analyzer changelog
 
+## v4.4.8
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.30) version 1.3.30 (!314)
+  - Enhance Python ruleset descriptions and titles
+
 ## v4.4.7
-- upgrade `gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator` to [`v2.3.8`](https://gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator/-/releases/v2.3.8) (!307)
+- Upgrade `gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator` to [`v2.3.8`](https://gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator/-/releases/v2.3.8) (!307)
 
 ## v4.4.6
 - Upgrade `gitlab.com/gitlab-org/security-products/analyzers/report/v4` version [`v4.1.3` => [`v4.1.5`](https://gitlab.com/gitlab-org/security-products/analyzers/report/-/releases/v4.1.5)] (!303)

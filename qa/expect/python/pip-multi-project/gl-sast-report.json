@@ -511,8 +511,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Insecure Temporary File",
-      "description": "Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.\n",
+      "name": "Insecure temporary file",
+      "description": "The application was found creating files in shared system temporary directories\n(`/tmp` or `/var/tmp`) without using the `tempfile.TemporaryFile` function. Depending\non how the application uses this temporary file, an attacker may be able to create\nsymlinks that point to other files prior to the application creating or writing\nto the target file, leading to unintended files being created or overwritten.\n\nExample using `tempfile.TemporaryFile` to write a file:\n```\nimport tempfile\n\n# Open a new temporary file using a context manager\nwith tempfile.TemporaryFile() as fp:\n    # Write some data to the temporary file\n    fp.write(b'Some data')\n    # Seek back to beginning of file\n    fp.seek(0)\n    # Read it\n    data = fp.read()\n# File is automatically closed/removed once we exit the with context\n```\n\nFor more information on alternative tempfile functions see:\n- https://docs.python.org/3/library/tempfile.html\n",
       "cve": "semgrep_id:bandit.B108:1:1",
       "severity": "Medium",
       "scanner": {
@@ -586,8 +586,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Deserialization of Untrusted Data",
-      "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
+      "name": "Deserialization of untrusted data",
+      "description": "The application was found using `pickle` which is vulnerable to deserialization attacks.\nDeserialization attacks exploit the process of reading serialized data and turning it back\ninto an object. By constructing malicious objects and serializing them, an adversary may\nattempt to:\n\n- Inject code that is executed upon object construction, which occurs during the\ndeserialization process.\n- Exploit mass assignment by including fields that are not normally a part of the serialized\ndata but are read in during deserialization.\n\nConsider safer alternatives such as serializing data in the JSON format. Ensure any format\nchosen allows\nthe application to specify exactly which object types are allowed to be deserialized.\n\nTo protect against mass assignment, only allow deserialization of the specific fields that are\nrequired. If this is not easily done, consider creating an intermediary type that\ncan be serialized with only the necessary fields exposed.\n\nExample JSON deserializer using an intermediary type that is validated against a schema to\nensure\nit is safe from mass assignment:\n```\nimport jsonschema\n\n# Create a schema to validate our user-supplied input against\n# an intermediary object\nintermediary_schema = {\n    \"type\" : \"object\",\n    \"properties\" :  {\n        \"name\": {\"type\" : \"string\"}\n    },\n    \"required\": [\"name\"],\n    # Protect against random properties being added to the object\n    \"additionalProperties\": False,\n}\n# If a user attempted to add \"'is_admin': True\" it would cause a validation error\nintermediary_object = {'name': 'test user'}\n\ntry:\n    # Validate the user supplied intermediary object against our schema\n    jsonschema.validate(instance=intermediary_object, schema=intermediary_schema)\n    user_object = {'user':\n        {\n            # Assign the deserialized data from intermediary object\n            'name': intermediary_object['name'],\n            # Add in protected data in object definition (or set it from a class constructor)\n            'is_admin': False,\n        }\n    }\n    # Work with the user_object\nexcept jsonschema.exceptions.ValidationError as ex:\n    # Gracefully handle validation errors\n    # ...\n```\n\nFor more details on deserialization attacks in general, see OWASP's guide:\n- https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html\n",
       "cve": "semgrep_id:bandit.B301-1:15:15",
       "severity": "Medium",
       "scanner": {
@@ -626,8 +626,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:11:11",
       "severity": "Medium",
       "scanner": {
@@ -666,8 +666,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:12:12",
       "severity": "Medium",
       "scanner": {
@@ -706,8 +706,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:13:13",
       "severity": "Medium",
       "scanner": {
@@ -746,8 +746,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:14:14",
       "severity": "Medium",
       "scanner": {
@@ -1533,8 +1533,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Insecure Temporary File",
-      "description": "Detected hardcoded temp directory. Consider using `tempfile.TemporaryFile` instead.\n",
+      "name": "Insecure temporary file",
+      "description": "The application was found creating files in shared system temporary directories\n(`/tmp` or `/var/tmp`) without using the `tempfile.TemporaryFile` function. Depending\non how the application uses this temporary file, an attacker may be able to create\nsymlinks that point to other files prior to the application creating or writing\nto the target file, leading to unintended files being created or overwritten.\n\nExample using `tempfile.TemporaryFile` to write a file:\n```\nimport tempfile\n\n# Open a new temporary file using a context manager\nwith tempfile.TemporaryFile() as fp:\n    # Write some data to the temporary file\n    fp.write(b'Some data')\n    # Seek back to beginning of file\n    fp.seek(0)\n    # Read it\n    data = fp.read()\n# File is automatically closed/removed once we exit the with context\n```\n\nFor more information on alternative tempfile functions see:\n- https://docs.python.org/3/library/tempfile.html\n",
       "cve": "semgrep_id:bandit.B108:1:1",
       "severity": "Medium",
       "scanner": {
@@ -1608,8 +1608,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Deserialization of Untrusted Data",
-      "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities.\nWhen unpickling, the serialized data could be manipulated to run arbitrary code.\nInstead, consider serializing the relevant data as JSON or a similar text-based\nserialization format.\n",
+      "name": "Deserialization of untrusted data",
+      "description": "The application was found using `pickle` which is vulnerable to deserialization attacks.\nDeserialization attacks exploit the process of reading serialized data and turning it back\ninto an object. By constructing malicious objects and serializing them, an adversary may\nattempt to:\n\n- Inject code that is executed upon object construction, which occurs during the\ndeserialization process.\n- Exploit mass assignment by including fields that are not normally a part of the serialized\ndata but are read in during deserialization.\n\nConsider safer alternatives such as serializing data in the JSON format. Ensure any format\nchosen allows\nthe application to specify exactly which object types are allowed to be deserialized.\n\nTo protect against mass assignment, only allow deserialization of the specific fields that are\nrequired. If this is not easily done, consider creating an intermediary type that\ncan be serialized with only the necessary fields exposed.\n\nExample JSON deserializer using an intermediary type that is validated against a schema to\nensure\nit is safe from mass assignment:\n```\nimport jsonschema\n\n# Create a schema to validate our user-supplied input against\n# an intermediary object\nintermediary_schema = {\n    \"type\" : \"object\",\n    \"properties\" :  {\n        \"name\": {\"type\" : \"string\"}\n    },\n    \"required\": [\"name\"],\n    # Protect against random properties being added to the object\n    \"additionalProperties\": False,\n}\n# If a user attempted to add \"'is_admin': True\" it would cause a validation error\nintermediary_object = {'name': 'test user'}\n\ntry:\n    # Validate the user supplied intermediary object against our schema\n    jsonschema.validate(instance=intermediary_object, schema=intermediary_schema)\n    user_object = {'user':\n        {\n            # Assign the deserialized data from intermediary object\n            'name': intermediary_object['name'],\n            # Add in protected data in object definition (or set it from a class constructor)\n            'is_admin': False,\n        }\n    }\n    # Work with the user_object\nexcept jsonschema.exceptions.ValidationError as ex:\n    # Gracefully handle validation errors\n    # ...\n```\n\nFor more details on deserialization attacks in general, see OWASP's guide:\n- https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html\n",
       "cve": "semgrep_id:bandit.B301-1:15:15",
       "severity": "Medium",
       "scanner": {
@@ -1648,8 +1648,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:11:11",
       "severity": "Medium",
       "scanner": {
@@ -1688,8 +1688,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:12:12",
       "severity": "Medium",
       "scanner": {
@@ -1728,8 +1728,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:13:13",
       "severity": "Medium",
       "scanner": {
@@ -1768,8 +1768,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of a Broken or Risky Cryptographic Algorithm",
-      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not\ncollision resistant and is therefore not suitable as a cryptographic\nsignature. Use SHA256 or SHA3 instead.\n",
+      "name": "Use of a broken or risky cryptographic algorithm",
+      "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:14:14",
       "severity": "Medium",
       "scanner": {
@@ -2048,8 +2048,8 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Improper Check for Unusual or Exceptional Conditions",
-      "description": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte\ncode.\n",
+      "name": "Improper check for unusual or exceptional conditions",
+      "description": "The application was found using `assert` in non-test code. Usually reserved for debug and test\ncode, the `assert`\nfunction is commonly used to test conditions before continuing execution. However, enclosed\ncode will be removed\nwhen compiling Python code to optimized byte code. Depending on the assertion and subsequent\nlogic, this could\nlead to undefined behavior of the application or application crashes.\n\nTo remediate this issue, remove the `assert` calls. If necessary, replace them with either `if`\nconditions or\n`try/except` blocks.\n\nExample using `try/except` instead of `assert`:\n```\n# Below try/except is equal to the assert statement of:\n# assert user.is_authenticated(), \"user must be authenticated\"\ntry:\n    if not user.is_authenticated():\n        raise AuthError(\"user must be authenticated\")\nexcept AuthError as e:\n    # Handle error\n    # ...\n    # Return, do not continue processing\n    return\n```\n",
       "cve": "semgrep_id:bandit.B101:7:7",
       "severity": "Info",
       "scanner": {
