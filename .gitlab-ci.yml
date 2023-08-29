@@ -71,3 +71,13 @@ fp-benchmark-test:
   trigger:
     project: gitlab-org/secure/pocs/hush
   allow_failure: true
+
+security-triage-automation:
+  stage: test
+  variables:
+    PROJECT_PATH: $CI_PROJECT_PATH
+    OPTIONS: '--custom-labels=group::static analysis,Category:SAST'
+  trigger:
+    project: gitlab-org/secure/tools/security-triage-automation
+    branch: master
+    strategy: depend
