@@ -73,11 +73,11 @@ fp-benchmark-test:
   allow_failure: true
 
 security-triage-automation:
-  stage: test
-  variables:
-    PROJECT_PATH: $CI_PROJECT_PATH
-    OPTIONS: '--custom-labels=group::static analysis,Category:SAST'
-  trigger:
-    project: gitlab-org/secure/tools/security-triage-automation
-    branch: master
-    strategy: depend
+  image: ruby:2.7.5
+  when: manual
+  script:
+    - git clone https://gitlab.com/gitlab-org/secure/tools/security-triage-automation.git && cd security-triage-automation
+    - bundle
+    - ./main.rb -p $CI_PROJECT_PATH --custom-labels='group::static analysis,Category:Secret Detection' --log-level=debug
+    - ./main.rb -p $CI_PROJECT_PATH --log-level=debug --states=DETECTED,CONFIRMED --resolve-and-close
+    - ./main.rb -p $CI_PROJECT_PATH -i $CI_PROJECT_PATH --log-level=debug --states=DETECTED,CONFIRMED --resolve-and-close
