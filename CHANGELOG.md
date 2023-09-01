@@ -1,7 +1,7 @@
 Semgrep analyzer changelog
 
 ## v4.4.9
-- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.37) version 1.3.37 (!315)
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.37) version 1.3.37 (!317)
   - v1.3.37
     - Disable SAST `message` field wordwrap and update rules that had incorrectly wrapped URLs.
   - v1.3.36
