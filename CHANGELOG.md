@@ -1,5 +1,80 @@
 Semgrep analyzer changelog
 
+## v4.4.9
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.37) version 1.3.37 (!315)
+  - v1.3.37
+    - Disable SAST `message` field wordwrap and update rules that had incorrectly wrapped URLs.
+  - v1.3.36
+    - Remove Java Rules
+      - `java/cookie/rule-CookiePersistent.yml` - Cookies may not contain sensitive information and should be removed to be consistent with C# rules
+      - `java/cookie/rule-CookieUsage.yml` - Cookies may not contain sensitive information and should be removed to be consistent with C# rules
+      - `java/cookie/rule-RequestParamToCookie.yml` - Duplicate rule of `rule-HttpResponseSplitting.yml`
+      - `java/cookie/rule-TrustBoundaryViolation.yml` - Unnecessary, prone to false positives
+      - `java/cors/rule-PermissiveCORS.yml` - The impact of setting * in a CORS response is minimal, since credentials will not be sent
+      - `java/crypto/rule-DefaultHTTPClient.yml` - While Apache client is deprecated, the default client will connect to a TLS1.3 only server
+      - `java/endpoint/rule-UnencryptedSocket.yml` - Using a non-TLS socket is perfectly acceptable in many circumstances
+      - `java/endpoint/rule-InsecureServlet.yml` - It's perfectly acceptable to access the data from these methods. Additionally, there is no way a customer could 'fix' this
+      - `java/endpoint/rule-JaxRsEndpoint.yml` - Incomplete rule, original [SpotBugs rule](https://find-sec-bugs.github.io/bugs.htm#JAXRS_ENDPOINT) is too broad and prone to false positives
+      - `java/endpoint/rule-JaxWsEndpoint.yml` - Incomplete rule, original [SpotBugs rule](https://find-sec-bugs.github.io/bugs.htm#JAXWS_ENDPOINT) is too broad and prone to false positives
+      - `java/file/rule-FileUploadFileName.yml` - This is a source not a sink 
+      - `java/form/rule-FormValidate.yml` - ActionForm/ValidatorForm is from Struts 1.1, which was EoL'd 2013
+      - `java/inject/rule-AWSQueryInjection.yml` - SimpleDB, while still technically supported, is deprecated and no longer available to new accounts
+      - `java/inject/rule-BeanPropertyInjection.yml` - Apache common collections 3 is no longer available and only works on Java 1.3
+      - `java/inject/rule-CustomInjectionSQLString.yml` - Prone to false positives and rules do not necessarily match variables that will be used in a SQL query
+      - `java/inject/rule-PathTraversalIn.yml` - Logic handled better by `rule-SpotbugsPathTraversalAbsolute.yml`
+      - `java/inject/rule-PathTraversalOut.yml` - Logic handled better by `rule-SpotbugsPathTraversalAbsolute.yml`
+      - `java/ldap/rule-EntryPoisoning.yml` - $SCOPE could legitimately have a value, logic handled better by `inject/rule-LDAPInjection`
+      - `java/password/rule-HardcodeKeySuspiciousName.yml` - Secrets scanning should be used instead
+      - `java/password/rule-HardcodeKeySuspiciousValue.yml` - Secrets scanning should be used instead
+      - `java/perm/rule-OverlyPermissiveFilePermissionObj.yml` - Logic handled better by `java/perm/rule-OverlyPermissiveFilePermissionInline.yml`
+      - `java/strings/rule-ImproperUnicode.yml` - Code quality issue more than a security issue
+      - `java/unsafe/rule-InformationExposure.yml` - Printing stack trace information to the local machine is perfectly acceptable
+      - `java/unsafe/rule-InformationExposureVariant2.yml` - Printing stack trace information to the local machine is perfectly acceptable
+      - `java/xml/rule-ApacheXmlRpc.yml` - Apache Xml RPC was deprecated in 2013
+      - `java/xss/rule-RequestWrapper.yml` - Appears to be a custom rule, `stripXSS()` is not a valid override
+      - `java/xss/rule-XSSServlet.yml` - Duplicate of `java/xss/rule-XSSReqParamToServletWriter.yml`
+      - `java/xss/rule-XSSServletParameter.yml` This is a source not a sink
+      - `java/xxe/rule-XPathXXE.yml` - Rule matches a hardcoded variable name, and has no namespace/import associated with it. Better XXE rule required
+      - `java/xxe/rule-Trans.yml` - Duplicate of `java/xml/rule-XsltTransform.yml` with less information
+  - v1.3.35
+    - Remove poor JavaScript rules
+      - `javascript/csrf/rule-no_csrf_before_method_override.yml` - Deprecated and no way of testing, see http://blog.nibblesec.org/2014/05/nodejs-connect-csrf-bypass-abusing.html
+      - `javascript/react/rule-missing_noopener.yml` - Browsers no longer allow this by default, see https://gitlab.com/gitlab-org/gitlab/-/issues/233079#note_513860690
+  - v1.3.34
+    - Remove poor C# rules
+      - `csharp/cache/rule-OutputCacheConflicts.yml` - Unable to confirm vulnerability
+      - `csharp/other/rule-AuthorizationBypass.yml` - Highly prone to false positives as it assumes any controller without `[AllowAnonymous]` or `[Authorize]` is an authorization bypass
+  - v1.3.33
+    - Remove poor Python rules
+      - `python/cgi/rule-import_httpoxy.yml` - Not vulnerable since 2016 https://bugs.python.org/issue27568
+      - `python/crypto/rule-import_pyghmi.yml` - Old rule from 2013 https://www.cisa.gov/news-events/alerts/2013/07/26/risks-using-intelligent-platform-management-interface-ipmi
+      - `python/escaping/rule-mark_safe.yml` - Duplicate of `rule-django.yml`
+      - `python/exception/rule-try_except_continue.yml` - Not a security rule
+      - `python/exception/rule-try_except_pass.yml` - Not a security rule
+      - `python/ftp/rule-import_ftplib.yml` - Duplicate rule, see `rule-ftplib.yml`
+      - `python/https/rule-httpsconnection.yml` - Software Composition Analysis (SCA) problem, not a SAST problem (flag if python < 3.4.3 and HTTPSConnection is used)
+      - `python/secrets/` - enable secret detection instead
+      - `python/telnet/rule-telnetlib.yml` - Duplicate of `rule-import_telnib.yml`
+      - `python/tmpdir/rule-specialdir.yml` - It is perfectly fine to use `/dev/shm` as a tmpfs. Rule for using /tmp/ directly is flagged in `rule-hardcodedtmp.yml`
+      - `python/tmpdir/rule-tempnam.yml` - `tempnam` was removed in Python 3, Python 2.7 is no longer supported
+      - `python/urlopen/rule-urllib_urlopen2.yml` - Duplicate of `rule-urllib_urlopen1.yml` and also missing patterns
+      - `python/xml/rule-import_pickle.yml` - Duplicate rule, see `deserialization/rule-pickle.yml`
+      - `python/xml/rule-import_...` - Removed all `import` rules as they are just duplicates of the other rules
+  - v1.3.32
+    - Remove poor Go rules (!194)
+      - `go/audit/rule-unhandled_error.yml` - Empty placeholder rule
+      - `go/blocklist/rule-blocklist-cgi.yml` - Only problematic in Go <1.6.3 and we can't currently determine the version
+      - `go/crypto/rule-weakcrypto.yml` - Removed in favor of crypto blocklist rules with better descriptions and recommendations
+  - v1.3.31
+    - Remove poor or outdated C rules (!188)
+      - `c/buffer/rule-char_TCHAR.yml` - Using character arrays is fine
+      - `c/buffer/rule-getchar_fgetc.yml` - Using getchar does not constitute a vulnerability
+      - `c/buffer/rule-getopt_getopt_long.yml` - This is a bug from 1999, see: https://stackoverflow.com/questions/64305167/flawfinder-error-internal-buffer-overflows-how-to-limit-string-input-size-and
+      - `c/misc/rule-chroot.yml` - Does not point to any specific vulnerability.
+      - `c/misc/rule-InitializeCriticalSection.yml` - This is no longer true since XP / 2003
+      - `c/race/rule-chgrp.yml` - There is no such function (only a unix command line utility)
+      - `c/input/recv_recvfrom.yml` - This is a source not a sink
+
 ## v4.4.8
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.30) version 1.3.30 (!314)
   - Enhance Python ruleset descriptions and titles

@@ -3977,7 +3977,7 @@
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "CWE-780: Use of RSA Algorithm without OAEP",
+                  "CWE-780: Use of RSA algorithm without OAEP",
                   "security"
                 ]
               },

@@ -3062,7 +3062,7 @@ rules:
     Encryption Padding (OAEP), which might weaken the encryption.
   metadata:
     cwe: 'CWE-780'
-    shortDescription: 'Use of RSA Algorithm without OAEP'
+    shortDescription: 'Use of RSA algorithm without OAEP'
     primary_identifier: find_sec_bugs.RSA_NO_PADDING-1
     secondary_identifiers:
     - name: Find Security Bugs-RSA_NO_PADDING
