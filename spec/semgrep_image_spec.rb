@@ -313,6 +313,23 @@ describe 'running image' do
 
     end
 
+    context 'with scala' do
+      context 'by default' do
+        let(:project) { 'scala/default' }
+        describe 'created report' do
+          it_behaves_like 'non-empty report'
+
+          it_behaves_like "recorded report" do
+            let(:recorded_report) {
+              parse_expected_report(project)
+            }
+          end
+
+          it_behaves_like 'valid report'
+        end
+      end
+    end
+
     context 'with python' do
       let(:variables) do
         { 'GITLAB_FEATURES': 'vulnerability_finding_signatures' }
