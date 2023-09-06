@@ -64,106 +64,6 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Use of Hard-coded Password",
-      "description": "Possible hardcoded password\n",
-      "cve": "semgrep_id:bandit.B105:28:28",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 28
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B105",
-          "value": "bandit.B105",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
-        }
-      ]
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
-      "name": "Use of Hard-coded Password",
-      "description": "Possible hardcoded password\n",
-      "cve": "semgrep_id:bandit.B105:63:63",
-      "severity": "Medium",
-      "scanner": {
-        "id": "semgrep",
-        "name": "Semgrep"
-      },
-      "location": {
-        "file": "app/app.py",
-        "start_line": 63
-      },
-      "identifiers": [
-        {
-          "type": "semgrep_id",
-          "name": "bandit.B105",
-          "value": "bandit.B105",
-          "url": "https://semgrep.dev/r/gitlab.bandit.B105"
-        },
-        {
-          "type": "cwe",
-          "name": "CWE-259",
-          "value": "259",
-          "url": "https://cwe.mitre.org/data/definitions/259.html"
-        },
-        {
-          "type": "owasp",
-          "name": "A3:2017 - Sensitive Data Exposure",
-          "value": "A3:2017"
-        },
-        {
-          "type": "bandit_test_id",
-          "name": "Bandit Test ID B105",
-          "value": "B105"
-        }
-      ],
-      "tracking": {
-        "type": "source",
-        "items": [
-          {
-            "file": "app/app.py",
-            "line_start": 63,
-            "line_end": 63,
-            "signatures": [
-              {
-                "algorithm": "scope_offset_compressed",
-                "value": "app/app.py|setup_users[0]:3"
-              },
-              {
-                "algorithm": "scope_offset",
-                "value": "app/app.py|setup_users[0]:7"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": ":SKIP:",
-      "category": "sast",
       "name": "Use of a broken or risky cryptographic algorithm",
       "description": "The application was found using an insecure or risky digest or signature algorithm. MD2, MD4,\n MD5  and SHA1 hash algorithms have been found to be vulnerable to producing collisions.\n\nThis means\nthat two different values, when hashed, can lead to the same hash value. If the application is\ntrying\nto use these hash methods for storing passwords, then it is recommended to switch to a\npassword hashing\nalgorithm such as Argon2id or PBKDF2.\n\nNote that the `Crypto` and `Cryptodome` Python packages are no longer recommended for\nnew applications, instead consider using the [cryptography](https://cryptography.io/) package.\n\nExample of creating a SHA-384 hash using the `cryptography` package:\n```\nfrom cryptography.hazmat.primitives import hashes\n# Create a SHA384 digest\ndigest = hashes.Hash(hashes.SHA384())\n# Update the digest with some initial data\ndigest.update(b\"some data to hash\")\n# Add more data to the digest\ndigest.update(b\"some more data\")\n# Finalize the digest as bytes\nresult = digest.finalize()\n```\n\nFor more information on secure password storage see OWASP:\n- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html\n\nFor more information on the cryptography module see:\n- https://cryptography.io/en/latest/\n",
       "cve": "semgrep_id:bandit.B303-1:141:141",
@@ -405,7 +305,7 @@
       "id": ":SKIP:",
       "category": "sast",
       "name": "Improper neutralization of directives in dynamically evaluated code ('Eval Injection')",
-      "description": "The application was found calling the `eval` function with a non-literal variable. If the\nvariable comes from user-supplied input, an adversary could attempt to execute arbitrary\nJavaScript\ncode. This could lead to a full system compromise in Node applications or Cross-site Scripting\n(XSS) in web applications.\n\nTo remediate this issue, remove all calls to `eval` and consider alternative methods for\nexecuting\nthe necessary business logic. There is almost no safe method of calling `eval` with\nuser-supplied input.\nInstead, consider alternative methods such as using property accessors to dynamically access\nvalues.\n\nExample using property accessors to dynamically access an object's property:\n```\n// Define an object\nconst obj = {key1: 'value1', key2: 'value2'};\n// Get key dynamically from user input\nconst key = getUserInput();\n// Check if the key exists in our object and return it, or a default empty string\nconst value = (obj.hasOwnProperty(key)) ? obj[key] : '';\n// Work with the value\n```\n\nFor more information on why not to use `eval`, and alternatives see:\n-\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!\n",
+      "description": "The application was found calling the `eval` function with a non-literal variable. If the\nvariable comes from user-supplied input, an adversary could attempt to execute arbitrary\nJavaScript\ncode. This could lead to a full system compromise in Node applications or Cross-site Scripting\n(XSS) in web applications.\n\nTo remediate this issue, remove all calls to `eval` and consider alternative methods for\nexecuting\nthe necessary business logic. There is almost no safe method of calling `eval` with\nuser-supplied input.\nInstead, consider alternative methods such as using property accessors to dynamically access\nvalues.\n\nExample using property accessors to dynamically access an object's property:\n```\n// Define an object\nconst obj = {key1: 'value1', key2: 'value2'};\n// Get key dynamically from user input\nconst key = getUserInput();\n// Check if the key exists in our object and return it, or a default empty string\nconst value = (obj.hasOwnProperty(key)) ? obj[key] : '';\n// Work with the value\n```\n\nFor more information on why not to use `eval`, and alternatives see:\n- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_eval!\n",
       "cve": "semgrep_id:eslint.detect-eval-with-expression:10:10",
       "severity": "Medium",
       "scanner": {
