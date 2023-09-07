@@ -51,6 +51,16 @@ RUN microdnf update --disableplugin=subscription-manager --nodocs && \
     # Create gitlab user
     useradd --create-home gitlab -g root && \
     \
+    # Configure CA Certificates
+    # Ref: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-shared-system-certificates
+    \
+    mkdir -p /etc/pki/ca-trust/source/anchors/ && \
+    ## Change the certs owner to the user
+    touch /etc/pki/ca-trust/source/anchors/ca-certificates.crt && \
+    \
+    ## Change the certs owner to the user
+    chmod -R g+w /etc/pki/ca-trust && \
+    \
     # Cleanup libs that are no longer needed
     microdnf remove shadow-utils && \
     microdnf clean all && \
