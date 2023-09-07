@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.4.9
+- Upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2` version [`v2.0.4` => [`v2.0.6`](https://gitlab.com/gitlab-org/security-products/analyzers/ruleset/-/releases/v2.0.6)] (!322)
+  - Increase maximum size of a raw or file passthrough to 10MB to accommodate large ruleset files
+
 ## v4.4.8
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.30) version 1.3.30 (!314)
   - Enhance Python ruleset descriptions and titles
