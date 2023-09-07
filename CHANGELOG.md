@@ -1,5 +1,10 @@
 Semgrep analyzer changelog
 
+## v4.4.11
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.30+2) version 1.3.30+2 (!323)
+  - Fix $ADDR var bind error in find_sec_bugs_scala.URLCONNECTION_SSRF_FD scala rule
+  - Fix $PWD var bind error in find_sec_bugs.HARD_CODE_PASSWORD java rule
+
 ## v4.4.10
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.30+1) version 1.3.30+1 (!321)
   - Change rule ID format from find_sec_bugs.XYZ to find_sec_bugs_scala.XYZ for Scala rules
