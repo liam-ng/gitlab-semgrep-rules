@@ -694,11 +694,6 @@
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1",
-        "value": "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1"
-      },
-      {
-        "type": "semgrep_id",
         "name": "find_sec_bugs.COOKIE_PERSISTENT-1",
         "value": "find_sec_bugs.COOKIE_PERSISTENT-1"
       },
@@ -904,16 +899,6 @@
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1",
-        "value": "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "find_sec_bugs.PATH_TRAVERSAL_OUT-1",
-        "value": "find_sec_bugs.PATH_TRAVERSAL_OUT-1"
-      },
-      {
-        "type": "semgrep_id",
         "name": "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1",
         "value": "find_sec_bugs.PATH_TRAVERSAL_OUT-1.PATH_TRAVERSAL_OUT-1"
       },
@@ -931,11 +916,6 @@
         "type": "semgrep_id",
         "name": "find_sec_bugs.PREDICTABLE_RANDOM-1",
         "value": "find_sec_bugs.PREDICTABLE_RANDOM-1"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1",
-        "value": "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1"
       },
       {
         "type": "semgrep_id",
@@ -974,21 +954,6 @@
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.SCALA_PLAY_SSRF-1",
-        "value": "find_sec_bugs.SCALA_PLAY_SSRF-1"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE-1",
-        "value": "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE-1"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "find_sec_bugs.SCALA_XSS_MVC_API-1",
-        "value": "find_sec_bugs.SCALA_XSS_MVC_API-1"
-      },
-      {
-        "type": "semgrep_id",
         "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1",
         "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1"
       },
@@ -1011,11 +976,6 @@
         "type": "semgrep_id",
         "name": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1",
         "value": "find_sec_bugs.SPRING_CSRF_PROTECTION_DISABLED-1"
-      },
-      {
-        "type": "semgrep_id",
-        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1",
-        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1"
       },
       {
         "type": "semgrep_id",
@@ -1124,11 +1084,6 @@
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_DOCUMENT-1",
-        "value": "find_sec_bugs.XXE_DOCUMENT-1"
-      },
-      {
-        "type": "semgrep_id",
         "name": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1",
         "value": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1"
       },
@@ -1149,13 +1104,453 @@
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_XPATH-1",
-        "value": "find_sec_bugs.XXE_XPATH-1"
+        "name": "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1",
+        "value": "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1"
       },
       {
         "type": "semgrep_id",
-        "name": "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1",
-        "value": "find_sec_bugs.XXE_XPATH-1.XXE_DOCUMENT-1"
+        "name": "find_sec_bugs.AWS_QUERY_INJECTION",
+        "value": "find_sec_bugs.AWS_QUERY_INJECTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.BAD_HEXA_CONVERSION",
+        "value": "find_sec_bugs.BAD_HEXA_CONVERSION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.BEAN_PROPERTY_INJECTION",
+        "value": "find_sec_bugs.BEAN_PROPERTY_INJECTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.BLOWFISH_KEY_SIZE",
+        "value": "find_sec_bugs.BLOWFISH_KEY_SIZE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CIPHER_INTEGRITY",
+        "value": "find_sec_bugs.CIPHER_INTEGRITY"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1",
+        "value": "find_sec_bugs.COMMAND_INJECTION-1.SCALA_COMMAND_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.COOKIE_PERSISTENT",
+        "value": "find_sec_bugs.COOKIE_PERSISTENT"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.COOKIE_USAGE",
+        "value": "find_sec_bugs.COOKIE_USAGE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CRLF_INJECTION_LOGS",
+        "value": "find_sec_bugs.CRLF_INJECTION_LOGS"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CUSTOM_INJECTION",
+        "value": "find_sec_bugs.CUSTOM_INJECTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CUSTOM_INJECTION-2",
+        "value": "find_sec_bugs.CUSTOM_INJECTION-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.CUSTOM_MESSAGE_DIGEST",
+        "value": "find_sec_bugs.CUSTOM_MESSAGE_DIGEST"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION",
+        "value": "find_sec_bugs.DANGEROUS_PERMISSION_COMBINATION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DEFAULT_HTTP_CLIENT",
+        "value": "find_sec_bugs.DEFAULT_HTTP_CLIENT"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DES_USAGE",
+        "value": "find_sec_bugs.DES_USAGE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3",
+        "value": "find_sec_bugs.DMI_CONSTANT_DB_PASSWORD-1.HARD_CODE_PASSWORD-3"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2",
+        "value": "find_sec_bugs.DMI_EMPTY_DB_PASSWORD-1.HARD_CODE_PASSWORD-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.ECB_MODE",
+        "value": "find_sec_bugs.ECB_MODE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.EL_INJECTION",
+        "value": "find_sec_bugs.EL_INJECTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.EXTERNAL_CONFIG_CONTROL",
+        "value": "find_sec_bugs.EXTERNAL_CONFIG_CONTROL"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.FILE_UPLOAD_FILENAME",
+        "value": "find_sec_bugs.FILE_UPLOAD_FILENAME"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.FORMAT_STRING_MANIPULATION",
+        "value": "find_sec_bugs.FORMAT_STRING_MANIPULATION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HARD_CODE_PASSWORD",
+        "value": "find_sec_bugs.HARD_CODE_PASSWORD"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION",
+        "value": "find_sec_bugs.HAZELCAST_SYMMETRIC_ENCRYPTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE",
+        "value": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_COOKIE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER",
+        "value": "find_sec_bugs.HRS_REQUEST_PARAMETER_TO_HTTP_HEADER"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HTTPONLY_COOKIE",
+        "value": "find_sec_bugs.HTTPONLY_COOKIE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HTTP_PARAMETER_POLLUTION",
+        "value": "find_sec_bugs.HTTP_PARAMETER_POLLUTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.HTTP_RESPONSE_SPLITTING",
+        "value": "find_sec_bugs.HTTP_RESPONSE_SPLITTING"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.IMPROPER_UNICODE",
+        "value": "find_sec_bugs.IMPROPER_UNICODE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE",
+        "value": "find_sec_bugs.INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.INSECURE_COOKIE",
+        "value": "find_sec_bugs.INSECURE_COOKIE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.INSECURE_SMTP_SSL",
+        "value": "find_sec_bugs.INSECURE_SMTP_SSL"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.JAXRS_ENDPOINT",
+        "value": "find_sec_bugs.JAXRS_ENDPOINT"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.JAXWS_ENDPOINT",
+        "value": "find_sec_bugs.JAXWS_ENDPOINT"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.LDAP_ANONYMOUS",
+        "value": "find_sec_bugs.LDAP_ANONYMOUS"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.LDAP_ENTRY_POISONING",
+        "value": "find_sec_bugs.LDAP_ENTRY_POISONING"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.LDAP_INJECTION",
+        "value": "find_sec_bugs.LDAP_INJECTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.MALICIOUS_XSLT",
+        "value": "find_sec_bugs.MALICIOUS_XSLT"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.MODIFICATION_AFTER_VALIDATION",
+        "value": "find_sec_bugs.MODIFICATION_AFTER_VALIDATION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION",
+        "value": "find_sec_bugs.NORMALIZATION_AFTER_VALIDATION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.NULL_CIPHER",
+        "value": "find_sec_bugs.NULL_CIPHER"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.OGNL_INJECTION",
+        "value": "find_sec_bugs.OGNL_INJECTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION",
+        "value": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2",
+        "value": "find_sec_bugs.OVERLY_PERMISSIVE_FILE_PERMISSION-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PADDING_ORACLE",
+        "value": "find_sec_bugs.PADDING_ORACLE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1",
+        "value": "find_sec_bugs.PATH_TRAVERSAL_IN-1.SCALA_PATH_TRAVERSAL_IN-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PATH_TRAVERSAL_OUT",
+        "value": "find_sec_bugs.PATH_TRAVERSAL_OUT"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PERMISSIVE_CORS",
+        "value": "find_sec_bugs.PERMISSIVE_CORS"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PERMISSIVE_CORS-2",
+        "value": "find_sec_bugs.PERMISSIVE_CORS-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1",
+        "value": "find_sec_bugs.PREDICTABLE_RANDOM-1.PREDICTABLE_RANDOM_SCALA-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL",
+        "value": "find_sec_bugs.PT_ABSOLUTE_PATH_TRAVERSAL"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL",
+        "value": "find_sec_bugs.PT_RELATIVE_PATH_TRAVERSAL"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1",
+        "value": "find_sec_bugs.REQUESTDISPATCHER_FILE_DISCLOSURE-1.STRUTS_FILE_DISCLOSURE-1.SPRING_FILE_DISCLOSURE-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.RPC_ENABLED_EXTENSIONS",
+        "value": "find_sec_bugs.RPC_ENABLED_EXTENSIONS"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.RSA_KEY_SIZE",
+        "value": "find_sec_bugs.RSA_KEY_SIZE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.RSA_NO_PADDING",
+        "value": "find_sec_bugs.RSA_NO_PADDING"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SAML_IGNORE_COMMENTS",
+        "value": "find_sec_bugs.SAML_IGNORE_COMMENTS"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCALA_PLAY_SSRF",
+        "value": "find_sec_bugs.SCALA_PLAY_SSRF"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE",
+        "value": "find_sec_bugs.SCALA_SENSITIVE_DATA_EXPOSURE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCALA_XSS_MVC_API",
+        "value": "find_sec_bugs.SCALA_XSS_MVC_API"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1",
+        "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-1.SPEL_INJECTION-1.EL_INJECTION-2.SEAM_LOG_INJECTION-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2",
+        "value": "find_sec_bugs.SCRIPT_ENGINE_INJECTION-2"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1",
+        "value": "find_sec_bugs.SERVLET_PARAMETER-1.SERVLET_CONTENT_TYPE-1.SERVLET_SERVER_NAME-1.SERVLET_SESSION_ID-1.SERVLET_QUERY_STRING-1.SERVLET_HEADER-1.SERVLET_HEADER_REFERER-1.SERVLET_HEADER_USER_AGENT-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SMTP_HEADER_INJECTION",
+        "value": "find_sec_bugs.SMTP_HEADER_INJECTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1",
+        "value": "find_sec_bugs.SQL_INJECTION_SPRING_JDBC-1.SQL_INJECTION_JPA-1.SQL_INJECTION_JDO-1.SQL_INJECTION_JDBC-1.SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE-1.SCALA_SQL_INJECTION_SLICK-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.SSL_CONTEXT",
+        "value": "find_sec_bugs.SSL_CONTEXT"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.STRUTS_FORM_VALIDATION",
+        "value": "find_sec_bugs.STRUTS_FORM_VALIDATION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.TDES_USAGE",
+        "value": "find_sec_bugs.TDES_USAGE"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1",
+        "value": "find_sec_bugs.TEMPLATE_INJECTION_PEBBLE-1.TEMPLATE_INJECTION_FREEMARKER-1.TEMPLATE_INJECTION_VELOCITY-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.TRUST_BOUNDARY_VIOLATION",
+        "value": "find_sec_bugs.TRUST_BOUNDARY_VIOLATION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1",
+        "value": "find_sec_bugs.UNENCRYPTED_SOCKET-1.UNENCRYPTED_SERVER_SOCKET-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.UNVALIDATED_REDIRECT-1.URL_REWRITING-1",
+        "value": "find_sec_bugs.UNVALIDATED_REDIRECT-1.URL_REWRITING-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.URLCONNECTION_SSRF_FD",
+        "value": "find_sec_bugs.URLCONNECTION_SSRF_FD"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.WEAK_FILENAMEUTILS",
+        "value": "find_sec_bugs.WEAK_FILENAMEUTILS"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1",
+        "value": "find_sec_bugs.WEAK_HOSTNAME_VERIFIER-1.WEAK_TRUST_MANAGER-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5-1.WEAK_MESSAGE_DIGEST_SHA1-1",
+        "value": "find_sec_bugs.WEAK_MESSAGE_DIGEST_MD5-1.WEAK_MESSAGE_DIGEST_SHA1-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.WICKET_XSS1",
+        "value": "find_sec_bugs.WICKET_XSS1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XML_DECODER",
+        "value": "find_sec_bugs.XML_DECODER"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XPATH_INJECTION",
+        "value": "find_sec_bugs.XPATH_INJECTION"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER",
+        "value": "find_sec_bugs.XSS_REQUEST_PARAMETER_TO_SERVLET_WRITER"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XSS_REQUEST_WRAPPER",
+        "value": "find_sec_bugs.XSS_REQUEST_WRAPPER"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XSS_SERVLET",
+        "value": "find_sec_bugs.XSS_SERVLET"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_DOCUMENT",
+        "value": "find_sec_bugs.XXE_DOCUMENT"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1",
+        "value": "find_sec_bugs.XXE_DTD_TRANSFORM_FACTORY-1.XXE_XSLT_TRANSFORM_FACTORY-1"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_SAXPARSER",
+        "value": "find_sec_bugs.XXE_SAXPARSER"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_XMLREADER",
+        "value": "find_sec_bugs.XXE_XMLREADER"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_XMLSTREAMREADER",
+        "value": "find_sec_bugs.XXE_XMLSTREAMREADER"
+      },
+      {
+        "type": "semgrep_id",
+        "name": "find_sec_bugs.XXE_XPATH",
+        "value": "find_sec_bugs.XXE_XPATH"
       },
       {
         "type": "semgrep_id",

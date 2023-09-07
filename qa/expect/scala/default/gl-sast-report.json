@@ -4,9 +4,9 @@
     {
       "id": ":SKIP:",
       "category": "sast",
-      "name": "Sensitive cookie without 'HttpOnly' flag",
-      "description": "The `HttpOnly` attribute when set to `true` protects the cookie value from being accessed by\nclient side JavaScript such\nas reading the `document.cookie` values. By enabling this protection, a website that is\nvulnerable to\nCross-Site Scripting (XSS) will be able to block malicious scripts from accessing the cookie\nvalue from JavaScript.\n\nExample of protecting a `Cookie`:\n```\n// Create an HttpOnly cookie.\nCookie someCookie = new Cookie(\"SomeCookieName\", \"SomeValue\");\n// Set HttpOnly flag to true\nsomeCookie.setHttpOnly(true);\n```\n\nFor more information see:\nhttps://jakarta.ee/specifications/servlet/4.0/apidocs/javax/servlet/http/cookie#setHttpOnly-boolean-\n\nSession cookies should be configured with the following security directives:\n\n-\n[HTTPOnly](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\n-\n[Secure](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies)\n- [SameSite](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite)\n",
-      "cve": "semgrep_id:find_sec_bugs.HTTPONLY_COOKIE-1:12:12",
+      "name": "Sensitive Cookie Without 'HttpOnly' Flag",
+      "description": "A new cookie is created without the HttpOnly flag set. The HttpOnly flag is a directive to the\nbrowser to make sure that the cookie can not be red by malicious script. When a user is the\ntarget of a \"Cross-Site Scripting\", the attacker would benefit greatly from getting the session\nid for example.\n",
+      "cve": "semgrep_id:find_sec_bugs.HTTPONLY_COOKIE:19:22",
       "severity": "Medium",
       "scanner": {
         "id": "semgrep",
@@ -14,13 +14,49 @@
       },
       "location": {
         "file": "test-CookieHTTPOnly.scala",
-        "start_line": 12
+        "start_line": 19,
+        "end_line": 22
       },
       "identifiers": [
         {
           "type": "semgrep_id",
-          "name": "find_sec_bugs.HTTPONLY_COOKIE-1",
-          "value": "find_sec_bugs.HTTPONLY_COOKIE-1"
+          "name": "find_sec_bugs.HTTPONLY_COOKIE",
+          "value": "find_sec_bugs.HTTPONLY_COOKIE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-1004",
+          "value": "1004",
+          "url": "https://cwe.mitre.org/data/definitions/1004.html"
+        },
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-HTTPONLY_COOKIE",
+          "value": "HTTPONLY_COOKIE"
+        }
+      ]
+    },
+    {
+      "id": ":SKIP:",
+      "category": "sast",
+      "name": "Sensitive Cookie Without 'HttpOnly' Flag",
+      "description": "A new cookie is created without the HttpOnly flag set. The HttpOnly flag is a directive to the\nbrowser to make sure that the cookie can not be red by malicious script. When a user is the\ntarget of a \"Cross-Site Scripting\", the attacker would benefit greatly from getting the session\nid for example.\n",
+      "cve": "semgrep_id:find_sec_bugs.HTTPONLY_COOKIE:9:14",
+      "severity": "Medium",
+      "scanner": {
+        "id": "semgrep",
+        "name": "Semgrep"
+      },
+      "location": {
+        "file": "test-CookieHTTPOnly.scala",
+        "start_line": 9,
+        "end_line": 14
+      },
+      "identifiers": [
+        {
+          "type": "semgrep_id",
+          "name": "find_sec_bugs.HTTPONLY_COOKIE",
+          "value": "find_sec_bugs.HTTPONLY_COOKIE"
         },
         {
           "type": "cwe",

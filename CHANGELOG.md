@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.4.10
+- Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.30+1) version 1.3.30+1 (!321)
+  - Change rule ID format from find_sec_bugs.XYZ to find_sec_bugs_scala.XYZ for Scala rules
+
 ## v4.4.9
 - Upgrade `gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2` version [`v2.0.4` => [`v2.0.6`](https://gitlab.com/gitlab-org/security-products/analyzers/ruleset/-/releases/v2.0.6)] (!322)
   - Increase maximum size of a raw or file passthrough to 10MB to accommodate large ruleset files
