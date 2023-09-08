@@ -1,1 +1,25 @@
-tmp
+# This configuration speeds up image builds by reducing
+# the amount of data that is copied over.
+
+# Tests, testdata, and test outputs
+**/tmp
+**/testdata
+**/qa
+**/spec
+
+# Docker specific files are not copied to the image but are still
+# sent to the daemon.
+**/Dockerfile
+**/.dockerignore
+
+# Socket used in git for MacOS
+.git/fsmonitor--daemon.ipc
+
+# CI/CD configurations
+.gitlab/
+.gitlab-ci.yml
+
+# Markdown files except for CHANGELOG.md and LICENSE.md
+**/*.md
+!CHANGELOG.md
+!LICENSE.md
