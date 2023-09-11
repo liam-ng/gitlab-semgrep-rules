@@ -79,7 +79,6 @@ RUN cd sast-rules && \
 RUN git clone \
     --depth 1 \
     --branch "v${SAST_RULES_SCALA_BUGFIX_VERSION}" \
-    --no-checkout \
     https://gitlab.com/gitlab-org/security-products/sast-rules.git \
     /sast-rules-scala-bugfix
 
