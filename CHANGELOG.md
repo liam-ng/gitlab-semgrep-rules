@@ -1,5 +1,9 @@
 Semgrep analyzer changelog
 
+## v4.4.12
+- Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.39) version 1.3.39 (!327)
+  - Disable SAST `message` field wordwrap and update rules that had incorrectly wrapped URLs.
+
 ## v4.4.11
 - Upgrade [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.30+2) version 1.3.30+2 (!323)
   - Fix $ADDR var bind error in find_sec_bugs_scala.URLCONNECTION_SSRF_FD scala rule
