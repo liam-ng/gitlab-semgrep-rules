@@ -14,7 +14,7 @@ require (
 	github.com/stretchr/testify v1.8.2
 	github.com/urfave/cli/v2 v2.25.3
 	gitlab.com/gitlab-org/security-products/analyzers/command/v2 v2.1.0
-	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.3-0.20230830134255-3991fa03998c
+	gitlab.com/gitlab-org/security-products/analyzers/common/v3 v3.2.3-0.20230914061049-841dc3bbed9e
 	gitlab.com/gitlab-org/security-products/analyzers/report/v4 v4.1.5
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset v1.4.1 // indirect
 	gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2 v2.0.6
