@@ -1,5 +1,8 @@
 Semgrep analyzer changelog
 
+## v4.4.13
+- upgrade `gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator` to [`v2.4.1`](https://gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator/-/releases/v2.4.1) (!330)
+
 ## v4.4.12
 - Update [sast-rules](https://gitlab.com/gitlab-org/security-products/sast-rules/-/tags/v1.3.39) version 1.3.39 (!327)
   - Disable SAST `message` field wordwrap and update rules that had incorrectly wrapped URLs.
