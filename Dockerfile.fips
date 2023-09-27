@@ -1,5 +1,5 @@
 # When updating version make sure to check on semgrepignore file as well
-ARG SCANNER_VERSION=1.23.0
+ARG SCANNER_VERSION=1.41.0
 ARG POST_ANALYZER_SCRIPTS_VERSION=0.2.0
 ARG TRACKING_CALCULATOR_VERSION=2.4.1
 ARG VET_VERSION=0.18.3
@@ -44,9 +44,14 @@ RUN microdnf update --disableplugin=subscription-manager --nodocs && \
     pip3 install semgrep==$SCANNER_VERSION && \
     \
     # Configure CA Certificates
-    mkdir -p /etc/ssl/certs/ && \
-    touch /etc/ssl/certs/ca-certificates.crt && \
-    chmod g+w /etc/ssl/certs/ca-certificates.crt && \
+    # Ref: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-shared-system-certificates
+    \
+    mkdir -p /etc/pki/ca-trust/source/anchors/ && \
+    ## Change the certs owner to the user
+    touch /etc/pki/ca-trust/source/anchors/ca-certificates.crt && \
+    \
+    ## Change the certs owner to the user
+    chmod -R g+w /etc/pki/ && \
     \
     # Create gitlab user
     useradd --create-home gitlab -g root && \

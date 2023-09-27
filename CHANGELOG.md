@@ -1,5 +1,11 @@
 Semgrep analyzer changelog
 
+## v4.4.14
+- upgrade [`common`](gitlab.com/gitlab-org/security-products/analyzers/common/v3) to [`3.2.3`]((https://gitlab.com/gitlab-org/security-products/analyzers/common/-/releases/v3.2.3)) (!329)
+  - Fix trusting Custom CA Certificate for UBI-based images
+- Move custom CA bundle file path to trust anchors location in FIPS docker image (!329)
+- Upgrade [`Semgrep`](https://github.com/returntocorp/semgrep) version [`1.24.0` => [`1.41.0`](https://github.com/returntocorp/semgrep/releases/tag/v1.41.0)] (!329)
+
 ## v4.4.13
 - upgrade `gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator` to [`v2.4.1`](https://gitlab.com/gitlab-org/security-products/post-analyzers/tracking-calculator/-/releases/v2.4.1) (!330)
 
