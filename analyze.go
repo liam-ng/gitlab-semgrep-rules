@@ -142,8 +142,11 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths, scannerOpts s
 		}
 	}
 
+	args = append(args, "--metrics")
 	if enableMetrics {
-		args = append(args, "--enable-metrics")
+		args = append(args, "on")
+	} else {
+		args = append(args, "off")
 	}
 
 	if opts := parseAllowedCLIOpts(scannerOpts); len(opts) > 0 {
