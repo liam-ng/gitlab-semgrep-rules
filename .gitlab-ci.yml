@@ -71,3 +71,14 @@ fp-benchmark-test:
   trigger:
     project: gitlab-org/secure/pocs/hush
   allow_failure: true
+
+security-triage-automation:
+  image:
+    name: registry.gitlab.com/gitlab-org/secure/tools/security-triage-automation:latest
+  services:
+    - docker:20.10-dind
+  script:
+    -  docker run -it --rm \
+       -e GITLAB_ACCESS_TOKEN=$GITLAB_ACCESS_TOKEN -e NVD_API_KEY=$NVD_API_KEY\
+       -e DRY_RUN=true -e CUSTOM_LABELS=group::static analysis,Category:SAST -e SEVERITY_LEVELS=medium\
+       registry.gitlab.com/gitlab-org/secure/tools/security-triage-automation:latest
