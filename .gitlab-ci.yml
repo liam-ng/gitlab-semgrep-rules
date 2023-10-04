@@ -77,6 +77,9 @@ security-triage-automation:
     name: registry.gitlab.com/gitlab-org/secure/tools/security-triage-automation:latest
   services:
     - docker:20.10-dind
+  variables: 
+    GITLAB_ACCESS_TOKEN: "$GITLAB_ACCESS_TOKEN"
+    NVD_API_KEY: "$NVD_API_KEY"  
   script:
     -  docker run -it --rm \
        -e GITLAB_ACCESS_TOKEN=$GITLAB_ACCESS_TOKEN -e NVD_API_KEY=$NVD_API_KEY\
