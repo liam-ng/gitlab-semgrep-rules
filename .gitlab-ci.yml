@@ -74,13 +74,12 @@ fp-benchmark-test:
 
 pull-sast-rules-runtime:
   stage: pre-build
-  image: alpine
+  image: python
   script: 
-    - apk add git
-    - date -Iseconds
+    - date +%H:%M:%S:%N
     - git clone --depth 1 --branch "v1.3.39" --no-checkout https://gitlab.com/gitlab-org/security-products/sast-rules.git /sast-rules
     - mkdir -p /rules
     - cd /sast-rules 
     - git sparse-checkout set dist
     - git checkout "v1.3.39"
-    - date -Iseconds
+    - date +%H:%M:%S:%N
