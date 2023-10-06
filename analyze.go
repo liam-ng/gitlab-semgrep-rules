@@ -22,6 +22,7 @@ const (
 	flagSASTSemgrepMetrics       = "semgrep-send-metrics"
 	flagSASTExperimentalFeatures = "sast-experimental-features"
 	flagSASTAllowedCLIOpts       = "sast-scanner-allowed-cli-opts"
+	flagSASTRulesVersion         = "sast-rules-version"
 )
 
 var (
@@ -66,6 +67,11 @@ func analyzeFlags() []cli.Flag {
 			Usage:   "See https://docs.gitlab.com/ee/user/application_security/sast/#security-scanner-configuration",
 			EnvVars: []string{"SAST_SCANNER_ALLOWED_CLI_OPTS"},
 		},
+		&cli.StringFlag{
+			Name:    flagSASTRulesVersion,
+			Usage:   "See https://docs.gitlab.com/ee/user/application_security/sast/#security-scanner-configuration",
+			EnvVars: []string{"SAST_RULES_VERSION"},
+		},
 	}
 }
 
@@ -75,6 +81,8 @@ func analyzeFlags() []cli.Flag {
 // In other words, this function is internal to the complete program we're building and not exposed to any
 // third party.
 func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
+	log.Infof("SAST_RULES_VERSION used: %s", c.String(flagSASTRulesVersion))
+
 	rulesetPath := filepath.Join(projectPath, ruleset.PathSAST)
 
 	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep", log.StandardLogger())
