@@ -79,9 +79,9 @@ pull-sast-rules-runtime:
     - apk add git
     - date -Iseconds
     - git clone --depth 1 --branch "v1.3.39" --no-checkout https://gitlab.com/gitlab-org/security-products/sast-rules.git /sast-rules
-    - mkdir -p rules
-    - cd sast-rules 
+    - mkdir -p /rules
+    - cd /sast-rules 
     - git sparse-checkout set dist
     - git checkout "v1.3.39"
-    - cp dist rules
+    - cp dist /rules
     - date -Iseconds
