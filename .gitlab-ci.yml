@@ -76,6 +76,7 @@ pull-sast-rules-runtime:
   stage: pre-build
   image: alpine
   script: 
+    - apk add git
     - date -Iseconds
     - git clone --depth 1 --branch "v1.3.39" --no-checkout https://gitlab.com/gitlab-org/security-products/sast-rules.git /sast-rules
     - mkdir -p rules
