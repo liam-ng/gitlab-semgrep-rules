@@ -73,7 +73,7 @@ fp-benchmark-test:
   allow_failure: true
 
 pull-sast-rules-runtime:
-  stage: build
+  stage: pre-build
   image: alpine
   script: 
     - date -Iseconds
