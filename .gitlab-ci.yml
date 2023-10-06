@@ -83,5 +83,4 @@ pull-sast-rules-runtime:
     - cd /sast-rules 
     - git sparse-checkout set dist
     - git checkout "v1.3.39"
-    - cp dist /rules
     - date -Iseconds
