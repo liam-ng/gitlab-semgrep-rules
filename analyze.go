@@ -15,6 +15,7 @@ import (
 
 	ruleset "gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/cliarg"
+	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/rules"
 )
 
 const (
@@ -81,7 +82,11 @@ func analyzeFlags() []cli.Flag {
 // In other words, this function is internal to the complete program we're building and not exposed to any
 // third party.
 func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
-	log.Infof("SAST_RULES_VERSION used: %s", c.String(flagSASTRulesVersion))
+
+	err := rules.Pull(c.Context, c.String(flagSASTRulesVersion), defaultConfigPath)
+	if err != nil {
+		return nil, err
+	}
 
 	rulesetPath := filepath.Join(projectPath, ruleset.PathSAST)
 

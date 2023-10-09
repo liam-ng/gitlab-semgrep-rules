@@ -48,6 +48,9 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 	// Load custom config if available
 	rulesetPath := filepath.Join(prependPath, ruleset.PathSAST)
 	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep", log.StandardLogger())
+	if err != nil {
+		return nil, err
+	}
 
 	configPath, err := getConfigPath(prependPath, rulesetConfig)
 	if err != nil {
@@ -181,6 +184,10 @@ func buildRuleMap(configPath string) (map[string]semgrepRuleFile, error) {
 	ruleMap := map[string]semgrepRuleFile{}
 
 	err := filepath.WalkDir(configPath, func(p string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return nil
+		}
+
 		_, err = os.Stat(p)
 		if err != nil || d.IsDir() {
 			return nil
