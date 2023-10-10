@@ -11,10 +11,11 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"gitlab.com/gitlab-org/security-products/analyzers/report/v4"
+	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/rules"
 )
 
 func TestConvert(t *testing.T) {
-	defaultConfigPath = path.Join("testdata", "sampledist")
+	rules.DefaultRulesetPath = path.Join("testdata", "sampledist")
 	vulnFile := "tests/test_simple.py"
 	// setting CI_PROJECT_DIR containing [location.file]'s prefix to confirm if old behaviour
 	// is removed
@@ -53,7 +54,9 @@ func TestConvert(t *testing.T) {
 }
 
 func TestCompareKey(t *testing.T) {
-	defaultConfigPath = path.Join("testdata", "sampledist")
+	revertFunc := overrideDefaultRulesetPath(path.Join("testdata", "sampledist"))
+	defer revertFunc()
+
 	t.Setenv("CI_PROJECT_DIR", "tests")
 
 	fixture, err := os.Open("testdata/reports/semgrep.sarif")
@@ -68,7 +71,9 @@ func TestCompareKey(t *testing.T) {
 }
 
 func TestScanPrimaryIdentifiers(t *testing.T) {
-	defaultConfigPath = path.Join("testdata", "sampledist")
+	revertFunc := overrideDefaultRulesetPath(path.Join("testdata", "sampledist"))
+	defer revertFunc()
+
 	t.Setenv("CI_PROJECT_DIR", "tests")
 	t.Setenv("GITLAB_FEATURES", "sast_fp_reduction")
 
@@ -155,8 +160,10 @@ func TestGenerateIDs(t *testing.T) {
 		},
 	}
 
-	defaultConfigPath = path.Join("testdata", "sampledist")
-	ruleMap, err := buildRuleMap(defaultConfigPath)
+	revertFunc := overrideDefaultRulesetPath(path.Join("testdata", "sampledist"))
+	defer revertFunc()
+
+	ruleMap, err := buildRuleMap(rules.DefaultRulesetPath)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -214,4 +221,12 @@ func scanNameAndValueExist(identifiers []report.Identifier, name string, value s
 		}
 	}
 	return found
+}
+
+func overrideDefaultRulesetPath(path string) func() {
+	prev := rules.DefaultRulesetPath
+
+	rules.DefaultRulesetPath = path // override
+
+	return func() { rules.DefaultRulesetPath = prev } // revert func
 }

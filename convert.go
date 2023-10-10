@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"io/fs"
@@ -16,6 +17,7 @@ import (
 	report "gitlab.com/gitlab-org/security-products/analyzers/report/v4"
 	ruleset "gitlab.com/gitlab-org/security-products/analyzers/ruleset/v2"
 	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/metadata"
+	"gitlab.com/gitlab-org/security-products/analyzers/semgrep/rules"
 )
 
 const semgrepIdentifierIndex = 0
@@ -45,14 +47,20 @@ func convert(reader io.Reader, prependPath string) (*report.Report, error) {
 
 	log.Debugf("Converting report with the root path: %s", root)
 
-	// Load custom config if available
-	rulesetPath := filepath.Join(prependPath, ruleset.PathSAST)
-	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep", log.StandardLogger())
+	sastRulesVersion := os.Getenv("SAST_RULES_VERSION")
+	defaultRulesetPath, err := rules.Pull(context.Background(), sastRulesVersion)
 	if err != nil {
 		return nil, err
 	}
 
-	configPath, err := getConfigPath(prependPath, rulesetConfig)
+	// Load custom config if available
+	customRulesetPath := filepath.Join(prependPath, ruleset.PathSAST)
+	rulesetConfig, err := ruleset.Load(customRulesetPath, "semgrep", log.StandardLogger())
+	if err != nil {
+		return nil, err
+	}
+
+	configPath, err := getConfigPath(prependPath, rulesetConfig, defaultRulesetPath)
 	if err != nil {
 		return nil, err
 	}

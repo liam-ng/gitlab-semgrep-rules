@@ -43,8 +43,6 @@ var invalidExitCodes = map[int]bool{
 	7: true,  // All rules in config are invalid
 }
 
-var defaultConfigPath = path.Join("/", "rules")
-
 func analyzeFlags() []cli.Flag {
 	return []cli.Flag{
 		&cli.BoolFlag{
@@ -83,21 +81,20 @@ func analyzeFlags() []cli.Flag {
 // third party.
 func analyze(c *cli.Context, projectPath string) (io.ReadCloser, error) {
 
-	err := rules.Pull(c.Context, c.String(flagSASTRulesVersion), defaultConfigPath)
+	defaultRulesetPath, err := rules.Pull(c.Context, c.String(flagSASTRulesVersion))
 	if err != nil {
 		return nil, err
 	}
 
-	rulesetPath := filepath.Join(projectPath, ruleset.PathSAST)
-
-	rulesetConfig, err := ruleset.Load(rulesetPath, "semgrep", log.StandardLogger())
+	customRulesetPath := filepath.Join(projectPath, ruleset.PathSAST)
+	rulesetConfig, err := ruleset.Load(customRulesetPath, "semgrep", log.StandardLogger())
 	if err != nil {
 		return nil, err
 	}
 
 	outputPath := path.Join(projectPath, "semgrep.sarif")
 
-	configPath, err := getConfigPath(projectPath, rulesetConfig)
+	configPath, err := getConfigPath(projectPath, rulesetConfig, defaultRulesetPath)
 	if err != nil {
 		return nil, err
 	}
@@ -173,12 +170,12 @@ func buildArgs(configPath, outputPath, projectPath, excludedPaths, scannerOpts s
 	return args
 }
 
-func getConfigPath(projectPath string, rulesetConfig *ruleset.Config) (string, error) {
+func getConfigPath(projectPath string, rulesetConfig *ruleset.Config, fallbackPath string) (string, error) {
 	if rulesetConfig != nil && len(rulesetConfig.Passthrough) != 0 {
 		return ruleset.ProcessPassthroughs(rulesetConfig, log.StandardLogger())
 	}
 
-	return defaultConfigPath, nil
+	return fallbackPath, nil
 }
 
 // semgrepRuleFile represents the structure of a Semgrep rule YAML file.
