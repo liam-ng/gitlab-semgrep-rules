@@ -128,7 +128,7 @@ setup(
                       'django-tagging==0.5.0',
                       'django-xmlrpc==0.1.8',
                       'mots-vides==2015.5.11',
-                      'pillow==8.4.0',
+                      'pillow==10.0.1',
                       'pyparsing==2.4.6',
                       'pytz==2021.3',
                       'regex==2021.11.10'],
